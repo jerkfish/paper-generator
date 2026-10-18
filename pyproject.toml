@@ -1,0 +1,25 @@
+[project]
+name = "mock-paper-generator"
+version = "0.1.0"
+description = "Mock exam paper generator for CSC662 (personal study; runs fully locally)"
+requires-python = ">=3.11"
+dependencies = [
+    "pypdf>=5.0,<7",
+    "openpyxl>=3.1,<4",
+    "pillow>=10,<13",
+    "openai>=3.35.1",
+    "python-dotenv>=1.2.4",
+    "pydantic>=2.14.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8,<10",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
