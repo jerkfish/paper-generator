@@ -70,10 +70,15 @@ def page_images(page) -> list:
 
 
 def stitch_images(imgs) -> "object | None":
-    """Stitch same-width images vertically (strip-scanned pages). None if not applicable."""
+    """Stitch same-width images vertically (strip-scanned pages). None if not
+    applicable. Only strip-shaped images qualify - portrait page images are
+    often duplicated in the PDF (color + mask), and stitching those would
+    duplicate the content."""
     from PIL import Image
 
     if len(imgs) < 2 or len({im.width for im in imgs}) > 2:
+        return None
+    if not all(im.height < im.width for im in imgs):  # not strip-shaped
         return None
     width = max(im.width for im in imgs)
     height = sum(im.height for im in imgs)

@@ -108,6 +108,11 @@ def _full_text(path: pathlib.Path) -> str:
 
 def _split_blocks(text: str) -> list[tuple[str, str]]:
     """Split paper text into (q_no, block) pairs, tracking Part A/B where present."""
+    # OCR text often has no line breaks at all - force breaks before markers
+    text = re.sub(r"(?<![A-Za-z0-9])QUESTION\s+\d+\b",
+                  lambda m: "\n" + m.group(0), text, flags=re.I)
+    text = re.sub(r"(?<![A-Za-z0-9])PART\s+[AB]\b",
+                  lambda m: "\n" + m.group(0), text, flags=re.I)
     has_parts = bool(PART_LINE_PAT.search(text))
     blocks: list[tuple[str, str]] = []
     cur_q: str | None = None
@@ -223,6 +228,21 @@ def _verify_block(block: str, rows: list[dict], full_paper_norm: str = "",
                                        + "quote matched elsewhere in paper (block split LLM-proposed)"
     coverage = quoted_chars / max(len(norm_block), 1)
     if matched == len(rows) and rows:
+        # fill missing marks from the "(N marks)" printed right after each quote
+        for row in rows:
+            if row.get("marks") is not None:
+                continue
+            q = _norm(str(row["original_text"]))
+            pos = norm_block.find(q)
+            if pos == -1:
+                continue
+            m = re.search(r"\((\d+(?:\.\d+)?)marks?\)",
+                          norm_block[pos + len(q):pos + len(q) + 400])
+            if m:
+                row["marks"] = float(m.group(1))
+                row["wording_note"] = (row.get("wording_note") + "; "
+                                       if row.get("wording_note") else "") \
+                                       + "marks computed by code from '(N marks)' after quote"
         if coverage < 0.5:
             rows[0]["wording_note"] = (rows[0].get("wording_note") + "; "
                                        if rows[0].get("wording_note") else "") \
