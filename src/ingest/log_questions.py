@@ -56,15 +56,39 @@ Output exactly one JSON object with this shape:
 "question_type": "one of: {", ".join(QUESTION_TYPES)}",
 "has_diagram": false, "diagram_type": "", "machine_verifiable": "Y",
 "wording_note": "short note on phrasing style (e.g. 'state and justify')"}}]}}
-Rules: q_no is the block number. sub_part is "" for a whole question. marks is a number
-or null when no marks are printed for that row. machine_verifiable is "Y" when a program
-could compute the exact answer (cipher steps, numeric crypto, fixed-fact MCQ), "Partial"
-when only part is computable, "N" for essays/opinions. has_diagram true only if the paper
-shows a figure/table/diagram inside this question."""
+Rules: q_no must be copied EXACTLY from the block label, including any part letter
+(e.g. "A1" or "B2" - never drop or invent the part letter). sub_part is "" for a whole
+question. marks is a number or null when no marks are printed for that row.
+machine_verifiable is "Y" when a program could compute the exact answer (cipher steps,
+numeric crypto, fixed-fact MCQ), "Partial" when only part is computable, "N" for
+essays/opinions. has_diagram true only if the paper shows a figure/table/diagram inside
+this question."""
 
 
 def _norm(s: str) -> str:
+    # PDF text layers often hold curly quotes/dashes - compare against straight
+    s = (s.replace("“", '"').replace("”", '"')
+         .replace("‘", "'").replace("’", "'")
+         .replace("–", "-").replace("—", "-"))
     return re.sub(r"\s+", "", s)
+
+
+def _qkey(q: str) -> tuple:
+    """Canonical question key: ('A', 3) for 'A3', ('', 3) for '3', else raw."""
+    m = re.match(r"^([AB])?(\d+)$", str(q).strip())
+    if m:
+        return (m.group(1) or "", int(m.group(2)))
+    return (str(q).strip(), None)
+
+
+def _fuzzy_contains(q: str, block: str, threshold: float = 0.9) -> bool:
+    """Exact substring, or >=threshold of the quote matches contiguously."""
+    from difflib import SequenceMatcher
+
+    if q in block:
+        return True
+    match = SequenceMatcher(None, q, block).find_longest_match(0, len(q), 0, len(block))
+    return match.size >= threshold * len(q)
 
 
 def _full_text(path: pathlib.Path) -> str:
@@ -91,9 +115,10 @@ def _split_blocks(text: str) -> list[tuple[str, str]]:
     buf: list[str] = []
 
     def flush() -> None:
+        nonlocal buf
         if cur_q is not None:
             blocks.append((cur_q, "\n".join(buf)))
-            buf.clear()
+        buf = []  # always drop the buffer - cover preamble must not leak into Q1
 
     for line in text.splitlines():
         pm = PART_LINE_PAT.match(line)
@@ -109,12 +134,45 @@ def _split_blocks(text: str) -> list[tuple[str, str]]:
         buf.append(line)
     flush()
     if not blocks:  # no "QUESTION n" markers found - hand the whole text to the LLM
-        blocks = [("?", text)]
-    return blocks
+        return [("?", text)]
+
+    # fold short header-only tails ("PART B (20 MARKS)") into the previous block
+    merged: list[tuple[str, str]] = []
+    for q_no, body in blocks:
+        if merged and not QUESTION_LINE_PAT.search(body) and len(_norm(body)) < 80:
+            pq, pbody = merged[-1]
+            merged[-1] = (pq, pbody + "\n" + body)
+        else:
+            merged.append((q_no, body))
+    blocks = merged
+
+    # numbering restarts => the paper has parts; prefix A, B, ... per run
+    nums = [int(q) if re.fullmatch(r"\d+", q) else None for q, _ in blocks]
+    has_resets = any(nums[i] is not None and nums[i - 1] is not None
+                     and nums[i] <= nums[i - 1] for i in range(1, len(nums)))
+    if not has_resets:
+        return blocks
+    out: list[tuple[str, str]] = []
+    part, prev = "", None
+    for q_no, body in blocks:
+        if re.fullmatch(r"\d+", q_no):
+            n = int(q_no)
+            if prev is None:
+                part = "A"
+            elif n <= prev:
+                part = chr(ord(part) + 1)
+            prev = n
+            out.append((part + q_no, body))
+        else:
+            out.append((q_no, body))
+    return out
 
 
 def _block_marks(block: str) -> float | None:
     values = [float(m) for m in MARKS_PAT.findall(block)]
+    if len(values) >= 2 and abs(values[0] - sum(values[1:])) < 0.01:
+        # header total ("(10 Marks)") + sub-part marks - don't double count
+        values = values[1:]
     return sum(values) if values else None
 
 
@@ -131,23 +189,48 @@ def _label_paper(pid: str, blocks: list[tuple[str, str]]) -> list[dict]:
         return []
 
 
-def _verify_block(block: str, rows: list[dict]) -> tuple[list[dict], bool]:
-    """Check quotes against source; fall back to a whole-block row on failure."""
+def _verify_block(block: str, rows: list[dict], full_paper_norm: str = "",
+                  q_no: str = "?") -> tuple[list[dict], bool]:
+    """Check every quote against the paper text; fall back to a whole-block row
+    only when a quote cannot be matched anywhere in the paper."""
     norm_block = _norm(block)
     quoted_chars = 0
-    all_ok = True
+    matched = 0
     for row in rows:
         q = _norm(str(row["original_text"]))
-        if q and q in norm_block:
-            quoted_chars += len(q)
-        else:
-            all_ok = False
+        if not q:
+            continue
+        where = ""
+        if q in norm_block:
+            where = "exact"
+        elif _fuzzy_contains(q, norm_block):
+            where = "fuzzy"
+        elif full_paper_norm and (q in full_paper_norm
+                                  or _fuzzy_contains(q, full_paper_norm, threshold=0.85)):
+            where = "elsewhere"
+        if where:
+            matched += 1
+            if where == "exact":
+                quoted_chars += len(q)
+            elif where == "fuzzy":
+                quoted_chars += len(q)
+                row["wording_note"] = (row.get("wording_note") + "; "
+                                       if row.get("wording_note") else "") \
+                                       + "quote fuzzy-matched to paper"
+            else:
+                row["wording_note"] = (row.get("wording_note") + "; "
+                                       if row.get("wording_note") else "") \
+                                       + "quote matched elsewhere in paper (block split LLM-proposed)"
     coverage = quoted_chars / max(len(norm_block), 1)
-    if all_ok and coverage >= 0.6:
+    if matched == len(rows) and rows:
+        if coverage < 0.5:
+            rows[0]["wording_note"] = (rows[0].get("wording_note") + "; "
+                                       if rows[0].get("wording_note") else "") \
+                                       + "low block coverage - check sub-parts are complete"
         return rows, True
-    # verbatim check failed - keep the block as one row, labels unreliable
+    # a quote could not be matched anywhere - keep the block as one row
     return [{
-        "q_no": rows[0]["q_no"] if rows else "?",
+        "q_no": q_no,
         "sub_part": "",
         "original_text": block.strip(),
         "marks": _block_marks(block),
@@ -241,10 +324,39 @@ def process_papers(papers: list[dict], tag: str) -> tuple[list[dict], list[dict]
         conf = "LLM-proposed labels (unverified)" if source == "text layer" \
             else "LLM-proposed labels on OCR text (unverified)"
         blocks = _split_blocks(text)
+        paper_norm = _norm(text)
         print(f"    {len(blocks)} blocks, labelling via LLM...", flush=True)
-        by_q: dict[str, list[dict]] = {}
-        for row in _label_paper(pid, blocks):
-            by_q.setdefault(str(row["q_no"]), []).append(row)
+        # LLMs are unreliable with part labels - present blocks under globally
+        # unique numbers and later route rows to blocks BY CONTENT, not labels.
+        prompt_blocks: list[tuple[str, str]] = [
+            (str(i), body) for i, (_, body) in enumerate(blocks, start=1)
+        ]
+        labelled = _label_paper(pid, prompt_blocks)
+
+        from difflib import SequenceMatcher
+
+        norm_blocks = [(q_no, _norm(body)) for q_no, body in blocks]
+        assigned: dict[str, list[dict]] = {q_no: [] for q_no, _ in blocks}
+        for row in labelled:
+            qn = _norm(str(row["original_text"]))
+            placed = False
+            if qn:
+                for q_no, nb in norm_blocks:  # exact/fuzzy quote -> that block
+                    if qn in nb or _fuzzy_contains(qn, nb):
+                        assigned[q_no].append(row)
+                        placed = True
+                        break
+                if not placed:  # best-effort: longest match overall
+                    best_q, best_ratio = None, 0.0
+                    for q_no, nb in norm_blocks:
+                        ratio = SequenceMatcher(
+                            None, qn, nb).find_longest_match(
+                            0, len(qn), 0, len(nb)).size / len(qn)
+                        if ratio > best_ratio:
+                            best_q, best_ratio = q_no, ratio
+                    if best_ratio >= 0.5:
+                        assigned[best_q].append(row)
+
         regex_total = 0.0
         known = 0.0
         any_unknown = False
@@ -252,11 +364,14 @@ def process_papers(papers: list[dict], tag: str) -> tuple[list[dict], list[dict]
             bm = _block_marks(block)
             if bm is not None:
                 regex_total += bm
-            rows, ok = _verify_block(block, by_q.get(q_no, []))
+            rows, ok = _verify_block(block, assigned.get(q_no, []),
+                                     full_paper_norm=paper_norm, q_no=q_no)
             if not ok:
                 print(f"    !! verbatim check failed for Q{q_no} - stored whole block",
                       flush=True)
             for row in rows:
+                row["q_no"] = q_no  # the block's label is authoritative
+
                 if row["marks"] is None:
                     any_unknown = True
                 else:
@@ -292,14 +407,22 @@ def process_papers(papers: list[dict], tag: str) -> tuple[list[dict], list[dict]
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", choices=["all", "text", "scanned"], default="all")
+    ap.add_argument("--pids", default="",
+                    help="comma-separated Paper IDs to process (ignores --only)")
     args = ap.parse_args()
 
     papers = _load_papers()
-    if args.only == "text":
+    if args.pids:
+        wanted = {p.strip() for p in args.pids.split(",") if p.strip()}
+        papers = [p for p in papers if p["Paper ID"] in wanted]
+        missing = wanted - {p["Paper ID"] for p in papers}
+        if missing:
+            raise SystemExit(f"unknown Paper IDs: {sorted(missing)}")
+    elif args.only == "text":
         papers = [p for p in papers if len(_full_text(config.PAPERS_DIR / p["File name"])) >= 200]
     elif args.only == "scanned":
         papers = [p for p in papers if len(_full_text(config.PAPERS_DIR / p["File name"])) < 200]
-    print(f"logging questions for {len(papers)} papers ({args.only})")
+    print(f"logging questions for {len(papers)} papers ({args.only or args.pids})")
     q_rows, checks = process_papers(papers, args.only)
     _write_sheets(q_rows, checks)
     print(f"\nwrote {len(q_rows)} question rows and {len(checks)} check rows -> "

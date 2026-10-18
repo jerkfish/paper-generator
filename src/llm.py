@@ -15,7 +15,8 @@ def client() -> OpenAI:
     if _client is None:
         if not config.QWEN_API_KEY:
             raise RuntimeError("QWEN_API_KEY is not set (see .env)")
-        _client = OpenAI(api_key=config.QWEN_API_KEY, base_url=config.QWEN_BASE_URL)
+        _client = OpenAI(api_key=config.QWEN_API_KEY, base_url=config.QWEN_BASE_URL,
+                         timeout=180.0)
     return _client
 
 
@@ -38,6 +39,10 @@ def chat_json(system: str, user: str, model: str | None = None,
                 "messages": [{"role": "system", "content": system},
                              {"role": "user", "content": user}],
                 "temperature": temperature,
+                # Qwen thinking models are slow and charge reasoning tokens;
+                # labelling needs none of it.
+                "extra_body": {"enable_thinking": False},
+                "max_tokens": 8000,
             }
             if use_json_mode:
                 kwargs["response_format"] = {"type": "json_object"}
