@@ -225,6 +225,8 @@ def label_group(rows: list[dict]) -> list[dict]:
 
         if lab["topic"] == "other" and dominant and not is_whole_block_row(r):
             lab["topic"] = dominant
+            lab["machine_verifiable"] = machine_verifiable(
+                lab["topic"], lab["task"], lab["has_inputs"])
             flags.append("topic inherited from sibling")
 
         # tiny fragments ("ii) ANAKTIKUSRED") belong to the group's computation

@@ -6,7 +6,7 @@ Computed by code from the Questions sheet. Marks only; 'v' in a cell = machine-v
 
 | Topic | compute | draw/diagram | compare | list/enumerate | scenario/justify | short objective | define/explain | topic total | share |
 |---|---|---|---|---|---|---|---|---|
-| classical ciphers | 50 (40v) | · | 4 | 2 | · | · | 20 | 76 | 15% |
+| classical ciphers | 50 (50v) | · | 4 | 2 | · | · | 20 | 76 | 15% |
 | block ciphers | 46 (46v) | · | · | · | · | · | 26 | 72 | 14% |
 | public-key | · | · | · | · | · | · | 2 | 2 | 0% |
 | hashing/signatures | · | · | · | · | · | · | 16 | 16 | 3% |
@@ -48,7 +48,7 @@ Computed by code from the Questions sheet. Marks only; 'v' in a cell = machine-v
 
 | Topic | compute | draw/diagram | compare | list/enumerate | scenario/justify | short objective | define/explain | topic total | share |
 |---|---|---|---|---|---|---|---|---|
-| classical ciphers | 227 (190v) | · | 12 | 4 | · | 20 | 86 | 349 | 10% |
+| classical ciphers | 227 (227v) | · | 12 | 4 | · | 20 | 86 | 349 | 10% |
 | block ciphers | 137 (137v) | 4 | 9 | 2 | · | · | 111 | 263 | 8% |
 | public-key | · | · | · | 12 | · | 8 | 61 | 81 | 2% |
 | hashing/signatures | · | · | · | · | · | 8 | 50 | 58 | 2% |
@@ -67,15 +67,15 @@ Computed by code from the Questions sheet. Marks only; 'v' in a cell = machine-v
 
 | Era | MV marks per paper (per-paper values) | mean |
 |---|---|---|
-| classic (based on 11 papers with MV marks) | 46, 35, 28, 24, 20, 20, 14, 10, 8, 8, 6 | 19.9 |
-| transitional (based on 8 papers with MV marks) | 29, 22, 21, 18, 15, 6, 6, 6 | 15.4 |
+| classic (based on 11 papers with MV marks) | 46, 35, 30, 28, 24, 20, 14, 14, 12, 8, 8 | 21.7 |
+| transitional (based on 8 papers with MV marks) | 29, 28, 22, 22, 15, 12, 6, 6 | 17.5 |
 | modern (based on 6 papers with MV marks) | 14, 12, 8, 6, 6, 2 | 8.0 |
-| **all** (based on 25 papers) | | **15.6** |
+| **all** (based on 25 papers) | | **17.1** |
 
-Total machine-verifiable marks: 390
+Total machine-verifiable marks: 427
 
 ## RSA/DH parameter propagation (owner rule #5)
-5 rows became machine-verifiable because p/q/e/key parameters were inherited from sibling rows (36 printed marks).
+8 rows became machine-verifiable because p/q/e/key parameters were inherited from sibling rows (48 printed marks).
 
 ## Repeated questions across years (normalised text, based on 35 papers)
 
