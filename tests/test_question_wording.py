@@ -43,3 +43,9 @@ def test_unused_ciphers_also_state_their_convention():
     a = paper_question({"cipher": "affine", "key": "(5,8)", "marks": 6,
                         "ciphertext": "IZZISG", "task": "decrypt"})
     assert "modular inverse" in a
+
+
+def test_part_headings_include_mark_totals():
+    from src.assemble.build_docx_paper import PART_A_HEADING, PART_B_HEADING
+    assert PART_A_HEADING == "PART A (80 MARKS)"
+    assert PART_B_HEADING == "PART B (20 MARKS)"

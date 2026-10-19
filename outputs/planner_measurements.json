@@ -1,0 +1,234 @@
+{
+  "clean_papers": 10,
+  "ab_papers": [
+    "CSC662-2019-06",
+    "CSC662-2019-12",
+    "CSC662-2022-02",
+    "CSC662-2023-02",
+    "CSC662-2024-07",
+    "CSC662-2025-02",
+    "CSC662-2025-07",
+    "CSC662-2026-02"
+  ],
+  "part_a_pairs": 72,
+  "same_topic_pairs": 55,
+  "dependent_pairs": 7,
+  "part_a_label_counts": {
+    "Explain": 56,
+    "State": 31,
+    "Justify": 4,
+    "Describe": 16,
+    "Other": 7,
+    "Discuss": 17,
+    "List": 12,
+    "Compare": 3
+  },
+  "part_a_label_marks": {
+    "Explain": 198,
+    "State": 110,
+    "Justify": 24,
+    "Describe": 84,
+    "Other": 30,
+    "Discuss": 90,
+    "List": 28,
+    "Compare": 18
+  },
+  "part_b_label_counts": {
+    "State": 7,
+    "Explain": 13,
+    "Discuss": 5,
+    "Other": 11,
+    "Justify": 5,
+    "Describe": 2
+  },
+  "part_b_label_marks": {
+    "State": 35,
+    "Explain": 54,
+    "Discuss": 27,
+    "Other": 44,
+    "Justify": 28,
+    "Describe": 8
+  },
+  "part_a_raw_counts": {
+    "what is": 22,
+    "identify": 20,
+    "support": 1,
+    "describe": 14,
+    "explain": 29,
+    "define": 2,
+    "give": 3,
+    "state": 8,
+    "why": 4,
+    "discuss": 14,
+    "list": 12,
+    "how": 1,
+    "analyze": 1,
+    "propose": 3,
+    "differentiate": 1,
+    "compare": 2,
+    "critically": 2
+  },
+  "part_b_raw_counts": {
+    "identify": 5,
+    "explain": 12,
+    "state": 1,
+    "discuss": 3,
+    "what is": 1,
+    "give": 1,
+    "propose": 3,
+    "describe": 2,
+    "suggest": 1,
+    "analyze": 1,
+    "recommend": 1,
+    "critically": 1
+  },
+  "part_b_topic_counts": {
+    "access control models": 8,
+    "risk/management": 9,
+    "software/OS security": 3,
+    "authentication/biometrics": 5,
+    "attacks/malware": 8,
+    "trusted computing/blockchain": 2,
+    "general cryptography": 2,
+    "network security": 1,
+    "other": 1,
+    "hashing/signatures": 2,
+    "block ciphers": 1,
+    "public-key": 1
+  },
+  "part_b_topic_marks": {
+    "access control models": 35,
+    "risk/management": 39,
+    "software/OS security": 15,
+    "authentication/biometrics": 23,
+    "attacks/malware": 36,
+    "trusted computing/blockchain": 10,
+    "general cryptography": 10,
+    "network security": 6,
+    "other": 2,
+    "hashing/signatures": 10,
+    "block ciphers": 5,
+    "public-key": 5
+  },
+  "six_mark_examples": {
+    "State": [
+      {
+        "paper": "CSC662-2009-04",
+        "q": "Q1d",
+        "text": "Determine whether the P-box with the following tables is a straight P-box, a compression P-box or an expansion P-box. State one reason for each table. \ni) \nii) \niii) \n112 3 44 \n15 3 6 78 \n2 14 3 56"
+      },
+      {
+        "paper": "CSC662-2010-10",
+        "q": "Q4a",
+        "text": "Identify which requirements or components that deal with confidentiality, integrity and \navailability concerns in proposed e-voting system."
+      },
+      {
+        "paper": "CSC662-2010-10",
+        "q": "Q11b",
+        "text": "Assuming that high > low, identify program fragments that are desired (allowed) or \nundesired (prevented) in information security flows for reading operation."
+      }
+    ],
+    "List": [
+      {
+        "paper": "CSC662-2006-10",
+        "q": "Q1b",
+        "text": "Base on an example of a company with an explicit business list three (3) kinds of harm they could experience from unauthorized viewing of confidential company materials."
+      },
+      {
+        "paper": "CSC662-2014-12",
+        "q": "Q13b",
+        "text": "b) List SIX (6) repercussions of Cross-Site Scripting (XSS) attack. (6 marks)"
+      },
+      {
+        "paper": "CSC662-2015-06",
+        "q": "Q5",
+        "text": "List SIX (6) categories of passwords that researchers have found easy to guess of them. O Hak Cipta Universiti Teknologi MARA (6 marks) CONFIDENTIAL"
+      }
+    ],
+    "Explain": [
+      {
+        "paper": "CSC662-2007-04",
+        "q": "Q6b",
+        "text": "\"It's time we became proactive about stopping computer crime. No matter how good we get at hardening systems; how many bucks we spend on defensive measures or in complying with legislation and initiatives; no matter how carefully we design, create, deploy and maintain secure operating systems, applications and infrastructure; others are spending even more money and time attacking them.\"\nhttp:/Awww. crime-research, org\nBriefly explain THREE (3) ways on how to stop computer crime."
+      },
+      {
+        "paper": "CSC662-2007-10",
+        "q": "Q1a",
+        "text": "Explain how three goals of computer security relate with each other in building a secure system."
+      },
+      {
+        "paper": "CSC662-2008-10",
+        "q": "Q2b",
+        "text": "Recently, there are many types of malware infection had been reported to the security organization. Explain the characteristics of THREE (3) types of malware that you know."
+      }
+    ],
+    "Describe": [
+      {
+        "paper": "CSC662-2006-10",
+        "q": "Q1a",
+        "text": "Describe the difference between vulnerability, threat and control, by using one example."
+      },
+      {
+        "paper": "CSC662-2007-04",
+        "q": "Q1a",
+        "text": "Define the following terms:\ni) Firewall\nii) Integrity\niii) Vulnerability"
+      },
+      {
+        "paper": "CSC662-2007-04",
+        "q": "Q2b",
+        "text": "Describe the term malicious code and explain TWO (2) examples of them."
+      }
+    ],
+    "Discuss": [
+      {
+        "paper": "CSC662-2010-04",
+        "q": "Q11",
+        "text": "Discuss THREE (3) approaches that can be used to create good passwords. \n(6 marks)"
+      },
+      {
+        "paper": "CSC662-2010-10",
+        "q": "Q3b",
+        "text": "Discuss THREE (3) important characteristics of 'economically feasible\" security."
+      },
+      {
+        "paper": "CSC662-2012-06",
+        "q": "Q15",
+        "text": "Software security is a system-wide issue that involves both building in security mechanisms and designing the system to be robust. Discuss the following software security mechanism:\na) Data execution protection\nb) Address space layout randomization\nc) Canary"
+      }
+    ],
+    "Compare": [
+      {
+        "paper": "CSC662-2015-06",
+        "q": "Q15",
+        "text": "Differentiate between Morals, Ethics and Laws in computer security. (6 marks)"
+      },
+      {
+        "paper": "CSC662-2018-01",
+        "q": "Q8a",
+        "text": "With the help of diagram, differentiate between Simple Security Property and Star Property. (6 marks)"
+      },
+      {
+        "paper": "CSC662-2018-12",
+        "q": "QA7b",
+        "text": "Differentiate between steganography and cryptography in terms of: , capacity, type of message and type of application."
+      }
+    ],
+    "Justify": [
+      {
+        "paper": "CSC662-2016-06",
+        "q": "Q3a",
+        "text": "Describes by giving ONE (1) example each from real life, where the following security objectives are needed and suggest suitable security mechanisms to achieve them: i. Confidentiality ii. Integrity iii. Availability"
+      },
+      {
+        "paper": "CSC662-2016-12",
+        "q": "Q11ii",
+        "text": "Suggest ONE (1) unique type of biometric methods for each of the situation below and give a reason. ii. iii. Entry and exit points in a nuclear research center."
+      },
+      {
+        "paper": "CSC662-2019-06",
+        "q": "QA2b",
+        "text": "Provide THREE (3) reasons to support your answer in (a). O Hak Cipta Universiti Teknologi MARA (2 marks) (6 marks) CONFIDENTIAL"
+      }
+    ]
+  }
+}

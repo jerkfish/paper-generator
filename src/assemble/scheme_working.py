@@ -109,6 +109,30 @@ def columnar_decrypt_working(ciphertext: str, key: str | int,
     return "\n".join(lines)
 
 
+def vigenere_working(ciphertext: str, key: str, answer: str) -> str:
+    """Step-by-step Vigenere decryption for the scheme."""
+    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    ct = "".join(c for c in ciphertext.upper() if c in alphabet)
+    k = "".join(c for c in key.upper() if c in alphabet)
+    if not k:
+        return f"Answer: {answer}\nWorking:\nKey is empty"
+    repeated = (k * ((len(ct) + len(k) - 1) // len(k)))[:len(ct)]
+    lines = [f"Answer: {answer}", "Working:",
+             "Standard 26 x 26 tableau, A=0; key repeated over the ciphertext.",
+             f"Ciphertext: {ct}",
+             f"Key:        {repeated}",
+             "Letter-by-letter: C - K mod 26 = P"]
+    plain = []
+    for c, kc in zip(ct, repeated):
+        ci, ki = alphabet.index(c), alphabet.index(kc)
+        pi = (ci - ki) % 26
+        plain.append(alphabet[pi])
+        lines.append(f"  {c} ({ci:2d}) - {kc} ({ki:2d}) = {pi:2d} -> "
+                     f"{alphabet[pi]}")
+    lines.append(f"Plaintext:  {''.join(plain)}")
+    return "\n".join(lines)
+
+
 def working_for(q: dict) -> str:
     """Pick the right working formatter for a computed question dict."""
     if q["cipher"] == "playfair":
@@ -116,6 +140,8 @@ def working_for(q: dict) -> str:
     if q["cipher"] == "columnar" and q["task"] == "decrypt":
         return columnar_decrypt_working(q["ciphertext"], q["key"],
                                         rows=q.get("rows"))
+    if q["cipher"] == "vigenere" and not q.get("working"):
+        return vigenere_working(q["ciphertext"], q["key"], q["answer"])
     return q.get("working") or ""
 
 

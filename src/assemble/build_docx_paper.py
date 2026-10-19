@@ -37,6 +37,8 @@ DOT_BIN = r"C:\Program Files\Graphviz\bin\dot.exe"
 
 REF_CODE_OLD = "CS/FEB   2026/CSC662"
 REF_CODE_NEW = "CS/MOCK OCT 2026/CSC662"
+PART_A_HEADING = "PART A (80 MARKS)"
+PART_B_HEADING = "PART B (20 MARKS)"
 
 PLACEHOLDER = "[THEORY SLOT - {topic}, {marks} marks, {task}]"
 
@@ -430,8 +432,9 @@ def main() -> None:
 
     pattern_a = [paras[i]._p for i in range(q1_idx, q2_idx)]
     pattern_b = [paras[i]._p for i in range(bq1_idx, bq2_idx)]
+    set_para_text(paras[part_a_idx]._p, PART_A_HEADING)
     part_b_heading = copy.deepcopy(paras[part_b_idx]._p)
-    set_para_text(part_b_heading, "PART B")
+    set_para_text(part_b_heading, PART_B_HEADING)
 
     # remove all real body content between the PART A heading and END
     body = doc.element.body
