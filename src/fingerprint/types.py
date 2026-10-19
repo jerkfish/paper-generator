@@ -59,8 +59,8 @@ TOPICS: list[tuple[str, str]] = [
 TOPIC_NAMES = [name for name, _ in TOPICS] + ["other"]
 
 COMPUTE_CUES = re.compile(
-    r"encrypt|decrypt|comput|calculat|\bfind\b|generate|derive|\bsolve\b|convert|"
-    r"evaluate|produce|obtain|show (your )?work", re.I)
+    r"encrypt|decrypt|encipher|decipher|comput|calculat|\bfind\b|generate|derive|"
+    r"\bsolve\b|convert|evaluate|produce|obtain|show (your )?work", re.I)
 # with concrete inputs present, these words also imply the candidate must compute
 COMPUTE_CONTEXT = re.compile(r"given|provided|\busing\b|\bapply\b|perform|\bfind\b",
                              re.I)
@@ -68,7 +68,7 @@ COMPUTE_CONTEXT = re.compile(r"given|provided|\busing\b|\bapply\b|perform|\bfind
 DRAW_CUES = re.compile(r"\bdraw(?:s|n|ing)?\b|\bsketch\b|"
                        r"with (?:the )?aid of (?:a |an )?diagram|with a diagram", re.I)
 # owner rule: compare only if the row's own text has these words
-COMPARE_CUES = re.compile(r"differentiat|\bdifference\b|compar|versus|\bvs\b", re.I)
+COMPARE_CUES = re.compile(r"differentiat|\bdifference\b|differ|compar|versus|\bvs\b", re.I)
 # owner rule: list needs a count word or "list"/"enumerate"
 LIST_CUES = re.compile(
     r"\b(list|enumerate)\b|"
@@ -80,6 +80,10 @@ SCENARIO_CUES = re.compile(
     r"based on the (above|following|given)", re.I)
 DEFINE_CUES = re.compile(r"define|what is|meaning of|describe|explain|discuss", re.I)
 PART_A_PAT = re.compile(r"^A\d+$")
+
+
+def _norm(s: str) -> str:
+    return re.sub(r"\s+", "", str(s))
 
 TASK_NAMES = ["compute", "draw/diagram", "compare", "list/enumerate",
               "scenario/justify", "short objective", "define/explain"]
@@ -111,11 +115,16 @@ def has_concrete_inputs(text: str) -> bool:
     low = str(text).lower()
     if re.search(r"\b[pqned]\s*=\s*\d+", low):        # RSA params (p=7, q=11, e=9)
         return True
-    if re.search(r"\bkey\s*[=:]\s*\S", low):          # "Key = ..." / "Key: ..."
+    if re.search(r"\bkey[\w\s]{0,20}?[:=]\s*\S", low):  # "Key =", "key sequence:"
+        return True
+    if re.search(r"\bkeys?\s+(?:as|is|are)\s*[:=]", low):
+        return True
+    if re.search(r"\bkeyword\b", low):
         return True
     if re.search(r"\bshift\s+of\s+\d+|\bshift\s*\d+|\bkey\s+of\s+\d+", low):
         return True
-    if re.search(r"following (?:the )?(plaintext|ciphertext|message)", low):
+    if re.search(r"following.{0,40}(plaintext|plain[- ]?text|ciphertext|"
+                 r"cipher[- ]?text|message)", low):
         return True
     if re.search(r"\bplaintext\b.{0,120}\bkey\b", low):
         return True
@@ -125,7 +134,7 @@ def has_concrete_inputs(text: str) -> bool:
         return True
     if re.search(r"\b[0-9A-F]{8,}\b", text):                 # hex word
         return True
-    if re.search(r"\d{2}(?:,\s*\d{2}){4,}", low):            # number stream (OTP)
+    if re.search(r"\d{2}(?:,\s*\d{2}){2,}", low):            # number stream (OTP)
         return True
     return False
 
@@ -217,6 +226,15 @@ def label_group(rows: list[dict]) -> list[dict]:
         if lab["topic"] == "other" and dominant and not is_whole_block_row(r):
             lab["topic"] = dominant
             flags.append("topic inherited from sibling")
+
+        # tiny fragments ("ii) ANAKTIKUSRED") belong to the group's computation
+        if (len(_norm(t)) < 30 and lab["task"] != "compute"
+                and any(has_concrete_inputs(tt) and COMPUTE_CUES.search(tt.lower())
+                        for tt in texts)):
+            lab["task"] = "compute"
+            lab["has_inputs"] = True
+            lab["machine_verifiable"] = machine_verifiable(lab["topic"], "compute", True)
+            flags.append("compute task inherited from sibling")
 
         lab["flags"] = flags
         out.append(lab)

@@ -59,8 +59,11 @@ def main() -> None:
     wb = load_workbook(TRACKING_XLSX)
     ws = wb["Questions"]
     headers = [c.value for c in ws[1]]
-    assert "Question type" in headers, "Questions sheet must exist (run Step 3 first)"
-    old_task_idx = headers.index("Question type")
+    if "Question type" in headers:  # first run: rename to Task
+        ws.cell(row=1, column=headers.index("Question type") + 1).value = "Task"
+        headers[headers.index("Question type")] = "Task"
+    assert "Task" in headers, "Questions sheet must exist (run Step 3 first)"
+    old_task_idx = headers.index("Task")
     topic_idx = headers.index("Topic")
 
     rows = [dict(zip(headers, row)) for row in ws.iter_rows(min_row=2, values_only=True)]

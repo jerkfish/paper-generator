@@ -164,6 +164,66 @@ def test_label_group_propagates_rsa_params():
     assert any("inputs inherited" in f for f in labs[1]["flags"])
 
 
+def test_encipher_keyword_variant_is_compute():
+    text = ("Encipher the plaintext message below by using Polyalphabetic "
+            "Substitution Cipher: TO BE OR NOT TO BE By using the keyword 'COMPUTER'")
+    lab = classify_row(text)
+    assert lab["topic"] == "classical ciphers"
+    assert lab["task"] == "compute"
+    assert lab["machine_verifiable"]
+
+
+def test_fragment_inherits_compute_task():
+    rows = [
+        {"Original question text": "Based on Vernam Cipher, by using the random "
+         "number 77, 49, 17 encrypt the plaintext: GOODLUCKBABY",
+         "Q no.": "2", "Question type": "", "Wording note": ""},
+        {"Original question text": "ii) ANAKTIKUSRED",
+         "Q no.": "2", "Question type": "", "Wording note": ""},
+    ]
+    labs = label_group(rows)
+    assert labs[1]["task"] == "compute"
+    assert labs[1]["machine_verifiable"]
+    assert any("compute task inherited" in f for f in labs[1]["flags"])
+
+
+def test_hyphenated_and_keys_as_input_variants():
+    text = ('Decrypt the following group of five characters cipher-text '
+            '"NXVFV HLJHQ KLGWC" to plain-text using poly-alphabetic technique.')
+    lab = classify_row(text)
+    assert lab["task"] == "compute"
+    assert lab["machine_verifiable"]
+    text2 = ("Produce a group of 5-letters cipher-text from the following plain-text "
+             "using poly-alphabetic technique with substitution keys as: "
+             "PQRSTIJKLMNUVWOXYZABCDEFGH")
+    assert classify_row(text2)["task"] == "compute"
+
+
+def test_key_sequence_input_variant():
+    text = ('Given the randomize key sequence: A-07 G-06 M-21 S-24 Y-13 '
+            'Encrypt plain-text "COMPUTER"')
+    lab = classify_row(text)
+    assert lab["task"] == "compute"  # topic "other" standalone; sibling supplies it
+    rows = [
+        {"Original question text": text, "Q no.": "14", "Question type": "",
+         "Wording note": ""},
+        {"Original question text": "According to Suetonius, Caesar replaced each "
+         "letter three places further down the alphabet using a poly-alphabetic shift.",
+         "Q no.": "14", "Question type": "", "Wording note": ""},
+    ]
+    labs = label_group(rows)
+    assert labs[0]["topic"] == "classical ciphers"
+    assert labs[0]["machine_verifiable"]
+
+
+def test_differ_is_compare():
+    text = ("How poly-alphabetic substitution cipher techniques differ from "
+            "mono-alphabetic substitution ciphering techniques?")
+    lab = classify_row(text)
+    assert lab["topic"] == "classical ciphers"
+    assert lab["task"] == "compare"
+
+
 def test_whole_block_detection():
     assert is_whole_block_row({"Wording note": "verbatim check failed; whole block stored"})
     assert not is_whole_block_row({"Wording note": ""})

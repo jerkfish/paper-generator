@@ -93,7 +93,8 @@ def main() -> None:
 
     print("\nStructural profile per era (provisional boundaries):")
     for era in ("classic", "transitional", "modern"):
-        ids = [pid for pid in order if papers[pid]["Era"].split(" ")[0] == era]
+        ids = [pid for pid in order
+               if papers[pid]["Era"].split(" ")[0] == era and struct[pid]["n"] > 0]
         if not ids:
             continue
         parts = {struct[pid]["parts"] for pid in ids}
