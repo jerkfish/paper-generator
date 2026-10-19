@@ -43,7 +43,7 @@ def test_verifier_rejects_meaningless_plaintext():
 
 def test_verifier_rejects_near_copy():
     q = _q()
-    pool = ["TRUSTEDSHIFT4"]  # same plaintext+key content as a past question
+    pool = ["TRUSTEDX"]  # near-identical plaintext content used before
     assert any("near-copy" in p or "already used" in p for p in verify(q, pool))
 
 
@@ -53,6 +53,12 @@ def test_verifier_allows_same_template_different_content():
     pool = ["USINGCAESARCIPHERTECHNIQUEENCRYPTTHEFOLLOWINGPLAINTEXTWITH"
             "SHIFT7SOMEOLDTEXT"]
     assert verify(q, pool) == []
+
+
+def test_verifier_allows_partial_overlap():
+    # "TRUSTED" sharing a prefix with an old "TRUSTEDSHIFT" is not a near-copy
+    q = _q(plaintext="TRUSTED CORE")
+    assert verify(q, ["TRUSTEDSHIFTOLDTOKEN"]) == []
 
 
 def test_verifier_accepts_good_question():

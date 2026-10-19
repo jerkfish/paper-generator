@@ -267,6 +267,44 @@ def single_transposition_decrypt(ciphertext: str, key: str, pad: str = "X") -> s
     return "".join(cols).rstrip(pad.upper())
 
 
+def railfence_encrypt(plaintext: str, key: int) -> str:
+    """Zigzag across `key` rails, then read rail by rail. Key = number of
+    rows (papers say 'size of 3' / 'key of 3')."""
+    if key < 2:
+        raise ValueError("rail-fence key must be >= 2")
+    rails: list[list[str]] = [[] for _ in range(key)]
+    rail, direction = 0, 1
+    for ch in clean(plaintext):
+        rails[rail].append(ch)
+        rail += direction
+        if rail == 0 or rail == key - 1:
+            direction *= -1
+    return "".join("".join(r) for r in rails)
+
+
+def railfence_decrypt(ciphertext: str, key: int) -> str:
+    if key < 2:
+        raise ValueError("rail-fence key must be >= 2")
+    c = clean(ciphertext)
+    pattern: list[int] = []
+    rail, direction = 0, 1
+    for _ in c:
+        pattern.append(rail)
+        rail += direction
+        if rail == 0 or rail == key - 1:
+            direction *= -1
+    counts = [pattern.count(r) for r in range(key)]
+    rails: list[list[str]] = []
+    pos = 0
+    for r in range(key):
+        rails.append(list(c[pos:pos + counts[r]]))
+        pos += counts[r]
+    out = []
+    for r in pattern:
+        out.append(rails[r].pop(0))
+    return "".join(out)
+
+
 def vernam_encrypt(plaintext: str, key: list[int] | str) -> str:
     nums = _vernam_numbers(key)
     out = []
@@ -311,6 +349,8 @@ SOLVER_CONVENTIONS = {
     "single transposition": "Plaintext is written INTO columns in key-letter "
                             "order and read out row by row (columns displayed "
                             "sorted by key). Validated against APR 2010 Q13.",
+    "rail fence": "Zigzag across N rails, read rail by rail (slide vector: "
+                  "ATTACK with 3 rails -> ACTAKT).",
     "vernam": "Key numbers applied mod 26 to successive letters (A=0). Letter "
               "keys map A-Z to 0-25.",
 }

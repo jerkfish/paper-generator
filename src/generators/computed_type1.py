@@ -13,24 +13,34 @@ Run:  uv run python -m src.generators.computed_type1
 """
 from __future__ import annotations
 
+import json
 import math
+import random
 import re
 from difflib import SequenceMatcher
 
 from openpyxl import load_workbook
 from pydantic import BaseModel, Field
 
-from src.config import OUTPUTS_DIR, TRACKING_XLSX
+from src.config import DATA_DIR, OUTPUTS_DIR, TRACKING_XLSX
 from src.generators import ciphers as C
 from src.llm import chat_json
 
 CIPHERS = ("caesar", "vigenere", "playfair", "affine", "columnar", "vernam")
 ALLOWED_MARKS = (2, 6)
+DRAFT_MODEL = "qwen3.7-flash"  # cheap model for per-question draft calls
+
+
+def _phrase_bank() -> list[str]:
+    path = DATA_DIR / "phrases.json"
+    if not path.exists():
+        raise SystemExit("run 'uv run python -m src.generators.build_phrases' first")
+    return list(json.loads(path.read_text(encoding="utf-8"))["phrases"])
 
 
 class DraftQuestion(BaseModel):
     cipher: str
-    plaintext: str = Field(min_length=4)
+    plaintext: str = ""  # filled from the phrase bank by code
     key: str = Field(min_length=1)
     task: str
     marks: int
@@ -39,26 +49,16 @@ class DraftQuestion(BaseModel):
 SYSTEM = """You draft exam questions for a computer-security course's cipher drills.
 Output ONE JSON object exactly:
 {"cipher": "caesar|vigenere|playfair|affine|columnar|vernam",
- "plaintext": "short meaningful message, 5-25 letters, English or Malay, often
-  security-themed (papers use things like 'THIS IS SECRET', 'I LOVE NETWORK
-  SECURITY', 'SELAMAT HARI RAYA')",
  "key": "see formats below",
  "task": "encrypt|decrypt",
  "marks": 2 or 6}
-Key formats: caesar -> "shift=7"; vigenere/playfair -> a word of >=3 letters;
-affine -> "(a,b)" with a coprime to 26, e.g. "(17,20)"; columnar -> a keyword
-of >=3 letters OR a column count 2-10; vernam -> space-separated numbers,
-e.g. "3 6 12 9 4" (at least 6 numbers).
+The plaintext is supplied by code from a phrase bank - do NOT include a
+plaintext field. Key formats: caesar -> "shift=7"; vigenere/playfair -> a word
+of >=3 letters; affine -> "(a,b)" with a coprime to 26, e.g. "(17,20)";
+columnar -> a keyword of >=3 letters OR a column count 2-10; vernam ->
+space-separated numbers, e.g. "3 6 12 9 4" (at least 6 numbers).
 Rules: never include any ciphertext in your output. Vary ciphers across calls
-(also produce decrypt tasks - the plaintext you give is the readable answer).
-Style reference (tone only, do not copy):
-- "Using Caesar Cipher technique, decrypt the following ciphertext."
-- "Encrypt the plaintext below using Vigenere cipher with the given key."
-- "Encrypt the message using Playfair encryption. Show your work."
-- "Decrypt the ciphertext using affine cipher with key (a, b). Show your work."
-- "Using columnar transposition, encrypt the plaintext below."
-- "Based on Vernam cipher, using the given random numbers encrypt the plaintext."
-Return only the JSON object."""
+and include decrypt tasks. Return only the JSON object."""
 
 
 def _parse_key(cipher: str, key: str):
@@ -159,8 +159,9 @@ def render_question(q: DraftQuestion) -> str:
         return (f"Decrypt the following ciphertext using Playfair encryption "
                 f"with the key {k}.\n{value}\n({q.marks} marks)")
     if q.cipher == "caesar":
+        shift = _parse_key(q.cipher, q.key)
         return (f"Using Caesar Cipher technique, encrypt the following plaintext "
-                f"with shift {q.key}.\n{p}\n({q.marks} marks)")
+                f"with shift {shift}.\n{p}\n({q.marks} marks)")
     if q.cipher == "vigenere":
         return (f"Encrypt the plaintext below using Vigenere cipher with the key "
                 f"{k}.\n{p}\n({q.marks} marks)")
@@ -186,31 +187,33 @@ def verify(q: DraftQuestion, pool: list[str]) -> list[str]:
     if q.marks not in ALLOWED_MARKS:
         problems.append(f"marks {q.marks} not in {ALLOWED_MARKS}")
     plain = C.clean(q.plaintext)
-    ok, why = _meaningful(plain)
+    ok, why = _meaningful(str(q.plaintext))
     if not ok:
         problems.append(f"plaintext not meaningful: {why}")
-    if q.cipher == "vernam" and key and len(key) < len(plain):
-        problems.append("vernam key shorter than plaintext")
+    if q.task == "decrypt" and len(plain) < 5:
+        problems.append("decrypt plaintext too short")
+    if q.cipher == "vernam" and key and len(key) < 8:
+        problems.append("vernam key needs at least 8 numbers (it repeats)")
     try:
         ciphertext(q)
         answer(q)
     except Exception as e:
         problems.append(f"solver error: {e}")
-    # near-copy check: compare the CONTENT (plaintext/key), not the template
-    content = _norm(q.plaintext) + _norm(q.key)
+    # near-copy check: compare the CONTENT (plaintext/key) against the words
+    # used in past questions - token granularity, not template stems
+    content_plain = _norm(q.plaintext)
+    past_tokens: set[str] = set()
     for past in pool:
-        if not content or len(content) < 6:
+        past_tokens.update(t.upper() for t in re.findall(r"[A-Za-z]{4,}", past))
+        cleaned = _norm(past)
+        if cleaned and len(cleaned) <= 40:  # short entries = whole phrases
+            past_tokens.add(cleaned)
+    for tok in past_tokens:
+        if (len(tok) >= 4 and content_plain
+                and (content_plain == tok
+                     or SequenceMatcher(None, content_plain, tok).ratio() >= 0.85)):
+            problems.append("plaintext already used in a past question")
             break
-        if content in past:
-            problems.append("plaintext/key already used in a past question")
-            break
-        match = SequenceMatcher(None, content, past).find_longest_match(
-            0, len(content), 0, len(past)).size
-        if match >= 0.9 * len(content):
-            problems.append("near-copy of a past question")
-            break
-    if q.task == "decrypt" and len(plain) < 5:
-        problems.append("decrypt plaintext too short")
     return problems
 
 
@@ -221,7 +224,7 @@ def _norm(s: str) -> str:
 def _past_pool() -> list[str]:
     ws = load_workbook(TRACKING_XLSX)["Questions"]
     headers = [c.value for c in ws[1]]
-    return [_norm(r["Original question text"]) for r in
+    return [str(r["Original question text"]) for r in
             (dict(zip(headers, row)) for row in ws.iter_rows(min_row=2, values_only=True))]
 
 
@@ -289,25 +292,40 @@ def main() -> None:
     pool = _past_pool()
     target = {"caesar": 2, "vigenere": 2, "playfair": 2, "affine": 1,
               "columnar": 2, "vernam": 1}
+    bank = _phrase_bank()
     accepted: list[DraftQuestion] = []
     attempts = 0
     last_problems: list[str] = []
-    while len(accepted) < 10 and attempts < 40:
+    while len(accepted) < 10 and attempts < 90:
         attempts += 1
         user = _style_examples()
         if last_problems:
             user += ("\nYour previous draft was rejected because: "
                      + "; ".join(last_problems)
-                     + ". Produce a DIFFERENT plaintext and key.")
+                     + ". Produce a different key or cipher.")
+        decrypt_count = sum(1 for a in accepted if a.task == "decrypt")
+        if decrypt_count < 3 and (attempts > 20 or len(accepted) >= 8):
+            user += ("\nIMPORTANT: make the next question a DECRYPT task "
+                     "(task must be 'decrypt').")
         try:
-            data = chat_json(SYSTEM, user)
+            data = chat_json(SYSTEM, user, model=DRAFT_MODEL)
             q = DraftQuestion(**data)
         except Exception as e:
             print(f"draft rejected (validation): {e}", flush=True)
             last_problems = [str(e)]
             continue
         if q.cipher not in target or target[q.cipher] <= 0:
+            remaining = [c for c, n in target.items() if n > 0]
+            last_problems = [f"cipher '{q.cipher}' is already filled; choose one "
+                             f"of {remaining}"]
             continue
+        # plaintext comes from the offline bank (seeded pick)
+        rng = random.Random(1000 + attempts)
+        start = rng.randrange(len(bank))
+        for offset in range(len(bank)):
+            q.plaintext = bank[(start + offset) % len(bank)]
+            if not any("already used" in p for p in verify(q, pool)):
+                break
         problems = verify(q, pool)
         if problems:
             last_problems = problems
@@ -316,18 +334,30 @@ def main() -> None:
         accepted.append(q)
         target[q.cipher] -= 1
         last_problems = []
-        pool.append(_norm(q.plaintext) + _norm(q.key))  # avoid self-duplicates
+        pool.append(q.plaintext)  # keys are freely reusable; phrases are not
         print(f"accepted {len(accepted)}: {q.cipher} {q.task} "
-              f"'{q.plaintext}' ({q.marks}m)", flush=True)
+              f"'{q.plaintext}' ({q.marks}m) [model {DRAFT_MODEL}]", flush=True)
 
     OUTPUTS_DIR.mkdir(exist_ok=True)
     md = ["# Computed sample questions - classical ciphers\n",
-          "Drafted by the LLM (fields only); ciphertext, answers and working "
-          "computed by code. Decrypt answers are readable plaintext; encrypt-only "
-          "results are marked 'convention unverified' (no official keys exist).\n"]
+          f"Drafted by the LLM (cipher/key/task/marks only, model {DRAFT_MODEL}); "
+          "plaintexts picked from the offline phrase bank (data/phrases.json, "
+          "seeded). Ciphertext, answers and working are all computed by code.\n",
+          "Conventions:\n",
+          "- Playfair I/J merge + X padding: **convention unverified** "
+          "(pending lecture-slide confirmation).\n",
+          "- Columnar explicit-rows grid (3 x 4 style): **convention unverified**.\n",
+          "- Encrypt-only answers: **convention unverified** (no official keys "
+          "exist).\n",
+          "- Decrypt answers: readable plaintext; solvers validated on real "
+          "past papers (7 cases, see src/generators/validate_solvers.py).\n"]
     for i, q in enumerate(accepted, 1):
-        note = "" if q.task == "decrypt" else \
-            "\n> Convention note: encrypt-only - convention unverified."
+        notes = []
+        if q.task == "encrypt":
+            notes.append("encrypt-only - convention unverified")
+        if q.cipher == "playfair":
+            notes.append("Playfair I/J merge + X padding: convention unverified")
+        note = ("\n> Convention note: " + "; ".join(notes) + ".") if notes else ""
         md.append(f"## Question {i} ({q.marks} marks)\n")
         md.append("```\n" + render_question(q) + "\n```")
         md.append("```\n" + working_text(q) + "\n```" + note)

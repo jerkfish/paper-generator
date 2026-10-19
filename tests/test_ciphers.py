@@ -6,7 +6,8 @@ import pytest
 from src.generators.ciphers import (affine_decrypt, affine_encrypt, caesar_bruteforce,
                                     caesar_decrypt, caesar_encrypt, columnar_decrypt,
                                     columnar_encrypt, playfair_decrypt, playfair_encrypt,
-                                    playfair_grid, single_transposition_decrypt,
+                                    playfair_grid, railfence_decrypt, railfence_encrypt,
+                                    single_transposition_decrypt,
                                     single_transposition_encrypt, vigenere_decrypt,
                                     vigenere_encrypt, vernam_decrypt, vernam_encrypt)
 
@@ -111,6 +112,22 @@ def test_vernam_vector():
     assert vernam_encrypt("ATTACK", [3, 3, 3, 3, 3, 3]) == "DWWDFN"
     assert vernam_decrypt("DWWDFN", [3, 3, 3, 3, 3, 3]) == "ATTACK"
     assert vernam_encrypt("ATTACK", "DDDDDD") == "DWWDFN"
+
+
+def test_railfence_vector():
+    # slide vector: ATTACK with 3 rails -> ACTAKT
+    assert railfence_encrypt("ATTACK", 3) == "ACTAKT"
+    assert railfence_decrypt("ACTAKT", 3) == "ATTACK"
+
+
+def test_railfence_roundtrip():
+    c = railfence_encrypt("I AM STUDYING AT UITM", 3)
+    assert railfence_decrypt(c, 3) == "IAMSTUDYINGATUITM"
+
+
+def test_railfence_key_bounds():
+    with pytest.raises(ValueError):
+        railfence_encrypt("A", 1)
 
 
 def test_vernam_bad_key():

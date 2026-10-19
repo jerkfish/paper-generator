@@ -33,7 +33,7 @@ QWEN_API_KEY = os.environ.get("QWEN_API_KEY", "")
 # key verified against the international compatible-mode endpoint 2026-10-18
 QWEN_BASE_URL = os.environ.get(
     "QWEN_BASE_URL", "https://dashscope-intl.aliyuncs.com/compatible-mode/v1")
-QWEN_MODEL = os.environ.get("MOCKGEN_QWEN_MODEL", "qwen3.7-plus")
+QWEN_MODEL = os.environ.get("MOCKGEN_QWEN_MODEL", "qwen3.8-max")
 LLM_MAX_RETRIES = 3
 
 # --- thresholds ----------------------------------------------------------
