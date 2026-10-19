@@ -16,38 +16,44 @@
   "part_a_label_counts": {
     "Explain": 56,
     "State": 31,
-    "Justify": 4,
+    "Justify": 1,
     "Describe": 16,
     "Other": 7,
-    "Discuss": 17,
+    "Discuss": 14,
     "List": 12,
+    "Analyse": 3,
+    "Propose": 3,
     "Compare": 3
   },
   "part_a_label_marks": {
     "Explain": 198,
     "State": 110,
-    "Justify": 24,
+    "Justify": 6,
     "Describe": 84,
     "Other": 30,
-    "Discuss": 90,
+    "Discuss": 72,
     "List": 28,
+    "Analyse": 18,
+    "Propose": 18,
     "Compare": 18
   },
   "part_b_label_counts": {
     "State": 7,
     "Explain": 13,
-    "Discuss": 5,
+    "Discuss": 3,
     "Other": 11,
-    "Justify": 5,
-    "Describe": 2
+    "Propose": 5,
+    "Describe": 2,
+    "Analyse": 2
   },
   "part_b_label_marks": {
     "State": 35,
     "Explain": 54,
-    "Discuss": 27,
+    "Discuss": 16,
     "Other": 44,
-    "Justify": 28,
-    "Describe": 8
+    "Propose": 28,
+    "Describe": 8,
+    "Analyse": 11
   },
   "part_a_raw_counts": {
     "what is": 22,
@@ -110,6 +116,47 @@
     "block ciphers": 5,
     "public-key": 5
   },
+  "part_b_questions": 19,
+  "part_b_scenario_questions": 7,
+  "part_b_same_topic_pairs": 11,
+  "part_b_dependent_pairs": 2,
+  "part_b_scenario_examples": [
+    {
+      "paper": "CSC662-2019-06",
+      "q": "B1",
+      "prefix": "Based on the above report, from computer security perspective,"
+    },
+    {
+      "paper": "CSC662-2022-02",
+      "q": "B1",
+      "prefix": "Based on the segment of C source code above: \n\ni)"
+    },
+    {
+      "paper": "CSC662-2023-02",
+      "q": "B2",
+      "prefix": "Your manager asks you to log into the Human Resource Management system using his user-id and password to retrieve some reports."
+    },
+    {
+      "paper": "CSC662-2024-07",
+      "q": "B1",
+      "prefix": "A student suspects there is a vulnerability in a system. She conducts tests this by trying to exploit the vulnerability. She succeeds to obtain privileges that she would not have. She reports both the hole and her exploi"
+    },
+    {
+      "paper": "CSC662-2025-02",
+      "q": "B1",
+      "prefix": "An employee at a technology company discovers a vulnerability in the company's new software product before its public release. Without notifying the company, he exploits the vulnerability to create a backdoor for persona"
+    },
+    {
+      "paper": "CSC662-2025-02",
+      "q": "B2",
+      "prefix": "Based on the senario above,"
+    },
+    {
+      "paper": "CSC662-2025-07",
+      "q": "B7",
+      "prefix": "You are reviewing the password security policies on a UNIX server. Your instructor asks you to"
+    }
+  ],
   "six_mark_examples": {
     "State": [
       {
@@ -215,6 +262,13 @@
     ],
     "Justify": [
       {
+        "paper": "CSC662-2019-06",
+        "q": "QA2b",
+        "text": "Provide THREE (3) reasons to support your answer in (a). O Hak Cipta Universiti Teknologi MARA (2 marks) (6 marks) CONFIDENTIAL"
+      }
+    ],
+    "Propose": [
+      {
         "paper": "CSC662-2016-06",
         "q": "Q3a",
         "text": "Describes by giving ONE (1) example each from real life, where the following security objectives are needed and suggest suitable security mechanisms to achieve them: i. Confidentiality ii. Integrity iii. Availability"
@@ -225,9 +279,26 @@
         "text": "Suggest ONE (1) unique type of biometric methods for each of the situation below and give a reason. ii. iii. Entry and exit points in a nuclear research center."
       },
       {
-        "paper": "CSC662-2019-06",
-        "q": "QA2b",
-        "text": "Provide THREE (3) reasons to support your answer in (a). O Hak Cipta Universiti Teknologi MARA (2 marks) (6 marks) CONFIDENTIAL"
+        "paper": "CSC662-2025-07",
+        "q": "QA1b",
+        "text": "Propose how a biometric authentication system can be integrated into the hospital's access control process. Discuss THREE (3) factors that must be considered to ensure its effecliveness and security."
+      }
+    ],
+    "Analyse": [
+      {
+        "paper": "CSC662-2025-02",
+        "q": "QA10b",
+        "text": "Analyze the ethical challenges raised due to the integration of advanced Al technologies in this company. How can the company ensure that this tool will aligns with ethical standards?"
+      },
+      {
+        "paper": "CSC662-2025-07",
+        "q": "QB9b",
+        "text": "Analyze the ethical challenges raised due to the integration of advanced Al technologies in this company. How can the company ensure that this tool will aligns with ethical standards?"
+      },
+      {
+        "paper": "CSC662-2026-02",
+        "q": "QA3b",
+        "text": "Critically discuss why this approach is insecure in today's environment and propose a more secure alternative"
       }
     ]
   }

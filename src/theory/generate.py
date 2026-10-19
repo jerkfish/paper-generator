@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
-from collections import defaultdict
+from collections import Counter, defaultdict
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
@@ -16,60 +16,162 @@ from pydantic import ValidationError
 from src import config
 from src.llm import Usage, chat_json_result
 from src.planner.fingerprint_data import load_modern_stats
-from src.theory.bm25 import BM25Index, TOPIC_DECKS, topic_query
+from src.theory.bm25 import (BM25Index, Hit, TOPIC_DECKS, deck_topic,
+                             topic_query)
 from src.theory.decks import DeckChunk, coverage, load_chunks
-from src.theory.models import Placeholder, TheoryDraft, VerifiedQuestion
+from src.theory.models import (DraftQuestion, Placeholder, TheoryDraft,
+                               VerifiedQuestion)
+from src.planner.tasks import DEPENDENT_RE
 from src.theory.verify import near_copy, verify_draft
 
 MAX_ATTEMPTS = 4  # initial + up to 3 retries
 
-ANGLE_REQUIRED = {
-    "A8": ["malware", "trojan", "worm", "virus", "ransomware", "spyware"],
-    "A9": ["password", "kerberos", "smartcard", "smart card"],
-}
-ANGLE_FORBIDDEN = {
-    "A8": ["class of threat", "classes of threats", "threat class",
-           "password"],
-    "A9": ["biometric", "single sign-on", "sso", "password threat",
-           "brute force", "dictionary attack", "keylogging",
-           "shoulder surfing"],
+
+TOPIC_SUBANGLES = {
+    "attacks/malware": [
+        "malware types and characteristics",
+        "malware attack techniques and propagation",
+        "impacts on confidentiality, integrity and availability",
+        "malware case study (Samy worm / XSS)",
+        "attack detection and defence",
+        "threat classes and countermeasures",
+    ],
+    "authentication/biometrics": [
+        "biometric identification and authentication stages",
+        "biometric mechanisms and technologies",
+        "password security controls",
+        "Kerberos, smartcards and SSO mechanisms",
+    ],
+    "access control models": [
+        "formal security models (BLP, Biba, Chinese Wall)",
+        "ACL, ACM and capability structures",
+        "authorization goals and reference monitors",
+    ],
+    "risk/management (ethics)": [
+        "morals, ethics and laws",
+        "professional code of ethics and conduct",
+        "ethical impacts of technology",
+        "privacy and organizational responsibility",
+    ],
+    "software/OS security": [
+        "software insecurity and buffer overflows",
+        "Windows security mechanisms",
+        "Linux/UNIX security",
+    ],
+    "network security": [
+        "NIDS architecture and sensor placement",
+        "preventive network mechanisms (firewalls/VPN)",
+        "network attacks and detection",
+    ],
+    "trusted computing/blockchain": [
+        "TPM and chain of trust",
+        "NGSCB/Nexus components",
+        "blockchain and cryptocurrency",
+    ],
+    "classical ciphers": [
+        "substitution ciphers",
+        "transposition ciphers",
+        "cipher properties and cryptanalysis",
+    ],
 }
 
-SLOT_ANGLE_HINTS = {
-    "A8a": "List two malware types (Trojan, worm, virus, spyware).",
-    "A8b": "Describe six characteristics or impacts of malware; use at least "
-           "two slides and do not just list types.",
-    "A9a": "Explain two password security controls (hashed password storage, "
-           "access control on password files, account lockout, last-login "
-           "display). Do not discuss password threats (A6b).",
-    "A9b": "Discuss six authentication mechanisms/controls based on smartcards, "
-           "Kerberos tickets, or password security controls; do not discuss "
-           "password threats (A6b), biometrics (A4b) or SSO (A4a).",
+SUBANGLE_KEYWORDS = {
+    "malware types and characteristics": ["malware", "type", "characteristic",
+                                          "trojan", "worm", "virus", "spyware",
+                                          "ransomware", "rootkit", "adware"],
+    "malware attack techniques and propagation": ["technique", "propagat",
+                                                  "spread", "mechanism",
+                                                  "replicat", "infect"],
+    "impacts on confidentiality, integrity and availability": [
+        "confidentiality", "integrity", "availability", "impact", "harm",
+        "damage",
+    ],
+    "threat classes and countermeasures": ["threat", "class", "countermeasure",
+                                           "defence", "defense", "control",
+                                           "service"],
+    "attack detection and defence": ["detect", "defence", "defense",
+                                     "monitor", "prevent", "mitigat"],
+    "malware case study (Samy worm / XSS)": [
+        "samy", "worm", "case", "example", "javascript", "xss",
+        "incident", "malware",
+    ],
+    "biometric identification and authentication stages": ["biometric",
+                                                            "identification",
+                                                            "authentication",
+                                                            "fingerprint", "iris",
+                                                            "stage"],
+    "biometric mechanisms and technologies": ["biometric", "fingerprint",
+                                               "iris", "mechanism",
+                                               "technology", "scan"],
+    "password security controls": ["password", "control", "hash", "lockout",
+                                   "salt", "authentication"],
+    "Kerberos, smartcards and SSO mechanisms": ["kerberos", "smartcard",
+                                                "smart card", "sso",
+                                                "single sign-on", "ticket",
+                                                "token"],
+    "formal security models (BLP, Biba, Chinese Wall)": ["model", "bell",
+                                                        "biba", "chinese",
+                                                        "formal", "security"],
+    "ACL, ACM and capability structures": ["acl", "acm", "capability",
+                                           "access control list",
+                                           "matrix"],
+    "authorization goals and reference monitors": ["authorization", "goal",
+                                                   "reference monitor",
+                                                   "access"],
+    "morals, ethics and laws": ["moral", "ethic", "law"],
+    "professional code of ethics and conduct": ["code", "professional",
+                                                "conduct", "acm"],
+    "ethical impacts of technology": ["ethic", "impact", "harm", "privacy",
+                                      "society"],
+    "privacy and organizational responsibility": ["privacy", "organization",
+                                                  "organisation",
+                                                  "responsibility", "conduct"],
+    "software insecurity and buffer overflows": ["software", "insecurity",
+                                                 "buffer", "overflow"],
+    "Windows security mechanisms": ["windows", "security", "mechanism"],
+    "Linux/UNIX security": ["linux", "unix", "security"],
+    "NIDS architecture and sensor placement": ["nids", "sensor",
+                                               "architecture", "placement",
+                                               "ids"],
+    "preventive network mechanisms (firewalls/VPN)": ["firewall", "vpn",
+                                                      "preventive", "network",
+                                                      "proxy"],
+    "network attacks and detection": ["attack", "detect", "network",
+                                      "intrusion", "monitor"],
+    "TPM and chain of trust": ["tpm", "chain", "trust", "platform"],
+    "NGSCB/Nexus components": ["ngscb", "nexus", "nca", "component"],
+    "blockchain and cryptocurrency": ["blockchain", "cryptocurrency",
+                                      "bitcoin", "ledger", "smart contract"],
+    "substitution ciphers": ["substitution", "caesar", "playfair",
+                             "monoalphabetic"],
+    "transposition ciphers": ["transposition", "columnar", "rail",
+                              "fence"],
+    "cipher properties and cryptanalysis": ["cipher", "cryptanalysis",
+                                            "frequency", "key", "security"],
 }
 
-ANGLE_HINTS = {
-    "A1": "NIDS architecture, sensor placement, packet analysis and evidence "
-          "preservation; avoid generic network threats.",
-    "A2": "classical cipher families and transposition/substitution; keep it "
-          "to material on the classical-cryptography slides.",
-    "A3": "TPM, Nexus/NCA and the chain of trust; explain how the components "
-          "interact.",
-    "A4": "biometric identification/authentication stages and mechanisms; do "
-          "not use passwords, Kerberos or SSO (covered by A9).",
-    "A5": "software insecurity, buffer overflows and mitigation techniques.",
-    "A6": "malware types and their characteristics; do not use the classes-of-"
-          "threats angle (covered by A8).",
-    "A7": "formal access-control models (e.g. Chinese Wall, BLP, Biba); do not "
-          "repeat the generic ACL/classification angle (covered by A10).",
-    "A8": "malware types and characteristics (Trojan, worm, virus, spyware); "
-          "do not use classes of threats (A6a) or password threats (A6b).",
-    "A9": "password security controls, smartcards or Kerberos; do not use "
-          "password threats (A6b), biometrics (A4b) or SSO (A4a).",
-    "A10": "access-control structures, classification and reference monitors; "
-           "do not repeat the Chinese Wall model (covered by A7).",
-    "B1": "morals, ethics, laws and the professional code of ethics.",
-    "B2": "malware impact and compromise mechanisms; do not repeat A6's "
-          "definition/characteristics angle.",
+TOPIC_ANGLE_HINTS = {
+    "network security": "NIDS architecture, sensor placement, packet "
+                        "analysis, evidence preservation, firewalls/VPN and "
+                        "network security mechanisms.",
+    "classical ciphers": "classical cipher families, substitution, "
+                         "transposition, Vigenere, columnar and rail fence.",
+    "software/OS security": "software insecurity, buffer overflows, Windows/"
+                            "Linux security and mitigation techniques.",
+    "attacks/malware": "malware types, threat classes, attack techniques and "
+                       "their impacts; avoid authentication controls and "
+                       "biometrics unless the evidence is attack-specific.",
+    "authentication/biometrics": "passwords, password security controls, "
+                                 "biometrics, smartcards, Kerberos and SSO; "
+                                 "use a different aspect from the sibling "
+                                 "question.",
+    "access control models": "formal access-control models, ACL/ACM, "
+                             "capabilities, Chinese Wall, BLP and Biba.",
+    "trusted computing/blockchain": "TPM, chain of trust, NGSCB/Nexus, "
+                                    "blockchain and cryptocurrency.",
+    "risk/management (ethics)": "morals, ethics, laws, ACM code, privacy, "
+                                "professional conduct and ethical impacts of "
+                                "technology.",
 }
 
 
@@ -85,6 +187,8 @@ class GroupResult:
     errors: list[list[str]] = field(default_factory=list)
     retrieved: list[dict] = field(default_factory=list)
     fallback_retrieval: bool = False
+    overlap_allowed: bool = False
+    last_draft: dict = field(default_factory=dict)
     usage: dict = field(default_factory=dict)
 
 
@@ -112,19 +216,86 @@ def _groups(slots: list[dict]) -> list[list[dict]]:
     return groups
 
 
-def _retrieve(index: BM25Index, group: list[dict]) -> tuple[list, bool]:
-    topic = group[0]["topic"]
-    qid = group[0]["question"]
-    extra = " ".join(str(s["task"]) for s in group) + " " + ANGLE_HINTS.get(qid, "")
-    query = topic_query(topic, extra)
+def _body_chars(chunk) -> int:
+    lines = [ln.strip() for ln in str(chunk.text).splitlines() if ln.strip()]
+    if not lines:
+        return 0
+    return len(" ".join(lines[1:]))
+
+
+def _retrieve_for_slot(index: BM25Index, slot: dict, topic: str,
+                       used_sources: set[tuple[str, int]],
+                       subangle: str = "") -> tuple[list, bool, bool]:
+    """Retrieve evidence for one slot, excluding already-used slides."""
+    extra_parts = [str(slot["task"]), TOPIC_ANGLE_HINTS.get(topic, ""), subangle]
+    for ex in slot.get("style_examples", [])[:2]:
+        extra_parts.append(str(ex.get("text", ""))[:220])
+    query = topic_query(topic, " ".join(extra_parts))
     allowed = TOPIC_DECKS.get(topic)
-    hits = index.search(query, k=10, max_per_deck=4,
+    hits = index.search(query, k=30, max_per_deck=6,
                         allowed_prefixes=allowed)
     fallback = False
     if len(hits) < 3:
         fallback = True
-        hits = index.search(query, k=10, max_per_deck=4)
-    return hits, fallback
+        hits = index.search(query, k=30, max_per_deck=6)
+    body = [h for h in hits if _body_chars(h.chunk) >= 80]
+    if len(body) >= 3:
+        hits = body
+    fresh = [h for h in hits
+             if (h.chunk.deck, h.chunk.slide) not in used_sources]
+    if len(fresh) < 3 and allowed:
+        # Small decks (notably 071 Ethics) can produce fewer than three BM25
+        # hits.  Fill from unused chunks in the allowed decks before allowing
+        # any source overlap.
+        have = {h.chunk.chunk_id for h in fresh}
+        for c in index.chunks:
+            if not c.deck.startswith(allowed):
+                continue
+            if (c.deck, c.slide) in used_sources or c.chunk_id in have:
+                continue
+            fresh.append(Hit(0.0, c))
+            have.add(c.chunk_id)
+            if len(fresh) >= 3:
+                break
+    overlap_allowed = False
+    if len(fresh) >= 3:
+        hits = fresh
+    else:
+        overlap_allowed = True
+    return hits, fallback, overlap_allowed
+
+
+def _retrieve_for_group(index: BM25Index, group: list[dict],
+                        used_sources: set[tuple[str, int]]
+                        ) -> tuple[dict[str, list], list, bool, bool]:
+    """Retrieve, giving each slot in a pair its own disjoint slide pool.
+
+    Slot (a) reserves its slides first; slot (b) then retrieves fresh slides.
+    If (b) has fewer than three fresh chunks, it falls back to overlapping
+    evidence and the caller records that case.
+    """
+    topic = group[0]["topic"]
+    evidence: dict[str, list] = {}
+    all_hits: list = []
+    seen_chunks: set[str] = set()
+    reserved = set(used_sources)
+    fallback = False
+    overlap_allowed = False
+    # Give the higher-mark slot first choice of slides (e.g. 6-mark (b)
+    # before 2-mark (a)); the lower-mark slot then uses fresh alternatives.
+    ordered = sorted(group, key=lambda s: (-int(s["marks"]),
+                                           group.index(s)))
+    for slot in ordered:
+        hits, fb, ov = _retrieve_for_slot(index, slot, topic, reserved)
+        fallback = fallback or fb
+        overlap_allowed = overlap_allowed or ov
+        evidence[slot["slot"]] = hits
+        for h in hits:
+            if h.chunk.chunk_id not in seen_chunks:
+                all_hits.append(h)
+                seen_chunks.add(h.chunk.chunk_id)
+            reserved.add((h.chunk.deck, h.chunk.slide))
+    return evidence, all_hits, fallback, overlap_allowed
 
 
 def _style_examples(group: list[dict], limit: int = 5) -> list[dict]:
@@ -142,7 +313,12 @@ def _style_examples(group: list[dict], limit: int = 5) -> list[dict]:
     return out
 
 
-def _prompt(group: list[dict], hits: list, errors: list[str] | None) -> str:
+def _prompt(group: list[dict], evidence: dict[str, list],
+            errors: list[str] | None, sibling_text: str = "",
+            shared_scenario: str = "", dependent: bool = False,
+            scenario_required: bool = False,
+            same_topic_questions: list[str] | None = None,
+            subangle: str = "") -> str:
     topic = group[0]["topic"]
     specs = []
     for s in group:
@@ -154,26 +330,49 @@ def _prompt(group: list[dict], hits: list, errors: list[str] | None) -> str:
             "part": s["part"],
             "dependent": bool(s.get("dependent")),
             "dependent_on": s.get("dependent_on", ""),
-            "angle_hint": SLOT_ANGLE_HINTS.get(s["slot"], ""),
+            "angle_hint": TOPIC_ANGLE_HINTS.get(s["topic"], ""),
+            "sub_angle": subangle,
         })
     examples = _style_examples(group)
     example_text = "\n".join(
         f"- {e['paper']} {e['q']} ({e['marks']} marks): {e['text']}"
         for e in examples) or "(none available)"
-    chunks = "\n\n".join(
-        f"[{h.chunk.chunk_id}] {h.chunk.deck} | slide {h.chunk.slide}\n"
-        f"{h.chunk.text}" for h in hits)
-    qid = group[0]["question"]
-    angle = ANGLE_HINTS.get(qid, "")
+    evidence_text = ""
+    for s in group:
+        ev = evidence.get(s["slot"], [])
+        evidence_text += (
+            f"\nEVIDENCE FOR {s['slot']} (use only these chunk ids)\n"
+            + "\n\n".join(
+                f"[{h.chunk.chunk_id}] {h.chunk.deck} | slide "
+                f"{h.chunk.slide}\n{h.chunk.text}" for h in ev)
+            + "\n")
+    angle = TOPIC_ANGLE_HINTS.get(topic, "")
     pair = len(group) > 1
-    dependent = any(s.get("dependent") for s in group)
-    if pair and dependent:
+    scenario_rule = ""
+    if scenario_required:
+        scenario_rule = (
+            "\nPART B SCENARIO: write one short scenario of 20-70 words that "
+            "is grounded only in the evidence. Put it in the top-level "
+            "\"scenario\" field; do not put marks, numbering, or questions in "
+            "it. Do not introduce facts that are not in the evidence. The "
+            "sibling question will reuse this scenario.\n")
+    elif shared_scenario:
+        scenario_rule = (
+            "\nSHARED PART B SCENARIO (already written by (a)):\n"
+            f"{shared_scenario}\n"
+            "Your question must refer to this scenario (use 'the scenario' or "
+            "a term from it). Leave the output \"scenario\" field empty.\n")
+    if dependent:
         pair_rule = (
-            "\nDEPENDENT PAIR: the two questions must be generated together. "
-            "Question (b) must begin with 'Refer to your answer in (a)' (or "
-            "'Based on the scenario in (a)') and must build on the answer/"
-            "scenario of (a); it must not merely repeat (a). Both must stay "
-            "on the same topic.\n")
+            "\nDEPENDENT (b): this question follows (a). Begin with 'Refer to "
+            "your answer in (a)' or 'Based on the scenario in (a)' and build "
+            "on (a); do not merely repeat it.\n")
+    elif sibling_text:
+        pair_rule = (
+            "\nSIBLING CONTEXT: the earlier question in the same paper is:\n"
+            f"{sibling_text}\n"
+            "Do not duplicate its angle or marking points; choose a different "
+            "aspect of the topic.\n")
     elif pair:
         pair_rule = (
             "\nSIBLING PAIR: both questions share one topic but must test "
@@ -182,13 +381,16 @@ def _prompt(group: list[dict], hits: list, errors: list[str] | None) -> str:
             "Each question has its own mark count and points.\n")
     else:
         pair_rule = ""
+    same_topic_text = "\n".join(
+        f"- {q[:240]}" for q in (same_topic_questions or [])[-5:])
     retry = ""
     if errors:
         retry = (
             "\nPREVIOUS ATTEMPT FAILED. Fix every listed error and return a "
             "new draft; do not reuse the same question wording:\n"
             + "\n".join(f"- {e}" for e in errors) + "\n")
-    schema = json.dumps({
+    schema = {
+        "scenario": "shared Part B scenario (empty for Part A)",
         "questions": [{
             "slot": "A1a",
             "question": "Explain ...",
@@ -197,8 +399,9 @@ def _prompt(group: list[dict], hits: list, errors: list[str] | None) -> str:
                 "quote": "verbatim contiguous text from the cited chunk",
                 "chunk_id": "exact chunk id from the evidence list",
             }],
-        }]
-    }, indent=2)
+        }],
+    }
+    schema = json.dumps(schema, indent=2)
     return f"""Draft original CSC662 Computer Security exam questions.
 
 SLOTS
@@ -207,24 +410,33 @@ SLOTS
 ANGLE HINT (follow this; it prevents repeating another question)
 {angle or '(none)'}
 
+SUB-ANGLE FOR THIS SLOT (must be the focus)
+{subangle or '(none)'}
+
 RULES
 - Use ONLY the lecture evidence below. Do not use outside facts.
+- Do NOT duplicate any already accepted question on this topic:
+{same_topic_text or '(none yet)'}
 - The question must start with the specified command word ({', '.join(s['task'] for s in group)}) and be answerable from the evidence.
 - One marking point per mark: exactly the number of points shown in "marks". Each point is worth 1 mark. Phrase the question so it naturally requires that many distinct points (e.g. "Describe six ..." for 6 marks); do not ask for only two items and then pad.
-- Every marking point must cite one chunk_id from the evidence list and include a quote copied character-for-character from that chunk. The quote must be a contiguous passage of at least 20 characters (a full clause or sentence, not a single word or bare heading); no ellipses (never write "..." or "…"), no paraphrase, no line-break changes.
+- Every marking point must cite one chunk_id from the evidence list and include a quote copied character-for-character from that chunk. The quote must be a contiguous passage of at least 25 characters and 5 words (a full clause or sentence, not a slide title, single word, or bare heading); no ellipses (never write "..." or "…"), no paraphrase, no line-break changes.
+- The quote must share at least one key content term with its marking point; prefer quotes that directly contain the point's key terms.
+- If a bullet is only a heading (for example "Operating System Independence"), do not use it as a quote; either find a full sentence elsewhere on the slide or omit that point and use another evidence bullet.
 - Do not split one fact into several points. For 5/6-mark questions, use at least two different slides and give distinct, non-overlapping points.
-- The question and marking points must stay on the slot topic.
+- No (deck, slide) may be cited by both questions in a pair: question (a) and question (b) must use different slides. Earlier paper questions have already reserved some slides; the evidence list is filtered, so do not reuse one slide for both parts.
+- The question and marking points must stay on the slot topic and its allowed decks.
 - Do NOT copy a style example or any past paper question. Use the style examples only for length and tone. Change the scenario and wording.
 - Do not repeat a question angle already used in the paper; the verifier rejects near-duplicates of accepted slots.
 - Do not print marks, numbering, "(a)/(b)", or a marking scheme in the question text.
 - Question length: about 12-70 words.
-- Return one JSON object only, with exactly {len(group)} question(s), matching the slot ids.
-{pair_rule}{retry}
+- Return one JSON object only, with exactly {len(group)} question(s), matching the slot ids, and the scenario field (empty for Part A).
+{pair_rule}{scenario_rule}{retry}
 STYLE EXAMPLES (real past questions; style only, never copy)
 {example_text}
 
 LECTURE EVIDENCE (authoritative; cite chunk_id and quote verbatim)
-{chunks}
+Each slot may cite only the evidence listed under its own slot id.
+{evidence_text}
 
 OUTPUT JSON (this shape)
 {schema}
@@ -239,7 +451,7 @@ SYSTEM = (
 )
 
 
-def _slot_record(s: dict) -> dict:
+def _slot_record(s: dict, subangle: str = "") -> dict:
     qid = s.get("question", "")
     return {
         "slot": s["slot"],
@@ -252,9 +464,42 @@ def _slot_record(s: dict) -> dict:
         "style_examples": s.get("style_examples", []),
         "style_mode": s.get("style_mode", ""),
         "low_style_confidence": bool(s.get("low_style_confidence")),
-        "angle_required": ANGLE_REQUIRED.get(qid, []),
-        "angle_forbidden": ANGLE_FORBIDDEN.get(qid, []),
+        "subangle_required": SUBANGLE_KEYWORDS.get(subangle, []),
     }
+
+
+def _source_overlap(accepted: list[VerifiedQuestion]) -> dict:
+    by_key: dict[str, set[str]] = defaultdict(set)
+    for q in accepted:
+        for pt in q.marking_points:
+            by_key[pt.source_key].add(q.slot)
+    overlaps = {k: sorted(v) for k, v in by_key.items() if len(v) > 1}
+    distinct = len(by_key)
+    return {
+        "distinct_source_keys": distinct,
+        "overlap_keys": overlaps,
+        "overlap_key_count": len(overlaps),
+        "overlap_slot_count": len({s for v in overlaps.values() for s in v}),
+        "overlap_rate": round(len(overlaps) / distinct, 4) if distinct else 0.0,
+    }
+
+
+def _actual_topic_mix(accepted: list[VerifiedQuestion]) -> dict[str, int]:
+    """Topic mix inferred from the cited decks (majority per question)."""
+    out: Counter = Counter()
+    for q in accepted:
+        counts = Counter(deck_topic(pt.source_deck)
+                         for pt in q.marking_points)
+        if counts:
+            top = counts.most_common()
+            if len(top) > 1 and top[0][1] == top[1][1]:
+                topic = q.topic
+            else:
+                topic = top[0][0]
+        else:
+            topic = q.topic
+        out[topic] += q.marks
+    return dict(out)
 
 
 def generate(plan_path: Path, limit: int = 0, model: str | None = None,
@@ -263,6 +508,14 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
     plan = json.loads(plan_path.read_text(encoding="utf-8"))
     slots = _theory_slots(plan)
     groups = _groups(slots)
+    subangles: dict[str, str] = {}
+    topic_counts: Counter = Counter()
+    for _s in slots:
+        _t = _s["topic"]
+        _i = topic_counts[_t]
+        topic_counts[_t] += 1
+        _list = TOPIC_SUBANGLES.get(_t, [""])
+        subangles[_s["slot"]] = _list[_i % len(_list)]
     accepted: list[VerifiedQuestion] = []
     placeholders: list[Placeholder] = []
     previous_groups: list[dict] = []
@@ -294,7 +547,12 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
         groups = groups[:limit]
     chunks = load_chunks(refresh=refresh_decks)
     index = BM25Index(chunks)
+    used_sources: set[tuple[str, int]] = set()
+    for q in accepted:
+        for pt in q.marking_points:
+            used_sources.add((pt.source_file, pt.source_slide))
     results: list[GroupResult] = []
+    accepted_by_slot = {q.slot: q for q in accepted}
     for gi, group in enumerate(groups, 1):
         topic = group[0]["topic"]
         qid = group[0]["question"]
@@ -302,60 +560,176 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
             question=qid, slots=[s["slot"] for s in group], topic=topic,
             tasks=[s["task"] for s in group],
             dependent=bool(group[0].get("dependent")))
-        hits, fallback = _retrieve(index, group)
-        result.fallback_retrieval = fallback
-        result.retrieved = [{
-            "chunk_id": h.chunk.chunk_id, "deck": h.chunk.deck,
-            "slide": h.chunk.slide, "score": round(h.score, 2),
-            "chars": h.chunk.chars,
-        } for h in hits]
-        before_calls, before_tokens = usage.calls, usage.total_tokens
-        errors: list[str] = []
-        verified: list[VerifiedQuestion] = []
-        for attempt in range(1, MAX_ATTEMPTS + 1):
-            result.attempts = attempt
-            user = _prompt(group, hits, errors if attempt > 1 else None)
-            try:
-                llm = chat_json_result(
-                    SYSTEM, user, model=model or config.QWEN_CHEAP_MODEL,
-                    temperature=0.25, usage=usage)
-            except Exception as e:
-                errors = [f"LLM/API error: {e}"]
+        group_accepted = 0
+        for slot in group:
+            sid = slot["slot"]
+            # A dependent (b) cannot be generated if (a) is unresolved.
+            if slot.get("dependent") and sid.endswith("b"):
+                a_id = qid + "a"
+                if a_id not in accepted_by_slot:
+                    reason = f"{sid}: dependent (a) is unresolved"
+                    placeholders.append(Placeholder(
+                        slot=sid, marks=slot["marks"], topic=slot["topic"],
+                        task=slot["task"], reason=reason, attempts=0,
+                        low_style_confidence=bool(
+                            slot.get("low_style_confidence"))))
+                    result.errors.append([reason])
+                    continue
+            # Part B (b) needs the scenario generated by (a).
+            shared_scenario = ""
+            if (slot.get("part") == "B" and sid.endswith("b")):
+                a_id = qid + "a"
+                if a_id not in accepted_by_slot:
+                    reason = f"{sid}: Part B scenario (a) is unresolved"
+                    placeholders.append(Placeholder(
+                        slot=sid, marks=slot["marks"], topic=slot["topic"],
+                        task=slot["task"], reason=reason, attempts=0,
+                        low_style_confidence=bool(
+                            slot.get("low_style_confidence"))))
+                    result.errors.append([reason])
+                    continue
+                shared_scenario = accepted_by_slot[a_id].scenario
+            subangle = subangles.get(sid, "")
+            hits, fallback, overlap_allowed = _retrieve_for_slot(
+                index, slot, topic, used_sources, subangle)
+            result.fallback_retrieval = result.fallback_retrieval or fallback
+            result.overlap_allowed = result.overlap_allowed or overlap_allowed
+            evidence = {sid: hits}
+            slot_chunk_ids = {
+                sid: {h.chunk.chunk_id for h in hits}
+            }
+            result.retrieved.extend([{
+                "slot": sid,
+                "chunk_id": h.chunk.chunk_id, "deck": h.chunk.deck,
+                "slide": h.chunk.slide, "score": round(h.score, 2),
+                "chars": h.chunk.chars,
+            } for h in hits])
+            sibling_text = ""
+            if sid.endswith("b"):
+                a_id = qid + "a"
+                if a_id in accepted_by_slot:
+                    sibling_text = accepted_by_slot[a_id].question
+            scenario_required = (slot.get("part") == "B"
+                                 and sid.endswith("a"))
+            before_calls, before_tokens = usage.calls, usage.total_tokens
+            errors: list[str] = []
+            verified: list[VerifiedQuestion] = []
+            for attempt in range(1, MAX_ATTEMPTS + 1):
+                result.attempts += 1
+                user = _prompt(
+                    [slot], evidence, errors if attempt > 1 else None,
+                    sibling_text=sibling_text,
+                    shared_scenario=shared_scenario,
+                    dependent=bool(slot.get("dependent")),
+                    scenario_required=scenario_required,
+                    same_topic_questions=[
+                        q.question for q in accepted
+                        if q.topic == slot["topic"]][-5:],
+                    subangle=subangle)
+                try:
+                    llm = chat_json_result(
+                        SYSTEM, user, model=model or config.QWEN_CHEAP_MODEL,
+                        temperature=0.15, usage=usage)
+                except Exception as e:
+                    errors = [f"LLM/API error: {e}"]
+                    result.errors.append(errors)
+                    continue
+                result.last_draft = llm.data
+                try:
+                    draft = TheoryDraft.model_validate(llm.data)
+                except ValidationError as e:
+                    errors = [f"JSON schema error: {e.errors()[:4]}"]
+                    result.errors.append(errors)
+                    continue
+                verified, errors = verify_draft(
+                    draft, [_slot_record(slot, subangle)],
+                    [h.chunk for h in hits],
+                    [q.model_dump() for q in accepted],
+                    used_sources=used_sources,
+                    allow_overlap=overlap_allowed,
+                    scenario_required=scenario_required,
+                    shared_scenario=shared_scenario,
+                    slot_chunk_ids=slot_chunk_ids)
+                # Deterministic wording repair: if the only failure is a
+                # missing (a)-reference or scenario reference, prepend the
+                # required phrase and verify again.  This does not change any
+                # marking point or quote.
+                if errors and slot.get("dependent") and sid.endswith("b") \
+                        and all("does not refer back" in e for e in errors):
+                    q0 = draft.questions[0]
+                    draft2 = TheoryDraft(
+                        scenario=draft.scenario,
+                        questions=[DraftQuestion(
+                            slot=q0.slot,
+                            question="Refer to your answer in (a). "
+                                     + q0.question,
+                            marking_points=q0.marking_points)])
+                    verified2, errors2 = verify_draft(
+                        draft2, [_slot_record(slot, subangle)],
+                        [h.chunk for h in hits],
+                        [q.model_dump() for q in accepted],
+                        used_sources=used_sources,
+                        allow_overlap=overlap_allowed,
+                        scenario_required=scenario_required,
+                        shared_scenario=shared_scenario,
+                        slot_chunk_ids=slot_chunk_ids)
+                    if not errors2 and verified2:
+                        verified, errors = verified2, errors2
+                        result.last_draft = draft2.model_dump()
+                if errors and shared_scenario and all(
+                        "must refer to the shared scenario" in e for e in errors):
+                    q0 = draft.questions[0]
+                    draft2 = TheoryDraft(
+                        scenario=draft.scenario,
+                        questions=[DraftQuestion(
+                            slot=q0.slot,
+                            question="Based on the scenario, " + q0.question,
+                            marking_points=q0.marking_points)])
+                    verified2, errors2 = verify_draft(
+                        draft2, [_slot_record(slot, subangle)],
+                        [h.chunk for h in hits],
+                        [q.model_dump() for q in accepted],
+                        used_sources=used_sources,
+                        allow_overlap=overlap_allowed,
+                        scenario_required=scenario_required,
+                        shared_scenario=shared_scenario,
+                        slot_chunk_ids=slot_chunk_ids)
+                    if not errors2 and verified2:
+                        verified, errors = verified2, errors2
+                        result.last_draft = draft2.model_dump()
                 result.errors.append(errors)
-                continue
-            try:
-                draft = TheoryDraft.model_validate(llm.data)
-            except ValidationError as e:
-                errors = [f"JSON schema error: {e.errors()[:4]}"]
-                result.errors.append(errors)
-                continue
-            verified, errors = verify_draft(
-                draft, [_slot_record(s) for s in group],
-                [h.chunk for h in hits],
-                [q.model_dump() for q in accepted])
-            result.errors.append(errors)
-            if not errors and len(verified) == len(group):
-                break
-        result.usage = {
-            "calls": usage.calls - before_calls,
-            "tokens": usage.total_tokens - before_tokens,
-        }
-        if not errors and len(verified) == len(group):
-            accepted.extend(verified)
-            result.accepted = True
-            print(f"[{gi}/{len(groups)}] {qid} accepted "
-                  f"({len(verified)} question(s), attempt {result.attempts})",
-                  flush=True)
-        else:
-            reason = "; ".join(errors[-8:]) if errors else "unknown error"
-            for s in group:
+                if not errors and verified:
+                    break
+            result.usage["calls"] = (result.usage.get("calls", 0)
+                                     + usage.calls - before_calls)
+            result.usage["tokens"] = (result.usage.get("tokens", 0)
+                                      + usage.total_tokens - before_tokens)
+            if not errors and verified:
+                if shared_scenario:
+                    a_q = accepted_by_slot.get(qid + "a")
+                    if a_q is not None:
+                        for q in verified:
+                            q.scenario_grounding = a_q.scenario_grounding
+                accepted.extend(verified)
+                for q in verified:
+                    accepted_by_slot[q.slot] = q
+                    for pt in q.marking_points:
+                        used_sources.add((pt.source_file, pt.source_slide))
+                group_accepted += 1
+                print(f"[{gi}/{len(groups)}] {sid} accepted "
+                      f"(attempt {result.attempts} cumulative)", flush=True)
+            else:
+                reason = "; ".join(errors[-8:]) if errors else "unknown error"
                 placeholders.append(Placeholder(
-                    slot=s["slot"], marks=s["marks"], topic=s["topic"],
-                    task=s["task"],
-                    reason=reason[:1500], attempts=result.attempts,
-                    low_style_confidence=bool(s.get("low_style_confidence"))))
-            print(f"[{gi}/{len(groups)}] {qid} PLACEHOLDER after "
-                  f"{result.attempts} attempts: {reason[:160]}", flush=True)
+                    slot=sid, marks=slot["marks"], topic=slot["topic"],
+                    task=slot["task"], reason=reason[:1500],
+                    attempts=result.attempts,
+                    low_style_confidence=bool(
+                        slot.get("low_style_confidence"))))
+                print(f"[{gi}/{len(groups)}] {sid} PLACEHOLDER after "
+                      f"{result.attempts} cumulative attempts: "
+                      f"{reason[:160]}", flush=True)
+        result.accepted = group_accepted == len(group)
         results.append(result)
 
     accepted.sort(key=lambda q: q.slot)
@@ -376,6 +750,27 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
         "placeholder_count": len(placeholders),
         "cost_per_accepted_question_usd": round(
             cost / accepted_count, 6) if accepted_count else None,
+        "source_overlap": _source_overlap(accepted),
+        "planned_topic_mix": plan.get("assigned_theory_topic_marks", {}),
+        "actual_topic_mix": _actual_topic_mix(accepted),
+        "low_term_overlap_points": [
+            {"slot": q.slot, "point": pt.point, "overlap": pt.term_overlap}
+            for q in accepted for pt in q.marking_points
+            if pt.low_term_overlap
+        ],
+        "short_quote_points": [
+            {"slot": q.slot, "point": pt.point, "quote": pt.quote}
+            for q in accepted for pt in q.marking_points
+            if pt.short_quote
+        ],
+        "repaired_quote_count": sum(
+            1 for q in accepted for pt in q.marking_points
+            if pt.quote_repaired),
+        "scenario_questions": [
+            {"slot": q.slot, "scenario": q.scenario,
+             "grounding": q.scenario_grounding}
+            for q in accepted if q.scenario
+        ],
         "deck_coverage": coverage(chunks),
         "eth_deck_coverage": coverage(
             [c for c in chunks if c.deck.startswith("071")]),
@@ -389,16 +784,22 @@ def report(payload: dict) -> str:
         "",
         f"- model: **{payload['model']}**; attempt limit: "
         f"{payload['attempt_limit']} (initial + up to 3 retries)",
-        f"- accepted questions: **{payload['accepted_count']}**; "
+        f"- accepted theory answers: **{payload['accepted_count']}** "
+        "(supported by lecture slides, not lecturer-marked); "
         f"placeholders: **{payload['placeholder_count']}**",
+        f"- source overlap: **{payload.get('source_overlap', {}).get('overlap_key_count', 0)}** "
+        "keys; target 0",
+        f"- low term-overlap points: **{len(payload.get('low_term_overlap_points', []))}**; "
+        f"short quotes: **{len(payload.get('short_quote_points', []))}**; "
+        f"repaired quotes: **{payload.get('repaired_quote_count', 0)}**",
         f"- tokens: {payload['usage']['prompt_tokens']} prompt + "
         f"{payload['usage']['completion_tokens']} completion = "
         f"{payload['usage']['total_tokens']} across "
         f"{payload['usage']['calls']} calls",
         f"- estimated cost: **${payload['usage']['cost_usd']:.4f}** "
         f"(input ${payload['usage']['input_price_per_1m']}/M, output "
-        f"${payload['usage']['output_price_per_1m']}/M; public qwen-flash "
-        "list-price estimate, not an invoice)",
+        f"${payload['usage']['output_price_per_1m']}/M; public "
+        "qwen-flash list-price estimate, not an invoice)",
         f"- cost per accepted question: "
         f"**${payload['cost_per_accepted_question_usd'] or 0:.4f}**",
         "",
@@ -447,12 +848,17 @@ def report(payload: dict) -> str:
         "## Verification rules applied",
         "",
         "- quote must be a verbatim contiguous substring of the cited retrieved "
-        "chunk (whitespace-normalised); ellipses rejected;",
+        "chunk (whitespace-normalised); ellipses and slide-title-only quotes "
+        "rejected; near-paraphrases repaired only when an exact close line exists;",
         "- exactly one marking point per mark;",
-        "- near-copy rejected at fuzzy similarity >= 0.80 against all 35 papers;",
-        "- command word must appear in the question; dependent (b) must refer "
-        "back to (a);",
-        "- no retrieval evidence => placeholder, never an unsourced answer.",
+        "- near-copy rejected at fuzzy similarity >= 0.80 against all 35 papers; "
+        "cross-generated near-duplicates and source overlap rejected;",
+        "- cited decks must be in the slot topic's allowed deck map;",
+        "- quote must share a key term with its marking point; low overlap is "
+        "flagged for human review;",
+        "- command word and topic sub-angle must appear; dependent (b) must refer "
+        "back to (a); Part B (a)/(b) share a generated scenario;",
+        "- no retrieval evidence => placeholder, never an unsupported answer.",
     ]
     return "\n".join(lines)
 

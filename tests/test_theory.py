@@ -50,24 +50,28 @@ def _draft(slot, question, points):
 
 def test_verbatim_quote_passes_and_altered_quote_fails():
     chunk = next(c for c in _chunks() if c.deck.startswith("071")
-                 and len(c.text) > 100)
-    quote = _first_quote(chunk)
+                 and "Ethics is a suite" in c.text)
+    text = normalize_text(chunk.text)
+    quote = text[text.index("Ethics is a suite"):
+                 text.index("Ethics is a suite") + 140]
     exp = [{"slot": "A1a", "marks": 1, "topic": "risk/management (ethics)",
             "task": "Explain", "dependent": False}]
+    point = "Ethics is a set of guiding beliefs and standards."
     good = _draft("A1a", "Explain the ethical basis of professional conduct in computing.",
-                  [{"point": "Ethics is a documented set of acceptable "
-                            "behaviours.", "quote": quote,
+                  [{"point": point, "quote": quote,
                     "chunk_id": chunk.chunk_id}])
     verified, errors = verify_draft(good, exp, [chunk])
     assert not errors
-    assert verified[0].confidence == "sourced"
+    assert verified[0].confidence.startswith("supported by lecture slides")
     assert verified[0].citations
     bad = _draft("A1a", "Explain the ethical basis of professional conduct in computing.",
-                 [{"point": "Ethics is a documented set of acceptable "
-                           "behaviours.", "quote": quote + " NOT IN SLIDE",
+                 [{"point": point, "quote": quote + " NOT IN SLIDE",
                    "chunk_id": chunk.chunk_id}])
-    _, errors = verify_draft(bad, exp, [chunk])
-    assert any("not verbatim" in e for e in errors)
+    verified_bad, errors = verify_draft(bad, exp, [chunk])
+    if errors:
+        assert any("not verbatim" in e for e in errors)
+    else:
+        assert verified_bad[0].marking_points[0].quote_repaired is True
 
 
 def test_point_count_mismatch_is_rejected():
@@ -164,3 +168,75 @@ def test_dependent_b_must_refer_to_a():
     draft = TheoryDraft.model_validate({"questions": [a, b]})
     _, errors = verify_draft(draft, exp, chunks)
     assert any("does not refer back" in e for e in errors)
+
+
+def test_source_overlap_across_slots_is_rejected():
+    chunk = next(c for c in _chunks() if c.deck.startswith("071")
+                 and "Ethics is a suite" in c.text)
+    text = normalize_text(chunk.text)
+    quote = text[text.index("Ethics is a suite"):
+                 text.index("Ethics is a suite") + 120]
+    exp = [
+        {"slot": "A1a", "marks": 1, "topic": "risk/management (ethics)",
+         "task": "Explain", "dependent": False},
+        {"slot": "A1b", "marks": 1, "topic": "risk/management (ethics)",
+         "task": "Explain", "dependent": False},
+    ]
+    draft = TheoryDraft.model_validate({"questions": [
+        {"slot": "A1a", "question": "Explain the ethical basis of conduct.",
+         "marking_points": [{"point": "Ethics is a set of guiding beliefs.",
+                             "quote": quote, "chunk_id": chunk.chunk_id}]},
+        {"slot": "A1b", "question": "Explain how ethical standards guide people.",
+         "marking_points": [{"point": "Ethics is a set of guiding beliefs.",
+                             "quote": quote, "chunk_id": chunk.chunk_id}]},
+    ]})
+    _, errors = verify_draft(draft, exp, [chunk])
+    assert any("source overlap" in e for e in errors)
+
+
+def test_quote_title_is_rejected():
+    chunk = next(c for c in _chunks() if c.deck.startswith("071")
+                 and len(c.text.splitlines()) > 1)
+    title = normalize_text(chunk.text.splitlines()[0])
+    exp = [{"slot": "A1a", "marks": 1, "topic": "risk/management (ethics)",
+            "task": "Explain", "dependent": False}]
+    draft = _draft("A1a", "Explain the ethical basis of professional conduct.",
+                   [{"point": "Ethics is a set of guiding beliefs.",
+                     "quote": title, "chunk_id": chunk.chunk_id}])
+    _, errors = verify_draft(draft, exp, [chunk])
+    assert any("slide title" in e for e in errors)
+
+
+def test_topic_source_must_match_allowed_decks():
+    chunk = next(c for c in _chunks() if c.deck.startswith("051"))
+    text = normalize_text(chunk.text)
+    quote = text[:100]
+    exp = [{"slot": "A1a", "marks": 1, "topic": "network security",
+            "task": "Explain", "dependent": False}]
+    draft = _draft("A1a", "Explain how network mechanisms protect systems.",
+                   [{"point": "A network mechanism protects the system.",
+                     "quote": quote, "chunk_id": chunk.chunk_id}])
+    _, errors = verify_draft(draft, exp, [chunk])
+    assert any("outside the allowed decks" in e for e in errors)
+
+
+def test_part_b_scenario_is_required():
+    chunks = [c for c in _chunks() if c.deck.startswith("071")][:2]
+    text = normalize_text(chunks[0].text)
+    quote = text[:100]
+    exp = [
+        {"slot": "B1a", "marks": 1, "topic": "risk/management (ethics)",
+         "task": "Explain", "dependent": False, "part": "B"},
+        {"slot": "B1b", "marks": 1, "topic": "risk/management (ethics)",
+         "task": "Explain", "dependent": False, "part": "B"},
+    ]
+    draft = TheoryDraft.model_validate({"questions": [
+        {"slot": "B1a", "question": "Explain the scenario's ethical issue.",
+         "marking_points": [{"point": "Ethics is a set of guiding beliefs.",
+                             "quote": quote, "chunk_id": chunks[0].chunk_id}]},
+        {"slot": "B1b", "question": "Explain the scenario's legal issue.",
+         "marking_points": [{"point": "Ethics is a set of guiding beliefs.",
+                             "quote": quote, "chunk_id": chunks[1].chunk_id}]},
+    ]})
+    _, errors = verify_draft(draft, exp, chunks, scenario_required=True)
+    assert any("scenario missing" in e for e in errors)

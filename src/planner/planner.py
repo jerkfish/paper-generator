@@ -198,11 +198,9 @@ def _assign_question_topics(stats: ModernStats, theory_slots: list[Slot],
                   for t in THEORY_TOPICS}
     if not any(pb_weights.values()):
         pb_weights = dict(stats.topic_marks)
-    # Two Part B questions: use the two largest measured Part B topic shares
-    # rather than a two-draw sample that can land on a low-probability pair.
-    ranked = sorted(THEORY_TOPICS, key=lambda t: (-pb_weights[t], t))
-    b_topics = ranked[:2]
-    rng.shuffle(b_topics)
+    # Part B topics are sampled by their measured marks weights (without
+    # replacement), as requested in the quality pass.
+    b_topics = _weighted_sample_without_replacement(pb_weights, 2, rng)
     for q, topic in zip(["B1", "B2"], b_topics):
         qtopics[q] = topic
 
@@ -222,6 +220,22 @@ def _assign_question_topics(stats: ModernStats, theory_slots: list[Slot],
     a_theory = [q for q in QUESTION_ORDER
                 if q.startswith("A") and q not in computed_topics]
     counts = _largest_remainder(residual, len(a_theory))
+    # Keep one question for every topic with a meaningful target when there
+    # are enough questions to do so.  The donor is the topic furthest above
+    # its proportional share, so the mix stays as close as possible.
+    if len(a_theory) >= len(THEORY_TOPICS):
+        total_res = sum(residual.values()) or 1
+        for topic in THEORY_TOPICS:
+            if residual.get(topic, 0) < 4 or counts.get(topic, 0) > 0:
+                continue
+            donors = [t for t in THEORY_TOPICS if counts.get(t, 0) > 1]
+            if not donors:
+                break
+            donor = max(
+                donors,
+                key=lambda t: counts[t] - residual[t] / total_res * len(a_theory))
+            counts[donor] -= 1
+            counts[topic] = counts.get(topic, 0) + 1
     bag = [t for t, n in counts.items() for _ in range(n)]
     fallback_topic = max(residual, key=residual.get)
     while len(bag) < len(a_theory):
@@ -309,6 +323,10 @@ def _assign_tasks(stats: ModernStats, slots: dict[str, Slot],
             groups[(s.part, s.marks)].append(s)
     for (part, marks), group in groups.items():
         weights = _label_weights(stats, part, marks)
+        if marks == 6:
+            # The report must show three real 6-mark examples per label used.
+            weights = {l: c for l, c in weights.items()
+                       if len(six_mark_examples(l, 3)) >= 3}
         bag = _quota_labels(weights, len(group), rng)
         for s, label in zip(group, bag):
             s.task = label
@@ -484,6 +502,11 @@ def build_plan(mode: str, style: str, computed_marks: int | None,
             "part_b_label_counts": m.part_b_label_counts,
             "part_b_label_marks": m.part_b_label_marks,
             "part_b_topic_marks": m.part_b_topic_marks,
+            "part_b_questions": m.part_b_questions,
+            "part_b_scenario_questions": m.part_b_scenario_questions,
+            "part_b_same_topic_pairs": m.part_b_same_topic_pairs,
+            "part_b_dependent_pairs": m.part_b_dependent_pairs,
+            "part_b_scenario_examples": m.part_b_scenario_examples,
         },
         "six_mark_examples": six_examples,
         "low_style_confidence_slots": low,
@@ -541,21 +564,28 @@ def to_markdown(summary: dict) -> str:
         "- Part B command-word rows/marks: "
         + ", ".join(f"{k} {v}" for k, v in m["part_b_label_counts"].items())
         + ".",
+        f"- Part B scenario stems: {m['part_b_scenario_questions']}/"
+        f"{m['part_b_questions']}; same-topic pairs: "
+        f"{m['part_b_same_topic_pairs']}/{m['part_b_questions']}; dependent "
+        f"b: {m['part_b_dependent_pairs']}/{m['part_b_questions']}. Part B "
+        "topics are sampled by their measured marks weights.",
         "",
         "## Slots",
         "",
         "| Slot | Q | Marks | Kind | Topic | Command | Computed type | "
-        "Target size / key | Style n | Style mode | Low conf. | Dependent | "
-        "Notes |",
-        "|---|---|---:|---|---|---|---|---|---:|---|---|---|---|",
+        "Target size / key | Exact style n | Used style n | Style mode | "
+        "Low conf. | Dependent | Notes |",
+        "|---|---|---:|---|---|---|---|---|---:|---:|---|---|---|---|",
     ]
     for s in summary["slots"]:
+        used = len(s.get("style_examples", []))
         lines.append(
             f"| {s['slot']} | {s['question']} | {s['marks']} | {s['kind']} | "
             f"{s['topic']} | {s['task']} | "
             f"{TYPE_LABEL.get(s['computed_type'], s['computed_type'])} | "
             f"{s['target']} | "
             f"{s['style_n'] if s['kind'] == 'theory' else ''} | "
+            f"{used if s['kind'] == 'theory' else ''} | "
             f"{s['style_mode']} | "
             f"{'yes' if s['low_style_confidence'] else ''} | "
             f"{'yes' if s['dependent'] else ''} | "

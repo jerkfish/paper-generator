@@ -3,6 +3,8 @@ from __future__ import annotations
 
 from pydantic import BaseModel, Field
 
+LECTURE_LABEL = "supported by lecture slides (not lecturer-marked)"
+
 
 class MarkingPoint(BaseModel):
     point: str = Field(min_length=3, max_length=500)
@@ -17,6 +19,7 @@ class DraftQuestion(BaseModel):
 
 
 class TheoryDraft(BaseModel):
+    scenario: str = Field(default="", max_length=1200)
     questions: list[DraftQuestion] = Field(min_length=1, max_length=2)
 
 
@@ -27,7 +30,12 @@ class VerifiedPoint(BaseModel):
     source_file: str
     source_slide: int
     source_deck: str
+    source_key: str
     chunk_id: str
+    term_overlap: float = 1.0
+    low_term_overlap: bool = False
+    short_quote: bool = False
+    quote_repaired: bool = False
 
 
 class VerifiedQuestion(BaseModel):
@@ -37,11 +45,15 @@ class VerifiedQuestion(BaseModel):
     topic: str
     task: str
     marking_points: list[VerifiedPoint]
-    confidence: str = "sourced"
+    confidence: str = LECTURE_LABEL
     citations: list[str]
+    source_keys: list[str] = Field(default_factory=list)
+    scenario: str = ""
+    scenario_grounding: float = 1.0
     style_examples: list[dict] = Field(default_factory=list)
     style_mode: str = ""
     low_style_confidence: bool = False
+    overlap_allowed: bool = False
 
 
 class Placeholder(BaseModel):

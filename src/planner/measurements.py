@@ -19,7 +19,8 @@ from openpyxl import load_workbook
 from src.config import OUTPUTS_DIR, TRACKING_XLSX
 from src.fingerprint.types import is_whole_block_row
 from src.planner.fingerprint_data import load_modern_stats
-from src.planner.tasks import DEPENDENT_RE, LABELS, command_word
+from src.planner.tasks import (DEPENDENT_RE, LABELS, RAW_TO_LABEL,
+                               command_word)
 
 
 def _rows() -> list[dict]:
@@ -33,6 +34,28 @@ def _rows() -> list[dict]:
 def _ab(row: dict) -> tuple[str | None, str | None]:
     m = re.match(r"^([AB])(\d+)$", str(row["Q no."]).strip())
     return (m.group(1), m.group(2)) if m else (None, None)
+
+
+def _scenario_prefix(text: str) -> str:
+    t = str(text)
+    low = t.lower()
+    positions = []
+    for raw in RAW_TO_LABEL:
+        m = re.search(r"\b" + re.escape(raw) + r"\b", low)
+        if m:
+            positions.append(m.start())
+    return t[:min(positions)].strip() if positions else t.strip()
+
+
+def _has_scenario(text: str) -> bool:
+    prefix = _scenario_prefix(text)
+    if "?" in prefix:
+        return False
+    words = len(prefix.split())
+    cue = re.search(r"\b(based on|given|you are|your|a student|an employee|"
+                    r"two personnel|a representative|the company|scenario)\b",
+                    prefix.lower())
+    return words >= 10 or bool(cue and words >= 5)
 
 
 @dataclass
@@ -50,6 +73,11 @@ class Measure:
     part_b_raw_counts: dict[str, int]
     part_b_topic_counts: dict[str, int]
     part_b_topic_marks: dict[str, int]
+    part_b_questions: int
+    part_b_scenario_questions: int
+    part_b_same_topic_pairs: int
+    part_b_dependent_pairs: int
+    part_b_scenario_examples: list[dict]
     six_mark_examples: dict[str, list[dict]]
 
 
@@ -68,11 +96,17 @@ def measure() -> Measure:
     pb_raw = Counter()
     pb_topics = Counter()
     pb_topic_marks = Counter()
+    pb_questions = 0
+    pb_scenario = 0
+    pb_same = 0
+    pb_dep = 0
+    pb_examples: list[dict] = []
     for pid in stats.clean_ids:
         prows = [r for r in rows if str(r["Paper ID"]) == pid]
         if any(_ab(r)[0] for r in prows):
             ab_papers.append(pid)
         by_q: dict[str, dict[str, dict]] = defaultdict(dict)
+        pb_by_q: dict[str, dict[str, dict]] = defaultdict(dict)
         for r in prows:
             part, q = _ab(r)
             if part == "A":
@@ -83,6 +117,7 @@ def measure() -> Measure:
                 if raw:
                     pa_raw[raw] += 1
             elif part == "B":
+                pb_by_q[q][str(r["Sub-part"])] = r
                 label, raw = command_word(r["Original question text"])
                 pb_counts[label] += 1
                 pb_marks[label] += int(r["Marks"] or 0)
@@ -93,6 +128,23 @@ def measure() -> Measure:
         for q, sub in by_q.items():
             if "a" in sub and "b" in sub:
                 pairs.append((pid, q, sub["a"], sub["b"]))
+        for q, sub in pb_by_q.items():
+            if "a" not in sub:
+                continue
+            pb_questions += 1
+            if _has_scenario(sub["a"]["Original question text"]):
+                pb_scenario += 1
+                if len(pb_examples) < 8:
+                    pb_examples.append({
+                        "paper": pid, "q": f"B{q}",
+                        "prefix": _scenario_prefix(
+                            sub["a"]["Original question text"])[:220],
+                    })
+            if "b" in sub:
+                if str(sub["a"]["Topic"]) == str(sub["b"]["Topic"]):
+                    pb_same += 1
+                if DEPENDENT_RE.search(str(sub["b"]["Original question text"])):
+                    pb_dep += 1
     same = sum(1 for _, _, a, b in pairs
                if str(a["Topic"]) == str(b["Topic"]))
     dep = sum(1 for _, _, _, b in pairs
@@ -125,6 +177,11 @@ def measure() -> Measure:
         part_b_raw_counts=dict(pb_raw),
         part_b_topic_counts=dict(pb_topics),
         part_b_topic_marks=dict(pb_topic_marks),
+        part_b_questions=pb_questions,
+        part_b_scenario_questions=pb_scenario,
+        part_b_same_topic_pairs=pb_same,
+        part_b_dependent_pairs=pb_dep,
+        part_b_scenario_examples=pb_examples,
         six_mark_examples=six,
     )
 
@@ -173,6 +230,27 @@ def to_markdown(m: Measure) -> str:
     ]
     for topic, n in sorted(m.part_b_topic_marks.items(), key=lambda x: -x[1]):
         lines.append(f"| {topic} | {m.part_b_topic_counts.get(topic, 0)} | {n} |")
+    lines += [
+        "",
+        "## (c2) Part B scenario and (a)/(b) relation",
+        "",
+        f"- Part B questions with both a/b rows: **{m.part_b_questions}**.",
+        f"- Scenario paragraph detected in the (a) stem: "
+        f"**{m.part_b_scenario_questions}/{m.part_b_questions}** "
+        f"({m.part_b_scenario_questions / m.part_b_questions:.1%}). "
+        "Method: text before the first command verb is at least 10 words, or "
+        "a scenario cue plus at least 5 words. 2023-02's Ali scenario may be "
+        "in a separate unlogged paragraph, so this is a lower bound.",
+        f"- (a)/(b) same topic: **{m.part_b_same_topic_pairs}/"
+        f"{m.part_b_questions}**.",
+        f"- (b) explicitly refers back to (a)/the above/scenario: "
+        f"**{m.part_b_dependent_pairs}/{m.part_b_questions}**.",
+        "",
+        "| Example | Detected scenario prefix |",
+        "|---|---|",
+    ]
+    for ex in m.part_b_scenario_examples:
+        lines.append(f"| {ex['paper']} {ex['q']} | {ex['prefix']} |")
     lines += [
         "",
         "## (d) Three real 6-mark examples per command-word label",

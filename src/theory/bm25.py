@@ -10,6 +10,40 @@ from src.theory.decks import DeckChunk
 
 _TOKEN_RE = re.compile(r"[a-z0-9][a-z0-9+#.-]*")
 
+DECK_TOPIC = {
+    "011": "attacks/malware",
+    "021": "attacks/malware",
+    "022": "authentication/biometrics",
+    "072": "authentication/biometrics",
+    "023": "access control models",
+    "024": "access control models",
+    "031": "classical ciphers",
+    "032": "block ciphers",
+    "033": "block ciphers",
+    "034": "block ciphers",
+    "035": "general cryptography",
+    "036": "general cryptography",
+    "037": "hashing/signatures",
+    "038": "authentication/biometrics",
+    "041": "software/OS security",
+    "042": "software/OS security",
+    "051": "software/OS security",
+    "052": "software/OS security",
+    "053": "software/OS security",
+    "061": "network security",
+    "062": "network security",
+    "071": "risk/management (ethics)",
+    "073": "trusted computing/blockchain",
+    "074": "trusted computing/blockchain",
+    "074B": "trusted computing/blockchain",
+}
+
+
+def deck_topic(deck: str) -> str:
+    prefix = str(deck).split(" ")[0]
+    return DECK_TOPIC.get(prefix, "other")
+
+
 TOPIC_DECKS = {
     "attacks/malware": ("011", "022", "041", "042", "051", "052", "061", "062"),
     "authentication/biometrics": ("022", "023", "041", "042", "072"),

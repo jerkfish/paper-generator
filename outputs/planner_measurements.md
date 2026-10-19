@@ -18,9 +18,11 @@ Dependency detection used: `your answer in (a)`, `answer in (a)`, `the above`, `
 | List | 12 | 28 | 0 | 0 |
 | Explain | 56 | 198 | 13 | 54 |
 | Describe | 16 | 84 | 2 | 8 |
-| Discuss | 17 | 90 | 5 | 27 |
+| Discuss | 14 | 72 | 3 | 16 |
 | Compare | 3 | 18 | 0 | 0 |
-| Justify | 4 | 24 | 5 | 28 |
+| Justify | 1 | 6 | 0 | 0 |
+| Propose | 3 | 18 | 5 | 28 |
+| Analyse | 3 | 18 | 2 | 11 |
 | Other | 7 | 30 | 11 | 44 |
 
 Top raw command words (mapped to the labels above): Part A {'what is': 22, 'identify': 20, 'support': 1, 'describe': 14, 'explain': 29, 'define': 2, 'give': 3, 'state': 8, 'why': 4, 'discuss': 14, 'list': 12, 'how': 1, 'analyze': 1, 'propose': 3, 'differentiate': 1, 'compare': 2, 'critically': 2}; Part B {'identify': 5, 'explain': 12, 'state': 1, 'discuss': 3, 'what is': 1, 'give': 1, 'propose': 3, 'describe': 2, 'suggest': 1, 'analyze': 1, 'recommend': 1, 'critically': 1}.
@@ -41,6 +43,25 @@ Top raw command words (mapped to the labels above): Part A {'what is': 22, 'iden
 | block ciphers | 1 | 5 |
 | public-key | 1 | 5 |
 | other | 1 | 2 |
+
+## (c2) Part B scenario and (a)/(b) relation
+
+- Part B questions with both a/b rows: **19**.
+- Scenario paragraph detected in the (a) stem: **7/19** (36.8%). Method: text before the first command verb is at least 10 words, or a scenario cue plus at least 5 words. 2023-02's Ali scenario may be in a separate unlogged paragraph, so this is a lower bound.
+- (a)/(b) same topic: **11/19**.
+- (b) explicitly refers back to (a)/the above/scenario: **2/19**.
+
+| Example | Detected scenario prefix |
+|---|---|
+| CSC662-2019-06 B1 | Based on the above report, from computer security perspective, |
+| CSC662-2022-02 B1 | Based on the segment of C source code above: 
+
+i) |
+| CSC662-2023-02 B2 | Your manager asks you to log into the Human Resource Management system using his user-id and password to retrieve some reports. |
+| CSC662-2024-07 B1 | A student suspects there is a vulnerability in a system. She conducts tests this by trying to exploit the vulnerability. She succeeds to obtain privileges that she would not have. She reports both the hole and her exploi |
+| CSC662-2025-02 B1 | An employee at a technology company discovers a vulnerability in the company's new software product before its public release. Without notifying the company, he exploits the vulnerability to create a backdoor for persona |
+| CSC662-2025-02 B2 | Based on the senario above, |
+| CSC662-2025-07 B7 | You are reviewing the password security policies on a UNIX server. Your instructor asks you to |
 
 ## (d) Three real 6-mark examples per command-word label
 
@@ -99,6 +120,16 @@ c) Canary
 
 ### Justify
 
+- **CSC662-2019-06 QA2b**: Provide THREE (3) reasons to support your answer in (a). O Hak Cipta Universiti Teknologi MARA (2 marks) (6 marks) CONFIDENTIAL
+
+### Propose
+
 - **CSC662-2016-06 Q3a**: Describes by giving ONE (1) example each from real life, where the following security objectives are needed and suggest suitable security mechanisms to achieve them: i. Confidentiality ii. Integrity iii. Availability
 - **CSC662-2016-12 Q11ii**: Suggest ONE (1) unique type of biometric methods for each of the situation below and give a reason. ii. iii. Entry and exit points in a nuclear research center.
-- **CSC662-2019-06 QA2b**: Provide THREE (3) reasons to support your answer in (a). O Hak Cipta Universiti Teknologi MARA (2 marks) (6 marks) CONFIDENTIAL
+- **CSC662-2025-07 QA1b**: Propose how a biometric authentication system can be integrated into the hospital's access control process. Discuss THREE (3) factors that must be considered to ensure its effecliveness and security.
+
+### Analyse
+
+- **CSC662-2025-02 QA10b**: Analyze the ethical challenges raised due to the integration of advanced Al technologies in this company. How can the company ensure that this tool will aligns with ethical standards?
+- **CSC662-2025-07 QB9b**: Analyze the ethical challenges raised due to the integration of advanced Al technologies in this company. How can the company ensure that this tool will aligns with ethical standards?
+- **CSC662-2026-02 QA3b**: Critically discuss why this approach is insecure in today's environment and propose a more secure alternative

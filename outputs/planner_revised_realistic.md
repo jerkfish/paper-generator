@@ -7,53 +7,54 @@
 ## Measurements used
 
 - Part A pairs: 72 across 8 papers; same topic 55/72 (76.4%); dependent (b) 7/72 (9.7%).
-- Part A command-word rows/marks: Explain 56, State 31, Justify 4, Describe 16, Other 7, Discuss 17, List 12, Compare 3.
-- Part B command-word rows/marks: State 7, Explain 13, Discuss 5, Other 11, Justify 5, Describe 2.
+- Part A command-word rows/marks: Explain 56, State 31, Justify 1, Describe 16, Other 7, Discuss 14, List 12, Analyse 3, Propose 3, Compare 3.
+- Part B command-word rows/marks: State 7, Explain 13, Discuss 3, Other 11, Propose 5, Describe 2, Analyse 2.
+- Part B scenario stems: 7/19; same-topic pairs: 11/19; dependent b: 2/19. Part B topics are sampled by their measured marks weights.
 
 ## Slots
 
-| Slot | Q | Marks | Kind | Topic | Command | Computed type | Target size / key | Style n | Style mode | Low conf. | Dependent | Notes |
-|---|---|---:|---|---|---|---|---|---:|---|---|---|---|
-| A1a | A1 | 2 | theory | network security | Explain |  |  | 17 | exact |  |  | style n=17 |
-| A1b | A1 | 6 | theory | network security | Explain |  |  | 3 | exact |  |  | style n=3 |
-| A2a | A2 | 2 | theory | classical ciphers | List |  |  | 0 | topic+marks (any command) | yes |  | style n=0; widened to topic+marks (any command); low style confidence |
-| A2b | A2 | 6 | computed | classical ciphers | compute | Vigenere | 13-18 letters; keyword 6-8 letters |  |  |  |  | computed slot; print the 26 x 26 Vigenere tableau in the question |
-| A3a | A3 | 2 | theory | trusted computing/blockchain | State |  |  | 4 | exact |  | yes | style n=4; dependent pair |
-| A3b | A3 | 6 | theory | trusted computing/blockchain | Justify |  |  | 0 | topic+marks (any command) | yes | yes | style n=0; widened to topic+marks (any command); low style confidence; dependent pair |
-| A4a | A4 | 2 | theory | authentication/biometrics | Explain |  |  | 11 | exact |  |  | style n=11 |
-| A4b | A4 | 6 | theory | authentication/biometrics | Discuss |  |  | 5 | exact |  |  | style n=5 |
-| A5a | A5 | 2 | theory | software/OS security | State |  |  | 2 | topic+marks (any command) | yes |  | style n=2; widened to topic+marks (any command); low style confidence |
-| A5b | A5 | 6 | theory | software/OS security | Describe |  |  | 2 | topic+marks (any command) | yes |  | style n=2; widened to topic+marks (any command); low style confidence |
-| A6a | A6 | 2 | theory | attacks/malware | List |  |  | 0 | topic+marks (any command) | yes |  | style n=0; widened to topic+marks (any command); low style confidence |
-| A6b | A6 | 6 | theory | attacks/malware | Describe |  |  | 12 | exact |  |  | style n=12 |
-| A7a | A7 | 2 | theory | access control models | Explain |  |  | 5 | exact |  |  | style n=5 |
-| A7b | A7 | 6 | theory | access control models | State |  |  | 1 | topic+marks (any command) | yes |  | style n=1; widened to topic+marks (any command); low style confidence |
-| A8a | A8 | 2 | theory | attacks/malware | State |  |  | 6 | exact |  |  | style n=6 |
-| A8b | A8 | 6 | theory | attacks/malware | State |  |  | 5 | exact |  |  | style n=5 |
-| A9a | A9 | 2 | theory | authentication/biometrics | Explain |  |  | 11 | exact |  |  | style n=11 |
-| A9b | A9 | 6 | theory | authentication/biometrics | Discuss |  |  | 5 | exact |  |  | style n=5 |
-| A10a | A10 | 2 | theory | access control models | Explain |  |  | 5 | exact |  |  | style n=5 |
-| A10b | A10 | 6 | theory | access control models | Explain |  |  | 4 | exact |  |  | style n=4 |
-| B1a | B1 | 5 | theory | risk/management (ethics) | Explain |  |  | 2 | topic+marks (any command) | yes |  | style n=2; widened to topic+marks (any command); low style confidence |
-| B1b | B1 | 5 | theory | risk/management (ethics) | State |  |  | 2 | topic+marks (any command) | yes |  | style n=2; widened to topic+marks (any command); low style confidence |
-| B2a | B2 | 5 | theory | attacks/malware | Explain |  |  | 1 | topic+marks (any command) | yes |  | style n=1; widened to topic+marks (any command); low style confidence |
-| B2b | B2 | 5 | theory | attacks/malware | Discuss |  |  | 0 | topic+marks (any command) | yes |  | style n=0; widened to topic+marks (any command); low style confidence |
+| Slot | Q | Marks | Kind | Topic | Command | Computed type | Target size / key | Exact style n | Used style n | Style mode | Low conf. | Dependent | Notes |
+|---|---|---:|---|---|---|---|---|---:|---:|---|---|---|---|
+| A1a | A1 | 2 | theory | network security | List |  |  | 3 | 3 | exact |  |  | style n=3 |
+| A1b | A1 | 6 | theory | network security | Explain |  |  | 3 | 3 | exact |  |  | style n=3 |
+| A2a | A2 | 2 | theory | classical ciphers | Explain |  |  | 5 | 5 | exact |  |  | style n=5 |
+| A2b | A2 | 6 | computed | classical ciphers | compute | Vigenere | 13-18 letters; keyword 6-8 letters |  |  |  |  |  | computed slot; print the 26 x 26 Vigenere tableau in the question |
+| A3a | A3 | 2 | theory | software/OS security | List |  |  | 3 | 3 | exact |  |  | style n=3 |
+| A3b | A3 | 6 | theory | software/OS security | Explain |  |  | 4 | 4 | exact |  |  | style n=4 |
+| A4a | A4 | 2 | theory | attacks/malware | State |  |  | 6 | 5 | exact |  |  | style n=6 |
+| A4b | A4 | 6 | theory | attacks/malware | Discuss |  |  | 2 | 5 | topic+marks (any command) | yes |  | style n=2; widened to topic+marks (any command); low style confidence |
+| A5a | A5 | 2 | theory | risk/management (ethics) | Explain |  |  | 8 | 5 | exact |  |  | style n=8 |
+| A5b | A5 | 6 | theory | risk/management (ethics) | State |  |  | 0 | 5 | topic+marks (any command) | yes |  | style n=0; widened to topic+marks (any command); low style confidence |
+| A6a | A6 | 2 | theory | authentication/biometrics | Explain |  |  | 11 | 5 | exact |  |  | style n=11 |
+| A6b | A6 | 6 | theory | authentication/biometrics | Explain |  |  | 9 | 5 | exact |  |  | style n=9 |
+| A7a | A7 | 2 | theory | access control models | State |  |  | 4 | 4 | exact |  |  | style n=4 |
+| A7b | A7 | 6 | theory | access control models | Describe |  |  | 2 | 5 | topic+marks (any command) | yes |  | style n=2; widened to topic+marks (any command); low style confidence |
+| A8a | A8 | 2 | theory | risk/management (ethics) | Explain |  |  | 8 | 5 | exact |  | yes | style n=8; dependent pair |
+| A8b | A8 | 6 | theory | risk/management (ethics) | Discuss |  |  | 4 | 4 | exact |  | yes | style n=4; dependent pair |
+| A9a | A9 | 2 | theory | attacks/malware | Explain |  |  | 28 | 5 | exact |  |  | style n=28 |
+| A9b | A9 | 6 | theory | attacks/malware | State |  |  | 5 | 5 | exact |  |  | style n=5 |
+| A10a | A10 | 2 | theory | attacks/malware | State |  |  | 6 | 5 | exact |  |  | style n=6 |
+| A10b | A10 | 6 | theory | attacks/malware | Discuss |  |  | 2 | 5 | topic+marks (any command) | yes |  | style n=2; widened to topic+marks (any command); low style confidence |
+| B1a | B1 | 5 | theory | trusted computing/blockchain | State |  |  | 0 | 3 | topic+marks (any command) | yes |  | style n=0; widened to topic+marks (any command); low style confidence |
+| B1b | B1 | 5 | theory | trusted computing/blockchain | Discuss |  |  | 0 | 3 | topic+marks (any command) | yes |  | style n=0; widened to topic+marks (any command); low style confidence |
+| B2a | B2 | 5 | theory | authentication/biometrics | Explain |  |  | 1 | 5 | topic+marks (any command) | yes |  | style n=1; widened to topic+marks (any command); low style confidence |
+| B2b | B2 | 5 | theory | authentication/biometrics | Explain |  |  | 1 | 5 | topic+marks (any command) | yes |  | style n=1; widened to topic+marks (any command); low style confidence |
 
 ## Topic allocation
 
 | Topic | Modern weight | Target marks | Assigned theory marks |
 |---|---:|---:|---:|
-| attacks/malware | 0.290 | 27 | 26 |
-| authentication/biometrics | 0.189 | 17 | 16 |
-| access control models | 0.147 | 14 | 16 |
-| trusted computing/blockchain | 0.096 | 9 | 8 |
+| attacks/malware | 0.290 | 27 | 24 |
+| authentication/biometrics | 0.189 | 17 | 18 |
+| access control models | 0.147 | 14 | 8 |
+| trusted computing/blockchain | 0.096 | 9 | 10 |
 | software/OS security | 0.058 | 5 | 8 |
 | network security | 0.068 | 6 | 8 |
-| risk/management (ethics) | 0.152 | 14 | 10 |
+| risk/management (ethics) | 0.152 | 14 | 16 |
 
-Question topic sequence (A1..A10, B1, B2): A1:network security -> A2:classical ciphers -> A3:trusted computing/blockchain -> A4:authentication/biometrics -> A5:software/OS security -> A6:attacks/malware -> A7:access control models -> A8:attacks/malware -> A9:authentication/biometrics -> A10:access control models -> B1:risk/management (ethics) -> B2:attacks/malware
+Question topic sequence (A1..A10, B1, B2): A1:network security -> A2:classical ciphers -> A3:software/OS security -> A4:attacks/malware -> A5:risk/management (ethics) -> A6:authentication/biometrics -> A7:access control models -> A8:risk/management (ethics) -> A9:attacks/malware -> A10:attacks/malware -> B1:trusted computing/blockchain -> B2:authentication/biometrics
 Max two consecutive same-topic questions: **PASS**.
-Dependent question(s): A3.
+Dependent question(s): A8.
 
 ## Part B measured task distribution (used for B slots)
 
@@ -63,9 +64,11 @@ Dependent question(s): A3.
 | List | 0 | 0 |
 | Explain | 13 | 54 |
 | Describe | 2 | 8 |
-| Discuss | 5 | 27 |
+| Discuss | 3 | 16 |
 | Compare | 0 | 0 |
-| Justify | 5 | 28 |
+| Justify | 0 | 0 |
+| Propose | 5 | 28 |
+| Analyse | 2 | 11 |
 
 ## Three real 6-mark examples per command label used at 6 marks
 
@@ -96,12 +99,6 @@ Briefly explain THREE (3) ways on how to stop computer crime.
 - **CSC662-2007-10 Q1a**: Explain how three goals of computer security relate with each other in building a secure system.
 - **CSC662-2008-10 Q2b**: Recently, there are many types of malware infection had been reported to the security organization. Explain the characteristics of THREE (3) types of malware that you know.
 
-### Justify
-
-- **CSC662-2016-06 Q3a**: Describes by giving ONE (1) example each from real life, where the following security objectives are needed and suggest suitable security mechanisms to achieve them: i. Confidentiality ii. Integrity iii. Availability
-- **CSC662-2016-12 Q11ii**: Suggest ONE (1) unique type of biometric methods for each of the situation below and give a reason. ii. iii. Entry and exit points in a nuclear research center.
-- **CSC662-2019-06 QA2b**: Provide THREE (3) reasons to support your answer in (a). O Hak Cipta Universiti Teknologi MARA (2 marks) (6 marks) CONFIDENTIAL
-
 ### State
 
 - **CSC662-2009-04 Q1d**: Determine whether the P-box with the following tables is a straight P-box, a compression P-box or an expansion P-box. State one reason for each table. 
@@ -118,7 +115,7 @@ undesired (prevented) in information security flows for reading operation.
 
 ## Style widening and low-confidence slots
 
-Slots with exact style n < 3: A2a, A3b, A5a, A5b, A6a, A7b, B1a, B1b, B2a, B2b.
+Slots with exact style n < 3: A4b, A5b, A7b, A10b, B1a, B1b, B2a, B2b.
 Widening order: exact -> same topic/any command -> same command/any topic; all are recorded in the slot table.
 
 ## Coverage notes

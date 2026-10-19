@@ -42,7 +42,7 @@ QWEN_BASE_URL = os.environ.get(
 QWEN_MODEL = os.environ.get("MOCKGEN_QWEN_MODEL", "qwen3.8-max")
 # Theory drafting uses the cheap model the brief asks for.  Keep it
 # configurable; the report records the model actually used.
-QWEN_CHEAP_MODEL = os.environ.get("MOCKGEN_QWEN_CHEAP_MODEL", "qwen3.7-flash")
+QWEN_CHEAP_MODEL = os.environ.get("MOCKGEN_QWEN_CHEAP_MODEL", "qwen3.8-flash")
 LLM_MAX_RETRIES = 3
 # Cost estimation.  Defaults are the public qwen-flash list prices seen in
 # the provider price listings on 2026-10-19 (USD per 1M tokens); override
