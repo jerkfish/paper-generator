@@ -9,7 +9,7 @@
       "key": "shift=7",
       "rows": null,
       "working_lines": 27,
-      "question": "Using Caesar Cipher technique, decrypt the following ciphertext.\nKLCPJLYLABYULKHUKDPWLKVUL\n(2 marks)"
+      "question": "Using Caesar Cipher technique, decrypt the following ciphertext with a shift of 7 (replace each letter with the one 7 positions to the left).\nKLCPJLYLABYULKHUKDPWLKVUL\n(2 marks)"
     },
     "Q2b": {
       "cipher": "playfair",
@@ -20,7 +20,7 @@
       "key": "REDFOX",
       "rows": null,
       "working_lines": 23,
-      "question": "Encrypt the message below using Playfair encryption with the key REDFOX.\nREVIEW ACCESS PERMISSIONS\n(6 marks)"
+      "question": "Encrypt the message below using Playfair encryption with the key REDFOX. Use a 5 x 5 grid, merge I and J, and use X as the filler between repeated letters and at the end if needed.\nREVIEW ACCESS PERMISSIONS\n(6 marks)"
     },
     "Q3b": {
       "question": "scenario + b text",
@@ -38,7 +38,7 @@
       "key": "shift=7",
       "rows": null,
       "working_lines": 26,
-      "question": "Using Caesar Cipher technique, decrypt the following ciphertext.\nAYHPULTWSVFLLZVUZLJBYPAF\n(2 marks)"
+      "question": "Using Caesar Cipher technique, decrypt the following ciphertext with a shift of 7 (replace each letter with the one 7 positions to the left).\nAYHPULTWSVFLLZVUZLJBYPAF\n(2 marks)"
     },
     "Q4b": {
       "cipher": "playfair",
@@ -49,7 +49,7 @@
       "key": "REDFOX",
       "rows": null,
       "working_lines": 22,
-      "question": "Encrypt the message below using Playfair encryption with the key REDFOX.\nCONTAINER SECURITY CHECKS\n(6 marks)"
+      "question": "Encrypt the message below using Playfair encryption with the key REDFOX. Use a 5 x 5 grid, merge I and J, and use X as the filler between repeated letters and at the end if needed.\nCONTAINER SECURITY CHECKS\n(6 marks)"
     },
     "Q5b": {
       "cipher": "columnar",
@@ -60,7 +60,7 @@
       "key": "4",
       "rows": 3,
       "working_lines": 15,
-      "question": "Decrypt the following ciphertext using columnar transposition with a 3 x 4 grid (3 rows, 4 columns).\nLNIOATGUXIDX\n(6 marks)"
+      "question": "Decrypt the following ciphertext using columnar transposition with a 3 x 4 matrix (3 rows, 4 columns). Put the ciphertext into the columns, read the plaintext out of the rows, and ignore the filler X at the end. The key is the column size, 4.\nLNIOATGUXIDX\n(6 marks)"
     }
   },
   "closest": {

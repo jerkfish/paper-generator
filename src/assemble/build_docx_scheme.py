@@ -29,8 +29,8 @@ from src.assemble.build_docx_paper import (
     OUT_DOCX as PAPER_DOCX,
     _acm_b_text,
     _acm_scenario_text,
-    _qtext,
     build_slots,
+    paper_question,
     export_pdf,
     para_text,
     set_para_text,
@@ -229,8 +229,8 @@ def build_scheme() -> None:
         ("ii)an Answer Booklet",
          "Questions and answers are for local study use only."),
         ("Answer ALL questions in English",
-         "See the review-pack checklist for Playfair, columnar and Vigenere "
-         "convention checks."),
+         "See the review-pack checklist for the Playfair convention and the "
+         "two OTP alphabet variants."),
         ("DO NOT TURN THIS PAGE", "FOR MARKERS' USE ONLY"),
         ("This examination paper consists",
          "This marking scheme consists of N printed pages"),
@@ -305,7 +305,7 @@ def build_scheme() -> None:
             continue
         label, marks = labels[key]
         _computed_header(doc, label, marks, confidence_for(q))
-        _question_text(doc, _qtext(q))
+        _question_text(doc, paper_question(q, include_marks=False).strip())
         _answer(doc, q["answer"])
         _add_working(doc, working_for(q))
         add_para(doc, "Suggested marks: " + mark_guidance_for(q),

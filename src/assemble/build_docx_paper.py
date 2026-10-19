@@ -300,9 +300,70 @@ def build_slots() -> dict:
     }
 
 
-def _qtext(q: dict) -> str:
+def paper_question(q: dict, include_marks: bool = True) -> str:
+    """Paper-facing stem: state the key/table/grid/filler and the method in
+    the lecture's own wording. The raw LLM question is not used for the four
+    classical-cipher types, because it omitted those conventions."""
     marks = q.get("marks") or (q.get("scenario") or {}).get("marks") or 0
-    return q["question"].replace(f"({marks} marks)", "").strip()
+    tail = f"\n({marks} marks)" if include_marks else ""
+    cipher = q.get("cipher")
+    if cipher == "caesar":
+        shift = str(q.get("key", "")).split("=")[-1].strip()
+        direction = "left" if q.get("task") == "decrypt" else "right"
+        action = "decrypt the following ciphertext" if q.get("task") == "decrypt" \
+            else "encrypt the following plaintext"
+        return (f"Using Caesar Cipher technique, {action} with a shift of "
+                f"{shift} (replace each letter with the one {shift} positions "
+                f"to the {direction}).\n{q['ciphertext'] if q.get('task') == 'decrypt' else q['plaintext']}{tail}")
+    if cipher == "playfair":
+        action = ("Decrypt the ciphertext below" if q.get("task") == "decrypt"
+                  else "Encrypt the message below")
+        value = q.get("ciphertext") if q.get("task") == "decrypt" else q.get("plaintext")
+        return (f"{action} using Playfair encryption with the key {q['key']}. "
+                f"Use a 5 x 5 grid, merge I and J, and use X as the filler "
+                f"between repeated letters and at the end if needed.\n"
+                f"{value}{tail}")
+    if cipher == "columnar":
+        key = q.get("key")
+        rows = q.get("rows")
+        if isinstance(key, str) and key.strip().isdigit():
+            cols = int(key.strip())
+            key_text = f"the column size, {cols}"
+        elif key:
+            cols = len(re.sub(r"[^A-Za-z]", "", str(key)))
+            key_text = f"the keyword {key}"
+        else:
+            cols = None
+            key_text = "the stated grid"
+        if rows is None and cols:
+            letters = re.sub(r"[^A-Za-z]", "", q["ciphertext"])
+            rows = (len(letters) + cols - 1) // cols
+        grid = f"{rows} x {cols} matrix ({rows} rows, {cols} columns)"
+        return (f"Decrypt the following ciphertext using columnar "
+                f"transposition with a {grid}. Put the ciphertext into the "
+                f"columns, read the plaintext out of the rows, and ignore the "
+                f"filler X at the end. The key is {key_text}.\n"
+                f"{q['ciphertext']}{tail}")
+    if cipher == "vigenere":
+        return (f"Decrypt the following ciphertext using the Vigenere cipher "
+                f"with the key {q['key']}. Use the standard 26 x 26 Vigenere "
+                f"tableau, writing the key over the message and repeating it "
+                f"as necessary.\n{q['ciphertext']}{tail}")
+    if cipher == "affine":
+        return (f"Decrypt the following ciphertext using the affine cipher "
+                f"with key {q['key']}. Use E(x) = (a x + b) mod 26 and decrypt "
+                f"with the modular inverse of a.\n{q['ciphertext']}{tail}")
+    if cipher == "vernam":
+        merge = bool(q.get("ij_merge", False))
+        alphabet = "I/J-merged (25 letters)" if merge else "26 letters"
+        return (f"Decrypt the following ciphertext using a one-time pad with "
+                f"the key numbers {q['key']}. Subtract the key numbers modulo "
+                f"the {alphabet} alphabet, A=0.\n{q['ciphertext']}{tail}")
+    return q.get("question", "")
+
+
+def _qtext(q: dict) -> str:
+    return paper_question(q, include_marks=False).strip()
 
 
 def _ph(topic: str, marks: int, task: str) -> str:

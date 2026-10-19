@@ -1,6 +1,6 @@
 # Step 8 - mock paper vs three clean modern CSC662 papers
 
-Generated 2026-10-19. Mock: `outputs/mock_paper_01.pdf` (4 pages). Comparison
+Generated 2026-10-19. Mock: `outputs/mock_paper_01.pdf` (5 pages). Comparison
 papers: `CSC662 JUNE 2019.PDF` (7 pages), `CSC662 DECEMBER 2019.PDF` (6 pages),
 `CSC662 FEBRUARY 2022.pdf` (14 pages). The mock and scheme were exported with
 Microsoft Word COM (Office16 `WINWORD.EXE`), not LibreOffice.
@@ -11,7 +11,10 @@ band (bottom 12 %) and body (12-88 %), median over pages 2..N. Text metrics use
 PyMuPDF word/span boxes for the text PDFs; JUN 2019 is a scan, so its text
 counts come from the cached WinRT OCR (`data/tracking/ocr_cache/CSC662-2019-06.txt`)
 and its region scores from the rendered images. These are layout scores, not
-content similarity: the body text is different by design.
+content similarity: the body text is different by design. The separate
+lecture-slide convention check is in `slide_convention_report.md`; it changed
+the paper stems and the columnar keyword-row solver, but not the six computed
+answers.
 
 ## 1. Structure
 
@@ -26,7 +29,7 @@ content similarity: the body text is different by design.
 | Part headings | `PART A`, `PART B` | `PART A (80 MARKS)`, `PART B (20 MARKS)` | same | same | **diff**: mock omits the mark totals |
 | Cover title | `FINAL EXAMINATION` | `FINAL EXAMINATION` | `FINAL EXAMINATION` | `FINAL TEST` | **diff vs FEB 2022** |
 | Instructions | 5 standard items | 5 standard items | 5 standard items | 3 items + Name/Student ID/Group + marks grid | **diff vs FEB 2022** |
-| Printed pages | 4 | 7 | 6 | 14 | **diff**: mock is much denser |
+| Printed pages | 5 | 7 | 6 | 14 | **diff**: mock is much denser |
 | Computed marks in paper | 6 slots / 28 marks | 6 (Q4b) | 6 (Q4b) | 0 | **diff**: mock is a practice paper |
 | Placeholder marks | 18 slots / 72 marks | 0 | 0 | 0 | **diff**: theory module not built |
 
@@ -40,18 +43,18 @@ computed/placeholder mix.
 | Metric | Mock | JUN 2019 | DEC 2019 | FEB 2022 |
 |---|---|---|---|---|
 | Page count | 4 | 7 | 6 | 14 |
-| Header present (body pages) | 3/3 | 6/6 (OCR) | 5/5 | 13/13 |
-| Footer present (body pages) | 3/3 | 6/6 (OCR) | 5/5 | 13/13 |
-| Header ink fraction, median | 0.0101 | 0.0038 | 0.0116 | 0.0125 |
-| Footer ink fraction, median | 0.0070 | 0.0102 | 0.0105 | 0.0166 |
-| Body ink fraction, median | 0.0236 | 0.0368 | 0.0459 | 0.0184 |
+| Header present (body pages) | 4/4 | 6/6 (OCR) | 5/5 | 13/13 |
+| Footer present (body pages) | 4/4 | 6/6 (OCR) | 5/5 | 13/13 |
+| Header ink fraction, median | 0.0116 | 0.0038 | 0.0116 | 0.0125 |
+| Footer ink fraction, median | 0.0072 | 0.0102 | 0.0105 | 0.0166 |
+| Body ink fraction, median | 0.0270 | 0.0368 | 0.0459 | 0.0184 |
 | Question heading size / weight | 10.7 pt, regular | OCR only | 9.7-10.0 pt, regular | 11.0 pt, bold |
 | Question heading left x / page width | 0.1233 | OCR only | 0.1357 | 0.1210 |
 | a)/b) labels counted | 24 | 24 (OCR) | 24 | 25 |
 | `(N marks)` labels counted | 24 | 24 (OCR) | 24 | 24 |
 | Mark-label right edge / page width | 0.8791 | OCR only | 0.8684 | 0.8793 |
 | Median question-heading gap | 154.2 pt | n/a | 203.3 pt | one question per page |
-| Question headings per body page | 4/4/4 | 2-3 (OCR) | 3/3/3/1/2 | 1 per page |
+| Question headings per body page | 4/4/4/0 (Part B tail on p5) | 2-3 (OCR) | 3/3/3/1/2 | 1 per page |
 
 What matches: header on every body page (ref code left/right layout, page
 number, `CONFIDENTIAL`), footer on every body page, left-aligned `QUESTION N`
@@ -59,7 +62,7 @@ headings, a)/b) numbering, `(N marks)` on a separate right-aligned line, and
 the right margin of the mark labels (mock 87.9 %, FEB 87.9 %, DEC 86.8 %).
 
 What differs: the mock is set denser than all three (4 questions per page vs
-1-3), which is why it is 4 pages instead of 6-14. Its question headings are
+1-3), which is why it is 5 pages instead of 6-14. Its question headings are
 regular 10.7 pt (DEC is regular 9.7-10.0; FEB 2022 is bold 11 pt). Its footer
 ink is lighter than DEC/FEB (smaller or thinner footer text), and its header
 ink is below DEC/FEB but above the scanned JUN 2019. The mock has no
@@ -100,10 +103,10 @@ necessarily the same cipher.
 
 | Slot | Generated stem (abridged) | Closest modern | Closest older |
 |---|---|---|---|
-| Q2a/Q4a | `Using Caesar Cipher technique, decrypt the following ciphertext. KLCP... / AYHP... (2 marks)` | DEC 2019 Q5b, 6 marks: `The message below was encrypted using a Caesar cipher. OWWL UWZVQVO. Identify the key and decrypt the message.` | OCT 2006 Q2a, 3 marks: `Using Caesar Cipher technique, decrypt the following ciphertext. wuhdwblpsrvvleoh` (similarity 0.80) |
-| Q2b/Q4b | `Encrypt the message below using Playfair encryption with the key REDFOX. REVIEW ACCESS PERMISSIONS / CONTAINER SECURITY CHECKS (6 marks)` | No modern Playfair stem exists. Closest modern compute stems are DEC 2019 Q4b (OTP, 6 marks) and 2018-01 Q14 (Vigenere, 3 marks) - different ciphers. | DEC 2016 Q8, 6 marks: `Encrypt the message "LESS IS MORE" using Playfair encryption. The key = REDFOX.` (similarity 0.63; extraction noise around the marks) |
+| Q2a/Q4a | `Using Caesar Cipher technique, decrypt the following ciphertext with a shift of 7 (replace each letter with the one 7 positions to the left). KLCP... / AYHP... (2 marks)` | DEC 2019 Q5b, 6 marks: `The message below was encrypted using a Caesar cipher. OWWL UWZVQVO. Identify the key and decrypt the message.` | OCT 2006 Q2a, 3 marks: `Using Caesar Cipher technique, decrypt the following ciphertext. wuhdwblpsrvvleoh` (old template similarity 0.80; the new stem adds the shift/direction) |
+| Q2b/Q4b | `Encrypt the message below using Playfair encryption with the key REDFOX. Use a 5 x 5 grid, merge I and J, and use X as the filler... REVIEW ACCESS PERMISSIONS / CONTAINER SECURITY CHECKS (6 marks)` | No modern Playfair stem exists. Closest modern compute stems are DEC 2019 Q4b (OTP, 6 marks) and 2018-01 Q14 (Vigenere, 3 marks) - different ciphers. | DEC 2016 Q8, 6 marks: `Encrypt the message "LESS IS MORE" using Playfair encryption. The key = REDFOX.` (old template similarity 0.63; the new stem adds the grid/I-J/filler wording; extraction noise around the marks) |
 | Q3b | `Assume a computer system with the accounts: Ali, Yati, Umi, Root. Ali can read, write X-1; ... Based on the scenario above, write the ACM, ACL, CL, and draw the diagram. (6 marks)` | 2018-06 Q7, 6 marks: `Given the situation: A computer system has four (4) accounts: Adam, Suzy, Maryam and Root. Four rights ... Draw an Access Control Matrix based on the above UNIX access control list (ACL).` | 2015-06 Q7a-c, 3+3+3 = 9 marks: `Write a access control matrix (ACM).` / `Write a set of access control lists (ACL).` / `Write a set of capability lists (CL).` |
-| Q5b | `Decrypt the following ciphertext using columnar transposition with a 3 x 4 grid (3 rows, 4 columns). LNIOATGUXIDX (6 marks)` | 2018-01 Q10, 6 marks: `Decrypt the following cipher-text using columnar transposition once with character 'D' as a padding character. AEICC RTTOS YSMES DPCUD UUBDT RJD. Show the steps in your answer.` | 2011-04 Q7, 8 marks: same wording with padding character `z`; 30 letters. |
+| Q5b | `Decrypt the following ciphertext using columnar transposition with a 3 x 4 matrix (3 rows, 4 columns). Put the ciphertext into the columns, read the plaintext out of the rows, and ignore the filler X at the end. The key is the column size, 4. LNIOATGUXIDX (6 marks)` | 2018-01 Q10, 6 marks: `Decrypt the following cipher-text using columnar transposition once with character 'D' as a padding character. AEICC RTTOS YSMES DPCUD UUBDT RJD. Show the steps in your answer.` | 2011-04 Q7, 8 marks: same wording with padding character `z`; 30 letters. |
 
 Specific differences:
 
@@ -111,15 +114,15 @@ Specific differences:
   `Encrypt ...`, `Decrypt ...`). Real stems often set a situation first
   (`Given the situation: ...`, `The message below was ...`) and sometimes ask
   for an extra step (`Identify the key`, `Show your work`, `Show the steps`).
-  The Caesar template is a near-exact copy of the 2006 stem (0.80); the other
-  generated stems are original.
+  The Caesar template follows the 2006 stem closely, but the new stem adds
+  the missing shift/direction; the other generated stems are original.
 - **Punctuation and quoting.** Real Playfair uses a quoted message
   (`"LESS IS MORE"`); the mock uses an unquoted line. Real keys appear as
   `key = REDFOX`; the mock says `with the key REDFOX`. The mock has no
   `Show your work` phrase in the paper (the scheme shows it).
 - **Key and message format.** The mock uses uppercase, unspaced ciphertext
-  (25/24/12 letters), a keyword or numeric key in the sentence, and no
-  padding character in the paper. Real modern ciphertexts are often grouped
+  (25/24/12 letters), a keyword or numeric key in the sentence, and now
+  state the filler X and the 3 x 4/5 x 5 grid explicitly. Real modern ciphertexts are often grouped
   in 5-letter blocks and state the padding character (`D`/`z`); real Caesar
   questions may give a lowercase message and ask for the key.
 - **Mark placement.** The mock puts `(N marks)` on a separate right-aligned
@@ -161,8 +164,9 @@ What the cues mean:
   marks). The 2/2/1/1 split in the scheme is a proposal, not an official
   allocation.
 - The 6-mark columnar slot is **shorter** than the real questions (12 vs 30
-  letters) but adds an explicit 3x4 grid and padding step. It is a convention
-  check, not a difficulty match.
+  letters) but now states the explicit 3x4 grid, fill/read order and filler X.
+  The 3x4 convention is verified against lecture slides 20-21/24; the
+  difficulty is still below the real 30-letter questions.
 
 ## 6. Marking scheme
 
@@ -188,7 +192,9 @@ question and the marks; the mock scheme is much more detailed. For a 2-mark
 Caesar question a real scheme would likely award method + answer (1+1), not
 25 per-letter lines; the mock scheme says this in its "Suggested marks" line.
 The Playfair and columnar working is the part a lecturer is most likely to
-want to check (I/J merge, X padding, grid orientation, fill/read order).
+want to check. Columnar is now verified against lecture slides 20-21/24
+(3 x 4, fill rows, read columns, pad X); Playfair has no lecture slide and
+remains the main convention risk (I/J merge, X padding).
 
 ## 7. Weakness list
 
@@ -203,14 +209,14 @@ Specific, not an overall rating:
 4. **Caesar slots are long for 2 marks**: 24-25 letters with the shift given;
    the real modern Caesar is 11 letters and asks for the key.
 5. **Playfair slots are long for 6 marks**: 12-13 pairs vs 5 pairs in the
-   real Playfair question; the I/J-merge and X-padding convention is
-   unverified.
+   real Playfair question; there is no lecture slide and the I/J-merge and
+   X-padding convention remains unverified.
 6. **ACM slot asks four outputs for 6 marks**: matrix + ACL + CL + diagram.
    The older course question splits the three views into 3+3+3 = 9 marks; the
    modern one asks matrix only for 6. The 6-mark allocation is likely tight.
-7. **Columnar slot is short (12 letters vs 30) and uses a 3x4 numeric grid
-   with pad X**; real questions state pad `D`/`z` and ask `Show the steps`.
-   The 3x4 fill/read convention is unverified.
+7. **Columnar slot is short (12 letters vs 30)**; the 3x4 fill/read/pad-X
+   convention is now verified against lecture slides 20-21/24, but real
+   questions use 30 letters, pad `D`/`z` and ask `Show the steps`.
 8. **Part headings omit the mark totals**: all three modern papers print
    `PART A (80 MARKS)` / `PART B (20 MARKS)`; the mock prints `PART A` /
    `PART B`.
@@ -218,13 +224,13 @@ Specific, not an overall rating:
    (`FINAL EXAMINATION`, 5 instructions); FEB 2022 uses `FINAL TEST`, 3
    instructions and a Name/Student ID/Group + marks grid. JUN/DEC 2019 match
    the mock's 5-instruction style.
-10. **Page density/page count**: 4 pages vs 6/7/14; the mock packs 4
+10. **Page density/page count**: 5 pages vs 6/7/14; the mock packs 4
     questions per page, FEB 2022 gives each question a page. The mock has
     much less answer space.
 11. **Question-heading weight differs**: mock 10.7 pt regular; FEB 2022 is
     11 pt bold. DEC 2019 is regular 9.7-10.0, so the mock is between DEC and
     FEB.
-12. **Footer ink is lighter** than DEC/FEB (0.0070 vs 0.0105/0.0166); the
+12. **Footer ink is lighter** than DEC/FEB (0.0072 vs 0.0105/0.0166); the
     footer text may be smaller or closer to the page edge.
 13. **No official scheme exists**, so every suggested mark split in the
     scheme (including 2/2/1/1 for the ACM and 1/1/2/2/1 for columnar) is
@@ -235,7 +241,7 @@ Specific, not an overall rating:
 
 ## 8. Files
 
-- `outputs/mock_paper_01.pdf`, `outputs/mock_paper_01.docx` - 4-page paper.
+- `outputs/mock_paper_01.pdf`, `outputs/mock_paper_01.docx` - 5-page paper.
 - `outputs/mock_scheme_01.pdf`, `outputs/mock_scheme_01.docx` - 5-page scheme.
 - `outputs/step8_layout_metrics.json` - raw layout metrics.
 - `outputs/step8_wording.json` - generated/closest-stem data.

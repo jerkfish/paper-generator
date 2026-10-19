@@ -1,13 +1,14 @@
 # Generated Playfair and columnar answers (convention check)
 
 These are the generated answers used in the mock paper and scheme.
-Playfair uses I/J merge and X padding; columnar uses a 3 rows x 4 columns
-grid, fill rows left-to-right, read columns left-to-right, pad X. These are
-the conventions to confirm against the course slides.
+Playfair uses I/J merge and X padding and remains the convention to confirm
+(no lecture slide). Columnar uses a 3 rows x 4 columns grid, fill rows
+left-to-right, read columns left-to-right, pad X; this is verified against
+lecture slides 20-21/24.
 
 ## Q2(b) - Playfair encrypt (6 marks)
 
-Question: Encrypt the message below using Playfair encryption with the key REDFOX.
+Question: Encrypt the message below using Playfair encryption with the key REDFOX. Use a 5 x 5 grid, merge I and J, and use X as the filler between repeated letters and at the end if needed.
 REVIEW ACCESS PERMISSIONS
 (6 marks)
 
@@ -40,7 +41,7 @@ Working:
 
 ## Q4(b) - Playfair encrypt (6 marks)
 
-Question: Encrypt the message below using Playfair encryption with the key REDFOX.
+Question: Encrypt the message below using Playfair encryption with the key REDFOX. Use a 5 x 5 grid, merge I and J, and use X as the filler between repeated letters and at the end if needed.
 CONTAINER SECURITY CHECKS
 (6 marks)
 
@@ -72,7 +73,7 @@ Working:
 
 ## Q5(b) - columnar decrypt, 3x4 grid (6 marks)
 
-Question: Decrypt the following ciphertext using columnar transposition with a 3 x 4 grid (3 rows, 4 columns).
+Question: Decrypt the following ciphertext using columnar transposition with a 3 x 4 matrix (3 rows, 4 columns). Put the ciphertext into the columns, read the plaintext out of the rows, and ignore the filler X at the end. The key is the column size, 4.
 LNIOATGUXIDX
 (6 marks)
 

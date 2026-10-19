@@ -121,11 +121,24 @@ def working_for(q: dict) -> str:
 
 def confidence_for(q: dict) -> str:
     if q["cipher"] == "playfair":
-        return ("convention unverified - Playfair I/J merge + X padding "
-                "pending lecture-slide check")
+        return ("convention unverified - no lecture slide covers Playfair; "
+                "I/J merge + X padding still to be confirmed")
+    if q["cipher"] == "affine":
+        return ("convention unverified - no lecture slide covers the affine "
+                "cipher")
     if q["cipher"] == "columnar":
-        return ("computed - columnar grid convention (3 x 4 style) still to be "
-                "confirmed")
+        return ("computed - 3 x 4 fill-rows/read-columns convention verified "
+                "against lecture slides 20-21 and 24")
+    if q["cipher"] == "caesar":
+        return ("computed - matches lecture slides 5-9 (Caesar shift 3 "
+                "examples)")
+    if q["cipher"] == "vigenere":
+        return "computed - matches lecture slide 15 (standard tableau)"
+    if q["cipher"] == "vernam":
+        return ("convention unverified - lecture slide 17 table mixes the "
+                "I/J-merged and 26-letter alphabets")
+    if q["cipher"] == "rail fence":
+        return "computed - matches lecture slides 25-26"
     return "computed - solver validated on real past papers"
 
 
