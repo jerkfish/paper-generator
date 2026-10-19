@@ -9,7 +9,7 @@ from openpyxl import load_workbook
 from src.config import TRACKING_XLSX
 
 QUESTIONS_HEADERS = [
-    "Paper ID", "Q no.", "Sub-part", "Topic", "Question type", "Marks",
+    "Paper ID", "Q no.", "Sub-part", "Topic", "Task", "Marks",
     "Has diagram", "Diagram type", "Machine-verifiable", "Wording note",
     "Original question text", "Confidence",
 ]
@@ -67,6 +67,6 @@ def test_mismatches_are_listed():
 
 
 def test_q_numbers_reference_blocks():
-    # q numbers must be parseable (numbers, optionally prefixed A/B)
+    # q numbers must be parseable (optional single-letter part prefix)
     for r in _sheet("Questions"):
-        assert re.fullmatch(r"[AB]?\d+|\?", str(r["Q no."])), r
+        assert re.fullmatch(r"[A-Z]?\d+|\?", str(r["Q no."])), r

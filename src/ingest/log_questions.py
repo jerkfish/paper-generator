@@ -45,6 +45,13 @@ QUESTIONS_HEADERS = [
 ]
 CHECK_HEADERS = ["Paper ID", "Official total", "Computed sum", "Status", "Note"]
 
+# openpyxl rejects these control chars (OCR text contains a few)
+_ILLEGAL_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
+
+
+def _clean(value):
+    return _ILLEGAL_RE.sub("", value) if isinstance(value, str) else value
+
 SYSTEM_PROMPT = f"""You label past-exam questions. You receive one exam paper split into question blocks.
 For every question block, split it into sub-parts (a, b, c... or i, ii...) ONLY when each
 sub-part carries its own marks; otherwise one row for the whole question.
@@ -311,7 +318,7 @@ def _write_sheets(question_rows: list[dict], checks: list[dict]) -> None:
     for cell in ws[1]:
         cell.font = Font(bold=True)
     for row in question_rows:
-        ws.append([row[h] for h in QUESTIONS_HEADERS])
+        ws.append([_clean(row[h]) for h in QUESTIONS_HEADERS])
     widths = [16, 6, 8, 26, 20, 7, 12, 14, 18, 34, 80, 28]
     for col, width in zip("ABCDEFGHIJKL", widths):
         ws.column_dimensions[col].width = width
@@ -325,7 +332,7 @@ def _write_sheets(question_rows: list[dict], checks: list[dict]) -> None:
     for cell in wc[1]:
         cell.font = Font(bold=True)
     for row in checks:
-        wc.append([row[h] for h in CHECK_HEADERS])
+        wc.append([_clean(row[h]) for h in CHECK_HEADERS])
     for col, width in zip("ABCDE", (16, 14, 13, 42, 60)):
         wc.column_dimensions[col].width = width
     wb.save(config.TRACKING_XLSX)
