@@ -1,0 +1,142 @@
+{
+  "generated": {
+    "Q2a": {
+      "cipher": "caesar",
+      "task": "decrypt",
+      "marks": 2,
+      "plaintext_len": 25,
+      "ciphertext_len": 25,
+      "key": "shift=7",
+      "rows": null,
+      "working_lines": 27,
+      "question": "Using Caesar Cipher technique, decrypt the following ciphertext.\nKLCPJLYLABYULKHUKDPWLKVUL\n(2 marks)"
+    },
+    "Q2b": {
+      "cipher": "playfair",
+      "task": "encrypt",
+      "marks": 6,
+      "plaintext_len": 23,
+      "ciphertext_len": 26,
+      "key": "REDFOX",
+      "rows": null,
+      "working_lines": 23,
+      "question": "Encrypt the message below using Playfair encryption with the key REDFOX.\nREVIEW ACCESS PERMISSIONS\n(6 marks)"
+    },
+    "Q3b": {
+      "question": "scenario + b text",
+      "marks": 6,
+      "users": 4,
+      "objects": 3,
+      "grants": 4
+    },
+    "Q4a": {
+      "cipher": "caesar",
+      "task": "decrypt",
+      "marks": 2,
+      "plaintext_len": 24,
+      "ciphertext_len": 24,
+      "key": "shift=7",
+      "rows": null,
+      "working_lines": 26,
+      "question": "Using Caesar Cipher technique, decrypt the following ciphertext.\nAYHPULTWSVFLLZVUZLJBYPAF\n(2 marks)"
+    },
+    "Q4b": {
+      "cipher": "playfair",
+      "task": "encrypt",
+      "marks": 6,
+      "plaintext_len": 23,
+      "ciphertext_len": 24,
+      "key": "REDFOX",
+      "rows": null,
+      "working_lines": 22,
+      "question": "Encrypt the message below using Playfair encryption with the key REDFOX.\nCONTAINER SECURITY CHECKS\n(6 marks)"
+    },
+    "Q5b": {
+      "cipher": "columnar",
+      "task": "decrypt",
+      "marks": 6,
+      "plaintext_len": 10,
+      "ciphertext_len": 12,
+      "key": "4",
+      "rows": 3,
+      "working_lines": 15,
+      "question": "Decrypt the following ciphertext using columnar transposition with a 3 x 4 grid (3 rows, 4 columns).\nLNIOATGUXIDX\n(6 marks)"
+    }
+  },
+  "closest": {
+    "Q2a_Q4a": {
+      "modern": {
+        "paper": "CSC662-2019-12",
+        "q": "QA5b",
+        "marks": 6,
+        "task": "short objective",
+        "text": "The message below was encrypted using a Caesar cipher.\nOWWL UWZVQVO\nIdentify the key and decrypt the message."
+      },
+      "older": {
+        "paper": "CSC662-2006-10",
+        "q": "Q2a",
+        "marks": 3,
+        "task": "compute",
+        "text": "Using Caesar Cipher technique, decrypt the following ciphertext.\nwuhdwblpsrvvleoh"
+      }
+    },
+    "Q2b_Q4b": {
+      "modern": null,
+      "older": {
+        "paper": "CSC662-2016-12",
+        "q": "Q8",
+        "marks": 6,
+        "task": "compute",
+        "text": "Encrypt the message \"LESS IS MORE\" using Playfair encryption. The key = @ Hak Cipta Universiti Teknologi MARA (5 marks) REDFOX. (6 marks) CONFIDENTIAL"
+      }
+    },
+    "Q3b": {
+      "modern": {
+        "paper": "CSC662-2018-06",
+        "q": "Q7",
+        "marks": 6,
+        "task": "compute",
+        "text": "Given the situation: A computer system has four (4) accounts: Adam, Suzy, Maryam and Root. Four rights or permission (read(R), write (W), execute (E), own (O)), and the group admin contains the accounts Root and Suzy. -rwxr - xr -- -rw --tw ---- -rwxrwxr-x adam root admin admin SUZY 43520 32236 47084 18 Mar 2001 4 Jun 09:32 8 Jun 09:00 Draw an Access Control Matrix based on the above UNIX access control list (ACM)."
+      },
+      "older": [
+        {
+          "paper": "CSC662-2015-06",
+          "q": "Q7a",
+          "marks": 3,
+          "task": "compute",
+          "text": "Write a access control matrix (ACM)."
+        },
+        {
+          "paper": "CSC662-2015-06",
+          "q": "Q7b",
+          "marks": 3,
+          "task": "compute",
+          "text": "Write a set of access control lists (ACL)."
+        },
+        {
+          "paper": "CSC662-2015-06",
+          "q": "Q7c",
+          "marks": 3,
+          "task": "compute",
+          "text": "Write a set of capability lists (CL)."
+        }
+      ]
+    },
+    "Q5b": {
+      "modern": {
+        "paper": "CSC662-2018-01",
+        "q": "Q10",
+        "marks": 6,
+        "task": "compute",
+        "text": "Decrypt the following cipher-text using columnar transposition once with character 'D' as a padding character. AEICC RTTOS YSMES DPCUD UUBDT RJD Show the steps in your answer. (6 marks)"
+      },
+      "older": {
+        "paper": "CSC662-2011-04",
+        "q": "Q7",
+        "marks": 8,
+        "task": "compute",
+        "text": "Decrypt the following cipher-text using columnar transposition once with character 'z' as a padding character. \nACRYS RASEY PTCPH EUTIM ROCZE GSZ"
+      }
+    }
+  }
+}

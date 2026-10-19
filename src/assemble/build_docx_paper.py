@@ -258,6 +258,33 @@ def _pick(questions: list[dict], cipher: str, task: str, marks: int,
             if q["cipher"] == cipher and q["task"] == task and q["marks"] == marks][:n]
 
 
+def _columnar_3x4_question() -> dict:
+    """Q5b: a 3 x 4 columnar decrypt with the course's grid check in mind.
+    Code-only (no LLM): 10-letter plaintext pads to 12 cells with X, so the
+    scheme also demonstrates the padding convention. Marked computed in the
+    scheme; the 3 x 4 convention itself still needs lecturer confirmation."""
+    from src.generators import ciphers as C
+
+    plaintext = "LOGIN AUDIT"
+    rows, columns = 3, 4
+    ct = C.columnar_encrypt(plaintext, columns, rows=rows)
+    answer = C.columnar_decrypt(ct, columns, rows=rows)
+    return {
+        "cipher": "columnar",
+        "plaintext": plaintext,
+        "key": str(columns),
+        "rows": rows,
+        "task": "decrypt",
+        "marks": 6,
+        "question": ("Decrypt the following ciphertext using columnar "
+                     "transposition with a 3 x 4 grid (3 rows, 4 columns).\n"
+                     f"{ct}\n(6 marks)"),
+        "answer": answer,
+        "ciphertext": ct,
+        "working": "",
+    }
+
+
 def build_slots() -> dict:
     computed = json.loads((OUTPUTS_DIR / "computed_questions.json").read_text())
     acm = json.loads((OUTPUTS_DIR / "acm_questions.json").read_text())
@@ -268,7 +295,7 @@ def build_slots() -> dict:
         "Q4a": caesar2[1] if len(caesar2) >= 2 else None,
         "Q2b": cipher6[0] if len(cipher6) >= 1 else None,
         "Q4b": cipher6[1] if len(cipher6) >= 2 else None,
-        "Q5b": cipher6[2] if len(cipher6) >= 3 else None,
+        "Q5b": _columnar_3x4_question(),
         "Q3b": acm[0] if acm else None,
     }
 
@@ -282,10 +309,19 @@ def _ph(topic: str, marks: int, task: str) -> str:
     return PLACEHOLDER.format(topic=topic, marks=marks, task=task)
 
 
-def _acm_b_text(q: dict) -> str:
+def _acm_scenario_text(q: dict) -> str:
+    """Scenario/grants for the question paper. The matrix, ACLs, capability
+    lists and diagram are the ANSWER; the grants are the given data."""
     s = q["scenario"]
-    return (f"Assume a computer system with the accounts: {', '.join(s['users'])}. "
-            "Based on the scenario above, write the access control matrix (ACM), "
+    grants = []
+    for g in s["grants"]:
+        grants.append(f"{g['user']} can {', '.join(g['rights'])} {g['object']}")
+    return (f"Assume a computer system with the accounts: "
+            f"{', '.join(s['users'])}. " + "; ".join(grants) + ".")
+
+
+def _acm_b_text(q: dict) -> str:
+    return ("Based on the scenario above, write the access control matrix (ACM), "
             "the access control lists (ACL) and the capability lists (CL), and "
             "draw the diagram.")
 
@@ -300,7 +336,6 @@ def _acm_image(q: dict, out_dir: Path) -> str:
 def main() -> None:
     slots = build_slots()
     tmp = Path(tempfile.mkdtemp())
-    acm_img = _acm_image(slots["Q3b"], tmp) if slots["Q3b"] else ""
 
     doc = docx.Document(str(SRC))
     paras = doc.paragraphs
@@ -351,14 +386,17 @@ def main() -> None:
     for i in range(1, 11):
         key = f"Q{i}"
         a, b, am, bm, img = None, None, "2", "6", ""
+        scen = "Refer to the question items below."
         if i == 2:
             a = _qtext(slots["Q2a"]) if slots["Q2a"] else None
             b = _qtext(slots["Q2b"]) if slots["Q2b"] else None
         elif i == 3:
             a = _ph("access control models", 2, "short objective")
             if slots["Q3b"]:
+                # scenario text only - the diagram is the ANSWER and belongs in
+                # the marking scheme, not in the question paper
+                scen = _acm_scenario_text(slots["Q3b"])
                 b = _acm_b_text(slots["Q3b"])
-                img = acm_img
         elif i == 4:
             a = _qtext(slots["Q4a"]) if slots["Q4a"] else None
             b = _qtext(slots["Q4b"]) if slots["Q4b"] else None
@@ -367,8 +405,6 @@ def main() -> None:
             b = _qtext(slots["Q5b"]) if slots["Q5b"] else None
         a = a or _ph(topics[i], 2, "short objective")
         b = b or _ph(topics[i], 6, "define/explain")
-        scen = ("Based on the given scenario:" if i == 3 else
-                "Refer to the question items below.")
         new_a += clone_block(pattern_a, f"QUESTION {i}", scen, a,
                              f"({am} marks)", b, f"({bm} marks)",
                              a_numids[i - 1], img)
@@ -392,6 +428,17 @@ def main() -> None:
         if para_text(p._p).strip() == "IMAGE_PLACEHOLDER":
             set_para_text(p._p, "")
             p.add_run().add_picture(acm_img, width=Cm(11))
+
+    # the template leaves empty paragraphs after END; when the body fits on
+    # four pages they spill a blank fifth page. Drop trailing empties (keep
+    # any paragraph carrying a section break).
+    end_pos = next(i for i, p in enumerate(doc.paragraphs)
+                   if "END OF QUESTION PAPER" in para_text(p._p))
+    for p in list(doc.paragraphs[end_pos + 1:]):
+        if (not para_text(p._p).strip()
+                and p._p.find(".//" + qn("w:drawing")) is None
+                and p._p.find(".//" + qn("w:sectPr")) is None):
+            body.remove(p._p)
 
     # cover: ref code, artifacts, printed-pages count
     for p in doc.paragraphs:
