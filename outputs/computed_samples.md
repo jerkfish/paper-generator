@@ -90,7 +90,7 @@ Working:
 ## Question 3 (6 marks)
 
 ```
-Decrypt the following ciphertext using the Vigenere cipher with the key SECRET.
+Decrypt the following ciphertext using the Vigenere cipher with the key secret.
 ULGTOYGVXRPBVHQDEBFRCDIL
 (6 marks)
 ```
@@ -127,7 +127,7 @@ Working:
 ## Question 4 (6 marks)
 
 ```
-Decrypt the following ciphertext using the Vigenere cipher with the key SECRET.
+Decrypt the following ciphertext using the Vigenere cipher with the key secret.
 AHGEXBXCCESFSPQLWUWLCMMHJ
 (6 marks)
 ```
@@ -166,131 +166,136 @@ Working:
 
 ```
 Encrypt the message below using Playfair encryption with the key REDFOX.
-DO NOT SHARE CREDENTIALS
+REVIEW ACCESS PERMISSIONS
 (6 marks)
 ```
 ```
-Answer: FRTRNTIXEDXFDFRPPMCINC
+Answer: EDEPDVBGAFNCTQDEHKNCPLRTNC
 
 Working:
   Grid (I/J merged):
   R E D F O X A B C G H I K L M N P Q S T U V W Y Z
-  encrypt result: FRTRNTIXEDXFDFRPPMCINC
+  encrypt result: EDEPDVBGAFNCTQDEHKNCPLRTNC
 ```
 > Convention note: encrypt-only - convention unverified; Playfair I/J merge + X padding: convention unverified.
 
 ## Question 6 (6 marks)
 
 ```
-Decrypt the following ciphertext using the affine cipher with key (17,20).
-PXKOKXNKBYXKHOACKNATKHCK
-(6 marks)
-```
-```
-Answer: PRESERVEFORENSICEVIDENCE
-
-Working:
-  23*(15 - 20) mod 26 = 15 -> P
-  23*(23 - 20) mod 26 = 17 -> R
-  23*(10 - 20) mod 26 = 4 -> E
-  23*(14 - 20) mod 26 = 18 -> S
-  23*(10 - 20) mod 26 = 4 -> E
-  23*(23 - 20) mod 26 = 17 -> R
-  23*(13 - 20) mod 26 = 21 -> V
-  23*(10 - 20) mod 26 = 4 -> E
-  23*(1 - 20) mod 26 = 5 -> F
-  23*(24 - 20) mod 26 = 14 -> O
-  23*(23 - 20) mod 26 = 17 -> R
-  23*(10 - 20) mod 26 = 4 -> E
-  23*(7 - 20) mod 26 = 13 -> N
-  23*(14 - 20) mod 26 = 18 -> S
-  23*(0 - 20) mod 26 = 8 -> I
-  23*(2 - 20) mod 26 = 2 -> C
-  23*(10 - 20) mod 26 = 4 -> E
-  23*(13 - 20) mod 26 = 21 -> V
-  23*(0 - 20) mod 26 = 8 -> I
-  23*(19 - 20) mod 26 = 3 -> D
-  23*(10 - 20) mod 26 = 4 -> E
-  23*(7 - 20) mod 26 = 13 -> N
-  23*(2 - 20) mod 26 = 2 -> C
-  23*(10 - 20) mod 26 = 4 -> E
-```
-
-## Question 7 (6 marks)
-
-```
 Encrypt the message below using Playfair encryption with the key REDFOX.
-TEST RECOVERY PROCEDURES
+CONTAINER SECURITY CHECKS
 (6 marks)
 ```
 ```
-Answer: POTNEDGFEAFUNEFGDFRXFP
+Answer: GFPNIPPRFNFARXMPFLIRBLNC
 
 Working:
   Grid (I/J merged):
   R E D F O X A B C G H I K L M N P Q S T U V W Y Z
-  encrypt result: POTNEDGFEAFUNEFGDFRXFP
+  encrypt result: GFPNIPPRFNFARXMPFLIRBLNC
 ```
 > Convention note: encrypt-only - convention unverified; Playfair I/J merge + X padding: convention unverified.
+
+## Question 7 (6 marks)
+
+```
+Decrypt the following ciphertext using the affine cipher with key (17,20).
+ZAQAFZYSAHUFFKQPFOPKXJYWX
+(6 marks)
+```
+```
+Answer: LIMITLOGINATTEMPTSPERHOUR
+
+Working:
+  23*(25 - 20) mod 26 = 11 -> L
+  23*(0 - 20) mod 26 = 8 -> I
+  23*(16 - 20) mod 26 = 12 -> M
+  23*(0 - 20) mod 26 = 8 -> I
+  23*(5 - 20) mod 26 = 19 -> T
+  23*(25 - 20) mod 26 = 11 -> L
+  23*(24 - 20) mod 26 = 14 -> O
+  23*(18 - 20) mod 26 = 6 -> G
+  23*(0 - 20) mod 26 = 8 -> I
+  23*(7 - 20) mod 26 = 13 -> N
+  23*(20 - 20) mod 26 = 0 -> A
+  23*(5 - 20) mod 26 = 19 -> T
+  23*(5 - 20) mod 26 = 19 -> T
+  23*(10 - 20) mod 26 = 4 -> E
+  23*(16 - 20) mod 26 = 12 -> M
+  23*(15 - 20) mod 26 = 15 -> P
+  23*(5 - 20) mod 26 = 19 -> T
+  23*(14 - 20) mod 26 = 18 -> S
+  23*(15 - 20) mod 26 = 15 -> P
+  23*(10 - 20) mod 26 = 4 -> E
+  23*(23 - 20) mod 26 = 17 -> R
+  23*(9 - 20) mod 26 = 7 -> H
+  23*(24 - 20) mod 26 = 14 -> O
+  23*(22 - 20) mod 26 = 20 -> U
+  23*(23 - 20) mod 26 = 17 -> R
+```
 
 ## Question 8 (6 marks)
 
 ```
-Decrypt the following ciphertext using columnar transposition with the key ZEBRA.
-VACTXMETUXEDLOXOFANXREUCS
+Decrypt the following ciphertext using one-time pad with the key numbers 3 6 12 9 4 15 20 1.
+SANUMREFBOZOVPMUUAOCYGY
 (6 marks)
 ```
 ```
-Answer: REMOVEDEFAULTACCOUNTS
+Answer: PUBLICKEYINFRASTRUCTURE
 
 Working:
-  Key: ZEBRA; convention: fill rows, read columns (keyword: alphabetical rank order; pad X)
-  decrypt result: REMOVEDEFAULTACCOUNTS
+  S(18) - 3 mod 26 -> P
+  A( 0) - 6 mod 26 -> U
+  N(13) -12 mod 26 -> B
+  U(20) - 9 mod 26 -> L
+  M(12) - 4 mod 26 -> I
+  R(17) -15 mod 26 -> C
+  E( 4) -20 mod 26 -> K
+  F( 5) - 1 mod 26 -> E
+  B( 1) - 3 mod 26 -> Y
+  O(14) - 6 mod 26 -> I
+  Z(25) -12 mod 26 -> N
+  O(14) - 9 mod 26 -> F
+  V(21) - 4 mod 26 -> R
+  P(15) -15 mod 26 -> A
+  M(12) -20 mod 26 -> S
+  U(20) - 1 mod 26 -> T
+  U(20) - 3 mod 26 -> R
+  A( 0) - 6 mod 26 -> U
+  O(14) -12 mod 26 -> C
+  C( 2) - 9 mod 26 -> T
+  Y(24) - 4 mod 26 -> U
+  G( 6) -15 mod 26 -> R
+  Y(24) -20 mod 26 -> E
 ```
 
 ## Question 9 (6 marks)
 
 ```
-Based on Vernam cipher, using the given random numbers 3 6 12 9 4 15 20 25, encrypt the following plaintext.
-HARDEN SERVER CONFIG
+Decrypt the following ciphertext using columnar transposition with the key secret.
+FOIENCXLRPYXOMTSEEEUCLRX
 (6 marks)
 ```
 ```
-Answer: KGDMICMDUBQAGDHELM
+Answer: ENFORCECOMPLEXITYRULES
 
 Working:
-  H( 7) + 3 mod 26 -> K
-  A( 0) + 6 mod 26 -> G
-  R(17) +12 mod 26 -> D
-  D( 3) + 9 mod 26 -> M
-  E( 4) + 4 mod 26 -> I
-  N(13) +15 mod 26 -> C
-  S(18) +20 mod 26 -> M
-  E( 4) +25 mod 26 -> D
-  R(17) + 3 mod 26 -> U
-  V(21) + 6 mod 26 -> B
-  E( 4) +12 mod 26 -> Q
-  R(17) + 9 mod 26 -> A
-  C( 2) + 4 mod 26 -> G
-  O(14) +15 mod 26 -> D
-  N(13) +20 mod 26 -> H
-  F( 5) +25 mod 26 -> E
-  I( 8) + 3 mod 26 -> L
-  G( 6) + 6 mod 26 -> M
+  Key: SECRET; convention: fill rows, read columns (keyword: alphabetical rank order; pad X)
+  decrypt result: ENFORCECOMPLEXITYRULES
 ```
-> Convention note: encrypt-only - convention unverified.
 
 ## Question 10 (6 marks)
 
 ```
-Decrypt the following ciphertext using columnar transposition with the key secret.
-OMSTSRNINTCXIAEYIOORFIUX
+Decrypt the following ciphertext using columnar transposition with the key ZEBRA.
+LTUXNDNEIUOTAIDDFACC
 (6 marks)
 ```
 ```
-Answer: ISOINFORMATIONSECURITY
+Answer: FINALAUDITCONDUCTED
 
 Working:
-  Key: SECRET; convention: fill rows, read columns (keyword: alphabetical rank order; pad X)
-  decrypt result: ISOINFORMATIONSECURITY
+  Key: ZEBRA; convention: fill rows, read columns (keyword: alphabetical rank order; pad X)
+  decrypt result: FINALAUDITCONDUCTED
 ```

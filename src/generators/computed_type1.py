@@ -364,7 +364,16 @@ def main() -> None:
         md.append("")
     out = OUTPUTS_DIR / "computed_samples.md"
     out.write_text("\n".join(md), encoding="utf-8")
-    print(f"wrote {len(accepted)} questions -> {out}")
+    structured = [{
+        "cipher": q.cipher, "plaintext": q.plaintext, "key": q.key,
+        "task": q.task, "marks": q.marks,
+        "question": render_question(q), "answer": answer(q),
+        "ciphertext": ciphertext(q),
+        "working": working_text(q),
+    } for q in accepted]
+    (OUTPUTS_DIR / "computed_questions.json").write_text(
+        json.dumps(structured, indent=2), encoding="utf-8")
+    print(f"wrote {len(accepted)} questions -> {out} (+ computed_questions.json)")
 
 
 if __name__ == "__main__":

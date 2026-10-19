@@ -38,3 +38,7 @@ LLM_MAX_RETRIES = 3
 
 # --- thresholds ----------------------------------------------------------
 OCR_MIN_TEXT_CHARS = 50  # below this, a cover is treated as scanned (no text layer)
+
+# --- rendering -----------------------------------------------------------
+USE_REAL_CREST = os.environ.get("MOCKGEN_USE_REAL_CREST", "1") == "1"
+CREST_PATH = PROJECT_ROOT / "data" / "reference" / "crest.png"

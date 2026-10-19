@@ -11,6 +11,7 @@ Run:  uv run python -m src.generators.acm_type2
 """
 from __future__ import annotations
 
+import json
 import re
 
 from pydantic import ValidationError
@@ -134,7 +135,15 @@ def main() -> None:
         md.append("")
     out = OUTPUTS_DIR / "acm_samples.md"
     out.write_text("\n".join(md), encoding="utf-8")
-    print(f"wrote {len(accepted)} questions -> {out}")
+    structured = [{
+        "scenario": s.model_dump(),
+        "question": render_scenario(s),
+        "answer": render_answer(s),
+        "dot": to_dot(s, build_matrix(s)),
+    } for s in accepted]
+    (OUTPUTS_DIR / "acm_questions.json").write_text(
+        json.dumps(structured, indent=2), encoding="utf-8")
+    print(f"wrote {len(accepted)} questions -> {out} (+ acm_questions.json)")
 
 
 if __name__ == "__main__":

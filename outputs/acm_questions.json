@@ -1,0 +1,349 @@
+[
+  {
+    "scenario": {
+      "users": [
+        "Ali",
+        "Yati",
+        "Umi",
+        "Root"
+      ],
+      "objects": [
+        "X-1",
+        "REPORT",
+        "DATA"
+      ],
+      "grants": [
+        {
+          "user": "Ali",
+          "object": "X-1",
+          "rights": [
+            "read",
+            "write"
+          ]
+        },
+        {
+          "user": "Yati",
+          "object": "X-1",
+          "rights": [
+            "read"
+          ]
+        },
+        {
+          "user": "Umi",
+          "object": "REPORT",
+          "rights": [
+            "execute"
+          ]
+        },
+        {
+          "user": "Root",
+          "object": "DATA",
+          "rights": [
+            "read",
+            "write",
+            "execute"
+          ]
+        }
+      ],
+      "marks": 6
+    },
+    "question": "Assume a computer system with the accounts: Ali, Yati, Umi, Root.\n\nAli can read, write X-1.\nYati can read X-1.\nUmi can execute REPORT.\nRoot can execute, read, write DATA.\n\na) Write the access control matrix (ACM).\nb) Write a set of access control lists (ACL).\nc) Write a set of capability lists (CL).\n(6 marks)",
+    "answer": "| Subject \\ Object | X-1 | REPORT | DATA |\n|---|---|---|---|\n| Ali | readwrite | - | - |\n| Yati | read | - | - |\n| Umi | - | execute | - |\n| Root | - | - | executereadwrite |\n\n**ACLs (per object):**\n- X-1 -> Ali: readwrite; Yati: read\n- REPORT -> Umi: execute\n- DATA -> Root: executereadwrite\n\n**Capability lists (per subject):**\n- Ali -> X-1: readwrite\n- Yati -> X-1: read\n- Umi -> REPORT: execute\n- Root -> DATA: executereadwrite\n\n**Diagram (Graphviz dot):**\n\n```dot\ndigraph ACM {\n  rankdir=LR;\n  node [shape=box];\n  \"Ali\";\n  \"Yati\";\n  \"Umi\";\n  \"Root\";\n  \"X-1\" [shape=ellipse];\n  \"REPORT\" [shape=ellipse];\n  \"DATA\" [shape=ellipse];\n  \"Ali\" -> \"X-1\" [label=\"read, write\"];\n  \"Root\" -> \"DATA\" [label=\"execute, read, write\"];\n  \"Umi\" -> \"REPORT\" [label=\"execute\"];\n  \"Yati\" -> \"X-1\" [label=\"read\"];\n}\n```",
+    "dot": "digraph ACM {\n  rankdir=LR;\n  node [shape=box];\n  \"Ali\";\n  \"Yati\";\n  \"Umi\";\n  \"Root\";\n  \"X-1\" [shape=ellipse];\n  \"REPORT\" [shape=ellipse];\n  \"DATA\" [shape=ellipse];\n  \"Ali\" -> \"X-1\" [label=\"read, write\"];\n  \"Root\" -> \"DATA\" [label=\"execute, read, write\"];\n  \"Umi\" -> \"REPORT\" [label=\"execute\"];\n  \"Yati\" -> \"X-1\" [label=\"read\"];\n}"
+  },
+  {
+    "scenario": {
+      "users": [
+        "Ali",
+        "Yati",
+        "Umi",
+        "Root"
+      ],
+      "objects": [
+        "X-1",
+        "REPORT",
+        "DATA"
+      ],
+      "grants": [
+        {
+          "user": "Ali",
+          "object": "X-1",
+          "rights": [
+            "read",
+            "write"
+          ]
+        },
+        {
+          "user": "Yati",
+          "object": "REPORT",
+          "rights": [
+            "execute"
+          ]
+        },
+        {
+          "user": "Umi",
+          "object": "DATA",
+          "rights": [
+            "read"
+          ]
+        },
+        {
+          "user": "Root",
+          "object": "X-1",
+          "rights": [
+            "read",
+            "write",
+            "execute"
+          ]
+        },
+        {
+          "user": "Root",
+          "object": "REPORT",
+          "rights": [
+            "read",
+            "write",
+            "execute"
+          ]
+        },
+        {
+          "user": "Root",
+          "object": "DATA",
+          "rights": [
+            "read",
+            "write",
+            "execute"
+          ]
+        }
+      ],
+      "marks": 6
+    },
+    "question": "Assume a computer system with the accounts: Ali, Yati, Umi, Root.\n\nAli can read, write X-1.\nYati can execute REPORT.\nUmi can read DATA.\nRoot can execute, read, write X-1.\nRoot can execute, read, write REPORT.\nRoot can execute, read, write DATA.\n\na) Write the access control matrix (ACM).\nb) Write a set of access control lists (ACL).\nc) Write a set of capability lists (CL).\n(6 marks)",
+    "answer": "| Subject \\ Object | X-1 | REPORT | DATA |\n|---|---|---|---|\n| Ali | readwrite | - | - |\n| Yati | - | execute | - |\n| Umi | - | - | read |\n| Root | executereadwrite | executereadwrite | executereadwrite |\n\n**ACLs (per object):**\n- X-1 -> Ali: readwrite; Root: executereadwrite\n- REPORT -> Root: executereadwrite; Yati: execute\n- DATA -> Root: executereadwrite; Umi: read\n\n**Capability lists (per subject):**\n- Ali -> X-1: readwrite\n- Yati -> REPORT: execute\n- Umi -> DATA: read\n- Root -> DATA: executereadwrite; REPORT: executereadwrite; X-1: executereadwrite\n\n**Diagram (Graphviz dot):**\n\n```dot\ndigraph ACM {\n  rankdir=LR;\n  node [shape=box];\n  \"Ali\";\n  \"Yati\";\n  \"Umi\";\n  \"Root\";\n  \"X-1\" [shape=ellipse];\n  \"REPORT\" [shape=ellipse];\n  \"DATA\" [shape=ellipse];\n  \"Ali\" -> \"X-1\" [label=\"read, write\"];\n  \"Root\" -> \"DATA\" [label=\"execute, read, write\"];\n  \"Root\" -> \"REPORT\" [label=\"execute, read, write\"];\n  \"Root\" -> \"X-1\" [label=\"execute, read, write\"];\n  \"Umi\" -> \"DATA\" [label=\"read\"];\n  \"Yati\" -> \"REPORT\" [label=\"execute\"];\n}\n```",
+    "dot": "digraph ACM {\n  rankdir=LR;\n  node [shape=box];\n  \"Ali\";\n  \"Yati\";\n  \"Umi\";\n  \"Root\";\n  \"X-1\" [shape=ellipse];\n  \"REPORT\" [shape=ellipse];\n  \"DATA\" [shape=ellipse];\n  \"Ali\" -> \"X-1\" [label=\"read, write\"];\n  \"Root\" -> \"DATA\" [label=\"execute, read, write\"];\n  \"Root\" -> \"REPORT\" [label=\"execute, read, write\"];\n  \"Root\" -> \"X-1\" [label=\"execute, read, write\"];\n  \"Umi\" -> \"DATA\" [label=\"read\"];\n  \"Yati\" -> \"REPORT\" [label=\"execute\"];\n}"
+  },
+  {
+    "scenario": {
+      "users": [
+        "Ali",
+        "Yati",
+        "Umi",
+        "Root"
+      ],
+      "objects": [
+        "X-1",
+        "REPORT",
+        "DATA"
+      ],
+      "grants": [
+        {
+          "user": "Ali",
+          "object": "X-1",
+          "rights": [
+            "read",
+            "write"
+          ]
+        },
+        {
+          "user": "Yati",
+          "object": "X-1",
+          "rights": [
+            "read"
+          ]
+        },
+        {
+          "user": "Umi",
+          "object": "REPORT",
+          "rights": [
+            "execute"
+          ]
+        },
+        {
+          "user": "Root",
+          "object": "X-1",
+          "rights": [
+            "read",
+            "write",
+            "execute"
+          ]
+        },
+        {
+          "user": "Root",
+          "object": "REPORT",
+          "rights": [
+            "read",
+            "write",
+            "execute"
+          ]
+        },
+        {
+          "user": "Root",
+          "object": "DATA",
+          "rights": [
+            "read",
+            "write",
+            "execute"
+          ]
+        }
+      ],
+      "marks": 6
+    },
+    "question": "Assume a computer system with the accounts: Ali, Yati, Umi, Root.\n\nAli can read, write X-1.\nYati can read X-1.\nUmi can execute REPORT.\nRoot can execute, read, write X-1.\nRoot can execute, read, write REPORT.\nRoot can execute, read, write DATA.\n\na) Write the access control matrix (ACM).\nb) Write a set of access control lists (ACL).\nc) Write a set of capability lists (CL).\n(6 marks)",
+    "answer": "| Subject \\ Object | X-1 | REPORT | DATA |\n|---|---|---|---|\n| Ali | readwrite | - | - |\n| Yati | read | - | - |\n| Umi | - | execute | - |\n| Root | executereadwrite | executereadwrite | executereadwrite |\n\n**ACLs (per object):**\n- X-1 -> Ali: readwrite; Root: executereadwrite; Yati: read\n- REPORT -> Root: executereadwrite; Umi: execute\n- DATA -> Root: executereadwrite\n\n**Capability lists (per subject):**\n- Ali -> X-1: readwrite\n- Yati -> X-1: read\n- Umi -> REPORT: execute\n- Root -> DATA: executereadwrite; REPORT: executereadwrite; X-1: executereadwrite\n\n**Diagram (Graphviz dot):**\n\n```dot\ndigraph ACM {\n  rankdir=LR;\n  node [shape=box];\n  \"Ali\";\n  \"Yati\";\n  \"Umi\";\n  \"Root\";\n  \"X-1\" [shape=ellipse];\n  \"REPORT\" [shape=ellipse];\n  \"DATA\" [shape=ellipse];\n  \"Ali\" -> \"X-1\" [label=\"read, write\"];\n  \"Root\" -> \"DATA\" [label=\"execute, read, write\"];\n  \"Root\" -> \"REPORT\" [label=\"execute, read, write\"];\n  \"Root\" -> \"X-1\" [label=\"execute, read, write\"];\n  \"Umi\" -> \"REPORT\" [label=\"execute\"];\n  \"Yati\" -> \"X-1\" [label=\"read\"];\n}\n```",
+    "dot": "digraph ACM {\n  rankdir=LR;\n  node [shape=box];\n  \"Ali\";\n  \"Yati\";\n  \"Umi\";\n  \"Root\";\n  \"X-1\" [shape=ellipse];\n  \"REPORT\" [shape=ellipse];\n  \"DATA\" [shape=ellipse];\n  \"Ali\" -> \"X-1\" [label=\"read, write\"];\n  \"Root\" -> \"DATA\" [label=\"execute, read, write\"];\n  \"Root\" -> \"REPORT\" [label=\"execute, read, write\"];\n  \"Root\" -> \"X-1\" [label=\"execute, read, write\"];\n  \"Umi\" -> \"REPORT\" [label=\"execute\"];\n  \"Yati\" -> \"X-1\" [label=\"read\"];\n}"
+  },
+  {
+    "scenario": {
+      "users": [
+        "Ali",
+        "Yati",
+        "Umi",
+        "Root"
+      ],
+      "objects": [
+        "X-1",
+        "REPORT",
+        "DATA"
+      ],
+      "grants": [
+        {
+          "user": "Ali",
+          "object": "X-1",
+          "rights": [
+            "read"
+          ]
+        },
+        {
+          "user": "Yati",
+          "object": "X-1",
+          "rights": [
+            "write"
+          ]
+        },
+        {
+          "user": "Yati",
+          "object": "REPORT",
+          "rights": [
+            "read",
+            "execute"
+          ]
+        },
+        {
+          "user": "Umi",
+          "object": "DATA",
+          "rights": [
+            "read",
+            "write"
+          ]
+        },
+        {
+          "user": "Root",
+          "object": "X-1",
+          "rights": [
+            "read",
+            "write",
+            "execute"
+          ]
+        },
+        {
+          "user": "Root",
+          "object": "REPORT",
+          "rights": [
+            "read",
+            "write",
+            "execute"
+          ]
+        },
+        {
+          "user": "Root",
+          "object": "DATA",
+          "rights": [
+            "read",
+            "write",
+            "execute"
+          ]
+        }
+      ],
+      "marks": 6
+    },
+    "question": "Assume a computer system with the accounts: Ali, Yati, Umi, Root.\n\nAli can read X-1.\nYati can write X-1.\nYati can execute, read REPORT.\nUmi can read, write DATA.\nRoot can execute, read, write X-1.\nRoot can execute, read, write REPORT.\nRoot can execute, read, write DATA.\n\na) Write the access control matrix (ACM).\nb) Write a set of access control lists (ACL).\nc) Write a set of capability lists (CL).\n(6 marks)",
+    "answer": "| Subject \\ Object | X-1 | REPORT | DATA |\n|---|---|---|---|\n| Ali | read | - | - |\n| Yati | write | executeread | - |\n| Umi | - | - | readwrite |\n| Root | executereadwrite | executereadwrite | executereadwrite |\n\n**ACLs (per object):**\n- X-1 -> Ali: read; Root: executereadwrite; Yati: write\n- REPORT -> Root: executereadwrite; Yati: executeread\n- DATA -> Root: executereadwrite; Umi: readwrite\n\n**Capability lists (per subject):**\n- Ali -> X-1: read\n- Yati -> REPORT: executeread; X-1: write\n- Umi -> DATA: readwrite\n- Root -> DATA: executereadwrite; REPORT: executereadwrite; X-1: executereadwrite\n\n**Diagram (Graphviz dot):**\n\n```dot\ndigraph ACM {\n  rankdir=LR;\n  node [shape=box];\n  \"Ali\";\n  \"Yati\";\n  \"Umi\";\n  \"Root\";\n  \"X-1\" [shape=ellipse];\n  \"REPORT\" [shape=ellipse];\n  \"DATA\" [shape=ellipse];\n  \"Ali\" -> \"X-1\" [label=\"read\"];\n  \"Root\" -> \"DATA\" [label=\"execute, read, write\"];\n  \"Root\" -> \"REPORT\" [label=\"execute, read, write\"];\n  \"Root\" -> \"X-1\" [label=\"execute, read, write\"];\n  \"Umi\" -> \"DATA\" [label=\"read, write\"];\n  \"Yati\" -> \"REPORT\" [label=\"execute, read\"];\n  \"Yati\" -> \"X-1\" [label=\"write\"];\n}\n```",
+    "dot": "digraph ACM {\n  rankdir=LR;\n  node [shape=box];\n  \"Ali\";\n  \"Yati\";\n  \"Umi\";\n  \"Root\";\n  \"X-1\" [shape=ellipse];\n  \"REPORT\" [shape=ellipse];\n  \"DATA\" [shape=ellipse];\n  \"Ali\" -> \"X-1\" [label=\"read\"];\n  \"Root\" -> \"DATA\" [label=\"execute, read, write\"];\n  \"Root\" -> \"REPORT\" [label=\"execute, read, write\"];\n  \"Root\" -> \"X-1\" [label=\"execute, read, write\"];\n  \"Umi\" -> \"DATA\" [label=\"read, write\"];\n  \"Yati\" -> \"REPORT\" [label=\"execute, read\"];\n  \"Yati\" -> \"X-1\" [label=\"write\"];\n}"
+  },
+  {
+    "scenario": {
+      "users": [
+        "Ali",
+        "Yati",
+        "Umi",
+        "Root"
+      ],
+      "objects": [
+        "X-1",
+        "REPORT",
+        "DATA"
+      ],
+      "grants": [
+        {
+          "user": "Ali",
+          "object": "X-1",
+          "rights": [
+            "read",
+            "write"
+          ]
+        },
+        {
+          "user": "Yati",
+          "object": "X-1",
+          "rights": [
+            "execute"
+          ]
+        },
+        {
+          "user": "Umi",
+          "object": "REPORT",
+          "rights": [
+            "read"
+          ]
+        },
+        {
+          "user": "Umi",
+          "object": "DATA",
+          "rights": [
+            "write"
+          ]
+        },
+        {
+          "user": "Root",
+          "object": "X-1",
+          "rights": [
+            "read",
+            "write",
+            "execute"
+          ]
+        },
+        {
+          "user": "Root",
+          "object": "REPORT",
+          "rights": [
+            "read",
+            "write",
+            "execute"
+          ]
+        },
+        {
+          "user": "Root",
+          "object": "DATA",
+          "rights": [
+            "read",
+            "write",
+            "execute"
+          ]
+        }
+      ],
+      "marks": 6
+    },
+    "question": "Assume a computer system with the accounts: Ali, Yati, Umi, Root.\n\nAli can read, write X-1.\nYati can execute X-1.\nUmi can read REPORT.\nUmi can write DATA.\nRoot can execute, read, write X-1.\nRoot can execute, read, write REPORT.\nRoot can execute, read, write DATA.\n\na) Write the access control matrix (ACM).\nb) Write a set of access control lists (ACL).\nc) Write a set of capability lists (CL).\n(6 marks)",
+    "answer": "| Subject \\ Object | X-1 | REPORT | DATA |\n|---|---|---|---|\n| Ali | readwrite | - | - |\n| Yati | execute | - | - |\n| Umi | - | read | write |\n| Root | executereadwrite | executereadwrite | executereadwrite |\n\n**ACLs (per object):**\n- X-1 -> Ali: readwrite; Root: executereadwrite; Yati: execute\n- REPORT -> Root: executereadwrite; Umi: read\n- DATA -> Root: executereadwrite; Umi: write\n\n**Capability lists (per subject):**\n- Ali -> X-1: readwrite\n- Yati -> X-1: execute\n- Umi -> DATA: write; REPORT: read\n- Root -> DATA: executereadwrite; REPORT: executereadwrite; X-1: executereadwrite\n\n**Diagram (Graphviz dot):**\n\n```dot\ndigraph ACM {\n  rankdir=LR;\n  node [shape=box];\n  \"Ali\";\n  \"Yati\";\n  \"Umi\";\n  \"Root\";\n  \"X-1\" [shape=ellipse];\n  \"REPORT\" [shape=ellipse];\n  \"DATA\" [shape=ellipse];\n  \"Ali\" -> \"X-1\" [label=\"read, write\"];\n  \"Root\" -> \"DATA\" [label=\"execute, read, write\"];\n  \"Root\" -> \"REPORT\" [label=\"execute, read, write\"];\n  \"Root\" -> \"X-1\" [label=\"execute, read, write\"];\n  \"Umi\" -> \"DATA\" [label=\"write\"];\n  \"Umi\" -> \"REPORT\" [label=\"read\"];\n  \"Yati\" -> \"X-1\" [label=\"execute\"];\n}\n```",
+    "dot": "digraph ACM {\n  rankdir=LR;\n  node [shape=box];\n  \"Ali\";\n  \"Yati\";\n  \"Umi\";\n  \"Root\";\n  \"X-1\" [shape=ellipse];\n  \"REPORT\" [shape=ellipse];\n  \"DATA\" [shape=ellipse];\n  \"Ali\" -> \"X-1\" [label=\"read, write\"];\n  \"Root\" -> \"DATA\" [label=\"execute, read, write\"];\n  \"Root\" -> \"REPORT\" [label=\"execute, read, write\"];\n  \"Root\" -> \"X-1\" [label=\"execute, read, write\"];\n  \"Umi\" -> \"DATA\" [label=\"write\"];\n  \"Umi\" -> \"REPORT\" [label=\"read\"];\n  \"Yati\" -> \"X-1\" [label=\"execute\"];\n}"
+  }
+]

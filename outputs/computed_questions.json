@@ -1,0 +1,112 @@
+[
+  {
+    "cipher": "caesar",
+    "plaintext": "DEVICE RETURNED AND WIPE DONE",
+    "key": "shift=7",
+    "task": "decrypt",
+    "marks": 2,
+    "question": "Using Caesar Cipher technique, decrypt the following ciphertext.\nKLCPJLYLABYULKHUKDPWLKVUL\n(2 marks)",
+    "answer": "DEVICERETURNEDANDWIPEDONE",
+    "ciphertext": "KLCPJLYLABYULKHUKDPWLKVUL",
+    "working": "Answer: DEVICERETURNEDANDWIPEDONE\n\nWorking:\n  K (10) -7 mod 26 -> D\n  L (11) -7 mod 26 -> E\n  C ( 2) -7 mod 26 -> V\n  P (15) -7 mod 26 -> I\n  J ( 9) -7 mod 26 -> C\n  L (11) -7 mod 26 -> E\n  Y (24) -7 mod 26 -> R\n  L (11) -7 mod 26 -> E\n  A ( 0) -7 mod 26 -> T\n  B ( 1) -7 mod 26 -> U\n  Y (24) -7 mod 26 -> R\n  U (20) -7 mod 26 -> N\n  L (11) -7 mod 26 -> E\n  K (10) -7 mod 26 -> D\n  H ( 7) -7 mod 26 -> A\n  U (20) -7 mod 26 -> N\n  K (10) -7 mod 26 -> D\n  D ( 3) -7 mod 26 -> W\n  P (15) -7 mod 26 -> I\n  W (22) -7 mod 26 -> P\n  L (11) -7 mod 26 -> E\n  K (10) -7 mod 26 -> D\n  V (21) -7 mod 26 -> O\n  U (20) -7 mod 26 -> N\n  L (11) -7 mod 26 -> E"
+  },
+  {
+    "cipher": "caesar",
+    "plaintext": "TRAIN EMPLOYEES ON SECURITY",
+    "key": "shift=7",
+    "task": "decrypt",
+    "marks": 2,
+    "question": "Using Caesar Cipher technique, decrypt the following ciphertext.\nAYHPULTWSVFLLZVUZLJBYPAF\n(2 marks)",
+    "answer": "TRAINEMPLOYEESONSECURITY",
+    "ciphertext": "AYHPULTWSVFLLZVUZLJBYPAF",
+    "working": "Answer: TRAINEMPLOYEESONSECURITY\n\nWorking:\n  A ( 0) -7 mod 26 -> T\n  Y (24) -7 mod 26 -> R\n  H ( 7) -7 mod 26 -> A\n  P (15) -7 mod 26 -> I\n  U (20) -7 mod 26 -> N\n  L (11) -7 mod 26 -> E\n  T (19) -7 mod 26 -> M\n  W (22) -7 mod 26 -> P\n  S (18) -7 mod 26 -> L\n  V (21) -7 mod 26 -> O\n  F ( 5) -7 mod 26 -> Y\n  L (11) -7 mod 26 -> E\n  L (11) -7 mod 26 -> E\n  Z (25) -7 mod 26 -> S\n  V (21) -7 mod 26 -> O\n  U (20) -7 mod 26 -> N\n  Z (25) -7 mod 26 -> S\n  L (11) -7 mod 26 -> E\n  J ( 9) -7 mod 26 -> C\n  B ( 1) -7 mod 26 -> U\n  Y (24) -7 mod 26 -> R\n  P (15) -7 mod 26 -> I\n  A ( 0) -7 mod 26 -> T\n  F ( 5) -7 mod 26 -> Y"
+  },
+  {
+    "cipher": "vigenere",
+    "plaintext": "CHECK FOR VALID DOMAIN NAMES",
+    "key": "secret",
+    "task": "decrypt",
+    "marks": 6,
+    "question": "Decrypt the following ciphertext using the Vigenere cipher with the key secret.\nULGTOYGVXRPBVHQDEBFRCDIL\n(6 marks)",
+    "answer": "CHECKFORVALIDDOMAINNAMES",
+    "ciphertext": "ULGTOYGVXRPBVHQDEBFRCDIL",
+    "working": "Answer: CHECKFORVALIDDOMAINNAMES\n\nWorking:\n  U(20) -18 mod 26 -> C\n  L(11) - 4 mod 26 -> H\n  G( 6) - 2 mod 26 -> E\n  T(19) -17 mod 26 -> C\n  O(14) - 4 mod 26 -> K\n  Y(24) -19 mod 26 -> F\n  G( 6) -18 mod 26 -> O\n  V(21) - 4 mod 26 -> R\n  X(23) - 2 mod 26 -> V\n  R(17) -17 mod 26 -> A\n  P(15) - 4 mod 26 -> L\n  B( 1) -19 mod 26 -> I\n  V(21) -18 mod 26 -> D\n  H( 7) - 4 mod 26 -> D\n  Q(16) - 2 mod 26 -> O\n  D( 3) -17 mod 26 -> M\n  E( 4) - 4 mod 26 -> A\n  B( 1) -19 mod 26 -> I\n  F( 5) -18 mod 26 -> N\n  R(17) - 4 mod 26 -> N\n  C( 2) - 2 mod 26 -> A\n  D( 3) -17 mod 26 -> M\n  I( 8) - 4 mod 26 -> E\n  L(11) -19 mod 26 -> S"
+  },
+  {
+    "cipher": "vigenere",
+    "plaintext": "IDENTIFY ANOMALOUS BEHAVIOR",
+    "key": "secret",
+    "task": "decrypt",
+    "marks": 6,
+    "question": "Decrypt the following ciphertext using the Vigenere cipher with the key secret.\nAHGEXBXCCESFSPQLWUWLCMMHJ\n(6 marks)",
+    "answer": "IDENTIFYANOMALOUSBEHAVIOR",
+    "ciphertext": "AHGEXBXCCESFSPQLWUWLCMMHJ",
+    "working": "Answer: IDENTIFYANOMALOUSBEHAVIOR\n\nWorking:\n  A( 0) -18 mod 26 -> I\n  H( 7) - 4 mod 26 -> D\n  G( 6) - 2 mod 26 -> E\n  E( 4) -17 mod 26 -> N\n  X(23) - 4 mod 26 -> T\n  B( 1) -19 mod 26 -> I\n  X(23) -18 mod 26 -> F\n  C( 2) - 4 mod 26 -> Y\n  C( 2) - 2 mod 26 -> A\n  E( 4) -17 mod 26 -> N\n  S(18) - 4 mod 26 -> O\n  F( 5) -19 mod 26 -> M\n  S(18) -18 mod 26 -> A\n  P(15) - 4 mod 26 -> L\n  Q(16) - 2 mod 26 -> O\n  L(11) -17 mod 26 -> U\n  W(22) - 4 mod 26 -> S\n  U(20) -19 mod 26 -> B\n  W(22) -18 mod 26 -> E\n  L(11) - 4 mod 26 -> H\n  C( 2) - 2 mod 26 -> A\n  M(12) -17 mod 26 -> V\n  M(12) - 4 mod 26 -> I\n  H( 7) -19 mod 26 -> O\n  J( 9) -18 mod 26 -> R"
+  },
+  {
+    "cipher": "playfair",
+    "plaintext": "REVIEW ACCESS PERMISSIONS",
+    "key": "REDFOX",
+    "task": "encrypt",
+    "marks": 6,
+    "question": "Encrypt the message below using Playfair encryption with the key REDFOX.\nREVIEW ACCESS PERMISSIONS\n(6 marks)",
+    "answer": "EDEPDVBGAFNCTQDEHKNCPLRTNC",
+    "ciphertext": "EDEPDVBGAFNCTQDEHKNCPLRTNC",
+    "working": "Answer: EDEPDVBGAFNCTQDEHKNCPLRTNC\n\nWorking:\n  Grid (I/J merged):\n  R E D F O X A B C G H I K L M N P Q S T U V W Y Z\n  encrypt result: EDEPDVBGAFNCTQDEHKNCPLRTNC"
+  },
+  {
+    "cipher": "playfair",
+    "plaintext": "CONTAINER SECURITY CHECKS",
+    "key": "REDFOX",
+    "task": "encrypt",
+    "marks": 6,
+    "question": "Encrypt the message below using Playfair encryption with the key REDFOX.\nCONTAINER SECURITY CHECKS\n(6 marks)",
+    "answer": "GFPNIPPRFNFARXMPFLIRBLNC",
+    "ciphertext": "GFPNIPPRFNFARXMPFLIRBLNC",
+    "working": "Answer: GFPNIPPRFNFARXMPFLIRBLNC\n\nWorking:\n  Grid (I/J merged):\n  R E D F O X A B C G H I K L M N P Q S T U V W Y Z\n  encrypt result: GFPNIPPRFNFARXMPFLIRBLNC"
+  },
+  {
+    "cipher": "affine",
+    "plaintext": "LIMIT LOGIN ATTEMPTS PER HOUR",
+    "key": "(17,20)",
+    "task": "decrypt",
+    "marks": 6,
+    "question": "Decrypt the following ciphertext using the affine cipher with key (17,20).\nZAQAFZYSAHUFFKQPFOPKXJYWX\n(6 marks)",
+    "answer": "LIMITLOGINATTEMPTSPERHOUR",
+    "ciphertext": "ZAQAFZYSAHUFFKQPFOPKXJYWX",
+    "working": "Answer: LIMITLOGINATTEMPTSPERHOUR\n\nWorking:\n  23*(25 - 20) mod 26 = 11 -> L\n  23*(0 - 20) mod 26 = 8 -> I\n  23*(16 - 20) mod 26 = 12 -> M\n  23*(0 - 20) mod 26 = 8 -> I\n  23*(5 - 20) mod 26 = 19 -> T\n  23*(25 - 20) mod 26 = 11 -> L\n  23*(24 - 20) mod 26 = 14 -> O\n  23*(18 - 20) mod 26 = 6 -> G\n  23*(0 - 20) mod 26 = 8 -> I\n  23*(7 - 20) mod 26 = 13 -> N\n  23*(20 - 20) mod 26 = 0 -> A\n  23*(5 - 20) mod 26 = 19 -> T\n  23*(5 - 20) mod 26 = 19 -> T\n  23*(10 - 20) mod 26 = 4 -> E\n  23*(16 - 20) mod 26 = 12 -> M\n  23*(15 - 20) mod 26 = 15 -> P\n  23*(5 - 20) mod 26 = 19 -> T\n  23*(14 - 20) mod 26 = 18 -> S\n  23*(15 - 20) mod 26 = 15 -> P\n  23*(10 - 20) mod 26 = 4 -> E\n  23*(23 - 20) mod 26 = 17 -> R\n  23*(9 - 20) mod 26 = 7 -> H\n  23*(24 - 20) mod 26 = 14 -> O\n  23*(22 - 20) mod 26 = 20 -> U\n  23*(23 - 20) mod 26 = 17 -> R"
+  },
+  {
+    "cipher": "vernam",
+    "plaintext": "PUBLIC KEY INFRASTRUCTURE",
+    "key": "3 6 12 9 4 15 20 1",
+    "task": "decrypt",
+    "marks": 6,
+    "question": "Decrypt the following ciphertext using one-time pad with the key numbers 3 6 12 9 4 15 20 1.\nSANUMREFBOZOVPMUUAOCYGY\n(6 marks)",
+    "answer": "PUBLICKEYINFRASTRUCTURE",
+    "ciphertext": "SANUMREFBOZOVPMUUAOCYGY",
+    "working": "Answer: PUBLICKEYINFRASTRUCTURE\n\nWorking:\n  S(18) - 3 mod 26 -> P\n  A( 0) - 6 mod 26 -> U\n  N(13) -12 mod 26 -> B\n  U(20) - 9 mod 26 -> L\n  M(12) - 4 mod 26 -> I\n  R(17) -15 mod 26 -> C\n  E( 4) -20 mod 26 -> K\n  F( 5) - 1 mod 26 -> E\n  B( 1) - 3 mod 26 -> Y\n  O(14) - 6 mod 26 -> I\n  Z(25) -12 mod 26 -> N\n  O(14) - 9 mod 26 -> F\n  V(21) - 4 mod 26 -> R\n  P(15) -15 mod 26 -> A\n  M(12) -20 mod 26 -> S\n  U(20) - 1 mod 26 -> T\n  U(20) - 3 mod 26 -> R\n  A( 0) - 6 mod 26 -> U\n  O(14) -12 mod 26 -> C\n  C( 2) - 9 mod 26 -> T\n  Y(24) - 4 mod 26 -> U\n  G( 6) -15 mod 26 -> R\n  Y(24) -20 mod 26 -> E"
+  },
+  {
+    "cipher": "columnar",
+    "plaintext": "ENFORCE COMPLEXITY RULES",
+    "key": "secret",
+    "task": "decrypt",
+    "marks": 6,
+    "question": "Decrypt the following ciphertext using columnar transposition with the key secret.\nFOIENCXLRPYXOMTSEEEUCLRX\n(6 marks)",
+    "answer": "ENFORCECOMPLEXITYRULES",
+    "ciphertext": "FOIENCXLRPYXOMTSEEEUCLRX",
+    "working": "Answer: ENFORCECOMPLEXITYRULES\n\nWorking:\n  Key: SECRET; convention: fill rows, read columns (keyword: alphabetical rank order; pad X)\n  decrypt result: ENFORCECOMPLEXITYRULES"
+  },
+  {
+    "cipher": "columnar",
+    "plaintext": "FINAL AUDIT CONDUCTED",
+    "key": "ZEBRA",
+    "task": "decrypt",
+    "marks": 6,
+    "question": "Decrypt the following ciphertext using columnar transposition with the key ZEBRA.\nLTUXNDNEIUOTAIDDFACC\n(6 marks)",
+    "answer": "FINALAUDITCONDUCTED",
+    "ciphertext": "LTUXNDNEIUOTAIDDFACC",
+    "working": "Answer: FINALAUDITCONDUCTED\n\nWorking:\n  Key: ZEBRA; convention: fill rows, read columns (keyword: alphabetical rank order; pad X)\n  decrypt result: FINALAUDITCONDUCTED"
+  }
+]
