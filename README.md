@@ -67,11 +67,17 @@ Re-running the command is a no-op unless `--force` is passed.
 - Job progress includes cost so far and the final summary includes the
   estimated cost based on the model's configured price table.
 
-## PDF export
+## PDF export and scheme QA
 
 PDF export uses Microsoft Word COM on this machine. If Word is unavailable,
 the job still completes and serves the DOCX files; the page says PDF export is
 unavailable. It never fails the job for a missing PDF backend.
+
+Marking-scheme tables are checked after export: every table grid must fit the
+body usable width exactly, and rendered pages are scanned for ink beyond the
+right margin in both Word and LibreOffice (headless). The build fails with a
+`SchemeQAError` if either check fails. LibreOffice is required for the full
+scheme QA; install it separately if `soffice` is not on PATH.
 
 ## Public build
 

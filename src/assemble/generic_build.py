@@ -14,6 +14,7 @@ from docx.oxml.ns import qn
 import src.assemble.build_docx_paper_04 as paper_mod
 import src.assemble.build_docx_scheme_04 as scheme_mod
 from src.assemble.build_docx_paper import export_pdf, para_text
+from src.assemble.scheme_qa import SchemeQAError
 
 _LOCK = threading.RLock()
 
@@ -145,6 +146,8 @@ def build_scheme(paper_docx: Path, plan_json: Path, theory_json: Path,
         error = ""
         try:
             scheme_mod.build()
+        except SchemeQAError:
+            raise
         except Exception as e:
             error = str(e)
             if not out_docx.exists():

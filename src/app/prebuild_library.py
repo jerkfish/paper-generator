@@ -14,6 +14,26 @@ from src.assemble.generic_build import build_paper, build_scheme
 SRC = config.OUTPUTS_DIR / "eval_final_deepseek"
 
 
+def build_scheme_only(seed: int) -> dict:
+    """Rebuild only the scheme from stored plan/theory/cache paper."""
+    plan = SRC / f"seed_{seed:02d}_planner.json"
+    theory = SRC / f"seed_{seed:02d}_theory.json"
+    out = cache_path("realistic", seed, None)
+    paper_docx = out / "paper.docx"
+    if not plan.exists() or not theory.exists() or not paper_docx.exists():
+        return build_seed(seed, force=True)
+    scheme = build_scheme(paper_docx, plan, theory,
+                          out / "scheme.docx", out / "scheme.pdf",
+                          public=config.PUBLIC_BUILD)
+    meta_path = out / "meta.json"
+    meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    meta["files"]["scheme_docx"] = scheme.get("docx", "")
+    meta["files"]["scheme_pdf"] = scheme.get("pdf", "")
+    meta_path.write_text(json.dumps(meta, indent=2), encoding="utf-8")
+    return {"seed": seed, "scheme_only": True, "path": str(out),
+            "scheme_pdf": bool(scheme.get("pdf"))}
+
+
 def build_seed(seed: int, force: bool = False) -> dict:
     plan = SRC / f"seed_{seed:02d}_planner.json"
     theory = SRC / f"seed_{seed:02d}_theory.json"
@@ -83,6 +103,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--seeds", default="1-20")
     ap.add_argument("--force", action="store_true")
+    ap.add_argument("--schemes-only", action="store_true")
     args = ap.parse_args()
     if "-" in args.seeds:
         a, b = args.seeds.split("-")
@@ -91,7 +112,10 @@ def main() -> None:
         seeds = [int(x) for x in args.seeds.split(",")]
     for seed in seeds:
         try:
-            print(build_seed(seed, force=args.force), flush=True)
+            if args.schemes_only:
+                print(build_scheme_only(seed), flush=True)
+            else:
+                print(build_seed(seed, force=args.force), flush=True)
         except Exception as e:
             print(f"seed {seed}: ERROR {e}", flush=True)
 

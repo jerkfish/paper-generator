@@ -68,4 +68,4 @@ were accepted by the entailment check.
 
 ## Verification
 
-`uv run pytest -q`: **131 passed**.
+`uv run pytest -q`: **134 passed**.

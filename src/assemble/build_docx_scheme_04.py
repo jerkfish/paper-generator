@@ -32,6 +32,7 @@ from src.assemble.scheme_working import (
     mark_guidance_for,
     working_for,
 )
+from src.assemble.table_fit import fix_tables
 from src.config import OUTPUTS_DIR
 
 PAPER_DOCX = OUTPUTS_DIR / "mock_paper_04.docx"
@@ -121,32 +122,26 @@ def _status(doc, slot: dict, accepted: dict, placeholders: dict) -> None:
                  indent=0.4)
     _question_text(doc, q["question"])
     add_para(doc, "Marking points:", bold=True, size=10, before=3, after=2)
-    table = doc.add_table(rows=1, cols=7)
+    table = doc.add_table(rows=1, cols=6)
     try:
         table.style = "Table Grid"
     except KeyError:
         pass
     _set_table_borders(table)
-    table.autofit = False
-    widths = [Cm(0.7), Cm(3.4), Cm(4.4), Cm(2.1), Cm(2.3),
-              Cm(1.0), Cm(1.9)]
-    for row in table.rows:
-        for i, width in enumerate(widths):
-            row.cells[i].width = width
     for j, head in enumerate(("No.", "Point (1 mark)", "Evidence quote",
-                              "Source", "Chunk", "Stem overlap",
-                              "Entailment")):
+                              "Source", "Verdict", "Overlap")):
         _cell_text(table.rows[0].cells[j], head, bold=True, size=8)
     for i, pt in enumerate(q["marking_points"], 1):
         cells = table.add_row().cells
         _cell_text(cells[0], str(i), size=8)
         _cell_text(cells[1], pt["point"], size=8)
-        _cell_text(cells[2], f'"{pt["quote"]}"', size=7.5)
+        _cell_text(cells[2], f'"{pt["quote"]}"', size=8)
+        chunk = str(pt["chunk_id"]).replace(
+            "::", "::" + "​").replace("-", "-" + "​")
         _cell_text(cells[3], f"{pt['source_file']}, slide "
-                             f"{pt['source_slide']}", size=7.5)
-        _cell_text(cells[4], pt["chunk_id"], size=7)
-        _cell_text(cells[5], f"{pt.get('stem_overlap', pt.get('term_overlap', 1.0)):.2f}" + (" LOW" if pt.get("low_stem_overlap") else ""), size=7)
-        _cell_text(cells[6], _entailment_label(pt), size=7)
+                             f"{pt['source_slide']}\n{chunk}", size=8)
+        _cell_text(cells[4], _entailment_label(pt), size=8)
+        _cell_text(cells[5], f"{pt.get('stem_overlap', pt.get('term_overlap', 1.0)):.2f}" + (" LOW" if pt.get("low_stem_overlap") else ""), size=8)
     doc.add_paragraph().paragraph_format.space_after = Pt(2)
     add_para(doc, "Confidence: supported by lecture slides (not lecturer-marked) - each point carries a verbatim quote "
                   "from the cited lecture slide.", italic=True, size=9,
@@ -253,6 +248,8 @@ def build() -> None:
 
     add_para(doc, "End of marking scheme.", italic=True, size=9,
              align=WD_ALIGN_PARAGRAPH.CENTER, before=8)
+    usable = fix_tables(doc)
+    print(f"scheme table usable width: {usable} twips", flush=True)
     doc.save(str(SCHEME_DOCX))
 
     pages = export_pdf(SCHEME_DOCX, SCHEME_PDF)
@@ -265,6 +262,8 @@ def build() -> None:
             break
     d2.save(str(SCHEME_DOCX))
     pages2 = export_pdf(SCHEME_DOCX, SCHEME_PDF)
+    from src.assemble.scheme_qa import run_checks
+    run_checks(SCHEME_DOCX, SCHEME_PDF)
     print(f"scheme 04: computed={n_comp}, supported={n_sourced}, "
           f"placeholders={n_ph}; pages={pages2} "
           f"(first export {pages}, match={pages == pages2})")
