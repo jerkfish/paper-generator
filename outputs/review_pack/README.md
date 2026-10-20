@@ -1,4 +1,10 @@
-# CSC662 mock paper - review pack
+# CSC662 mock paper - review pack (paper-01 archive)
+
+> **Historical pack.** This pack documents the earlier paper-01 practice mock,
+> which still has 72 placeholder marks. The final complete paper is
+> `outputs/mock_paper_04.pdf` (6 pages, 0 placeholders), with scheme
+> `outputs/mock_scheme_04.pdf` and the current comparison report
+> `outputs/step8_comparison.md`.
 
 Contents:
 

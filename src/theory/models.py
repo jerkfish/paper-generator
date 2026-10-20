@@ -32,8 +32,16 @@ class VerifiedPoint(BaseModel):
     source_deck: str
     source_key: str
     chunk_id: str
+    # Raw lexical overlap is retained as a diagnostic only.  The gate uses
+    # stemmed overlap (Snowball English stemmer) instead.
     term_overlap: float = 1.0
-    low_term_overlap: bool = False
+    low_term_overlap: bool = False  # legacy alias of low_stem_overlap
+    stem_overlap: float = 1.0
+    low_stem_overlap: bool = False
+    # Filled only for low-stem-overlap points: yes / partly / no.
+    entailment: str = ""
+    entailment_reason: str = ""
+    verbatim_copy: bool = False
     short_quote: bool = False
     quote_repaired: bool = False
 

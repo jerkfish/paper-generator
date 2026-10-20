@@ -1,88 +1,169 @@
-# Realistic-mode evaluation - seeds 1-20
+# Final realistic-mode evaluation
 
-Each seed runs the revised realistic planner and the full theory module (BM25 retrieval, cheap Qwen model, up to 3 retries, source overlap/topic/quote checks). Model and price settings are those in `src/config.py`; costs are estimates, not invoices.
+## Setup
 
-- Models used: **qwen3.6-flash**, **qwen3.6-plus**, **qwen3.8-flash**, **qwen3.8-max** (free-tier quotas rotated; per-seed model in the table).
-- Seeds completed: **20/20**
-- Theory slots: 464; accepted **448**; placeholders **16**; placeholder rate **3.4%**.
-- Source overlap: **0** keys across 0/20 papers; **0** slots involved; target 0.
-- Max near-copy similarity against the 35 past papers: **0.78** (threshold 0.80).
-- Calls: 564; tokens: 2115646; estimated total cost: **$0.0892**; cost per accepted question: **$0.0002**.
-- Scenario questions generated: **70** Part B slots.
-- Low term-overlap marking points flagged: **694**.
+This is the primary evaluation requested in the final pass: **one model for all 20 seeds**, the hardened theory pipeline, and no quota rotation.
 
-## Computed-marks distribution vs fingerprint
-
-| Computed marks | Fingerprint count | Eval count |
-|---:|---:|---:|
-| 0 | 5 | 11 |
-| 2 | 1 | 2 |
-| 6 | 2 | 3 |
-| 12 | 1 | 1 |
-| 14 | 1 | 3 |
-
-Fingerprint distribution: `[0, 0, 0, 0, 0, 2, 6, 6, 12, 14]`; eval mean **3.80** marks/paper (fingerprint mean 4.0).
+- Model: **DeepSeek V4.1 Flash** (`deepseek-flash`, DeepSeek-V4.1-Flash-1017).
+- Seeds: **1-20**; theory slots: **464**; accepted **457**; placeholders **7** (1.5%).
+- Estimated cost: **$1.0315**, **$0.0023** per accepted question.
+- Official DeepSeek list price used: **$0.30/1M input, $1.20/1M output** (peak cache-miss rates; off-peak is half). The run took place in the peak window (01:00-04:00 UTC on a weekday), so peak rates apply. Cache-hit discounts are not counted, so this is a conservative estimate from token usage, not an invoice.
+- Calls: **1358**; tokens: **2632459**.
+- Source overlap: **0** keys; allowed-deck violations: **0**.
+- Max near-copy against the 35 past papers: **0.764** (threshold 0.80).
+- Raw per-seed payloads: `outputs/eval_final_deepseek/seed_XX_theory.json` (and `.md` reports).
 
 ## Per-seed results
 
-| Seed | Model | Computed | Placeholders | Attempts avg | Attempts max | Overlap keys | Overlap rate | Max near-copy | Part B scenarios | Cost |
-|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 | qwen3.8-flash | 0 | 1 | 2.42 | 5 | 0 | 0.0% | 0.78 | 4 | $0.0047 |
-| 2 | qwen3.8-flash | 0 | 0 | 2.25 | 4 | 0 | 0.0% | 0.68 | 4 | $0.0044 |
-| 3 | qwen3.8-flash | 0 | 0 | 2.33 | 3 | 0 | 0.0% | 0.78 | 4 | $0.0043 |
-| 4 | qwen3.8-flash | 0 | 0 | 2.17 | 3 | 0 | 0.0% | 0.68 | 4 | $0.0042 |
-| 5 | qwen3.8-max | 14 | 0 | 1.75 | 2 | 0 | 0.0% | 0.63 | 4 | $0.0033 |
-| 6 | qwen3.6-flash | 14 | 1 | 2.75 | 5 | 0 | 0.0% | 0.67 | 4 | $0.0053 |
-| 7 | qwen3.8-max | 2 | 0 | 2.00 | 3 | 0 | 0.0% | 0.72 | 4 | $0.0039 |
-| 8 | qwen3.8-max | 0 | 1 | 2.50 | 5 | 0 | 0.0% | 0.72 | 4 | $0.0046 |
-| 9 | qwen3.8-flash | 6 | 0 | 2.00 | 3 | 0 | 0.0% | 0.76 | 4 | $0.0037 |
-| 10 | qwen3.8-max | 14 | 1 | 2.08 | 5 | 0 | 0.0% | 0.72 | 4 | $0.0040 |
-| 11 | qwen3.8-max | 6 | 1 | 2.33 | 7 | 0 | 0.0% | 0.72 | 3 | $0.0044 |
-| 12 | qwen3.8-max | 6 | 0 | 1.92 | 2 | 0 | 0.0% | 0.64 | 4 | $0.0036 |
-| 13 | qwen3.6-plus | 0 | 2 | 2.83 | 6 | 0 | 0.0% | 0.69 | 2 | $0.0055 |
-| 14 | qwen3.6-flash | 0 | 2 | 2.83 | 4 | 0 | 0.0% | 0.70 | 2 | $0.0055 |
-| 15 | qwen3.6-plus | 0 | 3 | 2.83 | 5 | 0 | 0.0% | 0.69 | 2 | $0.0052 |
-| 16 | qwen3.6-flash | 2 | 3 | 3.17 | 7 | 0 | 0.0% | 0.70 | 1 | $0.0048 |
-| 17 | qwen3.6-plus | 12 | 0 | 2.00 | 3 | 0 | 0.0% | 0.56 | 4 | $0.0037 |
-| 18 | qwen3.6-plus | 0 | 0 | 2.33 | 4 | 0 | 0.0% | 0.69 | 4 | $0.0046 |
-| 19 | qwen3.6-plus | 0 | 1 | 2.67 | 5 | 0 | 0.0% | 0.56 | 4 | $0.0051 |
-| 20 | qwen3.6-plus | 0 | 0 | 2.42 | 4 | 0 | 0.0% | 0.69 | 4 | $0.0045 |
+| Seed | Computed | Accepted | Placeholders | Attempts avg | Attempts max | Entailment calls | Point regen calls | Max near-copy | Cost |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 1 | 0 | 24 | 0 | 1.92 | 4 | 33 | 3 | 0.66 | $0.0584 |
+| 2 | 0 | 23 | 1 | 1.75 | 4 | 35 | 1 | 0.55 | $0.0547 |
+| 3 | 0 | 24 | 0 | 2.00 | 3 | 28 | 2 | 0.62 | $0.0569 |
+| 4 | 0 | 24 | 0 | 1.67 | 3 | 36 | 1 | 0.61 | $0.0502 |
+| 5 | 14 | 21 | 0 | 1.67 | 4 | 28 | 0 | 0.61 | $0.0441 |
+| 6 | 14 | 19 | 2 | 2.00 | 4 | 24 | 1 | 0.65 | $0.0518 |
+| 7 | 2 | 23 | 0 | 1.58 | 3 | 42 | 1 | 0.71 | $0.0481 |
+| 8 | 0 | 24 | 0 | 1.50 | 3 | 30 | 2 | 0.57 | $0.0478 |
+| 9 | 6 | 23 | 0 | 1.58 | 2 | 35 | 1 | 0.66 | $0.0442 |
+| 10 | 14 | 19 | 2 | 2.00 | 4 | 16 | 0 | 0.58 | $0.0484 |
+| 11 | 6 | 23 | 0 | 1.50 | 2 | 36 | 2 | 0.68 | $0.0459 |
+| 12 | 6 | 23 | 0 | 2.00 | 4 | 38 | 2 | 0.61 | $0.0555 |
+| 13 | 0 | 22 | 2 | 1.67 | 4 | 34 | 2 | 0.56 | $0.0488 |
+| 14 | 0 | 24 | 0 | 2.00 | 3 | 43 | 4 | 0.67 | $0.0587 |
+| 15 | 0 | 24 | 0 | 1.92 | 3 | 35 | 2 | 0.61 | $0.0560 |
+| 16 | 2 | 23 | 0 | 1.92 | 3 | 30 | 1 | 0.76 | $0.0520 |
+| 17 | 12 | 22 | 0 | 1.92 | 3 | 37 | 1 | 0.57 | $0.0527 |
+| 18 | 0 | 24 | 0 | 1.92 | 4 | 34 | 2 | 0.63 | $0.0559 |
+| 19 | 0 | 24 | 0 | 1.58 | 2 | 34 | 1 | 0.54 | $0.0511 |
+| 20 | 0 | 24 | 0 | 1.67 | 3 | 31 | 2 | 0.64 | $0.0502 |
+| **Total** |  | **457** | **7** | **1.79** | **4** | **659** | **31** | **0.76** | **$1.0315** |
 
-Attempts are per question group (12 groups per paper); a group contains one slot or an (a)/(b) pair.
+Placeholder rate overall: **7/464 (1.5%)**. Draft attempts: **667** across **240** groups (**2.78** draft calls per group); per-slot max attempts mean **1.79**, max **4** (limit 4 = initial + 3 retries). The old >4 values came from summing attempts across (a)/(b) and point retries.
 
-## Topic mix: planned vs actual (marks summed over 20 seeds)
+## Marking-point gates
 
-| Topic | Planned marks | Planned % | Actual marks | Actual % |
+- First gate: **stemmed content-token overlap** (Snowball English stemmer) at threshold **0.50**.
+- First-pass high stem-overlap points: **1251/1896** (66.0%); these passed without an entailment call.
+- Low stem-overlap points that triggered the gate: **645** (34.0% of accepted points); after point handling, **628** still have low stem overlap (**17** rewrites moved above the threshold).
+
+| Entailment verdict (initial check) | Count | Share of checked |
+|---|---:|---:|
+| yes | 327 | 50.7% |
+| partly | 287 | 44.5% |
+| no | 31 | 4.8% |
+
+Only **no** points are regenerated (up to two point-level rewrites each); **yes** and **partly** points are kept and recorded. Point regeneration calls: **31**; entailment calls: **659** (including checks on low-overlap rewrites).
+Final accepted verdicts: **yes 331**, **partly 297**, **no 0**; a 'no' point that was successfully rewritten is replaced, so the final 'no' count is lower than the initial count.
+
+Verbatim-copy rejections (point copied from its quote): **103** across the 20 seeds.
+
+### Ten remaining low-stem-overlap points
+
+| # | Seed / slot | Stem overlap | Entailment | Point | Quote |
+|---:|---|---:|---|---|---|
+| 1 | 1 / A10a | 0.25 | yes | An IDS can confirm whether an attack succeeded or failed by examining host-based IDS log entries. | Verifies success or failure of attack by reviewing HIDS log entries |
+| 2 | 1 / A2a | 0.12 | yes | Trojans disguise themselves as useful or benign programs so users accept them. | They usually masquerade as helpful or harmless programs |
+| 3 | 1 / A2b | 0.36 | partly | A virus can spread by infecting the boot sector of a disk, as illustrated by Elk Cloner spreading through boot sector infection. | A program spread via boot sector infection |
+| 4 | 1 / A2b | 0.25 | partly | A worm can propagate across a network by exploiting a remote execution feature of a service, as the Morris worm did with sendmail. | Used a debugging feature of sendmail (remote execution) |
+| 5 | 1 / A2b | 0.40 | partly | An executable COM virus appends its virus body to a program and redirects the program entry point to the virus code. | Append a virus body to a program |
+| 6 | 1 / A2b | 0.44 | partly | A rootkit hides malicious processes and software so that the attacker keeps privileged remote access, and it is hard to detect because it hides from the very tools used to find it. | Rootkits are a type of malware that mask malicious processes and software in the infected systems to ensure privileged remote access. |
+| 7 | 1 / A3a | 0.29 | partly | A disclosure threat involves unauthorized access to information (through snooping, sniffing or wiretapping) and is countered by confidentiality services, so it harms confidentiality. | Disclosure - unauthorized access to information |
+| 8 | 1 / A3a | 0.42 | partly | A disruption threat interrupts or prevents correct operation of the system and is countered by integrity services, so it harms availability of correct operation. | Disruption - interruption or prevention of correct operation |
+| 9 | 1 / A3b | 0.38 | yes | The worm obtained the list of the user's heroes by issuing a GET request on a user profile. | Get the list of user's heros by using a GET on a user proﬁle |
+| 10 | 1 / A4a | 0.25 | yes | A sensor can be positioned on the DMZ. | On the DMZ |
+
+## Placeholder breakdown
+
+### By Part A / Part B
+
+| Part | Slots | Placeholders | Rate |
+|---|---:|---:|---:|
+| Part A | 384 | 5 | 1.3% |
+| Part B | 80 | 2 | 2.5% |
+
+### By scenario / non-scenario
+
+A slot counts as scenario only when its Part B group was sampled for a scenario; Part A is always non-scenario.
+
+| Group type | Slots | Placeholders | Rate |
+|---|---:|---:|---:|
+| scenario | 32 | 0 | 0.0% |
+| non-scenario | 432 | 7 | 1.6% |
+
+### By topic
+
+| Topic | Slots | Placeholders | Rate |
+|---|---:|---:|---:|
+| access control models | 68 | 1 | 1.5% |
+| attacks/malware | 114 | 2 | 1.8% |
+| authentication/biometrics | 80 | 0 | 0.0% |
+| classical ciphers | 12 | 1 | 8.3% |
+| network security | 40 | 0 | 0.0% |
+| risk/management (ethics) | 70 | 2 | 2.9% |
+| software/OS security | 40 | 1 | 2.5% |
+| trusted computing/blockchain | 40 | 0 | 0.0% |
+
+Part B scenario sampling: **16/40** Part B groups sampled a scenario; **32** scenario-bearing questions were accepted. Sampling rate used: 7/19 = 36.8% (the measured lower bound).
+
+## Diversity across the 20 papers
+
+- Theory questions generated: **457**; distinct question texts: **408** (89.3%); duplicate instances: **49**.
+- Duplicate pairs are counted between different seeds only. The **same-angle rate** is the assessment-level duplicate rate: two questions test the same sub-angle even if their wording differs. The **wording rate** counts exact text, semantic duplicates (sequence >= 0.65 and Jaccard >= 0.45), or near-copy >= 0.70.
+
+| Topic | Questions | Distinct | Distinct rate | Angles used | Cross-seed pairs | Same-angle pairs | Same-angle rate | Top-2 angle share | Wording dup rate | Flag |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| access control models | 67 | 57 | 85.1% | 3/3 | 2125 | 775 | 36.5% | 76.1% | 3.4% |  |
+| attacks/malware | 112 | 101 | 90.2% | 6/6 | 5951 | 1062 | 17.8% | 44.6% | 2.6% |  |
+| authentication/biometrics | 80 | 73 | 91.2% | 4/4 | 3040 | 898 | 29.5% | 68.8% | 7.9% |  |
+| classical ciphers | 11 | 11 | 100.0% | 3/3 | 53 | 24 | 45.3% | 90.9% | 3.8% | LOW |
+| network security | 40 | 33 | 82.5% | 3/3 | 760 | 343 | 45.1% | 95.0% | 11.7% | LOW |
+| risk/management (ethics) | 68 | 60 | 88.2% | 4/4 | 2188 | 1008 | 46.1% | 91.2% | 3.7% | LOW |
+| software/OS security | 39 | 35 | 89.7% | 2/3 | 722 | 361 | 50.0% | 100.0% | 3.3% | LOW |
+| trusted computing/blockchain | 40 | 38 | 95.0% | 2/3 | 760 | 400 | 52.6% | 100.0% | 7.1% | LOW |
+
+Low-diversity topics flagged: **classical ciphers, network security, risk/management (ethics), software/OS security, trusted computing/blockchain**.
+Ethics (deck 071) is flagged: 91.2% of its questions fall into its two dominant sub-angles; distribution: professional code of ethics and conduct (41), morals, ethics and laws (21), privacy and organizational responsibility (4), ethical impacts of technology (2).
+
+### Unused slides per topic
+
+Counted over the union of the 20 papers: slides in the topic's allowed decks that were never cited by an accepted question of that topic.
+
+| Topic | Slides in allowed decks | Used | Unused | Unused rate |
 |---|---:|---:|---:|---:|
-| access control models | 282 | 15.0% | 275 | 14.9% |
-| attacks/malware | 466 | 24.8% | 118 | 6.4% |
-| authentication/biometrics | 340 | 18.1% | 328 | 17.7% |
-| classical ciphers | 0 | 0.0% | 44 | 2.4% |
-| network security | 162 | 8.6% | 204 | 11.0% |
-| risk/management (ethics) | 296 | 15.7% | 249 | 13.5% |
-| software/OS security | 164 | 8.7% | 468 | 25.3% |
-| trusted computing/blockchain | 170 | 9.0% | 164 | 8.9% |
+| access control models | 121 | 13 | 108 | 89.3% |
+| attacks/malware | 210 | 30 | 180 | 85.7% |
+| authentication/biometrics | 109 | 17 | 92 | 84.4% |
+| classical ciphers | 30 | 7 | 23 | 76.7% |
+| network security | 80 | 7 | 73 | 91.2% |
+| risk/management (ethics) | 16 | 10 | 6 | 37.5% |
+| software/OS security | 100 | 11 | 89 | 89.0% |
+| trusted computing/blockchain | 71 | 6 | 65 | 91.5% |
 
-Actual topic mix is inferred from the cited decks (majority deck topic per accepted question; ties fall back to the slot topic).
+## Top 10 accepted/past-question pairs
 
-## Placeholder slots by seed
+| # | Seed / slot | Ratio | Generated question | Nearest real past question |
+|---:|---|---:|---|---|
+| 1 | 16 / A10a | 0.764 | List the TWO (2) stages of the biometric authentication process. | CSC662-2022-02 QA5a: List TWO (2) distinct phases in the authentication process. |
+| 2 | 7 / A4a | 0.707 | List the TWO (2) stages that make up the biometric authentication process. | CSC662-2022-02 QA5a: List TWO (2) distinct phases in the authentication process. |
+| 3 | 11 / A3a | 0.683 | State the two stages of the biometric authentication process. | CSC662-2022-02 QA5a: List TWO (2) distinct phases in the authentication process. |
+| 4 | 7 / A6a | 0.674 | Explain the difference between morals, ethics and laws as three forms of guidance for conduct in computer security work. | CSC662-2018-06 Q15a: Differentiate between Morals, Ethics and Laws in computer security. |
+| 5 | 14 / A1a | 0.667 | Explain the difference between morals, ethics and laws as forms of guidance for professional conduct in computer security. | CSC662-2018-06 Q15a: Differentiate between Morals, Ethics and Laws in computer security. |
+| 6 | 1 / A6b | 0.662 | Describe the two primary system components of the Next Generation Secure Computing Base (NGSCB) and, for each component, state its role in the trusted platform. | CSC662-2023-07 QA8b: List and explain the two primary system components of Next Generation Secure Computing Base(NGSCB). (6 marks) |
+| 7 | 9 / A5a | 0.660 | Explain the difference between morals, ethics and laws as sources of guidance for professional conduct in computer security. | CSC662-2018-06 Q15a: Differentiate between Morals, Ethics and Laws in computer security. |
+| 8 | 6 / A5a | 0.648 | List the TWO (2) stages that make up the authentication process in a biometric system. | CSC662-2022-02 QA5a: List TWO (2) distinct phases in the authentication process. |
+| 9 | 6 / A3b | 0.647 | State SIX (6) facts about the two primary system components of the Next Generation Secure Computing Base (NGSCB), covering the Nexus and the Nexus Computing Agent (NCA). | CSC662-2023-07 QA8b: List and explain the two primary system components of Next Generation Secure Computing Base(NGSCB). (6 marks) |
+| 10 | 1 / A8a | 0.646 | Explain the difference between morals, ethics and laws as three forms of guidance for professional conduct in computer security. | CSC662-2018-06 Q15a: Differentiate between Morals, Ethics and Laws in computer security. |
 
-- seed 1: A7a
-- seed 6: A9a
-- seed 8: A3b
-- seed 10: A8a
-- seed 11: B1b
-- seed 13: B2a, B2b
-- seed 14: B2a, B2b
-- seed 15: A4b, B2a, B2b
-- seed 16: B1b, B2a, B2b
-- seed 19: A8b
+## Prior-figure corrections
 
-## Reading the metrics
+- The previous **26/474** placeholder projection was wrong: rejecting 10 near-copy questions does not add slots. With 464 total theory slots the corrected figure is **26/464 = 5.6%**.
+- The appendix sentence about quota-affected seeds was corrected: the affected clusters are qwen3.6-flash seeds 14 and 16, and qwen3.6-plus seeds 13, 15 and 19.
 
-- Computed marks are sampled from the clean-modern fingerprint; the eval count should approximate the fingerprint distribution.
-- Placeholder rate counts theory slots left unresolved after the attempt limit.
-- Source overlap is the number of (deck, slide) keys cited by more than one accepted question; target is 0. A non-zero value is only allowed when retrieval had fewer than three unused chunks and is listed in the per-seed theory JSON.
-- Max near-copy is the maximum SequenceMatcher ratio of an accepted question against any of the 35 past papers; the verifier rejects at 0.80.
-- Actual topic mix is inferred from cited decks, so it can differ from the planner's slot topics when a question cites a deck that serves more than one topic.
-- Multiple Qwen models were used because the free-tier quota was exhausted during the 20-seed run; the per-seed model is shown. The cost column uses the configurable qwen-flash list-price estimate, not per-model invoices.
+## Appendix
+
+`eval_multi_model_appendix.md` is the earlier multi-model run, clearly labelled **pre-hardening** and kept only for comparison.
+
+## Human evaluation
+
+`human_eval.xlsx` contains 20 generated and 10 real past questions, shuffled with no labels; the hidden `key` sheet records origin.

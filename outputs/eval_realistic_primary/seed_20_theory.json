@@ -1,0 +1,4818 @@
+{
+  "model": "deepseek-v4-flash-0731",
+  "plan": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\eval_realistic_primary\\seed_20_planner.json",
+  "attempt_limit": 4,
+  "max_attempts_per_slot": 4,
+  "near_copy_threshold": 0.8,
+  "term_overlap_threshold": 0.5,
+  "scenario_rate": 0.3684210526315789,
+  "accepted": [],
+  "placeholders": [
+    {
+      "slot": "A10a",
+      "marks": 2,
+      "topic": "attacks/malware",
+      "task": "Explain",
+      "reason": "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-02c86f0a-7dd7-92e0-b137-f76582de54fb', 'request_id': '02c86f0a-7dd7-92e0-b137-f76582de54fb'}",
+      "attempts": 4,
+      "low_style_confidence": false
+    },
+    {
+      "slot": "A10b",
+      "marks": 6,
+      "topic": "attacks/malware",
+      "task": "State",
+      "reason": "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-09640abc-cf98-98fc-bbea-f0b1d46160b7', 'request_id': '09640abc-cf98-98fc-bbea-f0b1d46160b7'}",
+      "attempts": 4,
+      "low_style_confidence": false
+    },
+    {
+      "slot": "A1a",
+      "marks": 2,
+      "topic": "risk/management (ethics)",
+      "task": "State",
+      "reason": "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-b89fe430-17ab-9f24-a9df-a002d27276f0', 'request_id': 'b89fe430-17ab-9f24-a9df-a002d27276f0'}",
+      "attempts": 4,
+      "low_style_confidence": false
+    },
+    {
+      "slot": "A1b",
+      "marks": 6,
+      "topic": "risk/management (ethics)",
+      "task": "Describe",
+      "reason": "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-8f6dfba5-4a3a-986e-9e08-8e3bc0322d98', 'request_id': '8f6dfba5-4a3a-986e-9e08-8e3bc0322d98'}",
+      "attempts": 4,
+      "low_style_confidence": true
+    },
+    {
+      "slot": "A2a",
+      "marks": 2,
+      "topic": "network security",
+      "task": "List",
+      "reason": "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-6f3dd3d7-b03d-9dc0-a408-fa5405edeaa0', 'request_id': '6f3dd3d7-b03d-9dc0-a408-fa5405edeaa0'}",
+      "attempts": 4,
+      "low_style_confidence": false
+    },
+    {
+      "slot": "A2b",
+      "marks": 6,
+      "topic": "network security",
+      "task": "Explain",
+      "reason": "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-37e766f1-39b8-904f-a34a-db909592a69e', 'request_id': '37e766f1-39b8-904f-a34a-db909592a69e'}",
+      "attempts": 4,
+      "low_style_confidence": false
+    },
+    {
+      "slot": "A3a",
+      "marks": 2,
+      "topic": "access control models",
+      "task": "Explain",
+      "reason": "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-364fc9e2-3a54-9466-8d0b-a13bffa98a8b', 'request_id': '364fc9e2-3a54-9466-8d0b-a13bffa98a8b'}",
+      "attempts": 4,
+      "low_style_confidence": false
+    },
+    {
+      "slot": "A3b",
+      "marks": 6,
+      "topic": "access control models",
+      "task": "Describe",
+      "reason": "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-df1788d3-e842-9e03-bd49-00a683efd3dd', 'request_id': 'df1788d3-e842-9e03-bd49-00a683efd3dd'}",
+      "attempts": 4,
+      "low_style_confidence": true
+    },
+    {
+      "slot": "A4a",
+      "marks": 2,
+      "topic": "trusted computing/blockchain",
+      "task": "List",
+      "reason": "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-ac11befd-c1ec-9800-8f32-37127eff9d73', 'request_id': 'ac11befd-c1ec-9800-8f32-37127eff9d73'}",
+      "attempts": 4,
+      "low_style_confidence": true
+    },
+    {
+      "slot": "A4b",
+      "marks": 6,
+      "topic": "trusted computing/blockchain",
+      "task": "Explain",
+      "reason": "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-8ccb8093-0873-9756-8b06-2120c6884d7b', 'request_id': '8ccb8093-0873-9756-8b06-2120c6884d7b'}",
+      "attempts": 4,
+      "low_style_confidence": false
+    },
+    {
+      "slot": "A5a",
+      "marks": 2,
+      "topic": "risk/management (ethics)",
+      "task": "State",
+      "reason": "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-a7dac368-ee99-955b-948c-1488b403cf91', 'request_id': 'a7dac368-ee99-955b-948c-1488b403cf91'}",
+      "attempts": 4,
+      "low_style_confidence": false
+    },
+    {
+      "slot": "A5b",
+      "marks": 6,
+      "topic": "risk/management (ethics)",
+      "task": "Compare",
+      "reason": "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-cb08227d-6ff6-9424-8e5b-0fdbeef08da3', 'request_id': 'cb08227d-6ff6-9424-8e5b-0fdbeef08da3'}",
+      "attempts": 4,
+      "low_style_confidence": true
+    },
+    {
+      "slot": "A6a",
+      "marks": 2,
+      "topic": "authentication/biometrics",
+      "task": "Explain",
+      "reason": "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-deafe819-5930-9614-b0dd-7a922f290915', 'request_id': 'deafe819-5930-9614-b0dd-7a922f290915'}",
+      "attempts": 4,
+      "low_style_confidence": false
+    },
+    {
+      "slot": "A6b",
+      "marks": 6,
+      "topic": "authentication/biometrics",
+      "task": "Explain",
+      "reason": "A6b: dependent (a) is unresolved",
+      "attempts": 0,
+      "low_style_confidence": false
+    },
+    {
+      "slot": "A7a",
+      "marks": 2,
+      "topic": "attacks/malware",
+      "task": "State",
+      "reason": "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-1d57fed6-d7c2-9d3c-9703-aac02c5f4e6e', 'request_id': '1d57fed6-d7c2-9d3c-9703-aac02c5f4e6e'}",
+      "attempts": 4,
+      "low_style_confidence": false
+    },
+    {
+      "slot": "A7b",
+      "marks": 6,
+      "topic": "attacks/malware",
+      "task": "Explain",
+      "reason": "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-1ffc3394-6003-9a0f-929d-be8f5d2b6e5a', 'request_id': '1ffc3394-6003-9a0f-929d-be8f5d2b6e5a'}",
+      "attempts": 4,
+      "low_style_confidence": false
+    },
+    {
+      "slot": "A8a",
+      "marks": 2,
+      "topic": "attacks/malware",
+      "task": "Explain",
+      "reason": "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-32e3f187-d2fc-95b1-b8a9-2736dc6b0af5', 'request_id': '32e3f187-d2fc-95b1-b8a9-2736dc6b0af5'}",
+      "attempts": 4,
+      "low_style_confidence": false
+    },
+    {
+      "slot": "A8b",
+      "marks": 6,
+      "topic": "attacks/malware",
+      "task": "Discuss",
+      "reason": "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-52a53dac-f8db-9449-a7ec-32714a4877e7', 'request_id': '52a53dac-f8db-9449-a7ec-32714a4877e7'}",
+      "attempts": 4,
+      "low_style_confidence": true
+    },
+    {
+      "slot": "A9a",
+      "marks": 2,
+      "topic": "access control models",
+      "task": "Explain",
+      "reason": "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-9a28b7f3-556e-94e9-adce-d247933b5c7e', 'request_id': '9a28b7f3-556e-94e9-adce-d247933b5c7e'}",
+      "attempts": 4,
+      "low_style_confidence": false
+    },
+    {
+      "slot": "A9b",
+      "marks": 6,
+      "topic": "access control models",
+      "task": "Discuss",
+      "reason": "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-2b0bc1f0-9aee-9031-a25d-0bbafcfedc11', 'request_id': '2b0bc1f0-9aee-9031-a25d-0bbafcfedc11'}",
+      "attempts": 4,
+      "low_style_confidence": true
+    },
+    {
+      "slot": "B1a",
+      "marks": 5,
+      "topic": "authentication/biometrics",
+      "task": "Explain",
+      "reason": "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-9679a569-643c-9709-beeb-0fbdcbd09060', 'request_id': '9679a569-643c-9709-beeb-0fbdcbd09060'}",
+      "attempts": 4,
+      "low_style_confidence": true
+    },
+    {
+      "slot": "B1b",
+      "marks": 5,
+      "topic": "authentication/biometrics",
+      "task": "Explain",
+      "reason": "B1b: Part B (a) is unresolved",
+      "attempts": 0,
+      "low_style_confidence": true
+    },
+    {
+      "slot": "B2a",
+      "marks": 5,
+      "topic": "software/OS security",
+      "task": "Discuss",
+      "reason": "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-c3f555ac-5a50-90f4-b15d-1d916eb05d1d', 'request_id': 'c3f555ac-5a50-90f4-b15d-1d916eb05d1d'}",
+      "attempts": 4,
+      "low_style_confidence": true
+    },
+    {
+      "slot": "B2b",
+      "marks": 5,
+      "topic": "software/OS security",
+      "task": "State",
+      "reason": "B2b: Part B (a) is unresolved",
+      "attempts": 0,
+      "low_style_confidence": true
+    }
+  ],
+  "groups": [
+    {
+      "question": "A1",
+      "slots": [
+        "A1a",
+        "A1b"
+      ],
+      "topic": "risk/management (ethics)",
+      "tasks": [
+        "State",
+        "Describe"
+      ],
+      "dependent": false,
+      "attempts": 4,
+      "total_draft_attempts": 8,
+      "point_retry_calls": 0,
+      "scenario_sampled": false,
+      "accepted": false,
+      "errors": [
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-64d3d9d4-b953-9ec6-a3bf-ea85a4b5f533', 'request_id': '64d3d9d4-b953-9ec6-a3bf-ea85a4b5f533'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-d6818246-03e0-9abb-a7a4-c39da003fff0', 'request_id': 'd6818246-03e0-9abb-a7a4-c39da003fff0'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-1e3d249f-ef31-9229-8fdd-5180a274aa21', 'request_id': '1e3d249f-ef31-9229-8fdd-5180a274aa21'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-b89fe430-17ab-9f24-a9df-a002d27276f0', 'request_id': 'b89fe430-17ab-9f24-a9df-a002d27276f0'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-36ad4f59-82f7-9580-906a-6c558faa028b', 'request_id': '36ad4f59-82f7-9580-906a-6c558faa028b'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-0c7642d7-9eeb-9629-adac-45ec046ec972', 'request_id': '0c7642d7-9eeb-9629-adac-45ec046ec972'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-9a905e8d-e08b-9bec-8403-4fb02f1c54dd', 'request_id': '9a905e8d-e08b-9bec-8403-4fb02f1c54dd'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-8f6dfba5-4a3a-986e-9e08-8e3bc0322d98', 'request_id': '8f6dfba5-4a3a-986e-9e08-8e3bc0322d98'}"
+        ]
+      ],
+      "retrieved": [
+        {
+          "slot": "A1a",
+          "chunk_id": "071 - Ethics and Computer Security::s05::1",
+          "deck": "071 - Ethics and Computer Security",
+          "slide": 5,
+          "score": 89.91,
+          "chars": 401
+        },
+        {
+          "slot": "A1a",
+          "chunk_id": "071 - Ethics and Computer Security::s11::1",
+          "deck": "071 - Ethics and Computer Security",
+          "slide": 11,
+          "score": 53.51,
+          "chars": 541
+        },
+        {
+          "slot": "A1a",
+          "chunk_id": "071 - Ethics and Computer Security::s07::1",
+          "deck": "071 - Ethics and Computer Security",
+          "slide": 7,
+          "score": 53.29,
+          "chars": 670
+        },
+        {
+          "slot": "A1a",
+          "chunk_id": "071 - Ethics and Computer Security::s12::1",
+          "deck": "071 - Ethics and Computer Security",
+          "slide": 12,
+          "score": 49.58,
+          "chars": 1081
+        },
+        {
+          "slot": "A1a",
+          "chunk_id": "071 - Ethics and Computer Security::s06::1",
+          "deck": "071 - Ethics and Computer Security",
+          "slide": 6,
+          "score": 46.52,
+          "chars": 176
+        },
+        {
+          "slot": "A1b",
+          "chunk_id": "071 - Ethics and Computer Security::s05::1",
+          "deck": "071 - Ethics and Computer Security",
+          "slide": 5,
+          "score": 99.33,
+          "chars": 401
+        },
+        {
+          "slot": "A1b",
+          "chunk_id": "071 - Ethics and Computer Security::s07::1",
+          "deck": "071 - Ethics and Computer Security",
+          "slide": 7,
+          "score": 67.97,
+          "chars": 670
+        },
+        {
+          "slot": "A1b",
+          "chunk_id": "071 - Ethics and Computer Security::s12::1",
+          "deck": "071 - Ethics and Computer Security",
+          "slide": 12,
+          "score": 54.97,
+          "chars": 1081
+        },
+        {
+          "slot": "A1b",
+          "chunk_id": "071 - Ethics and Computer Security::s11::1",
+          "deck": "071 - Ethics and Computer Security",
+          "slide": 11,
+          "score": 54.78,
+          "chars": 541
+        },
+        {
+          "slot": "A1b",
+          "chunk_id": "071 - Ethics and Computer Security::s06::1",
+          "deck": "071 - Ethics and Computer Security",
+          "slide": 6,
+          "score": 52.82,
+          "chars": 176
+        }
+      ],
+      "fallback_retrieval": false,
+      "overlap_allowed": false,
+      "last_draft": {},
+      "usage": {
+        "calls": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "question": "A10",
+      "slots": [
+        "A10a",
+        "A10b"
+      ],
+      "topic": "attacks/malware",
+      "tasks": [
+        "Explain",
+        "State"
+      ],
+      "dependent": false,
+      "attempts": 4,
+      "total_draft_attempts": 8,
+      "point_retry_calls": 0,
+      "scenario_sampled": false,
+      "accepted": false,
+      "errors": [
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-cc250a06-a2d1-9ba0-bc94-8c48b501459a', 'request_id': 'cc250a06-a2d1-9ba0-bc94-8c48b501459a'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-00986cf4-3c98-98a1-b721-574b375b2e3d', 'request_id': '00986cf4-3c98-98a1-b721-574b375b2e3d'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-7b7ebbbf-f73b-9680-809a-42902ad078ec', 'request_id': '7b7ebbbf-f73b-9680-809a-42902ad078ec'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-02c86f0a-7dd7-92e0-b137-f76582de54fb', 'request_id': '02c86f0a-7dd7-92e0-b137-f76582de54fb'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-bb19e0cc-2cf4-9692-856b-174fcb2c0024', 'request_id': 'bb19e0cc-2cf4-9692-856b-174fcb2c0024'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-b9b154bd-467f-9404-8da0-ca5b86fed0f0', 'request_id': 'b9b154bd-467f-9404-8da0-ca5b86fed0f0'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-25831d51-4c11-94ef-9a4c-15d5ec3d9703', 'request_id': '25831d51-4c11-94ef-9a4c-15d5ec3d9703'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-09640abc-cf98-98fc-bbea-f0b1d46160b7', 'request_id': '09640abc-cf98-98fc-bbea-f0b1d46160b7'}"
+        ]
+      ],
+      "retrieved": [
+        {
+          "slot": "A10a",
+          "chunk_id": "011 - Introduction to Computer Security::s10::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 10,
+          "score": 41.06,
+          "chars": 551
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "011 - Introduction to Computer Security::s28::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 28,
+          "score": 39.64,
+          "chars": 516
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "022 - Identification and Authentication::s11::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 11,
+          "score": 32.64,
+          "chars": 143
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "051 - Software Security::s12::1",
+          "deck": "051 - Software Security",
+          "slide": 12,
+          "score": 26.09,
+          "chars": 765
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "052 - Web Security::s14::1",
+          "deck": "052 - Web Security",
+          "slide": 14,
+          "score": 25.96,
+          "chars": 614
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "062 - Intrusion Detection System::s29::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 29,
+          "score": 23.51,
+          "chars": 194
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "051 - Software Security::s13::1",
+          "deck": "051 - Software Security",
+          "slide": 13,
+          "score": 22.02,
+          "chars": 875
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "062 - Intrusion Detection System::s14::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 14,
+          "score": 21.59,
+          "chars": 398
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "062 - Intrusion Detection System::s17::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 17,
+          "score": 21.05,
+          "chars": 381
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "052 - Web Security::s13::1",
+          "deck": "052 - Web Security",
+          "slide": 13,
+          "score": 20.18,
+          "chars": 415
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "062 - Intrusion Detection System::s02::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 2,
+          "score": 19.8,
+          "chars": 171
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "062 - Intrusion Detection System::s19::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 19,
+          "score": 19.33,
+          "chars": 572
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "051 - Software Security::s02::1",
+          "deck": "051 - Software Security",
+          "slide": 2,
+          "score": 19.29,
+          "chars": 263
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "022 - Identification and Authentication::s09::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 9,
+          "score": 18.52,
+          "chars": 369
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "051 - Software Security::s09::1",
+          "deck": "051 - Software Security",
+          "slide": 9,
+          "score": 18.3,
+          "chars": 354
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "052 - Web Security::s19::1",
+          "deck": "052 - Web Security",
+          "slide": 19,
+          "score": 17.94,
+          "chars": 253
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "051 - Software Security::s24::1",
+          "deck": "051 - Software Security",
+          "slide": 24,
+          "score": 17.8,
+          "chars": 362
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "062 - Intrusion Detection System::s31::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 31,
+          "score": 17.52,
+          "chars": 240
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "051 - Software Security::s10::1",
+          "deck": "051 - Software Security",
+          "slide": 10,
+          "score": 17.33,
+          "chars": 205
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "052 - Web Security::s18::1",
+          "deck": "052 - Web Security",
+          "slide": 18,
+          "score": 16.32,
+          "chars": 292
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "022 - Identification and Authentication::s15::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 15,
+          "score": 15.81,
+          "chars": 170
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "052 - Web Security::s16::1",
+          "deck": "052 - Web Security",
+          "slide": 16,
+          "score": 15.04,
+          "chars": 707
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "011 - Introduction to Computer Security::s09::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 9,
+          "score": 14.72,
+          "chars": 416
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "061 - Network Security::s04::1",
+          "deck": "061 - Network Security",
+          "slide": 4,
+          "score": 13.28,
+          "chars": 748
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "011 - Introduction to Computer Security::s14::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 14,
+          "score": 12.67,
+          "chars": 294
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "041 - Windows Security::s05::1",
+          "deck": "041 - Windows Security",
+          "slide": 5,
+          "score": 12.47,
+          "chars": 556
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "022 - Identification and Authentication::s20::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 20,
+          "score": 11.02,
+          "chars": 649
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "041 - Windows Security::s03::1",
+          "deck": "041 - Windows Security",
+          "slide": 3,
+          "score": 10.8,
+          "chars": 757
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "052 - Web Security::s22::1",
+          "deck": "052 - Web Security",
+          "slide": 22,
+          "score": 10.6,
+          "chars": 227
+        },
+        {
+          "slot": "A10a",
+          "chunk_id": "022 - Identification and Authentication::s18::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 18,
+          "score": 10.4,
+          "chars": 444
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "011 - Introduction to Computer Security::s10::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 10,
+          "score": 68.54,
+          "chars": 551
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "051 - Software Security::s12::1",
+          "deck": "051 - Software Security",
+          "slide": 12,
+          "score": 66.28,
+          "chars": 765
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "011 - Introduction to Computer Security::s28::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 28,
+          "score": 65.79,
+          "chars": 516
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "051 - Software Security::s06::1",
+          "deck": "051 - Software Security",
+          "slide": 6,
+          "score": 47.97,
+          "chars": 515
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "051 - Software Security::s09::1",
+          "deck": "051 - Software Security",
+          "slide": 9,
+          "score": 45.94,
+          "chars": 354
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "051 - Software Security::s13::1",
+          "deck": "051 - Software Security",
+          "slide": 13,
+          "score": 44.66,
+          "chars": 875
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "051 - Software Security::s10::1",
+          "deck": "051 - Software Security",
+          "slide": 10,
+          "score": 41.49,
+          "chars": 205
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "011 - Introduction to Computer Security::s15::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 15,
+          "score": 40.54,
+          "chars": 498
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "052 - Web Security::s16::1",
+          "deck": "052 - Web Security",
+          "slide": 16,
+          "score": 39.59,
+          "chars": 707
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "051 - Software Security::s07::1",
+          "deck": "051 - Software Security",
+          "slide": 7,
+          "score": 38.32,
+          "chars": 543
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "052 - Web Security::s13::1",
+          "deck": "052 - Web Security",
+          "slide": 13,
+          "score": 38.28,
+          "chars": 415
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "011 - Introduction to Computer Security::s09::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 9,
+          "score": 36.56,
+          "chars": 416
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "062 - Intrusion Detection System::s21::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 21,
+          "score": 33.68,
+          "chars": 499
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "062 - Intrusion Detection System::s14::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 14,
+          "score": 30.16,
+          "chars": 398
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "022 - Identification and Authentication::s20::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 20,
+          "score": 29.95,
+          "chars": 649
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "052 - Web Security::s19::1",
+          "deck": "052 - Web Security",
+          "slide": 19,
+          "score": 28.52,
+          "chars": 253
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "052 - Web Security::s15::1",
+          "deck": "052 - Web Security",
+          "slide": 15,
+          "score": 27.58,
+          "chars": 495
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "022 - Identification and Authentication::s21::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 21,
+          "score": 26.71,
+          "chars": 701
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "052 - Web Security::s14::1",
+          "deck": "052 - Web Security",
+          "slide": 14,
+          "score": 26.09,
+          "chars": 614
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "062 - Intrusion Detection System::s17::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 17,
+          "score": 26.0,
+          "chars": 381
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "011 - Introduction to Computer Security::s14::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 14,
+          "score": 25.91,
+          "chars": 294
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "062 - Intrusion Detection System::s26::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 26,
+          "score": 25.79,
+          "chars": 645
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "041 - Windows Security::s16::1",
+          "deck": "041 - Windows Security",
+          "slide": 16,
+          "score": 24.63,
+          "chars": 396
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "061 - Network Security::s26::1",
+          "deck": "061 - Network Security",
+          "slide": 26,
+          "score": 24.55,
+          "chars": 626
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "052 - Web Security::s22::1",
+          "deck": "052 - Web Security",
+          "slide": 22,
+          "score": 24.53,
+          "chars": 227
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "062 - Intrusion Detection System::s18::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 18,
+          "score": 24.28,
+          "chars": 352
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "042 - Linux Security::s28::1",
+          "deck": "042 - Linux Security",
+          "slide": 28,
+          "score": 23.58,
+          "chars": 365
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "061 - Network Security::s03::1",
+          "deck": "061 - Network Security",
+          "slide": 3,
+          "score": 23.53,
+          "chars": 738
+        },
+        {
+          "slot": "A10b",
+          "chunk_id": "022 - Identification and Authentication::s18::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 18,
+          "score": 23.49,
+          "chars": 444
+        }
+      ],
+      "fallback_retrieval": false,
+      "overlap_allowed": false,
+      "last_draft": {},
+      "usage": {
+        "calls": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "question": "A2",
+      "slots": [
+        "A2a",
+        "A2b"
+      ],
+      "topic": "network security",
+      "tasks": [
+        "List",
+        "Explain"
+      ],
+      "dependent": false,
+      "attempts": 4,
+      "total_draft_attempts": 8,
+      "point_retry_calls": 0,
+      "scenario_sampled": false,
+      "accepted": false,
+      "errors": [
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-9cd562f0-b4c2-9cd0-90fb-250235e535e2', 'request_id': '9cd562f0-b4c2-9cd0-90fb-250235e535e2'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-c9387249-6b10-9536-863c-387c3d878dad', 'request_id': 'c9387249-6b10-9536-863c-387c3d878dad'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-637ba5a5-130d-9e39-83ae-5f4010270b9a', 'request_id': '637ba5a5-130d-9e39-83ae-5f4010270b9a'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-6f3dd3d7-b03d-9dc0-a408-fa5405edeaa0', 'request_id': '6f3dd3d7-b03d-9dc0-a408-fa5405edeaa0'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-28294792-83af-9ef7-a589-88390b0f89df', 'request_id': '28294792-83af-9ef7-a589-88390b0f89df'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-77f687ae-a51b-909e-8965-c5df6246c832', 'request_id': '77f687ae-a51b-909e-8965-c5df6246c832'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-3b6ad2d8-f19a-9f9a-bb43-dc917d6de413', 'request_id': '3b6ad2d8-f19a-9f9a-bb43-dc917d6de413'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-37e766f1-39b8-904f-a34a-db909592a69e', 'request_id': '37e766f1-39b8-904f-a34a-db909592a69e'}"
+        ]
+      ],
+      "retrieved": [
+        {
+          "slot": "A2a",
+          "chunk_id": "061 - Network Security::s04::1",
+          "deck": "061 - Network Security",
+          "slide": 4,
+          "score": 51.45,
+          "chars": 748
+        },
+        {
+          "slot": "A2a",
+          "chunk_id": "062 - Intrusion Detection System::s08::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 8,
+          "score": 39.33,
+          "chars": 285
+        },
+        {
+          "slot": "A2a",
+          "chunk_id": "062 - Intrusion Detection System::s32::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 32,
+          "score": 36.3,
+          "chars": 297
+        },
+        {
+          "slot": "A2a",
+          "chunk_id": "062 - Intrusion Detection System::s04::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 4,
+          "score": 34.83,
+          "chars": 332
+        },
+        {
+          "slot": "A2a",
+          "chunk_id": "062 - Intrusion Detection System::s05::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 5,
+          "score": 32.85,
+          "chars": 454
+        },
+        {
+          "slot": "A2a",
+          "chunk_id": "062 - Intrusion Detection System::s07::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 7,
+          "score": 32.03,
+          "chars": 284
+        },
+        {
+          "slot": "A2a",
+          "chunk_id": "061 - Network Security::s03::1",
+          "deck": "061 - Network Security",
+          "slide": 3,
+          "score": 29.5,
+          "chars": 738
+        },
+        {
+          "slot": "A2a",
+          "chunk_id": "062 - Intrusion Detection System::s03::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 3,
+          "score": 28.62,
+          "chars": 339
+        },
+        {
+          "slot": "A2a",
+          "chunk_id": "052 - Web Security::s15::1",
+          "deck": "052 - Web Security",
+          "slide": 15,
+          "score": 20.43,
+          "chars": 495
+        },
+        {
+          "slot": "A2a",
+          "chunk_id": "061 - Network Security::s27::1",
+          "deck": "061 - Network Security",
+          "slide": 27,
+          "score": 19.97,
+          "chars": 349
+        },
+        {
+          "slot": "A2a",
+          "chunk_id": "061 - Network Security::s14::1",
+          "deck": "061 - Network Security",
+          "slide": 14,
+          "score": 19.32,
+          "chars": 174
+        },
+        {
+          "slot": "A2a",
+          "chunk_id": "061 - Network Security::s18::1",
+          "deck": "061 - Network Security",
+          "slide": 18,
+          "score": 18.4,
+          "chars": 385
+        },
+        {
+          "slot": "A2a",
+          "chunk_id": "052 - Web Security::s22::1",
+          "deck": "052 - Web Security",
+          "slide": 22,
+          "score": 12.46,
+          "chars": 227
+        },
+        {
+          "slot": "A2a",
+          "chunk_id": "052 - Web Security::s14::1",
+          "deck": "052 - Web Security",
+          "slide": 14,
+          "score": 11.3,
+          "chars": 614
+        },
+        {
+          "slot": "A2a",
+          "chunk_id": "052 - Web Security::s09::1",
+          "deck": "052 - Web Security",
+          "slide": 9,
+          "score": 9.63,
+          "chars": 465
+        },
+        {
+          "slot": "A2a",
+          "chunk_id": "052 - Web Security::s19::1",
+          "deck": "052 - Web Security",
+          "slide": 19,
+          "score": 7.46,
+          "chars": 253
+        },
+        {
+          "slot": "A2a",
+          "chunk_id": "052 - Web Security::s12::1",
+          "deck": "052 - Web Security",
+          "slide": 12,
+          "score": 6.56,
+          "chars": 305
+        },
+        {
+          "slot": "A2b",
+          "chunk_id": "061 - Network Security::s04::1",
+          "deck": "061 - Network Security",
+          "slide": 4,
+          "score": 60.39,
+          "chars": 748
+        },
+        {
+          "slot": "A2b",
+          "chunk_id": "061 - Network Security::s03::1",
+          "deck": "061 - Network Security",
+          "slide": 3,
+          "score": 40.95,
+          "chars": 738
+        },
+        {
+          "slot": "A2b",
+          "chunk_id": "062 - Intrusion Detection System::s08::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 8,
+          "score": 39.37,
+          "chars": 285
+        },
+        {
+          "slot": "A2b",
+          "chunk_id": "062 - Intrusion Detection System::s03::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 3,
+          "score": 38.32,
+          "chars": 339
+        },
+        {
+          "slot": "A2b",
+          "chunk_id": "061 - Network Security::s18::1",
+          "deck": "061 - Network Security",
+          "slide": 18,
+          "score": 33.93,
+          "chars": 385
+        },
+        {
+          "slot": "A2b",
+          "chunk_id": "062 - Intrusion Detection System::s07::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 7,
+          "score": 32.47,
+          "chars": 284
+        },
+        {
+          "slot": "A2b",
+          "chunk_id": "062 - Intrusion Detection System::s32::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 32,
+          "score": 30.8,
+          "chars": 297
+        },
+        {
+          "slot": "A2b",
+          "chunk_id": "061 - Network Security::s22::1",
+          "deck": "061 - Network Security",
+          "slide": 22,
+          "score": 29.16,
+          "chars": 286
+        },
+        {
+          "slot": "A2b",
+          "chunk_id": "061 - Network Security::s27::1",
+          "deck": "061 - Network Security",
+          "slide": 27,
+          "score": 27.89,
+          "chars": 349
+        },
+        {
+          "slot": "A2b",
+          "chunk_id": "062 - Intrusion Detection System::s04::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 4,
+          "score": 26.36,
+          "chars": 332
+        },
+        {
+          "slot": "A2b",
+          "chunk_id": "062 - Intrusion Detection System::s05::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 5,
+          "score": 26.35,
+          "chars": 454
+        },
+        {
+          "slot": "A2b",
+          "chunk_id": "061 - Network Security::s26::1",
+          "deck": "061 - Network Security",
+          "slide": 26,
+          "score": 25.34,
+          "chars": 626
+        },
+        {
+          "slot": "A2b",
+          "chunk_id": "052 - Web Security::s16::1",
+          "deck": "052 - Web Security",
+          "slide": 16,
+          "score": 23.14,
+          "chars": 707
+        },
+        {
+          "slot": "A2b",
+          "chunk_id": "052 - Web Security::s06::1",
+          "deck": "052 - Web Security",
+          "slide": 6,
+          "score": 11.77,
+          "chars": 161
+        },
+        {
+          "slot": "A2b",
+          "chunk_id": "052 - Web Security::s15::1",
+          "deck": "052 - Web Security",
+          "slide": 15,
+          "score": 10.74,
+          "chars": 495
+        },
+        {
+          "slot": "A2b",
+          "chunk_id": "052 - Web Security::s02::1",
+          "deck": "052 - Web Security",
+          "slide": 2,
+          "score": 10.23,
+          "chars": 221
+        },
+        {
+          "slot": "A2b",
+          "chunk_id": "052 - Web Security::s14::1",
+          "deck": "052 - Web Security",
+          "slide": 14,
+          "score": 9.85,
+          "chars": 614
+        },
+        {
+          "slot": "A2b",
+          "chunk_id": "052 - Web Security::s22::1",
+          "deck": "052 - Web Security",
+          "slide": 22,
+          "score": 9.69,
+          "chars": 227
+        }
+      ],
+      "fallback_retrieval": false,
+      "overlap_allowed": false,
+      "last_draft": {},
+      "usage": {
+        "calls": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "question": "A3",
+      "slots": [
+        "A3a",
+        "A3b"
+      ],
+      "topic": "access control models",
+      "tasks": [
+        "Explain",
+        "Describe"
+      ],
+      "dependent": false,
+      "attempts": 4,
+      "total_draft_attempts": 8,
+      "point_retry_calls": 0,
+      "scenario_sampled": false,
+      "accepted": false,
+      "errors": [
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-77a71a01-fb1e-921a-812f-3236d8ab236a', 'request_id': '77a71a01-fb1e-921a-812f-3236d8ab236a'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-c2340c9c-ac29-92c6-997e-caaeb35f5547', 'request_id': 'c2340c9c-ac29-92c6-997e-caaeb35f5547'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-b74f308a-16b4-91bb-bd1b-2102e0dab91b', 'request_id': 'b74f308a-16b4-91bb-bd1b-2102e0dab91b'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-364fc9e2-3a54-9466-8d0b-a13bffa98a8b', 'request_id': '364fc9e2-3a54-9466-8d0b-a13bffa98a8b'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-b29ce36a-5802-9d31-bff1-17cefdcd2d14', 'request_id': 'b29ce36a-5802-9d31-bff1-17cefdcd2d14'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-76186ec9-1353-9f03-9ae3-946f085c1c88', 'request_id': '76186ec9-1353-9f03-9ae3-946f085c1c88'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-cef25875-73ff-9b1c-a188-b246f550b714', 'request_id': 'cef25875-73ff-9b1c-a188-b246f550b714'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-df1788d3-e842-9e03-bd49-00a683efd3dd', 'request_id': 'df1788d3-e842-9e03-bd49-00a683efd3dd'}"
+        ]
+      ],
+      "retrieved": [
+        {
+          "slot": "A3a",
+          "chunk_id": "024 - Formal Security Model::s05::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 5,
+          "score": 77.6,
+          "chars": 604
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "024 - Formal Security Model::s21::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 21,
+          "score": 57.71,
+          "chars": 253
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "024 - Formal Security Model::s27::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 27,
+          "score": 56.59,
+          "chars": 591
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "024 - Formal Security Model::s26::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 26,
+          "score": 54.11,
+          "chars": 449
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "024 - Formal Security Model::s25::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 25,
+          "score": 53.97,
+          "chars": 444
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "023 - Access Control and Authorization::s07::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 7,
+          "score": 49.54,
+          "chars": 391
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "023 - Access Control and Authorization::s18::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 18,
+          "score": 45.55,
+          "chars": 492
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "024 - Formal Security Model::s24::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 24,
+          "score": 38.74,
+          "chars": 1008
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "023 - Access Control and Authorization::s04::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 4,
+          "score": 38.19,
+          "chars": 599
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "023 - Access Control and Authorization::s10::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 10,
+          "score": 35.94,
+          "chars": 428
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "023 - Access Control and Authorization::s12::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 12,
+          "score": 35.66,
+          "chars": 412
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "023 - Access Control and Authorization::s08::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 8,
+          "score": 34.39,
+          "chars": 175
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "041 - Windows Security::s16::1",
+          "deck": "041 - Windows Security",
+          "slide": 16,
+          "score": 33.85,
+          "chars": 396
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "041 - Windows Security::s07::1",
+          "deck": "041 - Windows Security",
+          "slide": 7,
+          "score": 31.11,
+          "chars": 391
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "041 - Windows Security::s03::1",
+          "deck": "041 - Windows Security",
+          "slide": 3,
+          "score": 25.27,
+          "chars": 757
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "041 - Windows Security::s19::1",
+          "deck": "041 - Windows Security",
+          "slide": 19,
+          "score": 25.21,
+          "chars": 177
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "041 - Windows Security::s21::1",
+          "deck": "041 - Windows Security",
+          "slide": 21,
+          "score": 25.03,
+          "chars": 391
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "041 - Windows Security::s18::1",
+          "deck": "041 - Windows Security",
+          "slide": 18,
+          "score": 24.0,
+          "chars": 477
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "042 - Linux Security::s27::1",
+          "deck": "042 - Linux Security",
+          "slide": 27,
+          "score": 19.46,
+          "chars": 432
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "073 - Trusted Computing::s03::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 3,
+          "score": 18.85,
+          "chars": 282
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "073 - Trusted Computing::s19::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 19,
+          "score": 15.51,
+          "chars": 535
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "042 - Linux Security::s13::1",
+          "deck": "042 - Linux Security",
+          "slide": 13,
+          "score": 15.43,
+          "chars": 232
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "042 - Linux Security::s12::1",
+          "deck": "042 - Linux Security",
+          "slide": 12,
+          "score": 13.48,
+          "chars": 370
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "042 - Linux Security::s23::1",
+          "deck": "042 - Linux Security",
+          "slide": 23,
+          "score": 13.06,
+          "chars": 507
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "073 - Trusted Computing::s09::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 9,
+          "score": 13.01,
+          "chars": 400
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "042 - Linux Security::s28::1",
+          "deck": "042 - Linux Security",
+          "slide": 28,
+          "score": 12.55,
+          "chars": 365
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "042 - Linux Security::s10::1",
+          "deck": "042 - Linux Security",
+          "slide": 10,
+          "score": 12.32,
+          "chars": 406
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "073 - Trusted Computing::s10::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 10,
+          "score": 9.52,
+          "chars": 511
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "073 - Trusted Computing::s02::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 2,
+          "score": 8.51,
+          "chars": 313
+        },
+        {
+          "slot": "A3a",
+          "chunk_id": "073 - Trusted Computing::s17::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 17,
+          "score": 8.13,
+          "chars": 290
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "023 - Access Control and Authorization::s07::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 7,
+          "score": 69.86,
+          "chars": 391
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "024 - Formal Security Model::s05::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 5,
+          "score": 60.42,
+          "chars": 604
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "023 - Access Control and Authorization::s18::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 18,
+          "score": 45.5,
+          "chars": 492
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "041 - Windows Security::s16::1",
+          "deck": "041 - Windows Security",
+          "slide": 16,
+          "score": 43.71,
+          "chars": 396
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "024 - Formal Security Model::s26::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 26,
+          "score": 43.52,
+          "chars": 449
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "024 - Formal Security Model::s21::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 21,
+          "score": 42.98,
+          "chars": 253
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "024 - Formal Security Model::s25::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 25,
+          "score": 42.23,
+          "chars": 444
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "024 - Formal Security Model::s27::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 27,
+          "score": 41.92,
+          "chars": 591
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "023 - Access Control and Authorization::s10::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 10,
+          "score": 37.91,
+          "chars": 428
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "023 - Access Control and Authorization::s08::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 8,
+          "score": 36.97,
+          "chars": 175
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "024 - Formal Security Model::s24::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 24,
+          "score": 36.18,
+          "chars": 1008
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "023 - Access Control and Authorization::s04::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 4,
+          "score": 35.67,
+          "chars": 599
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "041 - Windows Security::s07::1",
+          "deck": "041 - Windows Security",
+          "slide": 7,
+          "score": 31.03,
+          "chars": 391
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "041 - Windows Security::s03::1",
+          "deck": "041 - Windows Security",
+          "slide": 3,
+          "score": 30.11,
+          "chars": 757
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "041 - Windows Security::s19::1",
+          "deck": "041 - Windows Security",
+          "slide": 19,
+          "score": 30.0,
+          "chars": 177
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "041 - Windows Security::s21::1",
+          "deck": "041 - Windows Security",
+          "slide": 21,
+          "score": 26.02,
+          "chars": 391
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "041 - Windows Security::s18::1",
+          "deck": "041 - Windows Security",
+          "slide": 18,
+          "score": 22.55,
+          "chars": 477
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "073 - Trusted Computing::s03::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 3,
+          "score": 18.89,
+          "chars": 282
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "073 - Trusted Computing::s19::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 19,
+          "score": 18.38,
+          "chars": 535
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "042 - Linux Security::s27::1",
+          "deck": "042 - Linux Security",
+          "slide": 27,
+          "score": 17.61,
+          "chars": 432
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "042 - Linux Security::s13::1",
+          "deck": "042 - Linux Security",
+          "slide": 13,
+          "score": 15.43,
+          "chars": 232
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "042 - Linux Security::s23::1",
+          "deck": "042 - Linux Security",
+          "slide": 23,
+          "score": 13.85,
+          "chars": 507
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "042 - Linux Security::s06::1",
+          "deck": "042 - Linux Security",
+          "slide": 6,
+          "score": 12.91,
+          "chars": 502
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "042 - Linux Security::s12::1",
+          "deck": "042 - Linux Security",
+          "slide": 12,
+          "score": 12.71,
+          "chars": 370
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "042 - Linux Security::s10::1",
+          "deck": "042 - Linux Security",
+          "slide": 10,
+          "score": 12.32,
+          "chars": 406
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "073 - Trusted Computing::s10::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 10,
+          "score": 10.37,
+          "chars": 511
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "073 - Trusted Computing::s17::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 17,
+          "score": 9.85,
+          "chars": 290
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "073 - Trusted Computing::s07::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 7,
+          "score": 8.19,
+          "chars": 531
+        },
+        {
+          "slot": "A3b",
+          "chunk_id": "073 - Trusted Computing::s09::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 9,
+          "score": 7.8,
+          "chars": 400
+        }
+      ],
+      "fallback_retrieval": false,
+      "overlap_allowed": false,
+      "last_draft": {},
+      "usage": {
+        "calls": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "question": "A4",
+      "slots": [
+        "A4a",
+        "A4b"
+      ],
+      "topic": "trusted computing/blockchain",
+      "tasks": [
+        "List",
+        "Explain"
+      ],
+      "dependent": false,
+      "attempts": 4,
+      "total_draft_attempts": 8,
+      "point_retry_calls": 0,
+      "scenario_sampled": false,
+      "accepted": false,
+      "errors": [
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-fa539875-e1c0-9daa-a205-5a58519df95a', 'request_id': 'fa539875-e1c0-9daa-a205-5a58519df95a'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-b4778590-dea1-9120-9ea5-e6be4de3eb06', 'request_id': 'b4778590-dea1-9120-9ea5-e6be4de3eb06'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-7707ef17-42f7-95f7-b951-87729319ec7f', 'request_id': '7707ef17-42f7-95f7-b951-87729319ec7f'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-ac11befd-c1ec-9800-8f32-37127eff9d73', 'request_id': 'ac11befd-c1ec-9800-8f32-37127eff9d73'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-f44c5645-2efa-983c-be05-a99c3f051111', 'request_id': 'f44c5645-2efa-983c-be05-a99c3f051111'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-d4a3aef5-ad6a-9b8b-b588-7129ee6dd16c', 'request_id': 'd4a3aef5-ad6a-9b8b-b588-7129ee6dd16c'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-519d0bcf-d227-98db-b165-baad5562296f', 'request_id': '519d0bcf-d227-98db-b165-baad5562296f'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-8ccb8093-0873-9756-8b06-2120c6884d7b', 'request_id': '8ccb8093-0873-9756-8b06-2120c6884d7b'}"
+        ]
+      ],
+      "retrieved": [
+        {
+          "slot": "A4a",
+          "chunk_id": "073 - Trusted Computing::s08::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 8,
+          "score": 83.32,
+          "chars": 454
+        },
+        {
+          "slot": "A4a",
+          "chunk_id": "073 - Trusted Computing::s06::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 6,
+          "score": 69.31,
+          "chars": 260
+        },
+        {
+          "slot": "A4a",
+          "chunk_id": "073 - Trusted Computing::s14::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 14,
+          "score": 64.28,
+          "chars": 133
+        },
+        {
+          "slot": "A4a",
+          "chunk_id": "073 - Trusted Computing::s15::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 15,
+          "score": 52.31,
+          "chars": 318
+        },
+        {
+          "slot": "A4a",
+          "chunk_id": "073 - Trusted Computing::s07::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 7,
+          "score": 47.34,
+          "chars": 531
+        },
+        {
+          "slot": "A4a",
+          "chunk_id": "073 - Trusted Computing::s05::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 5,
+          "score": 40.97,
+          "chars": 456
+        },
+        {
+          "slot": "A4a",
+          "chunk_id": "074 - Crytocurrency::s06::1",
+          "deck": "074 - Crytocurrency",
+          "slide": 6,
+          "score": 34.13,
+          "chars": 470
+        },
+        {
+          "slot": "A4a",
+          "chunk_id": "074B - Crytocurrency::s06::1",
+          "deck": "074B - Crytocurrency",
+          "slide": 6,
+          "score": 34.13,
+          "chars": 470
+        },
+        {
+          "slot": "A4a",
+          "chunk_id": "074 - Crytocurrency::s16::1",
+          "deck": "074 - Crytocurrency",
+          "slide": 16,
+          "score": 31.65,
+          "chars": 479
+        },
+        {
+          "slot": "A4a",
+          "chunk_id": "074B - Crytocurrency::s20::1",
+          "deck": "074B - Crytocurrency",
+          "slide": 20,
+          "score": 31.65,
+          "chars": 479
+        },
+        {
+          "slot": "A4a",
+          "chunk_id": "038 - Digital Certificares _ PKI::s21::1",
+          "deck": "038 - Digital Certificares _ PKI",
+          "slide": 21,
+          "score": 27.64,
+          "chars": 453
+        },
+        {
+          "slot": "A4a",
+          "chunk_id": "074B - Crytocurrency::s16::1",
+          "deck": "074B - Crytocurrency",
+          "slide": 16,
+          "score": 23.26,
+          "chars": 373
+        },
+        {
+          "slot": "A4a",
+          "chunk_id": "038 - Digital Certificares _ PKI::s16::1",
+          "deck": "038 - Digital Certificares _ PKI",
+          "slide": 16,
+          "score": 22.67,
+          "chars": 452
+        },
+        {
+          "slot": "A4a",
+          "chunk_id": "038 - Digital Certificares _ PKI::s22::1",
+          "deck": "038 - Digital Certificares _ PKI",
+          "slide": 22,
+          "score": 21.93,
+          "chars": 370
+        },
+        {
+          "slot": "A4a",
+          "chunk_id": "074B - Crytocurrency::s17::1",
+          "deck": "074B - Crytocurrency",
+          "slide": 17,
+          "score": 18.66,
+          "chars": 394
+        },
+        {
+          "slot": "A4a",
+          "chunk_id": "038 - Digital Certificares _ PKI::s09::1",
+          "deck": "038 - Digital Certificares _ PKI",
+          "slide": 9,
+          "score": 18.31,
+          "chars": 138
+        },
+        {
+          "slot": "A4a",
+          "chunk_id": "074 - Crytocurrency::s05::1",
+          "deck": "074 - Crytocurrency",
+          "slide": 5,
+          "score": 16.64,
+          "chars": 413
+        },
+        {
+          "slot": "A4a",
+          "chunk_id": "038 - Digital Certificares _ PKI::s24::1",
+          "deck": "038 - Digital Certificares _ PKI",
+          "slide": 24,
+          "score": 16.49,
+          "chars": 312
+        },
+        {
+          "slot": "A4a",
+          "chunk_id": "038 - Digital Certificares _ PKI::s12::1",
+          "deck": "038 - Digital Certificares _ PKI",
+          "slide": 12,
+          "score": 14.72,
+          "chars": 300
+        },
+        {
+          "slot": "A4a",
+          "chunk_id": "074 - Crytocurrency::s02::1",
+          "deck": "074 - Crytocurrency",
+          "slide": 2,
+          "score": 14.3,
+          "chars": 321
+        },
+        {
+          "slot": "A4b",
+          "chunk_id": "073 - Trusted Computing::s14::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 14,
+          "score": 61.31,
+          "chars": 133
+        },
+        {
+          "slot": "A4b",
+          "chunk_id": "073 - Trusted Computing::s15::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 15,
+          "score": 55.08,
+          "chars": 318
+        },
+        {
+          "slot": "A4b",
+          "chunk_id": "073 - Trusted Computing::s08::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 8,
+          "score": 53.1,
+          "chars": 454
+        },
+        {
+          "slot": "A4b",
+          "chunk_id": "073 - Trusted Computing::s06::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 6,
+          "score": 42.52,
+          "chars": 260
+        },
+        {
+          "slot": "A4b",
+          "chunk_id": "073 - Trusted Computing::s07::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 7,
+          "score": 39.15,
+          "chars": 531
+        },
+        {
+          "slot": "A4b",
+          "chunk_id": "073 - Trusted Computing::s13::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 13,
+          "score": 35.45,
+          "chars": 584
+        },
+        {
+          "slot": "A4b",
+          "chunk_id": "074 - Crytocurrency::s16::1",
+          "deck": "074 - Crytocurrency",
+          "slide": 16,
+          "score": 34.56,
+          "chars": 479
+        },
+        {
+          "slot": "A4b",
+          "chunk_id": "074B - Crytocurrency::s20::1",
+          "deck": "074B - Crytocurrency",
+          "slide": 20,
+          "score": 34.56,
+          "chars": 479
+        },
+        {
+          "slot": "A4b",
+          "chunk_id": "074 - Crytocurrency::s06::1",
+          "deck": "074 - Crytocurrency",
+          "slide": 6,
+          "score": 32.69,
+          "chars": 470
+        },
+        {
+          "slot": "A4b",
+          "chunk_id": "074B - Crytocurrency::s06::1",
+          "deck": "074B - Crytocurrency",
+          "slide": 6,
+          "score": 32.69,
+          "chars": 470
+        },
+        {
+          "slot": "A4b",
+          "chunk_id": "074 - Crytocurrency::s05::1",
+          "deck": "074 - Crytocurrency",
+          "slide": 5,
+          "score": 21.51,
+          "chars": 413
+        },
+        {
+          "slot": "A4b",
+          "chunk_id": "074B - Crytocurrency::s05::1",
+          "deck": "074B - Crytocurrency",
+          "slide": 5,
+          "score": 21.51,
+          "chars": 413
+        },
+        {
+          "slot": "A4b",
+          "chunk_id": "074B - Crytocurrency::s16::1",
+          "deck": "074B - Crytocurrency",
+          "slide": 16,
+          "score": 18.96,
+          "chars": 373
+        },
+        {
+          "slot": "A4b",
+          "chunk_id": "038 - Digital Certificares _ PKI::s21::1",
+          "deck": "038 - Digital Certificares _ PKI",
+          "slide": 21,
+          "score": 17.45,
+          "chars": 453
+        },
+        {
+          "slot": "A4b",
+          "chunk_id": "038 - Digital Certificares _ PKI::s22::1",
+          "deck": "038 - Digital Certificares _ PKI",
+          "slide": 22,
+          "score": 14.92,
+          "chars": 370
+        },
+        {
+          "slot": "A4b",
+          "chunk_id": "038 - Digital Certificares _ PKI::s09::1",
+          "deck": "038 - Digital Certificares _ PKI",
+          "slide": 9,
+          "score": 14.18,
+          "chars": 138
+        },
+        {
+          "slot": "A4b",
+          "chunk_id": "074 - Crytocurrency::s02::1",
+          "deck": "074 - Crytocurrency",
+          "slide": 2,
+          "score": 13.49,
+          "chars": 321
+        },
+        {
+          "slot": "A4b",
+          "chunk_id": "038 - Digital Certificares _ PKI::s24::1",
+          "deck": "038 - Digital Certificares _ PKI",
+          "slide": 24,
+          "score": 11.99,
+          "chars": 312
+        },
+        {
+          "slot": "A4b",
+          "chunk_id": "038 - Digital Certificares _ PKI::s18::1",
+          "deck": "038 - Digital Certificares _ PKI",
+          "slide": 18,
+          "score": 11.77,
+          "chars": 376
+        },
+        {
+          "slot": "A4b",
+          "chunk_id": "038 - Digital Certificares _ PKI::s13::1",
+          "deck": "038 - Digital Certificares _ PKI",
+          "slide": 13,
+          "score": 10.69,
+          "chars": 259
+        }
+      ],
+      "fallback_retrieval": false,
+      "overlap_allowed": false,
+      "last_draft": {},
+      "usage": {
+        "calls": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "question": "A5",
+      "slots": [
+        "A5a",
+        "A5b"
+      ],
+      "topic": "risk/management (ethics)",
+      "tasks": [
+        "State",
+        "Compare"
+      ],
+      "dependent": false,
+      "attempts": 4,
+      "total_draft_attempts": 8,
+      "point_retry_calls": 0,
+      "scenario_sampled": false,
+      "accepted": false,
+      "errors": [
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-1a08aef1-6437-94ab-960a-c149008d8d1d', 'request_id': '1a08aef1-6437-94ab-960a-c149008d8d1d'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-91817f8b-a110-9daa-af61-fcfec7e8b627', 'request_id': '91817f8b-a110-9daa-af61-fcfec7e8b627'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-268627b9-4632-9bc6-aa86-167f6d676739', 'request_id': '268627b9-4632-9bc6-aa86-167f6d676739'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-a7dac368-ee99-955b-948c-1488b403cf91', 'request_id': 'a7dac368-ee99-955b-948c-1488b403cf91'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-10adeff3-9d71-9ed3-8159-9fa02287caf4', 'request_id': '10adeff3-9d71-9ed3-8159-9fa02287caf4'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-030c38e1-e937-9898-8833-2ff8622c069c', 'request_id': '030c38e1-e937-9898-8833-2ff8622c069c'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-15465111-b0e5-90b7-b781-6590a6dbccc0', 'request_id': '15465111-b0e5-90b7-b781-6590a6dbccc0'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-cb08227d-6ff6-9424-8e5b-0fdbeef08da3', 'request_id': 'cb08227d-6ff6-9424-8e5b-0fdbeef08da3'}"
+        ]
+      ],
+      "retrieved": [
+        {
+          "slot": "A5a",
+          "chunk_id": "071 - Ethics and Computer Security::s05::1",
+          "deck": "071 - Ethics and Computer Security",
+          "slide": 5,
+          "score": 70.76,
+          "chars": 401
+        },
+        {
+          "slot": "A5a",
+          "chunk_id": "071 - Ethics and Computer Security::s12::1",
+          "deck": "071 - Ethics and Computer Security",
+          "slide": 12,
+          "score": 55.52,
+          "chars": 1081
+        },
+        {
+          "slot": "A5a",
+          "chunk_id": "071 - Ethics and Computer Security::s07::1",
+          "deck": "071 - Ethics and Computer Security",
+          "slide": 7,
+          "score": 51.74,
+          "chars": 670
+        },
+        {
+          "slot": "A5a",
+          "chunk_id": "071 - Ethics and Computer Security::s11::1",
+          "deck": "071 - Ethics and Computer Security",
+          "slide": 11,
+          "score": 49.07,
+          "chars": 541
+        },
+        {
+          "slot": "A5a",
+          "chunk_id": "071 - Ethics and Computer Security::s06::1",
+          "deck": "071 - Ethics and Computer Security",
+          "slide": 6,
+          "score": 41.91,
+          "chars": 176
+        },
+        {
+          "slot": "A5a",
+          "chunk_id": "071 - Ethics and Computer Security::s08::1",
+          "deck": "071 - Ethics and Computer Security",
+          "slide": 8,
+          "score": 38.69,
+          "chars": 260
+        },
+        {
+          "slot": "A5b",
+          "chunk_id": "071 - Ethics and Computer Security::s05::1",
+          "deck": "071 - Ethics and Computer Security",
+          "slide": 5,
+          "score": 88.0,
+          "chars": 401
+        },
+        {
+          "slot": "A5b",
+          "chunk_id": "071 - Ethics and Computer Security::s07::1",
+          "deck": "071 - Ethics and Computer Security",
+          "slide": 7,
+          "score": 54.75,
+          "chars": 670
+        },
+        {
+          "slot": "A5b",
+          "chunk_id": "071 - Ethics and Computer Security::s12::1",
+          "deck": "071 - Ethics and Computer Security",
+          "slide": 12,
+          "score": 49.28,
+          "chars": 1081
+        },
+        {
+          "slot": "A5b",
+          "chunk_id": "071 - Ethics and Computer Security::s11::1",
+          "deck": "071 - Ethics and Computer Security",
+          "slide": 11,
+          "score": 47.41,
+          "chars": 541
+        },
+        {
+          "slot": "A5b",
+          "chunk_id": "071 - Ethics and Computer Security::s06::1",
+          "deck": "071 - Ethics and Computer Security",
+          "slide": 6,
+          "score": 44.53,
+          "chars": 176
+        }
+      ],
+      "fallback_retrieval": false,
+      "overlap_allowed": false,
+      "last_draft": {},
+      "usage": {
+        "calls": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "question": "A6",
+      "slots": [
+        "A6a",
+        "A6b"
+      ],
+      "topic": "authentication/biometrics",
+      "tasks": [
+        "Explain",
+        "Explain"
+      ],
+      "dependent": true,
+      "attempts": 4,
+      "total_draft_attempts": 4,
+      "point_retry_calls": 0,
+      "scenario_sampled": false,
+      "accepted": false,
+      "errors": [
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-76c4440b-5ca1-956b-8013-cbd4699d532a', 'request_id': '76c4440b-5ca1-956b-8013-cbd4699d532a'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-905cae9c-40a6-91e1-b8b9-a1b035ff75d3', 'request_id': '905cae9c-40a6-91e1-b8b9-a1b035ff75d3'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-3b70619f-14d2-9070-bf83-bf2070bc2a4f', 'request_id': '3b70619f-14d2-9070-bf83-bf2070bc2a4f'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-deafe819-5930-9614-b0dd-7a922f290915', 'request_id': 'deafe819-5930-9614-b0dd-7a922f290915'}"
+        ],
+        [
+          "A6b: dependent (a) is unresolved"
+        ]
+      ],
+      "retrieved": [
+        {
+          "slot": "A6a",
+          "chunk_id": "022 - Identification and Authentication::s16::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 16,
+          "score": 51.61,
+          "chars": 291
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "022 - Identification and Authentication::s08::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 8,
+          "score": 40.64,
+          "chars": 458
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "022 - Identification and Authentication::s24::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 24,
+          "score": 40.61,
+          "chars": 463
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "022 - Identification and Authentication::s19::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 19,
+          "score": 35.39,
+          "chars": 305
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "022 - Identification and Authentication::s10::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 10,
+          "score": 34.54,
+          "chars": 619
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "022 - Identification and Authentication::s12::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 12,
+          "score": 32.77,
+          "chars": 347
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "072 - Biometrics and Authentication::s02::1",
+          "deck": "072 - Biometrics and Authentication",
+          "slide": 2,
+          "score": 27.23,
+          "chars": 222
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "042 - Linux Security::s08::1",
+          "deck": "042 - Linux Security",
+          "slide": 8,
+          "score": 26.44,
+          "chars": 681
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "042 - Linux Security::s09::1",
+          "deck": "042 - Linux Security",
+          "slide": 9,
+          "score": 24.26,
+          "chars": 276
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "042 - Linux Security::s19::1",
+          "deck": "042 - Linux Security",
+          "slide": 19,
+          "score": 23.75,
+          "chars": 545
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "072 - Biometrics and Authentication::s04::1",
+          "deck": "072 - Biometrics and Authentication",
+          "slide": 4,
+          "score": 22.39,
+          "chars": 200
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "041 - Windows Security::s03::1",
+          "deck": "041 - Windows Security",
+          "slide": 3,
+          "score": 20.81,
+          "chars": 757
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "072 - Biometrics and Authentication::s05::1",
+          "deck": "072 - Biometrics and Authentication",
+          "slide": 5,
+          "score": 19.14,
+          "chars": 184
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "041 - Windows Security::s05::1",
+          "deck": "041 - Windows Security",
+          "slide": 5,
+          "score": 18.28,
+          "chars": 556
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "072 - Biometrics and Authentication::s07::1",
+          "deck": "072 - Biometrics and Authentication",
+          "slide": 7,
+          "score": 16.1,
+          "chars": 200
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "072 - Biometrics and Authentication::s09::1",
+          "deck": "072 - Biometrics and Authentication",
+          "slide": 9,
+          "score": 15.88,
+          "chars": 272
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "042 - Linux Security::s26::1",
+          "deck": "042 - Linux Security",
+          "slide": 26,
+          "score": 15.77,
+          "chars": 785
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "042 - Linux Security::s11::1",
+          "deck": "042 - Linux Security",
+          "slide": 11,
+          "score": 15.06,
+          "chars": 590
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "041 - Windows Security::s02::1",
+          "deck": "041 - Windows Security",
+          "slide": 2,
+          "score": 14.18,
+          "chars": 272
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "023 - Access Control and Authorization::s15::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 15,
+          "score": 13.13,
+          "chars": 651
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "041 - Windows Security::s04::1",
+          "deck": "041 - Windows Security",
+          "slide": 4,
+          "score": 13.11,
+          "chars": 345
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "042 - Linux Security::s05::1",
+          "deck": "042 - Linux Security",
+          "slide": 5,
+          "score": 12.66,
+          "chars": 847
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "041 - Windows Security::s07::1",
+          "deck": "041 - Windows Security",
+          "slide": 7,
+          "score": 10.91,
+          "chars": 391
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "023 - Access Control and Authorization::s14::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 14,
+          "score": 10.62,
+          "chars": 266
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "041 - Windows Security::s19::1",
+          "deck": "041 - Windows Security",
+          "slide": 19,
+          "score": 10.02,
+          "chars": 177
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "023 - Access Control and Authorization::s04::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 4,
+          "score": 8.22,
+          "chars": 599
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "023 - Access Control and Authorization::s03::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 3,
+          "score": 7.49,
+          "chars": 727
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "023 - Access Control and Authorization::s11::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 11,
+          "score": 7.14,
+          "chars": 502
+        },
+        {
+          "slot": "A6a",
+          "chunk_id": "023 - Access Control and Authorization::s05::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 5,
+          "score": 6.82,
+          "chars": 247
+        }
+      ],
+      "fallback_retrieval": false,
+      "overlap_allowed": false,
+      "last_draft": {},
+      "usage": {
+        "calls": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "question": "A7",
+      "slots": [
+        "A7a",
+        "A7b"
+      ],
+      "topic": "attacks/malware",
+      "tasks": [
+        "State",
+        "Explain"
+      ],
+      "dependent": false,
+      "attempts": 4,
+      "total_draft_attempts": 8,
+      "point_retry_calls": 0,
+      "scenario_sampled": false,
+      "accepted": false,
+      "errors": [
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-1319d616-4d8e-9053-8fd8-041737029eab', 'request_id': '1319d616-4d8e-9053-8fd8-041737029eab'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-a821dcdd-9506-99d0-9ea3-66c1fbf19ac6', 'request_id': 'a821dcdd-9506-99d0-9ea3-66c1fbf19ac6'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-17bc64fc-7c1f-9865-84a2-ad4a3b1c4033', 'request_id': '17bc64fc-7c1f-9865-84a2-ad4a3b1c4033'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-1d57fed6-d7c2-9d3c-9703-aac02c5f4e6e', 'request_id': '1d57fed6-d7c2-9d3c-9703-aac02c5f4e6e'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-fc46f70b-a857-91b4-9d9d-be91a0ad2ff9', 'request_id': 'fc46f70b-a857-91b4-9d9d-be91a0ad2ff9'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-ace844ae-3e0d-947b-b955-bf3ae597d6b2', 'request_id': 'ace844ae-3e0d-947b-b955-bf3ae597d6b2'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-c1aa8e94-b889-9b34-ba3a-c6ce484fc4b0', 'request_id': 'c1aa8e94-b889-9b34-ba3a-c6ce484fc4b0'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-1ffc3394-6003-9a0f-929d-be8f5d2b6e5a', 'request_id': '1ffc3394-6003-9a0f-929d-be8f5d2b6e5a'}"
+        ]
+      ],
+      "retrieved": [
+        {
+          "slot": "A7a",
+          "chunk_id": "011 - Introduction to Computer Security::s28::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 28,
+          "score": 43.57,
+          "chars": 516
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "011 - Introduction to Computer Security::s10::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 10,
+          "score": 42.96,
+          "chars": 551
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "051 - Software Security::s12::1",
+          "deck": "051 - Software Security",
+          "slide": 12,
+          "score": 35.11,
+          "chars": 765
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "051 - Software Security::s06::1",
+          "deck": "051 - Software Security",
+          "slide": 6,
+          "score": 32.16,
+          "chars": 515
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "051 - Software Security::s13::1",
+          "deck": "051 - Software Security",
+          "slide": 13,
+          "score": 31.82,
+          "chars": 875
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "051 - Software Security::s09::1",
+          "deck": "051 - Software Security",
+          "slide": 9,
+          "score": 26.78,
+          "chars": 354
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "051 - Software Security::s07::1",
+          "deck": "051 - Software Security",
+          "slide": 7,
+          "score": 25.99,
+          "chars": 543
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "051 - Software Security::s10::1",
+          "deck": "051 - Software Security",
+          "slide": 10,
+          "score": 24.44,
+          "chars": 205
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "011 - Introduction to Computer Security::s09::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 9,
+          "score": 22.54,
+          "chars": 416
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "062 - Intrusion Detection System::s21::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 21,
+          "score": 21.78,
+          "chars": 499
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "052 - Web Security::s13::1",
+          "deck": "052 - Web Security",
+          "slide": 13,
+          "score": 21.77,
+          "chars": 415
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "052 - Web Security::s14::1",
+          "deck": "052 - Web Security",
+          "slide": 14,
+          "score": 21.74,
+          "chars": 614
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "022 - Identification and Authentication::s11::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 11,
+          "score": 20.98,
+          "chars": 143
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "022 - Identification and Authentication::s22::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 22,
+          "score": 20.76,
+          "chars": 336
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "062 - Intrusion Detection System::s14::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 14,
+          "score": 20.07,
+          "chars": 398
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "041 - Windows Security::s05::1",
+          "deck": "041 - Windows Security",
+          "slide": 5,
+          "score": 19.75,
+          "chars": 556
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "052 - Web Security::s19::1",
+          "deck": "052 - Web Security",
+          "slide": 19,
+          "score": 18.93,
+          "chars": 253
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "062 - Intrusion Detection System::s19::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 19,
+          "score": 18.25,
+          "chars": 572
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "052 - Web Security::s16::1",
+          "deck": "052 - Web Security",
+          "slide": 16,
+          "score": 18.24,
+          "chars": 707
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "062 - Intrusion Detection System::s32::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 32,
+          "score": 17.06,
+          "chars": 297
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "041 - Windows Security::s04::1",
+          "deck": "041 - Windows Security",
+          "slide": 4,
+          "score": 17.03,
+          "chars": 345
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "022 - Identification and Authentication::s20::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 20,
+          "score": 16.65,
+          "chars": 649
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "022 - Identification and Authentication::s15::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 15,
+          "score": 16.62,
+          "chars": 170
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "052 - Web Security::s12::1",
+          "deck": "052 - Web Security",
+          "slide": 12,
+          "score": 16.56,
+          "chars": 305
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "061 - Network Security::s17::1",
+          "deck": "061 - Network Security",
+          "slide": 17,
+          "score": 16.53,
+          "chars": 354
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "052 - Web Security::s22::1",
+          "deck": "052 - Web Security",
+          "slide": 22,
+          "score": 16.46,
+          "chars": 227
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "022 - Identification and Authentication::s18::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 18,
+          "score": 16.44,
+          "chars": 444
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "042 - Linux Security::s28::1",
+          "deck": "042 - Linux Security",
+          "slide": 28,
+          "score": 16.32,
+          "chars": 365
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "062 - Intrusion Detection System::s31::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 31,
+          "score": 16.19,
+          "chars": 240
+        },
+        {
+          "slot": "A7a",
+          "chunk_id": "041 - Windows Security::s06::1",
+          "deck": "041 - Windows Security",
+          "slide": 6,
+          "score": 16.15,
+          "chars": 363
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "051 - Software Security::s07::1",
+          "deck": "051 - Software Security",
+          "slide": 7,
+          "score": 60.98,
+          "chars": 543
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "051 - Software Security::s13::1",
+          "deck": "051 - Software Security",
+          "slide": 13,
+          "score": 55.16,
+          "chars": 875
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "051 - Software Security::s12::1",
+          "deck": "051 - Software Security",
+          "slide": 12,
+          "score": 54.54,
+          "chars": 765
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "051 - Software Security::s09::1",
+          "deck": "051 - Software Security",
+          "slide": 9,
+          "score": 53.66,
+          "chars": 354
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "011 - Introduction to Computer Security::s28::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 28,
+          "score": 52.8,
+          "chars": 516
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "051 - Software Security::s10::1",
+          "deck": "051 - Software Security",
+          "slide": 10,
+          "score": 50.44,
+          "chars": 205
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "051 - Software Security::s06::1",
+          "deck": "051 - Software Security",
+          "slide": 6,
+          "score": 49.08,
+          "chars": 515
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "011 - Introduction to Computer Security::s10::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 10,
+          "score": 46.0,
+          "chars": 551
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "062 - Intrusion Detection System::s17::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 17,
+          "score": 33.72,
+          "chars": 381
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "052 - Web Security::s13::1",
+          "deck": "052 - Web Security",
+          "slide": 13,
+          "score": 31.77,
+          "chars": 415
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "052 - Web Security::s19::1",
+          "deck": "052 - Web Security",
+          "slide": 19,
+          "score": 29.36,
+          "chars": 253
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "011 - Introduction to Computer Security::s09::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 9,
+          "score": 28.07,
+          "chars": 416
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "062 - Intrusion Detection System::s14::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 14,
+          "score": 27.91,
+          "chars": 398
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "052 - Web Security::s14::1",
+          "deck": "052 - Web Security",
+          "slide": 14,
+          "score": 26.74,
+          "chars": 614
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "062 - Intrusion Detection System::s20::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 20,
+          "score": 25.83,
+          "chars": 634
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "062 - Intrusion Detection System::s21::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 21,
+          "score": 25.73,
+          "chars": 499
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "062 - Intrusion Detection System::s19::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 19,
+          "score": 25.2,
+          "chars": 572
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "062 - Intrusion Detection System::s18::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 18,
+          "score": 24.33,
+          "chars": 352
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "052 - Web Security::s15::1",
+          "deck": "052 - Web Security",
+          "slide": 15,
+          "score": 23.81,
+          "chars": 495
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "011 - Introduction to Computer Security::s15::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 15,
+          "score": 23.51,
+          "chars": 498
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "022 - Identification and Authentication::s06::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 6,
+          "score": 21.47,
+          "chars": 461
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "011 - Introduction to Computer Security::s14::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 14,
+          "score": 21.17,
+          "chars": 294
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "022 - Identification and Authentication::s11::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 11,
+          "score": 20.98,
+          "chars": 143
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "041 - Windows Security::s05::1",
+          "deck": "041 - Windows Security",
+          "slide": 5,
+          "score": 20.89,
+          "chars": 556
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "022 - Identification and Authentication::s12::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 12,
+          "score": 20.85,
+          "chars": 347
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "041 - Windows Security::s04::1",
+          "deck": "041 - Windows Security",
+          "slide": 4,
+          "score": 20.85,
+          "chars": 345
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "011 - Introduction to Computer Security::s07::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 7,
+          "score": 20.72,
+          "chars": 201
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "052 - Web Security::s22::1",
+          "deck": "052 - Web Security",
+          "slide": 22,
+          "score": 20.33,
+          "chars": 227
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "052 - Web Security::s16::1",
+          "deck": "052 - Web Security",
+          "slide": 16,
+          "score": 19.71,
+          "chars": 707
+        },
+        {
+          "slot": "A7b",
+          "chunk_id": "042 - Linux Security::s08::1",
+          "deck": "042 - Linux Security",
+          "slide": 8,
+          "score": 19.37,
+          "chars": 681
+        }
+      ],
+      "fallback_retrieval": false,
+      "overlap_allowed": false,
+      "last_draft": {},
+      "usage": {
+        "calls": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "question": "A8",
+      "slots": [
+        "A8a",
+        "A8b"
+      ],
+      "topic": "attacks/malware",
+      "tasks": [
+        "Explain",
+        "Discuss"
+      ],
+      "dependent": false,
+      "attempts": 4,
+      "total_draft_attempts": 8,
+      "point_retry_calls": 0,
+      "scenario_sampled": false,
+      "accepted": false,
+      "errors": [
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-d605fa93-04db-9c37-905e-005053ae9d5f', 'request_id': 'd605fa93-04db-9c37-905e-005053ae9d5f'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-82b8e89e-746f-9080-904a-59a98258f8ca', 'request_id': '82b8e89e-746f-9080-904a-59a98258f8ca'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-24ac334e-1462-9852-8ec8-fc79ec4b65ca', 'request_id': '24ac334e-1462-9852-8ec8-fc79ec4b65ca'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-32e3f187-d2fc-95b1-b8a9-2736dc6b0af5', 'request_id': '32e3f187-d2fc-95b1-b8a9-2736dc6b0af5'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-4bd2b7c6-ecbc-9e7b-96f7-9402cfa64f5c', 'request_id': '4bd2b7c6-ecbc-9e7b-96f7-9402cfa64f5c'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-a7ccc258-c882-92d1-9940-c70d144efdb5', 'request_id': 'a7ccc258-c882-92d1-9940-c70d144efdb5'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-68fa82c4-e408-9812-ad7f-b000adb7b473', 'request_id': '68fa82c4-e408-9812-ad7f-b000adb7b473'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-52a53dac-f8db-9449-a7ec-32714a4877e7', 'request_id': '52a53dac-f8db-9449-a7ec-32714a4877e7'}"
+        ]
+      ],
+      "retrieved": [
+        {
+          "slot": "A8a",
+          "chunk_id": "011 - Introduction to Computer Security::s10::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 10,
+          "score": 51.73,
+          "chars": 551
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "011 - Introduction to Computer Security::s28::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 28,
+          "score": 41.67,
+          "chars": 516
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "022 - Identification and Authentication::s11::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 11,
+          "score": 32.64,
+          "chars": 143
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "051 - Software Security::s12::1",
+          "deck": "051 - Software Security",
+          "slide": 12,
+          "score": 26.09,
+          "chars": 765
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "052 - Web Security::s14::1",
+          "deck": "052 - Web Security",
+          "slide": 14,
+          "score": 22.91,
+          "chars": 614
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "051 - Software Security::s13::1",
+          "deck": "051 - Software Security",
+          "slide": 13,
+          "score": 21.65,
+          "chars": 875
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "052 - Web Security::s13::1",
+          "deck": "052 - Web Security",
+          "slide": 13,
+          "score": 20.89,
+          "chars": 415
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "011 - Introduction to Computer Security::s14::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 14,
+          "score": 19.56,
+          "chars": 294
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "051 - Software Security::s02::1",
+          "deck": "051 - Software Security",
+          "slide": 2,
+          "score": 19.29,
+          "chars": 263
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "011 - Introduction to Computer Security::s07::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 7,
+          "score": 19.07,
+          "chars": 201
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "022 - Identification and Authentication::s09::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 9,
+          "score": 18.52,
+          "chars": 369
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "051 - Software Security::s09::1",
+          "deck": "051 - Software Security",
+          "slide": 9,
+          "score": 18.3,
+          "chars": 354
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "051 - Software Security::s07::1",
+          "deck": "051 - Software Security",
+          "slide": 7,
+          "score": 17.71,
+          "chars": 543
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "051 - Software Security::s10::1",
+          "deck": "051 - Software Security",
+          "slide": 10,
+          "score": 17.33,
+          "chars": 205
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "062 - Intrusion Detection System::s14::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 14,
+          "score": 16.65,
+          "chars": 398
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "062 - Intrusion Detection System::s29::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 29,
+          "score": 16.17,
+          "chars": 194
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "022 - Identification and Authentication::s15::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 15,
+          "score": 15.81,
+          "chars": 170
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "062 - Intrusion Detection System::s19::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 19,
+          "score": 15.77,
+          "chars": 572
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "052 - Web Security::s19::1",
+          "deck": "052 - Web Security",
+          "slide": 19,
+          "score": 15.38,
+          "chars": 253
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "011 - Introduction to Computer Security::s09::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 9,
+          "score": 14.72,
+          "chars": 416
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "062 - Intrusion Detection System::s17::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 17,
+          "score": 14.15,
+          "chars": 381
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "052 - Web Security::s18::1",
+          "deck": "052 - Web Security",
+          "slide": 18,
+          "score": 13.76,
+          "chars": 292
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "062 - Intrusion Detection System::s02::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 2,
+          "score": 13.36,
+          "chars": 171
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "052 - Web Security::s16::1",
+          "deck": "052 - Web Security",
+          "slide": 16,
+          "score": 13.05,
+          "chars": 707
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "062 - Intrusion Detection System::s21::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 21,
+          "score": 12.83,
+          "chars": 499
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "052 - Web Security::s22::1",
+          "deck": "052 - Web Security",
+          "slide": 22,
+          "score": 12.63,
+          "chars": 227
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "041 - Windows Security::s05::1",
+          "deck": "041 - Windows Security",
+          "slide": 5,
+          "score": 12.47,
+          "chars": 556
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "061 - Network Security::s04::1",
+          "deck": "061 - Network Security",
+          "slide": 4,
+          "score": 11.2,
+          "chars": 748
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "061 - Network Security::s20::1",
+          "deck": "061 - Network Security",
+          "slide": 20,
+          "score": 11.13,
+          "chars": 138
+        },
+        {
+          "slot": "A8a",
+          "chunk_id": "022 - Identification and Authentication::s20::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 20,
+          "score": 11.02,
+          "chars": 649
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "011 - Introduction to Computer Security::s10::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 10,
+          "score": 45.06,
+          "chars": 551
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "011 - Introduction to Computer Security::s28::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 28,
+          "score": 36.42,
+          "chars": 516
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "051 - Software Security::s12::1",
+          "deck": "051 - Software Security",
+          "slide": 12,
+          "score": 34.84,
+          "chars": 765
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "052 - Web Security::s13::1",
+          "deck": "052 - Web Security",
+          "slide": 13,
+          "score": 34.58,
+          "chars": 415
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "051 - Software Security::s13::1",
+          "deck": "051 - Software Security",
+          "slide": 13,
+          "score": 30.08,
+          "chars": 875
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "052 - Web Security::s14::1",
+          "deck": "052 - Web Security",
+          "slide": 14,
+          "score": 29.66,
+          "chars": 614
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "052 - Web Security::s22::1",
+          "deck": "052 - Web Security",
+          "slide": 22,
+          "score": 29.33,
+          "chars": 227
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "052 - Web Security::s16::1",
+          "deck": "052 - Web Security",
+          "slide": 16,
+          "score": 28.45,
+          "chars": 707
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "051 - Software Security::s02::1",
+          "deck": "051 - Software Security",
+          "slide": 2,
+          "score": 28.44,
+          "chars": 263
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "051 - Software Security::s07::1",
+          "deck": "051 - Software Security",
+          "slide": 7,
+          "score": 27.88,
+          "chars": 543
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "022 - Identification and Authentication::s11::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 11,
+          "score": 25.48,
+          "chars": 143
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "011 - Introduction to Computer Security::s09::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 9,
+          "score": 25.27,
+          "chars": 416
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "051 - Software Security::s06::1",
+          "deck": "051 - Software Security",
+          "slide": 6,
+          "score": 23.56,
+          "chars": 515
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "052 - Web Security::s15::1",
+          "deck": "052 - Web Security",
+          "slide": 15,
+          "score": 22.92,
+          "chars": 495
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "051 - Software Security::s10::1",
+          "deck": "051 - Software Security",
+          "slide": 10,
+          "score": 22.88,
+          "chars": 205
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "052 - Web Security::s09::1",
+          "deck": "052 - Web Security",
+          "slide": 9,
+          "score": 22.45,
+          "chars": 465
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "011 - Introduction to Computer Security::s14::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 14,
+          "score": 19.65,
+          "chars": 294
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "062 - Intrusion Detection System::s31::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 31,
+          "score": 19.07,
+          "chars": 240
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "062 - Intrusion Detection System::s14::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 14,
+          "score": 17.09,
+          "chars": 398
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "011 - Introduction to Computer Security::s13::1",
+          "deck": "011 - Introduction to Computer Security",
+          "slide": 13,
+          "score": 17.05,
+          "chars": 273
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "042 - Linux Security::s08::1",
+          "deck": "042 - Linux Security",
+          "slide": 8,
+          "score": 16.52,
+          "chars": 681
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "022 - Identification and Authentication::s15::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 15,
+          "score": 16.32,
+          "chars": 170
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "062 - Intrusion Detection System::s17::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 17,
+          "score": 16.23,
+          "chars": 381
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "062 - Intrusion Detection System::s19::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 19,
+          "score": 15.74,
+          "chars": 572
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "041 - Windows Security::s03::1",
+          "deck": "041 - Windows Security",
+          "slide": 3,
+          "score": 15.21,
+          "chars": 757
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "062 - Intrusion Detection System::s21::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 21,
+          "score": 14.97,
+          "chars": 499
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "062 - Intrusion Detection System::s07::1",
+          "deck": "062 - Intrusion Detection System",
+          "slide": 7,
+          "score": 14.63,
+          "chars": 284
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "022 - Identification and Authentication::s12::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 12,
+          "score": 14.49,
+          "chars": 347
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "022 - Identification and Authentication::s06::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 6,
+          "score": 14.27,
+          "chars": 461
+        },
+        {
+          "slot": "A8b",
+          "chunk_id": "041 - Windows Security::s05::1",
+          "deck": "041 - Windows Security",
+          "slide": 5,
+          "score": 13.66,
+          "chars": 556
+        }
+      ],
+      "fallback_retrieval": false,
+      "overlap_allowed": false,
+      "last_draft": {},
+      "usage": {
+        "calls": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "question": "A9",
+      "slots": [
+        "A9a",
+        "A9b"
+      ],
+      "topic": "access control models",
+      "tasks": [
+        "Explain",
+        "Discuss"
+      ],
+      "dependent": false,
+      "attempts": 4,
+      "total_draft_attempts": 8,
+      "point_retry_calls": 0,
+      "scenario_sampled": false,
+      "accepted": false,
+      "errors": [
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-8ed5e687-ebf1-944f-9b55-51c430e32615', 'request_id': '8ed5e687-ebf1-944f-9b55-51c430e32615'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-e8c4aa0c-f071-90b5-b32e-1aa5745ae19f', 'request_id': 'e8c4aa0c-f071-90b5-b32e-1aa5745ae19f'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-06722a95-b736-97ae-962f-abfe43ad887e', 'request_id': '06722a95-b736-97ae-962f-abfe43ad887e'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-9a28b7f3-556e-94e9-adce-d247933b5c7e', 'request_id': '9a28b7f3-556e-94e9-adce-d247933b5c7e'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-d7eba1cd-a7b4-9d69-9fb4-958cc25bbb89', 'request_id': 'd7eba1cd-a7b4-9d69-9fb4-958cc25bbb89'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-93f4e145-ac5a-96c5-971f-33ffa4472d72', 'request_id': '93f4e145-ac5a-96c5-971f-33ffa4472d72'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-c5fed314-d735-924f-8fb8-783c04ad02b8', 'request_id': 'c5fed314-d735-924f-8fb8-783c04ad02b8'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-2b0bc1f0-9aee-9031-a25d-0bbafcfedc11', 'request_id': '2b0bc1f0-9aee-9031-a25d-0bbafcfedc11'}"
+        ]
+      ],
+      "retrieved": [
+        {
+          "slot": "A9a",
+          "chunk_id": "024 - Formal Security Model::s05::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 5,
+          "score": 55.3,
+          "chars": 604
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "023 - Access Control and Authorization::s18::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 18,
+          "score": 53.21,
+          "chars": 492
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "023 - Access Control and Authorization::s07::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 7,
+          "score": 50.17,
+          "chars": 391
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "023 - Access Control and Authorization::s04::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 4,
+          "score": 50.04,
+          "chars": 599
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "024 - Formal Security Model::s21::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 21,
+          "score": 46.89,
+          "chars": 253
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "024 - Formal Security Model::s27::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 27,
+          "score": 44.21,
+          "chars": 591
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "024 - Formal Security Model::s26::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 26,
+          "score": 43.0,
+          "chars": 449
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "024 - Formal Security Model::s25::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 25,
+          "score": 41.4,
+          "chars": 444
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "023 - Access Control and Authorization::s12::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 12,
+          "score": 36.23,
+          "chars": 412
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "023 - Access Control and Authorization::s10::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 10,
+          "score": 35.94,
+          "chars": 428
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "024 - Formal Security Model::s24::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 24,
+          "score": 33.38,
+          "chars": 1008
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "041 - Windows Security::s16::1",
+          "deck": "041 - Windows Security",
+          "slide": 16,
+          "score": 32.71,
+          "chars": 396
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "041 - Windows Security::s07::1",
+          "deck": "041 - Windows Security",
+          "slide": 7,
+          "score": 30.63,
+          "chars": 391
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "041 - Windows Security::s03::1",
+          "deck": "041 - Windows Security",
+          "slide": 3,
+          "score": 27.59,
+          "chars": 757
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "041 - Windows Security::s19::1",
+          "deck": "041 - Windows Security",
+          "slide": 19,
+          "score": 25.21,
+          "chars": 177
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "041 - Windows Security::s21::1",
+          "deck": "041 - Windows Security",
+          "slide": 21,
+          "score": 23.47,
+          "chars": 391
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "041 - Windows Security::s18::1",
+          "deck": "041 - Windows Security",
+          "slide": 18,
+          "score": 23.33,
+          "chars": 477
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "073 - Trusted Computing::s03::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 3,
+          "score": 19.83,
+          "chars": 282
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "042 - Linux Security::s27::1",
+          "deck": "042 - Linux Security",
+          "slide": 27,
+          "score": 17.74,
+          "chars": 432
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "073 - Trusted Computing::s19::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 19,
+          "score": 16.4,
+          "chars": 535
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "042 - Linux Security::s13::1",
+          "deck": "042 - Linux Security",
+          "slide": 13,
+          "score": 15.43,
+          "chars": 232
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "073 - Trusted Computing::s09::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 9,
+          "score": 13.69,
+          "chars": 400
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "042 - Linux Security::s12::1",
+          "deck": "042 - Linux Security",
+          "slide": 12,
+          "score": 13.48,
+          "chars": 370
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "042 - Linux Security::s23::1",
+          "deck": "042 - Linux Security",
+          "slide": 23,
+          "score": 12.12,
+          "chars": 507
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "042 - Linux Security::s24::1",
+          "deck": "042 - Linux Security",
+          "slide": 24,
+          "score": 11.74,
+          "chars": 463
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "042 - Linux Security::s10::1",
+          "deck": "042 - Linux Security",
+          "slide": 10,
+          "score": 11.23,
+          "chars": 406
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "073 - Trusted Computing::s17::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 17,
+          "score": 10.99,
+          "chars": 290
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "073 - Trusted Computing::s10::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 10,
+          "score": 9.52,
+          "chars": 511
+        },
+        {
+          "slot": "A9a",
+          "chunk_id": "073 - Trusted Computing::s02::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 2,
+          "score": 9.13,
+          "chars": 313
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "024 - Formal Security Model::s05::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 5,
+          "score": 81.15,
+          "chars": 604
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "024 - Formal Security Model::s25::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 25,
+          "score": 66.16,
+          "chars": 444
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "024 - Formal Security Model::s21::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 21,
+          "score": 60.94,
+          "chars": 253
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "024 - Formal Security Model::s26::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 26,
+          "score": 57.09,
+          "chars": 449
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "024 - Formal Security Model::s27::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 27,
+          "score": 55.92,
+          "chars": 591
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "024 - Formal Security Model::s24::1",
+          "deck": "024 - Formal Security Model",
+          "slide": 24,
+          "score": 52.79,
+          "chars": 1008
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "023 - Access Control and Authorization::s07::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 7,
+          "score": 45.2,
+          "chars": 391
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "023 - Access Control and Authorization::s18::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 18,
+          "score": 41.22,
+          "chars": 492
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "023 - Access Control and Authorization::s04::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 4,
+          "score": 38.28,
+          "chars": 599
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "023 - Access Control and Authorization::s10::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 10,
+          "score": 36.96,
+          "chars": 428
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "023 - Access Control and Authorization::s11::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 11,
+          "score": 32.52,
+          "chars": 502
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "023 - Access Control and Authorization::s13::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 13,
+          "score": 30.64,
+          "chars": 354
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "041 - Windows Security::s16::1",
+          "deck": "041 - Windows Security",
+          "slide": 16,
+          "score": 30.26,
+          "chars": 396
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "041 - Windows Security::s19::1",
+          "deck": "041 - Windows Security",
+          "slide": 19,
+          "score": 29.5,
+          "chars": 177
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "042 - Linux Security::s27::1",
+          "deck": "042 - Linux Security",
+          "slide": 27,
+          "score": 24.74,
+          "chars": 432
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "041 - Windows Security::s03::1",
+          "deck": "041 - Windows Security",
+          "slide": 3,
+          "score": 24.54,
+          "chars": 757
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "041 - Windows Security::s18::1",
+          "deck": "041 - Windows Security",
+          "slide": 18,
+          "score": 23.96,
+          "chars": 477
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "041 - Windows Security::s07::1",
+          "deck": "041 - Windows Security",
+          "slide": 7,
+          "score": 23.72,
+          "chars": 391
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "041 - Windows Security::s14::1",
+          "deck": "041 - Windows Security",
+          "slide": 14,
+          "score": 22.25,
+          "chars": 513
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "042 - Linux Security::s28::1",
+          "deck": "042 - Linux Security",
+          "slide": 28,
+          "score": 19.42,
+          "chars": 365
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "042 - Linux Security::s23::1",
+          "deck": "042 - Linux Security",
+          "slide": 23,
+          "score": 17.27,
+          "chars": 507
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "073 - Trusted Computing::s10::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 10,
+          "score": 16.73,
+          "chars": 511
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "073 - Trusted Computing::s21::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 21,
+          "score": 16.24,
+          "chars": 580
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "073 - Trusted Computing::s17::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 17,
+          "score": 15.6,
+          "chars": 290
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "042 - Linux Security::s06::1",
+          "deck": "042 - Linux Security",
+          "slide": 6,
+          "score": 15.16,
+          "chars": 502
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "073 - Trusted Computing::s19::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 19,
+          "score": 14.4,
+          "chars": 535
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "042 - Linux Security::s05::1",
+          "deck": "042 - Linux Security",
+          "slide": 5,
+          "score": 14.16,
+          "chars": 847
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "073 - Trusted Computing::s03::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 3,
+          "score": 13.16,
+          "chars": 282
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "073 - Trusted Computing::s09::1",
+          "deck": "073 - Trusted Computing",
+          "slide": 9,
+          "score": 12.69,
+          "chars": 400
+        },
+        {
+          "slot": "A9b",
+          "chunk_id": "042 - Linux Security::s10::1",
+          "deck": "042 - Linux Security",
+          "slide": 10,
+          "score": 12.5,
+          "chars": 406
+        }
+      ],
+      "fallback_retrieval": false,
+      "overlap_allowed": false,
+      "last_draft": {},
+      "usage": {
+        "calls": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "question": "B1",
+      "slots": [
+        "B1a",
+        "B1b"
+      ],
+      "topic": "authentication/biometrics",
+      "tasks": [
+        "Explain",
+        "Explain"
+      ],
+      "dependent": false,
+      "attempts": 4,
+      "total_draft_attempts": 4,
+      "point_retry_calls": 0,
+      "scenario_sampled": true,
+      "accepted": false,
+      "errors": [
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-ab22113c-24be-9b34-a3b0-aafd34fd1c42', 'request_id': 'ab22113c-24be-9b34-a3b0-aafd34fd1c42'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-bbd472c9-5aef-9131-846c-462f2361f79d', 'request_id': 'bbd472c9-5aef-9131-846c-462f2361f79d'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-61d7b326-424f-9f45-b60c-64404f3c0ce5', 'request_id': '61d7b326-424f-9f45-b60c-64404f3c0ce5'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-9679a569-643c-9709-beeb-0fbdcbd09060', 'request_id': '9679a569-643c-9709-beeb-0fbdcbd09060'}"
+        ],
+        [
+          "B1b: Part B (a) is unresolved"
+        ]
+      ],
+      "retrieved": [
+        {
+          "slot": "B1a",
+          "chunk_id": "022 - Identification and Authentication::s16::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 16,
+          "score": 53.73,
+          "chars": 291
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "022 - Identification and Authentication::s09::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 9,
+          "score": 44.16,
+          "chars": 369
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "022 - Identification and Authentication::s12::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 12,
+          "score": 42.37,
+          "chars": 347
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "022 - Identification and Authentication::s18::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 18,
+          "score": 41.36,
+          "chars": 444
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "022 - Identification and Authentication::s08::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 8,
+          "score": 38.32,
+          "chars": 458
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "022 - Identification and Authentication::s24::1",
+          "deck": "022 - Identification and Authentication",
+          "slide": 24,
+          "score": 36.9,
+          "chars": 463
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "042 - Linux Security::s09::1",
+          "deck": "042 - Linux Security",
+          "slide": 9,
+          "score": 31.04,
+          "chars": 276
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "042 - Linux Security::s05::1",
+          "deck": "042 - Linux Security",
+          "slide": 5,
+          "score": 29.82,
+          "chars": 847
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "042 - Linux Security::s26::1",
+          "deck": "042 - Linux Security",
+          "slide": 26,
+          "score": 25.27,
+          "chars": 785
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "072 - Biometrics and Authentication::s05::1",
+          "deck": "072 - Biometrics and Authentication",
+          "slide": 5,
+          "score": 24.78,
+          "chars": 184
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "023 - Access Control and Authorization::s20::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 20,
+          "score": 24.25,
+          "chars": 212
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "041 - Windows Security::s23::1",
+          "deck": "041 - Windows Security",
+          "slide": 23,
+          "score": 24.25,
+          "chars": 212
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "042 - Linux Security::s30::1",
+          "deck": "042 - Linux Security",
+          "slide": 30,
+          "score": 24.25,
+          "chars": 212
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "072 - Biometrics and Authentication::s15::1",
+          "deck": "072 - Biometrics and Authentication",
+          "slide": 15,
+          "score": 24.25,
+          "chars": 212
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "042 - Linux Security::s11::1",
+          "deck": "042 - Linux Security",
+          "slide": 11,
+          "score": 23.71,
+          "chars": 590
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "042 - Linux Security::s08::1",
+          "deck": "042 - Linux Security",
+          "slide": 8,
+          "score": 23.56,
+          "chars": 681
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "041 - Windows Security::s16::1",
+          "deck": "041 - Windows Security",
+          "slide": 16,
+          "score": 21.75,
+          "chars": 396
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "041 - Windows Security::s05::1",
+          "deck": "041 - Windows Security",
+          "slide": 5,
+          "score": 21.74,
+          "chars": 556
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "023 - Access Control and Authorization::s03::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 3,
+          "score": 21.35,
+          "chars": 727
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "041 - Windows Security::s02::1",
+          "deck": "041 - Windows Security",
+          "slide": 2,
+          "score": 21.19,
+          "chars": 272
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "041 - Windows Security::s03::1",
+          "deck": "041 - Windows Security",
+          "slide": 3,
+          "score": 20.14,
+          "chars": 757
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "041 - Windows Security::s21::1",
+          "deck": "041 - Windows Security",
+          "slide": 21,
+          "score": 18.93,
+          "chars": 391
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "023 - Access Control and Authorization::s04::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 4,
+          "score": 18.48,
+          "chars": 599
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "072 - Biometrics and Authentication::s06::1",
+          "deck": "072 - Biometrics and Authentication",
+          "slide": 6,
+          "score": 18.33,
+          "chars": 184
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "023 - Access Control and Authorization::s18::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 18,
+          "score": 15.19,
+          "chars": 492
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "023 - Access Control and Authorization::s07::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 7,
+          "score": 14.54,
+          "chars": 391
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "072 - Biometrics and Authentication::s10::1",
+          "deck": "072 - Biometrics and Authentication",
+          "slide": 10,
+          "score": 14.43,
+          "chars": 190
+        },
+        {
+          "slot": "B1a",
+          "chunk_id": "023 - Access Control and Authorization::s15::1",
+          "deck": "023 - Access Control and Authorization",
+          "slide": 15,
+          "score": 12.82,
+          "chars": 651
+        }
+      ],
+      "fallback_retrieval": false,
+      "overlap_allowed": false,
+      "last_draft": {},
+      "usage": {
+        "calls": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "question": "B2",
+      "slots": [
+        "B2a",
+        "B2b"
+      ],
+      "topic": "software/OS security",
+      "tasks": [
+        "Discuss",
+        "State"
+      ],
+      "dependent": false,
+      "attempts": 4,
+      "total_draft_attempts": 4,
+      "point_retry_calls": 0,
+      "scenario_sampled": false,
+      "accepted": false,
+      "errors": [
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-40b73c5f-563c-9f37-b08b-5f17b992ec93', 'request_id': '40b73c5f-563c-9f37-b08b-5f17b992ec93'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-4935c5fb-26b7-921d-be07-8bd3421f2d42', 'request_id': '4935c5fb-26b7-921d-be07-8bd3421f2d42'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-f4c71db4-a33b-9722-9074-4c95d2525003', 'request_id': 'f4c71db4-a33b-9722-9074-4c95d2525003'}"
+        ],
+        [
+          "LLM/API error: LLM call failed after 3 tries: Error code: 403 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information \uff08or disable the \"use free tier only\" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-c3f555ac-5a50-90f4-b15d-1d916eb05d1d', 'request_id': 'c3f555ac-5a50-90f4-b15d-1d916eb05d1d'}"
+        ],
+        [
+          "B2b: Part B (a) is unresolved"
+        ]
+      ],
+      "retrieved": [
+        {
+          "slot": "B2a",
+          "chunk_id": "051 - Software Security::s30::1",
+          "deck": "051 - Software Security",
+          "slide": 30,
+          "score": 40.89,
+          "chars": 490
+        },
+        {
+          "slot": "B2a",
+          "chunk_id": "051 - Software Security::s21::1",
+          "deck": "051 - Software Security",
+          "slide": 21,
+          "score": 26.89,
+          "chars": 495
+        },
+        {
+          "slot": "B2a",
+          "chunk_id": "051 - Software Security::s03::1",
+          "deck": "051 - Software Security",
+          "slide": 3,
+          "score": 25.3,
+          "chars": 225
+        },
+        {
+          "slot": "B2a",
+          "chunk_id": "051 - Software Security::s22::1",
+          "deck": "051 - Software Security",
+          "slide": 22,
+          "score": 25.25,
+          "chars": 312
+        },
+        {
+          "slot": "B2a",
+          "chunk_id": "051 - Software Security::s23::1",
+          "deck": "051 - Software Security",
+          "slide": 23,
+          "score": 23.04,
+          "chars": 248
+        },
+        {
+          "slot": "B2a",
+          "chunk_id": "051 - Software Security::s02::1",
+          "deck": "051 - Software Security",
+          "slide": 2,
+          "score": 22.86,
+          "chars": 263
+        },
+        {
+          "slot": "B2a",
+          "chunk_id": "041 - Windows Security::s02::1",
+          "deck": "041 - Windows Security",
+          "slide": 2,
+          "score": 22.26,
+          "chars": 272
+        },
+        {
+          "slot": "B2a",
+          "chunk_id": "042 - Linux Security::s27::1",
+          "deck": "042 - Linux Security",
+          "slide": 27,
+          "score": 17.82,
+          "chars": 432
+        },
+        {
+          "slot": "B2a",
+          "chunk_id": "041 - Windows Security::s06::1",
+          "deck": "041 - Windows Security",
+          "slide": 6,
+          "score": 17.73,
+          "chars": 363
+        },
+        {
+          "slot": "B2a",
+          "chunk_id": "041 - Windows Security::s21::1",
+          "deck": "041 - Windows Security",
+          "slide": 21,
+          "score": 17.66,
+          "chars": 391
+        },
+        {
+          "slot": "B2a",
+          "chunk_id": "041 - Windows Security::s03::1",
+          "deck": "041 - Windows Security",
+          "slide": 3,
+          "score": 16.97,
+          "chars": 757
+        },
+        {
+          "slot": "B2a",
+          "chunk_id": "041 - Windows Security::s04::1",
+          "deck": "041 - Windows Security",
+          "slide": 4,
+          "score": 14.81,
+          "chars": 345
+        },
+        {
+          "slot": "B2a",
+          "chunk_id": "042 - Linux Security::s03::1",
+          "deck": "042 - Linux Security",
+          "slide": 3,
+          "score": 11.98,
+          "chars": 747
+        },
+        {
+          "slot": "B2a",
+          "chunk_id": "042 - Linux Security::s26::1",
+          "deck": "042 - Linux Security",
+          "slide": 26,
+          "score": 8.79,
+          "chars": 785
+        },
+        {
+          "slot": "B2a",
+          "chunk_id": "042 - Linux Security::s22::1",
+          "deck": "042 - Linux Security",
+          "slide": 22,
+          "score": 8.54,
+          "chars": 211
+        },
+        {
+          "slot": "B2a",
+          "chunk_id": "042 - Linux Security::s19::1",
+          "deck": "042 - Linux Security",
+          "slide": 19,
+          "score": 8.19,
+          "chars": 545
+        },
+        {
+          "slot": "B2a",
+          "chunk_id": "052 - Web Security::s16::1",
+          "deck": "052 - Web Security",
+          "slide": 16,
+          "score": 7.58,
+          "chars": 707
+        },
+        {
+          "slot": "B2a",
+          "chunk_id": "052 - Web Security::s15::1",
+          "deck": "052 - Web Security",
+          "slide": 15,
+          "score": 5.54,
+          "chars": 495
+        },
+        {
+          "slot": "B2a",
+          "chunk_id": "052 - Web Security::s22::1",
+          "deck": "052 - Web Security",
+          "slide": 22,
+          "score": 4.97,
+          "chars": 227
+        },
+        {
+          "slot": "B2a",
+          "chunk_id": "052 - Web Security::s13::1",
+          "deck": "052 - Web Security",
+          "slide": 13,
+          "score": 3.31,
+          "chars": 415
+        }
+      ],
+      "fallback_retrieval": false,
+      "overlap_allowed": false,
+      "last_draft": {},
+      "usage": {
+        "calls": 0,
+        "tokens": 0
+      }
+    }
+  ],
+  "usage": {
+    "model": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0,
+    "calls": 0,
+    "cost_usd": 0.0,
+    "input_price_per_1m": 0.022,
+    "output_price_per_1m": 0.216
+  },
+  "accepted_count": 0,
+  "placeholder_count": 24,
+  "cost_per_accepted_question_usd": null,
+  "source_overlap": {
+    "distinct_source_keys": 0,
+    "overlap_keys": {},
+    "overlap_key_count": 0,
+    "overlap_slot_count": 0,
+    "overlap_rate": 0.0
+  },
+  "planned_topic_mix": {
+    "risk/management (ethics)": 16,
+    "network security": 8,
+    "access control models": 16,
+    "trusted computing/blockchain": 8,
+    "authentication/biometrics": 18,
+    "attacks/malware": 24,
+    "software/OS security": 10
+  },
+  "actual_topic_mix": {},
+  "cited_deck_topic_mix": {},
+  "deck_topic_violations": [],
+  "topic_deck_map": {
+    "attacks/malware": [
+      "011",
+      "022",
+      "041",
+      "042",
+      "051",
+      "052",
+      "061",
+      "062"
+    ],
+    "authentication/biometrics": [
+      "022",
+      "023",
+      "041",
+      "042",
+      "072"
+    ],
+    "access control models": [
+      "023",
+      "024",
+      "041",
+      "042",
+      "073"
+    ],
+    "trusted computing/blockchain": [
+      "038",
+      "073",
+      "074",
+      "074B"
+    ],
+    "software/OS security": [
+      "041",
+      "042",
+      "051",
+      "052"
+    ],
+    "network security": [
+      "052",
+      "061",
+      "062"
+    ],
+    "risk/management (ethics)": [
+      "071"
+    ],
+    "classical ciphers": [
+      "031"
+    ]
+  },
+  "low_term_overlap_points": [],
+  "short_quote_points": [],
+  "repaired_quote_count": 0,
+  "scenario_questions": [],
+  "deck_coverage": {
+    "011 - Introduction to Computer Security": {
+      "slides_with_text": 27,
+      "chunks": 27,
+      "chars": 8347
+    },
+    "021 - Introduction to Information Security": {
+      "slides_with_text": 8,
+      "chunks": 8,
+      "chars": 2064
+    },
+    "022 - Identification and Authentication": {
+      "slides_with_text": 26,
+      "chunks": 26,
+      "chars": 8772
+    },
+    "023 - Access Control and Authorization": {
+      "slides_with_text": 19,
+      "chunks": 19,
+      "chars": 7275
+    },
+    "024 - Formal Security Model": {
+      "slides_with_text": 28,
+      "chunks": 28,
+      "chars": 11787
+    },
+    "031 - Classical Cryptography": {
+      "slides_with_text": 30,
+      "chunks": 30,
+      "chars": 11479
+    },
+    "032 - Conventional Cryptography - Feistel Network - Copy": {
+      "slides_with_text": 10,
+      "chunks": 10,
+      "chars": 2943
+    },
+    "033 - Conventional Cryptography - DES": {
+      "slides_with_text": 14,
+      "chunks": 14,
+      "chars": 6063
+    },
+    "034 - Conventional Cryptography - Others": {
+      "slides_with_text": 5,
+      "chunks": 5,
+      "chars": 1671
+    },
+    "035 - General Model of Cryptography": {
+      "slides_with_text": 16,
+      "chunks": 16,
+      "chars": 6306
+    },
+    "036 - Symmetric and Asymmetric Cryptography": {
+      "slides_with_text": 9,
+      "chunks": 9,
+      "chars": 3280
+    },
+    "037 - Hash Function": {
+      "slides_with_text": 18,
+      "chunks": 18,
+      "chars": 5797
+    },
+    "038 - Digital Certificares _ PKI": {
+      "slides_with_text": 24,
+      "chunks": 24,
+      "chars": 6292
+    },
+    "041 - Windows Security": {
+      "slides_with_text": 22,
+      "chunks": 22,
+      "chars": 7529
+    },
+    "042 - Linux Security": {
+      "slides_with_text": 27,
+      "chunks": 27,
+      "chars": 10743
+    },
+    "051 - Software Security": {
+      "slides_with_text": 28,
+      "chunks": 28,
+      "chars": 10372
+    },
+    "052 - Web Security": {
+      "slides_with_text": 23,
+      "chunks": 23,
+      "chars": 7086
+    },
+    "053 - Watermarking": {
+      "slides_with_text": 26,
+      "chunks": 26,
+      "chars": 9609
+    },
+    "061 - Network Security": {
+      "slides_with_text": 24,
+      "chunks": 24,
+      "chars": 5622
+    },
+    "062 - Intrusion Detection System": {
+      "slides_with_text": 33,
+      "chunks": 33,
+      "chars": 11194
+    },
+    "071 - Ethics and Computer Security": {
+      "slides_with_text": 16,
+      "chunks": 16,
+      "chars": 6387
+    },
+    "072 - Biometrics and Authentication": {
+      "slides_with_text": 15,
+      "chunks": 15,
+      "chars": 2510
+    },
+    "073 - Trusted Computing": {
+      "slides_with_text": 25,
+      "chunks": 25,
+      "chars": 8442
+    },
+    "074 - Crytocurrency": {
+      "slides_with_text": 9,
+      "chunks": 9,
+      "chars": 2138
+    },
+    "074B - Crytocurrency": {
+      "slides_with_text": 13,
+      "chunks": 14,
+      "chars": 4278
+    }
+  },
+  "eth_deck_coverage": {
+    "071 - Ethics and Computer Security": {
+      "slides_with_text": 16,
+      "chunks": 16,
+      "chars": 6387
+    }
+  }
+}

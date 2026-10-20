@@ -7,6 +7,7 @@ outputs/step8_layout_metrics.json plus side-by-side question pages.
 from __future__ import annotations
 
 import json
+import os
 import re
 from pathlib import Path
 
@@ -15,8 +16,9 @@ from PIL import Image, ImageDraw, ImageFont
 
 from src.config import OUTPUTS_DIR
 
+MOCK_PDF = os.environ.get("STEP8_MOCK", "outputs/mock_paper_04.pdf")
 PAPERS = {
-    "mock": ("outputs/mock_paper_01.pdf", None),
+    "mock": (MOCK_PDF, None),
     "JUN2019": ("data/papers/CSC662 JUNE 2019.PDF",
                 "data/tracking/ocr_cache/CSC662-2019-06.txt"),
     "DEC2019": ("data/papers/CSC662 DECEMBER 2019.PDF", None),
@@ -199,13 +201,13 @@ def main() -> None:
 
     side_by_side(PAGE_DIR / "mock_p2.png", PAGE_DIR / "DEC2019_p2.png",
                  OUTPUTS_DIR / "step8_side_by_side.png",
-                 "MOCK page 2", "DEC 2019 page 2")
+                 "MOCK 04 page 2", "DEC 2019 page 2")
     side_by_side(PAGE_DIR / "mock_p2.png", PAGE_DIR / "JUN2019_p2.png",
                  OUTPUTS_DIR / "step8_side_by_side_jun2019.png",
-                 "MOCK page 2", "JUN 2019 page 2")
+                 "MOCK 04 page 2", "JUN 2019 page 2")
     side_by_side(PAGE_DIR / "mock_p2.png", PAGE_DIR / "FEB2022_p2.png",
                  OUTPUTS_DIR / "step8_side_by_side_feb2022.png",
-                 "MOCK page 2", "FEB 2022 page 2")
+                 "MOCK 04 page 2", "FEB 2022 page 2")
     print("wrote step8_layout_metrics.json and side-by-side images")
 
 

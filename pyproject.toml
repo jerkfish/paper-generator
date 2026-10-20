@@ -16,6 +16,7 @@ dependencies = [
     "pymupdf>=1.28.2",
     "numpy>=2.4.6",
     "python-pptx>=1.0.2",
+    "snowballstemmer>=3.1.1",
 ]
 
 [dependency-groups]

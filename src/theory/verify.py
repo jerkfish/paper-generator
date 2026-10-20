@@ -21,6 +21,9 @@ from __future__ import annotations
 import difflib
 import re
 from dataclasses import dataclass
+from functools import lru_cache
+
+import snowballstemmer
 
 from src.planner.fingerprint_data import load_all_rows
 from src.planner.tasks import DEPENDENT_RE
@@ -67,6 +70,54 @@ def content_tokens(text: str) -> set[str]:
             if t not in _STOP and len(t) > 2}
 
 
+_STEMMER = snowballstemmer.stemmer("english")
+
+
+@lru_cache(maxsize=50_000)
+def stem_token(token: str) -> str:
+    """Snowball English stemmer; used as a light lemmatiser."""
+    return _STEMMER.stemWord(token)
+
+
+_STOP_STEMS = {stem_token(t) for t in _STOP}
+
+
+def stemmed_content_tokens(text: str) -> set[str]:
+    # Filter stopword stems too, so "identify" and "identifying" are treated
+    # consistently even though only one surface form is in _STOP.
+    return {s for s in (stem_token(t) for t in content_tokens(text))
+            if s not in _STOP_STEMS}
+
+
+def stem_overlap(point: str, quote: str) -> float:
+    """Share of the point's stemmed content tokens present in the quote."""
+    pt = stemmed_content_tokens(point)
+    if not pt:
+        return 1.0
+    return len(pt & stemmed_content_tokens(quote)) / len(pt)
+
+
+def is_verbatim_copy(point: str, quote: str) -> bool:
+    """True when the marking point is just the quote (or a long slice of it).
+
+    Copying the slide sentence into the point is not a marking point: it adds
+    no answer guidance and rewards verbatim reproduction rather than
+    understanding.  Short overlaps are allowed because technical terms are
+    expected to recur.
+    """
+    p = re.sub(r"\s+", " ", str(point).lower()).strip(" .;:,")
+    q = re.sub(r"\s+", " ", str(quote).lower()).strip(" .;:,")
+    if not p or not q:
+        return False
+    if p == q:
+        return True
+    if len(p) >= 30 and p in q:
+        return True
+    if len(q) >= 40 and q in p:
+        return True
+    return False
+
+
 def semantic_duplicate(a: str, b: str) -> tuple[bool, float, float]:
     """Return (is_duplicate, sequence_ratio, content_jaccard)."""
     seq = difflib.SequenceMatcher(
@@ -84,19 +135,43 @@ class NearCopy:
     text: str
 
 
+@lru_cache(maxsize=1)
+def _corpus() -> list[dict]:
+    rows = []
+    for row in load_all_rows():
+        text = str(row["Original question text"])
+        norm = _copy_text(text)
+        if not norm:
+            continue
+        rows.append({
+            "paper": str(row["Paper ID"]),
+            "q": f"Q{row['Q no.']}{row['Sub-part'] or ''}",
+            "text": text,
+            "norm": norm,
+            "tokens": content_tokens(text),
+        })
+    return rows
+
+
+@lru_cache(maxsize=5000)
 def near_copy(question: str) -> NearCopy:
     target = _copy_text(question)
+    target_tokens = content_tokens(question)
+    # Cheap token prefilter: exact high-sequence matches almost always rank
+    # near the top by content-token Jaccard.  Compare only the best 60.
+    scored = []
+    for row in _corpus():
+        a, b = target_tokens, row["tokens"]
+        union = len(a | b)
+        jac = len(a & b) / union if union else 0.0
+        scored.append((jac, row))
+    scored.sort(key=lambda x: -x[0])
     best = NearCopy(0.0, "", "", "")
-    for row in load_all_rows():
-        candidate = _copy_text(row["Original question text"])
-        if not candidate:
-            continue
+    for _, row in scored[:60]:
         ratio = difflib.SequenceMatcher(
-            None, target, candidate, autojunk=False).ratio()
+            None, target, row["norm"], autojunk=False).ratio()
         if ratio > best.ratio:
-            best = NearCopy(ratio, str(row["Paper ID"]),
-                            f"Q{row['Q no.']}{row['Sub-part'] or ''}",
-                            str(row["Original question text"]))
+            best = NearCopy(ratio, row["paper"], row["q"], row["text"])
     return best
 
 
@@ -171,7 +246,7 @@ def _repair_quote(quote: str, chunk: DeckChunk, point: str = "") -> str:
         qwords = q.lower()
         line_hits = []
         for cand in candidates:
-            if cand.lower() in qwords and term_overlap(point, cand) > 0:
+            if cand.lower() in qwords and stem_overlap(point, cand) > 0:
                 if not quote_is_only_title(cand, chunk):
                     line_hits.append(cand)
         if line_hits:
@@ -200,7 +275,9 @@ def verify_draft(draft: TheoryDraft, expected_slots: list[dict],
                  allow_overlap: bool = False,
                  scenario_required: bool = False,
                  shared_scenario: str = "",
-                 slot_chunk_ids: dict[str, set[str]] | None = None
+                 slot_chunk_ids: dict[str, set[str]] | None = None,
+                 near_copy_threshold: float = NEAR_COPY_THRESHOLD,
+                 stem_overlap_threshold: float = 0.5
                  ) -> tuple[list[VerifiedQuestion], list[str]]:
     errors: list[str] = []
     prior = prior or []
@@ -257,7 +334,7 @@ def verify_draft(draft: TheoryDraft, expected_slots: list[dict],
                     f"{slot_id}: dependent (b) does not refer back to (a) / "
                     "the above / the scenario")
         nc = near_copy(question)
-        if nc.ratio >= NEAR_COPY_THRESHOLD:
+        if nc.ratio >= near_copy_threshold:
             slot_errors.append(
                 f"{slot_id}: near-copy {nc.ratio:.2f} of {nc.paper} {nc.q}; "
                 "rephrase the scenario and wording")
@@ -343,12 +420,14 @@ def verify_draft(draft: TheoryDraft, expected_slots: list[dict],
                     continue
             draft_sources.setdefault(key, set()).add(slot_id)
             slot_sources.append(f"{chunk.deck}::s{chunk.slide}")
-            tover = term_overlap(p.point, nq)
-            if tover <= 0:
+            if is_verbatim_copy(p.point, nq):
                 slot_errors.append(
-                    f"{slot_id} point {i}: quote shares no key term with the "
-                    "marking point")
+                    f"{slot_id} point {i}: marking point is a verbatim copy "
+                    "of its quote; phrase the point as an answer requirement, "
+                    "not as copied slide text")
                 continue
+            raw_overlap = term_overlap(p.point, nq)
+            tover = stem_overlap(p.point, nq)
             source = f"{chunk.deck}, slide {chunk.slide}"
             citations.append(source)
             points.append(VerifiedPoint(
@@ -356,8 +435,10 @@ def verify_draft(draft: TheoryDraft, expected_slots: list[dict],
                 source_file=chunk.deck, source_slide=chunk.slide,
                 source_deck=chunk.deck, chunk_id=chunk.chunk_id,
                 source_key=f"{chunk.deck}::s{chunk.slide}",
-                term_overlap=round(tover, 3),
-                low_term_overlap=tover < 0.5,
+                term_overlap=round(raw_overlap, 3),
+                low_term_overlap=tover < stem_overlap_threshold,
+                stem_overlap=round(tover, 3),
+                low_stem_overlap=tover < stem_overlap_threshold,
                 short_quote=len(nq.split()) < 5,
                 quote_repaired=repaired))
         errors.extend(slot_errors)

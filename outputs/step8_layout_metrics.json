@@ -1,21 +1,21 @@
 {
   "mock": {
-    "pages": 5,
+    "pages": 6,
     "page_size_pt": [
       595.5,
       842.5
     ],
-    "header_pages": "4/4",
-    "footer_pages": "4/4",
-    "header_ink_median": 0.01159,
-    "footer_ink_median": 0.0072,
-    "body_ink_median": 0.02699,
+    "header_pages": "5/5",
+    "footer_pages": "5/5",
+    "header_ink_median": 0.02395,
+    "footer_ink_median": 0.00701,
+    "body_ink_median": 0.04278,
     "question_sizes": [
       10.7
     ],
-    "question_bold": "0/12",
+    "question_bold": "12/12",
     "question_x_frac": 0.1233,
-    "question_gap_median_pt": 154.2,
+    "question_gap_median_pt": 165.9,
     "ab_count": 24,
     "mark_count": 24,
     "mark_right_frac_median": 0.8791,

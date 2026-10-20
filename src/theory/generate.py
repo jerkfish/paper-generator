@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import random
 from collections import Counter, defaultdict
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
@@ -20,9 +21,12 @@ from src.theory.bm25 import (BM25Index, Hit, TOPIC_DECKS, deck_topic,
                              topic_query)
 from src.theory.decks import DeckChunk, coverage, load_chunks
 from src.theory.models import (DraftQuestion, Placeholder, TheoryDraft,
-                               VerifiedQuestion)
+                               VerifiedPoint, VerifiedQuestion)
 from src.planner.tasks import DEPENDENT_RE
-from src.theory.verify import near_copy, verify_draft
+from src.theory.verify import (clean_chunk_id, is_verbatim_copy, near_copy,
+                               normalize_text, quote_is_only_title,
+                               source_key, stem_overlap, term_overlap,
+                               verify_draft)
 
 MAX_ATTEMPTS = 4  # initial + up to 3 retries
 
@@ -182,7 +186,13 @@ class GroupResult:
     topic: str
     tasks: list[str]
     dependent: bool
-    attempts: int = 0
+    attempts: int = 0  # max draft attempts for any slot in the group (<=4)
+    total_draft_attempts: int = 0
+    point_retry_calls: int = 0  # entailment + point regeneration calls
+    entailment_calls: int = 0
+    point_regeneration_calls: int = 0
+    initial_entailment_counts: dict = field(default_factory=dict)
+    scenario_sampled: bool = False
     accepted: bool = False
     errors: list[list[str]] = field(default_factory=list)
     retrieved: list[dict] = field(default_factory=list)
@@ -420,7 +430,10 @@ RULES
 - The question must start with the specified command word ({', '.join(s['task'] for s in group)}) and be answerable from the evidence.
 - One marking point per mark: exactly the number of points shown in "marks". Each point is worth 1 mark. Phrase the question so it naturally requires that many distinct points (e.g. "Describe six ..." for 6 marks); do not ask for only two items and then pad.
 - Every marking point must cite one chunk_id from the evidence list and include a quote copied character-for-character from that chunk. The quote must be a contiguous passage of at least 25 characters and 5 words (a full clause or sentence, not a slide title, single word, or bare heading); no ellipses (never write "..." or "…"), no paraphrase, no line-break changes.
-- The quote must share at least one key content term with its marking point; prefer quotes that directly contain the point's key terms.
+- The point must be an answer requirement in your own words, not a copy of
+  the quote; a point that is a verbatim copy of its quote is rejected.
+- Prefer quotes that clearly entail the point; the verifier uses stemmed
+  content-term overlap as the first gate.
 - If a bullet is only a heading (for example "Operating System Independence"), do not use it as a quote; either find a full sentence elsewhere on the slide or omit that point and use another evidence bullet.
 - Do not split one fact into several points. For 5/6-mark questions, use at least two different slides and give distinct, non-overlapping points.
 - No (deck, slide) may be cited by both questions in a pair: question (a) and question (b) must use different slides. Earlier paper questions have already reserved some slides; the evidence list is filtered, so do not reuse one slide for both parts.
@@ -468,6 +481,164 @@ def _slot_record(s: dict, subangle: str = "") -> dict:
     }
 
 
+def _entailment_check(question: str, point: str, quote: str, model: str,
+                      usage: Usage) -> tuple[str, str]:
+    """Ask the model whether the quote supports the marking point.
+
+    Returns (verdict, reason) where verdict is yes / partly / no, or
+    "error" when the checker call itself failed.
+    """
+    user = f"""Does the quoted lecture-slide passage support the marking point?
+
+QUESTION: {question}
+MARKING POINT: {point}
+QUOTE: {quote}
+
+Return one verdict:
+- "yes": the quote directly states the fact(s) needed to earn the point;
+- "partly": the quote supports part of the point or is ambiguous;
+- "no": the quote does not support the point.
+
+Return JSON only: {{"verdict": "yes|partly|no", "reason": "one short sentence"}}"""
+    try:
+        llm = chat_json_result(
+            "You are a strict exam-answer verifier. Check entailment between "
+            "a marking point and a quoted slide passage. Return JSON only.",
+            user, model=model, temperature=0.0, usage=usage)
+        verdict = str(llm.data.get("verdict", "")).strip().lower()
+        reason = str(llm.data.get("reason", "")).strip()[:300]
+        if verdict not in {"yes", "partly", "no"}:
+            verdict = "partly"
+        return verdict, reason
+    except Exception as e:
+        return "error", str(e)[:200]
+
+
+def _resolve_low_stem_points(q: VerifiedQuestion, hits: list,
+                             used_sources: set[tuple[str, int]],
+                             usage: Usage, model: str,
+                             threshold: float,
+                             max_retries: int = 2) -> dict:
+    """Entailment-gate low stem-overlap points; regenerate only on "no".
+
+    A point whose stemmed overlap is below the threshold is checked by the
+    LLM.  "yes" and "partly" are kept and recorded; only "no" triggers up to
+    two point-level rewrites.  A rewrite with high stem overlap passes the
+    first gate; a rewrite with low stem overlap is entailment-checked too.
+    If no rewrite succeeds, the original point remains flagged.
+    """
+    by_id = {h.chunk.chunk_id: h.chunk for h in hits}
+    stats = {"calls": 0, "entailment_calls": 0, "initial_verdicts": {}}
+    regen_calls = 0
+    for idx, pt in enumerate(list(q.marking_points)):
+        if not pt.low_stem_overlap:
+            continue
+        verdict, reason = _entailment_check(q.question, pt.point, pt.quote,
+                                            model, usage)
+        stats["calls"] += 1
+        stats["entailment_calls"] += 1
+        stats["initial_verdicts"][verdict] = (
+            stats["initial_verdicts"].get(verdict, 0) + 1)
+        pt.entailment = verdict
+        pt.entailment_reason = reason
+        if verdict != "no":
+            continue
+        replacement: VerifiedPoint | None = None
+        for _ in range(max_retries):
+            evidence = "\n\n".join(
+                f"[{h.chunk.chunk_id}] {h.chunk.deck} | slide "
+                f"{h.chunk.slide}\n{h.chunk.text}" for h in hits)
+            user = f"""Rewrite ONLY one marking point for this exam question.
+
+Question ({q.slot}): {q.question}
+
+The current point was rejected by an entailment check:
+  point: {pt.point}
+  quote: {pt.quote}
+  verdict: {pt.entailment} ({pt.entailment_reason})
+
+Return JSON:
+{{"point": "one clear marking point", "quote": "verbatim contiguous text from the evidence", "chunk_id": "exact chunk id"}}
+
+Rules:
+- The point must be an answer requirement in your own words. Do NOT copy
+  the quote into the point; a point that is a verbatim copy of its quote is
+  rejected.
+- The quote must be copied exactly from one evidence chunk; no ellipses.
+- The quote must not be a slide title or bare heading.
+- The point is worth one mark.
+- Use only the evidence below.
+- Prefer evidence that clearly entails the point; aim for stemmed content
+  overlap >= {threshold:.2f}.
+
+Evidence:
+{evidence}
+"""
+            try:
+                llm = chat_json_result(
+                    "You repair one marking point in a university exam "
+                    "answer. Return JSON only.", user, model=model,
+                    temperature=0.1, usage=usage)
+                stats["calls"] += 1
+                regen_calls += 1
+                data = llm.data
+                point = str(data.get("point", "")).strip()
+                quote = normalize_text(data.get("quote", ""))
+                cid = clean_chunk_id(str(data.get("chunk_id", "")))
+                chunk = by_id.get(cid)
+                if not point or not quote or chunk is None:
+                    continue
+                if "..." in quote or "…" in quote:
+                    continue
+                if quote_is_only_title(quote, chunk):
+                    continue
+                if len(quote) < 8 or len(quote.split()) < 2:
+                    continue
+                if quote not in normalize_text(chunk.text):
+                    continue
+                key = (chunk.deck, chunk.slide)
+                if key in used_sources:
+                    continue
+                if is_verbatim_copy(point, quote):
+                    continue
+                tover = stem_overlap(point, quote)
+                new_pt = VerifiedPoint(
+                    point=point, marks=1, quote=quote,
+                    source_file=chunk.deck, source_slide=chunk.slide,
+                    source_deck=chunk.deck, chunk_id=chunk.chunk_id,
+                    source_key=source_key(chunk),
+                    term_overlap=round(term_overlap(point, quote), 3),
+                    low_term_overlap=tover < threshold,
+                    stem_overlap=round(tover, 3),
+                    low_stem_overlap=tover < threshold,
+                    short_quote=len(quote.split()) < 5,
+                    quote_repaired=False)
+                if tover >= threshold:
+                    replacement = new_pt
+                    break
+                verdict, reason = _entailment_check(
+                    q.question, point, quote, model, usage)
+                stats["calls"] += 1
+                stats["entailment_calls"] += 1
+                new_pt.entailment = verdict
+                new_pt.entailment_reason = reason
+                if verdict in {"yes", "partly"}:
+                    replacement = new_pt
+                    break
+                # "no" (or checker error): try another rewrite.
+            except Exception:
+                stats["calls"] += 1
+                regen_calls += 1
+                continue
+        if replacement is not None:
+            q.marking_points[idx] = replacement
+    q.source_keys = sorted({p.source_key for p in q.marking_points})
+    q.citations = sorted({f"{p.source_file}, slide {p.source_slide}"
+                          for p in q.marking_points})
+    stats["regeneration_calls"] = regen_calls
+    return stats
+
+
 def _source_overlap(accepted: list[VerifiedQuestion]) -> dict:
     by_key: dict[str, set[str]] = defaultdict(set)
     for q in accepted:
@@ -485,26 +656,47 @@ def _source_overlap(accepted: list[VerifiedQuestion]) -> dict:
 
 
 def _actual_topic_mix(accepted: list[VerifiedQuestion]) -> dict[str, int]:
-    """Topic mix inferred from the cited decks (majority per question)."""
+    """Accepted marks by the planner's slot topic."""
+    out: Counter = Counter()
+    for q in accepted:
+        out[q.topic] += q.marks
+    return dict(out)
+
+
+def _cited_deck_topic_mix(accepted: list[VerifiedQuestion]) -> dict[str, int]:
+    """Diagnostic: majority deck-topic per accepted question (not primary)."""
     out: Counter = Counter()
     for q in accepted:
         counts = Counter(deck_topic(pt.source_deck)
                          for pt in q.marking_points)
         if counts:
             top = counts.most_common()
-            if len(top) > 1 and top[0][1] == top[1][1]:
-                topic = q.topic
-            else:
-                topic = top[0][0]
+            topic = (q.topic if len(top) > 1 and top[0][1] == top[1][1]
+                     else top[0][0])
         else:
             topic = q.topic
         out[topic] += q.marks
     return dict(out)
 
 
+def _deck_topic_violations(accepted: list[VerifiedQuestion]) -> list[dict]:
+    bad = []
+    for q in accepted:
+        allowed = TOPIC_DECKS.get(q.topic)
+        if not allowed:
+            continue
+        for pt in q.marking_points:
+            if not pt.source_deck.startswith(allowed):
+                bad.append({"slot": q.slot, "topic": q.topic,
+                            "deck": pt.source_deck})
+    return bad
+
+
 def generate(plan_path: Path, limit: int = 0, model: str | None = None,
              refresh_decks: bool = False,
-             previous: dict | None = None) -> dict:
+             previous: dict | None = None,
+             near_copy_threshold: float = config.THEORY_NEAR_COPY_THRESHOLD
+             ) -> dict:
     plan = json.loads(plan_path.read_text(encoding="utf-8"))
     slots = _theory_slots(plan)
     groups = _groups(slots)
@@ -542,7 +734,8 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
             prompt_tokens=int(u.get("prompt_tokens", 0)),
             completion_tokens=int(u.get("completion_tokens", 0)),
             total_tokens=int(u.get("total_tokens", 0)),
-            calls=int(u.get("calls", 0)))
+            calls=int(u.get("calls", 0)),
+            model=u.get("model", ""))
     if limit:
         groups = groups[:limit]
     chunks = load_chunks(refresh=refresh_decks)
@@ -560,6 +753,14 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
             question=qid, slots=[s["slot"] for s in group], topic=topic,
             tasks=[s["task"] for s in group],
             dependent=bool(group[0].get("dependent")))
+        plan_seed = plan.get("seed", 0)
+        scenario_flags: dict[str, bool] = {}
+        for _s in group:
+            _sid = _s["slot"]
+            if _s.get("part") == "B" and _sid.endswith("a"):
+                _rng = random.Random(f"{plan_seed}:{qid}:scenario")
+                scenario_flags[_sid] = _rng.random() < config.THEORY_SCENARIO_RATE
+        result.scenario_sampled = any(scenario_flags.values())
         group_accepted = 0
         for slot in group:
             sid = slot["slot"]
@@ -580,7 +781,7 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
             if (slot.get("part") == "B" and sid.endswith("b")):
                 a_id = qid + "a"
                 if a_id not in accepted_by_slot:
-                    reason = f"{sid}: Part B scenario (a) is unresolved"
+                    reason = f"{sid}: Part B (a) is unresolved"
                     placeholders.append(Placeholder(
                         slot=sid, marks=slot["marks"], topic=slot["topic"],
                         task=slot["task"], reason=reason, attempts=0,
@@ -610,12 +811,15 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
                 if a_id in accepted_by_slot:
                     sibling_text = accepted_by_slot[a_id].question
             scenario_required = (slot.get("part") == "B"
-                                 and sid.endswith("a"))
+                                 and sid.endswith("a")
+                                 and scenario_flags.get(sid, False))
             before_calls, before_tokens = usage.calls, usage.total_tokens
             errors: list[str] = []
             verified: list[VerifiedQuestion] = []
+            slot_attempts = 0
             for attempt in range(1, MAX_ATTEMPTS + 1):
-                result.attempts += 1
+                slot_attempts += 1
+                result.total_draft_attempts += 1
                 user = _prompt(
                     [slot], evidence, errors if attempt > 1 else None,
                     sibling_text=sibling_text,
@@ -628,7 +832,7 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
                     subangle=subangle)
                 try:
                     llm = chat_json_result(
-                        SYSTEM, user, model=model or config.QWEN_CHEAP_MODEL,
+                        SYSTEM, user, model=model or config.MOCKGEN_MODEL,
                         temperature=0.15, usage=usage)
                 except Exception as e:
                     errors = [f"LLM/API error: {e}"]
@@ -649,7 +853,9 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
                     allow_overlap=overlap_allowed,
                     scenario_required=scenario_required,
                     shared_scenario=shared_scenario,
-                    slot_chunk_ids=slot_chunk_ids)
+                    slot_chunk_ids=slot_chunk_ids,
+                    near_copy_threshold=near_copy_threshold,
+                    stem_overlap_threshold=config.THEORY_STEM_OVERLAP_THRESHOLD)
                 # Deterministic wording repair: if the only failure is a
                 # missing (a)-reference or scenario reference, prepend the
                 # required phrase and verify again.  This does not change any
@@ -672,7 +878,9 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
                         allow_overlap=overlap_allowed,
                         scenario_required=scenario_required,
                         shared_scenario=shared_scenario,
-                        slot_chunk_ids=slot_chunk_ids)
+                        slot_chunk_ids=slot_chunk_ids,
+                        near_copy_threshold=near_copy_threshold,
+                        stem_overlap_threshold=config.THEORY_STEM_OVERLAP_THRESHOLD)
                     if not errors2 and verified2:
                         verified, errors = verified2, errors2
                         result.last_draft = draft2.model_dump()
@@ -693,13 +901,16 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
                         allow_overlap=overlap_allowed,
                         scenario_required=scenario_required,
                         shared_scenario=shared_scenario,
-                        slot_chunk_ids=slot_chunk_ids)
+                        slot_chunk_ids=slot_chunk_ids,
+                        near_copy_threshold=near_copy_threshold,
+                        stem_overlap_threshold=config.THEORY_STEM_OVERLAP_THRESHOLD)
                     if not errors2 and verified2:
                         verified, errors = verified2, errors2
                         result.last_draft = draft2.model_dump()
                 result.errors.append(errors)
                 if not errors and verified:
                     break
+            result.attempts = max(result.attempts, slot_attempts)
             result.usage["calls"] = (result.usage.get("calls", 0)
                                      + usage.calls - before_calls)
             result.usage["tokens"] = (result.usage.get("tokens", 0)
@@ -710,6 +921,30 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
                     if a_q is not None:
                         for q in verified:
                             q.scenario_grounding = a_q.scenario_grounding
+                point_before_tokens = usage.total_tokens
+                point_stats = {"calls": 0, "entailment_calls": 0,
+                               "regeneration_calls": 0}
+                initial_counts: Counter = Counter()
+                for q in verified:
+                    st = _resolve_low_stem_points(
+                        q, hits, used_sources, usage,
+                        model or config.MOCKGEN_MODEL,
+                        config.THEORY_STEM_OVERLAP_THRESHOLD)
+                    for k in point_stats:
+                        point_stats[k] += int(st.get(k, 0))
+                    initial_counts.update(st.get("initial_verdicts", {}))
+                result.point_retry_calls += point_stats["calls"]
+                result.entailment_calls += point_stats["entailment_calls"]
+                result.point_regeneration_calls += point_stats[
+                    "regeneration_calls"]
+                merged_initial = Counter(result.initial_entailment_counts)
+                merged_initial.update(initial_counts)
+                result.initial_entailment_counts = dict(merged_initial)
+                result.usage["calls"] = (result.usage.get("calls", 0)
+                                         + point_stats["calls"])
+                result.usage["tokens"] = (result.usage.get("tokens", 0)
+                                          + usage.total_tokens
+                                          - point_before_tokens)
                 accepted.extend(verified)
                 for q in verified:
                     accepted_by_slot[q.slot] = q
@@ -737,10 +972,25 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
     total_usage = usage.as_dict()
     cost = total_usage["cost_usd"]
     accepted_count = len(accepted)
+    all_points = [pt for q in accepted for pt in q.marking_points]
+    low_points = [pt for pt in all_points if pt.low_stem_overlap]
+    entailment_counts = Counter(pt.entailment for pt in low_points
+                                if pt.entailment)
+    initial_entailment_counts = Counter()
+    for g in results:
+        initial_entailment_counts.update(
+            g.initial_entailment_counts or {})
+    verbatim_rejections = sum(
+        1 for g in results for attempt in g.errors for e in attempt
+        if "verbatim copy" in e)
     payload = {
-        "model": model or config.QWEN_CHEAP_MODEL,
+        "model": model or config.MOCKGEN_MODEL,
         "plan": str(plan_path),
         "attempt_limit": MAX_ATTEMPTS,
+        "max_attempts_per_slot": MAX_ATTEMPTS,
+        "near_copy_threshold": near_copy_threshold,
+        "stem_overlap_threshold": config.THEORY_STEM_OVERLAP_THRESHOLD,
+        "scenario_rate": config.THEORY_SCENARIO_RATE,
         "accepted": [q.model_dump() for q in accepted],
         "placeholders": [p.model_dump() for p in placeholders],
         "groups": sorted(previous_groups + [asdict(r) for r in results],
@@ -753,10 +1003,32 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
         "source_overlap": _source_overlap(accepted),
         "planned_topic_mix": plan.get("assigned_theory_topic_marks", {}),
         "actual_topic_mix": _actual_topic_mix(accepted),
-        "low_term_overlap_points": [
-            {"slot": q.slot, "point": pt.point, "overlap": pt.term_overlap}
+        "cited_deck_topic_mix": _cited_deck_topic_mix(accepted),
+        "deck_topic_violations": _deck_topic_violations(accepted),
+        "topic_deck_map": {k: list(v) for k, v in TOPIC_DECKS.items()},
+        "points_total": len(all_points),
+        "low_stem_overlap_points": [
+            {"slot": q.slot, "point": pt.point,
+             "stem_overlap": pt.stem_overlap,
+             "raw_term_overlap": pt.term_overlap,
+             "entailment": pt.entailment,
+             "entailment_reason": pt.entailment_reason}
             for q in accepted for pt in q.marking_points
-            if pt.low_term_overlap
+            if pt.low_stem_overlap
+        ],
+        "high_stem_overlap_points": len(all_points) - len(low_points),
+        "entailment_counts": dict(entailment_counts),
+        "initial_entailment_counts": dict(initial_entailment_counts),
+        "entailment_checked_points": sum(entailment_counts.values()),
+        "verbatim_copy_rejections": verbatim_rejections,
+        "entailment_calls": sum(g.entailment_calls for g in results),
+        "point_regeneration_calls": sum(g.point_regeneration_calls
+                                        for g in results),
+        # Legacy key kept for older reporting scripts.
+        "low_term_overlap_points": [
+            {"slot": q.slot, "point": pt.point, "overlap": pt.stem_overlap}
+            for q in accepted for pt in q.marking_points
+            if pt.low_stem_overlap
         ],
         "short_quote_points": [
             {"slot": q.slot, "point": pt.point, "quote": pt.quote}
@@ -789,17 +1061,23 @@ def report(payload: dict) -> str:
         f"placeholders: **{payload['placeholder_count']}**",
         f"- source overlap: **{payload.get('source_overlap', {}).get('overlap_key_count', 0)}** "
         "keys; target 0",
-        f"- low term-overlap points: **{len(payload.get('low_term_overlap_points', []))}**; "
-        f"short quotes: **{len(payload.get('short_quote_points', []))}**; "
-        f"repaired quotes: **{payload.get('repaired_quote_count', 0)}**",
+        f"- low stem-overlap points: **{len(payload.get('low_stem_overlap_points', []))}** "
+        f"of {payload.get('points_total', 0)}; initial entailment "
+        f"{payload.get('initial_entailment_counts', {})}; final accepted "
+        f"entailment {payload.get('entailment_counts', {})}; verbatim-copy "
+        f"rejections: **{payload.get('verbatim_copy_rejections', 0)}**; "
+        f"short quotes: "
+        f"**{len(payload.get('short_quote_points', []))}**; repaired quotes: "
+        f"**{payload.get('repaired_quote_count', 0)}**",
         f"- tokens: {payload['usage']['prompt_tokens']} prompt + "
         f"{payload['usage']['completion_tokens']} completion = "
         f"{payload['usage']['total_tokens']} across "
         f"{payload['usage']['calls']} calls",
         f"- estimated cost: **${payload['usage']['cost_usd']:.4f}** "
-        f"(input ${payload['usage']['input_price_per_1m']}/M, output "
-        f"${payload['usage']['output_price_per_1m']}/M; public "
-        "qwen-flash list-price estimate, not an invoice)",
+        f"(model {payload['usage'].get('model', '')}; input "
+        f"${payload['usage']['input_price_per_1m']}/M, output "
+        f"${payload['usage']['output_price_per_1m']}/M; official list-price "
+        "estimate, not an invoice)",
         f"- cost per accepted question: "
         f"**${payload['cost_per_accepted_question_usd'] or 0:.4f}**",
         "",
@@ -854,8 +1132,10 @@ def report(payload: dict) -> str:
         "- near-copy rejected at fuzzy similarity >= 0.80 against all 35 papers; "
         "cross-generated near-duplicates and source overlap rejected;",
         "- cited decks must be in the slot topic's allowed deck map;",
-        "- quote must share a key term with its marking point; low overlap is "
-        "flagged for human review;",
+        "- first gate is stemmed content-token overlap (Snowball English "
+        "stemmer); low-overlap points are checked by an LLM entailment "
+        "verifier (yes/partly/no), and only 'no' triggers regeneration;",
+        "- a marking point that is a verbatim copy of its quote is rejected;",
         "- command word and topic sub-angle must appear; dependent (b) must refer "
         "back to (a); Part B (a)/(b) share a generated scenario;",
         "- no retrieval evidence => placeholder, never an unsupported answer.",
@@ -869,13 +1149,18 @@ def main() -> None:
                     default=str(config.OUTPUTS_DIR / "planner_revised_realistic.json"))
     ap.add_argument("--out-prefix", default="theory_drafts_realistic")
     ap.add_argument("--limit", type=int, default=0)
-    ap.add_argument("--model", default=config.QWEN_CHEAP_MODEL)
+    ap.add_argument("--model", default=config.MOCKGEN_MODEL)
     ap.add_argument("--refresh-decks", action="store_true")
+    ap.add_argument("--near-copy-threshold", type=float,
+                    default=config.THEORY_NEAR_COPY_THRESHOLD)
     ap.add_argument("--retry-placeholders", action="store_true",
                     help="keep prior accepted questions and retry only the "
                          "groups that ended as placeholders")
     args = ap.parse_args()
-    if not config.QWEN_API_KEY:
+    if args.model.startswith("deepseek"):
+        if not config.DEEPSEEK_API_KEY:
+            raise SystemExit("DEEPSEEK_API_KEY is not set")
+    elif not config.QWEN_API_KEY:
         raise SystemExit("QWEN_API_KEY is not set")
     prefix = args.out_prefix.split("/")[-1]
     jp = config.OUTPUTS_DIR / f"{prefix}.json"
@@ -886,7 +1171,8 @@ def main() -> None:
             raise SystemExit(f"no previous payload at {jp}")
         previous = json.loads(jp.read_text(encoding="utf-8"))
     payload = generate(Path(args.plan), args.limit, args.model,
-                       args.refresh_decks, previous)
+                       args.refresh_decks, previous,
+                       near_copy_threshold=args.near_copy_threshold)
     if previous:
         payload["retried_placeholders"] = True
     jp.write_text(json.dumps(payload, indent=2), encoding="utf-8")

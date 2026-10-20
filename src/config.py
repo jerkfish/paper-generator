@@ -42,7 +42,18 @@ QWEN_BASE_URL = os.environ.get(
 QWEN_MODEL = os.environ.get("MOCKGEN_QWEN_MODEL", "qwen3.8-max")
 # Theory drafting uses the cheap model the brief asks for.  Keep it
 # configurable; the report records the model actually used.
-QWEN_CHEAP_MODEL = os.environ.get("MOCKGEN_QWEN_CHEAP_MODEL", "qwen3.8-flash")
+QWEN_CHEAP_MODEL = os.environ.get(
+    "MOCKGEN_QWEN_CHEAP_MODEL", "deepseek-v4.1-flash-1017")
+
+# DeepSeek platform (official OpenAI-compatible endpoint).  The current
+# model id for DeepSeek-V4.1-Flash-1017 is simply "deepseek-flash".
+DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
+DEEPSEEK_BASE_URL = os.environ.get(
+    "DEEPSEEK_BASE_URL", "https://api.deepseek.com")
+DEEPSEEK_MODEL = os.environ.get(
+    "MOCKGEN_DEEPSEEK_MODEL", "deepseek-flash")
+# Primary evaluation model for the final hardened run.
+MOCKGEN_MODEL = os.environ.get("MOCKGEN_MODEL", DEEPSEEK_MODEL)
 LLM_MAX_RETRIES = 3
 # Cost estimation.  Defaults are the public qwen-flash list prices seen in
 # the provider price listings on 2026-10-19 (USD per 1M tokens); override
@@ -51,6 +62,40 @@ QWEN_INPUT_PRICE_PER_1M = float(
     os.environ.get("MOCKGEN_QWEN_INPUT_PRICE_PER_1M", "0.022"))
 QWEN_OUTPUT_PRICE_PER_1M = float(
     os.environ.get("MOCKGEN_QWEN_OUTPUT_PRICE_PER_1M", "0.216"))
+
+# Per-model estimate table (USD per 1M tokens).  These are estimates from
+# public provider listings on 2026-10-20, not invoices; override in .env or
+# update here for exact account pricing.
+MODEL_PRICES: dict[str, tuple[float, float]] = {
+    # Official DeepSeek platform peak cache-miss rates for
+    # DeepSeek-V4.1-Flash-1017: $0.30 input / $1.20 output per 1M tokens.
+    # Off-peak rates are half ($0.15 / $0.60); using peak rates here is a
+    # conservative estimate for the evaluation.
+    "deepseek-flash": (0.30, 1.20),
+    "deepseek-v4.1-flash-1017": (0.30, 1.20),
+    "deepseek-v4.1-flash": (0.30, 1.20),
+    "deepseek-v4-flash-0731": (0.30, 1.20),
+    "qwen3.8-flash": (0.02, 0.20),
+    "qwen3.6-flash": (0.02, 0.20),
+    "qwen3.5-flash": (0.02, 0.20),
+    "qwen-flash": (0.022, 0.216),
+    "qwen3.6-plus": (0.10, 0.30),
+    "qwen3.8-max": (1.20, 6.00),
+}
+
+# --- theory thresholds ---------------------------------------------------
+# First gate: Snowball-stemmed content-token overlap.  Points below this
+# threshold go to the LLM entailment checker; only "no" is regenerated.
+THEORY_STEM_OVERLAP_THRESHOLD = float(
+    os.environ.get("MOCKGEN_STEM_OVERLAP_THRESHOLD",
+                   os.environ.get("MOCKGEN_TERM_OVERLAP_THRESHOLD", "0.50")))
+# Legacy alias for older scripts; new code reads THEORY_STEM_OVERLAP_THRESHOLD.
+THEORY_TERM_OVERLAP_THRESHOLD = THEORY_STEM_OVERLAP_THRESHOLD
+THEORY_NEAR_COPY_THRESHOLD = float(
+    os.environ.get("MOCKGEN_NEAR_COPY_THRESHOLD", "0.80"))
+# Measured Part B scenario rate: 7/19 clean A/B questions (a lower bound).
+THEORY_SCENARIO_RATE = float(
+    os.environ.get("MOCKGEN_SCENARIO_RATE", "0.3684210526315789"))
 
 # --- thresholds ----------------------------------------------------------
 OCR_MIN_TEXT_CHARS = 50  # below this, a cover is treated as scanned (no text layer)

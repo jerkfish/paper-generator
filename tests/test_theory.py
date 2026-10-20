@@ -4,7 +4,8 @@ from __future__ import annotations
 from src.planner.fingerprint_data import load_all_rows
 from src.theory.bm25 import BM25Index, topic_query
 from src.theory.decks import load_chunks
-from src.theory.models import DraftQuestion, MarkingPoint, TheoryDraft
+from src.theory.models import (DraftQuestion, MarkingPoint, TheoryDraft,
+                               VerifiedPoint, VerifiedQuestion)
 from src.theory.verify import (clean_chunk_id, near_copy, normalize_text,
                                verify_draft)
 
@@ -240,3 +241,105 @@ def test_part_b_scenario_is_required():
     ]})
     _, errors = verify_draft(draft, exp, chunks, scenario_required=True)
     assert any("scenario missing" in e for e in errors)
+
+
+def test_entailment_no_triggers_point_regeneration(monkeypatch):
+    from types import SimpleNamespace
+    from src.theory.bm25 import Hit
+    from src.theory.generate import _resolve_low_stem_points
+    from src.llm import Usage
+
+    chunk = next(c for c in _chunks() if c.deck.startswith("071")
+                 and "Ethics is a suite" in c.text)
+    text = normalize_text(chunk.text)
+    quote = text[text.index("Ethics is a suite"):
+                 text.index("Ethics is a suite") + 140]
+    old = VerifiedQuestion(
+        slot="A1a", question="Explain the ethical basis of conduct in computing.",
+        marks=1, topic="risk/management (ethics)", task="Explain",
+        marking_points=[VerifiedPoint(
+            point="Unrelated point about networks.", marks=1, quote="unrelated",
+            source_file=chunk.deck, source_slide=chunk.slide,
+            source_deck=chunk.deck, chunk_id=chunk.chunk_id,
+            source_key="x", term_overlap=0.0, low_term_overlap=True,
+            stem_overlap=0.0, low_stem_overlap=True)],
+        citations=[])
+    replies = iter([
+        SimpleNamespace(data={"verdict": "no", "reason": "no support"}),
+        SimpleNamespace(data={
+            "point": "Ethics is a set of guiding beliefs and standards.",
+            "quote": quote,
+            "chunk_id": chunk.chunk_id,
+        }),
+    ])
+    monkeypatch.setattr(
+        "src.theory.generate.chat_json_result",
+        lambda *a, **k: next(replies))
+    stats = _resolve_low_stem_points(
+        old, [Hit(1.0, chunk)], set(), Usage(), "fake", 0.5)
+    assert stats["entailment_calls"] == 1
+    assert stats["regeneration_calls"] == 1
+    assert old.marking_points[0].stem_overlap >= 0.5
+    assert old.marking_points[0].low_stem_overlap is False
+
+
+def test_entailment_partly_keeps_point_without_regeneration(monkeypatch):
+    from types import SimpleNamespace
+    from src.theory.bm25 import Hit
+    from src.theory.generate import _resolve_low_stem_points
+    from src.llm import Usage
+
+    chunk = next(c for c in _chunks() if c.deck.startswith("071")
+                 and "Ethics is a suite" in c.text)
+    text = normalize_text(chunk.text)
+    quote = text[text.index("Ethics is a suite"):
+                 text.index("Ethics is a suite") + 140]
+    old = VerifiedQuestion(
+        slot="A1a", question="Explain the ethical basis of conduct in computing.",
+        marks=1, topic="risk/management (ethics)", task="Explain",
+        marking_points=[VerifiedPoint(
+            point="Unrelated point about networks.", marks=1, quote=quote,
+            source_file=chunk.deck, source_slide=chunk.slide,
+            source_deck=chunk.deck, chunk_id=chunk.chunk_id,
+            source_key="x", term_overlap=0.0, low_term_overlap=True,
+            stem_overlap=0.0, low_stem_overlap=True)],
+        citations=[])
+    monkeypatch.setattr(
+        "src.theory.generate.chat_json_result",
+        lambda *a, **k: SimpleNamespace(
+            data={"verdict": "partly", "reason": "some support"}))
+    stats = _resolve_low_stem_points(
+        old, [Hit(1.0, chunk)], set(), Usage(), "fake", 0.5)
+    assert stats["entailment_calls"] == 1
+    assert stats["regeneration_calls"] == 0
+    assert old.marking_points[0].entailment == "partly"
+
+
+def test_stem_overlap_handles_inflections():
+    from src.theory.verify import stem_overlap
+    assert stem_overlap("identifying attacks and stopping processes",
+                        "identify attack stop process") >= 0.99
+
+
+def test_verbatim_copy_point_is_rejected():
+    from src.theory.verify import is_verbatim_copy
+    quote = ("Ethics is a suite of guiding beliefs, standards, or ideals "
+             "that pervades an individual or a group.")
+    assert is_verbatim_copy(quote, quote)
+    assert is_verbatim_copy("guiding beliefs, standards, or ideals", quote)
+    assert not is_verbatim_copy("Ethics guides professional conduct.", quote)
+
+
+def test_verifier_rejects_point_copied_from_quote():
+    chunk = next(c for c in _chunks() if c.deck.startswith("071")
+                 and "Ethics is a suite" in c.text)
+    text = normalize_text(chunk.text)
+    quote = text[text.index("Ethics is a suite"):
+                 text.index("Ethics is a suite") + 140]
+    exp = [{"slot": "A1a", "marks": 1, "topic": "risk/management (ethics)",
+            "task": "Explain", "dependent": False}]
+    draft = _draft("A1a", "Explain the ethical basis of professional conduct.",
+                   [{"point": quote, "quote": quote,
+                     "chunk_id": chunk.chunk_id}])
+    _, errors = verify_draft(draft, exp, [chunk])
+    assert any("verbatim copy" in e for e in errors)

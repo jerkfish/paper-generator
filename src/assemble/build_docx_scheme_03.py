@@ -123,7 +123,7 @@ def _status(doc, slot: dict, accepted: dict, placeholders: dict) -> None:
         _cell_text(cells[3], f"{pt['source_file']}, slide "
                              f"{pt['source_slide']}", size=7.5)
         _cell_text(cells[4], pt["chunk_id"], size=7)
-        _cell_text(cells[5], f"{pt.get('term_overlap', 1.0):.2f}" + (" LOW" if pt.get("low_term_overlap") else ""), size=7)
+        _cell_text(cells[5], f"{pt.get('stem_overlap', pt.get('term_overlap', 1.0)):.2f}" + (" LOW" if pt.get("low_stem_overlap") else ""), size=7)
     doc.add_paragraph().paragraph_format.space_after = Pt(2)
     add_para(doc, "Confidence: supported by lecture slides (not lecturer-marked) - each point carries a verbatim quote "
                   "from the cited lecture slide.", italic=True, size=9,
