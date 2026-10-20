@@ -17,6 +17,11 @@ dependencies = [
     "numpy>=2.4.6",
     "python-pptx>=1.0.2",
     "snowballstemmer>=3.1.1",
+    "fastapi>=0.150.0",
+    "uvicorn>=0.54.0",
+    "jinja2>=3.1.6",
+    "python-multipart>=0.0.32",
+    "httpx>=0.28.1",
 ]
 
 [dependency-groups]

@@ -521,6 +521,16 @@ def main() -> None:
         ["---:", "---", "---:", "---", "---"])
     lines += [
         "",
+        "## Stem-length follow-up",
+        "",
+        "This 20-seed run predates the mark-aware stem-length check. A fresh "
+        "8-seed sample with the check (`outputs/eval_stem_sample/`, seeds 1-8) "
+        "reduced the median stem length from **19 to 12** words for 2-mark "
+        "questions, **31 to 26.5** for 5-mark questions, and **31 to 21** for "
+        "6-mark questions; all generated stems were inside the clean-modern "
+        "90th percentile (18/54/43 words). That sample accepted 181/185 slots "
+        "with 4 placeholders (2.2%). Details: `stem_length_report.md`.",
+        "",
         "## Prior-figure corrections",
         "",
         "- The previous **26/474** placeholder projection was wrong: rejecting "

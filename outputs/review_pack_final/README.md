@@ -7,10 +7,11 @@ seed 12 (DeepSeek V4.1 Flash).
 
 - `mock_paper_04.pdf` / `.docx` - 6 pages, 100 marks, 23 sourced theory
   answers plus one 6-mark Vigenere question, **0 placeholders**.
-- `mock_scheme_04.pdf` / `.docx` - 16 pages. Every theory marking point has a
+- `mock_scheme_04.pdf` / `.docx` - 15 pages. Every theory marking point has a
   verbatim slide quote and `deck, slide` citation; points carry the
   `supported by lecture slides (not lecturer-marked)` label, stem-overlap
-  scores and low-overlap flags.
+  scores, low-overlap flags and supported/partly-supported entailment
+  verdicts.
 
 ## Evaluation
 
@@ -30,6 +31,21 @@ seed 12 (DeepSeek V4.1 Flash).
   nearest-past-question data.
 - `step8_side_by_side.png`, `step8_side_by_side_jun2019.png`,
   `step8_side_by_side_feb2022.png` - question-page comparisons.
+
+## Fixes in this pass
+
+- `stem_length_report.md` - before/after medians for the mark-aware stem
+  limit (2/5/6 marks) on an 8-seed post-fix sample.
+- Scheme points now show `supported` / `partly supported` / `not supported`
+  entailment verdicts with an explanatory note.
+
+## Web UI
+
+- Run: `uv run python -m src.app.main`, open `http://127.0.0.1:8000`.
+- `app_screenshot_job.png` - completed live job through the web UI.
+- `web_run_log.md` - one live practice run: seed 23, 17 theory accepted,
+  2 placeholders, 51 calls, 115,811 tokens, **$0.045009**.
+- Library prebuild: `uv run python -m src.app.prebuild_library --seeds 1-20`.
 
 ## Human evaluation
 

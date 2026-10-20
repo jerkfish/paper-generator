@@ -17,7 +17,7 @@
 
 - `mock_paper_04.pdf` / `.docx` - 6 pages, 23 sourced theory answers plus one
   6-mark Vigenere question, **0 placeholders**.
-- `mock_scheme_04.pdf` / `.docx` - 16 pages, with slide citations, verbatim
+- `mock_scheme_04.pdf` / `.docx` - 15 pages, with slide citations, verbatim
   quotes, stem-overlap scores and confidence labels.
 - Built from the final hardened realistic run, seed 12.
 
@@ -44,6 +44,28 @@ were accepted by the entailment check.
 - `human_eval.xlsx` - rebuilt from the final 20-seed accepted set: 20 generated
   + 10 real questions, shuffled; hidden key sheet.
 
+## Small fixes
+
+- Mark-aware stem limits: 2/5/6-mark p90 = 18/54/43 words. The post-fix
+  8-seed sample reduced medians from 19/31/31 to **12/26.5/21**; see
+  `stem_length_report.md`.
+- `eval_realistic.md` includes placeholder breakdowns by Part A/B, scenario
+  and topic, plus the per-topic diversity and unused-slide tables.
+- Scheme 04 shows `supported` / `partly supported` / `not supported` beside
+  every theory marking point.
+
+## Web UI
+
+- Run: `uv run python -m src.app.main` and open `http://127.0.0.1:8000`.
+- One-page FastAPI + HTMX UI: realistic/practice mode, optional seed,
+  practice computed marks, background job progress, cost, placeholders,
+  cancel, paper/scheme downloads, and a no-LLM Library.
+- Prebuild the Library: `uv run python -m src.app.prebuild_library --seeds 1-20`.
+- Cost cap: `MOCKGEN_COST_CAP_USD` (default $0.05).
+- Public build: `PUBLIC_BUILD=1` strips branding and disables the Library.
+- Screenshot and one-run log: `app_screenshot_job.png`,
+  `web_run_log.md`.
+
 ## Verification
 
-`uv run pytest -q`: **121 passed**.
+`uv run pytest -q`: **131 passed**.

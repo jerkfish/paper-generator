@@ -1,0 +1,244 @@
+{
+  "seed": 1,
+  "mode": "realistic",
+  "computed_marks": null,
+  "model": "deepseek-flash",
+  "cost_usd": 0.058448,
+  "accepted": 24,
+  "placeholders": 0,
+  "created": 1792471835.4398708,
+  "files": {
+    "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\9d40f89c606139f7113f\\paper.docx",
+    "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\9d40f89c606139f7113f\\paper.pdf",
+    "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\9d40f89c606139f7113f\\scheme.docx",
+    "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\9d40f89c606139f7113f\\scheme.pdf"
+  },
+  "progress": [
+    {
+      "question": "A10",
+      "slot": "A10a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A10",
+      "slot": "A10b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A1",
+      "slot": "A1a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A1",
+      "slot": "A1b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A2",
+      "slot": "A2a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A2",
+      "slot": "A2b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A3",
+      "slot": "A3a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A3",
+      "slot": "A3b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A4",
+      "slot": "A4a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A4",
+      "slot": "A4b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A5",
+      "slot": "A5a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A5",
+      "slot": "A5b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A6",
+      "slot": "A6a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A6",
+      "slot": "A6b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A7",
+      "slot": "A7a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A7",
+      "slot": "A7b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A8",
+      "slot": "A8a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A8",
+      "slot": "A8b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A9",
+      "slot": "A9a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A9",
+      "slot": "A9b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "B1",
+      "slot": "B1a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "B1",
+      "slot": "B1b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "B2",
+      "slot": "B2a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "B2",
+      "slot": "B2b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    }
+  ],
+  "summary": {
+    "seed": 1,
+    "mode": "realistic",
+    "accepted": 24,
+    "placeholders": 0,
+    "model": "deepseek-flash",
+    "cost_usd": 0.058448,
+    "cached": true,
+    "pdf_available": true
+  }
+}

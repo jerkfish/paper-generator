@@ -11,6 +11,7 @@ import random
 from collections import Counter, defaultdict
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
+from typing import Callable
 
 from pydantic import ValidationError
 
@@ -22,6 +23,7 @@ from src.theory.bm25 import (BM25Index, Hit, TOPIC_DECKS, deck_topic,
 from src.theory.decks import DeckChunk, coverage, load_chunks
 from src.theory.models import (DraftQuestion, Placeholder, TheoryDraft,
                                VerifiedPoint, VerifiedQuestion)
+from src.planner.stem_length import stem_p90_limits
 from src.planner.tasks import DEPENDENT_RE
 from src.theory.verify import (clean_chunk_id, is_verbatim_copy, near_copy,
                                normalize_text, quote_is_only_title,
@@ -29,6 +31,22 @@ from src.theory.verify import (clean_chunk_id, is_verbatim_copy, near_copy,
                                verify_draft)
 
 MAX_ATTEMPTS = 4  # initial + up to 3 retries
+
+
+class GenerationStopped(Exception):
+    """Base class for a web job stopped before normal completion."""
+
+
+class GenerationCancelled(GenerationStopped):
+    pass
+
+
+class CostCapExceeded(GenerationStopped):
+    def __init__(self, cost_usd: float, cap_usd: float):
+        self.cost_usd = cost_usd
+        self.cap_usd = cap_usd
+        super().__init__(
+            f"cost cap reached: ${cost_usd:.4f} >= ${cap_usd:.4f}")
 
 
 TOPIC_SUBANGLES = {
@@ -412,6 +430,12 @@ def _prompt(group: list[dict], evidence: dict[str, list],
         }],
     }
     schema = json.dumps(schema, indent=2)
+    limits = stem_p90_limits()
+    length_lines = "\n".join(
+        f"- {s['slot']} ({s['marks']} marks): at most "
+        f"{limits.get(int(s['marks']), 70)} words; 2-mark stems should be "
+        "short (roughly 8-18 words) and should not add unnecessary scenario "
+        "context." for s in group)
     return f"""Draft original CSC662 Computer Security exam questions.
 
 SLOTS
@@ -441,7 +465,9 @@ RULES
 - Do NOT copy a style example or any past paper question. Use the style examples only for length and tone. Change the scenario and wording.
 - Do not repeat a question angle already used in the paper; the verifier rejects near-duplicates of accepted slots.
 - Do not print marks, numbering, "(a)/(b)", or a marking scheme in the question text.
-- Question length: about 12-70 words.
+- Stem length limits (clean-modern 90th percentile by mark value; the
+  verifier rejects over-length stems):
+{length_lines}
 - Return one JSON object only, with exactly {len(group)} question(s), matching the slot ids, and the scenario field (empty for Part A).
 {pair_rule}{scenario_rule}{retry}
 STYLE EXAMPLES (real past questions; style only, never copy)
@@ -482,7 +508,9 @@ def _slot_record(s: dict, subangle: str = "") -> dict:
 
 
 def _entailment_check(question: str, point: str, quote: str, model: str,
-                      usage: Usage) -> tuple[str, str]:
+                      usage: Usage,
+                      check: Callable[[], None] | None = None
+                      ) -> tuple[str, str]:
     """Ask the model whether the quote supports the marking point.
 
     Returns (verdict, reason) where verdict is yes / partly / no, or
@@ -505,11 +533,15 @@ Return JSON only: {{"verdict": "yes|partly|no", "reason": "one short sentence"}}
             "You are a strict exam-answer verifier. Check entailment between "
             "a marking point and a quoted slide passage. Return JSON only.",
             user, model=model, temperature=0.0, usage=usage)
+        if check is not None:
+            check()
         verdict = str(llm.data.get("verdict", "")).strip().lower()
         reason = str(llm.data.get("reason", "")).strip()[:300]
         if verdict not in {"yes", "partly", "no"}:
             verdict = "partly"
         return verdict, reason
+    except GenerationStopped:
+        raise
     except Exception as e:
         return "error", str(e)[:200]
 
@@ -518,7 +550,8 @@ def _resolve_low_stem_points(q: VerifiedQuestion, hits: list,
                              used_sources: set[tuple[str, int]],
                              usage: Usage, model: str,
                              threshold: float,
-                             max_retries: int = 2) -> dict:
+                             max_retries: int = 2,
+                             check: Callable[[], None] | None = None) -> dict:
     """Entailment-gate low stem-overlap points; regenerate only on "no".
 
     A point whose stemmed overlap is below the threshold is checked by the
@@ -534,7 +567,7 @@ def _resolve_low_stem_points(q: VerifiedQuestion, hits: list,
         if not pt.low_stem_overlap:
             continue
         verdict, reason = _entailment_check(q.question, pt.point, pt.quote,
-                                            model, usage)
+                                            model, usage, check=check)
         stats["calls"] += 1
         stats["entailment_calls"] += 1
         stats["initial_verdicts"][verdict] = (
@@ -579,6 +612,8 @@ Evidence:
                     "You repair one marking point in a university exam "
                     "answer. Return JSON only.", user, model=model,
                     temperature=0.1, usage=usage)
+                if check is not None:
+                    check()
                 stats["calls"] += 1
                 regen_calls += 1
                 data = llm.data
@@ -617,7 +652,7 @@ Evidence:
                     replacement = new_pt
                     break
                 verdict, reason = _entailment_check(
-                    q.question, point, quote, model, usage)
+                    q.question, point, quote, model, usage, check=check)
                 stats["calls"] += 1
                 stats["entailment_calls"] += 1
                 new_pt.entailment = verdict
@@ -626,6 +661,8 @@ Evidence:
                     replacement = new_pt
                     break
                 # "no" (or checker error): try another rewrite.
+            except GenerationStopped:
+                raise
             except Exception:
                 stats["calls"] += 1
                 regen_calls += 1
@@ -695,7 +732,10 @@ def _deck_topic_violations(accepted: list[VerifiedQuestion]) -> list[dict]:
 def generate(plan_path: Path, limit: int = 0, model: str | None = None,
              refresh_decks: bool = False,
              previous: dict | None = None,
-             near_copy_threshold: float = config.THEORY_NEAR_COPY_THRESHOLD
+             near_copy_threshold: float = config.THEORY_NEAR_COPY_THRESHOLD,
+             cost_cap_usd: float | None = None,
+             progress_cb: Callable[[dict], None] | None = None,
+             should_stop: Callable[[], bool] | None = None
              ) -> dict:
     plan = json.loads(plan_path.read_text(encoding="utf-8"))
     slots = _theory_slots(plan)
@@ -736,6 +776,20 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
             total_tokens=int(u.get("total_tokens", 0)),
             calls=int(u.get("calls", 0)),
             model=u.get("model", ""))
+    def check_limits() -> None:
+        if should_stop is not None and should_stop():
+            raise GenerationCancelled("job cancelled")
+        if cost_cap_usd is not None and usage.cost_usd >= cost_cap_usd:
+            raise CostCapExceeded(usage.cost_usd, cost_cap_usd)
+
+    def emit(**event) -> None:
+        if progress_cb is not None:
+            event.setdefault("cost_usd", round(usage.cost_usd, 6))
+            event.setdefault("calls", usage.calls)
+            event.setdefault("accepted", len(accepted))
+            event.setdefault("placeholders", len(placeholders))
+            progress_cb(event)
+
     if limit:
         groups = groups[:limit]
     chunks = load_chunks(refresh=refresh_decks)
@@ -747,6 +801,7 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
     results: list[GroupResult] = []
     accepted_by_slot = {q.slot: q for q in accepted}
     for gi, group in enumerate(groups, 1):
+        check_limits()
         topic = group[0]["topic"]
         qid = group[0]["question"]
         result = GroupResult(
@@ -763,6 +818,7 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
         result.scenario_sampled = any(scenario_flags.values())
         group_accepted = 0
         for slot in group:
+            check_limits()
             sid = slot["slot"]
             # A dependent (b) cannot be generated if (a) is unresolved.
             if slot.get("dependent") and sid.endswith("b"):
@@ -775,6 +831,8 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
                         low_style_confidence=bool(
                             slot.get("low_style_confidence"))))
                     result.errors.append([reason])
+                    emit(question=qid, slot=sid, status="placeholder",
+                         message=reason)
                     continue
             # Part B (b) needs the scenario generated by (a).
             shared_scenario = ""
@@ -788,6 +846,8 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
                         low_style_confidence=bool(
                             slot.get("low_style_confidence"))))
                     result.errors.append([reason])
+                    emit(question=qid, slot=sid, status="placeholder",
+                         message=reason)
                     continue
                 shared_scenario = accepted_by_slot[a_id].scenario
             subangle = subangles.get(sid, "")
@@ -834,6 +894,10 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
                     llm = chat_json_result(
                         SYSTEM, user, model=model or config.MOCKGEN_MODEL,
                         temperature=0.15, usage=usage)
+                    if check_limits is not None:
+                        check_limits()
+                except GenerationStopped:
+                    raise
                 except Exception as e:
                     errors = [f"LLM/API error: {e}"]
                     result.errors.append(errors)
@@ -929,7 +993,8 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
                     st = _resolve_low_stem_points(
                         q, hits, used_sources, usage,
                         model or config.MOCKGEN_MODEL,
-                        config.THEORY_STEM_OVERLAP_THRESHOLD)
+                        config.THEORY_STEM_OVERLAP_THRESHOLD,
+                        check=check_limits)
                     for k in point_stats:
                         point_stats[k] += int(st.get(k, 0))
                     initial_counts.update(st.get("initial_verdicts", {}))
@@ -953,6 +1018,8 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
                 group_accepted += 1
                 print(f"[{gi}/{len(groups)}] {sid} accepted "
                       f"(attempt {result.attempts} cumulative)", flush=True)
+                emit(question=qid, slot=sid, status="accepted",
+                     attempts=result.attempts)
             else:
                 reason = "; ".join(errors[-8:]) if errors else "unknown error"
                 placeholders.append(Placeholder(
@@ -964,6 +1031,8 @@ def generate(plan_path: Path, limit: int = 0, model: str | None = None,
                 print(f"[{gi}/{len(groups)}] {sid} PLACEHOLDER after "
                       f"{result.attempts} cumulative attempts: "
                       f"{reason[:160]}", flush=True)
+                emit(question=qid, slot=sid, status="placeholder",
+                     attempts=result.attempts, message=reason[:300])
         result.accepted = group_accepted == len(group)
         results.append(result)
 

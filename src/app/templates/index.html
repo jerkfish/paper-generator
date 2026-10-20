@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSC662 Mock Paper Generator</title>
+  <script src="/static/htmx.min.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="top">
+  <div>
+    <h1>CSC662 Mock Paper Generator</h1>
+    <p class="sub">Local study tool &middot; {{ model }}{% if public %} &middot; public build{% endif %}</p>
+  </div>
+  <div class="pill">cost cap ${{ "%.2f"|format(cost_cap) }}</div>
+</header>
+
+{% if public %}
+<div class="banner">Public build: university branding is replaced and the
+  Library is disabled. Lecture slides and past papers stay on this machine.</div>
+{% endif %}
+
+<main>
+  <section class="card">
+    <input type="radio" name="tab" id="tab-generate" class="tabradio" checked>
+    <input type="radio" name="tab" id="tab-library" class="tabradio">
+    <div class="tabs" role="tablist">
+      <label for="tab-generate" class="tab">Generate</label>
+      <label for="tab-library" class="tab">Library</label>
+    </div>
+
+    <div class="panel panel-generate">
+      <form class="generate" hx-post="/jobs" hx-target="#job" hx-swap="outerHTML">
+        <div class="grid">
+          <label>Mode
+            <select name="mode">
+              <option value="realistic" selected>Realistic</option>
+              <option value="practice">Practice</option>
+            </select>
+          </label>
+          <label>Seed <span class="hint">(optional)</span>
+            <input type="number" name="seed" min="1" max="99999" placeholder="random">
+          </label>
+          <label>Computed marks N <span class="hint">(practice only)</span>
+            <input type="number" name="computed_marks" min="0" max="80" value="22">
+          </label>
+        </div>
+        <div class="actions">
+          <button class="primary" type="submit">Generate</button>
+          <span class="hint">Background job. A cached seed returns instantly
+            and costs $0.</span>
+        </div>
+      </form>
+      <div id="job"></div>
+    </div>
+
+    <div class="panel panel-library">
+      <h2>Prebuilt papers</h2>
+      <p class="hint">Realistic papers from the 20-seed accepted sets.
+        No API key is needed and no LLM call is made.</p>
+      <div id="library" hx-get="/library" hx-trigger="load">
+        <p class="muted">Loading library&hellip;</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  (function () {
+    const mode = document.querySelector('select[name="mode"]');
+    const cm = document.querySelector('input[name="computed_marks"]');
+    function sync() {
+      if (!mode || !cm) return;
+      cm.disabled = mode.value !== "practice";
+      cm.title = cm.disabled ? "Practice mode only" : "";
+    }
+    if (mode) mode.addEventListener("change", sync);
+    sync();
+  })();
+</script>
+
+<footer class="foot">
+  Local only. No accounts, payments or uploads. Lecture slides and past papers
+  never leave this machine.
+</footer>
+</body>
+</html>

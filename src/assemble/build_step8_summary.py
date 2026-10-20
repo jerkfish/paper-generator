@@ -56,7 +56,7 @@ th { background:#eee; }
 <p>Generated 2-mark stems are the main wording gap (20 vs 9 words); 6-mark stems are also longer (31 vs 18). Command mix this seed: Explain 11, State 6, Describe 2, Discuss 2, List 2; no Compare/Propose/Analyse/Justify. Closest past pair: A1a ethics vs CSC662-2018-06 Q15a = 0.614. The stems are grounded and non-copied, but wordier and more scaffolded than real questions.</p>
 
 <h2>Marking scheme</h2>
-<p>mock_scheme_04.pdf, 16 pages, same header/footer as the paper: computed Vigenere working + 26 x 26 tableau, every theory point with verbatim quote and slide citation, <i>supported by lecture slides (not lecturer-marked)</i> label, stem-overlap scores and low-overlap flags. No official CSC662 schemes exist; this is far more detailed than a real scheme.</p>
+<p>mock_scheme_04.pdf, 15 pages, same header/footer as the paper: computed Vigenere working + 26 x 26 tableau, every theory point with verbatim quote and slide citation, <i>supported by lecture slides (not lecturer-marked)</i> label, stem-overlap scores, low-overlap flags and supported/partly-supported entailment verdicts. No official CSC662 schemes exist; this is far more detailed than a real scheme.</p>
 
 <h2>Weakness list (specific)</h2>
 <ul>
@@ -66,7 +66,7 @@ th { background:#eee; }
 <li>Body density close to DEC but much denser than FEB; 6 vs 14 pages, less answer space.</li>
 <li>36/94 marking points (38.3%) remain low stem-overlap; accepted by entailment but flagged for review.</li>
 <li>Both Part B groups have scenarios (over-represents the 36.8 % measured rate).</li>
-<li>No official marking scheme; 16-page scheme is far more detailed than real.</li>
+<li>No official marking scheme; 15-page scheme is far more detailed than real.</li>
 <li>Theory answers are slide-supported, not lecturer-marked.</li>
 <li>Computed share 6 % vs 4.0-mark modern average (within range but 1.5x).</li>
 <li>Cover matches JUN/DEC but differs from FEB 2022.</li>

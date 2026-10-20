@@ -155,6 +155,10 @@ Counted over the union of the 20 papers: slides in the topic's allowed decks tha
 | 9 | 6 / A3b | 0.647 | State SIX (6) facts about the two primary system components of the Next Generation Secure Computing Base (NGSCB), covering the Nexus and the Nexus Computing Agent (NCA). | CSC662-2023-07 QA8b: List and explain the two primary system components of Next Generation Secure Computing Base(NGSCB). (6 marks) |
 | 10 | 1 / A8a | 0.646 | Explain the difference between morals, ethics and laws as three forms of guidance for professional conduct in computer security. | CSC662-2018-06 Q15a: Differentiate between Morals, Ethics and Laws in computer security. |
 
+## Stem-length follow-up
+
+This 20-seed run predates the mark-aware stem-length check. A fresh 8-seed sample with the check (`outputs/eval_stem_sample/`, seeds 1-8) reduced the median stem length from **19 to 12** words for 2-mark questions, **31 to 26.5** for 5-mark questions, and **31 to 21** for 6-mark questions; all generated stems were inside the clean-modern 90th percentile (18/54/43 words). That sample accepted 181/185 slots with 4 placeholders (2.2%). Details: `stem_length_report.md`.
+
 ## Prior-figure corrections
 
 - The previous **26/474** placeholder projection was wrong: rejecting 10 near-copy questions does not add slots. With 464 total theory slots the corrected figure is **26/464 = 5.6%**.

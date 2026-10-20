@@ -63,6 +63,21 @@ def _computed_question(slot: dict) -> dict | None:
     return cq(slot)
 
 
+def _entailment_label(pt: dict) -> str:
+    """Human-readable verdict shown beside each marking point."""
+    verdict = str(pt.get("entailment", "")).strip().lower()
+    if verdict == "partly":
+        return "partly supported"
+    if verdict == "no":
+        return "not supported"
+    if verdict == "yes":
+        return "supported"
+    # High stem-overlap points pass the first gate without an LLM check.
+    if not pt.get("low_stem_overlap"):
+        return "supported (stem gate)"
+    return "not checked"
+
+
 def _status(doc, slot: dict, accepted: dict, placeholders: dict) -> None:
     sid = slot["slot"]
     if slot["kind"] == "computed":
@@ -106,14 +121,21 @@ def _status(doc, slot: dict, accepted: dict, placeholders: dict) -> None:
                  indent=0.4)
     _question_text(doc, q["question"])
     add_para(doc, "Marking points:", bold=True, size=10, before=3, after=2)
-    table = doc.add_table(rows=1, cols=6)
+    table = doc.add_table(rows=1, cols=7)
     try:
         table.style = "Table Grid"
     except KeyError:
         pass
     _set_table_borders(table)
+    table.autofit = False
+    widths = [Cm(0.7), Cm(3.4), Cm(4.4), Cm(2.1), Cm(2.3),
+              Cm(1.0), Cm(1.9)]
+    for row in table.rows:
+        for i, width in enumerate(widths):
+            row.cells[i].width = width
     for j, head in enumerate(("No.", "Point (1 mark)", "Evidence quote",
-                              "Source", "Chunk", "Term overlap")):
+                              "Source", "Chunk", "Stem overlap",
+                              "Entailment")):
         _cell_text(table.rows[0].cells[j], head, bold=True, size=8)
     for i, pt in enumerate(q["marking_points"], 1):
         cells = table.add_row().cells
@@ -124,6 +146,7 @@ def _status(doc, slot: dict, accepted: dict, placeholders: dict) -> None:
                              f"{pt['source_slide']}", size=7.5)
         _cell_text(cells[4], pt["chunk_id"], size=7)
         _cell_text(cells[5], f"{pt.get('stem_overlap', pt.get('term_overlap', 1.0)):.2f}" + (" LOW" if pt.get("low_stem_overlap") else ""), size=7)
+        _cell_text(cells[6], _entailment_label(pt), size=7)
     doc.add_paragraph().paragraph_format.space_after = Pt(2)
     add_para(doc, "Confidence: supported by lecture slides (not lecturer-marked) - each point carries a verbatim quote "
                   "from the cited lecture slide.", italic=True, size=9,
@@ -195,7 +218,13 @@ def build() -> None:
              bold=True, size=14, align=WD_ALIGN_PARAGRAPH.CENTER, after=4)
     add_para(doc, "Labels: computed / supported by lecture slides (not lecturer-marked) / placeholder. No official "
                   "marking scheme exists for the real CSC662 papers; this is "
-                  "generated for the mock.", italic=True, size=9, after=10)
+                  "generated for the mock.", italic=True, size=9, after=4)
+    add_para(doc, "Entailment labels: supported = the quote directly supports "
+                  "the marking point (or the point passed the stem-overlap "
+                  "gate without an LLM check); partly supported = the quote "
+                  "supports part of the point or is ambiguous; not supported = "
+                  "the quote does not support the point. Only 'not supported' "
+                  "points triggered regeneration.", italic=True, size=9, after=10)
     add_para(doc, f"Part A: 10 x (2 + 6) = 80 marks. Part B: 2 x (5 + 5) = "
                   f"20 marks. Total: 100 marks. Slots: {n_comp} computed, "
                   f"{n_sourced} supported by lecture slides, {n_ph} placeholder.",

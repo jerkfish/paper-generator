@@ -315,6 +315,35 @@ def test_entailment_partly_keeps_point_without_regeneration(monkeypatch):
     assert old.marking_points[0].entailment == "partly"
 
 
+def test_stem_length_limits_match_clean_modern_percentiles():
+    from src.planner.stem_length import (stem_length_stats,
+                                         stem_p90_limits, stem_word_count)
+    limits = stem_p90_limits()
+    assert limits == {2: 18, 5: 54, 6: 43}
+    assert stem_length_stats()[2]["median"] == 9.0
+    assert stem_word_count("QUESTION 3 (6 marks) State two things.") == 3
+
+
+def test_verifier_rejects_stem_above_p90():
+    chunk = next(c for c in _chunks() if c.deck.startswith("071")
+                 and "Ethics is a suite" in c.text)
+    text = normalize_text(chunk.text)
+    quote = text[text.index("Ethics is a suite"):
+                 text.index("Ethics is a suite") + 140]
+    exp = [{"slot": "A1a", "marks": 2, "topic": "risk/management (ethics)",
+            "task": "Explain", "dependent": False}]
+    long_q = ("Explain the ethical basis of professional conduct in computing "
+              "and describe how it applies to the daily work of a security "
+              "professional in an organisation with many competing duties.")
+    draft = _draft("A1a", long_q,
+                   [{"point": "Ethics is a set of guiding beliefs.",
+                     "quote": quote, "chunk_id": chunk.chunk_id},
+                    {"point": "Ethics guides professional conduct.",
+                     "quote": quote, "chunk_id": chunk.chunk_id}])
+    _, errors = verify_draft(draft, exp, [chunk])
+    assert any("90th percentile" in e for e in errors)
+
+
 def test_stem_overlap_handles_inflections():
     from src.theory.verify import stem_overlap
     assert stem_overlap("identifying attacks and stopping processes",

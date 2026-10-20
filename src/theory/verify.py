@@ -26,6 +26,7 @@ from functools import lru_cache
 import snowballstemmer
 
 from src.planner.fingerprint_data import load_all_rows
+from src.planner.stem_length import stem_p90_limits, stem_word_count
 from src.planner.tasks import DEPENDENT_RE
 from src.theory.bm25 import TOPIC_DECKS
 from src.theory.decks import DeckChunk
@@ -323,11 +324,17 @@ def verify_draft(draft: TheoryDraft, expected_slots: list[dict],
         if sub_req and not any(k.lower() in ql for k in sub_req):
             slot_errors.append(
                 f"{slot_id}: sub-angle not followed; use one of {sub_req}")
-        words = len(question.split())
+        words = stem_word_count(question)
         if words < 8:
             slot_errors.append(f"{slot_id}: question too short ({words} words)")
         if words > MAX_QUESTION_WORDS:
             slot_errors.append(f"{slot_id}: question too long ({words} words)")
+        p90_limit = stem_p90_limits().get(marks)
+        if p90_limit and words > p90_limit:
+            slot_errors.append(
+                f"{slot_id}: stem is {words} words, above the clean-modern "
+                f"90th percentile for {marks} marks ({p90_limit} words); "
+                "tighten the wording and remove non-essential context")
         if exp.get("dependent") and slot_id.endswith("b"):
             if not DEPENDENT_RE.search(question):
                 slot_errors.append(

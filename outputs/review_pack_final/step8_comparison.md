@@ -165,7 +165,7 @@ papers print only mark labels (and sometimes `Show your work` / `Show the
 steps`). The mark allocation is therefore inferred from the printed 2+6 and
 5+5 splits, not from an official scheme.
 
-`mock_scheme_04.pdf` (16 pages) uses the same Word template, header and footer as
+`mock_scheme_04.pdf` (15 pages) uses the same Word template, header and footer as
 the paper and contains:
 
 - full working for the computed Vigenere slot, including the 26 x 26 tableau
@@ -173,8 +173,9 @@ the paper and contains:
 - every accepted theory answer, with each marking point's verbatim quote and
   `deck, slide` citation;
 - the **supported by lecture slides (not lecturer-marked)** confidence label;
-- stemmed overlap scores, low-overlap flags, and a note on any point that
-  remained low after entailment review.
+- stemmed overlap scores, low-overlap flags, the entailment verdict
+  (`supported` / `partly supported` / `not supported`) beside every point,
+  and a note explaining those labels.
 
 This scheme is much more detailed than a real CSC662 scheme, which is expected
 for a study artifact: it exposes the evidence chain that the real papers do not
@@ -207,7 +208,7 @@ Specific, not an overall rating:
 8. **Scenario over-representation**: both Part B groups in this seed have a
    scenario, versus the measured 7/19 = 36.8%; other seeds sample fewer.
 9. **No official marking scheme**: every suggested split in scheme 04 is
-   inferred; the 16-page scheme is far more detailed than any real CSC662
+   inferred; the 15-page scheme is far more detailed than any real CSC662
    scheme.
 10. **Confidence label**: theory answers are slide-supported, not
     lecturer-marked; this is a study aid, not an official answer key.
@@ -220,7 +221,7 @@ Specific, not an overall rating:
 ## 7. Files
 
 - `outputs/mock_paper_04.pdf`, `outputs/mock_paper_04.docx` - 6-page paper.
-- `outputs/mock_scheme_04.pdf`, `outputs/mock_scheme_04.docx` - 16-page scheme.
+- `outputs/mock_scheme_04.pdf`, `outputs/mock_scheme_04.docx` - 15-page scheme.
 - `outputs/step8_layout_metrics.json` - raw layout metrics for paper 04.
 - `outputs/step8_wording.json` - generated/real word counts, command mix and
   nearest-past-question data.

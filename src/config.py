@@ -97,6 +97,16 @@ THEORY_NEAR_COPY_THRESHOLD = float(
 THEORY_SCENARIO_RATE = float(
     os.environ.get("MOCKGEN_SCENARIO_RATE", "0.3684210526315789"))
 
+# --- web app -------------------------------------------------------------
+# Local-only study tool. PUBLIC_BUILD strips university branding and disables
+# the Library (which is built from real course material).
+PUBLIC_BUILD = os.environ.get("PUBLIC_BUILD", "0") == "1"
+WEB_COST_CAP_USD = float(
+    os.environ.get("MOCKGEN_COST_CAP_USD", "0.05"))
+WEB_RUNS_DIR = OUTPUTS_DIR / "web_runs"
+WEB_CACHE_DIR = OUTPUTS_DIR / "web_cache"
+WEB_LIBRARY_DIR = OUTPUTS_DIR / "web_library"
+
 # --- thresholds ----------------------------------------------------------
 OCR_MIN_TEXT_CHARS = 50  # below this, a cover is treated as scanned (no text layer)
 
