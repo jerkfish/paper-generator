@@ -1,0 +1,1727 @@
+{
+  "mode": "realistic",
+  "style": "modern",
+  "seed": 7420,
+  "computed_marks": 12,
+  "computed_distribution": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    6,
+    6,
+    12,
+    14
+  ],
+  "computed_distribution_mean": 4.0,
+  "clean_modern_papers": 10,
+  "topic_weights": {
+    "attacks/malware": 0.29,
+    "authentication/biometrics": 0.189,
+    "access control models": 0.147,
+    "trusted computing/blockchain": 0.096,
+    "software/OS security": 0.058,
+    "network security": 0.068,
+    "risk/management (ethics)": 0.152
+  },
+  "topic_marks_modern": {
+    "attacks/malware": 227,
+    "access control models": 115,
+    "risk/management (ethics)": 119,
+    "authentication/biometrics": 148,
+    "trusted computing/blockchain": 75,
+    "software/OS security": 45,
+    "network security": 53
+  },
+  "target_topic_marks": {
+    "attacks/malware": 25,
+    "authentication/biometrics": 16,
+    "access control models": 13,
+    "trusted computing/blockchain": 8,
+    "software/OS security": 5,
+    "network security": 6,
+    "risk/management (ethics)": 13
+  },
+  "assigned_topic_marks": {
+    "software/OS security": 8,
+    "classical ciphers": 2,
+    "attacks/malware": 24,
+    "access control models": 12,
+    "authentication/biometrics": 16,
+    "risk/management (ethics)": 8,
+    "network security": 8,
+    "trusted computing/blockchain": 10
+  },
+  "assigned_theory_topic_marks": {
+    "software/OS security": 8,
+    "attacks/malware": 24,
+    "access control models": 12,
+    "authentication/biometrics": 16,
+    "risk/management (ethics)": 8,
+    "network security": 8,
+    "trusted computing/blockchain": 10
+  },
+  "part_b_topic_marks_measured": {
+    "access control models": 35,
+    "risk/management (ethics)": 39,
+    "software/OS security": 15,
+    "authentication/biometrics": 23,
+    "attacks/malware": 36,
+    "trusted computing/blockchain": 10,
+    "general cryptography": 10,
+    "network security": 6,
+    "other": 2,
+    "hashing/signatures": 10,
+    "block ciphers": 5,
+    "public-key": 5
+  },
+  "part_b_assigned_marks": {
+    "access control models": 10,
+    "trusted computing/blockchain": 10
+  },
+  "question_topics": {
+    "A2": "classical ciphers",
+    "A4": "access control models",
+    "B1": "access control models",
+    "B2": "trusted computing/blockchain",
+    "A1": "software/OS security",
+    "A3": "attacks/malware",
+    "A5": "authentication/biometrics",
+    "A6": "risk/management (ethics)",
+    "A7": "network security",
+    "A8": "authentication/biometrics",
+    "A9": "attacks/malware",
+    "A10": "attacks/malware"
+  },
+  "question_topic_sequence": [
+    "software/OS security",
+    "classical ciphers",
+    "attacks/malware",
+    "access control models",
+    "authentication/biometrics",
+    "risk/management (ethics)",
+    "network security",
+    "authentication/biometrics",
+    "attacks/malware",
+    "attacks/malware",
+    "access control models",
+    "trusted computing/blockchain"
+  ],
+  "no_three_consecutive_same_topic": true,
+  "dependent_questions": [
+    "A7"
+  ],
+  "measurement": {
+    "clean_papers": 10,
+    "ab_papers": [
+      "CSC662-2019-06",
+      "CSC662-2019-12",
+      "CSC662-2022-02",
+      "CSC662-2023-02",
+      "CSC662-2024-07",
+      "CSC662-2025-02",
+      "CSC662-2025-07",
+      "CSC662-2026-02"
+    ],
+    "part_a_pairs": 72,
+    "same_topic_pairs": 55,
+    "dependent_pairs": 7,
+    "part_a_label_counts": {
+      "Explain": 56,
+      "State": 31,
+      "Justify": 1,
+      "Describe": 16,
+      "Other": 7,
+      "Discuss": 14,
+      "List": 12,
+      "Analyse": 3,
+      "Propose": 3,
+      "Compare": 3
+    },
+    "part_a_label_marks": {
+      "Explain": 198,
+      "State": 110,
+      "Justify": 6,
+      "Describe": 84,
+      "Other": 30,
+      "Discuss": 72,
+      "List": 28,
+      "Analyse": 18,
+      "Propose": 18,
+      "Compare": 18
+    },
+    "part_b_label_counts": {
+      "State": 7,
+      "Explain": 13,
+      "Discuss": 3,
+      "Other": 11,
+      "Propose": 5,
+      "Describe": 2,
+      "Analyse": 2
+    },
+    "part_b_label_marks": {
+      "State": 35,
+      "Explain": 54,
+      "Discuss": 16,
+      "Other": 44,
+      "Propose": 28,
+      "Describe": 8,
+      "Analyse": 11
+    },
+    "part_b_topic_marks": {
+      "access control models": 35,
+      "risk/management": 39,
+      "software/OS security": 15,
+      "authentication/biometrics": 23,
+      "attacks/malware": 36,
+      "trusted computing/blockchain": 10,
+      "general cryptography": 10,
+      "network security": 6,
+      "other": 2,
+      "hashing/signatures": 10,
+      "block ciphers": 5,
+      "public-key": 5
+    },
+    "part_b_questions": 19,
+    "part_b_scenario_questions": 7,
+    "part_b_same_topic_pairs": 11,
+    "part_b_dependent_pairs": 2,
+    "part_b_scenario_examples": [
+      {
+        "paper": "CSC662-2019-06",
+        "q": "B1",
+        "prefix": "Based on the above report, from computer security perspective,"
+      },
+      {
+        "paper": "CSC662-2022-02",
+        "q": "B1",
+        "prefix": "Based on the segment of C source code above: \n\ni)"
+      },
+      {
+        "paper": "CSC662-2023-02",
+        "q": "B2",
+        "prefix": "Your manager asks you to log into the Human Resource Management system using his user-id and password to retrieve some reports."
+      },
+      {
+        "paper": "CSC662-2024-07",
+        "q": "B1",
+        "prefix": "A student suspects there is a vulnerability in a system. She conducts tests this by trying to exploit the vulnerability. She succeeds to obtain privileges that she would not have. She reports both the hole and her exploi"
+      },
+      {
+        "paper": "CSC662-2025-02",
+        "q": "B1",
+        "prefix": "An employee at a technology company discovers a vulnerability in the company's new software product before its public release. Without notifying the company, he exploits the vulnerability to create a backdoor for persona"
+      },
+      {
+        "paper": "CSC662-2025-02",
+        "q": "B2",
+        "prefix": "Based on the senario above,"
+      },
+      {
+        "paper": "CSC662-2025-07",
+        "q": "B7",
+        "prefix": "You are reviewing the password security policies on a UNIX server. Your instructor asks you to"
+      }
+    ]
+  },
+  "six_mark_examples": {
+    "Describe": [
+      {
+        "paper": "CSC662-2006-10",
+        "q": "Q1a",
+        "text": "Describe the difference between vulnerability, threat and control, by using one example.",
+        "topic": "attacks/malware",
+        "task": "Describe",
+        "marks": 6
+      },
+      {
+        "paper": "CSC662-2007-04",
+        "q": "Q1a",
+        "text": "Define the following terms:\ni) Firewall\nii) Integrity\niii) Vulnerability",
+        "topic": "attacks/malware",
+        "task": "Describe",
+        "marks": 6
+      },
+      {
+        "paper": "CSC662-2007-04",
+        "q": "Q2b",
+        "text": "Describe the term malicious code and explain TWO (2) examples of them.",
+        "topic": "attacks/malware",
+        "task": "Describe",
+        "marks": 6
+      }
+    ],
+    "Discuss": [
+      {
+        "paper": "CSC662-2010-04",
+        "q": "Q11",
+        "text": "Discuss THREE (3) approaches that can be used to create good passwords. \n(6 marks)",
+        "topic": "authentication/biometrics",
+        "task": "Discuss",
+        "marks": 6
+      },
+      {
+        "paper": "CSC662-2010-10",
+        "q": "Q3b",
+        "text": "Discuss THREE (3) important characteristics of 'economically feasible\" security.",
+        "topic": "other",
+        "task": "Discuss",
+        "marks": 6
+      },
+      {
+        "paper": "CSC662-2012-06",
+        "q": "Q15",
+        "text": "Software security is a system-wide issue that involves both building in security mechanisms and designing the system to be robust. Discuss the following software security mechanism:\na) Data execution protection\nb) Address space layout randomization\nc) Canary",
+        "topic": "other",
+        "task": "Discuss",
+        "marks": 6
+      }
+    ],
+    "Explain": [
+      {
+        "paper": "CSC662-2007-04",
+        "q": "Q6b",
+        "text": "\"It's time we became proactive about stopping computer crime. No matter how good we get at hardening systems; how many bucks we spend on defensive measures or in complying with legislation and initiatives; no matter how carefully we design, create, deploy and maintain secure operating systems, applications and infrastructure; others are spending even more money and time attacking them.\"\nhttp:/Awww. crime-research, org\nBriefly explain THREE (3) ways on how to stop computer crime.",
+        "topic": "software/OS security",
+        "task": "Explain",
+        "marks": 6
+      },
+      {
+        "paper": "CSC662-2007-10",
+        "q": "Q1a",
+        "text": "Explain how three goals of computer security relate with each other in building a secure system.",
+        "topic": "classical ciphers",
+        "task": "Explain",
+        "marks": 6
+      },
+      {
+        "paper": "CSC662-2008-10",
+        "q": "Q2b",
+        "text": "Recently, there are many types of malware infection had been reported to the security organization. Explain the characteristics of THREE (3) types of malware that you know.",
+        "topic": "attacks/malware",
+        "task": "Explain",
+        "marks": 6
+      }
+    ],
+    "State": [
+      {
+        "paper": "CSC662-2009-04",
+        "q": "Q1d",
+        "text": "Determine whether the P-box with the following tables is a straight P-box, a compression P-box or an expansion P-box. State one reason for each table. \ni) \nii) \niii) \n112 3 44 \n15 3 6 78 \n2 14 3 56",
+        "topic": "public-key",
+        "task": "State",
+        "marks": 6
+      },
+      {
+        "paper": "CSC662-2010-10",
+        "q": "Q4a",
+        "text": "Identify which requirements or components that deal with confidentiality, integrity and \navailability concerns in proposed e-voting system.",
+        "topic": "other",
+        "task": "State",
+        "marks": 6
+      },
+      {
+        "paper": "CSC662-2010-10",
+        "q": "Q11b",
+        "text": "Assuming that high > low, identify program fragments that are desired (allowed) or \nundesired (prevented) in information security flows for reading operation.",
+        "topic": "other",
+        "task": "State",
+        "marks": 6
+      }
+    ]
+  },
+  "low_style_confidence_slots": [
+    "A1a",
+    "A3a",
+    "B2a",
+    "B2b"
+  ],
+  "coverage_notes": [
+    "Seven theory topics cover 782/955 modern non-compute marks; 173 marks (18.1%) fall outside the seven topics and are reported, not reallocated: other 64, general cryptography 30, classical ciphers 29, public-key 25, hashing/signatures 18, block ciphers 7.",
+    "risk/management (ethics) weight is the modern risk/management marks (119) renormalised with the other six topics; source deck: KB folder 'CSC662', deck 071 Ethics.",
+    "A theory slot paired with a computed slot inherits the computed topic (classical ciphers or access control models) because (a) and (b) must share one topic; this mark is outside the seven-topic target and is shown separately.",
+    "2018-01 and 2018-06 have no A/B labels and are excluded from the pair/part measures; 2025-07 has incomplete A/B extraction."
+  ],
+  "slots": [
+    {
+      "slot": "A1a",
+      "marks": 2,
+      "kind": "theory",
+      "question": "A1",
+      "part": "A",
+      "topic": "software/OS security",
+      "task": "State",
+      "computed_type": "",
+      "target": "",
+      "acm_scope": "",
+      "style_n": 2,
+      "style_n_widened": 8,
+      "style_mode": "topic+marks (any command)",
+      "style_examples": [
+        {
+          "paper": "CSC662-2018-06",
+          "q": "Q11a",
+          "text": "UNIX operating provides several files to store user information. Give the name of the file for the following purposes: i) To store user information. ii) To store encrypted user information.",
+          "topic": "software/OS security",
+          "task": "State",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2026-02",
+          "q": "QA5a",
+          "text": "Give ONE (1) example of malware that exploits unpatched operating system vulnerabilities",
+          "topic": "software/OS security",
+          "task": "State",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2015-12",
+          "q": "Q11d",
+          "text": "d) Explain briefly about Group in Windows operating system. (2 marks)",
+          "topic": "software/OS security",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2016-12",
+          "q": "Q12a",
+          "text": "CS/DEC 2016/CSC662 The following is the format of Security Identifier (SID) in Windows security system. a. b. d. s-1-5-21-397955417-62688126-188441444-1010 What is SID and what is the length of SID (in bits)? (2 marks)",
+          "topic": "software/OS security",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2018-06",
+          "q": "Q11b",
+          "text": "Explain the following command in UNIX security system: i) -r--r--r-- ii) drwxrwx---",
+          "topic": "software/OS security",
+          "task": "Explain",
+          "marks": 2
+        }
+      ],
+      "low_style_confidence": true,
+      "dependent": false,
+      "dependent_on": "",
+      "note": "style n=2; widened to topic+marks (any command); low style confidence"
+    },
+    {
+      "slot": "A1b",
+      "marks": 6,
+      "kind": "theory",
+      "question": "A1",
+      "part": "A",
+      "topic": "software/OS security",
+      "task": "Explain",
+      "computed_type": "",
+      "target": "",
+      "acm_scope": "",
+      "style_n": 4,
+      "style_n_widened": 4,
+      "style_mode": "exact",
+      "style_examples": [
+        {
+          "paper": "CSC662-2007-04",
+          "q": "Q6b",
+          "text": "\"It's time we became proactive about stopping computer crime. No matter how good we get at hardening systems; how many bucks we spend on defensive measures or in complying with legislation and initiatives; no matter how carefully we design, create, deploy and maintain secure operating systems, applications and infrastructure; others are spending even more money and time attacking them.\"\nhttp:/Awww. crime-research, org\nBriefly explain THREE (3) ways on how to stop computer crime.",
+          "topic": "software/OS security",
+          "task": "Explain",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2016-06",
+          "q": "Q10a",
+          "text": "Although security was not a primary design goal of UNIX, it is still able to provide sufficient security mechanisms with proper configurations and administrations. Explain how the users' information, files and directories can be securely stored in UNIX.",
+          "topic": "software/OS security",
+          "task": "Explain",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2022-02",
+          "q": "QA3b",
+          "text": "Using your answer in a), explain how UNIX grants access to any computing resources.",
+          "topic": "software/OS security",
+          "task": "Explain",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2025-02",
+          "q": "QA2b",
+          "text": "Explain how these accounts are used to control access to the system.",
+          "topic": "software/OS security",
+          "task": "Explain",
+          "marks": 6
+        }
+      ],
+      "low_style_confidence": false,
+      "dependent": false,
+      "dependent_on": "",
+      "note": "style n=4"
+    },
+    {
+      "slot": "A2a",
+      "marks": 2,
+      "kind": "theory",
+      "question": "A2",
+      "part": "A",
+      "topic": "classical ciphers",
+      "task": "Explain",
+      "computed_type": "",
+      "target": "",
+      "acm_scope": "",
+      "style_n": 5,
+      "style_n_widened": 5,
+      "style_mode": "exact",
+      "style_examples": [
+        {
+          "paper": "CSC662-2008-10",
+          "q": "Q1b",
+          "text": "Explain what you know about secrecy.",
+          "topic": "classical ciphers",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2012-01",
+          "q": "Q4a",
+          "text": "How poly-alphabetic substitution cipher techniques differ from mono-alphabetic \nsubstitution ciphering techniques?",
+          "topic": "classical ciphers",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2012-01",
+          "q": "Q4b",
+          "text": "What advantage does a poly-alphabetic technique have over a mono-alphabetic? \nExplain your answer.",
+          "topic": "classical ciphers",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2012-01",
+          "q": "Q14b",
+          "text": "If one-time pads are provably secure, why are they so rarely used in practise?",
+          "topic": "classical ciphers",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2019-06",
+          "q": "QA4a",
+          "text": "What is a substitution classical cipher? (2 marks)",
+          "topic": "classical ciphers",
+          "task": "Explain",
+          "marks": 2
+        }
+      ],
+      "low_style_confidence": false,
+      "dependent": false,
+      "dependent_on": "",
+      "note": "style n=5"
+    },
+    {
+      "slot": "A2b",
+      "marks": 6,
+      "kind": "computed",
+      "question": "A2",
+      "part": "A",
+      "topic": "classical ciphers",
+      "task": "compute",
+      "computed_type": "vigenere",
+      "target": "13-18 letters; keyword 6-8 letters",
+      "acm_scope": "",
+      "style_n": 0,
+      "style_n_widened": 0,
+      "style_mode": "",
+      "style_examples": [],
+      "low_style_confidence": false,
+      "dependent": false,
+      "dependent_on": "",
+      "note": "computed slot; print the 26 x 26 Vigenere tableau in the question"
+    },
+    {
+      "slot": "A3a",
+      "marks": 2,
+      "kind": "theory",
+      "question": "A3",
+      "part": "A",
+      "topic": "attacks/malware",
+      "task": "List",
+      "computed_type": "",
+      "target": "",
+      "acm_scope": "",
+      "style_n": 0,
+      "style_n_widened": 63,
+      "style_mode": "topic+marks (any command)",
+      "style_examples": [
+        {
+          "paper": "CSC662-2006-10",
+          "q": "Q3c",
+          "text": "Describe the how data integrity is violated by technique known as salami attack.",
+          "topic": "attacks/malware",
+          "task": "Describe",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2007-04",
+          "q": "Q1c",
+          "text": "Describe what is signature, pertaining to viruses.",
+          "topic": "attacks/malware",
+          "task": "Describe",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2007-10",
+          "q": "Q1b",
+          "text": "Explain what you know about threat.",
+          "topic": "attacks/malware",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2007-10",
+          "q": "Q3e",
+          "text": "Explain how brute force attack works.",
+          "topic": "attacks/malware",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2008-04",
+          "q": "Q1b",
+          "text": "Explain what you know about vulnerability.",
+          "topic": "attacks/malware",
+          "task": "Explain",
+          "marks": 2
+        }
+      ],
+      "low_style_confidence": true,
+      "dependent": false,
+      "dependent_on": "",
+      "note": "style n=0; widened to topic+marks (any command); low style confidence"
+    },
+    {
+      "slot": "A3b",
+      "marks": 6,
+      "kind": "theory",
+      "question": "A3",
+      "part": "A",
+      "topic": "attacks/malware",
+      "task": "State",
+      "computed_type": "",
+      "target": "",
+      "acm_scope": "",
+      "style_n": 5,
+      "style_n_widened": 5,
+      "style_mode": "exact",
+      "style_examples": [
+        {
+          "paper": "CSC662-2018-12",
+          "q": "QA6b",
+          "text": "Give ONE (1) example of computer virus and ONE (1) example of computer security's component that it's affected. Explain your answer.",
+          "topic": "attacks/malware",
+          "task": "State",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2019-06",
+          "q": "QA1b",
+          "text": "Identify the below as vulnerability, threat or attack. i) iii) iv) v) vi) Unrestricted upload and download. Virus or malware on the computer system. Facebook's data breach. Use un-initialize input on the system. Use a notebook with public/free wifi. Use obsolete firewall. (6 marks)",
+          "topic": "attacks/malware",
+          "task": "State",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2019-12",
+          "q": "QA9b",
+          "text": "Identify the damage done by the buffer overflow attacks and;\nDiscuss TWO (2) mechanisms can be implement to prevent the attacks.",
+          "topic": "attacks/malware",
+          "task": "State",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2025-02",
+          "q": "QA5b",
+          "text": "The company aims to enhance IP Layer Security in a Large-Scale Enterprise Network. So, Identify IP spoofing as one of vulnerabilities exploited and its repercussions. Then, Evaluate the implementation of one of IP layer security solutions in this context, discussing the improvements in security posture.",
+          "topic": "attacks/malware",
+          "task": "State",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2026-02",
+          "q": "QA6b",
+          "text": "Identify the weakness in the system. Explain how SQL injection works countermeasures. in this scenario and propose Two (2)",
+          "topic": "attacks/malware",
+          "task": "State",
+          "marks": 6
+        }
+      ],
+      "low_style_confidence": false,
+      "dependent": false,
+      "dependent_on": "",
+      "note": "style n=5"
+    },
+    {
+      "slot": "A4a",
+      "marks": 2,
+      "kind": "theory",
+      "question": "A4",
+      "part": "A",
+      "topic": "access control models",
+      "task": "Explain",
+      "computed_type": "",
+      "target": "",
+      "acm_scope": "",
+      "style_n": 5,
+      "style_n_widened": 5,
+      "style_mode": "exact",
+      "style_examples": [
+        {
+          "paper": "CSC662-2010-10",
+          "q": "Q9b",
+          "text": "Why is this principle important?",
+          "topic": "access control models",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2012-06",
+          "q": "Q11b",
+          "text": "What is the common purpose of access control and accountability?",
+          "topic": "access control models",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2013-01",
+          "q": "Q6a",
+          "text": "What is role-based access control (RBAC)?",
+          "topic": "access control models",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2018-01",
+          "q": "Q2c",
+          "text": "What is digital watermark? (2 marks)",
+          "topic": "access control models",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2024-01",
+          "q": "QA2a",
+          "text": "What is the file permission given to the user and group for the access control list (ACL) below? -rw-r----- 1 ramesh team-dev 9275204 Jun 12 15:27 arch-Linux. txt. g z*",
+          "topic": "access control models",
+          "task": "Explain",
+          "marks": 2
+        }
+      ],
+      "low_style_confidence": false,
+      "dependent": false,
+      "dependent_on": "",
+      "note": "style n=5"
+    },
+    {
+      "slot": "A4b",
+      "marks": 6,
+      "kind": "computed",
+      "question": "A4",
+      "part": "A",
+      "topic": "access control models",
+      "task": "compute",
+      "computed_type": "acm",
+      "target": "4 users x 3 objects; matrix only",
+      "acm_scope": "matrix only (6 marks)",
+      "style_n": 0,
+      "style_n_widened": 0,
+      "style_mode": "",
+      "style_examples": [],
+      "low_style_confidence": false,
+      "dependent": false,
+      "dependent_on": "",
+      "note": "computed slot"
+    },
+    {
+      "slot": "A5a",
+      "marks": 2,
+      "kind": "theory",
+      "question": "A5",
+      "part": "A",
+      "topic": "authentication/biometrics",
+      "task": "State",
+      "computed_type": "",
+      "target": "",
+      "acm_scope": "",
+      "style_n": 12,
+      "style_n_widened": 12,
+      "style_mode": "exact",
+      "style_examples": [
+        {
+          "paper": "CSC662-2009-04",
+          "q": "Q2d",
+          "text": "State TWO (2) criteria of a good password.",
+          "topic": "authentication/biometrics",
+          "task": "State",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2012-01",
+          "q": "Q5b",
+          "text": "Give ONE (1) disadvantage of using a salt value?",
+          "topic": "authentication/biometrics",
+          "task": "State",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2012-01",
+          "q": "Q12b",
+          "text": "Give ONE (1) example of behavioural biometric technology.",
+          "topic": "authentication/biometrics",
+          "task": "State",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2015-12",
+          "q": "Q5a",
+          "text": "State the importance of the password for authentication mechanism.",
+          "topic": "authentication/biometrics",
+          "task": "State",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2015-12",
+          "q": "Q11c",
+          "text": "c) State ONE (1) protocol used for client authentication and ONE (1) protocol used for server authentication in Windows security system. (2 marks)",
+          "topic": "authentication/biometrics",
+          "task": "State",
+          "marks": 2
+        }
+      ],
+      "low_style_confidence": false,
+      "dependent": false,
+      "dependent_on": "",
+      "note": "style n=12"
+    },
+    {
+      "slot": "A5b",
+      "marks": 6,
+      "kind": "theory",
+      "question": "A5",
+      "part": "A",
+      "topic": "authentication/biometrics",
+      "task": "Discuss",
+      "computed_type": "",
+      "target": "",
+      "acm_scope": "",
+      "style_n": 5,
+      "style_n_widened": 5,
+      "style_mode": "exact",
+      "style_examples": [
+        {
+          "paper": "CSC662-2010-04",
+          "q": "Q11",
+          "text": "Discuss THREE (3) approaches that can be used to create good passwords. \n(6 marks)",
+          "topic": "authentication/biometrics",
+          "task": "Discuss",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2019-12",
+          "q": "QA7b",
+          "text": "Biometric technology has been available for a number of years; however, its adoption has been slow. Discuss the THREE (3) factors that you see as inhibiting or delaying the adoption of biometric technologies.",
+          "topic": "authentication/biometrics",
+          "task": "Discuss",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2022-02",
+          "q": "QA5b",
+          "text": "Discuss user authentication used in the Windows operating system in terms of: \ni) The types of user authentication. \nii) The purpose of each authentication type. \n ii)  From the computer security perspective, explain t he advantage of having these \ndistinctive authentication methods.",
+          "topic": "authentication/biometrics",
+          "task": "Discuss",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2024-07",
+          "q": "QA2b",
+          "text": "Discuss TWO (2) mechanisms for securing the password in Linux.",
+          "topic": "authentication/biometrics",
+          "task": "Discuss",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2025-02",
+          "q": "QA7b",
+          "text": "Discuss the most effective biometric technology with its TWO (2) advantages that recently adopted.",
+          "topic": "authentication/biometrics",
+          "task": "Discuss",
+          "marks": 6
+        }
+      ],
+      "low_style_confidence": false,
+      "dependent": false,
+      "dependent_on": "",
+      "note": "style n=5"
+    },
+    {
+      "slot": "A6a",
+      "marks": 2,
+      "kind": "theory",
+      "question": "A6",
+      "part": "A",
+      "topic": "risk/management (ethics)",
+      "task": "State",
+      "computed_type": "",
+      "target": "",
+      "acm_scope": "",
+      "style_n": 5,
+      "style_n_widened": 5,
+      "style_mode": "exact",
+      "style_examples": [
+        {
+          "paper": "CSC662-2012-06",
+          "q": "Q14",
+          "text": "Identify the security policy that being enforced into the design of trusted computing platform.",
+          "topic": "risk/management (ethics)",
+          "task": "State",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2013-01",
+          "q": "Q3a",
+          "text": "Identify the security objective is suitable to be used in this situation.",
+          "topic": "risk/management (ethics)",
+          "task": "State",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2016-12",
+          "q": "Q16b",
+          "text": "Identify the purpose of Digital Right Management (DRM). (2 marks)",
+          "topic": "risk/management (ethics)",
+          "task": "State",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2026-02",
+          "q": "QA1a",
+          "text": "State TWO (2) security goals that must be prioritized to protect the cloud-based system.",
+          "topic": "risk/management (ethics)",
+          "task": "State",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2026-02",
+          "q": "QA8a",
+          "text": "Identify the ethical or security issue in this scenario.",
+          "topic": "risk/management (ethics)",
+          "task": "State",
+          "marks": 2
+        }
+      ],
+      "low_style_confidence": false,
+      "dependent": false,
+      "dependent_on": "",
+      "note": "style n=5"
+    },
+    {
+      "slot": "A6b",
+      "marks": 6,
+      "kind": "theory",
+      "question": "A6",
+      "part": "A",
+      "topic": "risk/management (ethics)",
+      "task": "Explain",
+      "computed_type": "",
+      "target": "",
+      "acm_scope": "",
+      "style_n": 3,
+      "style_n_widened": 3,
+      "style_mode": "exact",
+      "style_examples": [
+        {
+          "paper": "CSC662-2018-01",
+          "q": "Q3b",
+          "text": "Draw a diagram to explain THREE (3) type of mechanisms for set of reachable states and set of secure states. (6 marks)",
+          "topic": "risk/management (ethics)",
+          "task": "Explain",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2024-01",
+          "q": "QA7b",
+          "text": "Explain THREE (3) challenges faced by security engineers implementing computer ethics in computer systems.",
+          "topic": "risk/management (ethics)",
+          "task": "Explain",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2024-01",
+          "q": "QA8b",
+          "text": "Can security mechanisms alone protect data privacy? Explain your answer.",
+          "topic": "risk/management (ethics)",
+          "task": "Explain",
+          "marks": 6
+        }
+      ],
+      "low_style_confidence": false,
+      "dependent": false,
+      "dependent_on": "",
+      "note": "style n=3"
+    },
+    {
+      "slot": "A7a",
+      "marks": 2,
+      "kind": "theory",
+      "question": "A7",
+      "part": "A",
+      "topic": "network security",
+      "task": "Explain",
+      "computed_type": "",
+      "target": "",
+      "acm_scope": "",
+      "style_n": 17,
+      "style_n_widened": 17,
+      "style_mode": "exact",
+      "style_examples": [
+        {
+          "paper": "CSC662-2011-04",
+          "q": "Q2a",
+          "text": "Explain how eavesdropping can be done in computer networking.",
+          "topic": "network security",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2011-04",
+          "q": "Q2c",
+          "text": "Does Transmission Control Protocol (TCP) connection provide security against eavesdropping? Explain your answer.",
+          "topic": "network security",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2011-04",
+          "q": "Q13a",
+          "text": "What is IPSec?",
+          "topic": "network security",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2011-04",
+          "q": "Q13b",
+          "text": "What is the role of a security association (SA) in IPSec?",
+          "topic": "network security",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2014-12",
+          "q": "Q8b",
+          "text": "b) Explain TWO (2) weaknesses of behaviour-based IDSO (2 marks)",
+          "topic": "network security",
+          "task": "Explain",
+          "marks": 2
+        }
+      ],
+      "low_style_confidence": false,
+      "dependent": true,
+      "dependent_on": "",
+      "note": "style n=17; dependent pair"
+    },
+    {
+      "slot": "A7b",
+      "marks": 6,
+      "kind": "theory",
+      "question": "A7",
+      "part": "A",
+      "topic": "network security",
+      "task": "Explain",
+      "computed_type": "",
+      "target": "",
+      "acm_scope": "",
+      "style_n": 3,
+      "style_n_widened": 3,
+      "style_mode": "exact",
+      "style_examples": [
+        {
+          "paper": "CSC662-2016-06",
+          "q": "Q14b",
+          "text": "With the advance of Internet Technology (IT), peoples had easily created their own website. Explain THREE (3) methods on how to keep a website secure from being hacked.",
+          "topic": "network security",
+          "task": "Explain",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2023-02",
+          "q": "QA5b",
+          "text": "Explain how HTTP over SSL and TSL (HTTPS) works.",
+          "topic": "network security",
+          "task": "Explain",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2025-02",
+          "q": "QA6b",
+          "text": "Explain 3 preventive network security mechanisms, including a firewall, a proxy server, and network segmentation, that can be implemented to enhance the company's security posture. In your answer, describe how each mechanism protects an organization's network.",
+          "topic": "network security",
+          "task": "Explain",
+          "marks": 6
+        }
+      ],
+      "low_style_confidence": false,
+      "dependent": true,
+      "dependent_on": "A7a",
+      "note": "style n=3; dependent pair"
+    },
+    {
+      "slot": "A8a",
+      "marks": 2,
+      "kind": "theory",
+      "question": "A8",
+      "part": "A",
+      "topic": "authentication/biometrics",
+      "task": "List",
+      "computed_type": "",
+      "target": "",
+      "acm_scope": "",
+      "style_n": 5,
+      "style_n_widened": 5,
+      "style_mode": "exact",
+      "style_examples": [
+        {
+          "paper": "CSC662-2019-12",
+          "q": "QA7a",
+          "text": "List TWO (2) people's unique physical and behavioral characteristics that can be used as biometrics.",
+          "topic": "authentication/biometrics",
+          "task": "List",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2022-02",
+          "q": "QA5a",
+          "text": "List TWO (2) distinct phases in the authentication process.",
+          "topic": "authentication/biometrics",
+          "task": "List",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2024-01",
+          "q": "QA1a",
+          "text": "Password management in Windows OS involves two crucial modules. List these TWO (2) modules or services.",
+          "topic": "authentication/biometrics",
+          "task": "List",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2024-07",
+          "q": "QA2a",
+          "text": "List TWO (2) files in Linux associated with the password.",
+          "topic": "authentication/biometrics",
+          "task": "List",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2024-07",
+          "q": "QA8a",
+          "text": "List TWO (2) types of biometrics system.",
+          "topic": "authentication/biometrics",
+          "task": "List",
+          "marks": 2
+        }
+      ],
+      "low_style_confidence": false,
+      "dependent": false,
+      "dependent_on": "",
+      "note": "style n=5"
+    },
+    {
+      "slot": "A8b",
+      "marks": 6,
+      "kind": "theory",
+      "question": "A8",
+      "part": "A",
+      "topic": "authentication/biometrics",
+      "task": "Describe",
+      "computed_type": "",
+      "target": "",
+      "acm_scope": "",
+      "style_n": 6,
+      "style_n_widened": 6,
+      "style_mode": "exact",
+      "style_examples": [
+        {
+          "paper": "CSC662-2010-10",
+          "q": "Q10",
+          "text": "Describe with example THREE (3) conceptual approaches that can be used for user \nauthentication.",
+          "topic": "authentication/biometrics",
+          "task": "Describe",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2014-06",
+          "q": "Q3",
+          "text": "CSIJUN 2014/CSC662 (10 marks) (6 marks) Define THREE (3) approaches that can be used to create good passwords. (6 marks)",
+          "topic": "authentication/biometrics",
+          "task": "Describe",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2019-06",
+          "q": "QA3b",
+          "text": "Describe THREE (3) rules to create good and strong passwords, (6 marks)",
+          "topic": "authentication/biometrics",
+          "task": "Describe",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2022-02",
+          "q": "QA7b",
+          "text": "Describe how to implement two-factor authentication as suggested by Mr. Wayne.",
+          "topic": "authentication/biometrics",
+          "task": "Describe",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2023-02",
+          "q": "QA7b",
+          "text": "Describe how to implement three-factor authentication as suggested by Mr. Tony.",
+          "topic": "authentication/biometrics",
+          "task": "Describe",
+          "marks": 6
+        }
+      ],
+      "low_style_confidence": false,
+      "dependent": false,
+      "dependent_on": "",
+      "note": "style n=6"
+    },
+    {
+      "slot": "A9a",
+      "marks": 2,
+      "kind": "theory",
+      "question": "A9",
+      "part": "A",
+      "topic": "attacks/malware",
+      "task": "Explain",
+      "computed_type": "",
+      "target": "",
+      "acm_scope": "",
+      "style_n": 28,
+      "style_n_widened": 28,
+      "style_mode": "exact",
+      "style_examples": [
+        {
+          "paper": "CSC662-2007-10",
+          "q": "Q1b",
+          "text": "Explain what you know about threat.",
+          "topic": "attacks/malware",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2007-10",
+          "q": "Q3e",
+          "text": "Explain how brute force attack works.",
+          "topic": "attacks/malware",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2008-04",
+          "q": "Q1b",
+          "text": "Explain what you know about vulnerability.",
+          "topic": "attacks/malware",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2008-10",
+          "q": "Q4d",
+          "text": "Explain the impact of each crime mentioned in c) to the society.",
+          "topic": "attacks/malware",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2010-10",
+          "q": "Q8a",
+          "text": "What is the difference between a virus and a worm?",
+          "topic": "attacks/malware",
+          "task": "Explain",
+          "marks": 2
+        }
+      ],
+      "low_style_confidence": false,
+      "dependent": false,
+      "dependent_on": "",
+      "note": "style n=28"
+    },
+    {
+      "slot": "A9b",
+      "marks": 6,
+      "kind": "theory",
+      "question": "A9",
+      "part": "A",
+      "topic": "attacks/malware",
+      "task": "State",
+      "computed_type": "",
+      "target": "",
+      "acm_scope": "",
+      "style_n": 5,
+      "style_n_widened": 5,
+      "style_mode": "exact",
+      "style_examples": [
+        {
+          "paper": "CSC662-2018-12",
+          "q": "QA6b",
+          "text": "Give ONE (1) example of computer virus and ONE (1) example of computer security's component that it's affected. Explain your answer.",
+          "topic": "attacks/malware",
+          "task": "State",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2019-06",
+          "q": "QA1b",
+          "text": "Identify the below as vulnerability, threat or attack. i) iii) iv) v) vi) Unrestricted upload and download. Virus or malware on the computer system. Facebook's data breach. Use un-initialize input on the system. Use a notebook with public/free wifi. Use obsolete firewall. (6 marks)",
+          "topic": "attacks/malware",
+          "task": "State",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2019-12",
+          "q": "QA9b",
+          "text": "Identify the damage done by the buffer overflow attacks and;\nDiscuss TWO (2) mechanisms can be implement to prevent the attacks.",
+          "topic": "attacks/malware",
+          "task": "State",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2025-02",
+          "q": "QA5b",
+          "text": "The company aims to enhance IP Layer Security in a Large-Scale Enterprise Network. So, Identify IP spoofing as one of vulnerabilities exploited and its repercussions. Then, Evaluate the implementation of one of IP layer security solutions in this context, discussing the improvements in security posture.",
+          "topic": "attacks/malware",
+          "task": "State",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2026-02",
+          "q": "QA6b",
+          "text": "Identify the weakness in the system. Explain how SQL injection works countermeasures. in this scenario and propose Two (2)",
+          "topic": "attacks/malware",
+          "task": "State",
+          "marks": 6
+        }
+      ],
+      "low_style_confidence": false,
+      "dependent": false,
+      "dependent_on": "",
+      "note": "style n=5"
+    },
+    {
+      "slot": "A10a",
+      "marks": 2,
+      "kind": "theory",
+      "question": "A10",
+      "part": "A",
+      "topic": "attacks/malware",
+      "task": "Explain",
+      "computed_type": "",
+      "target": "",
+      "acm_scope": "",
+      "style_n": 28,
+      "style_n_widened": 28,
+      "style_mode": "exact",
+      "style_examples": [
+        {
+          "paper": "CSC662-2007-10",
+          "q": "Q1b",
+          "text": "Explain what you know about threat.",
+          "topic": "attacks/malware",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2007-10",
+          "q": "Q3e",
+          "text": "Explain how brute force attack works.",
+          "topic": "attacks/malware",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2008-04",
+          "q": "Q1b",
+          "text": "Explain what you know about vulnerability.",
+          "topic": "attacks/malware",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2008-10",
+          "q": "Q4d",
+          "text": "Explain the impact of each crime mentioned in c) to the society.",
+          "topic": "attacks/malware",
+          "task": "Explain",
+          "marks": 2
+        },
+        {
+          "paper": "CSC662-2010-10",
+          "q": "Q8a",
+          "text": "What is the difference between a virus and a worm?",
+          "topic": "attacks/malware",
+          "task": "Explain",
+          "marks": 2
+        }
+      ],
+      "low_style_confidence": false,
+      "dependent": false,
+      "dependent_on": "",
+      "note": "style n=28"
+    },
+    {
+      "slot": "A10b",
+      "marks": 6,
+      "kind": "theory",
+      "question": "A10",
+      "part": "A",
+      "topic": "attacks/malware",
+      "task": "Explain",
+      "computed_type": "",
+      "target": "",
+      "acm_scope": "",
+      "style_n": 12,
+      "style_n_widened": 12,
+      "style_mode": "exact",
+      "style_examples": [
+        {
+          "paper": "CSC662-2008-10",
+          "q": "Q2b",
+          "text": "Recently, there are many types of malware infection had been reported to the security organization. Explain the characteristics of THREE (3) types of malware that you know.",
+          "topic": "attacks/malware",
+          "task": "Explain",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2013-06",
+          "q": "Q10",
+          "text": "Based on Figure 1 below, explain how macro virus can infect other Microsoft Word documents. Infection Global macros After Infection Uninfected document... ... becomes infected Figure 1: Infection by a macro virus (6 marks)",
+          "topic": "attacks/malware",
+          "task": "Explain",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2019-06",
+          "q": "QA7b",
+          "text": "In order to understand the nature of threats, you have read through the incident reports of the past two years. In 2017, the company got owned through numerous well-known and unsophisticated remote code-exec exploits of un-patched services, Based on the above scenario, which product suit most of your IDS needs? Explain your decision. (6 marks)",
+          "topic": "attacks/malware",
+          "task": "Explain",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2019-06",
+          "q": "QA9b",
+          "text": "Explain THREE (3) good practices to minimize the virus and malware infection. (6 marks)",
+          "topic": "attacks/malware",
+          "task": "Explain",
+          "marks": 6
+        },
+        {
+          "paper": "CSC662-2022-02",
+          "q": "QA8b",
+          "text": "Explain THREE (3) mechanisms to be used to minimize the effects of XSS attacks.",
+          "topic": "attacks/malware",
+          "task": "Explain",
+          "marks": 6
+        }
+      ],
+      "low_style_confidence": false,
+      "dependent": false,
+      "dependent_on": "",
+      "note": "style n=12"
+    },
+    {
+      "slot": "B1a",
+      "marks": 5,
+      "kind": "theory",
+      "question": "B1",
+      "part": "B",
+      "topic": "access control models",
+      "task": "Explain",
+      "computed_type": "",
+      "target": "",
+      "acm_scope": "",
+      "style_n": 4,
+      "style_n_widened": 4,
+      "style_mode": "exact",
+      "style_examples": [
+        {
+          "paper": "CSC662-2014-12",
+          "q": "Q3b",
+          "text": "b) Explain the authentication and authorization process that relate to reference monitor. @ Hak Cipta Universiti Teknologi MARA (5 marks)",
+          "topic": "access control models",
+          "task": "Explain",
+          "marks": 5
+        },
+        {
+          "paper": "CSC662-2019-12",
+          "q": "QB1b",
+          "text": "Using the above entities, explain how operating systems, Windows or UNIXalike, grant the access control.",
+          "topic": "access control models",
+          "task": "Explain",
+          "marks": 5
+        },
+        {
+          "paper": "CSC662-2023-02",
+          "q": "QB1a",
+          "text": "Explain how Ali can accomplish this access control policy in Windows operating system.",
+          "topic": "access control models",
+          "task": "Explain",
+          "marks": 5
+        },
+        {
+          "paper": "CSC662-2023-02",
+          "q": "QB1b",
+          "text": "Explain how Ali can accomplish this access control policy in UNIX/Linux operating system.",
+          "topic": "access control models",
+          "task": "Explain",
+          "marks": 5
+        }
+      ],
+      "low_style_confidence": false,
+      "dependent": false,
+      "dependent_on": "",
+      "note": "style n=4"
+    },
+    {
+      "slot": "B1b",
+      "marks": 5,
+      "kind": "theory",
+      "question": "B1",
+      "part": "B",
+      "topic": "access control models",
+      "task": "State",
+      "computed_type": "",
+      "target": "",
+      "acm_scope": "",
+      "style_n": 3,
+      "style_n_widened": 3,
+      "style_mode": "exact",
+      "style_examples": [
+        {
+          "paper": "CSC662-2019-06",
+          "q": "QB1a",
+          "text": "Based on the above report, from computer security perspective, Identify the formal security model mentioned by YAB Tun Dr Mahathir bin Mohamad. Describe TWO (2) scenarios from the above adicle to support your answer. (5 marks)",
+          "topic": "access control models",
+          "task": "State",
+          "marks": 5
+        },
+        {
+          "paper": "CSC662-2019-12",
+          "q": "QB2a",
+          "text": "Identify the subject(s), object(s) and operation(s).",
+          "topic": "access control models",
+          "task": "State",
+          "marks": 5
+        },
+        {
+          "paper": "CSC662-2019-12",
+          "q": "QB2b",
+          "text": "Identify and draw the access control structure model that you will be use.",
+          "topic": "access control models",
+          "task": "State",
+          "marks": 5
+        }
+      ],
+      "low_style_confidence": false,
+      "dependent": false,
+      "dependent_on": "",
+      "note": "style n=3"
+    },
+    {
+      "slot": "B2a",
+      "marks": 5,
+      "kind": "theory",
+      "question": "B2",
+      "part": "B",
+      "topic": "trusted computing/blockchain",
+      "task": "Explain",
+      "computed_type": "",
+      "target": "",
+      "acm_scope": "",
+      "style_n": 0,
+      "style_n_widened": 3,
+      "style_mode": "topic+marks (any command)",
+      "style_examples": [
+        {
+          "paper": "CSC662-2024-07",
+          "q": "QB2a",
+          "text": "Public blockchain.",
+          "topic": "trusted computing/blockchain",
+          "task": "Other",
+          "marks": 5
+        },
+        {
+          "paper": "CSC662-2024-07",
+          "q": "QB2b",
+          "text": "Private blockchain.",
+          "topic": "trusted computing/blockchain",
+          "task": "Other",
+          "marks": 5
+        },
+        {
+          "paper": "CSC662-2025-07",
+          "q": "QC2",
+          "text": "The U.S. Postal Service is exploring ways to modemize its services using blockchain technology. One proposal suggests launching a Postcoin platform to improve intemational money transfer services.",
+          "topic": "trusted computing/blockchain",
+          "task": "Other",
+          "marks": 5
+        }
+      ],
+      "low_style_confidence": true,
+      "dependent": false,
+      "dependent_on": "",
+      "note": "style n=0; widened to topic+marks (any command); low style confidence"
+    },
+    {
+      "slot": "B2b",
+      "marks": 5,
+      "kind": "theory",
+      "question": "B2",
+      "part": "B",
+      "topic": "trusted computing/blockchain",
+      "task": "Discuss",
+      "computed_type": "",
+      "target": "",
+      "acm_scope": "",
+      "style_n": 0,
+      "style_n_widened": 3,
+      "style_mode": "topic+marks (any command)",
+      "style_examples": [
+        {
+          "paper": "CSC662-2024-07",
+          "q": "QB2a",
+          "text": "Public blockchain.",
+          "topic": "trusted computing/blockchain",
+          "task": "Other",
+          "marks": 5
+        },
+        {
+          "paper": "CSC662-2024-07",
+          "q": "QB2b",
+          "text": "Private blockchain.",
+          "topic": "trusted computing/blockchain",
+          "task": "Other",
+          "marks": 5
+        },
+        {
+          "paper": "CSC662-2025-07",
+          "q": "QC2",
+          "text": "The U.S. Postal Service is exploring ways to modemize its services using blockchain technology. One proposal suggests launching a Postcoin platform to improve intemational money transfer services.",
+          "topic": "trusted computing/blockchain",
+          "task": "Other",
+          "marks": 5
+        }
+      ],
+      "low_style_confidence": true,
+      "dependent": false,
+      "dependent_on": "",
+      "note": "style n=0; widened to topic+marks (any command); low style confidence"
+    }
+  ],
+  "calibration": [
+    {
+      "kind": "caesar",
+      "marks": "2",
+      "n": 1,
+      "length_range": "not printed (word)",
+      "key": "shift 4",
+      "steps": "word length",
+      "note": "n=1 at 2m; widened 2-6m gives n=4, lengths 11-24"
+    },
+    {
+      "kind": "caesar",
+      "marks": "6",
+      "n": 2,
+      "length_range": "11-38",
+      "key": "shift 7/18",
+      "steps": "11-38 mappings",
+      "note": "n=2 at 6m; widened 4-6m gives n=3, lengths 11-38"
+    },
+    {
+      "kind": "vigenere",
+      "marks": "6",
+      "n": 1,
+      "length_range": "13",
+      "key": "table/keyword",
+      "steps": "13 table lookups",
+      "note": "n=1 at 6m; widened 3-10m gives n=3, lengths 13-18"
+    },
+    {
+      "kind": "columnar_3x4",
+      "marks": "2-6",
+      "n": 3,
+      "length_range": "21-30",
+      "key": "4-5 columns / keyword",
+      "steps": "columns + rows",
+      "note": "slide 3x4 demo is 12 cells; real examples are 21-30 letters"
+    },
+    {
+      "kind": "columnar_keyword",
+      "marks": "6",
+      "n": 1,
+      "length_range": "21-30",
+      "key": "keyword (4-6 letters)",
+      "steps": "columns + rows",
+      "note": "n=1 at 6m; widened 2-6m gives n=3"
+    },
+    {
+      "kind": "rail_fence",
+      "marks": "6",
+      "n": 3,
+      "length_range": "21-34",
+      "key": "3-4 rails",
+      "steps": "zigzag rows + read",
+      "note": "n=3 at 6m (2012, 2013, 2018)"
+    },
+    {
+      "kind": "otp",
+      "marks": "6",
+      "n": 1,
+      "length_range": "12-13",
+      "key": "12 key numbers/letters",
+      "steps": "12 modular additions",
+      "note": "n=1 at 6m; widened 5-6m gives n=2; still thin, keep lengths 12-13. 26-letter alphabet is verified against DEC 2019; slide 17 is inconsistent"
+    },
+    {
+      "kind": "acm",
+      "marks": "6",
+      "n": 1,
+      "length_range": "4 users x 3 objects",
+      "key": "matrix only",
+      "steps": "12 matrix cells",
+      "note": "6m = matrix only; 9m = matrix + ACL + CL (2015-06, 2016-12)"
+    },
+    {
+      "kind": "playfair",
+      "marks": "6",
+      "n": 1,
+      "length_range": "10",
+      "key": "key REDFOX (6)",
+      "steps": "5 pairs",
+      "note": "older style only; no current lecture slide"
+    },
+    {
+      "kind": "affine",
+      "marks": "6",
+      "n": 1,
+      "length_range": "13",
+      "key": "key (17,20)",
+      "steps": "13 inverse operations",
+      "note": "older style only; no current lecture slide"
+    }
+  ]
+}
