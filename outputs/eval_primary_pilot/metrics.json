@@ -1,0 +1,62 @@
+[
+  {
+    "seed": 1,
+    "computed_marks": 0,
+    "computed_distribution": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      6,
+      6,
+      12,
+      14
+    ],
+    "theory_slots": 24,
+    "accepted": 24,
+    "placeholders": 0,
+    "placeholder_rate": 0.0,
+    "attempts_total": 16,
+    "total_draft_attempts": 28,
+    "attempts_avg": 1.33,
+    "attempts_max": 2,
+    "attempts_gt3": 0,
+    "point_retry_calls": 49,
+    "source_overlap_keys": 0,
+    "source_overlap_rate": 0.0,
+    "overlap_slot_count": 0,
+    "overlap_details": {},
+    "max_near_copy": 0.6961,
+    "low_term_overlap_points": 15,
+    "low_overlap_rate": 0.15,
+    "scenario_count": 2,
+    "scenario_sampled": 1,
+    "planned_topic_mix": {
+      "software/OS security": 8,
+      "attacks/malware": 24,
+      "network security": 8,
+      "access control models": 18,
+      "trusted computing/blockchain": 8,
+      "authentication/biometrics": 16,
+      "risk/management (ethics)": 18
+    },
+    "actual_topic_mix": {
+      "attacks/malware": 24,
+      "software/OS security": 8,
+      "network security": 8,
+      "access control models": 18,
+      "trusted computing/blockchain": 8,
+      "authentication/biometrics": 16,
+      "risk/management (ethics)": 18
+    },
+    "deck_topic_violations": [],
+    "cost_usd": 0.073374,
+    "calls": 77,
+    "tokens": 205215,
+    "placeholder_slots": [],
+    "model": "deepseek-v4.1-flash-1017",
+    "groups": 12
+  }
+]

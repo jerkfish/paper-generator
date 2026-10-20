@@ -1,0 +1,63 @@
+<div id="job"
+     {% if job.running %}hx-get="/jobs/{{ job.id }}" hx-trigger="every 1s" hx-swap="outerHTML"{% endif %}>
+  <div class="jobhead">
+    <div>
+      <div class="status {{ job.status }}">{{ job.status|upper }}</div>
+      <div class="muted">{{ job.message }}</div>
+    </div>
+    {% if job.running %}
+    <button class="danger" type="button"
+            hx-post="/jobs/{{ job.id }}/cancel"
+            hx-target="#job" hx-swap="outerHTML">Cancel</button>
+    {% endif %}
+  </div>
+
+  <div class="metrics">
+    <div class="metric">seed <b>{{ job.seed }}</b></div>
+    <div class="metric">mode <b>{{ job.mode }}</b></div>
+    <div class="metric">run cost <b>${{ "%.4f"|format(job.cost_usd) }}</b></div>
+    <div class="metric">accepted <b>{{ job.accepted }}</b></div>
+    <div class="metric">placeholders <b>{{ job.placeholders }}</b></div>
+    {% if job.cached %}
+      <div class="metric"><b>cache hit</b> · no LLM call</div>
+      <div class="metric">generation cost <b>${{ "%.4f"|format(job.summary.cost_usd|default(0)) }}</b></div>
+    {% endif %}
+  </div>
+
+  <div class="qgrid">
+    {% for q in job.questions %}
+    <div class="q {{ q.status }}">
+      <b>{{ q.name }}</b>
+      <span>{{ q.status }}</span>
+      {% if q.slot and q.slot != q.name %}<span class="muted">· {{ q.slot }}</span>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+
+  {% if job.status == "done" %}
+    <div class="downloads">
+      {% if job.files.paper_docx %}<a href="/downloads/{{ job.id }}/paper_docx">Paper DOCX</a>{% endif %}
+      {% if job.files.paper_pdf %}<a href="/downloads/{{ job.id }}/paper_pdf">Paper PDF</a>{% endif %}
+      {% if job.files.scheme_docx %}<a href="/downloads/{{ job.id }}/scheme_docx">Scheme DOCX</a>{% endif %}
+      {% if job.files.scheme_pdf %}<a href="/downloads/{{ job.id }}/scheme_pdf">Scheme PDF</a>{% endif %}
+    </div>
+    {% if not job.files.paper_pdf %}
+      <p class="hint">PDF export is unavailable on this machine; use the DOCX
+        links. The job did not fail.</p>
+    {% endif %}
+    <p class="hint">
+      Slots filled: {{ job.summary.accepted|default(job.accepted) }};
+      placeholders: {{ job.summary.placeholders|default(job.placeholders) }};
+      model: {{ job.summary.model|default(job.model) }};
+      estimated cost: ${{ "%.4f"|format(job.summary.cost_usd|default(job.cost_usd)) }}.
+    </p>
+  {% endif %}
+
+  {% if job.status == "cost_capped" %}
+    <p class="hint">The run was stopped by the per-run cost cap. Lower the
+      requested work, use a cached seed, or raise MOCKGEN_COST_CAP_USD.</p>
+  {% endif %}
+  {% if job.error %}
+    <div class="errorbox">{{ job.error }}</div>
+  {% endif %}
+</div>

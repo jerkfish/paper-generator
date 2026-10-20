@@ -37,6 +37,8 @@ DOT_BIN = r"C:\Program Files\Graphviz\bin\dot.exe"
 
 REF_CODE_OLD = "CS/FEB   2026/CSC662"
 REF_CODE_NEW = "CS/MOCK OCT 2026/CSC662"
+PART_A_HEADING = "PART A (80 MARKS)"
+PART_B_HEADING = "PART B (20 MARKS)"
 
 PLACEHOLDER = "[THEORY SLOT - {topic}, {marks} marks, {task}]"
 
@@ -258,6 +260,33 @@ def _pick(questions: list[dict], cipher: str, task: str, marks: int,
             if q["cipher"] == cipher and q["task"] == task and q["marks"] == marks][:n]
 
 
+def _columnar_3x4_question() -> dict:
+    """Q5b: a 3 x 4 columnar decrypt with the course's grid check in mind.
+    Code-only (no LLM): 10-letter plaintext pads to 12 cells with X, so the
+    scheme also demonstrates the padding convention. Marked computed in the
+    scheme; the 3 x 4 convention itself still needs lecturer confirmation."""
+    from src.generators import ciphers as C
+
+    plaintext = "LOGIN AUDIT"
+    rows, columns = 3, 4
+    ct = C.columnar_encrypt(plaintext, columns, rows=rows)
+    answer = C.columnar_decrypt(ct, columns, rows=rows)
+    return {
+        "cipher": "columnar",
+        "plaintext": plaintext,
+        "key": str(columns),
+        "rows": rows,
+        "task": "decrypt",
+        "marks": 6,
+        "question": ("Decrypt the following ciphertext using columnar "
+                     "transposition with a 3 x 4 grid (3 rows, 4 columns).\n"
+                     f"{ct}\n(6 marks)"),
+        "answer": answer,
+        "ciphertext": ct,
+        "working": "",
+    }
+
+
 def build_slots() -> dict:
     computed = json.loads((OUTPUTS_DIR / "computed_questions.json").read_text())
     acm = json.loads((OUTPUTS_DIR / "acm_questions.json").read_text())
@@ -268,24 +297,94 @@ def build_slots() -> dict:
         "Q4a": caesar2[1] if len(caesar2) >= 2 else None,
         "Q2b": cipher6[0] if len(cipher6) >= 1 else None,
         "Q4b": cipher6[1] if len(cipher6) >= 2 else None,
-        "Q5b": cipher6[2] if len(cipher6) >= 3 else None,
+        "Q5b": _columnar_3x4_question(),
         "Q3b": acm[0] if acm else None,
     }
 
 
-def _qtext(q: dict) -> str:
+def paper_question(q: dict, include_marks: bool = True) -> str:
+    """Paper-facing stem: state the key/table/grid/filler and the method in
+    the lecture's own wording. The raw LLM question is not used for the four
+    classical-cipher types, because it omitted those conventions."""
     marks = q.get("marks") or (q.get("scenario") or {}).get("marks") or 0
-    return q["question"].replace(f"({marks} marks)", "").strip()
+    tail = f"\n({marks} marks)" if include_marks else ""
+    cipher = q.get("cipher")
+    if cipher == "caesar":
+        shift = str(q.get("key", "")).split("=")[-1].strip()
+        direction = "left" if q.get("task") == "decrypt" else "right"
+        action = "decrypt the following ciphertext" if q.get("task") == "decrypt" \
+            else "encrypt the following plaintext"
+        return (f"Using Caesar Cipher technique, {action} with a shift of "
+                f"{shift} (replace each letter with the one {shift} positions "
+                f"to the {direction}).\n{q['ciphertext'] if q.get('task') == 'decrypt' else q['plaintext']}{tail}")
+    if cipher == "playfair":
+        action = ("Decrypt the ciphertext below" if q.get("task") == "decrypt"
+                  else "Encrypt the message below")
+        value = q.get("ciphertext") if q.get("task") == "decrypt" else q.get("plaintext")
+        return (f"{action} using Playfair encryption with the key {q['key']}. "
+                f"Use a 5 x 5 grid, merge I and J, and use X as the filler "
+                f"between repeated letters and at the end if needed.\n"
+                f"{value}{tail}")
+    if cipher == "columnar":
+        key = q.get("key")
+        rows = q.get("rows")
+        if isinstance(key, str) and key.strip().isdigit():
+            cols = int(key.strip())
+            key_text = f"the column size, {cols}"
+        elif key:
+            cols = len(re.sub(r"[^A-Za-z]", "", str(key)))
+            key_text = f"the keyword {key}"
+        else:
+            cols = None
+            key_text = "the stated grid"
+        if rows is None and cols:
+            letters = re.sub(r"[^A-Za-z]", "", q["ciphertext"])
+            rows = (len(letters) + cols - 1) // cols
+        grid = f"{rows} x {cols} matrix ({rows} rows, {cols} columns)"
+        return (f"Decrypt the following ciphertext using columnar "
+                f"transposition with a {grid}. Put the ciphertext into the "
+                f"columns, read the plaintext out of the rows, and ignore the "
+                f"filler X at the end. The key is {key_text}.\n"
+                f"{q['ciphertext']}{tail}")
+    if cipher == "vigenere":
+        return (f"Decrypt the following ciphertext using the Vigenere cipher "
+                f"with the key {q['key']}. Use the standard 26 x 26 Vigenere "
+                f"tableau, writing the key over the message and repeating it "
+                f"as necessary.\n{q['ciphertext']}{tail}")
+    if cipher == "affine":
+        return (f"Decrypt the following ciphertext using the affine cipher "
+                f"with key {q['key']}. Use E(x) = (a x + b) mod 26 and decrypt "
+                f"with the modular inverse of a.\n{q['ciphertext']}{tail}")
+    if cipher == "vernam":
+        merge = bool(q.get("ij_merge", False))
+        alphabet = "I/J-merged (25 letters)" if merge else "26 letters"
+        return (f"Decrypt the following ciphertext using a one-time pad with "
+                f"the key numbers {q['key']}. Subtract the key numbers modulo "
+                f"the {alphabet} alphabet, A=0.\n{q['ciphertext']}{tail}")
+    return q.get("question", "")
+
+
+def _qtext(q: dict) -> str:
+    return paper_question(q, include_marks=False).strip()
 
 
 def _ph(topic: str, marks: int, task: str) -> str:
     return PLACEHOLDER.format(topic=topic, marks=marks, task=task)
 
 
-def _acm_b_text(q: dict) -> str:
+def _acm_scenario_text(q: dict) -> str:
+    """Scenario/grants for the question paper. The matrix, ACLs, capability
+    lists and diagram are the ANSWER; the grants are the given data."""
     s = q["scenario"]
-    return (f"Assume a computer system with the accounts: {', '.join(s['users'])}. "
-            "Based on the scenario above, write the access control matrix (ACM), "
+    grants = []
+    for g in s["grants"]:
+        grants.append(f"{g['user']} can {', '.join(g['rights'])} {g['object']}")
+    return (f"Assume a computer system with the accounts: "
+            f"{', '.join(s['users'])}. " + "; ".join(grants) + ".")
+
+
+def _acm_b_text(q: dict) -> str:
+    return ("Based on the scenario above, write the access control matrix (ACM), "
             "the access control lists (ACL) and the capability lists (CL), and "
             "draw the diagram.")
 
@@ -300,7 +399,6 @@ def _acm_image(q: dict, out_dir: Path) -> str:
 def main() -> None:
     slots = build_slots()
     tmp = Path(tempfile.mkdtemp())
-    acm_img = _acm_image(slots["Q3b"], tmp) if slots["Q3b"] else ""
 
     doc = docx.Document(str(SRC))
     paras = doc.paragraphs
@@ -334,8 +432,9 @@ def main() -> None:
 
     pattern_a = [paras[i]._p for i in range(q1_idx, q2_idx)]
     pattern_b = [paras[i]._p for i in range(bq1_idx, bq2_idx)]
+    set_para_text(paras[part_a_idx]._p, PART_A_HEADING)
     part_b_heading = copy.deepcopy(paras[part_b_idx]._p)
-    set_para_text(part_b_heading, "PART B")
+    set_para_text(part_b_heading, PART_B_HEADING)
 
     # remove all real body content between the PART A heading and END
     body = doc.element.body
@@ -351,14 +450,17 @@ def main() -> None:
     for i in range(1, 11):
         key = f"Q{i}"
         a, b, am, bm, img = None, None, "2", "6", ""
+        scen = "Refer to the question items below."
         if i == 2:
             a = _qtext(slots["Q2a"]) if slots["Q2a"] else None
             b = _qtext(slots["Q2b"]) if slots["Q2b"] else None
         elif i == 3:
             a = _ph("access control models", 2, "short objective")
             if slots["Q3b"]:
+                # scenario text only - the diagram is the ANSWER and belongs in
+                # the marking scheme, not in the question paper
+                scen = _acm_scenario_text(slots["Q3b"])
                 b = _acm_b_text(slots["Q3b"])
-                img = acm_img
         elif i == 4:
             a = _qtext(slots["Q4a"]) if slots["Q4a"] else None
             b = _qtext(slots["Q4b"]) if slots["Q4b"] else None
@@ -367,8 +469,6 @@ def main() -> None:
             b = _qtext(slots["Q5b"]) if slots["Q5b"] else None
         a = a or _ph(topics[i], 2, "short objective")
         b = b or _ph(topics[i], 6, "define/explain")
-        scen = ("Based on the given scenario:" if i == 3 else
-                "Refer to the question items below.")
         new_a += clone_block(pattern_a, f"QUESTION {i}", scen, a,
                              f"({am} marks)", b, f"({bm} marks)",
                              a_numids[i - 1], img)
@@ -392,6 +492,17 @@ def main() -> None:
         if para_text(p._p).strip() == "IMAGE_PLACEHOLDER":
             set_para_text(p._p, "")
             p.add_run().add_picture(acm_img, width=Cm(11))
+
+    # the template leaves empty paragraphs after END; when the body fits on
+    # four pages they spill a blank fifth page. Drop trailing empties (keep
+    # any paragraph carrying a section break).
+    end_pos = next(i for i, p in enumerate(doc.paragraphs)
+                   if "END OF QUESTION PAPER" in para_text(p._p))
+    for p in list(doc.paragraphs[end_pos + 1:]):
+        if (not para_text(p._p).strip()
+                and p._p.find(".//" + qn("w:drawing")) is None
+                and p._p.find(".//" + qn("w:sectPr")) is None):
+            body.remove(p._p)
 
     # cover: ref code, artifacts, printed-pages count
     for p in doc.paragraphs:

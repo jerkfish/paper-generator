@@ -1,0 +1,30 @@
+{% if public %}
+  <p class="muted">Library is disabled in PUBLIC_BUILD. Only fresh generated
+    papers with generic branding are available.</p>
+{% elif not items %}
+  <p class="muted">No prebuilt papers yet. Run
+    <code>uv run python -m src.app.prebuild_library</code> to cache the
+    20-seed accepted sets. Generation still works with an API key.</p>
+{% else %}
+  <table>
+    <thead>
+      <tr><th>Seed</th><th>Accepted</th><th>Placeholders</th><th>Model</th><th>Files</th></tr>
+    </thead>
+    <tbody>
+      {% for item in items %}
+      <tr>
+        <td>{{ item.seed }}</td>
+        <td>{{ item.accepted }}</td>
+        <td>{{ item.placeholders }}</td>
+        <td class="muted">{{ item.model }}</td>
+        <td>
+          {% if item.files.paper_docx %}<a href="/library/{{ item.seed }}/paper_docx">paper.docx</a>{% endif %}
+          {% if item.files.paper_pdf %} · <a href="/library/{{ item.seed }}/paper_pdf">paper.pdf</a>{% endif %}
+          {% if item.files.scheme_docx %} · <a href="/library/{{ item.seed }}/scheme_docx">scheme.docx</a>{% endif %}
+          {% if item.files.scheme_pdf %} · <a href="/library/{{ item.seed }}/scheme_pdf">scheme.pdf</a>{% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endif %}

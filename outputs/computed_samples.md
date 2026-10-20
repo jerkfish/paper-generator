@@ -1,16 +1,32 @@
 # Computed sample questions - classical ciphers
 
-Drafted by the LLM (cipher/key/task/marks only, model qwen3.7-flash); plaintexts picked from the offline phrase bank (data/phrases.json, seeded). Ciphertext, answers and working are all computed by code.
+Drafted by the LLM (cipher/key/task/marks only, model qwen3.7-flash); plaintexts picked from the offline phrase bank (data/phrases.json, seeded). Ciphertext, answers and working are all computed by code. The question text below is the raw draft; the paper and scheme use `paper_question()` to add the key, grid, filler and fill/read order (see `slide_convention_report.md`).
 
-Conventions:
+Conventions (verified against `031 - Classical Cryptography.pptx`, 2026-10-19):
 
-- Playfair I/J merge + X padding: **convention unverified** (pending lecture-slide confirmation).
+- Playfair I/J merge + X padding: **convention unverified** - no lecture slide
+  covers Playfair.
 
-- Columnar explicit-rows grid (3 x 4 style): **convention unverified**.
+- Columnar explicit-rows grid (3 x 4 style): **verified** against slides
+  20-21 (ATTACK -> ACXTKXTXXAXX) and slide 24 (key MATH, 3 x 4 ->
+  TKXAXXACXTXX). Fill rows, read columns, pad X, ignore trailing X.
 
-- Encrypt-only answers: **convention unverified** (no official keys exist).
+- Caesar / Vigenere / rail fence: **verified** against slides 5-9, 15 and
+  25-26 respectively.
 
-- Decrypt answers: readable plaintext; solvers validated on real past papers (7 cases, see src/generators/validate_solvers.py).
+- OTP/Vernam: **unverified** - slide 17's table mixes a 25-letter I/J-merged
+  plaintext alphabet with 26-letter ciphertext letters and prints Q for 15;
+  both readings are listed in the slide-convention report.
+
+- Affine: **convention unverified** - no lecture slide.
+
+- Encrypt-only Playfair/affine answers: **convention unverified** (no
+  official keys exist). Caesar/Vigenere/columnar/rail-fence examples have
+  slide matches.
+
+- Decrypt answers: readable plaintext; solvers validated on real past papers
+  (7 cases, see src/generators/validate_solvers.py) and on the slide examples
+  in tests/test_ciphers.py.
 
 ## Question 1 (2 marks)
 

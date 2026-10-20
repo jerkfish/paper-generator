@@ -78,9 +78,15 @@ def test_columnar_numeric_vector():
 
 
 def test_columnar_explicit_rows_vector():
-    # slide vector: 3 x 4 grid, ATTACK, pad X -> ACXTKXTXXAXX
+    # lecture slides 20-21: 3 x 4 grid, ATTACK, pad X -> ACXTKXTXXAXX
     assert columnar_encrypt("ATTACK", 4, rows=3) == "ACXTKXTXXAXX"
     assert columnar_decrypt("ACXTKXTXXAXX", 4, rows=3) == "ATTACK"
+
+
+def test_columnar_keyword_explicit_rows_slide_24():
+    # lecture slide 24: key MATH, 3 x 4 grid, ATTACK -> TKXAXXACXTXX
+    assert columnar_encrypt("ATTACK", "MATH", rows=3) == "TKXAXXACXTXX"
+    assert columnar_decrypt("TKXAXXACXTXX", "MATH", rows=3) == "ATTACK"
 
 
 def test_columnar_keyword_vector():
@@ -112,6 +118,35 @@ def test_vernam_vector():
     assert vernam_encrypt("ATTACK", [3, 3, 3, 3, 3, 3]) == "DWWDFN"
     assert vernam_decrypt("DWWDFN", [3, 3, 3, 3, 3, 3]) == "ATTACK"
     assert vernam_encrypt("ATTACK", "DDDDDD") == "DWWDFN"
+
+
+def test_lecture_slide_caesar_examples():
+    # slides 5-6 and 9: ATTACK <-> DWWDFN with shift 3
+    assert caesar_encrypt("ATTACK", 3) == "DWWDFN"
+    assert caesar_decrypt("DWWDFN", 3) == "ATTACK"
+    assert caesar_decrypt("DWWDFN", 1) == "CVVCEM"
+    assert caesar_decrypt("DWWDFN", 2) == "BUUBDL"
+
+
+def test_lecture_slide_vigenere_example():
+    # slide 15: ATTACK with key UNITUEUN -> UGBTWO
+    assert vigenere_encrypt("ATTACK", "UNITUEUN") == "UGBTWO"
+    assert vigenere_decrypt("UGBTWO", "UNITUEUN") == "ATTACK"
+
+
+def test_lecture_slide_rail_fence_example():
+    # slides 25-26: ATTACK with 3 rails -> ACTAKT
+    assert railfence_encrypt("ATTACK", 3) == "ACTAKT"
+    assert railfence_decrypt("ACTAKT", 3) == "ATTACK"
+
+
+def test_lecture_slide_otp_example_is_inconsistent():
+    # slide 17 prints ATTACK, key 18 6 3 9 18 6, ciphertext SYVJUQ.
+    # The 26-letter reading gives SZWJUQ; the I/J-merged reading gives TZWKVQ.
+    # Neither reproduces the printed row, so OTP stays unverified.
+    assert vernam_encrypt("ATTACK", [18, 6, 3, 9, 18, 6]) == "SZWJUQ"
+    assert vernam_encrypt("ATTACK", [18, 6, 3, 9, 18, 6],
+                          ij_merge=True) == "TZWKVQ"
 
 
 def test_railfence_vector():

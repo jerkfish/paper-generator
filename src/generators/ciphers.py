@@ -15,9 +15,15 @@ CONVENTIONS (documented so marking schemes can state them explicitly):
     left-to-right (padding fills the last row).
   * keyword key    -> columns read in alphabetical rank order of the key
     letters (ties: leftmost first). Pad character default "X"; past papers
-    sometimes specify 'z' - the pad is a solver parameter.
-- OTP/Vernam: key = list of numbers, applied mod 26 to successive letters
-  (A=0). Letter keys are converted A..Z -> 0..25.
+    sometimes specify 'z' - the pad is a solver parameter. An explicit
+    `rows` value overrides the derived row count for both numeric and
+    keyword keys (lecture slide 24: key MATH, 3 x 4 grid).
+- OTP/Vernam: key = list of numbers, applied modulo the alphabet size to
+  successive letters. Default is the ordinary 26-letter alphabet (the real
+  DEC 2019 paper's convention). Lecture slide 17 is internally inconsistent:
+  its plaintext indices use the I/J-merged 25-letter alphabet, while its
+  ciphertext letters use the 26-letter alphabet; `ij_merge=True` exposes the
+  25-letter reading for comparison. OTP remains unverified.
 """
 from __future__ import annotations
 
@@ -25,6 +31,7 @@ import math
 import re
 
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+IJ_ALPHABET = "ABCDEFGHIKLMNOPQRSTUVWXYZ"  # 25 letters, I/J share a cell
 
 
 def clean(text: str) -> str:
@@ -187,7 +194,8 @@ def columnar_encrypt(plaintext: str, key: str | int, pad: str = "X",
         nrows = rows
     elif isinstance(key, str):
         order = _column_order(key)
-        n, nrows = len(order), math.ceil(len(p) / len(order))
+        n = len(order)
+        nrows = rows if rows is not None else math.ceil(len(p) / n)
     else:
         order = _column_order(int(key))
         n = len(order)
@@ -212,7 +220,8 @@ def columnar_decrypt(ciphertext: str, key: str | int, pad: str = "X",
         nrows = rows
     elif isinstance(key, str):
         order = _column_order(key)
-        n, nrows = len(order), math.ceil(len(c) / len(order))
+        n = len(order)
+        nrows = rows if rows is not None else math.ceil(len(c) / n)
     else:
         order = _column_order(int(key))
         n = len(order)
@@ -305,27 +314,58 @@ def railfence_decrypt(ciphertext: str, key: int) -> str:
     return "".join(out)
 
 
-def vernam_encrypt(plaintext: str, key: list[int] | str) -> str:
-    nums = _vernam_numbers(key)
+def _vernam_alphabet(ij_merge: bool) -> str:
+    return IJ_ALPHABET if ij_merge else ALPHABET
+
+
+def _vernam_clean(text: str, alphabet: str) -> str:
+    t = clean(text)
+    if alphabet == IJ_ALPHABET:
+        t = t.replace("J", "I")
+    return t
+
+
+def vernam_encrypt(plaintext: str, key: list[int] | str,
+                   ij_merge: bool = False) -> str:
+    """Add key numbers modulo the alphabet size.
+
+    Default is the ordinary 26-letter A=0 alphabet (DEC 2019 Q4b). The
+    lecture slide 17 table mixes conventions: its plaintext indices use the
+    25-letter I/J-merged alphabet (T=18, K=9), but its ciphertext letters
+    use the 26-letter alphabet (18=S, 24=Y, ..., 15=P printed as Q). No
+    single convention reproduces the printed row; `ij_merge=True` exposes
+    the 25-letter reading for comparison.
+    """
+    alphabet = _vernam_alphabet(ij_merge)
+    nums = _vernam_numbers(key, alphabet)
     out = []
-    for i, ch in enumerate(clean(plaintext)):
-        out.append(_shift_char(ch, nums[i % len(nums)] % 26))
+    for i, ch in enumerate(_vernam_clean(plaintext, alphabet)):
+        out.append(alphabet[(alphabet.index(ch) + nums[i % len(nums)])
+                            % len(alphabet)])
     return "".join(out)
 
 
-def vernam_decrypt(ciphertext: str, key: list[int] | str) -> str:
-    nums = _vernam_numbers(key)
+def vernam_decrypt(ciphertext: str, key: list[int] | str,
+                   ij_merge: bool = False) -> str:
+    alphabet = _vernam_alphabet(ij_merge)
+    nums = _vernam_numbers(key, alphabet)
     out = []
-    for i, ch in enumerate(clean(ciphertext)):
-        out.append(_shift_char(ch, -(nums[i % len(nums)] % 26)))
+    for i, ch in enumerate(_vernam_clean(ciphertext, alphabet)):
+        out.append(alphabet[(alphabet.index(ch) - nums[i % len(nums)])
+                            % len(alphabet)])
     return "".join(out)
 
 
-def _vernam_numbers(key: list[int] | str) -> list[int]:
+def _vernam_numbers(key: list[int] | str,
+                    alphabet: str = ALPHABET) -> list[int]:
     if isinstance(key, str):
         if not key.isalpha():
             raise ValueError("letter key must be A-Z")
-        return [ALPHABET.index(ch) for ch in clean(key)]
+        k = _vernam_clean(key, alphabet)
+        missing = [ch for ch in k if ch not in alphabet]
+        if missing:
+            raise ValueError(f"letter key not in alphabet: {missing}")
+        return [alphabet.index(ch) for ch in k]
     if not key or not all(isinstance(n, (int, float)) for n in key):
         raise ValueError("numeric key must be a non-empty list of numbers")
     return [int(n) for n in key]
@@ -333,24 +373,40 @@ def _vernam_numbers(key: list[int] | str) -> list[int]:
 
 SOLVER_CONVENTIONS = {
     "caesar": "A=0; shift k in 1..25; ciphertext letters are shifted k forward. "
-              "Decrypt = shift back by k.",
-    "vigenere": "Standard Vigenere tableau, A=0; key repeated over the message.",
+              "Decrypt = shift back by k. Matches lecture slides 5-9 "
+              "(ATTACK shift 3 -> DWWDFN; DWWDFN shift 3 -> ATTACK).",
+    "vigenere": "Standard 26 x 26 Vigenere tableau, A=0; key repeated over the "
+                "message. Matches lecture slide 15 (ATTACK + UNITUEUN -> "
+                "UGBTWO).",
     "playfair": "I and J share one cell (written I). Pad 'X' inserted between "
                 "doubled letters and to complete a final odd pair. Decryption "
-                "cannot remove padding reliably - readability is checked.",
+                "cannot remove padding reliably - readability is checked. "
+                "NO lecture slide covers Playfair; convention unverified.",
     "affine": "E(x)=(a*x+b) mod 26 with gcd(a,26)=1; decrypt uses the modular "
-              "inverse of a.",
+              "inverse of a. NO lecture slide covers affine; convention "
+              "unverified.",
     "columnar": "Numeric key = column count, read left-to-right. Keyword key = "
                 "columns read in alphabetical rank (ties: leftmost first). "
-                "Rows = ceil(len/columns) unless the paper states the matrix "
-                "size - '3 x 4' -> columns=4, rows=3; 'five (5) rows' -> "
-                "rows=5, columns derived (key=None). Pad character fills the "
-                "final row (default 'X'; papers also use 'z').",
+                "Rows = ceil(len/columns) unless a grid size is stated - "
+                "'3 x 4' -> columns=4, rows=3; an explicit rows value now "
+                "applies to keyword keys too (slide 24: key MATH, 3 x 4). "
+                "Fill rows, read columns; pad character fills the final row "
+                "(default 'X'; papers also use 'z'). Validated against "
+                "lecture slides 20-21 (ATTACK -> ACXTKXTXXAXX) and slide 24 "
+                "(key MATH, 3 rows -> TKXAXXACXTXX).",
     "single transposition": "Plaintext is written INTO columns in key-letter "
                             "order and read out row by row (columns displayed "
                             "sorted by key). Validated against APR 2010 Q13.",
-    "rail fence": "Zigzag across N rails, read rail by rail (slide vector: "
-                  "ATTACK with 3 rails -> ACTAKT).",
-    "vernam": "Key numbers applied mod 26 to successive letters (A=0). Letter "
-              "keys map A-Z to 0-25.",
+    "rail fence": "Zigzag across N rails, read rail by rail (lecture slides "
+                  "25-26: ATTACK with 3 rails -> ACTAKT).",
+    "vernam": "Key numbers applied modulo the alphabet size to successive "
+              "letters (A=0). Default is the ordinary 26-letter alphabet "
+              "(DEC 2019 Q4b). Lecture slide 17 is internally inconsistent: "
+              "its plaintext indices use the 25-letter I/J-merged alphabet "
+              "(T=18, K=9), its key letters H/E would be 7/4 but the table "
+              "prints 6/3, and its ciphertext letters use the 26-letter "
+              "alphabet (18=S, 24=Y, 21=V, 9=J, 20=U, 15=P printed as Q). "
+              "No single convention reproduces the printed row; OTP remains "
+              "unverified. Pass ij_merge=True to inspect the 25-letter "
+              "reading.",
 }
