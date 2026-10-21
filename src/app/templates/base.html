@@ -13,8 +13,7 @@
 <div class="nav">
   <a href="/">Subjects</a>
   {% for nav_subject in subjects %}
-    {% if nav_subject.available %}<a href="/{{ nav_subject.route }}">{{ nav_subject.code }}</a>
-    <a href="/{{ nav_subject.route }}/library">Library</a>{% endif %}
+    {% if nav_subject.available %}<a href="/{{ nav_subject.route }}">{{ nav_subject.code }}</a>{% endif %}
   {% endfor %}
   <a href="/gallery">Gallery</a>
 </div>
