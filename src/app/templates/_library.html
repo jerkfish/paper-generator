@@ -22,6 +22,7 @@
       <th data-sort="placeholders" aria-sort="none"><button type="button" class="sort" data-sort="placeholders" data-type="number">Place-<br>holders<span class="sort-mark"></span></button></th>
       <th data-sort="paper" aria-sort="none"><button type="button" class="sort" data-sort="paper">Paper<span class="sort-mark"></span></button></th>
       <th data-sort="scheme" aria-sort="none"><button type="button" class="sort" data-sort="scheme">Scheme<span class="sort-mark"></span></button></th>
+      {% if gallery_enabled|default(false) %}<th>Share</th>{% endif %}
     </tr>
     </thead>
     <tbody>
@@ -51,6 +52,12 @@
         {% if item.files.scheme_docx and item.files.scheme_pdf %} / {% endif %}
         {% if item.files.scheme_pdf %}<a href="{{ scheme_urls.get('scheme_pdf') or '/' ~ subject.route ~ '/library/' ~ item.seed ~ '/scheme_pdf' }}" title="{{ item.downloads.scheme_pdf }}">PDF</a>{% endif %}
       </td>
+      {% if gallery_enabled|default(false) %}
+      <td class="nowrap">
+        <button type="button" class="share" data-seed="{{ item.seed }}" data-mode="{{ item.mode }}">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      {% endif %}
     </tr>
     {% endfor %}
     </tbody>

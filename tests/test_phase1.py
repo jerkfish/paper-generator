@@ -304,3 +304,13 @@ def test_public_bundle_validation_rejects_private_branding(tmp_path):
     d.save(str(out / "bad.docx"))
     problems = validate(out)
     assert any("private branding" in p for p in problems)
+
+
+def test_gallery_page_uses_worker_api():
+    from fastapi.testclient import TestClient
+    client = TestClient(main.app)
+    html = client.get("/gallery").text
+    assert 'id="gallery-table"' in html
+    assert 'id="gallery-empty"' in html
+    assert "/static/gallery.js" in html
+    assert "auto-delete" in html or "deleted automatically" in html

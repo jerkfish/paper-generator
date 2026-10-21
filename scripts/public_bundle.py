@@ -31,6 +31,7 @@ STATIC_PATHS = (
     "assets/style.css",
     "assets/htmx.min.js",
     "assets/library.js",
+    "assets/gallery.js",
 )
 FORBIDDEN_PREFIXES = (
     "data/", "CSC662/", "outputs/", "tests/", "src/", "private/",

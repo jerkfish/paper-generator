@@ -167,6 +167,7 @@ def _render_pages(out: Path, items: list[dict]) -> dict:
         "static_bundle": True,
         "library_disabled": False,
         "generate_disabled": True,
+        "gallery_enabled": True,
         "asset_base": "/assets",
         "contact_email": config.CONTACT_EMAIL,
         "repo_url": config.REPO_URL,
@@ -206,9 +207,9 @@ def _render_pages(out: Path, items: list[dict]) -> dict:
     shutil.copy2(out / "gallery/index.html", out / "static/gallery-shell.html")
     assets = out / "assets"
     assets.mkdir(parents=True, exist_ok=True)
-    for name in ("style.css", "htmx.min.js", "library.js"):
+    for name in ("style.css", "htmx.min.js", "library.js", "gallery.js"):
         shutil.copy2(STATIC / name, assets / name)
-    return {"pages": len(pages) + 1, "assets": 3}
+    return {"pages": len(pages) + 1, "assets": 4}
 
 
 def _write_manifests(out: Path, items: list[dict]) -> dict:

@@ -42,6 +42,7 @@ def _context(request: Request, **extra) -> dict:
         "library_disabled": config.PUBLIC_BUILD,
         "generate_disabled": False,
         "static_bundle": False,
+        "gallery_enabled": False,
         "asset_base": "/static",
         "contact_email": config.CONTACT_EMAIL,
         "repo_url": config.REPO_URL,

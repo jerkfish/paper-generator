@@ -196,9 +196,8 @@ public-bundle allowlist is in `cloudflare/public_bundle_manifest.txt`.
 
 The public bundle uses per-subject folders
 (`library/CSC662/papers/`, `library/CSC662/schemes/`) and public-safe subject
-metadata. The built bundle is **95 files / 15.3 MB**; a first sync is 96 Class
-A operations (95 PUTs + 1 LIST). R2 access keys are read from `.env`; the
-upload remains a separate, explicit step.
+metadata. The built bundle is **96 files / 15.27 MB** and has been uploaded to
+R2. R2 access keys are read from `.env`.
 
 Free-tier compliance and the backup plan are documented in
 `cloudflare/R2_QUOTA_PLAN.md`; the minimal credential scopes are in
@@ -218,6 +217,30 @@ uv run --with boto3 python -m scripts.r2_sync \
 R2 configuration is read from the environment: `R2_ACCOUNT_ID`, `R2_BUCKET`
 (default `exampapers`), optional `R2_ENDPOINT`, `R2_ACCESS_KEY_ID`, and
 `R2_SECRET_ACCESS_KEY`. The bucket name is not a secret; access keys are.
+
+The built bundle has been uploaded to R2: **96 objects, 16,011,605 bytes**.
+
+## Cloudflare Worker and gallery
+
+The library-only Worker lives in `cloudflare/worker/`. It serves the static
+bundle from R2, exposes a D1-backed gallery, and copies PUBLIC_BUILD library
+files into `shared/<id>/` on share. There is no Python runtime and no LLM call.
+
+```bash
+cd cloudflare/worker
+bun test
+bun x wrangler d1 create papergen
+# put the returned database_id into wrangler.toml
+bun run db:migrate
+bun x wrangler r2 bucket lifecycle add exampapers expire-shared-7d shared/ --expire-days 7
+bun run deploy
+```
+
+The Worker config is `cloudflare/worker/wrangler.toml`; deployment requires a
+Cloudflare API token with Workers Scripts:Edit, D1:Edit, Workers R2 Storage:Read
+and Workers Routes:Edit (or `wrangler login`). The gallery is capped at 100
+active entries and entries expire after 7 days. See
+`cloudflare/worker/README.md`.
 
 ## Data required at runtime
 

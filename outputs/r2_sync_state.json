@@ -1,0 +1,487 @@
+{
+  "class_a": 103,
+  "class_b": 0,
+  "month": "2026-10",
+  "objects": {
+    "assets/gallery.js": {
+      "etag": "3396ccfa4b01d8617c0aa73edeaa41b3",
+      "sha256": "a8ff07c01a5ec4796196f55b9be67c4d5dd87e11cbd8eeac91e64300e3e9ed55",
+      "size": 3166
+    },
+    "assets/htmx.min.js": {
+      "etag": "19a573773be4ca22570ca2f8543120c5",
+      "sha256": "e209dda5c8235479f3166defc7750e1dbcd5a5c1808b7792fc2e6733768fb447",
+      "size": 50917
+    },
+    "assets/library.js": {
+      "etag": "0de04cf02bad1eb8c0874613d57694de",
+      "sha256": "95e601f66d6ec9c4e4c51a667d54e367d318a3d2638e0488f3dfbad43d3776b0",
+      "size": 6158
+    },
+    "assets/style.css": {
+      "etag": "8f8843f56b653c6286887298770037eb",
+      "sha256": "8467996144516696fbb03f6311b7439513f65f792202f9a8c836f309b5558571",
+      "size": 2217
+    },
+    "csc662/generate/index.html": {
+      "etag": "3b1fd60975e652394aa95124091c0870",
+      "sha256": "53baa0f8b9fcee1b9ea634d006716db6a3acbb32579e82262846e5638354ad56",
+      "size": 1635
+    },
+    "csc662/index.html": {
+      "etag": "906a49e58c6156520c876df45296b409",
+      "sha256": "914b6b37652c193b4d9da237f1e62817daf5be170dbdf39010ca8062fda97536",
+      "size": 3228
+    },
+    "csc662/library/index.html": {
+      "etag": "5b32b8cc26cc5cbbfe22ea58744672e2",
+      "sha256": "54d8a4e17dc4aa85d5db2f836f7c32125526974d4d680f0b208099727d729ef8",
+      "size": 39570
+    },
+    "gallery/index.html": {
+      "etag": "f663c1f14a3e55f1b99b98e16cd8f4d1",
+      "sha256": "780529eaaef4a98cf818fc40f1e7d6595605b851d82190b4a464b2af0bc0791d",
+      "size": 2419
+    },
+    "index.html": {
+      "etag": "72875cb50618f8f8b7a5e695e13b43d4",
+      "sha256": "e0651ac579467dae5460b1febc1342054b92389331ba4202a00621b5ec8f9f99",
+      "size": 2782
+    },
+    "library/CSC662/manifest.json": {
+      "etag": "3ec558dba13ee5c71b80fffb69f76fe0",
+      "sha256": "2bfcf6260d7003a95257a8fc1f6c5f9d6578ae79b2f0980fbb96397d4a2f96a3",
+      "size": 25881
+    },
+    "library/CSC662/papers/CSC662 Seed 01 2026.docx": {
+      "etag": "cd031c5d9933cf1d1f4dca8f67e3a01c",
+      "sha256": "e8a0cc3739d3f5a195b9f6fc44afecda495b3ec87e38c79d8614650cb1090521",
+      "size": 37556
+    },
+    "library/CSC662/papers/CSC662 Seed 01 2026.pdf": {
+      "etag": "a7ddd65220ded97a8404df3644253c01",
+      "sha256": "940fbd18a95140adaf2425f7268b122aec1ac4384148f53ab50d1896c1263ce4",
+      "size": 173478
+    },
+    "library/CSC662/papers/CSC662 Seed 02 2026.docx": {
+      "etag": "0ec7f2363cb6016d57d77a995fb1966b",
+      "sha256": "14efbfbdb71fee5b450b914eb88ff616715842216764f8113d7db3362fce698f",
+      "size": 37510
+    },
+    "library/CSC662/papers/CSC662 Seed 02 2026.pdf": {
+      "etag": "6588faf9915548976f35a688bfed22a8",
+      "sha256": "a0b17b833486e0447c8027d8c993b50d2d735a2c4ff7e78a97d969b118fc5ca5",
+      "size": 173702
+    },
+    "library/CSC662/papers/CSC662 Seed 03 2026.docx": {
+      "etag": "d2408347555a8d8f738ed9c6294857c3",
+      "sha256": "4f45178c008b5893a3a10a2887e63c99d00b140a13002d21c92d3d9e3d7275f6",
+      "size": 37309
+    },
+    "library/CSC662/papers/CSC662 Seed 03 2026.pdf": {
+      "etag": "c1d92f84bfd5263b1a8f597635f7e5ae",
+      "sha256": "bf35a706cba9c6729a1b4ceea300afdc1b4b9347fd748d5e0e9698d717dd8ef1",
+      "size": 172129
+    },
+    "library/CSC662/papers/CSC662 Seed 04 2026.docx": {
+      "etag": "ce61104b2a9e1c49e22700cf6e94d059",
+      "sha256": "32278895f540d7e28e437c1dc851a173971beaa471e127e237f70d8acb170391",
+      "size": 37540
+    },
+    "library/CSC662/papers/CSC662 Seed 04 2026.pdf": {
+      "etag": "778ef2a148388f920c5002f2e51e432e",
+      "sha256": "6f4d158b13b39891bf994f72ac7b73f0e20056cdb63cb645e0ea658183682246",
+      "size": 173256
+    },
+    "library/CSC662/papers/CSC662 Seed 05 2026.docx": {
+      "etag": "42612b1a333e6a1fbf6d284396c773a8",
+      "sha256": "2e330d618c3121d8f922e4da4a07c7cf7efc8fde3021a999d7a90f61471caf6e",
+      "size": 194247
+    },
+    "library/CSC662/papers/CSC662 Seed 05 2026.pdf": {
+      "etag": "b22997d7f8801ba5be6997240edb922d",
+      "sha256": "b1eea5f8a11ad19b983dc0a3e9321fd2c3e5b5e13761076017d304632fcd4130",
+      "size": 356650
+    },
+    "library/CSC662/papers/CSC662 Seed 06 2026.docx": {
+      "etag": "a01a083bf8b0af7252e79c6d8d52bdc0",
+      "sha256": "9ea30998cc2a6bbccdb8835539f2d51a310fe7ee033ad32ea3db0317bd473a43",
+      "size": 194585
+    },
+    "library/CSC662/papers/CSC662 Seed 06 2026.pdf": {
+      "etag": "ee43cb89ea5f56de637a9f5276299865",
+      "sha256": "e8b9765a233aaab234292451549dffc4fae5a4372d5d7f4cc2b437d8d17e5343",
+      "size": 357629
+    },
+    "library/CSC662/papers/CSC662 Seed 07 2026.docx": {
+      "etag": "90f83deacd316bb27b42109e7f89b39b",
+      "sha256": "937ec27a4511e19f2c62e0e4f96134f4c417179368717dc80a952e9929b8c6ba",
+      "size": 37790
+    },
+    "library/CSC662/papers/CSC662 Seed 07 2026.pdf": {
+      "etag": "9d43a98432ee481f859df0f4be3b2f31",
+      "sha256": "908e21230d0703bd9ffd68cbed209a7a6101c3999d53c5fdc063711d7e47cfe5",
+      "size": 174041
+    },
+    "library/CSC662/papers/CSC662 Seed 08 2026.docx": {
+      "etag": "9633ee3b7ca913b9e441d21773cabc82",
+      "sha256": "7d73b7f872345f41961ca7d5cc25ebd1140cfee1862b6cc5f430fa707c818c0a",
+      "size": 37762
+    },
+    "library/CSC662/papers/CSC662 Seed 08 2026.pdf": {
+      "etag": "f0d816adb3a8ff1801b2041f3f6f7893",
+      "sha256": "0ee4078d71b2998b1d99f63213e4a42d725a66f9b2eaed5d6e3647b6cdfd76ce",
+      "size": 173729
+    },
+    "library/CSC662/papers/CSC662 Seed 09 2026.docx": {
+      "etag": "a74e9f9f2f6b636029f0d6fec39051de",
+      "sha256": "985c4ea6e38b4b8135b01ec5dac60cd85d51ae3d43070158d52dc6b3db02ddc8",
+      "size": 193992
+    },
+    "library/CSC662/papers/CSC662 Seed 09 2026.pdf": {
+      "etag": "4076c5fecb36f9ce445cd442aadbae3f",
+      "sha256": "75d42b1a7802b7d4ef0c23c1d6236bb7e4485f7d04699cfbb90023e03106bbe4",
+      "size": 355499
+    },
+    "library/CSC662/papers/CSC662 Seed 10 2026.docx": {
+      "etag": "04a2ba5a3243fff4fa68c21e47c1b7df",
+      "sha256": "dde0a1682351fc872bee93dfb8296d5c6f0d3435d358d17492b3d4169860ddab",
+      "size": 194187
+    },
+    "library/CSC662/papers/CSC662 Seed 10 2026.pdf": {
+      "etag": "9de8dceec8c37373f58bf83b78c428dd",
+      "sha256": "bf04e0113611387318768df868c15fc6a068759701d1a74e5bb44e8e855f0a3b",
+      "size": 356849
+    },
+    "library/CSC662/papers/CSC662 Seed 11 2026.docx": {
+      "etag": "56c116c15e7156d6156addebff346d22",
+      "sha256": "e86013f086a1abca8a34cfa7f5724b4b6ea78ab93940b5d8a33d52d45bf1414e",
+      "size": 194038
+    },
+    "library/CSC662/papers/CSC662 Seed 11 2026.pdf": {
+      "etag": "4be9efd1b13623d9cf7a14583431b88c",
+      "sha256": "15f4cc65e41eee117396beeb60109f949fa27139659a10e23abe42e532957549",
+      "size": 354815
+    },
+    "library/CSC662/papers/CSC662 Seed 12 2026.docx": {
+      "etag": "da75d08fc388607b87e8e50e0592cf03",
+      "sha256": "7665aca2cfccd1e8260226ead41863edcef2ae709c219677359997c0a98240cc",
+      "size": 194520
+    },
+    "library/CSC662/papers/CSC662 Seed 12 2026.pdf": {
+      "etag": "a7a5928cad08013b291ec891a741edb9",
+      "sha256": "dc7622f6b302d9141bc8eab42989d009170a8bee3643f0c294fe2b7571bc91c8",
+      "size": 356799
+    },
+    "library/CSC662/papers/CSC662 Seed 13 2026.docx": {
+      "etag": "9a28a1a26507b9f00d04d72a4847e39d",
+      "sha256": "a99534fe2fe4e56a764123d70684c1142aa159beda7730ceb1ea6a4e65ce1cef",
+      "size": 37265
+    },
+    "library/CSC662/papers/CSC662 Seed 13 2026.pdf": {
+      "etag": "4546f50aa287eca4cf1dec457c1442e9",
+      "sha256": "925cb5c60e1dde522939b87de50a5baca3a637874831d77bc97e414796651a48",
+      "size": 172299
+    },
+    "library/CSC662/papers/CSC662 Seed 14 2026.docx": {
+      "etag": "c0c61f300b2b1c4071913d806b87524e",
+      "sha256": "edc285b116a20aa824c7b9d4d50e46c62859ca8ab8b277bded79aad833910ebd",
+      "size": 37772
+    },
+    "library/CSC662/papers/CSC662 Seed 14 2026.pdf": {
+      "etag": "5f9cd944e0d1e01af72a770f1d5189f0",
+      "sha256": "6a4b8047283252f12d1cf14044aa46afba1169ce6c1d04203d86d8b0d03098b0",
+      "size": 173935
+    },
+    "library/CSC662/papers/CSC662 Seed 15 2026.docx": {
+      "etag": "d1110d5011ee05c7d0e75d48e902ba5c",
+      "sha256": "a6de814136dd793ba133502b85782318c6cbe679dabb8c0a0ca132f1393f580c",
+      "size": 37441
+    },
+    "library/CSC662/papers/CSC662 Seed 15 2026.pdf": {
+      "etag": "ce9c56c6d21bdbefcdae69490b451555",
+      "sha256": "2942eeb56305f58a9c45b00348117d992fd71e71ef50c2b5f4602513e8a6e908",
+      "size": 172985
+    },
+    "library/CSC662/papers/CSC662 Seed 16 2026.docx": {
+      "etag": "23e0c9fa21fd96e54b97971c778ab0da",
+      "sha256": "ce80944cd80c4891b74b9cd7e017f5bfc9d754bb4197b881679ab2d718c5ffb4",
+      "size": 37598
+    },
+    "library/CSC662/papers/CSC662 Seed 16 2026.pdf": {
+      "etag": "2f442274d58bfa8156e5bc5fc5a3d180",
+      "sha256": "c45c5b99a6060736fcf1e99593935eed235013427517434099420a7de9526af7",
+      "size": 173804
+    },
+    "library/CSC662/papers/CSC662 Seed 17 2026.docx": {
+      "etag": "67aaff74fe824c88484f5fe2c4f40f69",
+      "sha256": "0748480bac885037ad940f8d41ba56f2787832b28f2aa5bf6d954533ccbc519e",
+      "size": 194122
+    },
+    "library/CSC662/papers/CSC662 Seed 17 2026.pdf": {
+      "etag": "c2012337cb8614aba07ae1e0ccb9c839",
+      "sha256": "b2a476086950175c1e4ee15ab005a822352ae873dce0c94f0289261e47516f29",
+      "size": 355876
+    },
+    "library/CSC662/papers/CSC662 Seed 18 2026.docx": {
+      "etag": "3d3522febe77cf9c1818b8fe37c5cb3b",
+      "sha256": "3442c226cd33c74f971653625ade08d706b3c2b3794199f16411ddd6772c494d",
+      "size": 37422
+    },
+    "library/CSC662/papers/CSC662 Seed 18 2026.pdf": {
+      "etag": "68cd2cdf8eb8a7ba01561378119555a0",
+      "sha256": "d479603676f5cdb781f2ae5598d94fc6a89d30f1d73b589f0132f851c6b26bc3",
+      "size": 172272
+    },
+    "library/CSC662/papers/CSC662 Seed 19 2026.docx": {
+      "etag": "eac6d8f1ec69b0634664cb5c8141d1e0",
+      "sha256": "5e94394ad7f7a4d0467bae4cc7e9a9b5ccba7ed9a36c8c8cb37c90c1f67a1211",
+      "size": 37538
+    },
+    "library/CSC662/papers/CSC662 Seed 19 2026.pdf": {
+      "etag": "423d91816d530aa5ef3cd17fe8255b41",
+      "sha256": "d5790b0bd7b6a20be8a59e79b256c0bddda4f047edfb4b5d44149dc1d9e32ef3",
+      "size": 172482
+    },
+    "library/CSC662/papers/CSC662 Seed 20 2026.docx": {
+      "etag": "9d134c2eac8851937c313aa0490d9907",
+      "sha256": "3dfad2bd3cd4c60e6d5a5340b6967122382ace26aa5ae85d4c2f00928e0ba026",
+      "size": 37456
+    },
+    "library/CSC662/papers/CSC662 Seed 20 2026.pdf": {
+      "etag": "5fb97cf3397e92bf6d549a64993ae6f1",
+      "sha256": "f0343e7ce958a1a29a2019795b098a6aa2873e2ab7767030d5d84b4ed3e9eddd",
+      "size": 173157
+    },
+    "library/CSC662/schemes/CSC662 Seed 01 2026 - Marking Scheme.docx": {
+      "etag": "efd223587603b6475ef581ebf95baee8",
+      "sha256": "ca470357094370d1f276482aa5b725480b0ad591b09e6fa8eae06c2e27933443",
+      "size": 47750
+    },
+    "library/CSC662/schemes/CSC662 Seed 01 2026 - Marking Scheme.pdf": {
+      "etag": "86fc66da894b463249ab17daab3e723f",
+      "sha256": "6cac9e3e2497b20e258bc8ce8e7cf3cdf58117991239181c8aae50ca090727d7",
+      "size": 352700
+    },
+    "library/CSC662/schemes/CSC662 Seed 02 2026 - Marking Scheme.docx": {
+      "etag": "2aa6bb3d96aeb416005448651dc9c5bf",
+      "sha256": "c575fd502420d97881bbf5a64117ec65e6c28081f51212e27d947f7f9b5f3cca",
+      "size": 47644
+    },
+    "library/CSC662/schemes/CSC662 Seed 02 2026 - Marking Scheme.pdf": {
+      "etag": "ed2a298a636f2f62995d3071db8c7f08",
+      "sha256": "084d4db95105f53c087b74f9c44971dbed2d5d292f06ea37f51dc4eff1c08acc",
+      "size": 347553
+    },
+    "library/CSC662/schemes/CSC662 Seed 03 2026 - Marking Scheme.docx": {
+      "etag": "57b2ad346b124fb91f29553bfae0323b",
+      "sha256": "768be76a8eeec63bdfd774f4e462043dae7d1a576253b9e484001573f372fad5",
+      "size": 47689
+    },
+    "library/CSC662/schemes/CSC662 Seed 03 2026 - Marking Scheme.pdf": {
+      "etag": "5e568ec923295527217915df20af149a",
+      "sha256": "6698517d236eb3b2c898df327e956530e4362992716558ef23567f099487ee21",
+      "size": 352243
+    },
+    "library/CSC662/schemes/CSC662 Seed 04 2026 - Marking Scheme.docx": {
+      "etag": "ed3a820d8edd8a1d05be7ab78238a754",
+      "sha256": "9b01034f95d6b9e43183e4fb43140978e71fe11121b138b82522c50ae7b42941",
+      "size": 47563
+    },
+    "library/CSC662/schemes/CSC662 Seed 04 2026 - Marking Scheme.pdf": {
+      "etag": "29643aa2b653099eedd00efb99517902",
+      "sha256": "31e409efeb70b449186cb9923bd69c8f3aae5e47a47574dbc8f4fe1747836eb1",
+      "size": 354136
+    },
+    "library/CSC662/schemes/CSC662 Seed 05 2026 - Marking Scheme.docx": {
+      "etag": "5c545486eb572928fbb07c4c49a7d70b",
+      "sha256": "2f521b50825e1ec3b5f9c9e17fa347ceb0c527ba2fdb6c1836853b9a964d2546",
+      "size": 204098
+    },
+    "library/CSC662/schemes/CSC662 Seed 05 2026 - Marking Scheme.pdf": {
+      "etag": "fb263fead8078675a28f26b0f609a9a5",
+      "sha256": "7d1493418539b973c1f5976b7da6326e259792985a58909b4131eeb3dae18eda",
+      "size": 375471
+    },
+    "library/CSC662/schemes/CSC662 Seed 06 2026 - Marking Scheme.docx": {
+      "etag": "8ece3725823ce3a9fa4d7f1034977029",
+      "sha256": "52ce7f6a2a0634e7cd49a093e5e294c897e30dfbdc822f2b5a977a0132445dc0",
+      "size": 203380
+    },
+    "library/CSC662/schemes/CSC662 Seed 06 2026 - Marking Scheme.pdf": {
+      "etag": "1e7efd3661f3a1bfcc8ae314481bda1f",
+      "sha256": "aeabeac4817edfa5a41b33780ee08cd8868303536d9ce7f44dd939fbd28c7c5b",
+      "size": 362455
+    },
+    "library/CSC662/schemes/CSC662 Seed 07 2026 - Marking Scheme.docx": {
+      "etag": "1fff6a4ee65a7c78e88d16aa9f4f0b30",
+      "sha256": "126b855f7a81d13af326484842d574b77fb6ab5221417f5fa21a47aea5ae10b7",
+      "size": 47938
+    },
+    "library/CSC662/schemes/CSC662 Seed 07 2026 - Marking Scheme.pdf": {
+      "etag": "c8b96814ba04734cee477e5f6e08c78a",
+      "sha256": "8f369c79ee02e9b2ef3a49002a8f9b33b77edac38e1bba3d459999d6c27f9ff3",
+      "size": 382898
+    },
+    "library/CSC662/schemes/CSC662 Seed 08 2026 - Marking Scheme.docx": {
+      "etag": "4e738369cd829732382110e8fefa4dc6",
+      "sha256": "87eb2ad2f81256f0e8603e7bfc1831cc9bcfe4286c89f5148882215d17055009",
+      "size": 48202
+    },
+    "library/CSC662/schemes/CSC662 Seed 08 2026 - Marking Scheme.pdf": {
+      "etag": "341aca9073a0f1c3afd43a1744507fbd",
+      "sha256": "9ca517b42fae3cb57273419ce5e06da75d76ef27984046207ab82efeaf87abf4",
+      "size": 355251
+    },
+    "library/CSC662/schemes/CSC662 Seed 09 2026 - Marking Scheme.docx": {
+      "etag": "c927b343933671e8a0cef782801a0442",
+      "sha256": "ccdb6832c53b6b4443f3ee29f3e513392ff089a42dd0d6b73a04125bb074b660",
+      "size": 203894
+    },
+    "library/CSC662/schemes/CSC662 Seed 09 2026 - Marking Scheme.pdf": {
+      "etag": "77a02b2dbd68dc3515e69968b11d0335",
+      "sha256": "08d0bfd512b5c2d2529d283964ca38730f2b2e5f080e755a723c3de81301aec7",
+      "size": 379492
+    },
+    "library/CSC662/schemes/CSC662 Seed 10 2026 - Marking Scheme.docx": {
+      "etag": "35beba42f21c1498e598dd53fadf8822",
+      "sha256": "0f4b8d680d13ac34095e9b493e73cb2811b5d7248321a52f140e0626f83e2455",
+      "size": 202734
+    },
+    "library/CSC662/schemes/CSC662 Seed 10 2026 - Marking Scheme.pdf": {
+      "etag": "8f87d2f9c59f6a01dcdc361faadcd151",
+      "sha256": "b60f4862ad6544459f6cd291e6e6deca971fb20734dbc09fe0eee53f836abab7",
+      "size": 360522
+    },
+    "library/CSC662/schemes/CSC662 Seed 11 2026 - Marking Scheme.docx": {
+      "etag": "ac1aa254dfff41da64d3f55f297e4d7d",
+      "sha256": "405420267e962dd5571a31d9a7223a39436666e837389a986794780bdaa1c6fa",
+      "size": 204364
+    },
+    "library/CSC662/schemes/CSC662 Seed 11 2026 - Marking Scheme.pdf": {
+      "etag": "9986bb96aa39526c55eaa213496dd4eb",
+      "sha256": "a12b225989906edf520a30e62449d7cfdaf1b3efda724a00e1b2955c505bd251",
+      "size": 380842
+    },
+    "library/CSC662/schemes/CSC662 Seed 12 2026 - Marking Scheme.docx": {
+      "etag": "73e3d294f5cbed8b52edd4ee06b654df",
+      "sha256": "88b4af95f454f04abcae05aa56ee783d8e0566899f608e50b163c7fec5c76315",
+      "size": 204194
+    },
+    "library/CSC662/schemes/CSC662 Seed 12 2026 - Marking Scheme.pdf": {
+      "etag": "cbad94114448a93c1d437753e4d7254b",
+      "sha256": "c7ec8579f60dab1939da926eef83e8a2df93cb249b3f799bd84882f8bf1044d2",
+      "size": 380229
+    },
+    "library/CSC662/schemes/CSC662 Seed 13 2026 - Marking Scheme.docx": {
+      "etag": "b566d14cacefeff96115e46bdeddeba0",
+      "sha256": "e5b5b85a69ede84884a8ddab37ebe2e68878b9c2e1a5619771b3e6dbb057578c",
+      "size": 46626
+    },
+    "library/CSC662/schemes/CSC662 Seed 13 2026 - Marking Scheme.pdf": {
+      "etag": "cc59da79307a44bca9997fb4d7950422",
+      "sha256": "de94d4e2604926e9b683e155e5cecda1c837be4a0f30aed517f4e98cb314c555",
+      "size": 332460
+    },
+    "library/CSC662/schemes/CSC662 Seed 14 2026 - Marking Scheme.docx": {
+      "etag": "b96d1f0fc9252af1943cc3f93ba936de",
+      "sha256": "a8c9e679708f05c0c734240e5ca04d2a9755e3011dea4e3e2a70f67b27d66180",
+      "size": 48134
+    },
+    "library/CSC662/schemes/CSC662 Seed 14 2026 - Marking Scheme.pdf": {
+      "etag": "2225f56196e354af181e6363cf53ab5a",
+      "sha256": "70045914ee3958ed3fce5abe04c72f624a7514feb5daa4f9b373104257ce1b42",
+      "size": 353254
+    },
+    "library/CSC662/schemes/CSC662 Seed 15 2026 - Marking Scheme.docx": {
+      "etag": "1cec4e59b3f4ce73e36c2bc2d5ec9a87",
+      "sha256": "663619e006c8ff9c5f6ddd6e81bed4c22cf84c51c7d016f6c24f4c5f10d533b4",
+      "size": 47792
+    },
+    "library/CSC662/schemes/CSC662 Seed 15 2026 - Marking Scheme.pdf": {
+      "etag": "082295639bbd29a5429b715a20c92be8",
+      "sha256": "046f4cb71355ea2cd002e6334c125e380675a4b6447d72482f94b007e64683ed",
+      "size": 349804
+    },
+    "library/CSC662/schemes/CSC662 Seed 16 2026 - Marking Scheme.docx": {
+      "etag": "b449184afed5232bc9b1bb0c37b17b2a",
+      "sha256": "d6a0dac8740f62f082816d0e7ac473c07b9013722f89587403d4abd9265d4db4",
+      "size": 47881
+    },
+    "library/CSC662/schemes/CSC662 Seed 16 2026 - Marking Scheme.pdf": {
+      "etag": "5535538579d89f1698698994ab1eaf47",
+      "sha256": "e9e143370f00ee3c5865a5bf42571dd4163c494d6d9f2f929a4173a70a643fb7",
+      "size": 381135
+    },
+    "library/CSC662/schemes/CSC662 Seed 17 2026 - Marking Scheme.docx": {
+      "etag": "4af807fcfe6dc8320fa57e8c96b28a42",
+      "sha256": "61b53af1415839d59bbe14f4794214bf5ef022a3f87833c12a025c7f9bc6f039",
+      "size": 203227
+    },
+    "library/CSC662/schemes/CSC662 Seed 17 2026 - Marking Scheme.pdf": {
+      "etag": "c39637f97c019a69361a2abc30ca00e8",
+      "sha256": "7e445a92fe5199ad2f0e256eb7128a5ec25670a99b7da9f384e2656508549e8c",
+      "size": 370165
+    },
+    "library/CSC662/schemes/CSC662 Seed 18 2026 - Marking Scheme.docx": {
+      "etag": "a71cb90e1d26bdb5765e981ec5ae3c9f",
+      "sha256": "87aae5f180ee1fbb8ecd2fa42a7cf0166601f67736ed1fde9aad2f9d5ee17a9c",
+      "size": 47361
+    },
+    "library/CSC662/schemes/CSC662 Seed 18 2026 - Marking Scheme.pdf": {
+      "etag": "a5b05fcff3edbd14475c326092dffc2f",
+      "sha256": "8f22df7390154c1a652bf18e6393934626518012b2f581e14b9603772a1a5d5d",
+      "size": 352967
+    },
+    "library/CSC662/schemes/CSC662 Seed 19 2026 - Marking Scheme.docx": {
+      "etag": "60eb1c10aef350f282726baaa9516f3d",
+      "sha256": "d3a014533c8be04a80f1af83cb6d54cfaa99899573753750408af9c3c601bc6c",
+      "size": 47759
+    },
+    "library/CSC662/schemes/CSC662 Seed 19 2026 - Marking Scheme.pdf": {
+      "etag": "0175ae84367d677a2e3d5640c9f07bc6",
+      "sha256": "71a06cf2a9404e6775605e32018e379f59120b351ecdc7e5d5eca8032641fad2",
+      "size": 351185
+    },
+    "library/CSC662/schemes/CSC662 Seed 20 2026 - Marking Scheme.docx": {
+      "etag": "c0525bd34c79773b77153af974403a54",
+      "sha256": "bd20b5515e72ceb7a3a8a8f33bc65c2d9f288b0b75ae5e749c924d0d6ccbcead",
+      "size": 48090
+    },
+    "library/CSC662/schemes/CSC662 Seed 20 2026 - Marking Scheme.pdf": {
+      "etag": "77c34a22e74f6fcd4639bc930b8938c4",
+      "sha256": "7702320e85137cb44e1927a4d4a3c2ec2b56615a9ea6429a63e0cfec416dca32",
+      "size": 354141
+    },
+    "library/manifest.json": {
+      "etag": "16415f31aabe5fc5d1ea5d15a0bf0ddb",
+      "sha256": "81a32ec1e1c0c644b4b1ab7585647ecb2eb78d7fbc30f10175b19e482a93561c",
+      "size": 551
+    },
+    "paused/index.html": {
+      "etag": "290e13774cfb56dededd93a63306ab96",
+      "sha256": "d408c2f593e5474f06bb73b09bc8cc9b42e4dc0ad9f58efe08b560a119dc11dc",
+      "size": 1534
+    },
+    "static/gallery-shell.html": {
+      "etag": "f663c1f14a3e55f1b99b98e16cd8f4d1",
+      "sha256": "780529eaaef4a98cf818fc40f1e7d6595605b851d82190b4a464b2af0bc0791d",
+      "size": 2419
+    },
+    "subjects/CSC580/subject.json": {
+      "etag": "7ab9b5640588b58a028f6faea61b4a42",
+      "sha256": "e4a2356cb229bf9bd3e2318a3f1a20c11053e6a35641d61a89d9a88f4cd9a8b5",
+      "size": 198
+    },
+    "subjects/CSC645/subject.json": {
+      "etag": "1aa6b34f17d6750a47050c20e567e576",
+      "sha256": "06e162d98763402fa62b5930073fcd2fb4727f7f53839653b6e6e0b2710c5697",
+      "size": 184
+    },
+    "subjects/CSC662/subject.json": {
+      "etag": "8826a04813e7813b9a4f7c0ca3b003f7",
+      "sha256": "bd97cc6927519534bdaa326b966f9493b541e99adf1ab54dabe4d4b9e36d398b",
+      "size": 487
+    }
+  }
+}

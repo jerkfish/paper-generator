@@ -1,0 +1,14 @@
+{
+  "name": "papergen-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun x wrangler dev",
+    "deploy": "bun x wrangler deploy",
+    "db:create": "bun x wrangler d1 create papergen",
+    "db:migrate": "bun x wrangler d1 migrations apply papergen --remote",
+    "db:migrate:local": "bun x wrangler d1 migrations apply papergen --local",
+    "lifecycle": "bun x wrangler r2 bucket lifecycle add exampapers expire-shared-7d shared/ --expire-days 7",
+    "test": "bun test"
+  }
+}

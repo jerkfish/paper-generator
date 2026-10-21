@@ -20,9 +20,12 @@ caps. It checks before any network call and exits non-zero.
 The built public bundle is 80 files (paper/scheme × DOCX/PDF) plus the static
 pages and metadata. Measured on 2026-10-21 in `outputs/public_bundle`:
 
-- 80 document files plus pages/metadata: **95 files, 15.3 MB**.
+- 80 document files plus pages/metadata: **96 files, 15.27 MB**.
 - That is about **0.15% of 10 GB** and **96 Class A operations**
-  (95 object PUTs + 1 LIST) on the first sync.
+  (95 object PUTs + 1 LIST) for the first upload; the gallery.js update added
+  one more object and seven Class A operations.
+- Current local ledger after upload and verification: **108 Class A, 0 Class B**,
+  96 objects, 16,011,605 bytes.
 
 A public-bundle build will replace the private cache files; sizes are similar
 because the content is the same.
@@ -39,6 +42,9 @@ because the content is the same.
 - User downloads are Class B operations. The 100,000/month internal cap still
   allows about 25,000 full paper+scheme downloads per month; the Worker rate
   limit is the second guard.
+- A gallery share copies four files: four R2 GETs (Class B) and four PUTs
+  (Class A), plus D1 reads/writes. Active entries are capped at 100 and expire
+  after 7 days.
 
 ## Configuration
 

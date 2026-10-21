@@ -133,5 +133,40 @@
       readQuery();
       applyFilters();
     }
+
+    document.querySelectorAll("button.share").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var status = button.parentElement.querySelector(".share-status");
+        button.disabled = true;
+        if (status) status.textContent = "Sharing...";
+        fetch("/api/gallery/share", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            subject: "CSC662",
+            seed: Number(button.getAttribute("data-seed")),
+            mode: button.getAttribute("data-mode"),
+          }),
+        }).then(function (response) {
+          return response.json().then(function (data) {
+            return { ok: response.ok, data: data };
+          });
+        }).then(function (result) {
+          if (!result.ok) throw new Error(result.data.error || "share failed");
+          if (status) {
+            status.textContent = "";
+            var link = document.createElement("a");
+            link.href = result.data.gallery_url || "/gallery";
+            link.textContent = result.data.existing
+              ? "Already shared" : "Shared";
+            status.appendChild(link);
+          }
+          button.hidden = true;
+        }).catch(function (error) {
+          if (status) status.textContent = error.message;
+          button.disabled = false;
+        });
+      });
+    });
   });
 })();

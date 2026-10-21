@@ -1,9 +1,9 @@
 # Mock Paper Generator - page design (v2)
 
-Status: **v2 core pages implemented locally** in Phase 1 (subject registry,
-routes, sortable/filterable Library, Generate) and the static public bundle
-is built. The Gallery is a shell until Phase 2; the Cloudflare Worker/R2
-upload is still pending.
+Status: **v2 implemented locally** (subject registry, sortable/filterable
+Library, Generate), the public bundle is uploaded to R2, and the D1-backed
+gallery Worker is implemented and tested locally. Production D1 creation and
+Worker deployment are pending Cloudflare authentication.
 
 Direction: grounded, document-like, early-2000s web. Default browser
 typography, table-based lists, visible 1px borders, blue underlined links,

@@ -8,6 +8,7 @@ present    static/gallery-shell.html  <- generated from app templates
 present    assets/style.css  <- copied from src/app/static
 present    assets/htmx.min.js  <- copied from src/app/static
 present    assets/library.js  <- copied from src/app/static
+present    assets/gallery.js  <- copied from src/app/static
 present    subjects/CSC662/subject.json  <- generated from registry; public-safe fields only
 present    library/manifest.json  <- generated from public Library metadata
 present    library/CSC662/manifest.json  <- generated from public Library metadata

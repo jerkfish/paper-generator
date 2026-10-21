@@ -60,6 +60,12 @@
     "url": "assets/library.js"
   },
   {
+    "path": "assets/gallery.js",
+    "source": "copied from src/app/static",
+    "status": "present",
+    "url": "assets/gallery.js"
+  },
+  {
     "path": "subjects/CSC662/subject.json",
     "source": "generated from registry; public-safe fields only",
     "status": "present",
