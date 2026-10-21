@@ -1,94 +1,95 @@
-present    index.html  <- design/mockups/index.html
-present    subject-csc662.html  <- design/mockups/subject-csc662.html
-present    library.html  <- design/mockups/library.html
-present    generate.html  <- design/mockups/generate.html
-present    gallery.html  <- design/mockups/gallery.html
-present    paused.html  <- design/mockups/paused.html
-present    assets/style.css  <- design/mockups/style.css
-present    assets/htmx.min.js  <- src/app/static/htmx.min.js
-planned    subjects/CSC662/subject.json  <- generated from registry; public-safe fields only
-planned    library/CSC662/manifest.json  <- generated from public Library metadata
-generated  library/CSC662/papers/CSC662 Seed 01 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC662/papers/CSC662 Seed 01 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC662/schemes/CSC662 Seed 01 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/schemes/CSC662 Seed 01 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/papers/CSC662 Seed 02 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC662/papers/CSC662 Seed 02 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC662/schemes/CSC662 Seed 02 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/schemes/CSC662 Seed 02 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/papers/CSC662 Seed 03 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC662/papers/CSC662 Seed 03 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC662/schemes/CSC662 Seed 03 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/schemes/CSC662 Seed 03 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/papers/CSC662 Seed 04 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC662/papers/CSC662 Seed 04 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC662/schemes/CSC662 Seed 04 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/schemes/CSC662 Seed 04 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/papers/CSC662 Seed 05 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC662/papers/CSC662 Seed 05 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC662/schemes/CSC662 Seed 05 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/schemes/CSC662 Seed 05 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/papers/CSC662 Seed 06 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC662/papers/CSC662 Seed 06 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC662/schemes/CSC662 Seed 06 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/schemes/CSC662 Seed 06 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/papers/CSC662 Seed 07 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC662/papers/CSC662 Seed 07 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC662/schemes/CSC662 Seed 07 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/schemes/CSC662 Seed 07 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/papers/CSC662 Seed 08 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC662/papers/CSC662 Seed 08 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC662/schemes/CSC662 Seed 08 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/schemes/CSC662 Seed 08 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/papers/CSC662 Seed 09 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC662/papers/CSC662 Seed 09 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC662/schemes/CSC662 Seed 09 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/schemes/CSC662 Seed 09 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/papers/CSC662 Seed 10 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC662/papers/CSC662 Seed 10 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC662/schemes/CSC662 Seed 10 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/schemes/CSC662 Seed 10 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/papers/CSC662 Seed 11 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC662/papers/CSC662 Seed 11 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC662/schemes/CSC662 Seed 11 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/schemes/CSC662 Seed 11 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/papers/CSC662 Seed 12 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC662/papers/CSC662 Seed 12 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC662/schemes/CSC662 Seed 12 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/schemes/CSC662 Seed 12 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/papers/CSC662 Seed 13 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC662/papers/CSC662 Seed 13 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC662/schemes/CSC662 Seed 13 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/schemes/CSC662 Seed 13 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/papers/CSC662 Seed 14 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC662/papers/CSC662 Seed 14 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC662/schemes/CSC662 Seed 14 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/schemes/CSC662 Seed 14 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/papers/CSC662 Seed 15 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC662/papers/CSC662 Seed 15 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC662/schemes/CSC662 Seed 15 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/schemes/CSC662 Seed 15 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/papers/CSC662 Seed 16 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC662/papers/CSC662 Seed 16 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC662/schemes/CSC662 Seed 16 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/schemes/CSC662 Seed 16 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/papers/CSC662 Seed 17 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC662/papers/CSC662 Seed 17 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC662/schemes/CSC662 Seed 17 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/schemes/CSC662 Seed 17 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/papers/CSC662 Seed 18 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC662/papers/CSC662 Seed 18 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC662/schemes/CSC662 Seed 18 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/schemes/CSC662 Seed 18 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/papers/CSC662 Seed 19 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC662/papers/CSC662 Seed 19 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC662/schemes/CSC662 Seed 19 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/schemes/CSC662 Seed 19 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/papers/CSC662 Seed 20 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC662/papers/CSC662 Seed 20 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC662/schemes/CSC662 Seed 20 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC662/schemes/CSC662 Seed 20 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-planned    subjects/CSC580/subject.json  <- generated from registry coming_soon stub
-planned    subjects/CSC645/subject.json  <- generated from registry coming_soon stub
-planned    library/manifest.json  <- subject index generated from the registry
-planned    static/gallery-shell.html  <- generated gallery shell; ids resolved at runtime
+present    index.html  <- generated from app templates
+present    csc662/index.html  <- generated from app templates
+present    csc662/library/index.html  <- generated from app templates
+present    csc662/generate/index.html  <- generated from app templates
+present    gallery/index.html  <- generated from app templates
+present    paused/index.html  <- generated from app templates
+present    static/gallery-shell.html  <- generated from app templates
+present    assets/style.css  <- copied from src/app/static
+present    assets/htmx.min.js  <- copied from src/app/static
+present    assets/library.js  <- copied from src/app/static
+present    subjects/CSC662/subject.json  <- generated from registry; public-safe fields only
+present    library/manifest.json  <- generated from public Library metadata
+present    library/CSC662/manifest.json  <- generated from public Library metadata
+present    library/CSC662/papers/CSC662 Seed 01 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC662/papers/CSC662 Seed 01 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC662/schemes/CSC662 Seed 01 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/schemes/CSC662 Seed 01 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/papers/CSC662 Seed 02 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC662/papers/CSC662 Seed 02 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC662/schemes/CSC662 Seed 02 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/schemes/CSC662 Seed 02 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/papers/CSC662 Seed 03 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC662/papers/CSC662 Seed 03 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC662/schemes/CSC662 Seed 03 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/schemes/CSC662 Seed 03 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/papers/CSC662 Seed 04 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC662/papers/CSC662 Seed 04 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC662/schemes/CSC662 Seed 04 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/schemes/CSC662 Seed 04 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/papers/CSC662 Seed 05 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC662/papers/CSC662 Seed 05 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC662/schemes/CSC662 Seed 05 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/schemes/CSC662 Seed 05 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/papers/CSC662 Seed 06 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC662/papers/CSC662 Seed 06 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC662/schemes/CSC662 Seed 06 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/schemes/CSC662 Seed 06 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/papers/CSC662 Seed 07 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC662/papers/CSC662 Seed 07 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC662/schemes/CSC662 Seed 07 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/schemes/CSC662 Seed 07 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/papers/CSC662 Seed 08 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC662/papers/CSC662 Seed 08 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC662/schemes/CSC662 Seed 08 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/schemes/CSC662 Seed 08 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/papers/CSC662 Seed 09 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC662/papers/CSC662 Seed 09 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC662/schemes/CSC662 Seed 09 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/schemes/CSC662 Seed 09 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/papers/CSC662 Seed 10 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC662/papers/CSC662 Seed 10 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC662/schemes/CSC662 Seed 10 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/schemes/CSC662 Seed 10 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/papers/CSC662 Seed 11 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC662/papers/CSC662 Seed 11 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC662/schemes/CSC662 Seed 11 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/schemes/CSC662 Seed 11 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/papers/CSC662 Seed 12 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC662/papers/CSC662 Seed 12 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC662/schemes/CSC662 Seed 12 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/schemes/CSC662 Seed 12 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/papers/CSC662 Seed 13 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC662/papers/CSC662 Seed 13 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC662/schemes/CSC662 Seed 13 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/schemes/CSC662 Seed 13 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/papers/CSC662 Seed 14 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC662/papers/CSC662 Seed 14 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC662/schemes/CSC662 Seed 14 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/schemes/CSC662 Seed 14 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/papers/CSC662 Seed 15 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC662/papers/CSC662 Seed 15 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC662/schemes/CSC662 Seed 15 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/schemes/CSC662 Seed 15 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/papers/CSC662 Seed 16 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC662/papers/CSC662 Seed 16 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC662/schemes/CSC662 Seed 16 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/schemes/CSC662 Seed 16 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/papers/CSC662 Seed 17 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC662/papers/CSC662 Seed 17 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC662/schemes/CSC662 Seed 17 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/schemes/CSC662 Seed 17 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/papers/CSC662 Seed 18 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC662/papers/CSC662 Seed 18 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC662/schemes/CSC662 Seed 18 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/schemes/CSC662 Seed 18 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/papers/CSC662 Seed 19 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC662/papers/CSC662 Seed 19 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC662/schemes/CSC662 Seed 19 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/schemes/CSC662 Seed 19 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/papers/CSC662 Seed 20 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC662/papers/CSC662 Seed 20 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC662/schemes/CSC662 Seed 20 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC662/schemes/CSC662 Seed 20 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    subjects/CSC580/subject.json  <- generated from registry coming_soon stub
+present    subjects/CSC645/subject.json  <- generated from registry coming_soon stub

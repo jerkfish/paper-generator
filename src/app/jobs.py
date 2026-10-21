@@ -547,6 +547,7 @@ def library_item(seed: int, subject: str = DEFAULT_SUBJECT) -> dict | None:
         "cost_usd": meta.get("cost_usd", 0),
         "model": meta.get("model", ""),
         "topic_marks": topic_marks,
+        "topic_keys": "|".join(str(k) for k in topic_marks),
         "topic_mix": topic_mix_text(topic_marks),
         "files": files,
         "downloads": names,

@@ -17,13 +17,12 @@ caps. It checks before any network call and exits non-zero.
 
 ## Measured bundle
 
-The 20-seed CSC662 Library is 80 files (paper/scheme × DOCX/PDF) plus the
-static pages and metadata. Measured on 2026-10-21 from the private cache:
+The built public bundle is 80 files (paper/scheme × DOCX/PDF) plus the static
+pages and metadata. Measured on 2026-10-21 in `outputs/public_bundle`:
 
-- 80 document files: about **17.6 MB** (average 225 KB; largest 442 KB).
-- Estimated public bundle with pages/metadata: **under 25 MB**.
-- That is about **0.25% of 10 GB** and about **95 Class A operations**
-  (94 object PUTs + 1 LIST) on the first sync.
+- 80 document files plus pages/metadata: **95 files, 15.3 MB**.
+- That is about **0.15% of 10 GB** and **96 Class A operations**
+  (95 object PUTs + 1 LIST) on the first sync.
 
 A public-bundle build will replace the private cache files; sizes are similar
 because the content is the same.

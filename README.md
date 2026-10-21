@@ -33,9 +33,11 @@ uv run uvicorn src.app.main:app --host 127.0.0.1 --port 8000
 | `/paused` | Daily-cap fallback notice |
 
 The Library filters by text, computed marks, topic and placeholder count.
-The job page shows one row per question and per-part slot status, updated
-from real job events. There is no fake timer, animation or typewriter; the
-plain table is the v2 design fallback.
+Click any column title to sort ascending/descending; the next click reverses
+the direction. The filtering and sorting are a small vanilla-JS enhancement,
+so the static public bundle works the same way. The job page shows one row per
+question and per-part slot status, updated from real job events. There is no
+fake timer, animation or typewriter; the plain table is the v2 design fallback.
 
 ## Subject registry
 
@@ -156,12 +158,47 @@ This replaces the university name, crest and reference code with generic
 branding and disables the Library (which is built from real course material).
 Live generation still works with an API key.
 
+## Public bundle
+
+Build the static/public bundle from the private Library cache:
+
+```bash
+uv run python -m scripts.build_public_bundle --out outputs/public_bundle
+# resume after an interruption; existing complete seed files are skipped
+uv run python -m scripts.build_public_bundle --out outputs/public_bundle
+# pages/manifests only (fast; no Word/LibreOffice)
+uv run python -m scripts.build_public_bundle --out outputs/public_bundle --pages-only
+```
+
+The builder re-brands each paper, rebuilds each scheme with verbatim slide
+quotes omitted, renders the pages from the app templates, and writes:
+
+```text
+index.html
+csc662/index.html
+csc662/library/index.html
+csc662/generate/index.html
+gallery/index.html
+paused/index.html
+assets/style.css, htmx.min.js, library.js
+subjects/<CODE>/subject.json
+library/manifest.json
+library/CSC662/manifest.json
+library/CSC662/papers/*.docx, *.pdf
+library/CSC662/schemes/*.docx, *.pdf
+```
+
+The builder fails if it finds university branding, a private reference code,
+a scheme without the quote-omission marker, or a forbidden path. The
+public-bundle allowlist is in `cloudflare/public_bundle_manifest.txt`.
+
 ## Cloudflare/R2 preparation
 
-The public-bundle manifest now uses per-subject folders
+The public bundle uses per-subject folders
 (`library/CSC662/papers/`, `library/CSC662/schemes/`) and public-safe subject
-metadata. R2 sync is prepared but not enabled until a public bundle and R2
-access keys exist.
+metadata. The built bundle is **95 files / 15.3 MB**; a first sync is 96 Class
+A operations (95 PUTs + 1 LIST). R2 access keys are read from `.env`; the
+upload remains a separate, explicit step.
 
 Free-tier compliance and the backup plan are documented in
 `cloudflare/R2_QUOTA_PLAN.md`; the minimal credential scopes are in
@@ -209,5 +246,6 @@ uv run pytest -q
 
 Covers the planner/verifier, app job lifecycle, cancel, cost-cap abort, cache
 hit, Library without a key, public branding, scheme table geometry, subject
-discovery, download names, subject-scoped routes, the secret-leak scan,
-public-path guards, the public bundle allowlist, and the R2 quota guard.
+discovery, download names, subject-scoped routes, sortable Library headers,
+public-bundle rendering/validation, the secret-leak scan, public-path guards,
+the public bundle allowlist, and the R2 quota guard.

@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}{{ site_name }}{% endblock %}</title>
-  <script src="/static/htmx.min.js" defer></script>
-  <link rel="stylesheet" href="/static/style.css">
+  <script src="{{ asset_base|default('/static') }}/htmx.min.js" defer></script>
+  <script src="{{ asset_base|default('/static') }}/library.js" defer></script>
+  <link rel="stylesheet" href="{{ asset_base|default('/static') }}/style.css">
 </head>
 <body>
 <h1>{{ site_name }}</h1>
@@ -19,10 +20,14 @@
 </div>
 <hr>
 
-{% if public %}
+{% if public and not (static_bundle|default(false)) %}
 <div class="notice">Public build: university branding is replaced, public
 schemes omit verbatim slide quotes, and the private Library is disabled.
 Lecture slides and past papers stay on this machine.</div>
+{% elif static_bundle|default(false) %}
+<div class="notice">Public bundle: university branding is replaced and public
+schemes omit verbatim slide quotes. The Library contains PUBLIC_BUILD files
+only.</div>
 {% endif %}
 
 {% block content %}{% endblock %}

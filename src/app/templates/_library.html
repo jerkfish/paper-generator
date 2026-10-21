@@ -1,40 +1,59 @@
 <div id="library-results">
-{% if public %}
+{% if library_disabled|default(public) %}
   <p class="notice">Library is disabled in PUBLIC_BUILD. Only fresh generated
     papers with generic branding are available.</p>
 {% elif not items %}
   <p class="muted">No prebuilt papers match the filter.</p>
 {% else %}
-  <p class="small">Showing {{ items|length }} of {{ total }}. Topic
-    abbreviations: ATK attacks/malware, AUT authentication, ACC access
-    control, TRU trusted computing, SWS software/OS, NET network,
-    ETH ethics, CIP classical ciphers. Numbers are accepted marks.</p>
+  {% set urls = item_urls|default({}) %}
+  <p class="small" id="library-count">Showing {{ items|length }} of {{ total }}.</p>
+  <p class="small">Topic abbreviations: ATK attacks/malware, AUT authentication,
+    ACC access control, TRU trusted computing, SWS software/OS, NET network,
+    ETH ethics, CIP classical ciphers. Numbers are accepted marks. Click a
+    column title to sort ascending/descending.</p>
   <div class="table-scroll">
-  <table>
+  <table id="library-table">
+    <thead>
     <tr>
-      <th>Seed</th><th>Mode</th><th>Computed<br>marks</th>
-      <th>Topic mix (marks)</th><th>Place-<br>holders</th>
-      <th>Paper</th><th>Scheme</th>
+      <th data-sort="seed" aria-sort="none"><button type="button" class="sort" data-sort="seed" data-type="number">Seed<span class="sort-mark"></span></button></th>
+      <th data-sort="mode" aria-sort="none"><button type="button" class="sort" data-sort="mode">Mode<span class="sort-mark"></span></button></th>
+      <th data-sort="computed" aria-sort="none"><button type="button" class="sort" data-sort="computed" data-type="number">Computed<br>marks<span class="sort-mark"></span></button></th>
+      <th data-sort="topics" aria-sort="none"><button type="button" class="sort" data-sort="topics">Topic mix (marks)<span class="sort-mark"></span></button></th>
+      <th data-sort="placeholders" aria-sort="none"><button type="button" class="sort" data-sort="placeholders" data-type="number">Place-<br>holders<span class="sort-mark"></span></button></th>
+      <th data-sort="paper" aria-sort="none"><button type="button" class="sort" data-sort="paper">Paper<span class="sort-mark"></span></button></th>
+      <th data-sort="scheme" aria-sort="none"><button type="button" class="sort" data-sort="scheme">Scheme<span class="sort-mark"></span></button></th>
     </tr>
+    </thead>
+    <tbody>
     {% for item in items %}
-    <tr>
+    <tr data-seed="{{ item.seed }}"
+        data-mode="{{ item.mode }}"
+        data-computed="{{ item.computed_display }}"
+        data-topics="{{ item.topic_keys|default(item.topic_marks.keys()|join('|')) }}"
+        data-placeholders="{{ item.placeholders }}"
+        data-paper="{{ item.downloads.paper_pdf }}"
+        data-scheme="{{ item.downloads.scheme_pdf }}"
+        data-text="{{ item.seed }} {{ item.mode }} {{ item.year }} {{ item.topic_mix }} {{ item.topic_marks.keys()|join(' ') }}">
       <td class="nowrap">{{ "%02d"|format(item.seed) }}</td>
       <td>{{ item.mode }}</td>
       <td>{{ item.computed_display }}</td>
       <td class="mono nowrap">{{ item.topic_mix }}</td>
       <td>{% if item.placeholders %}<span class="warn">{{ item.placeholders }}</span>{% else %}0{% endif %}</td>
       <td class="nowrap">
-        {% if item.files.paper_docx %}<a href="/{{ subject.route }}/library/{{ item.seed }}/paper_docx" title="{{ item.downloads.paper_docx }}">DOCX</a>{% endif %}
+        {% set paper_urls = urls.get(item.seed|string, {}) %}
+        {% if item.files.paper_docx %}<a href="{{ paper_urls.get('paper_docx') or '/' ~ subject.route ~ '/library/' ~ item.seed ~ '/paper_docx' }}" title="{{ item.downloads.paper_docx }}">DOCX</a>{% endif %}
         {% if item.files.paper_docx and item.files.paper_pdf %} / {% endif %}
-        {% if item.files.paper_pdf %}<a href="/{{ subject.route }}/library/{{ item.seed }}/paper_pdf" title="{{ item.downloads.paper_pdf }}">PDF</a>{% endif %}
+        {% if item.files.paper_pdf %}<a href="{{ paper_urls.get('paper_pdf') or '/' ~ subject.route ~ '/library/' ~ item.seed ~ '/paper_pdf' }}" title="{{ item.downloads.paper_pdf }}">PDF</a>{% endif %}
       </td>
       <td class="nowrap">
-        {% if item.files.scheme_docx %}<a href="/{{ subject.route }}/library/{{ item.seed }}/scheme_docx" title="{{ item.downloads.scheme_docx }}">DOCX</a>{% endif %}
+        {% set scheme_urls = urls.get(item.seed|string, {}) %}
+        {% if item.files.scheme_docx %}<a href="{{ scheme_urls.get('scheme_docx') or '/' ~ subject.route ~ '/library/' ~ item.seed ~ '/scheme_docx' }}" title="{{ item.downloads.scheme_docx }}">DOCX</a>{% endif %}
         {% if item.files.scheme_docx and item.files.scheme_pdf %} / {% endif %}
-        {% if item.files.scheme_pdf %}<a href="/{{ subject.route }}/library/{{ item.seed }}/scheme_pdf" title="{{ item.downloads.scheme_pdf }}">PDF</a>{% endif %}
+        {% if item.files.scheme_pdf %}<a href="{{ scheme_urls.get('scheme_pdf') or '/' ~ subject.route ~ '/library/' ~ item.seed ~ '/scheme_pdf' }}" title="{{ item.downloads.scheme_pdf }}">PDF</a>{% endif %}
       </td>
     </tr>
     {% endfor %}
+    </tbody>
   </table>
   </div>
 {% endif %}

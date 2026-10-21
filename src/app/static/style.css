@@ -23,6 +23,17 @@ legend { font-weight: bold; }
 input, select, button { font: 12px Verdana, Arial, Helvetica, sans-serif; }
 input[type="text"], input[type="number"], select { padding: 1px 2px; }
 button { padding: 2px 8px; }
+button.sort {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: #0000cc;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+th[aria-sort="ascending"], th[aria-sort="descending"] { background: #d8d8d8; }
+th .sort-mark { font-family: "Courier New", Courier, monospace; }
 .small, .muted { font-size: 11px; color: #444; }
 .mono, .status { font-family: "Courier New", Courier, monospace; }
 .nav { margin: 6px 0 10px; }

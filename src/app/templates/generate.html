@@ -7,6 +7,10 @@
 <p>Realistic or practice mode. Generation runs as a background job and is
   updated from real job events; there is no simulated progress.</p>
 
+{% if generate_disabled|default(false) %}
+<div class="notice">Live generation is not enabled in this deployment.
+  Browse the Library for pre-generated papers.</div>
+{% else %}
 {% if not has_key %}
 <div class="notice">DEEPSEEK_API_KEY is not set. Live generation is
   unavailable; the pre-generated Library still works.</div>
@@ -48,4 +52,5 @@
     sync();
   })();
 </script>
+{% endif %}
 {% endblock %}

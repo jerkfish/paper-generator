@@ -245,3 +245,62 @@ def test_r2_remote_state_detects_missing_and_changed_objects():
     assert [f["key"] for f in changed] == ["b.pdf"]
     assert [f["key"] for f in r2_sync._changed_after_listing(
         files, state, {})] == ["a.pdf", "b.pdf"]
+
+
+def test_library_table_is_sortable_and_filterable(monkeypatch, tmp_path):
+    from fastapi.testclient import TestClient
+    monkeypatch.setattr(jobs.config, "WEB_CACHE_DIR", tmp_path / "cache")
+    monkeypatch.setattr(jobs.config, "OUTPUTS_DIR", tmp_path)
+    src = tmp_path / "eval_final_deepseek"
+    src.mkdir(parents=True)
+    (src / "seed_01_theory.json").write_text("{}", encoding="utf-8")
+    out = jobs.cache_path("realistic", 1, None, subject="CSC662")
+    out.mkdir(parents=True)
+    paper = out / "paper.pdf"
+    paper.write_bytes(b"%PDF")
+    (out / "meta.json").write_text(json.dumps({
+        "subject": "CSC662", "seed": 1, "mode": "realistic",
+        "computed_marks": None, "created": 1767225600, "year": 2026,
+        "accepted": 20, "placeholders": 0, "model": "fake",
+        "topic_marks": {"attacks/malware": 24},
+        "files": {"paper_pdf": str(paper)}, "summary": {}, "progress": [],
+    }), encoding="utf-8")
+    client = TestClient(main.app)
+    html = client.get("/csc662/library").text
+    assert 'id="library-table"' in html
+    assert 'id="library-filter"' in html
+    assert "/static/library.js" in html
+    for key in ("seed", "mode", "computed", "topics", "placeholders",
+                "paper", "scheme"):
+        assert f'data-sort="{key}"' in html
+    assert "aria-sort=\"none\"" in html
+    assert 'data-topics=' in html
+
+
+def test_public_urls_are_percent_encoded():
+    from scripts.build_public_bundle import _urls
+    item = {"downloads": {
+        "paper_docx": "CSC662 Seed 07 2026.docx",
+        "paper_pdf": "CSC662 Seed 07 2026.pdf",
+        "scheme_docx": "CSC662 Seed 07 2026 - Marking Scheme.docx",
+        "scheme_pdf": "CSC662 Seed 07 2026 - Marking Scheme.pdf",
+    }}
+    urls = _urls(item)
+    assert urls["paper_pdf"] == (
+        "/library/CSC662/papers/CSC662%20Seed%2007%202026.pdf")
+    assert urls["scheme_pdf"] == (
+        "/library/CSC662/schemes/"
+        "CSC662%20Seed%2007%202026%20-%20Marking%20Scheme.pdf")
+
+
+def test_public_bundle_validation_rejects_private_branding(tmp_path):
+    import docx
+    from scripts.build_public_bundle import validate
+    out = tmp_path / "bundle"
+    out.mkdir()
+    (out / "index.html").write_text("ok", encoding="utf-8")
+    d = docx.Document()
+    d.add_paragraph("UNIVERSITI TEKNOLOGI MARA")
+    d.save(str(out / "bad.docx"))
+    problems = validate(out)
+    assert any("private branding" in p for p in problems)

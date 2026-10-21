@@ -1,8 +1,8 @@
-"""List/check the public Cloudflare bundle candidates.
+"""List/check the public Cloudflare bundle.
 
-Phase 1 scope: declare the subject-aware allowlist, expand existing static
-files, and fail on forbidden paths. The document entries are produced later by
-the PUBLIC_BUILD bundle builder.
+The allowlist is explicit; nothing is copied by excluding from a larger tree.
+Pages are rendered from the app templates by
+``scripts/build_public_bundle.py`` and the documents are PUBLIC_BUILD copies.
 """
 from __future__ import annotations
 
@@ -19,21 +19,19 @@ if str(ROOT) not in sys.path:
 
 from src.subjects.registry import load_subjects
 
-# public destination -> source file
-STATIC_FILES = {
-    "index.html": "design/mockups/index.html",
-    "subject-csc662.html": "design/mockups/subject-csc662.html",
-    "library.html": "design/mockups/library.html",
-    "generate.html": "design/mockups/generate.html",
-    "gallery.html": "design/mockups/gallery.html",
-    "paused.html": "design/mockups/paused.html",
-    "assets/style.css": "design/mockups/style.css",
-    "assets/htmx.min.js": "src/app/static/htmx.min.js",
-}
-DYNAMIC_TAIL = [
-    ("library/manifest.json", "subject index generated from the registry"),
-    ("static/gallery-shell.html", "generated gallery shell; ids resolved at runtime"),
-]
+BUNDLE_DIR = ROOT / "outputs" / "public_bundle"
+STATIC_PATHS = (
+    "index.html",
+    "csc662/index.html",
+    "csc662/library/index.html",
+    "csc662/generate/index.html",
+    "gallery/index.html",
+    "paused/index.html",
+    "static/gallery-shell.html",
+    "assets/style.css",
+    "assets/htmx.min.js",
+    "assets/library.js",
+)
 FORBIDDEN_PREFIXES = (
     "data/", "CSC662/", "outputs/", "tests/", "src/", "private/",
     ".env", "wrangler", "design/",
@@ -46,57 +44,63 @@ def _public_filename(subject: str, seed: int, year: int, scheme: bool,
     return f"{subject} Seed {seed:02d} {year}{suffix}.{ext}"
 
 
+def _status(relative: str, default: str = "generated") -> str:
+    return "present" if (BUNDLE_DIR / relative).is_file() else default
+
+
 def build_manifest() -> list[dict]:
     year = datetime.now(timezone.utc).year
     entries: list[dict] = []
-    for public, source in STATIC_FILES.items():
-        p = ROOT / source
+    for path in STATIC_PATHS:
         entries.append({
-            "path": public, "source": source,
-            "status": "present" if p.exists() else "missing",
+            "path": path,
+            "source": ("generated from app templates"
+                       if path.endswith(".html")
+                       else "copied from src/app/static"),
+            "status": _status(path),
         })
     subjects = load_subjects()
     for code, subject in subjects.items():
+        rel = f"subjects/{code}/subject.json"
         entries.append({
-            "path": f"subjects/{code}/subject.json",
+            "path": rel,
             "source": ("generated from registry; public-safe fields only"
                        if subject.available else
                        "generated from registry coming_soon stub"),
-            "status": "planned",
+            "status": _status(rel),
         })
         if not subject.available:
             continue
-        entries.append({
-            "path": f"library/{code}/manifest.json",
-            "source": "generated from public Library metadata",
-            "status": "planned",
-        })
-        # 20 seeds x paper/scheme x docx/pdf, generated at bundle time.
+        for name in ("library/manifest.json",
+                     f"library/{code}/manifest.json"):
+            entries.append({
+                "path": name,
+                "source": "generated from public Library metadata",
+                "status": _status(name),
+            })
         for seed in range(1, 21):
             for scheme in (False, True):
                 for ext in ("docx", "pdf"):
                     name = _public_filename(code, seed, year, scheme, ext)
                     folder = "schemes" if scheme else "papers"
-                    source = ("PUBLIC_BUILD output; quote-free scheme"
-                              if scheme else "PUBLIC_BUILD output")
+                    rel = f"library/{code}/{folder}/{name}"
                     entries.append({
-                        "path": f"library/{code}/{folder}/{name}",
-                        "source": source,
-                        "status": "generated",
+                        "path": rel,
+                        "source": ("PUBLIC_BUILD output; quote-free scheme"
+                                   if scheme else "PUBLIC_BUILD output"),
+                        "status": _status(rel),
                     })
-    for public, note in DYNAMIC_TAIL:
-        entries.append({"path": public, "source": note, "status": "planned"})
     return entries
 
 
 def errors(entries: list[dict]) -> list[str]:
     out = []
-    for e in entries:
-        path = e["path"]
+    for entry in entries:
+        path = entry["path"]
         if any(path.startswith(prefix) for prefix in FORBIDDEN_PREFIXES):
             out.append(f"forbidden public path: {path}")
-        if e["status"] == "missing":
-            out.append(f"missing source for {path}: {e['source']}")
+        if entry["status"] == "missing":
+            out.append(f"missing source for {path}: {entry['source']}")
     return out
 
 
@@ -106,11 +110,11 @@ def main() -> None:
                     help="write cloudflare/public_bundle_manifest.txt")
     args = ap.parse_args()
     entries = build_manifest()
-    errs = errors(entries)
-    for e in entries:
-        e["url"] = quote(e["path"], safe="/")
-        print(f"{e['status']:10} {e['path']}  <- {e['source']}")
-    print(f"\n{len(entries)} entries; {len(errs)} forbidden/missing")
+    for entry in entries:
+        entry["url"] = quote(entry["path"], safe="/")
+        print(f"{entry['status']:10} {entry['path']}  <- {entry['source']}")
+    problems = errors(entries)
+    print(f"\n{len(entries)} entries; {len(problems)} forbidden/missing")
     if args.write:
         out = ROOT / "cloudflare" / "public_bundle_manifest.txt"
         out.parent.mkdir(exist_ok=True)
@@ -120,9 +124,9 @@ def main() -> None:
         (ROOT / "cloudflare" / "public_bundle_manifest.json").write_text(
             json.dumps(entries, indent=2), encoding="utf-8")
         print(f"wrote {out}")
-    if errs:
-        for err in errs:
-            print("ERROR:", err, file=sys.stderr)
+    if problems:
+        for problem in problems:
+            print("ERROR:", problem, file=sys.stderr)
         raise SystemExit(1)
 
 

@@ -1,8 +1,9 @@
 # Mock Paper Generator - page design (v2)
 
 Status: **v2 core pages implemented locally** in Phase 1 (subject registry,
-routes, Library, Generate). The Gallery is a shell until Phase 2;
-Cloudflare/R2 deployment is still pending.
+routes, sortable/filterable Library, Generate) and the static public bundle
+is built. The Gallery is a shell until Phase 2; the Cloudflare Worker/R2
+upload is still pending.
 
 Direction: grounded, document-like, early-2000s web. Default browser
 typography, table-based lists, visible 1px borders, blue underlined links,
@@ -81,7 +82,10 @@ Seed | Mode | Computed marks | Topic mix (marks) | Placeholders | Paper | Scheme
 - Topic mix is a compact text string: `ATK 24 AUT 16 ACC 18 ...`.
 - No thumbnails in the default v2 table. A "Preview page 1" link may be added
   later without changing the table.
-- Filtering is HTMX in the live app; the mockup shows the controls only.
+- Filtering and sorting are client-side in one small vanilla-JS file, so the
+  same table works in the live app and the static public bundle. Clicking a
+  column title toggles ascending/descending; the server-side query parameters
+  remain as a no-JS fallback.
 
 ### Generate
 

@@ -7,9 +7,8 @@
 <p>{{ total }} realistic papers. Cached; no API key and no LLM call.
   Downloads are paper and scheme in DOCX/PDF.</p>
 
-<form action="/{{ subject.route }}/library" method="get"
-      hx-get="/{{ subject.route }}/library" hx-target="#library-results"
-      hx-swap="outerHTML" hx-push-url="true">
+{% if not (library_disabled|default(public)) %}
+<form id="library-filter" action="/{{ subject.route }}/library" method="get">
   <fieldset>
     <legend>Filter</legend>
     <label for="q">Text:</label>
@@ -38,6 +37,7 @@
     <a href="/{{ subject.route }}/library">Reset</a>
   </fieldset>
 </form>
+{% endif %}
 
 {% include "_library.html" %}
 {% endblock %}

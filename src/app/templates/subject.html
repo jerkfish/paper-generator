@@ -18,14 +18,14 @@ no lecture map and no computed generator plugin yet.</div>
     <td>Realistic or practice mode, optional seed. Background job;
       slot-by-slot status. Needs an API key. Per-run cap
       ${{ "%.2f"|format(cost_cap) }}.</td>
-    <td>{% if public %}<span class="small">disabled in public build</span>
+    <td>{% if generate_disabled|default(false) %}<span class="small">disabled in this deployment</span>
       {% else %}<a href="/{{ subject.route }}/generate">generate</a>{% endif %}</td>
   </tr>
   <tr>
     <td>Browse pre-generated papers</td>
     <td>{{ paper_count }} realistic papers. Table list with filters and
       instant paper/scheme downloads. No API key, no LLM call.</td>
-    <td>{% if public %}<span class="small">private Library disabled in public build</span>
+    <td>{% if library_disabled|default(public) %}<span class="small">private Library disabled in public build</span>
       {% else %}<a href="/{{ subject.route }}/library">library</a>{% endif %}</td>
   </tr>
   <tr>

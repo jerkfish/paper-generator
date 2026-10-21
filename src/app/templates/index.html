@@ -16,7 +16,7 @@ lecturer-marked. This is not an official exam paper.</p>
     <td class="{{ 'ok' if subject.available else 'muted' }}">{{ subject.status.replace('_', ' ') }}</td>
     <td>
       {% if not subject.available %}no data
-      {% elif public %}public bundle
+      {% elif library_disabled|default(public) %}public bundle
       {% else %}{{ counts.get(subject.code, 0) }} cached realistic papers
       {% endif %}
     </td>
