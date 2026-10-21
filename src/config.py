@@ -10,6 +10,13 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
+# Load local environment before paths/keys are read.  .env is gitignored.
+try:
+    from dotenv import load_dotenv
+    load_dotenv(PROJECT_ROOT / ".env")
+except Exception:  # dotenv optional at runtime
+    pass
+
 # --- paths ---------------------------------------------------------------
 ORIGINAL_PAPERS_DIR = PROJECT_ROOT / "CSC662"  # user's originals - never modified
 DATA_DIR = PROJECT_ROOT / "data"
@@ -20,21 +27,38 @@ TRACKING_XLSX = TRACKING_DIR / "mock_paper_planner.xlsx"
 OCR_CACHE_DIR = TRACKING_DIR / "ocr_cache"
 OUTPUTS_DIR = PROJECT_ROOT / "outputs"
 
-# Lecture decks live outside the project in the user's KB folder.  They are
-# read-only input; the theory module never writes to this directory.
-LECTURE_DECKS_DIR = Path(os.environ.get(
-    "CSC662_DECKS_DIR", str(Path.home() / "Desktop" / "CSC662")))
+# Per-subject input folders.  Reference templates and lecture decks are
+# read-only inputs; the generator never writes to them.
+REFERENCE_DIR = DATA_DIR / "reference"
+LECTURE_DECKS_ROOT = DATA_DIR / "lecturedecks"
+
+
+def subject_reference_dir(subject: str) -> Path:
+    return REFERENCE_DIR / str(subject).strip().upper()
+
+
+def subject_lecture_decks_dir(subject: str) -> Path:
+    """Prefer data/lecturedecks/<SUBJECT>, then the legacy external KB folder.
+
+    Set <SUBJECT>_DECKS_DIR (for example CSC662_DECKS_DIR) to override either.
+    """
+    code = str(subject).strip().upper()
+    override = os.environ.get(f"{code}_DECKS_DIR")
+    if override:
+        return Path(override)
+    local = LECTURE_DECKS_ROOT / code
+    if local.is_dir() and any(local.glob("*.pptx")):
+        return local
+    return Path.home() / "Desktop" / code
+
+
+# Backwards-compatible CSC662 aliases.
+LECTURE_DECKS_DIR = subject_lecture_decks_dir("CSC662")
 THEORY_CACHE_DIR = TRACKING_DIR / "theory"
 
 # --- LLM -----------------------------------------------------------------
 # Provider: Qwen via its OpenAI-compatible endpoint (per project owner).
 # Keys are NEVER hardcoded - they live in .env (gitignored) or the environment.
-try:
-    from dotenv import load_dotenv
-    load_dotenv(PROJECT_ROOT / ".env")
-except Exception:  # dotenv optional at runtime
-    pass
-
 QWEN_API_KEY = os.environ.get("QWEN_API_KEY", "")
 # key verified against the international compatible-mode endpoint 2026-10-18
 QWEN_BASE_URL = os.environ.get(
@@ -121,4 +145,4 @@ OCR_MIN_TEXT_CHARS = 50  # below this, a cover is treated as scanned (no text la
 
 # --- rendering -----------------------------------------------------------
 USE_REAL_CREST = os.environ.get("MOCKGEN_USE_REAL_CREST", "1") == "1"
-CREST_PATH = PROJECT_ROOT / "data" / "reference" / "crest.png"
+CREST_PATH = subject_reference_dir("CSC662") / "crest.png"

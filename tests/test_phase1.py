@@ -312,3 +312,15 @@ def test_gallery_page_uses_worker_api():
     assert 'id="gallery-empty"' in html
     assert "/static/gallery.js" in html
     assert "auto-delete" in html or "deleted automatically" in html
+
+
+def test_subject_input_folders_are_per_subject():
+    from src import config
+    from src.subjects.registry import get_subject
+    subject = get_subject("CSC662")
+    template = config.PROJECT_ROOT / subject.template_path
+    assert template.exists()
+    assert template.parent == config.subject_reference_dir("CSC662")
+    assert config.subject_reference_dir("CSC580").is_dir()
+    assert config.subject_reference_dir("CSC645").is_dir()
+    assert config.LECTURE_DECKS_ROOT.is_dir()

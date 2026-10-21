@@ -11,8 +11,9 @@ to R2. The Worker serves the bundle and a small D1-backed gallery.
 1. **Inputs stay read-only**
    - Original papers: `CSC662/`
    - Working copies: `data/papers/`
-   - Lecture decks: `CSC662_DECKS_DIR` (default `~/Desktop/CSC662`)
-   - Template: `data/reference/CSC662 FEBRUARY 2026-raw docx.docx`
+   - Lecture decks: `data/lecturedecks/CSC662/` (falls back to
+     `CSC662_DECKS_DIR` or `~/Desktop/CSC662` while the folder is empty)
+   - Template: `data/reference/CSC662/CSC662 FEBRUARY 2026-raw docx.docx`
 
 2. **Plan the paper**
    - The planner reads the question log/fingerprint and builds 24 slots
@@ -169,8 +170,8 @@ serving pipelines are still CSC662-specific. A new subject needs all of these:
 1. Add `subjects/CSC580/subject.json` with `status: "available"`, title,
    header text, template path, fingerprint, deck map, topic-deck allow-list
    and enabled computed generators.
-2. Add the subject template under `data/reference/` (or a subject-specific
-   path) and the lecture-deck folder.
+2. Add the subject template under `data/reference/<SUBJECT>/` and, if the
+   subject uses slides, the decks under `data/lecturedecks/<SUBJECT>/`.
 3. Build the subject's question log/fingerprint from its past papers. The
    current planner inputs in `data/tracking/mock_paper_planner.xlsx` and
    `outputs/eval_final_deepseek/` are CSC662-specific.

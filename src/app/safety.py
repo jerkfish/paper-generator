@@ -105,10 +105,14 @@ def assert_no_secret_leaks(root: Path | None = None) -> None:
 
 
 def forbidden_roots() -> list[Path]:
+    data_dir = Path(config.DATA_DIR)
     return [
-        Path(config.DATA_DIR) / "reference",
+        data_dir / "reference",
+        data_dir / "lecturedecks",
+        Path(config.REFERENCE_DIR),
         Path(config.ORIGINAL_PAPERS_DIR),
         Path(config.PAPERS_DIR),
+        Path(config.LECTURE_DECKS_ROOT),
         Path(config.LECTURE_DECKS_DIR),
     ]
 

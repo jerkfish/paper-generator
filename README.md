@@ -322,13 +322,28 @@ lifecycle rule is the storage backstop.
 - `data/tracking/mock_paper_planner.xlsx` - question/fingerprint source.
 - `data/tracking/theory/deck_chunks.json` - cached lecture chunks.
 - `data/phrases.json` - offline phrase bank for computed questions.
-- `data/reference/CSC662 FEBRUARY 2026-raw docx.docx` - paper/scheme template.
+- `data/reference/CSC662/CSC662 FEBRUARY 2026-raw docx.docx` - paper/scheme
+  template.
 - `outputs/computed_questions.json`, `outputs/acm_questions.json`.
 - `outputs/web_cache/CSC662/` - prebuilt Library (legacy flat folders still
   work).
 - `outputs/eval_final_deepseek/seed_*_planner.json` and
   `seed_*_theory.json` - source data for rebuilding the Library.
-- Lecture decks at `CSC662_DECKS_DIR` (default `~/Desktop/CSC662`).
+
+Per-subject input folders:
+
+```text
+data/reference/<SUBJECT>/      templates, crest and cover assets
+data/lecturedecks/<SUBJECT>/   lecture decks, if the subject uses them
+```
+
+The CSC662 template was moved to `data/reference/CSC662/`. CSC580 and CSC645
+have empty reference folders ready for future subjects. The CSC662 lecture
+folder exists at `data/lecturedecks/CSC662/`; when it is empty the loader uses
+the external `CSC662_DECKS_DIR`/Desktop fallback, so no 52 MB of slides need to
+be copied into the repository.
+- Lecture decks at `data/lecturedecks/CSC662/`; if that folder has no decks,
+  the loader falls back to `CSC662_DECKS_DIR` (default `~/Desktop/CSC662`).
 
 ## Lifecycle
 

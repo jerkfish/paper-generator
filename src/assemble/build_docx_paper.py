@@ -28,9 +28,10 @@ import docx
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 
-from src.config import OUTPUTS_DIR, PROJECT_ROOT
+from src.config import OUTPUTS_DIR, subject_reference_dir
 
-SRC = PROJECT_ROOT / "data" / "reference" / "CSC662 FEBRUARY 2026-raw docx.docx"
+SRC = (subject_reference_dir("CSC662") /
+       "CSC662 FEBRUARY 2026-raw docx.docx")
 OUT_DOCX = OUTPUTS_DIR / "mock_paper_01.docx"
 OUT_PDF = OUTPUTS_DIR / "mock_paper_01.pdf"
 DOT_BIN = r"C:\Program Files\Graphviz\bin\dot.exe"

@@ -87,8 +87,13 @@ def _source_fingerprint(folder: Path) -> list[dict]:
     return out
 
 
-def _cache_path() -> Path:
-    return config.THEORY_CACHE_DIR / "deck_chunks.json"
+def _cache_path(subject: str = "CSC662") -> Path:
+    code = str(subject).upper()
+    subject_path = config.THEORY_CACHE_DIR / code / "deck_chunks.json"
+    legacy = config.THEORY_CACHE_DIR / "deck_chunks.json"
+    if code == "CSC662" and legacy.exists() and not subject_path.exists():
+        return legacy
+    return subject_path
 
 
 def extract_chunks(folder: Path) -> list[DeckChunk]:
@@ -120,10 +125,11 @@ def extract_chunks(folder: Path) -> list[DeckChunk]:
     return chunks
 
 
-def load_chunks(refresh: bool = False) -> list[DeckChunk]:
-    folder = Path(config.LECTURE_DECKS_DIR)
+def load_chunks(refresh: bool = False,
+                subject: str = "CSC662") -> list[DeckChunk]:
+    folder = Path(config.subject_lecture_decks_dir(subject))
     fingerprint = _source_fingerprint(folder) if folder.exists() else []
-    cache = _cache_path()
+    cache = _cache_path(subject)
     if not refresh and cache.exists():
         try:
             payload = json.loads(cache.read_text(encoding="utf-8"))
