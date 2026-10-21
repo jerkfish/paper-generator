@@ -1,30 +1,41 @@
+<div id="library-results">
 {% if public %}
-  <p class="muted">Library is disabled in PUBLIC_BUILD. Only fresh generated
+  <p class="notice">Library is disabled in PUBLIC_BUILD. Only fresh generated
     papers with generic branding are available.</p>
 {% elif not items %}
-  <p class="muted">No prebuilt papers yet. Run
-    <code>uv run python -m src.app.prebuild_library</code> to cache the
-    20-seed accepted sets. Generation still works with an API key.</p>
+  <p class="muted">No prebuilt papers match the filter.</p>
 {% else %}
+  <p class="small">Showing {{ items|length }} of {{ total }}. Topic
+    abbreviations: ATK attacks/malware, AUT authentication, ACC access
+    control, TRU trusted computing, SWS software/OS, NET network,
+    ETH ethics, CIP classical ciphers. Numbers are accepted marks.</p>
+  <div class="table-scroll">
   <table>
-    <thead>
-      <tr><th>Seed</th><th>Accepted</th><th>Placeholders</th><th>Model</th><th>Files</th></tr>
-    </thead>
-    <tbody>
-      {% for item in items %}
-      <tr>
-        <td>{{ item.seed }}</td>
-        <td>{{ item.accepted }}</td>
-        <td>{{ item.placeholders }}</td>
-        <td class="muted">{{ item.model }}</td>
-        <td>
-          {% if item.files.paper_docx %}<a href="/library/{{ item.seed }}/paper_docx">paper.docx</a>{% endif %}
-          {% if item.files.paper_pdf %} · <a href="/library/{{ item.seed }}/paper_pdf">paper.pdf</a>{% endif %}
-          {% if item.files.scheme_docx %} · <a href="/library/{{ item.seed }}/scheme_docx">scheme.docx</a>{% endif %}
-          {% if item.files.scheme_pdf %} · <a href="/library/{{ item.seed }}/scheme_pdf">scheme.pdf</a>{% endif %}
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
+    <tr>
+      <th>Seed</th><th>Mode</th><th>Computed<br>marks</th>
+      <th>Topic mix (marks)</th><th>Place-<br>holders</th>
+      <th>Paper</th><th>Scheme</th>
+    </tr>
+    {% for item in items %}
+    <tr>
+      <td class="nowrap">{{ "%02d"|format(item.seed) }}</td>
+      <td>{{ item.mode }}</td>
+      <td>{{ item.computed_display }}</td>
+      <td class="mono nowrap">{{ item.topic_mix }}</td>
+      <td>{% if item.placeholders %}<span class="warn">{{ item.placeholders }}</span>{% else %}0{% endif %}</td>
+      <td class="nowrap">
+        {% if item.files.paper_docx %}<a href="/{{ subject.route }}/library/{{ item.seed }}/paper_docx" title="{{ item.downloads.paper_docx }}">DOCX</a>{% endif %}
+        {% if item.files.paper_docx and item.files.paper_pdf %} / {% endif %}
+        {% if item.files.paper_pdf %}<a href="/{{ subject.route }}/library/{{ item.seed }}/paper_pdf" title="{{ item.downloads.paper_pdf }}">PDF</a>{% endif %}
+      </td>
+      <td class="nowrap">
+        {% if item.files.scheme_docx %}<a href="/{{ subject.route }}/library/{{ item.seed }}/scheme_docx" title="{{ item.downloads.scheme_docx }}">DOCX</a>{% endif %}
+        {% if item.files.scheme_docx and item.files.scheme_pdf %} / {% endif %}
+        {% if item.files.scheme_pdf %}<a href="/{{ subject.route }}/library/{{ item.seed }}/scheme_pdf" title="{{ item.downloads.scheme_pdf }}">PDF</a>{% endif %}
+      </td>
+    </tr>
+    {% endfor %}
   </table>
+  </div>
 {% endif %}
+</div>

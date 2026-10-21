@@ -1,0 +1,231 @@
+{
+  "seed": 4880,
+  "mode": "realistic",
+  "computed_marks": 12,
+  "model": "deepseek-flash",
+  "cost_usd": 0.041595,
+  "accepted": 22,
+  "placeholders": 0,
+  "created": 1792473002.5552227,
+  "files": {
+    "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC662\\3a4bd16ba26ec3391c93\\paper.docx",
+    "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC662\\3a4bd16ba26ec3391c93\\paper.pdf",
+    "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC662\\3a4bd16ba26ec3391c93\\scheme.docx",
+    "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC662\\3a4bd16ba26ec3391c93\\scheme.pdf"
+  },
+  "summary": {
+    "seed": 4880,
+    "mode": "realistic",
+    "computed_marks": 12,
+    "accepted": 22,
+    "placeholders": 0,
+    "model": "deepseek-flash",
+    "cost_usd": 0.041595,
+    "cached": false,
+    "pdf_available": true,
+    "pdf_note": ""
+  },
+  "progress": [
+    {
+      "question": "A1",
+      "slot": "A1a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.001088,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A1",
+      "slot": "A1b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.002608,
+      "accepted": 2,
+      "placeholders": 0
+    },
+    {
+      "question": "A2",
+      "slot": "A2a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.003544,
+      "accepted": 3,
+      "placeholders": 0
+    },
+    {
+      "question": "A3",
+      "slot": "A3a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.005074,
+      "accepted": 4,
+      "placeholders": 0
+    },
+    {
+      "question": "A3",
+      "slot": "A3b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.012768,
+      "accepted": 5,
+      "placeholders": 0
+    },
+    {
+      "question": "A4",
+      "slot": "A4a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.014133,
+      "accepted": 6,
+      "placeholders": 0
+    },
+    {
+      "question": "A5",
+      "slot": "A5a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.015748,
+      "accepted": 7,
+      "placeholders": 0
+    },
+    {
+      "question": "A5",
+      "slot": "A5b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.017664,
+      "accepted": 8,
+      "placeholders": 0
+    },
+    {
+      "question": "A6",
+      "slot": "A6a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.020219,
+      "accepted": 9,
+      "placeholders": 0
+    },
+    {
+      "question": "A6",
+      "slot": "A6b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.022172,
+      "accepted": 10,
+      "placeholders": 0
+    },
+    {
+      "question": "A7",
+      "slot": "A7a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.02353,
+      "accepted": 11,
+      "placeholders": 0
+    },
+    {
+      "question": "A7",
+      "slot": "A7b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.025891,
+      "accepted": 12,
+      "placeholders": 0
+    },
+    {
+      "question": "A8",
+      "slot": "A8a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.027208,
+      "accepted": 13,
+      "placeholders": 0
+    },
+    {
+      "question": "A8",
+      "slot": "A8b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.028974,
+      "accepted": 14,
+      "placeholders": 0
+    },
+    {
+      "question": "A9",
+      "slot": "A9a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.030152,
+      "accepted": 15,
+      "placeholders": 0
+    },
+    {
+      "question": "A9",
+      "slot": "A9b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.031813,
+      "accepted": 16,
+      "placeholders": 0
+    },
+    {
+      "question": "A10",
+      "slot": "A10a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.032997,
+      "accepted": 17,
+      "placeholders": 0
+    },
+    {
+      "question": "A10",
+      "slot": "A10b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.034457,
+      "accepted": 18,
+      "placeholders": 0
+    },
+    {
+      "question": "B1",
+      "slot": "B1a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.036011,
+      "accepted": 19,
+      "placeholders": 0
+    },
+    {
+      "question": "B1",
+      "slot": "B1b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.037818,
+      "accepted": 20,
+      "placeholders": 0
+    },
+    {
+      "question": "B2",
+      "slot": "B2a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.040492,
+      "accepted": 21,
+      "placeholders": 0
+    },
+    {
+      "question": "B2",
+      "slot": "B2b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.041595,
+      "accepted": 22,
+      "placeholders": 0
+    }
+  ],
+  "subject": "CSC662",
+  "year": 2026,
+  "topic_marks": {}
+}

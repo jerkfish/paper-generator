@@ -1,6 +1,8 @@
 # Mock Paper Generator - page design (v2)
 
-Status: **design only**. No Phase 0-4 implementation has started.
+Status: **v2 core pages implemented locally** in Phase 1 (subject registry,
+routes, Library, Generate). The Gallery is a shell until Phase 2;
+Cloudflare/R2 deployment is still pending.
 
 Direction: grounded, document-like, early-2000s web. Default browser
 typography, table-based lists, visible 1px borders, blue underlined links,
@@ -149,7 +151,10 @@ Routes, cache key and Library folders are subject-scoped.
 
 The proposed allowlist is in `design/PUBLIC_BUNDLE_PROPOSAL.md`. It contains
 only public pages, CSS, HTMX, public subject metadata, a Library manifest and
-PUBLIC_BUILD papers/schemes. No thumbnails are required for the v2 table.
+PUBLIC_BUILD papers/schemes, under per-subject folders
+(`library/CSC662/papers/`, `library/CSC662/schemes/`). No thumbnails are
+required for the v2 table. R2 free-tier limits and the backup plan are in
+`cloudflare/R2_QUOTA_PLAN.md`.
 
 ## Open decisions
 

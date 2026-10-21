@@ -1,7 +1,8 @@
 # Public bundle - proposed allowlist
 
-Status: **proposal for Phase 0**, not a built bundle. Phase 0 starts only after
-the design is approved.
+Status: **proposal updated for Phase 1**. The registry, subject-scoped routes
+and download naming are implemented locally; the document bundle is generated
+before the Phase 4 R2 upload.
 
 ## Files that would be in the public bundle
 
@@ -16,13 +17,16 @@ public/
   assets/style.css
   assets/htmx.min.js
   subjects/CSC662/subject.json          # public-safe fields only
-  library/manifest.json                 # seed, mode, computed marks,
+  subjects/CSC580/subject.json          # coming_soon stub
+  subjects/CSC645/subject.json          # coming_soon stub
+  library/manifest.json                 # subject index
+  library/CSC662/manifest.json          # seed, mode, computed marks,
                                         # placeholders, topic mix, file ids
-  library/papers/CSC662 Seed 01 2026.docx
-  library/papers/CSC662 Seed 01 2026.pdf
+  library/CSC662/papers/CSC662 Seed 01 2026.docx
+  library/CSC662/papers/CSC662 Seed 01 2026.pdf
   ...
-  library/schemes/CSC662 Seed 01 2026 - Marking Scheme.docx
-  library/schemes/CSC662 Seed 01 2026 - Marking Scheme.pdf
+  library/CSC662/schemes/CSC662 Seed 01 2026 - Marking Scheme.docx
+  library/CSC662/schemes/CSC662 Seed 01 2026 - Marking Scheme.pdf
   ...
   static/gallery-shell.html
 ```

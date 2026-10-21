@@ -1,88 +1,44 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CSC662 Mock Paper Generator</title>
-  <script src="/static/htmx.min.js"></script>
-  <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-<header class="top">
-  <div>
-    <h1>CSC662 Mock Paper Generator</h1>
-    <p class="sub">Local study tool &middot; {{ model }}{% if public %} &middot; public build{% endif %}</p>
-  </div>
-  <div class="pill">cost cap ${{ "%.2f"|format(cost_cap) }}</div>
-</header>
+{% extends "base.html" %}
+{% block title %}{{ site_name }}{% endblock %}
+{% block content %}
+<p>Generate practice papers from lecture material, or browse pre-generated
+papers. Local study aid. No accounts, no uploads.</p>
+<p class="small">Theory answers are supported by lecture slides, not
+lecturer-marked. This is not an official exam paper.</p>
 
-{% if public %}
-<div class="banner">Public build: university branding is replaced and the
-  Library is disabled. Lecture slides and past papers stay on this machine.</div>
-{% endif %}
+<h2>Subjects</h2>
+<table>
+  <tr><th>Code</th><th>Subject</th><th>Status</th><th>Papers</th><th></th></tr>
+  {% for subject in subjects %}
+  <tr>
+    <td>{{ subject.code }}</td>
+    <td>{{ subject.title }}</td>
+    <td class="{{ 'ok' if subject.available else 'muted' }}">{{ subject.status.replace('_', ' ') }}</td>
+    <td>
+      {% if not subject.available %}no data
+      {% elif public %}public bundle
+      {% else %}{{ counts.get(subject.code, 0) }} cached realistic papers
+      {% endif %}
+    </td>
+    <td>
+      {% if subject.available %}<a href="/{{ subject.route }}">open</a>
+      {% else %}&mdash;{% endif %}
+    </td>
+  </tr>
+  {% endfor %}
+</table>
 
-<main>
-  <section class="card">
-    <input type="radio" name="tab" id="tab-generate" class="tabradio" checked>
-    <input type="radio" name="tab" id="tab-library" class="tabradio">
-    <div class="tabs" role="tablist">
-      <label for="tab-generate" class="tab">Generate</label>
-      <label for="tab-library" class="tab">Library</label>
-    </div>
-
-    <div class="panel panel-generate">
-      <form class="generate" hx-post="/jobs" hx-target="#job" hx-swap="outerHTML">
-        <div class="grid">
-          <label>Mode
-            <select name="mode">
-              <option value="realistic" selected>Realistic</option>
-              <option value="practice">Practice</option>
-            </select>
-          </label>
-          <label>Seed <span class="hint">(optional)</span>
-            <input type="number" name="seed" min="1" max="99999" placeholder="random">
-          </label>
-          <label>Computed marks N <span class="hint">(practice only)</span>
-            <input type="number" name="computed_marks" min="0" max="80" value="22">
-          </label>
-        </div>
-        <div class="actions">
-          <button class="primary" type="submit">Generate</button>
-          <span class="hint">Background job. A cached seed returns instantly
-            and costs $0.</span>
-        </div>
-      </form>
-      <div id="job"></div>
-    </div>
-
-    <div class="panel panel-library">
-      <h2>Prebuilt papers</h2>
-      <p class="hint">Realistic papers from the 20-seed accepted sets.
-        No API key is needed and no LLM call is made.</p>
-      <div id="library" hx-get="/library" hx-trigger="load">
-        <p class="muted">Loading library&hellip;</p>
-      </div>
-    </div>
-  </section>
-</main>
-
-<script>
-  (function () {
-    const mode = document.querySelector('select[name="mode"]');
-    const cm = document.querySelector('input[name="computed_marks"]');
-    function sync() {
-      if (!mode || !cm) return;
-      cm.disabled = mode.value !== "practice";
-      cm.title = cm.disabled ? "Practice mode only" : "";
-    }
-    if (mode) mode.addEventListener("change", sync);
-    sync();
-  })();
-</script>
-
-<footer class="foot">
-  Local only. No accounts, payments or uploads. Lecture slides and past papers
-  never leave this machine.
-</footer>
-</body>
-</html>
+<h2>Purpose</h2>
+<table>
+  <tr><th>Path</th><th>What it does</th><th>Needs a key?</th><th>Cost</th></tr>
+  <tr><td>Generate a new paper</td>
+      <td>Background generation with slot-by-slot status</td>
+      <td>yes</td><td>per-run cap ${{ "%.2f"|format(cost_cap) }}</td></tr>
+  <tr><td>Browse pre-generated papers</td>
+      <td>20 cached realistic papers, instant download</td>
+      <td>no</td><td>$0</td></tr>
+  <tr><td>Public gallery</td>
+      <td>Opt-in shared papers, deleted after 7 days</td>
+      <td>no</td><td>$0</td></tr>
+</table>
+{% endblock %}

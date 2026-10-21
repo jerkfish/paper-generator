@@ -27,7 +27,7 @@ ROOT_FILES = (
     "README.md", "pyproject.toml", "uv.lock", ".gitignore",
     "wrangler.toml", "wrangler.jsonc", "Dockerfile", "docker-compose.yml",
 )
-SCAN_DIRS = ("src", "tests", "scripts", "cloudflare", "design")
+SCAN_DIRS = ("src", "tests", "scripts", "cloudflare", "design", "subjects")
 
 
 class SecretLeakError(RuntimeError):

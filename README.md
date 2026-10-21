@@ -1,8 +1,8 @@
-# CSC662 mock paper generator
+# Mock Paper Generator
 
-Local study tool for CSC662 Computer Security. It plans a realistic or practice
-paper, drafts grounded theory questions from the lecture decks, verifies the
-marking points, and exports a Word/PDF paper and marking scheme.
+Local study tool for CSC662 Computer Security. It plans a realistic or
+practice paper, drafts grounded theory questions from the lecture decks,
+verifies the marking points, and exports a Word/PDF paper and marking scheme.
 
 Everything runs on this machine. There are no accounts, payments or uploads;
 lecture slides and past papers never leave the machine.
@@ -21,13 +21,56 @@ Or:
 uv run uvicorn src.app.main:app --host 127.0.0.1 --port 8000
 ```
 
-The page has two tabs:
+## Pages
 
-- **Generate** - realistic or practice mode, optional seed, computed marks N
-  (practice only). Generation runs as a background job with progress by
-  question (A1 ... B2), cost so far, placeholders and a Cancel button.
-- **Library** - 20 prebuilt realistic papers from the accepted sets. These
-  are served from cache instantly and make no LLM call.
+| Route | Purpose |
+|---|---|
+| `/` | Subject table: CSC662 available, CSC580/CSC645 coming soon |
+| `/csc662` | Subject hub: generate, Library, gallery |
+| `/csc662/library` | Filterable table of the 20 prebuilt papers |
+| `/csc662/generate` | Generate a new paper as a background job |
+| `/gallery` | Public shared papers (no entries enabled locally) |
+| `/paused` | Daily-cap fallback notice |
+
+The Library filters by text, computed marks, topic and placeholder count.
+The job page shows one row per question and per-part slot status, updated
+from real job events. There is no fake timer, animation or typewriter; the
+plain table is the v2 design fallback.
+
+## Subject registry
+
+The app discovers subjects by scanning `subjects/*/subject.json`:
+
+```text
+subjects/CSC662/subject.json   status: available
+subjects/CSC580/subject.json   status: coming_soon
+subjects/CSC645/subject.json   status: coming_soon
+```
+
+Each record contains the code, title, status, header text, template path,
+fingerprint metadata, deck map, topic-deck allow-list and enabled computed
+generators. `status: coming_soon` subjects appear on the home page but have
+no papers, cache folder or generators.
+
+Computed generators are subject plugins: the CSC662 types (Vigenere, ACM,
+columnar, rail fence, OTP, Caesar) live in `src/generators/`. Another subject
+needs its own planner and generator plugin before its status can become
+`available`. Routes, cache keys and Library folders are subject-scoped.
+
+## Download names
+
+Downloads carry both an ASCII `filename` and an RFC 5987 `filename*` header:
+
+```text
+CSC662 Seed 07 2026.pdf
+CSC662 Seed 07 2026 - Marking Scheme.docx
+CSC662 Seed 07 2026 (practice 14).pdf
+```
+
+`YEAR` is the UTC year of generation (the cached Library uses the year stored
+when it was prebuilt). Practice mode adds ` (practice N)` where `N` is the
+requested computed marks. Seeds are zero-padded to two digits, so seed 7 is
+`Seed 07` and seed 12345 remains `Seed 12345`.
 
 ## API key
 
@@ -38,18 +81,27 @@ DEEPSEEK_API_KEY=...
 ```
 
 The default model is `deepseek-flash` (DeepSeek-V4.1-Flash-1017). With no key,
-the Library still works; the Generate tab explains that live generation is
+the Library still works; the Generate page explains that live generation is
 unavailable.
 
 ## Library
 
-The Library is prebuilt in `outputs/web_cache/`. To rebuild it from the stored
-20-seed planner/theory JSON (no LLM calls):
+The Library is prebuilt per subject in `outputs/web_cache/CSC662/`. To rebuild
+it from the stored 20-seed planner/theory JSON (no LLM calls):
 
 ```bash
-uv run python -m src.app.prebuild_library --seeds 1-20
+uv run python -m src.app.prebuild_library --seeds 1-20 --subject CSC662
 # schemes only, reusing the cached paper DOCX:
-uv run python -m src.app.prebuild_library --seeds 1-20 --schemes-only
+uv run python -m src.app.prebuild_library --seeds 1-20 --subject CSC662 --schemes-only
+```
+
+Caches created before Phase 1 lived in flat `outputs/web_cache/<hash>/`
+folders. They remain readable; to copy them into the subject folder and add
+the subject/year/topic fields:
+
+```bash
+uv run python -m scripts.migrate_cache_subjects
+# --move removes the old flat folders after a successful copy
 ```
 
 ## Cost cap and cache
@@ -57,7 +109,7 @@ uv run python -m src.app.prebuild_library --seeds 1-20 --schemes-only
 - Per-run cap: `MOCKGEN_COST_CAP_USD` (default **$0.05**). The generator
   checks the running token cost after every LLM call and aborts with status
   `cost_capped`.
-- Cache key: mode + seed + computed marks + model + thresholds +
+- Cache key: subject + mode + seed + computed marks + model + thresholds +
   `PUBLIC_BUILD`. A cache hit returns instantly with **$0** run cost.
 
 ## PDF export and scheme QA
@@ -104,6 +156,31 @@ This replaces the university name, crest and reference code with generic
 branding and disables the Library (which is built from real course material).
 Live generation still works with an API key.
 
+## Cloudflare/R2 preparation
+
+The public-bundle manifest now uses per-subject folders
+(`library/CSC662/papers/`, `library/CSC662/schemes/`) and public-safe subject
+metadata. R2 sync is prepared but not enabled until a public bundle and R2
+access keys exist.
+
+Free-tier compliance and the backup plan are documented in
+`cloudflare/R2_QUOTA_PLAN.md`. The sync tool budgets 1 GiB storage, 10,000
+Class A operations/month and 100,000 Class B operations/month, and aborts
+before crossing a cap:
+
+```bash
+# dry run: no credentials, no network calls
+uv run python -m scripts.r2_sync --bundle outputs/public_bundle
+
+# upload (requires R2_ACCESS_KEY_ID/R2_SECRET_ACCESS_KEY):
+uv run --with boto3 python -m scripts.r2_sync \
+  --bundle outputs/public_bundle --upload
+```
+
+R2 configuration is read from the environment: `R2_ACCOUNT_ID`, `R2_BUCKET`
+(default `exampapers`), optional `R2_ENDPOINT`, `R2_ACCESS_KEY_ID`, and
+`R2_SECRET_ACCESS_KEY`. The bucket name is not a secret; access keys are.
+
 ## Data required at runtime
 
 - `data/tracking/mock_paper_planner.xlsx` - question/fingerprint source.
@@ -111,7 +188,8 @@ Live generation still works with an API key.
 - `data/phrases.json` - offline phrase bank for computed questions.
 - `data/reference/CSC662 FEBRUARY 2026-raw docx.docx` - paper/scheme template.
 - `outputs/computed_questions.json`, `outputs/acm_questions.json`.
-- `outputs/web_cache/` - prebuilt Library.
+- `outputs/web_cache/CSC662/` - prebuilt Library (legacy flat folders still
+  work).
 - `outputs/eval_final_deepseek/seed_*_planner.json` and
   `seed_*_theory.json` - source data for rebuilding the Library.
 - Lecture decks at `CSC662_DECKS_DIR` (default `~/Desktop/CSC662`).
@@ -129,5 +207,6 @@ uv run pytest -q
 ```
 
 Covers the planner/verifier, app job lifecycle, cancel, cost-cap abort, cache
-hit, Library without a key, public branding, scheme table geometry, the
-secret-leak scan, public-path guards, and the public bundle allowlist.
+hit, Library without a key, public branding, scheme table geometry, subject
+discovery, download names, subject-scoped routes, the secret-leak scan,
+public-path guards, the public bundle allowlist, and the R2 quota guard.

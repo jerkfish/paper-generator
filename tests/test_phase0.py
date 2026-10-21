@@ -60,7 +60,8 @@ def test_public_bundle_has_no_forbidden_paths():
     assert entries
     assert errors(entries) == []
     assert not any("data/reference" in e["path"] for e in entries)
-    assert any(e["path"].startswith("library/schemes/") for e in entries)
+    assert any(e["path"].startswith("library/CSC662/schemes/")
+               for e in entries)
 
 
 def test_job_download_refuses_reference_file(monkeypatch, tmp_path):
@@ -77,7 +78,7 @@ def test_job_download_refuses_reference_file(monkeypatch, tmp_path):
     manager._jobs[job.id] = job
     try:
         client = TestClient(main.app)
-        resp = client.get("/downloads/phase0test/paper_docx")
+        resp = client.get("/csc662/downloads/phase0test/paper_docx")
     finally:
         manager._jobs.pop(job.id, None)
     assert resp.status_code == 403
