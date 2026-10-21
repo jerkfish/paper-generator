@@ -42,7 +42,7 @@ from src.assemble.build_docx_paper import (
     set_para_text,
 )
 from src.assemble.vigenere_tableau import build_tableau_png
-from src.config import OUTPUTS_DIR, PUBLIC_BUILD
+from src.config import OUTPUTS_DIR, PUBLIC_BUILD, PUBLIC_STRIP_BRANDING
 from src.generators import ciphers as C
 
 OUT_DOCX = OUTPUTS_DIR / "mock_paper_04.docx"
@@ -390,7 +390,7 @@ def build(public: bool | None = None) -> bool:
                                "printed pages")
     d2.save(str(OUT_DOCX))
     pages2 = export_pdf(OUT_DOCX, OUT_PDF)
-    if is_public:
+    if is_public and PUBLIC_STRIP_BRANDING:
         from src.assemble.generic_build import publicise
         publicise(OUT_DOCX)
         # Never leave a private-branded PDF beside a public DOCX.

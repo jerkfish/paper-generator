@@ -1,0 +1,56 @@
+/* Deliberately small stylesheet: plain 2000s-era document UI. */
+body {
+  width: 92%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 14px 0 28px;
+  color: #000;
+  background: #fff;
+  font: 12px Verdana, Arial, Helvetica, sans-serif;
+}
+h1 { font-size: 18px; margin: 4px 0 8px; }
+h2 { font-size: 14px; margin: 16px 0 6px; border-bottom: 1px solid #999; }
+h3 { font-size: 13px; margin: 10px 0 4px; }
+p { margin: 6px 0; }
+a { color: #0000cc; }
+a:visited { color: #551a8b; }
+hr { border: 0; border-top: 1px solid #999; margin: 10px 0; }
+table { border-collapse: collapse; width: 100%; margin: 6px 0 12px; }
+th, td { border: 1px solid #999; padding: 3px 5px; vertical-align: top; text-align: left; }
+th { background: #e8e8e8; }
+fieldset { border: 1px solid #999; padding: 6px 9px 9px; margin: 6px 0 12px; }
+legend { font-weight: bold; }
+input, select, button { font: 12px Verdana, Arial, Helvetica, sans-serif; }
+input[type="text"], input[type="number"], select { padding: 1px 2px; }
+button { padding: 2px 8px; }
+button.sort {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: #0000cc;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+th[aria-sort="ascending"], th[aria-sort="descending"] { background: #d8d8d8; }
+th .sort-mark { font-family: "Courier New", Courier, monospace; }
+.small, .muted { font-size: 11px; color: #444; }
+.mono, .status { font-family: "Courier New", Courier, monospace; }
+.nav { margin: 6px 0 10px; }
+.nav a { margin-right: 12px; }
+.bar { font-family: "Courier New", Courier, monospace; letter-spacing: 1px; }
+.notice { border: 1px solid #999; background: #ffffe1; padding: 6px 8px; margin: 8px 0; }
+.error { border: 1px solid #999; background: #ffecec; padding: 6px 8px; white-space: pre-wrap; }
+.ok { color: #006600; font-weight: bold; }
+.warn { color: #884400; font-weight: bold; }
+.status.accepted, .status.ready { color: #006600; }
+.status.placeholder, .status.error, .status.cost_capped { color: #880000; }
+.status.running, .status.queued { font-weight: bold; }
+.nowrap { white-space: nowrap; }
+@media (max-width: 700px) {
+  body { width: 96%; padding: 8px 0 20px; }
+  table { font-size: 11px; }
+}
+.table-scroll { overflow-x: auto; }
+
+.footer { margin-top: 16px; }

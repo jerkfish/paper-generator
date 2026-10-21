@@ -10,7 +10,7 @@ paper. There is no Python runtime and no LLM call in this deployment.
 - `www.uitmpapergen.download` redirects to the apex
 - workers.dev fallback: https://papergen.jerkfish123.workers.dev
 - D1: `papergen` (`9d99c331-d8ba-495e-9a8d-35e295bb882c`), schema applied.
-- R2: `exampapers`, 96 public objects.
+- R2: `exampapers`, 96-file public bundle plus shared gallery objects.
 - Lifecycle: read-only check works; adding the rule needs
   `Workers R2 Storage Write` on the API token (or the dashboard).
 

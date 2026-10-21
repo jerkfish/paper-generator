@@ -101,11 +101,15 @@ THEORY_SCENARIO_RATE = float(
 # Local-only study tool. PUBLIC_BUILD strips university branding and disables
 # the Library (which is built from real course material).
 PUBLIC_BUILD = os.environ.get("PUBLIC_BUILD", "0") == "1"
+# Public builds keep the original local-build cover by default. Set
+# MOCKGEN_PUBLIC_STRIP_BRANDING=1 to restore the old generic-cover behaviour.
+PUBLIC_STRIP_BRANDING = os.environ.get(
+    "MOCKGEN_PUBLIC_STRIP_BRANDING", "0") == "1"
 SITE_NAME = os.environ.get("MOCKGEN_SITE_NAME", "Mock Paper Generator")
 CONTACT_EMAIL = os.environ.get("MOCKGEN_CONTACT_EMAIL",
-                               "contact@example.com")
+                               "auzair1990@gmail.com")
 REPO_URL = os.environ.get("MOCKGEN_REPO_URL",
-                          "https://github.com/your-username/paper-generator")
+                          "https://github.com/jerkfish/paper-generator")
 WEB_COST_CAP_USD = float(
     os.environ.get("MOCKGEN_COST_CAP_USD", "0.05"))
 WEB_RUNS_DIR = OUTPUTS_DIR / "web_runs"

@@ -1,7 +1,7 @@
 <div id="library-results">
 {% if library_disabled|default(public) %}
   <p class="notice">Library is disabled in PUBLIC_BUILD. Only fresh generated
-    papers with generic branding are available.</p>
+    public-build papers are available.</p>
 {% elif not items %}
   <p class="muted">No prebuilt papers match the filter.</p>
 {% else %}

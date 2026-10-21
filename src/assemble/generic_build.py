@@ -13,6 +13,7 @@ from docx.oxml.ns import qn
 
 import src.assemble.build_docx_paper_04 as paper_mod
 import src.assemble.build_docx_scheme_04 as scheme_mod
+from src import config
 from src.assemble.build_docx_paper import export_pdf, para_text
 from src.assemble.scheme_qa import SchemeQAError
 
@@ -117,7 +118,7 @@ def build_paper(plan_json: Path, theory_json: Path, out_docx: Path,
             error = str(e)
             if not out_docx.exists():
                 raise
-        if public and not applied_public:
+        if public and config.PUBLIC_STRIP_BRANDING and not applied_public:
             publicise(out_docx)
             pdf_ok = _reexport_pdf(out_docx, out_pdf)
         else:
@@ -153,7 +154,7 @@ def build_scheme(paper_docx: Path, plan_json: Path, theory_json: Path,
             error = str(e)
             if not out_docx.exists():
                 raise
-        if public:
+        if public and config.PUBLIC_STRIP_BRANDING:
             publicise(out_docx)
             pdf_ok = _reexport_pdf(out_docx, out_pdf)
         else:

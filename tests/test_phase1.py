@@ -293,17 +293,15 @@ def test_public_urls_are_percent_encoded():
         "CSC662%20Seed%2007%202026%20-%20Marking%20Scheme.pdf")
 
 
-def test_public_bundle_validation_rejects_private_branding(tmp_path):
-    import docx
+def test_public_bundle_validation_rejects_forbidden_paths(tmp_path):
     from scripts.build_public_bundle import validate
     out = tmp_path / "bundle"
     out.mkdir()
     (out / "index.html").write_text("ok", encoding="utf-8")
-    d = docx.Document()
-    d.add_paragraph("UNIVERSITI TEKNOLOGI MARA")
-    d.save(str(out / "bad.docx"))
+    (out / "data").mkdir()
+    (out / "data" / "paper.pdf").write_bytes(b"%PDF")
     problems = validate(out)
-    assert any("private branding" in p for p in problems)
+    assert any("forbidden path" in p for p in problems)
 
 
 def test_gallery_page_uses_worker_api():

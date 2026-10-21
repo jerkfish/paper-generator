@@ -138,9 +138,11 @@ build. LibreOffice is required for the full QA; install it separately if
   uv run python -m src.app.safety --check
   ```
 
-- `PUBLIC_BUILD=1` strips university branding, omits verbatim slide quotes from
-  public schemes, disables the private Library and refuses to serve files under
-  `data/reference/`, `CSC662/` or `data/papers/`.
+- `PUBLIC_BUILD=1` keeps the original local-build cover, omits verbatim slide
+  quotes from public schemes, disables the private Library and refuses to serve
+  files under `data/reference/`, `CSC662/` or `data/papers/`.
+  Set `MOCKGEN_PUBLIC_STRIP_BRANDING=1` only if you intentionally want the old
+  generic-branding cover.
 - The proposed public-bundle allowlist is generated with:
 
   ```bash
@@ -154,9 +156,10 @@ build. LibreOffice is required for the full QA; install it separately if
 PUBLIC_BUILD=1
 ```
 
-This replaces the university name, crest and reference code with generic
-branding and disables the Library (which is built from real course material).
-Live generation still works with an API key.
+This keeps the original local-build cover (university name, crest and reference
+code) and disables the Library in the live FastAPI app. Public schemes still
+omit verbatim slide quotes. Live generation still works with an API key.
+The static public bundle uses the same rule.
 
 ## Public bundle
 
@@ -170,8 +173,9 @@ uv run python -m scripts.build_public_bundle --out outputs/public_bundle
 uv run python -m scripts.build_public_bundle --out outputs/public_bundle --pages-only
 ```
 
-The builder re-brands each paper, rebuilds each scheme with verbatim slide
-quotes omitted, renders the pages from the app templates, and writes:
+The builder keeps each paper's original local-build cover, rebuilds each
+scheme with verbatim slide quotes omitted, renders the pages from the app
+templates, and writes:
 
 ```text
 index.html
@@ -188,16 +192,15 @@ library/CSC662/papers/*.docx, *.pdf
 library/CSC662/schemes/*.docx, *.pdf
 ```
 
-The builder fails if it finds university branding, a private reference code,
-a scheme without the quote-omission marker, or a forbidden path. The
-public-bundle allowlist is in `cloudflare/public_bundle_manifest.txt`.
+The builder fails if it finds a scheme without the quote-omission marker or a
+forbidden path. The public-bundle allowlist is in
+`cloudflare/public_bundle_manifest.txt`.
 
 ## Cloudflare/R2 preparation
 
 The public bundle uses per-subject folders
 (`library/CSC662/papers/`, `library/CSC662/schemes/`) and public-safe subject
-metadata. The built bundle is **96 files / 15.27 MB** and has been uploaded to
-R2. R2 access keys are read from `.env`.
+metadata. The built bundle is **96 files / 18.36 MB** and has been uploaded to R2. R2 access keys are read from `.env`.
 
 Free-tier compliance and the backup plan are documented in
 `cloudflare/R2_QUOTA_PLAN.md`; the minimal credential scopes are in
@@ -258,6 +261,11 @@ active entries and entries expire after 7 days. See
 - `outputs/eval_final_deepseek/seed_*_planner.json` and
   `seed_*_theory.json` - source data for rebuilding the Library.
 - Lecture decks at `CSC662_DECKS_DIR` (default `~/Desktop/CSC662`).
+
+## Lifecycle
+
+See `docs/LIFECYCLE.md` for the local generation, public bundle, R2 upload,
+Worker serving, gallery and new-subject onboarding flow.
 
 ## Design review
 

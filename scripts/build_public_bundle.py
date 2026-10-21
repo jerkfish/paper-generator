@@ -4,7 +4,7 @@ The builder reads the private Library cache, creates PUBLIC_BUILD copies of
 every paper and scheme, renders the public pages and writes the public
 manifests.  It never copies private files directly:
 
-- papers are re-branded and re-exported;
+- papers keep the original local-build cover and are re-exported;
 - schemes are rebuilt with verbatim slide quotes omitted;
 - only public-safe subject fields and Library metadata are written.
 
@@ -33,7 +33,7 @@ from src import config
 from src.app.filenames import (download_filename, utc_year)
 from src.app.jobs import DEFAULT_SUBJECT, library_item
 from src.assemble.build_docx_paper import export_pdf
-from src.assemble.generic_build import build_scheme, publicise
+from src.assemble.generic_build import build_scheme
 from src.planner.planner import TYPE_LABEL
 from src.subjects.registry import get_subject, load_subjects
 
@@ -42,7 +42,6 @@ TEMPLATES = APP_DIR / "templates"
 STATIC = APP_DIR / "static"
 SUBJECT = DEFAULT_SUBJECT
 SCHEME_MARKER = "[verbatim slide quote omitted in public build]"
-PRIVATE_BRAND = "UNIVERSITI TEKNOLOGI MARA"
 
 
 def _docx_text(path: Path) -> str:
@@ -68,18 +67,8 @@ def _pdf_text(path: Path) -> str:
         return "\n".join(page.get_text() for page in pdf)
 
 
-def _check_public_file(path: Path) -> list[str]:
-    text = _docx_text(path) if path.suffix.lower() == ".docx" else _pdf_text(path)
-    problems = []
-    if PRIVATE_BRAND.lower() in text.lower():
-        problems.append(f"private branding in {path.name}")
-    if "CS/MOCK" in text or "2026/CSC662" in text:
-        problems.append(f"private reference code in {path.name}")
-    return problems
-
-
 def _check_scheme(path: Path) -> list[str]:
-    problems = _check_public_file(path)
+    problems: list[str] = []
     text = _docx_text(path) if path.suffix.lower() == ".docx" else _pdf_text(path)
     normalised = " ".join(text.split())
     if SCHEME_MARKER not in normalised:
@@ -118,13 +107,9 @@ def build_documents(out: Path, seeds: list[int], force: bool = False) -> dict:
         if not source_docx.exists():
             raise SystemExit(f"missing private paper DOCX for seed {seed}: "
                              f"{source_docx}")
-        print(f"seed {seed:02d}: public paper", flush=True)
+        print(f"seed {seed:02d}: public paper (original cover)", flush=True)
         shutil.copy2(source_docx, paper_docx)
-        publicise(paper_docx)
         export_pdf(paper_docx, paper_pdf)
-        problems = _check_public_file(paper_docx) + _check_public_file(paper_pdf)
-        if problems:
-            raise SystemExit(f"seed {seed}: " + "; ".join(problems))
 
         print(f"seed {seed:02d}: public scheme", flush=True)
         build_scheme(source_docx, plan, theory, scheme_docx, scheme_pdf,
@@ -138,12 +123,17 @@ def build_documents(out: Path, seeds: list[int], force: bool = False) -> dict:
             "schemes": len(list(schemes.glob("*.docx")))}
 
 
-def _urls(item: dict) -> dict:
-    out = {}
+def _urls(item: dict, out_dir: Path | None = None) -> dict:
+    urls = {}
     for kind, name in item["downloads"].items():
         folder = "schemes" if kind.startswith("scheme") else "papers"
-        out[kind] = f"/library/{SUBJECT}/{folder}/{quote(name, safe='')}"
-    return out
+        url = f"/library/{SUBJECT}/{folder}/{quote(name, safe='')}"
+        if out_dir is not None:
+            path = out_dir / "library" / SUBJECT / folder / name
+            if path.exists():
+                url += f"?v={int(path.stat().st_mtime)}"
+        urls[kind] = url
+    return urls
 
 
 def _render_pages(out: Path, items: list[dict]) -> dict:
@@ -155,7 +145,7 @@ def _render_pages(out: Path, items: list[dict]) -> dict:
     subject = get_subject(SUBJECT)
     counts = {s.code: 0 for s in subjects}
     counts[SUBJECT] = len(items)
-    item_urls = {str(item["seed"]): _urls(item) for item in items}
+    item_urls = {str(item["seed"]): _urls(item, out) for item in items}
     topics = sorted({name for item in items
                      for name, marks in item["topic_marks"].items()
                      if int(marks) > 0})
@@ -232,7 +222,7 @@ def _write_manifests(out: Path, items: list[dict]) -> dict:
 
     papers = []
     for item in items:
-        urls = _urls(item)
+        urls = _urls(item, out)
         papers.append({
             "seed": item["seed"],
             "mode": item["mode"],
@@ -287,14 +277,14 @@ def build(out: Path, seeds: list[int], force: bool = False,
     if missing:
         raise SystemExit(f"missing Library cache for seeds: {missing}")
     items = [item for item in items if item is not None]
-    page_info = _render_pages(out, items)
-    print(f"pages: {page_info}", flush=True)
-    manifest_info = _write_manifests(out, items)
-    print(f"manifests: {manifest_info}", flush=True)
     doc_info = {"built": 0, "skipped": 0}
     if not pages_only:
         doc_info = build_documents(out, seeds, force=force)
         print(f"documents: {doc_info}", flush=True)
+    page_info = _render_pages(out, items)
+    print(f"pages: {page_info}", flush=True)
+    manifest_info = _write_manifests(out, items)
+    print(f"manifests: {manifest_info}", flush=True)
     problems = validate(out)
     if problems:
         for problem in problems:
@@ -315,13 +305,10 @@ def validate(out: Path) -> list[str]:
         if any(rel.startswith(prefix) for prefix in forbidden):
             problems.append(f"forbidden path in bundle: {rel}")
         if path.suffix.lower() in {".docx", ".pdf"}:
-            problems.extend(_check_public_file(path))
             if "Marking Scheme" in path.name:
                 problems.extend(_check_scheme(path))
         elif path.suffix.lower() in {".html", ".json", ".css", ".js", ".txt"}:
             text = path.read_text(encoding="utf-8", errors="ignore")
-            if PRIVATE_BRAND.lower() in text.lower():
-                problems.append(f"private branding in {rel}")
             if "data/reference" in text or "CSC662 FEBRUARY 2026-raw" in text:
                 problems.append(f"private path in {rel}")
     return problems

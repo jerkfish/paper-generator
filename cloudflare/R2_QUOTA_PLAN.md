@@ -20,12 +20,12 @@ caps. It checks before any network call and exits non-zero.
 The built public bundle is 80 files (paper/scheme × DOCX/PDF) plus the static
 pages and metadata. Measured on 2026-10-21 in `outputs/public_bundle`:
 
-- 80 document files plus pages/metadata: **96 files, 15.27 MB**.
-- That is about **0.15% of 10 GB** and **96 Class A operations**
-  (95 object PUTs + 1 LIST) for the first upload; the gallery.js update added
-  one more object and seven Class A operations.
-- Current local ledger after upload and verification: **108 Class A, 0 Class B**,
-  96 objects, 16,011,605 bytes.
+- The library bundle is **96 files, 18.36 MB** (the original cover/crest
+  images add about 3 MB).
+- The bucket currently has **104 objects, 19,793,742 bytes**: the 96-file
+  bundle plus two 4-file shared gallery entries.
+- That is about **0.20% of 10 GB**. The first upload, cover/page updates and
+  verification used **222 Class A, 0 Class B** in the local ledger.
 
 A public-bundle build will replace the private cache files; sizes are similar
 because the content is the same.

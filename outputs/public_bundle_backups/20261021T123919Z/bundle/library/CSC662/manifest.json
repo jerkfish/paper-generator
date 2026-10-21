@@ -1,0 +1,617 @@
+{
+  "subject": "CSC662",
+  "title": "Computer Security",
+  "year": 2026,
+  "count": 20,
+  "papers": [
+    {
+      "seed": 1,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "year": 2026,
+      "accepted": 24,
+      "placeholders": 0,
+      "topic_marks": {
+        "software/OS security": 8,
+        "attacks/malware": 24,
+        "network security": 8,
+        "access control models": 18,
+        "trusted computing/blockchain": 8,
+        "authentication/biometrics": 16,
+        "risk/management (ethics)": 18
+      },
+      "topic_mix": "ATK 24 ACC 18 ETH 18 AUT 16 NET 8 SWS 8 TRU 8",
+      "files": {
+        "paper_docx": "library/CSC662/papers/CSC662 Seed 01 2026.docx",
+        "paper_pdf": "library/CSC662/papers/CSC662 Seed 01 2026.pdf",
+        "scheme_docx": "library/CSC662/schemes/CSC662 Seed 01 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC662/schemes/CSC662 Seed 01 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC662/papers/CSC662%20Seed%2001%202026.docx?v=1792475723",
+        "paper_pdf": "/library/CSC662/papers/CSC662%20Seed%2001%202026.pdf?v=1792584784",
+        "scheme_docx": "/library/CSC662/schemes/CSC662%20Seed%2001%202026%20-%20Marking%20Scheme.docx?v=1792584798",
+        "scheme_pdf": "/library/CSC662/schemes/CSC662%20Seed%2001%202026%20-%20Marking%20Scheme.pdf?v=1792584805"
+      }
+    },
+    {
+      "seed": 2,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "year": 2026,
+      "accepted": 23,
+      "placeholders": 1,
+      "topic_marks": {
+        "trusted computing/blockchain": 8,
+        "authentication/biometrics": 16,
+        "risk/management (ethics)": 16,
+        "attacks/malware": 26,
+        "software/OS security": 8,
+        "network security": 8,
+        "access control models": 18
+      },
+      "topic_mix": "ATK 26 ACC 18 AUT 16 ETH 16 NET 8 SWS 8 TRU 8",
+      "files": {
+        "paper_docx": "library/CSC662/papers/CSC662 Seed 02 2026.docx",
+        "paper_pdf": "library/CSC662/papers/CSC662 Seed 02 2026.pdf",
+        "scheme_docx": "library/CSC662/schemes/CSC662 Seed 02 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC662/schemes/CSC662 Seed 02 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC662/papers/CSC662%20Seed%2002%202026.docx?v=1792475723",
+        "paper_pdf": "/library/CSC662/papers/CSC662%20Seed%2002%202026.pdf?v=1792584817",
+        "scheme_docx": "/library/CSC662/schemes/CSC662%20Seed%2002%202026%20-%20Marking%20Scheme.docx?v=1792584830",
+        "scheme_pdf": "/library/CSC662/schemes/CSC662%20Seed%2002%202026%20-%20Marking%20Scheme.pdf?v=1792584837"
+      }
+    },
+    {
+      "seed": 3,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "year": 2026,
+      "accepted": 24,
+      "placeholders": 0,
+      "topic_marks": {
+        "risk/management (ethics)": 16,
+        "access control models": 16,
+        "software/OS security": 8,
+        "authentication/biometrics": 16,
+        "attacks/malware": 26,
+        "network security": 8,
+        "trusted computing/blockchain": 10
+      },
+      "topic_mix": "ATK 26 ACC 16 AUT 16 ETH 16 TRU 10 NET 8 SWS 8",
+      "files": {
+        "paper_docx": "library/CSC662/papers/CSC662 Seed 03 2026.docx",
+        "paper_pdf": "library/CSC662/papers/CSC662 Seed 03 2026.pdf",
+        "scheme_docx": "library/CSC662/schemes/CSC662 Seed 03 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC662/schemes/CSC662 Seed 03 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC662/papers/CSC662%20Seed%2003%202026.docx?v=1792471556",
+        "paper_pdf": "/library/CSC662/papers/CSC662%20Seed%2003%202026.pdf?v=1792584848",
+        "scheme_docx": "/library/CSC662/schemes/CSC662%20Seed%2003%202026%20-%20Marking%20Scheme.docx?v=1792584861",
+        "scheme_pdf": "/library/CSC662/schemes/CSC662%20Seed%2003%202026%20-%20Marking%20Scheme.pdf?v=1792584869"
+      }
+    },
+    {
+      "seed": 4,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "year": 2026,
+      "accepted": 24,
+      "placeholders": 0,
+      "topic_marks": {
+        "attacks/malware": 24,
+        "risk/management (ethics)": 16,
+        "authentication/biometrics": 18,
+        "access control models": 16,
+        "trusted computing/blockchain": 8,
+        "software/OS security": 8,
+        "network security": 10
+      },
+      "topic_mix": "ATK 24 AUT 18 ACC 16 ETH 16 NET 10 SWS 8 TRU 8",
+      "files": {
+        "paper_docx": "library/CSC662/papers/CSC662 Seed 04 2026.docx",
+        "paper_pdf": "library/CSC662/papers/CSC662 Seed 04 2026.pdf",
+        "scheme_docx": "library/CSC662/schemes/CSC662 Seed 04 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC662/schemes/CSC662 Seed 04 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC662/papers/CSC662%20Seed%2004%202026.docx?v=1792475723",
+        "paper_pdf": "/library/CSC662/papers/CSC662%20Seed%2004%202026.pdf?v=1792584880",
+        "scheme_docx": "/library/CSC662/schemes/CSC662%20Seed%2004%202026%20-%20Marking%20Scheme.docx?v=1792584893",
+        "scheme_pdf": "/library/CSC662/schemes/CSC662%20Seed%2004%202026%20-%20Marking%20Scheme.pdf?v=1792584900"
+      }
+    },
+    {
+      "seed": 5,
+      "mode": "realistic",
+      "computed_marks": 14,
+      "year": 2026,
+      "accepted": 21,
+      "placeholders": 0,
+      "topic_marks": {
+        "classical ciphers": 8,
+        "authentication/biometrics": 18,
+        "access control models": 12,
+        "trusted computing/blockchain": 8,
+        "attacks/malware": 16,
+        "software/OS security": 8,
+        "risk/management (ethics)": 8,
+        "network security": 8
+      },
+      "topic_mix": "AUT 18 ATK 16 ACC 12 CIP 8 NET 8 ETH 8 SWS 8 TRU 8",
+      "files": {
+        "paper_docx": "library/CSC662/papers/CSC662 Seed 05 2026.docx",
+        "paper_pdf": "library/CSC662/papers/CSC662 Seed 05 2026.pdf",
+        "scheme_docx": "library/CSC662/schemes/CSC662 Seed 05 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC662/schemes/CSC662 Seed 05 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC662/papers/CSC662%20Seed%2005%202026.docx?v=1792475723",
+        "paper_pdf": "/library/CSC662/papers/CSC662%20Seed%2005%202026.pdf?v=1792584912",
+        "scheme_docx": "/library/CSC662/schemes/CSC662%20Seed%2005%202026%20-%20Marking%20Scheme.docx?v=1792584924",
+        "scheme_pdf": "/library/CSC662/schemes/CSC662%20Seed%2005%202026%20-%20Marking%20Scheme.pdf?v=1792584931"
+      }
+    },
+    {
+      "seed": 6,
+      "mode": "realistic",
+      "computed_marks": 14,
+      "year": 2026,
+      "accepted": 19,
+      "placeholders": 2,
+      "topic_marks": {
+        "classical ciphers": 8,
+        "trusted computing/blockchain": 8,
+        "access control models": 12,
+        "authentication/biometrics": 16,
+        "network security": 8,
+        "attacks/malware": 16,
+        "software/OS security": 8,
+        "risk/management (ethics)": 10
+      },
+      "topic_mix": "ATK 16 AUT 16 ACC 12 ETH 10 CIP 8 NET 8 SWS 8 TRU 8",
+      "files": {
+        "paper_docx": "library/CSC662/papers/CSC662 Seed 06 2026.docx",
+        "paper_pdf": "library/CSC662/papers/CSC662 Seed 06 2026.pdf",
+        "scheme_docx": "library/CSC662/schemes/CSC662 Seed 06 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC662/schemes/CSC662 Seed 06 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC662/papers/CSC662%20Seed%2006%202026.docx?v=1792475723",
+        "paper_pdf": "/library/CSC662/papers/CSC662%20Seed%2006%202026.pdf?v=1792584942",
+        "scheme_docx": "/library/CSC662/schemes/CSC662%20Seed%2006%202026%20-%20Marking%20Scheme.docx?v=1792584955",
+        "scheme_pdf": "/library/CSC662/schemes/CSC662%20Seed%2006%202026%20-%20Marking%20Scheme.pdf?v=1792584953"
+      }
+    },
+    {
+      "seed": 7,
+      "mode": "realistic",
+      "computed_marks": 2,
+      "year": 2026,
+      "accepted": 23,
+      "placeholders": 0,
+      "topic_marks": {
+        "classical ciphers": 6,
+        "network security": 8,
+        "trusted computing/blockchain": 8,
+        "authentication/biometrics": 18,
+        "attacks/malware": 24,
+        "risk/management (ethics)": 18,
+        "access control models": 8,
+        "software/OS security": 8
+      },
+      "topic_mix": "ATK 24 AUT 18 ETH 18 ACC 8 NET 8 SWS 8 TRU 8 CIP 6",
+      "files": {
+        "paper_docx": "library/CSC662/papers/CSC662 Seed 07 2026.docx",
+        "paper_pdf": "library/CSC662/papers/CSC662 Seed 07 2026.pdf",
+        "scheme_docx": "library/CSC662/schemes/CSC662 Seed 07 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC662/schemes/CSC662 Seed 07 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC662/papers/CSC662%20Seed%2007%202026.docx?v=1792475723",
+        "paper_pdf": "/library/CSC662/papers/CSC662%20Seed%2007%202026.pdf?v=1792584972",
+        "scheme_docx": "/library/CSC662/schemes/CSC662%20Seed%2007%202026%20-%20Marking%20Scheme.docx?v=1792584985",
+        "scheme_pdf": "/library/CSC662/schemes/CSC662%20Seed%2007%202026%20-%20Marking%20Scheme.pdf?v=1792584993"
+      }
+    },
+    {
+      "seed": 8,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "year": 2026,
+      "accepted": 24,
+      "placeholders": 0,
+      "topic_marks": {
+        "attacks/malware": 24,
+        "risk/management (ethics)": 16,
+        "trusted computing/blockchain": 8,
+        "access control models": 18,
+        "software/OS security": 8,
+        "network security": 8,
+        "authentication/biometrics": 18
+      },
+      "topic_mix": "ATK 24 ACC 18 AUT 18 ETH 16 NET 8 SWS 8 TRU 8",
+      "files": {
+        "paper_docx": "library/CSC662/papers/CSC662 Seed 08 2026.docx",
+        "paper_pdf": "library/CSC662/papers/CSC662 Seed 08 2026.pdf",
+        "scheme_docx": "library/CSC662/schemes/CSC662 Seed 08 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC662/schemes/CSC662 Seed 08 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC662/papers/CSC662%20Seed%2008%202026.docx?v=1792475723",
+        "paper_pdf": "/library/CSC662/papers/CSC662%20Seed%2008%202026.pdf?v=1792585004",
+        "scheme_docx": "/library/CSC662/schemes/CSC662%20Seed%2008%202026%20-%20Marking%20Scheme.docx?v=1792585018",
+        "scheme_pdf": "/library/CSC662/schemes/CSC662%20Seed%2008%202026%20-%20Marking%20Scheme.pdf?v=1792585025"
+      }
+    },
+    {
+      "seed": 9,
+      "mode": "realistic",
+      "computed_marks": 6,
+      "year": 2026,
+      "accepted": 23,
+      "placeholders": 0,
+      "topic_marks": {
+        "network security": 8,
+        "classical ciphers": 2,
+        "software/OS security": 8,
+        "attacks/malware": 24,
+        "risk/management (ethics)": 16,
+        "authentication/biometrics": 18,
+        "access control models": 8,
+        "trusted computing/blockchain": 10
+      },
+      "topic_mix": "ATK 24 AUT 18 ETH 16 TRU 10 ACC 8 NET 8 SWS 8 CIP 2",
+      "files": {
+        "paper_docx": "library/CSC662/papers/CSC662 Seed 09 2026.docx",
+        "paper_pdf": "library/CSC662/papers/CSC662 Seed 09 2026.pdf",
+        "scheme_docx": "library/CSC662/schemes/CSC662 Seed 09 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC662/schemes/CSC662 Seed 09 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC662/papers/CSC662%20Seed%2009%202026.docx?v=1792475723",
+        "paper_pdf": "/library/CSC662/papers/CSC662%20Seed%2009%202026.pdf?v=1792585036",
+        "scheme_docx": "/library/CSC662/schemes/CSC662%20Seed%2009%202026%20-%20Marking%20Scheme.docx?v=1792585049",
+        "scheme_pdf": "/library/CSC662/schemes/CSC662%20Seed%2009%202026%20-%20Marking%20Scheme.pdf?v=1792585056"
+      }
+    },
+    {
+      "seed": 10,
+      "mode": "realistic",
+      "computed_marks": 14,
+      "year": 2026,
+      "accepted": 19,
+      "placeholders": 2,
+      "topic_marks": {
+        "classical ciphers": 8,
+        "authentication/biometrics": 16,
+        "access control models": 10,
+        "risk/management (ethics)": 8,
+        "network security": 8,
+        "software/OS security": 8,
+        "attacks/malware": 18,
+        "trusted computing/blockchain": 10
+      },
+      "topic_mix": "ATK 18 AUT 16 ACC 10 TRU 10 CIP 8 NET 8 ETH 8 SWS 8",
+      "files": {
+        "paper_docx": "library/CSC662/papers/CSC662 Seed 10 2026.docx",
+        "paper_pdf": "library/CSC662/papers/CSC662 Seed 10 2026.pdf",
+        "scheme_docx": "library/CSC662/schemes/CSC662 Seed 10 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC662/schemes/CSC662 Seed 10 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC662/papers/CSC662%20Seed%2010%202026.docx?v=1792475723",
+        "paper_pdf": "/library/CSC662/papers/CSC662%20Seed%2010%202026.pdf?v=1792585068",
+        "scheme_docx": "/library/CSC662/schemes/CSC662%20Seed%2010%202026%20-%20Marking%20Scheme.docx?v=1792585080",
+        "scheme_pdf": "/library/CSC662/schemes/CSC662%20Seed%2010%202026%20-%20Marking%20Scheme.pdf?v=1792585087"
+      }
+    },
+    {
+      "seed": 11,
+      "mode": "realistic",
+      "computed_marks": 6,
+      "year": 2026,
+      "accepted": 23,
+      "placeholders": 0,
+      "topic_marks": {
+        "attacks/malware": 24,
+        "classical ciphers": 2,
+        "authentication/biometrics": 16,
+        "access control models": 8,
+        "trusted computing/blockchain": 8,
+        "risk/management (ethics)": 18,
+        "network security": 8,
+        "software/OS security": 10
+      },
+      "topic_mix": "ATK 24 ETH 18 AUT 16 SWS 10 ACC 8 NET 8 TRU 8 CIP 2",
+      "files": {
+        "paper_docx": "library/CSC662/papers/CSC662 Seed 11 2026.docx",
+        "paper_pdf": "library/CSC662/papers/CSC662 Seed 11 2026.pdf",
+        "scheme_docx": "library/CSC662/schemes/CSC662 Seed 11 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC662/schemes/CSC662 Seed 11 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC662/papers/CSC662%20Seed%2011%202026.docx?v=1792475723",
+        "paper_pdf": "/library/CSC662/papers/CSC662%20Seed%2011%202026.pdf?v=1792585098",
+        "scheme_docx": "/library/CSC662/schemes/CSC662%20Seed%2011%202026%20-%20Marking%20Scheme.docx?v=1792585111",
+        "scheme_pdf": "/library/CSC662/schemes/CSC662%20Seed%2011%202026%20-%20Marking%20Scheme.pdf?v=1792585118"
+      }
+    },
+    {
+      "seed": 12,
+      "mode": "realistic",
+      "computed_marks": 6,
+      "year": 2026,
+      "accepted": 23,
+      "placeholders": 0,
+      "topic_marks": {
+        "risk/management (ethics)": 16,
+        "classical ciphers": 2,
+        "access control models": 8,
+        "attacks/malware": 24,
+        "network security": 8,
+        "authentication/biometrics": 18,
+        "software/OS security": 8,
+        "trusted computing/blockchain": 10
+      },
+      "topic_mix": "ATK 24 AUT 18 ETH 16 TRU 10 ACC 8 NET 8 SWS 8 CIP 2",
+      "files": {
+        "paper_docx": "library/CSC662/papers/CSC662 Seed 12 2026.docx",
+        "paper_pdf": "library/CSC662/papers/CSC662 Seed 12 2026.pdf",
+        "scheme_docx": "library/CSC662/schemes/CSC662 Seed 12 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC662/schemes/CSC662 Seed 12 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC662/papers/CSC662%20Seed%2012%202026.docx?v=1792475723",
+        "paper_pdf": "/library/CSC662/papers/CSC662%20Seed%2012%202026.pdf?v=1792585129",
+        "scheme_docx": "/library/CSC662/schemes/CSC662%20Seed%2012%202026%20-%20Marking%20Scheme.docx?v=1792585143",
+        "scheme_pdf": "/library/CSC662/schemes/CSC662%20Seed%2012%202026%20-%20Marking%20Scheme.pdf?v=1792585149"
+      }
+    },
+    {
+      "seed": 13,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "year": 2026,
+      "accepted": 22,
+      "placeholders": 2,
+      "topic_marks": {
+        "network security": 8,
+        "software/OS security": 8,
+        "attacks/malware": 24,
+        "access control models": 16,
+        "trusted computing/blockchain": 8,
+        "risk/management (ethics)": 18,
+        "authentication/biometrics": 18
+      },
+      "topic_mix": "ATK 24 AUT 18 ETH 18 ACC 16 NET 8 SWS 8 TRU 8",
+      "files": {
+        "paper_docx": "library/CSC662/papers/CSC662 Seed 13 2026.docx",
+        "paper_pdf": "library/CSC662/papers/CSC662 Seed 13 2026.pdf",
+        "scheme_docx": "library/CSC662/schemes/CSC662 Seed 13 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC662/schemes/CSC662 Seed 13 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC662/papers/CSC662%20Seed%2013%202026.docx?v=1792475723",
+        "paper_pdf": "/library/CSC662/papers/CSC662%20Seed%2013%202026.pdf?v=1792585161",
+        "scheme_docx": "/library/CSC662/schemes/CSC662%20Seed%2013%202026%20-%20Marking%20Scheme.docx?v=1792585173",
+        "scheme_pdf": "/library/CSC662/schemes/CSC662%20Seed%2013%202026%20-%20Marking%20Scheme.pdf?v=1792585180"
+      }
+    },
+    {
+      "seed": 14,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "year": 2026,
+      "accepted": 24,
+      "placeholders": 0,
+      "topic_marks": {
+        "risk/management (ethics)": 18,
+        "attacks/malware": 24,
+        "software/OS security": 8,
+        "access control models": 16,
+        "authentication/biometrics": 16,
+        "network security": 8,
+        "trusted computing/blockchain": 10
+      },
+      "topic_mix": "ATK 24 ETH 18 ACC 16 AUT 16 TRU 10 NET 8 SWS 8",
+      "files": {
+        "paper_docx": "library/CSC662/papers/CSC662 Seed 14 2026.docx",
+        "paper_pdf": "library/CSC662/papers/CSC662 Seed 14 2026.pdf",
+        "scheme_docx": "library/CSC662/schemes/CSC662 Seed 14 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC662/schemes/CSC662 Seed 14 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC662/papers/CSC662%20Seed%2014%202026.docx?v=1792475723",
+        "paper_pdf": "/library/CSC662/papers/CSC662%20Seed%2014%202026.pdf?v=1792585191",
+        "scheme_docx": "/library/CSC662/schemes/CSC662%20Seed%2014%202026%20-%20Marking%20Scheme.docx?v=1792585217",
+        "scheme_pdf": "/library/CSC662/schemes/CSC662%20Seed%2014%202026%20-%20Marking%20Scheme.pdf?v=1792585224"
+      }
+    },
+    {
+      "seed": 15,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "year": 2026,
+      "accepted": 24,
+      "placeholders": 0,
+      "topic_marks": {
+        "access control models": 16,
+        "network security": 8,
+        "trusted computing/blockchain": 8,
+        "risk/management (ethics)": 18,
+        "attacks/malware": 26,
+        "software/OS security": 8,
+        "authentication/biometrics": 16
+      },
+      "topic_mix": "ATK 26 ETH 18 ACC 16 AUT 16 NET 8 SWS 8 TRU 8",
+      "files": {
+        "paper_docx": "library/CSC662/papers/CSC662 Seed 15 2026.docx",
+        "paper_pdf": "library/CSC662/papers/CSC662 Seed 15 2026.pdf",
+        "scheme_docx": "library/CSC662/schemes/CSC662 Seed 15 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC662/schemes/CSC662 Seed 15 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC662/papers/CSC662%20Seed%2015%202026.docx?v=1792475723",
+        "paper_pdf": "/library/CSC662/papers/CSC662%20Seed%2015%202026.pdf?v=1792585236",
+        "scheme_docx": "/library/CSC662/schemes/CSC662%20Seed%2015%202026%20-%20Marking%20Scheme.docx?v=1792585248",
+        "scheme_pdf": "/library/CSC662/schemes/CSC662%20Seed%2015%202026%20-%20Marking%20Scheme.pdf?v=1792585255"
+      }
+    },
+    {
+      "seed": 16,
+      "mode": "realistic",
+      "computed_marks": 2,
+      "year": 2026,
+      "accepted": 23,
+      "placeholders": 0,
+      "topic_marks": {
+        "classical ciphers": 6,
+        "trusted computing/blockchain": 8,
+        "software/OS security": 8,
+        "access control models": 18,
+        "attacks/malware": 24,
+        "risk/management (ethics)": 8,
+        "network security": 8,
+        "authentication/biometrics": 18
+      },
+      "topic_mix": "ATK 24 ACC 18 AUT 18 NET 8 ETH 8 SWS 8 TRU 8 CIP 6",
+      "files": {
+        "paper_docx": "library/CSC662/papers/CSC662 Seed 16 2026.docx",
+        "paper_pdf": "library/CSC662/papers/CSC662 Seed 16 2026.pdf",
+        "scheme_docx": "library/CSC662/schemes/CSC662 Seed 16 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC662/schemes/CSC662 Seed 16 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC662/papers/CSC662%20Seed%2016%202026.docx?v=1792475723",
+        "paper_pdf": "/library/CSC662/papers/CSC662%20Seed%2016%202026.pdf?v=1792585266",
+        "scheme_docx": "/library/CSC662/schemes/CSC662%20Seed%2016%202026%20-%20Marking%20Scheme.docx?v=1792585278",
+        "scheme_pdf": "/library/CSC662/schemes/CSC662%20Seed%2016%202026%20-%20Marking%20Scheme.pdf?v=1792585285"
+      }
+    },
+    {
+      "seed": 17,
+      "mode": "realistic",
+      "computed_marks": 12,
+      "year": 2026,
+      "accepted": 22,
+      "placeholders": 0,
+      "topic_marks": {
+        "risk/management (ethics)": 8,
+        "classical ciphers": 2,
+        "authentication/biometrics": 18,
+        "access control models": 12,
+        "attacks/malware": 24,
+        "network security": 8,
+        "trusted computing/blockchain": 8,
+        "software/OS security": 8
+      },
+      "topic_mix": "ATK 24 AUT 18 ACC 12 NET 8 ETH 8 SWS 8 TRU 8 CIP 2",
+      "files": {
+        "paper_docx": "library/CSC662/papers/CSC662 Seed 17 2026.docx",
+        "paper_pdf": "library/CSC662/papers/CSC662 Seed 17 2026.pdf",
+        "scheme_docx": "library/CSC662/schemes/CSC662 Seed 17 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC662/schemes/CSC662 Seed 17 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC662/papers/CSC662%20Seed%2017%202026.docx?v=1792475723",
+        "paper_pdf": "/library/CSC662/papers/CSC662%20Seed%2017%202026.pdf?v=1792585296",
+        "scheme_docx": "/library/CSC662/schemes/CSC662%20Seed%2017%202026%20-%20Marking%20Scheme.docx?v=1792585308",
+        "scheme_pdf": "/library/CSC662/schemes/CSC662%20Seed%2017%202026%20-%20Marking%20Scheme.pdf?v=1792585315"
+      }
+    },
+    {
+      "seed": 18,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "year": 2026,
+      "accepted": 24,
+      "placeholders": 0,
+      "topic_marks": {
+        "attacks/malware": 26,
+        "authentication/biometrics": 16,
+        "access control models": 18,
+        "software/OS security": 8,
+        "risk/management (ethics)": 16,
+        "trusted computing/blockchain": 8,
+        "network security": 8
+      },
+      "topic_mix": "ATK 26 ACC 18 AUT 16 ETH 16 NET 8 SWS 8 TRU 8",
+      "files": {
+        "paper_docx": "library/CSC662/papers/CSC662 Seed 18 2026.docx",
+        "paper_pdf": "library/CSC662/papers/CSC662 Seed 18 2026.pdf",
+        "scheme_docx": "library/CSC662/schemes/CSC662 Seed 18 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC662/schemes/CSC662 Seed 18 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC662/papers/CSC662%20Seed%2018%202026.docx?v=1792475723",
+        "paper_pdf": "/library/CSC662/papers/CSC662%20Seed%2018%202026.pdf?v=1792585326",
+        "scheme_docx": "/library/CSC662/schemes/CSC662%20Seed%2018%202026%20-%20Marking%20Scheme.docx?v=1792585338",
+        "scheme_pdf": "/library/CSC662/schemes/CSC662%20Seed%2018%202026%20-%20Marking%20Scheme.pdf?v=1792585345"
+      }
+    },
+    {
+      "seed": 19,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "year": 2026,
+      "accepted": 24,
+      "placeholders": 0,
+      "topic_marks": {
+        "attacks/malware": 24,
+        "risk/management (ethics)": 18,
+        "access control models": 18,
+        "software/OS security": 8,
+        "authentication/biometrics": 16,
+        "trusted computing/blockchain": 8,
+        "network security": 8
+      },
+      "topic_mix": "ATK 24 ACC 18 ETH 18 AUT 16 NET 8 SWS 8 TRU 8",
+      "files": {
+        "paper_docx": "library/CSC662/papers/CSC662 Seed 19 2026.docx",
+        "paper_pdf": "library/CSC662/papers/CSC662 Seed 19 2026.pdf",
+        "scheme_docx": "library/CSC662/schemes/CSC662 Seed 19 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC662/schemes/CSC662 Seed 19 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC662/papers/CSC662%20Seed%2019%202026.docx?v=1792475723",
+        "paper_pdf": "/library/CSC662/papers/CSC662%20Seed%2019%202026.pdf?v=1792585356",
+        "scheme_docx": "/library/CSC662/schemes/CSC662%20Seed%2019%202026%20-%20Marking%20Scheme.docx?v=1792585369",
+        "scheme_pdf": "/library/CSC662/schemes/CSC662%20Seed%2019%202026%20-%20Marking%20Scheme.pdf?v=1792585375"
+      }
+    },
+    {
+      "seed": 20,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "year": 2026,
+      "accepted": 24,
+      "placeholders": 0,
+      "topic_marks": {
+        "risk/management (ethics)": 16,
+        "network security": 8,
+        "access control models": 16,
+        "trusted computing/blockchain": 8,
+        "authentication/biometrics": 18,
+        "attacks/malware": 24,
+        "software/OS security": 10
+      },
+      "topic_mix": "ATK 24 AUT 18 ACC 16 ETH 16 SWS 10 NET 8 TRU 8",
+      "files": {
+        "paper_docx": "library/CSC662/papers/CSC662 Seed 20 2026.docx",
+        "paper_pdf": "library/CSC662/papers/CSC662 Seed 20 2026.pdf",
+        "scheme_docx": "library/CSC662/schemes/CSC662 Seed 20 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC662/schemes/CSC662 Seed 20 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC662/papers/CSC662%20Seed%2020%202026.docx?v=1792475723",
+        "paper_pdf": "/library/CSC662/papers/CSC662%20Seed%2020%202026.pdf?v=1792585386",
+        "scheme_docx": "/library/CSC662/schemes/CSC662%20Seed%2020%202026%20-%20Marking%20Scheme.docx?v=1792585398",
+        "scheme_pdf": "/library/CSC662/schemes/CSC662%20Seed%2020%202026%20-%20Marking%20Scheme.pdf?v=1792585405"
+      }
+    }
+  ]
+}
