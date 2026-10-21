@@ -143,7 +143,7 @@
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            subject: "CSC662",
+            subject: button.getAttribute("data-subject") || "CSC662",
             seed: Number(button.getAttribute("data-seed")),
             mode: button.getAttribute("data-mode"),
           }),

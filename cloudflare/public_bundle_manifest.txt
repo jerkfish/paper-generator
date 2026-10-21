@@ -1,7 +1,4 @@
 present    index.html  <- generated from app templates
-present    csc662/index.html  <- generated from app templates
-present    csc662/library/index.html  <- generated from app templates
-present    csc662/generate/index.html  <- generated from app templates
 present    gallery/index.html  <- generated from app templates
 present    paused/index.html  <- generated from app templates
 present    static/gallery-shell.html  <- generated from app templates
@@ -9,8 +6,11 @@ present    assets/style.css  <- copied from src/app/static
 present    assets/htmx.min.js  <- copied from src/app/static
 present    assets/library.js  <- copied from src/app/static
 present    assets/gallery.js  <- copied from src/app/static
+present    library/manifest.json  <- copied from src/app/static
 present    subjects/CSC662/subject.json  <- generated from registry; public-safe fields only
-present    library/manifest.json  <- generated from public Library metadata
+present    csc662/index.html  <- generated from app templates
+present    csc662/library/index.html  <- generated from app templates
+present    csc662/generate/index.html  <- generated from app templates
 present    library/CSC662/manifest.json  <- generated from public Library metadata
 present    library/CSC662/papers/CSC662 Seed 01 2026.docx  <- PUBLIC_BUILD output
 present    library/CSC662/papers/CSC662 Seed 01 2026.pdf  <- PUBLIC_BUILD output
@@ -92,5 +92,90 @@ present    library/CSC662/papers/CSC662 Seed 20 2026.docx  <- PUBLIC_BUILD outpu
 present    library/CSC662/papers/CSC662 Seed 20 2026.pdf  <- PUBLIC_BUILD output
 present    library/CSC662/schemes/CSC662 Seed 20 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
 present    library/CSC662/schemes/CSC662 Seed 20 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    subjects/MAT133/subject.json  <- generated from registry; public-safe fields only
+present    mat133/index.html  <- generated from app templates
+present    mat133/library/index.html  <- generated from app templates
+present    mat133/generate/index.html  <- generated from app templates
+present    library/MAT133/manifest.json  <- generated from public Library metadata
+present    library/MAT133/papers/MAT133 Seed 01 2026.docx  <- PUBLIC_BUILD output
+present    library/MAT133/papers/MAT133 Seed 01 2026.pdf  <- PUBLIC_BUILD output
+present    library/MAT133/schemes/MAT133 Seed 01 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/schemes/MAT133 Seed 01 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/papers/MAT133 Seed 02 2026.docx  <- PUBLIC_BUILD output
+present    library/MAT133/papers/MAT133 Seed 02 2026.pdf  <- PUBLIC_BUILD output
+present    library/MAT133/schemes/MAT133 Seed 02 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/schemes/MAT133 Seed 02 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/papers/MAT133 Seed 03 2026.docx  <- PUBLIC_BUILD output
+present    library/MAT133/papers/MAT133 Seed 03 2026.pdf  <- PUBLIC_BUILD output
+present    library/MAT133/schemes/MAT133 Seed 03 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/schemes/MAT133 Seed 03 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/papers/MAT133 Seed 04 2026.docx  <- PUBLIC_BUILD output
+present    library/MAT133/papers/MAT133 Seed 04 2026.pdf  <- PUBLIC_BUILD output
+present    library/MAT133/schemes/MAT133 Seed 04 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/schemes/MAT133 Seed 04 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/papers/MAT133 Seed 05 2026.docx  <- PUBLIC_BUILD output
+present    library/MAT133/papers/MAT133 Seed 05 2026.pdf  <- PUBLIC_BUILD output
+present    library/MAT133/schemes/MAT133 Seed 05 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/schemes/MAT133 Seed 05 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/papers/MAT133 Seed 06 2026.docx  <- PUBLIC_BUILD output
+present    library/MAT133/papers/MAT133 Seed 06 2026.pdf  <- PUBLIC_BUILD output
+present    library/MAT133/schemes/MAT133 Seed 06 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/schemes/MAT133 Seed 06 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/papers/MAT133 Seed 07 2026.docx  <- PUBLIC_BUILD output
+present    library/MAT133/papers/MAT133 Seed 07 2026.pdf  <- PUBLIC_BUILD output
+present    library/MAT133/schemes/MAT133 Seed 07 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/schemes/MAT133 Seed 07 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/papers/MAT133 Seed 08 2026.docx  <- PUBLIC_BUILD output
+present    library/MAT133/papers/MAT133 Seed 08 2026.pdf  <- PUBLIC_BUILD output
+present    library/MAT133/schemes/MAT133 Seed 08 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/schemes/MAT133 Seed 08 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/papers/MAT133 Seed 09 2026.docx  <- PUBLIC_BUILD output
+present    library/MAT133/papers/MAT133 Seed 09 2026.pdf  <- PUBLIC_BUILD output
+present    library/MAT133/schemes/MAT133 Seed 09 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/schemes/MAT133 Seed 09 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/papers/MAT133 Seed 10 2026.docx  <- PUBLIC_BUILD output
+present    library/MAT133/papers/MAT133 Seed 10 2026.pdf  <- PUBLIC_BUILD output
+present    library/MAT133/schemes/MAT133 Seed 10 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/schemes/MAT133 Seed 10 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/papers/MAT133 Seed 11 2026.docx  <- PUBLIC_BUILD output
+present    library/MAT133/papers/MAT133 Seed 11 2026.pdf  <- PUBLIC_BUILD output
+present    library/MAT133/schemes/MAT133 Seed 11 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/schemes/MAT133 Seed 11 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/papers/MAT133 Seed 12 2026.docx  <- PUBLIC_BUILD output
+present    library/MAT133/papers/MAT133 Seed 12 2026.pdf  <- PUBLIC_BUILD output
+present    library/MAT133/schemes/MAT133 Seed 12 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/schemes/MAT133 Seed 12 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/papers/MAT133 Seed 13 2026.docx  <- PUBLIC_BUILD output
+present    library/MAT133/papers/MAT133 Seed 13 2026.pdf  <- PUBLIC_BUILD output
+present    library/MAT133/schemes/MAT133 Seed 13 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/schemes/MAT133 Seed 13 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/papers/MAT133 Seed 14 2026.docx  <- PUBLIC_BUILD output
+present    library/MAT133/papers/MAT133 Seed 14 2026.pdf  <- PUBLIC_BUILD output
+present    library/MAT133/schemes/MAT133 Seed 14 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/schemes/MAT133 Seed 14 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/papers/MAT133 Seed 15 2026.docx  <- PUBLIC_BUILD output
+present    library/MAT133/papers/MAT133 Seed 15 2026.pdf  <- PUBLIC_BUILD output
+present    library/MAT133/schemes/MAT133 Seed 15 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/schemes/MAT133 Seed 15 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/papers/MAT133 Seed 16 2026.docx  <- PUBLIC_BUILD output
+present    library/MAT133/papers/MAT133 Seed 16 2026.pdf  <- PUBLIC_BUILD output
+present    library/MAT133/schemes/MAT133 Seed 16 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/schemes/MAT133 Seed 16 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/papers/MAT133 Seed 17 2026.docx  <- PUBLIC_BUILD output
+present    library/MAT133/papers/MAT133 Seed 17 2026.pdf  <- PUBLIC_BUILD output
+present    library/MAT133/schemes/MAT133 Seed 17 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/schemes/MAT133 Seed 17 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/papers/MAT133 Seed 18 2026.docx  <- PUBLIC_BUILD output
+present    library/MAT133/papers/MAT133 Seed 18 2026.pdf  <- PUBLIC_BUILD output
+present    library/MAT133/schemes/MAT133 Seed 18 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/schemes/MAT133 Seed 18 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/papers/MAT133 Seed 19 2026.docx  <- PUBLIC_BUILD output
+present    library/MAT133/papers/MAT133 Seed 19 2026.pdf  <- PUBLIC_BUILD output
+present    library/MAT133/schemes/MAT133 Seed 19 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/schemes/MAT133 Seed 19 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/papers/MAT133 Seed 20 2026.docx  <- PUBLIC_BUILD output
+present    library/MAT133/papers/MAT133 Seed 20 2026.pdf  <- PUBLIC_BUILD output
+present    library/MAT133/schemes/MAT133 Seed 20 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/MAT133/schemes/MAT133 Seed 20 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
 present    subjects/CSC580/subject.json  <- generated from registry coming_soon stub
 present    subjects/CSC645/subject.json  <- generated from registry coming_soon stub

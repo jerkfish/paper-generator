@@ -43,6 +43,8 @@ def inequality(rng: random.Random, marks: float, out_dir: Path | None):
     a, b = nz(rng, -5, 5), nz(rng, -6, 6)
     c = rng.randint(2, 9)
     op = pick(rng, ("<=", "<", ">=", ">"))
+    op_text = {"<=": "≤", "<": "<", ">=": "≥", ">": ">"}[op]
+    op_latex = {"<=": r"\leq", "<": "<", ">=": r"\geq", ">": ">"}[op]
     left = sp.Rational(-c - b, a)
     right = sp.Rational(c - b, a)
     lo, hi = sorted((left, right))
@@ -54,15 +56,15 @@ def inequality(rng: random.Random, marks: float, out_dir: Path | None):
         sol = union(interval(-sp.oo, lo, False, closed),
                     interval(hi, sp.oo, closed, False))
         desc = "The distance from x to the centre is at least the radius."
-    text = (f"Solve the inequality |{poly_text(a*x + b)}| {op} {c}. "
+    text = (f"Solve the inequality |{poly_text(a*x + b)}| {op_text} {c}. "
             "Express the answer in interval notation and on a number line.")
     answer = sol
     if op in ("<=", "<"):
-        rewrite = (f"-{c} {op} {poly_text(a*x + b)} {op} {c}.")
+        rewrite = (f"-{c} {op_text} {poly_text(a*x + b)} {op_text} {c}.")
     else:
-        other = "<" if op == ">" else "<="
-        rewrite = (f"{poly_text(a*x + b)} {op} {c} or "
-                   f"{poly_text(a*x + b)} {other} -{c}.")
+        other_text = "<" if op == ">" else "≤"
+        rewrite = (f"{poly_text(a*x + b)} {op_text} {c} or "
+                   f"{poly_text(a*x + b)} {other_text} -{c}.")
     steps = [
         f"Rewrite the absolute value: {rewrite}",
         "Solve each resulting inequality separately.",
@@ -89,9 +91,10 @@ def inequality(rng: random.Random, marks: float, out_dir: Path | None):
                      answer_latex=sp.latex(sol_set),
                      solution_latex=[
                          sp.latex(rel),
-                         (rf"-{c} {op} {sp.latex(a*x+b)} {op} {c}"
+                         (rf"-{c} {op_latex} {sp.latex(a*x+b)} {op_latex} {c}"
                           if op in ("<=", "<") else
-                          rf"{sp.latex(a*x+b)} {op} {c}\;\mathrm{{or}}\; {sp.latex(a*x+b)} <= -{c}"),
+                          rf"{sp.latex(a*x+b)} {op_latex} {c}\;\mathrm{{or}}\; "
+                          rf"{sp.latex(a*x+b)} \leq -{c}"),
                          sp.latex(sol_set),
                      ],
                      notes=["M1 compound inequality", "A1 endpoints",

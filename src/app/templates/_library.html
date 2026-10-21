@@ -7,10 +7,7 @@
 {% else %}
   {% set urls = item_urls|default({}) %}
   <p class="small" id="library-count">Showing {{ items|length }} of {{ total }}.</p>
-  <p class="small">Topic abbreviations: ATK attacks/malware, AUT authentication,
-    ACC access control, TRU trusted computing, SWS software/OS, NET network,
-    ETH ethics, CIP classical ciphers. Numbers are accepted marks. Click a
-    column title to sort ascending/descending.</p>
+  <p class="small">{{ topic_legend|default('Topic abbreviations are shown in the Topic mix column. Click a column title to sort ascending/descending.') }}</p>
   <div class="table-scroll">
   <table id="library-table">
     <thead>
@@ -54,7 +51,7 @@
       </td>
       {% if gallery_enabled|default(false) %}
       <td class="nowrap">
-        <button type="button" class="share" data-seed="{{ item.seed }}" data-mode="{{ item.mode }}">Share</button>
+        <button type="button" class="share" data-subject="{{ subject.code }}" data-seed="{{ item.seed }}" data-mode="{{ item.mode }}">Share</button>
         <span class="share-status small"></span>
       </td>
       {% endif %}

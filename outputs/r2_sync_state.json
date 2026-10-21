@@ -1,12 +1,12 @@
 {
-  "class_a": 207,
+  "class_a": 389,
   "class_b": 0,
   "month": "2026-10",
   "objects": {
     "assets/gallery.js": {
-      "etag": "3396ccfa4b01d8617c0aa73edeaa41b3",
-      "sha256": "a8ff07c01a5ec4796196f55b9be67c4d5dd87e11cbd8eeac91e64300e3e9ed55",
-      "size": 3166
+      "etag": "f505bd697ea3e57e3d3e894d487d2abe",
+      "sha256": "75f44bb5e5bb71c3ffb9909d2e526d59743e5c3628351280cc3944cebfce646c",
+      "size": 3260
     },
     "assets/htmx.min.js": {
       "etag": "19a573773be4ca22570ca2f8543120c5",
@@ -14,43 +14,43 @@
       "size": 50917
     },
     "assets/library.js": {
-      "etag": "0de04cf02bad1eb8c0874613d57694de",
-      "sha256": "95e601f66d6ec9c4e4c51a667d54e367d318a3d2638e0488f3dfbad43d3776b0",
-      "size": 6158
+      "etag": "7ad1c5803273dcae5713e46a6b52fea1",
+      "sha256": "35c63fc9ff1f12d0b9d87dd49f8fa2d82b8dfd9e0d83dc731925de8c30e0399d",
+      "size": 6197
     },
     "assets/style.css": {
-      "etag": "8f8843f56b653c6286887298770037eb",
-      "sha256": "8467996144516696fbb03f6311b7439513f65f792202f9a8c836f309b5558571",
-      "size": 2217
+      "etag": "170787193ad5e6f414baa89a36638d3c",
+      "sha256": "7fa8e5dcbca71cf15c6ccaa96500e9d4beeb5164fb3d98ee0bd38ae71cb348fd",
+      "size": 2273
     },
     "csc662/generate/index.html": {
-      "etag": "8ba695e52ddc20436a182979551ee6b7",
-      "sha256": "d1b59fae090f40a477b56bebb1e076458dd7e6d2a02003d3a2101c76014c4f3e",
-      "size": 1635
+      "etag": "42c06de0490baa3e9dd352c30aa10fb3",
+      "sha256": "4e39afc18dafb1398d305b1fb0e3b8dad940fc77fbeeb31665aad560bb585bdb",
+      "size": 1803
     },
     "csc662/index.html": {
-      "etag": "affae5d8b42e3461e29e598f3b5e988f",
-      "sha256": "a234337dc542c4dbd3f05358e987889aa9cba11000ce829e7b3a3c4d4243b61d",
-      "size": 3238
+      "etag": "45f6b9a6c33e2d39b901ca43c0837f8b",
+      "sha256": "1feb69722d9d247c2531a0956ebf13f0e1f2454bc9eca6607bbca4588e4aa24a",
+      "size": 3404
     },
     "csc662/library/index.html": {
-      "etag": "2c8f9c9ba01e79f11d1007317cb031d0",
-      "sha256": "03f82093efd8ae9f600b368c7e2ab77d6f33b94c2ed4852da472b581860cce1c",
-      "size": 40610
+      "etag": "90eccc3b84e8c76958d080c1c615c4e3",
+      "sha256": "f42ff63cc36bcdec75c24639bf12a9f50d55a79c9710c8ff090ca73a8db517cc",
+      "size": 41200
     },
     "gallery/index.html": {
-      "etag": "e35853d38db69cc623488ab436942707",
-      "sha256": "5816668185a0fc6d3c1b8b52190f9d370acd25e9a9caf2b238ee56be41503d48",
-      "size": 2427
+      "etag": "3d5ea66ab51e598aea98e2f46e05ceec",
+      "sha256": "013c2e1d4ccf80baa8a1837f5b94ad0b95f01f1d94f60acf1d4f993ba364af65",
+      "size": 2592
     },
     "index.html": {
-      "etag": "6e650dc9a4840617e4b5243c87917e0f",
-      "sha256": "9f9e8fc0d516faa606685b2b2fec9e9fc279bcfb425291905ce1e0400963d6d5",
-      "size": 2782
+      "etag": "2529f5d8954e3b9426f233c64ecb2561",
+      "sha256": "2cec3f814d8281cdb57590b731dc46e1dbd63ffd215d359163657eac4b1adeed",
+      "size": 3237
     },
     "library/CSC662/manifest.json": {
-      "etag": "194243ceef8db2589683ae775611c8ce",
-      "sha256": "5c97041fcc9825aba2cfe54e4d1180fbbbfac1347102115ee26465203241fef4",
+      "etag": "dfc585cdc8c45a4197bcbb654f174e45",
+      "sha256": "5fc9dc79715aae23e28c9a90936e8397ab10f4688c4037e29083bf57b856f4a3",
       "size": 26921
     },
     "library/CSC662/papers/CSC662 Seed 01 2026.docx": {
@@ -453,20 +453,440 @@
       "sha256": "a3ce683edf8ab92e7a095f1ee4d77c8e3d7015d45cb4299854023dc654950cdd",
       "size": 415559
     },
+    "library/MAT133/manifest.json": {
+      "etag": "4ed8a4d66ad0c9e5cef7b02f00e2a46e",
+      "sha256": "d859e48ad1b826a08be29265f25cce48731c7b920ef073e9d9ec2212afa72830",
+      "size": 28699
+    },
+    "library/MAT133/papers/MAT133 Seed 01 2026.docx": {
+      "etag": "dfa3637f4ee3982372f0595219e7e829",
+      "sha256": "5e5cbbccfbe479cc8dbe6b47919173d725a09db335a7dfe5e9ccd5828bf4dada",
+      "size": 336672
+    },
+    "library/MAT133/papers/MAT133 Seed 01 2026.pdf": {
+      "etag": "6a7444bde382c466da9ef6582a5b1d8d",
+      "sha256": "9e0bb18318ef81ab210d2382e81683356e658e955006a5bd05d2992ed36382c3",
+      "size": 446019
+    },
+    "library/MAT133/papers/MAT133 Seed 02 2026.docx": {
+      "etag": "7317b02984c980800c971f3c6fcf7829",
+      "sha256": "69d5603e257a38d7dc89da23b91764139e754d73ec30e6f190834944873fd651",
+      "size": 243611
+    },
+    "library/MAT133/papers/MAT133 Seed 02 2026.pdf": {
+      "etag": "661a8362b1a69e7457b95221550f39b9",
+      "sha256": "fe928eb370acc716ff40ed3bf4b16359e81256730e7b3af7c3441e1f9e42ad44",
+      "size": 375991
+    },
+    "library/MAT133/papers/MAT133 Seed 03 2026.docx": {
+      "etag": "c741ec66bf27b7eb68da8006a53984f9",
+      "sha256": "56ec0a47e300d65441c6be7dcc52ba7d277b84b1a7cacea671162686ca55cf63",
+      "size": 331749
+    },
+    "library/MAT133/papers/MAT133 Seed 03 2026.pdf": {
+      "etag": "ca3621cccbd2982c991b12bc81e2d27a",
+      "sha256": "4a54d9948f33f7a39b0d5e69c29af79e8692af6ccbb89436ce426adab12e7573",
+      "size": 440301
+    },
+    "library/MAT133/papers/MAT133 Seed 04 2026.docx": {
+      "etag": "85134668e40164940a4d4335b6de49ba",
+      "sha256": "4c482979fe302e58f7b572b14785835ed71a5fe5d7a744f3f27162ff9b71021d",
+      "size": 184336
+    },
+    "library/MAT133/papers/MAT133 Seed 04 2026.pdf": {
+      "etag": "14a99a00a28c932cfcb572efe7fb4cfd",
+      "sha256": "e52f81be5021c7b280e2e72cce71b6c1cc98487f966d1d2bdc45997981cf2415",
+      "size": 337497
+    },
+    "library/MAT133/papers/MAT133 Seed 05 2026.docx": {
+      "etag": "52fdbb04e1b987401a3a8435b4502e36",
+      "sha256": "15e5acd4b00287183ff76128a6c2622ad5aa0fdacfe3ad71946ae74ed72cae03",
+      "size": 303201
+    },
+    "library/MAT133/papers/MAT133 Seed 05 2026.pdf": {
+      "etag": "3074b5f5863fb36e319c1a1138c01513",
+      "sha256": "e717541dc899521a8ba78edc6e67a118f9332a235def16b465bea5dd843385d4",
+      "size": 418276
+    },
+    "library/MAT133/papers/MAT133 Seed 06 2026.docx": {
+      "etag": "ba3eb37c961074b9a699583798eb5d6d",
+      "sha256": "b9004e6a2564988f1d39d4a1e5c714118f294f1d08b176934737acba6590e134",
+      "size": 257299
+    },
+    "library/MAT133/papers/MAT133 Seed 06 2026.pdf": {
+      "etag": "1d1280b42a7ccbebcd399f697253059b",
+      "sha256": "4a685937520cf495ec31d073c281411c7ab7f1168023d5fdea1b33b99a02ccc8",
+      "size": 384304
+    },
+    "library/MAT133/papers/MAT133 Seed 07 2026.docx": {
+      "etag": "9348854984ea13c73ce98777487c820a",
+      "sha256": "92f7f02cc72ee1ba37b09365e305dfcb43984de3848941798fe7aaaaa15baadc",
+      "size": 311134
+    },
+    "library/MAT133/papers/MAT133 Seed 07 2026.pdf": {
+      "etag": "315e90407a64f19471d3c3cd28d8abe4",
+      "sha256": "892c85d11178c07dbd82da3cf4dbf62af5dc4bdfef69a6314e2313031187c40c",
+      "size": 418245
+    },
+    "library/MAT133/papers/MAT133 Seed 08 2026.docx": {
+      "etag": "a2f3691ecb712600b30af9b94a7c7365",
+      "sha256": "d1b30820c524da57097a406b7dd7f9fe71edba477feb4f27e624f18cea4730bd",
+      "size": 257917
+    },
+    "library/MAT133/papers/MAT133 Seed 08 2026.pdf": {
+      "etag": "ad5e456539e59bdf22b3b130836c7cd3",
+      "sha256": "e7f5a799bdd003c8a121a9ef0c00a82cc73e075b8bb6f11ed2ecdc46f42acab3",
+      "size": 379043
+    },
+    "library/MAT133/papers/MAT133 Seed 09 2026.docx": {
+      "etag": "9375196d12cff13d3d760d8c0cf6f4bc",
+      "sha256": "df74de18fa828d733ddf83865fc2d65354be3b919c225d92cbd4767acd112cd3",
+      "size": 374947
+    },
+    "library/MAT133/papers/MAT133 Seed 09 2026.pdf": {
+      "etag": "4942cab64cad9757ee315311978ad034",
+      "sha256": "6f032b56cf85ee6e53d28c40fdd7baa77c263862226483ee8922d15aad9c14f9",
+      "size": 462443
+    },
+    "library/MAT133/papers/MAT133 Seed 10 2026.docx": {
+      "etag": "cd3e54983c1415c7ed31edebeadd886d",
+      "sha256": "367c9bb914e9d9294ef12a6087e07cd42b13ef1a502df87b2cdea7162444c861",
+      "size": 268148
+    },
+    "library/MAT133/papers/MAT133 Seed 10 2026.pdf": {
+      "etag": "251ed63c4f4cc8c7ddad895b923fbd31",
+      "sha256": "fc970369922602b726b28770565cdfeb1fbbd56ebf8f8c78b1c7b0f444435152",
+      "size": 404275
+    },
+    "library/MAT133/papers/MAT133 Seed 11 2026.docx": {
+      "etag": "b86c01319f8e1c2b38684157918c51c3",
+      "sha256": "6279c649fabf80eed6bb5fc4455789ba87360675addfcc79dc1adade0e21dcea",
+      "size": 330273
+    },
+    "library/MAT133/papers/MAT133 Seed 11 2026.pdf": {
+      "etag": "eff3e46701961dd337e4ba1b0483bf0b",
+      "sha256": "c03267d4132acb795aa2764d873a8533134182a285800875bfeac12afeaf20f0",
+      "size": 432226
+    },
+    "library/MAT133/papers/MAT133 Seed 12 2026.docx": {
+      "etag": "0b7666f6fef3edaf9f6e3c5b429c43ea",
+      "sha256": "b5757337e00c6dcf7ba7660fb661e4f7fd4b65309c65179c849fec6568cc466a",
+      "size": 263365
+    },
+    "library/MAT133/papers/MAT133 Seed 12 2026.pdf": {
+      "etag": "3f9ef82bf7fb0b87b87c9e01b775781f",
+      "sha256": "a147c16ce126023a9842c617a04fbe814b6240c7f559715fe9444afae373ce28",
+      "size": 383318
+    },
+    "library/MAT133/papers/MAT133 Seed 13 2026.docx": {
+      "etag": "a2c61c13346b24aaa91cb3acbc2ad62d",
+      "sha256": "3f0e88d59f3db82e722747d51b7e933225014b739efad9d8628dcab037c3cad0",
+      "size": 188407
+    },
+    "library/MAT133/papers/MAT133 Seed 13 2026.pdf": {
+      "etag": "5dc71dd456f54af79c989bc3236a06db",
+      "sha256": "991bb86bbf79075cb65209c58602943509e0f3abc573891a9c3ad8303dec4971",
+      "size": 344532
+    },
+    "library/MAT133/papers/MAT133 Seed 14 2026.docx": {
+      "etag": "e653ebcdc773e2ea60aa92455abee302",
+      "sha256": "f6958a687204d3224a3529ccba662a3b674e1f094141592be000a8dfd506122e",
+      "size": 289928
+    },
+    "library/MAT133/papers/MAT133 Seed 14 2026.pdf": {
+      "etag": "a30ad4a5d97c2e2009de8cc2b6b35e45",
+      "sha256": "985b1ec965f314cf38824e919aefb3e2ab920d5a6fbd14a7bd64c47a44f06db5",
+      "size": 407581
+    },
+    "library/MAT133/papers/MAT133 Seed 15 2026.docx": {
+      "etag": "9901c0d1aed40751925ccfcd4ed5d794",
+      "sha256": "3f3ad70593302a3def848f214717bcc46c91aeca48aaa49d8492196e1c2e7c3f",
+      "size": 187901
+    },
+    "library/MAT133/papers/MAT133 Seed 15 2026.pdf": {
+      "etag": "fb2b7b1da71bdeb73a16a1eebf3c821a",
+      "sha256": "5423dfee334c595c9b10e7b8008443d77e005f3127322ab96796efeec1cd553b",
+      "size": 339239
+    },
+    "library/MAT133/papers/MAT133 Seed 16 2026.docx": {
+      "etag": "e0dd9735b62bf17f49e7898c3f41af43",
+      "sha256": "c4d8f9a98442ade314ef383bd6d9982e3827655cdbf595b7c20679fbefa49a70",
+      "size": 336255
+    },
+    "library/MAT133/papers/MAT133 Seed 16 2026.pdf": {
+      "etag": "48d7fffd7ea72ea3235d8885d3948903",
+      "sha256": "c2d122a6d934b49199313558e3da8b980fb32aa1855b2174e9401b63fbea169a",
+      "size": 443258
+    },
+    "library/MAT133/papers/MAT133 Seed 17 2026.docx": {
+      "etag": "cc90f287755b3dd6c1dbe23ff79b4d4f",
+      "sha256": "6e09661cc5150035b4483aa93a05bef549d94dcbece91cc50b1ba779fdb7d1ba",
+      "size": 293676
+    },
+    "library/MAT133/papers/MAT133 Seed 17 2026.pdf": {
+      "etag": "c4cfe48da4ba418e93c599a54ad93fb8",
+      "sha256": "35a844161b8ce49ee7d1c7151613cc5ea908e398c2f174f3f10524cc78fe0629",
+      "size": 423281
+    },
+    "library/MAT133/papers/MAT133 Seed 18 2026.docx": {
+      "etag": "39b7e91a5c28859f83c8b21e0e4c1be3",
+      "sha256": "88228d8058a9eb0f39a757851dfd9462e155f19f1da475cd0417a2556a9a50f0",
+      "size": 287445
+    },
+    "library/MAT133/papers/MAT133 Seed 18 2026.pdf": {
+      "etag": "f3cec64e716b0fc233d5323bc68d9c3d",
+      "sha256": "b967106e169636131c310532085f34e9e09d8d209b52ef2ef4382768983d13f7",
+      "size": 413564
+    },
+    "library/MAT133/papers/MAT133 Seed 19 2026.docx": {
+      "etag": "7a1278b20e9f38fa39196894df0ee978",
+      "sha256": "9f56819d12d1d285ed27d3620700053b91f093cd41fb81fcd8e446d41cffc73b",
+      "size": 313417
+    },
+    "library/MAT133/papers/MAT133 Seed 19 2026.pdf": {
+      "etag": "37d549370204cbe31f176dd39249ec4b",
+      "sha256": "66326f45494472870e321248b43ff672eb70d225bec4a1cb0fd19dba8ebbc5eb",
+      "size": 428482
+    },
+    "library/MAT133/papers/MAT133 Seed 20 2026.docx": {
+      "etag": "736c9f4e21d9d52ee2b1205bf70cd864",
+      "sha256": "134855339a5feca0d7269eb8c4dcecfecccb53cfddfc997c42862a58eda62b17",
+      "size": 392355
+    },
+    "library/MAT133/papers/MAT133 Seed 20 2026.pdf": {
+      "etag": "eb2c82bcf6225b8689b8b862c071fc79",
+      "sha256": "8024b36382797f5b011c7314d2b83680aea0f8f75689a7dcad07d42ff7b320ad",
+      "size": 467545
+    },
+    "library/MAT133/schemes/MAT133 Seed 01 2026 - Marking Scheme.docx": {
+      "etag": "7de35e814bcf42b6e625807ae549ac33",
+      "sha256": "9daae58ffb73c97665da0506d8daf7814998b3f139519c5eeb613f431d13db0f",
+      "size": 561942
+    },
+    "library/MAT133/schemes/MAT133 Seed 01 2026 - Marking Scheme.pdf": {
+      "etag": "b7edfc7068bc78f1577d3db64a1c82dc",
+      "sha256": "3b5fb9cb12f1e2416802d2c0a0a82569291b8a762f4d89422fcf63096b098c99",
+      "size": 471792
+    },
+    "library/MAT133/schemes/MAT133 Seed 02 2026 - Marking Scheme.docx": {
+      "etag": "8307102f7c3fd3b41c2ba3ee24d82696",
+      "sha256": "d3f1235f72ea3b838ee19678fe650299e4c23641f976fa757f865981f122aa94",
+      "size": 506268
+    },
+    "library/MAT133/schemes/MAT133 Seed 02 2026 - Marking Scheme.pdf": {
+      "etag": "b7cb93aa35863504872e44911466189e",
+      "sha256": "600e2dc721dd9e7065445b649df58660c5bb3012280b5e84481ef0e706971da5",
+      "size": 455393
+    },
+    "library/MAT133/schemes/MAT133 Seed 03 2026 - Marking Scheme.docx": {
+      "etag": "0a86065af9ccb5e6a6e773a7e944212a",
+      "sha256": "1bf9eb7892b2917ae38db71713556a1028366839918868cfe32b57f8ba5380b5",
+      "size": 600836
+    },
+    "library/MAT133/schemes/MAT133 Seed 03 2026 - Marking Scheme.pdf": {
+      "etag": "7eea105332becd0c9c71fd344412360d",
+      "sha256": "ae382f6db99e945fd373db339484ebca129e283895f8e21d4d60a7cd586b36ec",
+      "size": 492083
+    },
+    "library/MAT133/schemes/MAT133 Seed 04 2026 - Marking Scheme.docx": {
+      "etag": "6623d8221bd85c5332347a689ee3577c",
+      "sha256": "598ab84484cc1a615a2a22277ab1338159874349a6721e96a1c4cd0523ad921e",
+      "size": 451619
+    },
+    "library/MAT133/schemes/MAT133 Seed 04 2026 - Marking Scheme.pdf": {
+      "etag": "42d879a79d179bc9bc1636d078bb47f2",
+      "sha256": "6b7e9583372d57706006cbad48464a9457dcfa058dd0410fc82eea385f2e6830",
+      "size": 440651
+    },
+    "library/MAT133/schemes/MAT133 Seed 05 2026 - Marking Scheme.docx": {
+      "etag": "5cc8a96298bdbc5c815c8b6734ef596c",
+      "sha256": "f4d28af8e6ca41b76ab4819931e6b5c9da92c4aae1dc3a4926d17e4818e80c95",
+      "size": 519774
+    },
+    "library/MAT133/schemes/MAT133 Seed 05 2026 - Marking Scheme.pdf": {
+      "etag": "b5f7f6a1bb1e20f01d4d6a0bf5761e3c",
+      "sha256": "53ab35de86c057e611a314e808b1230565a3ccd8ee01e00dddc894dc1ec80d65",
+      "size": 448396
+    },
+    "library/MAT133/schemes/MAT133 Seed 06 2026 - Marking Scheme.docx": {
+      "etag": "daefae1e92c1629c724228d49f277cd8",
+      "sha256": "f45748c2a652ef70b184c8c8af093f0d5adf418401e108b09c5c986dc4d6dcbb",
+      "size": 486505
+    },
+    "library/MAT133/schemes/MAT133 Seed 06 2026 - Marking Scheme.pdf": {
+      "etag": "12a4899234abd13a97ad69be194897f2",
+      "sha256": "e663e0d5613d8e80425945cea3582bf6497d99562b2a669406f82b88b287fb79",
+      "size": 440983
+    },
+    "library/MAT133/schemes/MAT133 Seed 07 2026 - Marking Scheme.docx": {
+      "etag": "52121af099ea5d336ac1a657c9c49d92",
+      "sha256": "84249f93978e2b7bb59d67cd0d724cbf9570b85bc0727f85d0bc7678c86b7366",
+      "size": 558137
+    },
+    "library/MAT133/schemes/MAT133 Seed 07 2026 - Marking Scheme.pdf": {
+      "etag": "76f58e59a613bb09b92d7953e1a3684a",
+      "sha256": "080d34a1986ac6fc47ba342e0cfaa5a10b35ef5782d68b7aa154669edd7b4eb5",
+      "size": 472362
+    },
+    "library/MAT133/schemes/MAT133 Seed 08 2026 - Marking Scheme.docx": {
+      "etag": "dc654e6e11e47d93f71442b76f7f855d",
+      "sha256": "fc58ab34f3f9e87cc1ca4a8806bcec1caa0d5327be155fd96930f02d8711f207",
+      "size": 540684
+    },
+    "library/MAT133/schemes/MAT133 Seed 08 2026 - Marking Scheme.pdf": {
+      "etag": "f9ee7021fa1e441e17060871ce4d180e",
+      "sha256": "dd391766fb4c1abdc89d79bc44f18daa114806b8e21b1b5e005b19271820d4cb",
+      "size": 477773
+    },
+    "library/MAT133/schemes/MAT133 Seed 09 2026 - Marking Scheme.docx": {
+      "etag": "58098426e768fb41da6f9793627b0daf",
+      "sha256": "7b1188203f31de9d1bafc73b0aa5ffe15a63fe8a11e9b668130ceb7d01005c93",
+      "size": 636702
+    },
+    "library/MAT133/schemes/MAT133 Seed 09 2026 - Marking Scheme.pdf": {
+      "etag": "e700cdc87e5811d75d00306482b55528",
+      "sha256": "103635807c5d56a68b3494572c0a5fcd125019c591d51638c4a6e2351d296207",
+      "size": 500144
+    },
+    "library/MAT133/schemes/MAT133 Seed 10 2026 - Marking Scheme.docx": {
+      "etag": "9e5f5675e7e9ea820aae90f8abdd5c1d",
+      "sha256": "bc1b8c42924bab60ed73359cf5c7809e82d747c9c9a8ab61356718a356f8426d",
+      "size": 531029
+    },
+    "library/MAT133/schemes/MAT133 Seed 10 2026 - Marking Scheme.pdf": {
+      "etag": "d4677601bdbf97419cc7bc3858817473",
+      "sha256": "d7fb4907d4eb91ec8dd95159e03444dad1bd8d0d7c9e0e2620616002d9fc980a",
+      "size": 473554
+    },
+    "library/MAT133/schemes/MAT133 Seed 11 2026 - Marking Scheme.docx": {
+      "etag": "40daa5ec4331f140dcba7ff146021d28",
+      "sha256": "5f63e5c7dfffad30460be8464233a001de70e234239df4a5db7c79f8af5f2692",
+      "size": 579493
+    },
+    "library/MAT133/schemes/MAT133 Seed 11 2026 - Marking Scheme.pdf": {
+      "etag": "06ba004cdf079a5aafadd0318b1855a2",
+      "sha256": "b2736e6ee80ee7fdd3374cf89bbf212f92028a104f7e3a8f3057e930c5bd58d6",
+      "size": 482143
+    },
+    "library/MAT133/schemes/MAT133 Seed 12 2026 - Marking Scheme.docx": {
+      "etag": "600fd5cf6245ae3e05d1d4fed2a2757b",
+      "sha256": "4261eca229acedef940821557b22711be6a62e5d4af3de74394d1698b34cad3a",
+      "size": 512084
+    },
+    "library/MAT133/schemes/MAT133 Seed 12 2026 - Marking Scheme.pdf": {
+      "etag": "42109b8dcddb71147c7682f422657388",
+      "sha256": "300396b97fe08fa6a7e608730213f03f5f50a588e7d1f2928a8680aa61386054",
+      "size": 451192
+    },
+    "library/MAT133/schemes/MAT133 Seed 13 2026 - Marking Scheme.docx": {
+      "etag": "d708cb2da0f3835be62c583254dbcdd8",
+      "sha256": "c8c172d66f7c3d8b737c48fbed9c603d71e7f0e0ddcdd2b801c7e65e8f6e4581",
+      "size": 418097
+    },
+    "library/MAT133/schemes/MAT133 Seed 13 2026 - Marking Scheme.pdf": {
+      "etag": "93925ef8bd5de1b85cea6622cb3e63ad",
+      "sha256": "d69ceb200d2cb4d788197966133dadb8013ba36642ffc26df32858be5e031c50",
+      "size": 420393
+    },
+    "library/MAT133/schemes/MAT133 Seed 14 2026 - Marking Scheme.docx": {
+      "etag": "3928bb6e5d6362606477b3ce7b7f7a2e",
+      "sha256": "6133bdb504ee8c0efa57eb47e51860c02bb9e4fb4a9695e4ccff8ee6848d941a",
+      "size": 534698
+    },
+    "library/MAT133/schemes/MAT133 Seed 14 2026 - Marking Scheme.pdf": {
+      "etag": "6355245b6a303d30fc5ae34de428e186",
+      "sha256": "a3b0920626a236d421869b42d89acb291a203dd9a69ac6bd4ac23cc87ff52150",
+      "size": 461402
+    },
+    "library/MAT133/schemes/MAT133 Seed 15 2026 - Marking Scheme.docx": {
+      "etag": "ba2f0c3a34150cb47a94f70b6df1cc7c",
+      "sha256": "22c24530ff70df7e1b980e3519289bdb61983c25e5f9576ae0b8bd445461aafb",
+      "size": 454718
+    },
+    "library/MAT133/schemes/MAT133 Seed 15 2026 - Marking Scheme.pdf": {
+      "etag": "dc182deebc01a3de21e8722d5aa0b1e6",
+      "sha256": "a7167a7625e11d2d115275583cda7a7b967eeb062d94d58ea91176cc58855905",
+      "size": 447656
+    },
+    "library/MAT133/schemes/MAT133 Seed 16 2026 - Marking Scheme.docx": {
+      "etag": "7f991014a31149994cd741553010a9a4",
+      "sha256": "5a272833d1bbacff1da5739ee9c768a626af384d4456e6a29079d152931df4c5",
+      "size": 557265
+    },
+    "library/MAT133/schemes/MAT133 Seed 16 2026 - Marking Scheme.pdf": {
+      "etag": "80d857c9f3d95a0a7b8e914d273119a6",
+      "sha256": "adf6af9d71fd64df68471acdc232c8ba6d2740d91af0af4499c16bedf8d14df3",
+      "size": 471114
+    },
+    "library/MAT133/schemes/MAT133 Seed 17 2026 - Marking Scheme.docx": {
+      "etag": "b660dfe9700902c68be646fa41689bb1",
+      "sha256": "e96b70b083707da663033a2cb903aa3935ec422ef65868f796ebe499f8ac201e",
+      "size": 513048
+    },
+    "library/MAT133/schemes/MAT133 Seed 17 2026 - Marking Scheme.pdf": {
+      "etag": "c604a2e08631542016f7204350f55691",
+      "sha256": "3a67f5584482a967f6fc0af47bc26c64fc9f6c7c4c5f960afede96e54a7d7828",
+      "size": 446623
+    },
+    "library/MAT133/schemes/MAT133 Seed 18 2026 - Marking Scheme.docx": {
+      "etag": "52f64b86f48c21fd09ea92fb340ebc3b",
+      "sha256": "0205f952c693630f5ef671fd8139b624d5e665ee11fc3db33bf935a2beea9d12",
+      "size": 557176
+    },
+    "library/MAT133/schemes/MAT133 Seed 18 2026 - Marking Scheme.pdf": {
+      "etag": "9e7ceb0601d38e4f315443e6ff9cd78b",
+      "sha256": "29ce26c6c4cff7531e6d8c7aa962294c7e9d15850331a0995141df4688892d44",
+      "size": 479916
+    },
+    "library/MAT133/schemes/MAT133 Seed 19 2026 - Marking Scheme.docx": {
+      "etag": "447edc1908abc97c17a62069d3b155df",
+      "sha256": "5153ec95ffa3dc46cc3fc7d473b8930d28d31a8c10e13d69fc0291d645ccd6b0",
+      "size": 557303
+    },
+    "library/MAT133/schemes/MAT133 Seed 19 2026 - Marking Scheme.pdf": {
+      "etag": "42b93da139dd3ad210d5a5d4553e3e4a",
+      "sha256": "a80e562fb599f0411e381ddeba9e87859126e24334df6bccbe7ea72a3a151745",
+      "size": 482905
+    },
+    "library/MAT133/schemes/MAT133 Seed 20 2026 - Marking Scheme.docx": {
+      "etag": "ef979fc0705a1db206447370440019d6",
+      "sha256": "400433145836c2966d0869b8f70cf0bf7ae8e5bfa3950d47c65a0a7360ba8abe",
+      "size": 645419
+    },
+    "library/MAT133/schemes/MAT133 Seed 20 2026 - Marking Scheme.pdf": {
+      "etag": "6c4e988f8cf2de441278712dfa918663",
+      "sha256": "00baec93609a77a55ca01e9eafc5e22e92660f0d96c18369b0f3a1d5da8eca09",
+      "size": 500907
+    },
     "library/manifest.json": {
-      "etag": "5bd5902d8e76ad075fbd73f5fffd9cb3",
-      "sha256": "643b5f0d2b05de199d15c0a6025ec0d03018bd0a09427195fc83480c8aa82497",
-      "size": 551
+      "etag": "76ce97c5490a7b136a431beff2897033",
+      "sha256": "9538b91c7b4e1a36a528503c82364b4c83a650653218d2b68366dc41ea197fea",
+      "size": 725
+    },
+    "mat133/generate/index.html": {
+      "etag": "5ce30c9c2d42e28d2d90e9db7f751827",
+      "sha256": "523972baf2234dca4fe331537eae4c42c9b12e4ce313d4e963393a4eb88175d3",
+      "size": 1850
+    },
+    "mat133/index.html": {
+      "etag": "7735a09ca5a7e6081c17b8c85247bf65",
+      "sha256": "1444df647ffb36864e64695352aa0efa68fca3810fe0d64dd0d65f48ed2566c4",
+      "size": 4358
+    },
+    "mat133/library/index.html": {
+      "etag": "1ac32a2427489892d5499de35551921e",
+      "sha256": "31c352840cfffbd5e062890bf848afb4e7f336b0a7d275afc31539781d3ee3a3",
+      "size": 42491
     },
     "paused/index.html": {
-      "etag": "5b44b4cd221d14d8de33a4e8ea931266",
-      "sha256": "383f1900f7d18e75f2581dae5bb0651f3c4b6da8d2abd9d005b9d37d8d72643d",
-      "size": 1534
+      "etag": "56feb70ff2cd4539d4c956f12b64e693",
+      "sha256": "207b1ecf3e1c30aaaaa504bba00b60d4128f927b47fb4da79a2b3682b793511a",
+      "size": 1699
     },
     "static/gallery-shell.html": {
-      "etag": "e35853d38db69cc623488ab436942707",
-      "sha256": "5816668185a0fc6d3c1b8b52190f9d370acd25e9a9caf2b238ee56be41503d48",
-      "size": 2427
+      "etag": "3d5ea66ab51e598aea98e2f46e05ceec",
+      "sha256": "013c2e1d4ccf80baa8a1837f5b94ad0b95f01f1d94f60acf1d4f993ba364af65",
+      "size": 2592
     },
     "subjects/CSC580/subject.json": {
       "etag": "7ab9b5640588b58a028f6faea61b4a42",
@@ -482,6 +902,11 @@
       "etag": "8826a04813e7813b9a4f7c0ca3b003f7",
       "sha256": "bd97cc6927519534bdaa326b966f9493b541e99adf1ab54dabe4d4b9e36d398b",
       "size": 487
+    },
+    "subjects/MAT133/subject.json": {
+      "etag": "8797103edadaba6d5c639a629c5794e7",
+      "sha256": "8de3c250393b24bde97c7eb0fa8710ea0ab986d9c6833c5177f4d87b9ed3bb81",
+      "size": 2335
     }
   }
 }

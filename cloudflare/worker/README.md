@@ -10,7 +10,8 @@ paper. There is no Python runtime and no LLM call in this deployment.
 - `www.uitmpapergen.download` redirects to the apex
 - workers.dev fallback: https://papergen.jerkfish123.workers.dev
 - D1: `papergen` (`9d99c331-d8ba-495e-9a8d-35e295bb882c`), schema applied.
-- R2: `exampapers`, 96-file public bundle plus shared gallery objects.
+- R2: `exampapers`, 181-file public bundle (CSC662 + MAT133) plus shared
+  gallery objects; 189 objects, 53,817,347 bytes after the MAT133 publish.
 - Lifecycle: read-only check works; adding the rule needs
   `Workers R2 Storage Write` on the API token (or the dashboard).
 
@@ -81,6 +82,9 @@ bun run deploy
 | `/csc662` | subject page |
 | `/csc662/library` | sortable/filterable Library |
 | `/csc662/generate` | static notice (live generation disabled) |
+| `/mat133` | subject page |
+| `/mat133/library` | sortable/filterable Library |
+| `/mat133/generate` | static notice (live generation disabled) |
 | `/gallery` | public gallery page |
 | `/paused` | paused notice |
 | `/assets/*`, `/library/*` | static bundle objects |
@@ -92,7 +96,8 @@ bun run deploy
 ## Share rules
 
 - The request body may contain only `subject`, `mode` and `seed`.
-- Subject must be `CSC662`; mode must be `realistic`; seed must be 1–20.
+- Subject must be `CSC662` or `MAT133`; mode must be `realistic`; seed must
+  be 1–20. The Worker reads that subject's `library/<SUBJECT>/manifest.json`.
 - No user text, filenames or URLs are accepted.
 - An existing unexpired row for the same subject/mode/seed is reused, so
   repeat shares cost no R2 operations.

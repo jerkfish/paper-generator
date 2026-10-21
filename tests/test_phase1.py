@@ -23,6 +23,8 @@ def test_registry_discovers_csc662_and_stubs():
         assert subjects[code].available is False
         assert subjects[code].enabled_computed_generators == []
     assert get_subject("csc662").code == "CSC662"
+    assert subjects["MAT133"].available
+    assert len(subjects["MAT133"].enabled_computed_generators) == 57
 
 
 def test_public_subject_dict_hides_internal_paths():
@@ -80,6 +82,9 @@ def test_subject_pages_and_coming_soon(monkeypatch, tmp_path):
     assert client.get("/csc662").status_code == 200
     assert client.get("/csc662/library").status_code == 200
     assert client.get("/csc662/generate").status_code == 200
+    assert client.get("/mat133").status_code == 200
+    assert client.get("/mat133/library").status_code == 200
+    assert client.get("/mat133/generate").status_code == 200
     assert client.get("/csc580").status_code == 200
     assert client.get("/csc580/library").status_code == 404
     assert client.get("/missing").status_code == 404
@@ -291,6 +296,9 @@ def test_public_urls_are_percent_encoded():
     assert urls["scheme_pdf"] == (
         "/library/CSC662/schemes/"
         "CSC662%20Seed%2007%202026%20-%20Marking%20Scheme.pdf")
+    mat133 = _urls(item, subject="MAT133")
+    assert mat133["paper_pdf"].startswith(
+        "/library/MAT133/papers/CSC662%20Seed%2007%202026.pdf")
 
 
 def test_public_bundle_validation_rejects_forbidden_paths(tmp_path):

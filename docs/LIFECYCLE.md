@@ -55,6 +55,22 @@ uv run python -m src.app.main
 uv run python -m src.app.prebuild_library --seeds 1-20 --subject CSC662
 ```
 
+### MAT133 local generation
+
+MAT133 has no lecture decks and no theory module. Its planner is
+`src/mat133/planner.py`:
+
+- five questions: inequalities/absolute value; functions/coordinate geometry;
+  complex numbers/algebra; systems/coordinate geometry; trigonometry/geometry;
+- 15 parts, 64-72 marks, all deterministic from the seed;
+- diagrams and LaTeX working come from the 57 generator plugins;
+- no API key and no LLM call.
+
+```bash
+uv run python -m src.app.prebuild_library --seeds 1-20 --subject MAT133
+# local web UI: http://127.0.0.1:8000/mat133/generate
+```
+
 ## 2. Public bundle
 
 ```bash
@@ -162,8 +178,13 @@ four GETs plus D1 operations.
 
 ## 7. Adding a different subject (for example CSC580)
 
-The registry already supports multiple subjects, but the generation and
-serving pipelines are still CSC662-specific. A new subject needs all of these:
+The registry supports multiple subjects. CSC662 and MAT133 are the two working
+examples:
+
+- CSC662 uses the lecture-deck theory pipeline.
+- MAT133 uses deterministic paper-derived generators and needs no LLM.
+
+A new subject needs all of these:
 
 ### Data and registry
 
@@ -175,16 +196,17 @@ serving pipelines are still CSC662-specific. A new subject needs all of these:
    `data/lecturedecks/<SUBJECT>/`. No paper folder needs to exist until the
    subject's papers are added.
 3. Build the subject's question log/fingerprint from its past papers. The
-   current planner inputs in `data/tracking/mock_paper_planner.xlsx` and
-   `outputs/eval_final_deepseek/` are CSC662-specific.
-4. Add the subject's BM25 topic map and topic-to-deck allow-list
-   (`src/theory/bm25.py` currently contains CSC662's).
+   CSC662 planner inputs in `data/tracking/mock_paper_planner.xlsx` and
+   `outputs/eval_final_deepseek/` are CSC662-specific; MAT133 has its own
+   `src/mat133/planner.py`.
+4. For a theory-based subject, add its BM25 topic map and topic-to-deck
+   allow-list (`src/theory/bm25.py` currently contains CSC662's).
 5. Add computed-generator plugins if the subject has computed questions.
-6. Generalize the hardcoded CSC662 checks:
-   - `DEFAULT_SUBJECT` and the "no plugin" check in `src/app/jobs.py`
-   - the fixed 1-20 Library seed discovery
-   - `SUBJECT` in `scripts/build_public_bundle.py`
-   - `SUBJECT`, `PAGE_MAP`, share validation and manifest paths in
+6. Add the subject to the small subject allow-lists:
+   - the `{DEFAULT_SUBJECT, "MAT133", ...}` check in `src/app/jobs.py`
+   - the available-subject loop in `scripts/build_public_bundle.py`
+     (already automatic)
+   - `SUBJECTS`, `SUBJECT_ROUTES` and `PAGE_MAP` in
      `cloudflare/worker/src/index.js`
 7. Add routes/pages under the subject code. The app routes are already
    `/{code}/...`; the Worker needs matching static maps.
@@ -192,44 +214,52 @@ serving pipelines are still CSC662-specific. A new subject needs all of these:
 ### Generate and curate
 
 1. Run realistic/practice generation with the subject's planner and theory
-   module.
-2. Verify sources, entailment, near-copy, style confidence.
+   module, or its deterministic generators.
+2. Verify sources, entailment, near-copy, style confidence, or deterministic
+   answer validation for a generator-only subject.
 3. Human-review the 20-seed set; keep placeholders visible.
 4. Build paper/scheme DOCX/PDF and run scheme QA.
 
 ### Publish
 
-1. Build the subject's public bundle (currently the builder assumes CSC662).
+1. Build the subject's public bundle with
+   `scripts.build_public_bundle.py` (all available subjects by default).
 2. Update the allowlist and run the R2 dry-run/upload.
 3. Add the subject to the Worker route map and D1 share validation.
 4. Deploy the Worker (the custom domain is shared).
 5. Verify `/csc580`, `/csc580/library`, downloads and gallery sharing.
 
-Until those code changes are made, adding only a `subjects/CSC580/subject.json`
-will make the subject appear on the home page but it will not generate,
-prebuild, bundle or share.
+Adding only a `subjects/CSC580/subject.json` makes the subject appear on the
+home page, but it still needs a planner/prebuild, bundle mapping and Worker
+routes before it can publish.
 
-### MAT133 status (Step 2 complete)
+### MAT133 status (published)
 
-MAT133 has already completed the data/generator part of this checklist:
+MAT133 completed the full lifecycle:
 
 - `data/papers/MAT133/` — 41 papers, renamed and registered.
 - `data/reference/MAT133/` — standard cover/template and answer scheme.
 - `data/tracking/mat133/taxonomy.json` and `question_log.json` — paper-derived
   taxonomy and question log.
-- `src/mat133/` — template body builder and 57 deterministic generators.
-- `docs/MAT133.md` and `docs/MAT133_TAXONOMY.md` — setup and taxonomy reports.
-
-Still pending for MAT133: a subject planner that selects generator/topic
-slots, a 20-seed Library prebuild, public-bundle subject mapping and Worker
-routes. Until then `subjects/MAT133/subject.json` remains `coming_soon`.
+- `src/mat133/` — template body builder, 57 deterministic generators and the
+  five-question planner.
+- `outputs/web_cache/MAT133/` — 20-seed Library; all 57 generators are used
+  across seeds 1-20; every seed passes DOCX/PDF validation.
+- `outputs/public_bundle/mat133/` and `library/MAT133/` — public pages and 80
+  documents.
+- Worker routes and gallery share validation accept MAT133.
+- `subjects/MAT133/subject.json` is `available`.
 
 ## 8. What is live now
 
-- Public bundle: 96 files, original local-build covers, quote-free schemes.
-- R2: 96 bundle objects plus shared gallery entries.
+- Public bundle: 181 files, 52,384,519 bytes / 49.96 MiB, original local-build
+  covers; CSC662 schemes are quote-free.
+- R2: 189 objects (bundle + 8 shared gallery files), 53,817,347 bytes.
+- Public subjects: CSC662 and MAT133, 20 Library papers each.
 - D1: gallery schema applied; user-shared entries exist.
 - Custom domain: apex and www, HTTPS, www -> apex redirect.
 - Public site is library-only; the Generate page is a static notice.
+- Worker routes: `/csc662...` and `/mat133...`, plus subject-aware gallery
+  sharing.
 - Footer contact: auzair1990@gmail.com
 - Footer repository: https://github.com/jerkfish/paper-generator

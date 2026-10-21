@@ -62,6 +62,9 @@ def test_public_bundle_has_no_forbidden_paths():
     assert not any("data/reference" in e["path"] for e in entries)
     assert any(e["path"].startswith("library/CSC662/schemes/")
                for e in entries)
+    assert any(e["path"].startswith("library/MAT133/schemes/")
+               for e in entries)
+    assert any(e["path"] == "mat133/library/index.html" for e in entries)
 
 
 def test_job_download_refuses_reference_file(monkeypatch, tmp_path):

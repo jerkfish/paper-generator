@@ -12,6 +12,7 @@ from src.mat133.generators.base import (
 from src.render.mathfig import number_line
 
 x = sp.Symbol("x")
+OP_TEXT = {"<=": "≤", "<": "<", ">=": "≥", ">": ">"}
 
 
 def _latex_solution(expr, op: str) -> str:
@@ -41,11 +42,11 @@ def linear(rng: random.Random, marks: float, out_dir: Path | None):
     lo, hi, lc, hc = _linear_interval(a, b, c, op)
     sol = interval(lo, hi, lc, hc)
     flip = " Flip the inequality sign because the coefficient is negative." if a < 0 else ""
-    text = (f"Solve the inequality {poly_text(a*x + b)} {op} {c}. "
+    text = (f"Solve the inequality {poly_text(a*x + b)} {OP_TEXT[op]} {c}. "
             "Express the answer in interval notation.")
     answer = sol
     steps = [
-        f"Subtract {b} from both sides: {poly_text(a*x)} {op} {c - b}.",
+        f"Subtract {b} from both sides: {poly_text(a*x)} {OP_TEXT[op]} {c - b}.",
         f"Divide both sides by {a}.{flip}",
         f"The solution is {sol}.",
     ]
@@ -127,7 +128,7 @@ def quadratic(rng: random.Random, marks: float, out_dir: Path | None):
         neg_right = interval(r2, sp.oo, closed, False)
         pos = interval(r1, r2, closed, closed)
         sol = union(neg_left, neg_right) if op in ("<=", "<") else pos
-    text = f"Solve the inequality {poly_text(expr)} {op} 0."
+    text = f"Solve the inequality {poly_text(expr)} {OP_TEXT[op]} 0."
     answer = sol
     steps = [
         f"Factor: {poly_text(expr)} = 0 gives x = {r1} and x = {r2}.",
@@ -207,13 +208,15 @@ def rational(rng: random.Random, marks: float, out_dir: Path | None):
     op = pick(rng, ("<=", "<", ">=", ">"))
     sol, crit = _rational_solution(a, b, c, d, k, op)
     text = (f"Solve the rational inequality ({poly_text(a*x+b)})/"
-            f"({poly_text(c*x+d)}) {op} {k}. Express the answer in interval notation.")
+            f"({poly_text(c*x+d)}) {OP_TEXT[op]} {k}. Express the answer in "
+            "interval notation.")
     answer = sol
     num = sp.expand(a * x + b - k * (c * x + d))
     num_root = sp.solve(num, x)
     steps = [
         "Move all terms to the left-hand side so the right-hand side is zero.",
-        f"Combine over the common denominator: ({poly_text(num)})/({poly_text(c*x+d)}) {op} 0.",
+        f"Combine over the common denominator: ({poly_text(num)})/"
+        f"({poly_text(c*x+d)}) {OP_TEXT[op]} 0.",
         f"Critical values: numerator zero at x = "
         f"{fmt_num(num_root[0]) if num_root else 'none'}; "
         f"denominator zero at x = {fmt_num(sp.Rational(-d, c))}.",
@@ -250,10 +253,10 @@ def interval_notation(rng: random.Random, marks: float, out_dir: Path | None):
     op = pick(rng, ("<=", "<", ">=", ">"))
     a, b, c = nz(rng, -6, 6), nz(rng, -9, 9), nz(rng, -9, 9)
     lo, hi, lc, hc = _linear_interval(a, b, c, op)
-    text = (f"Write the solution of {poly_text(a*x + b)} {op} {c} in interval notation "
-            "and on a number line.")
+    text = (f"Write the solution of {poly_text(a*x + b)} {OP_TEXT[op]} {c} "
+            "in interval notation and on a number line.")
     answer = interval(lo, hi, lc, hc)
-    steps = [f"Solve the inequality: {poly_text(a*x + b)} {op} {c}.",
+    steps = [f"Solve the inequality: {poly_text(a*x + b)} {OP_TEXT[op]} {c}.",
              f"In interval notation: {answer}."]
     image = None
     if out_dir is not None:

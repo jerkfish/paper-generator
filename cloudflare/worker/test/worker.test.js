@@ -11,10 +11,15 @@ describe("static routing", () => {
     expect(pageKey("/")).toBe("index.html");
     expect(pageKey("/csc662")).toBe("csc662/index.html");
     expect(pageKey("/csc662/library")).toBe("csc662/library/index.html");
+    expect(pageKey("/mat133")).toBe("mat133/index.html");
+    expect(pageKey("/mat133/library")).toBe("mat133/library/index.html");
+    expect(pageKey("/mat133/generate/")).toBe("mat133/generate/index.html");
     expect(pageKey("/gallery/")).toBe("gallery/index.html");
     expect(pageKey("/assets/style.css")).toBe("assets/style.css");
     expect(pageKey("/library/CSC662/manifest.json"))
       .toBe("library/CSC662/manifest.json");
+    expect(pageKey("/library/MAT133/manifest.json"))
+      .toBe("library/MAT133/manifest.json");
   });
 
   test("rejects traversal and unknown paths", () => {
@@ -41,6 +46,8 @@ describe("share request", () => {
   test("accepts only subject, realistic mode and seed 1-20", () => {
     expect(normaliseShare({ subject: "CSC662", mode: "realistic", seed: 7 }))
       .toEqual({ subject: "CSC662", mode: "realistic", seed: 7 });
+    expect(normaliseShare({ subject: "MAT133", mode: "realistic", seed: 7 }))
+      .toEqual({ subject: "MAT133", mode: "realistic", seed: 7 });
     expect(() => normaliseShare({
       subject: "CSC662", mode: "realistic", seed: 7, text: "hello",
     })).toThrow("unexpected field");

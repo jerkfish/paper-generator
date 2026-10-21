@@ -11,13 +11,17 @@ from src import config
 from src.app.filenames import utc_year
 from src.app.jobs import DEFAULT_SUBJECT, cache_path
 from src.assemble.generic_build import build_paper, build_scheme
+from src.mat133.library import build_seed as build_mat133_seed
 from src.subjects.registry import SubjectNotFound, get_subject
 
 SRC = config.OUTPUTS_DIR / "eval_final_deepseek"
+MAT133 = "MAT133"
 
 
 def build_scheme_only(seed: int, subject: str = DEFAULT_SUBJECT) -> dict:
     """Rebuild only the scheme from stored plan/theory/cache paper."""
+    if subject.upper() == MAT133:
+        return build_mat133_seed(seed, scheme_only=True)
     plan = SRC / f"seed_{seed:02d}_planner.json"
     theory = SRC / f"seed_{seed:02d}_theory.json"
     out = cache_path("realistic", seed, None, subject=subject)
@@ -38,6 +42,8 @@ def build_scheme_only(seed: int, subject: str = DEFAULT_SUBJECT) -> dict:
 
 def build_seed(seed: int, force: bool = False,
                subject: str = DEFAULT_SUBJECT) -> dict:
+    if subject.upper() == MAT133:
+        return build_mat133_seed(seed, force=force)
     plan = SRC / f"seed_{seed:02d}_planner.json"
     theory = SRC / f"seed_{seed:02d}_theory.json"
     if not plan.exists() or not theory.exists():
@@ -123,7 +129,7 @@ def main() -> None:
         raise SystemExit(f"unknown subject: {args.subject}") from None
     if not subject.available:
         raise SystemExit(f"subject {subject.code} is coming soon")
-    if subject.code != DEFAULT_SUBJECT:
+    if subject.code not in {DEFAULT_SUBJECT, MAT133}:
         raise SystemExit(f"subject {subject.code} has no generator plugin")
     args.subject = subject.code
     if "-" in args.seeds:
