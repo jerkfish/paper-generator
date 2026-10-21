@@ -209,6 +209,21 @@ Until those code changes are made, adding only a `subjects/CSC580/subject.json`
 will make the subject appear on the home page but it will not generate,
 prebuild, bundle or share.
 
+### MAT133 status (Step 2 complete)
+
+MAT133 has already completed the data/generator part of this checklist:
+
+- `data/papers/MAT133/` — 41 papers, renamed and registered.
+- `data/reference/MAT133/` — standard cover/template and answer scheme.
+- `data/tracking/mat133/taxonomy.json` and `question_log.json` — paper-derived
+  taxonomy and question log.
+- `src/mat133/` — template body builder and 57 deterministic generators.
+- `docs/MAT133.md` and `docs/MAT133_TAXONOMY.md` — setup and taxonomy reports.
+
+Still pending for MAT133: a subject planner that selects generator/topic
+slots, a 20-seed Library prebuild, public-bundle subject mapping and Worker
+routes. Until then `subjects/MAT133/subject.json` remains `coming_soon`.
+
 ## 8. What is live now
 
 - Public bundle: 96 files, original local-build covers, quote-free schemes.

@@ -1,0 +1,75 @@
+papers: 41; workers: 4
+[1/41] MAT133 APRIL 2007.pdf: 23 parts (0.0071 USD)
+[2/41] MAT133 APRIL 2006.pdf: 21 parts (0.0083 USD)
+[3/41] MAT133 APRIL 2009 (2).pdf: 27 parts (0.0095 USD)
+[4/41] MAT133 APRIL 2009.pdf: 27 parts (0.0097 USD)
+[5/41] MAT133 APRIL 2010.pdf: 25 parts (0.0072 USD)
+[6/41] MAT133 APRIL 2011.pdf: 28 parts (0.0079 USD)
+[7/41] MAT133 DECEMBER 2018.pdf: 23 parts (0.0065 USD)
+[8/41] MAT133 DECEMBER 2019.pdf: 25 parts (0.0088 USD)
+[9/41] MAT133 FEBRUARY 2026.pdf: 16 parts (0.0000 USD)
+[10/41] MAT133 FEBRUARY 2022.pdf: 13 parts (0.0046 USD)
+[11/41] MAT133 FEBRUARY 2023.pdf: 21 parts (0.0061 USD)
+[12/41] MAT133 FEBRUARY 2025.pdf: 24 parts (0.0075 USD)
+[13/41] MAT133 JANUARY 2018.pdf: 23 parts (0.0082 USD)
+[14/41] MAT133 JULY 2021.pdf: 12 parts (0.0050 USD)
+[15/41] MAT133 JANUARY 2024.pdf: 24 parts (0.0067 USD)
+[16/41] MAT133 JULY 2023.pdf: 24 parts (0.0068 USD)
+[17/41] MAT133 JULY 2025 (2).pdf: 16 parts (0.0058 USD)
+[18/41] MAT133 JULY 2025.pdf: 16 parts (0.0058 USD)
+[19/41] MAT133 JULY 2024.pdf: 25 parts (0.0088 USD)
+[20/41] MAT133 JUNE 2018.pdf: 24 parts (0.0081 USD)
+[21/41] MAT133 MARCH 2004 (2).pdf: 18 parts (0.0067 USD)
+[22/41] MAT133 JUNE 2019.pdf: 24 parts (0.0067 USD)
+[23/41] FAILED MAT133 MARCH 2004.pdf: 4 validation errors for LLMPaper
+parts.15.marks
+  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=2.5, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.14/v/int_from_float
+parts.16.marks
+  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=2.5, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.14/v/int_from_float
+parts.17.marks
+  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=2.5, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.14/v/int_from_float
+parts.18.marks
+  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=2.5, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.14/v/int_from_float
+[24/41] MAT133 MARCH 2014 (2).pdf: 23 parts (0.0073 USD)
+[25/41] MAT133 MARCH 2012.pdf: 28 parts (0.0089 USD)
+[26/41] MAT133 MARCH 2013.pdf: 28 parts (0.0089 USD)
+[27/41] MAT133 MARCH 2014.pdf: 23 parts (0.0067 USD)
+[28/41] MAT133 MARCH 2016.pdf: 25 parts (0.0070 USD)
+[29/41] MAT133 MARCH 2017.pdf: 25 parts (0.0067 USD)
+[30/41] MAT133 MARCH 2015.pdf: 26 parts (0.0095 USD)
+[31/41] MAT133 NOVEMBER 2005.pdf: 29 parts (0.0097 USD)
+[32/41] MAT133 OCTOBER 2007.pdf: 27 parts (0.0093 USD)
+[33/41] MAT133 OCTOBER 2008.pdf: 29 parts (0.0102 USD)
+[34/41] MAT133 OCTOBER 2010.pdf: 32 parts (0.0088 USD)
+[35/41] MAT133 OCTOBER 2016.pdf: 24 parts (0.0065 USD)
+[36/41] MAT133 OCTOBER 2012.pdf: 26 parts (0.0096 USD)
+[37/41] MAT133 SEPTEMBER 2011.pdf: 29 parts (0.0091 USD)
+[38/41] MAT133 SEPTEMBER 2013.pdf: 26 parts (0.0064 USD)
+[39/41] MAT133 SEPTEMBER 2014.pdf: 27 parts (0.0099 USD)
+[40/41] MAT133 SEPTEMBER 2015.pdf: 21 parts (0.0066 USD)
+[41/41] FAILED MAT133 OCTOBER 2009.pdf: LLM call failed after 3 tries: Expecting ',' delimiter: line 568 column 77 (char 27872)
+{
+  "papers": 39,
+  "entries": 927,
+  "patterns": 55,
+  "usage": {
+    "model": "deepseek-flash",
+    "prompt_tokens": 105416,
+    "completion_tokens": 217702,
+    "total_tokens": 323118,
+    "calls": 39,
+    "cost_usd": 0.292867,
+    "input_price_per_1m": 0.3,
+    "output_price_per_1m": 1.2
+  },
+  "warnings": [
+    "3 entries fell into subtopic 'other'",
+    "5 entries have no mark",
+    "84 evidence fragments could not be matched",
+    "84 entries are duplicate-paper copies"
+  ]
+}

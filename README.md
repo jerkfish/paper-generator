@@ -82,6 +82,7 @@ The app discovers subjects by scanning `subjects/*/subject.json`:
 
 ```text
 subjects/CSC662/subject.json   status: available
+subjects/MAT133/subject.json   status: coming_soon (57 generators ready; planner pending)
 subjects/CSC580/subject.json   status: coming_soon
 subjects/CSC645/subject.json   status: coming_soon
 ```
@@ -89,14 +90,39 @@ subjects/CSC645/subject.json   status: coming_soon
 Each record contains the code, title, status, header text, template path,
 fingerprint metadata, deck map, topic-deck allow-list and enabled computed
 generators. `status: coming_soon` subjects appear on the home page but have no
-papers, cache folder or generators.
+papers or Library cache.
 
 Computed generators are subject plugins: the CSC662 types (Vigenere, ACM,
-columnar, rail fence, OTP, Caesar) live in `src/generators/`. Another subject
-needs its own planner, deck map and generator plugin before it can become
+columnar, rail fence, OTP, Caesar) live in `src/generators/`. MAT133 has its
+own deterministic plugins in `src/mat133/generators/`. Another subject needs
+its own planner, deck map and generator plugin before it can become
 `available`. Routes, cache keys and Library folders are subject-scoped, but the
 generation and Worker code still contains CSC662-specific checks; see
 `docs/LIFECYCLE.md`.
+
+## MAT133 Pre-Calculus
+
+MAT133 is paper-derived: there are no lecture decks. The 41 past papers were
+ingested into a taxonomy and question log, and 57 computed generators cover
+every subtopic. See `docs/MAT133_TAXONOMY.md` and `docs/MAT133.md`.
+
+```bash
+# rebuild the paper text/OCR cache and the question log (cached LLM calls free)
+uv run python -m scripts.build_mat133_corpus
+uv run python -m scripts.build_mat133_question_log --workers 4
+
+# generate, build and validate all three generator groups
+uv run python -m scripts.validate_mat133_generators --group 1
+uv run python -m scripts.validate_mat133_generators --group 2
+uv run python -m scripts.validate_mat133_generators --group 3
+```
+
+The MAT133 builder (`src/mat133/build_docx.py`) never clones CSC662 sample
+blocks: it starts from the MAT133 cover and appends a clean question paper and
+a marking scheme in the original `NO | SOLUTION | MARK` table layout. Scheme
+working is line-by-line mathematics with red `M1`/`A1`/`B1` codes; explanatory
+prose and numbered steps are not rendered. The marker cover uses
+`INSTRUCTIONS TO MARKERS` with only the two scheme notes.
 
 ## Download names
 
@@ -329,6 +355,11 @@ lifecycle rule is the storage backstop.
   work).
 - `outputs/eval_final_deepseek/seed_*_planner.json` and
   `seed_*_theory.json` - source data for rebuilding the Library.
+- `data/tracking/mat133/taxonomy.json`,
+  `question_log.json` and `question_log.schema.json` - MAT133 paper-derived
+  taxonomy and question log.
+- `data/tracking/mat133/paper_text/` and `question_log/raw/` - cached OCR/text
+  and per-paper extraction (reruns cost $0).
 
 Per-subject input folders:
 
@@ -339,18 +370,21 @@ data/lecturedecks/<SUBJECT>/   lecture decks, if the subject uses them
 ```
 
 The 38 CSC662 papers were moved to `data/papers/CSC662/`. The CSC662 template
-is at `data/reference/CSC662/`. CSC580 and CSC645 have empty reference folders
-ready for future subjects; their paper folders can be created when papers are
-added. The CSC662 lecture folder exists at `data/lecturedecks/CSC662/`; when it
-is empty the loader uses the external `CSC662_DECKS_DIR`/Desktop fallback, so
-no 52 MB of slides need to be copied into the repository.
-- Lecture decks at `data/lecturedecks/CSC662/`; if that folder has no decks,
-  the loader falls back to `CSC662_DECKS_DIR` (default `~/Desktop/CSC662`).
+is at `data/reference/CSC662/`. MAT133 papers are in `data/papers/MAT133/`;
+its template and answer scheme are in `data/reference/MAT133/`; it has no
+lecture decks. CSC580 and CSC645 have empty reference folders ready for future
+subjects; their paper folders can be created when papers are added. The CSC662
+lecture folder exists at `data/lecturedecks/CSC662/`; when it is empty the
+loader uses the external `CSC662_DECKS_DIR`/Desktop fallback, so no 52 MB of
+slides need to be copied into the repository.
 
 ## Lifecycle
 
 See `docs/LIFECYCLE.md` for the complete flow: local generation, public bundle,
 R2 upload, Worker serving, gallery share/expiry and adding a new subject.
+MAT133 setup, scheme parse, cover template, taxonomy, question log, builder and
+generator validation are in `docs/MAT133.md`; the taxonomy/report is in
+`docs/MAT133_TAXONOMY.md`.
 
 ## Design review
 
@@ -361,7 +395,7 @@ mockups are in `design/mockups/`.
 ## Tests
 
 ```bash
-uv run pytest -q        # 160 Python tests
+uv run pytest -q        # 230 Python tests
 cd cloudflare/worker
 bun test                # 5 Worker tests
 ```
@@ -369,5 +403,6 @@ bun test                # 5 Worker tests
 Coverage includes the planner/verifier, job lifecycle, cancel, cost-cap abort,
 cache hit, Library without a key, scheme table geometry, subject discovery,
 download names, subject-scoped routes, sortable/filterable Library, public
-bundle rendering/validation, secret scan, public-path guards, bundle allowlist
-and R2 quota guard.
+bundle rendering/validation, secret scan, public-path guards, bundle allowlist,
+R2 quota guard, MAT133 taxonomy/question-log integrity, all 57 MAT133
+generators and the MAT133 DOCX/XML builder.
