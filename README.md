@@ -222,9 +222,12 @@ The built bundle has been uploaded to R2: **96 objects, 16,011,605 bytes**.
 
 ## Cloudflare Worker and gallery
 
-The library-only Worker lives in `cloudflare/worker/`. It serves the static
-bundle from R2, exposes a D1-backed gallery, and copies PUBLIC_BUILD library
-files into `shared/<id>/` on share. There is no Python runtime and no LLM call.
+The library-only Worker is deployed at
+**https://uitmpapergen.download** (and `www` redirects to the apex).
+It lives in `cloudflare/worker/`,
+serves the static bundle from R2, exposes a D1-backed gallery, and copies
+PUBLIC_BUILD library files into `shared/<id>/` on share. There is no Python
+runtime and no LLM call.
 
 ```bash
 cd cloudflare/worker
@@ -237,8 +240,9 @@ bun run deploy
 ```
 
 The Worker config is `cloudflare/worker/wrangler.toml`; deployment requires a
-Cloudflare API token with Workers Scripts:Edit, D1:Edit, Workers R2 Storage:Read
-and Workers Routes:Edit (or `wrangler login`). The gallery is capped at 100
+Cloudflare API token with Workers Scripts Write, D1 Write and Workers R2
+Storage Read (or `wrangler login`). Add Workers R2 Storage Write for lifecycle
+management and Zone Workers Routes Write + Zone Read only for a custom domain. The gallery is capped at 100
 active entries and entries expire after 7 days. See
 `cloudflare/worker/README.md`.
 

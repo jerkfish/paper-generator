@@ -4,6 +4,16 @@ Serves the static public bundle from R2, adds a D1-backed public gallery, and
 copies PUBLIC_BUILD library files into `shared/<id>/` when someone shares a
 paper. There is no Python runtime and no LLM call in this deployment.
 
+## Current deployment
+
+- Worker: https://uitmpapergen.download
+- `www.uitmpapergen.download` redirects to the apex
+- workers.dev fallback: https://papergen.jerkfish123.workers.dev
+- D1: `papergen` (`9d99c331-d8ba-495e-9a8d-35e295bb882c`), schema applied.
+- R2: `exampapers`, 96 public objects.
+- Lifecycle: read-only check works; adding the rule needs
+  `Workers R2 Storage Write` on the API token (or the dashboard).
+
 ## Prerequisites
 
 - The public bundle is already in the `exampapers` bucket.
@@ -40,7 +50,18 @@ bun x wrangler r2 bucket lifecycle add exampapers expire-shared-7d shared/ --exp
 
 The Worker also deletes expired objects during its daily Cron trigger, so the
 gallery still expires correctly if the lifecycle rule has not been added; the
-rule is the backstop.
+rule is the backstop. Show or add the rule through the Cloudflare API:
+
+```bash
+uv run python -m scripts.r2_lifecycle --show
+uv run python -m scripts.r2_lifecycle --apply
+```
+
+`--show` currently works and reports only the default multipart-abort rule.
+`--apply` needs **Account -> Workers R2 Storage Write** on
+`CLOUDFLARE_API_TOKEN`; without it Cloudflare returns `Authentication error`.
+The dashboard path is R2 -> exampapers -> Settings -> Object lifecycle rules
+(prefix `shared/`, delete after 7 days).
 
 ## Deploy
 
@@ -48,8 +69,9 @@ rule is the backstop.
 bun run deploy
 ```
 
-`workers_dev = true` gives a `*.workers.dev` URL. Add a custom domain route in
-`wrangler.toml` when the zone is ready.
+`workers_dev = true` keeps the `*.workers.dev` fallback. The custom domains in
+`wrangler.toml` are `uitmpapergen.download` and
+`www.uitmpapergen.download`; the Worker redirects `www` to the apex.
 
 ## Routes
 

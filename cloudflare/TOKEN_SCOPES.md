@@ -45,15 +45,15 @@ Essential for the planned deployment:
 
 | Permission | Why |
 |---|---|
-| Account: Workers Scripts:Edit | Deploy/update the Worker |
-| Account: Workers R2 Storage:Read | Read bucket metadata for the binding |
-| Account: Workers KV Storage:Edit | Phase 2 gallery index, if KV is used |
-| Account: D1:Edit | Phase 2 gallery index, if D1 is used instead |
-| Zone: Workers Routes:Edit | Route the Worker on the domain |
-| Zone: Zone:Read | Resolve the zone for the route |
-| Account: Turnstile Sites:Edit | Phase 3 Turnstile widget |
-| Account: Account Analytics:Read | Optional usage/quota monitoring |
-| Account: Pages:Edit | Only if using Pages instead of a Worker |
+| Account: Workers Scripts Write | Deploy/update the Worker |
+| Account: Workers R2 Storage Read | Read bucket metadata; add Write only if managing lifecycle via API |
+| Account: Workers KV Storage Write | Only if KV is used instead of D1 |
+| Account: D1 Write | Create/query the gallery database |
+| Zone: Workers Routes Write | Route the Worker on a custom domain (not needed for workers.dev) |
+| Zone: Zone Read | Resolve the zone for the route |
+| Account: Turnstile Sites Write | Phase 3 Turnstile widget |
+| Account: Account Analytics Read | Optional usage/quota monitoring |
+| Account: Pages Write | Only if using Pages instead of a Worker |
 
 Remove these from any general token:
 

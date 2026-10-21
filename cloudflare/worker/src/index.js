@@ -314,6 +314,12 @@ export default {
     const url = new URL(request.url);
     const method = request.method;
 
+    if (env.CANONICAL_HOST &&
+        url.hostname === `www.${env.CANONICAL_HOST}`) {
+      return Response.redirect(
+        `https://${env.CANONICAL_HOST}${url.pathname}${url.search}`, 301);
+    }
+
     if (url.pathname === "/api/gallery" && method === "GET") {
       return listGallery(env);
     }
