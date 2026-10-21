@@ -42,7 +42,7 @@ from src.assemble.build_docx_paper import (
     set_para_text,
 )
 from src.assemble.vigenere_tableau import build_tableau_png
-from src.config import OUTPUTS_DIR
+from src.config import OUTPUTS_DIR, PUBLIC_BUILD
 from src.generators import ciphers as C
 
 OUT_DOCX = OUTPUTS_DIR / "mock_paper_04.docx"
@@ -194,7 +194,9 @@ def _attach_body_header_footer(doc) -> None:
         body_sect.insert(i, el)
 
 
-def build() -> None:
+def build(public: bool | None = None) -> bool:
+    """Build the paper. Returns True when public branding was applied."""
+    is_public = PUBLIC_BUILD if public is None else bool(public)
     plan, slots = _plan()
     accepted, placeholders = _theory()
     qmap: dict[str, dict] = {}
@@ -388,9 +390,17 @@ def build() -> None:
                                "printed pages")
     d2.save(str(OUT_DOCX))
     pages2 = export_pdf(OUT_DOCX, OUT_PDF)
+    if is_public:
+        from src.assemble.generic_build import publicise
+        publicise(OUT_DOCX)
+        # Never leave a private-branded PDF beside a public DOCX.
+        if OUT_PDF.exists():
+            OUT_PDF.unlink()
+        pages2 = export_pdf(OUT_DOCX, OUT_PDF)
     print(f"paper 04: pages={pages2} "
           f"(first export {pages}, match={pages == pages2})")
     print(f"wrote {OUT_DOCX} and {OUT_PDF}")
+    return is_public
 
 
 if __name__ == "__main__":

@@ -10,9 +10,16 @@ from fastapi.templating import Jinja2Templates
 
 from src import config
 from src.app.jobs import library_file, library_items, manager
+from src.app.safety import (ForbiddenPathError, assert_no_secret_leaks,
+                            ensure_servable)
 
 APP_DIR = Path(__file__).resolve().parent
 app = FastAPI(title="CSC662 Mock Paper Generator")
+
+
+@app.on_event("startup")
+def _phase0_startup_check() -> None:
+    assert_no_secret_leaks()
 app.mount("/static", StaticFiles(directory=str(APP_DIR / "static")),
           name="static")
 templates = Jinja2Templates(directory=str(APP_DIR / "templates"))
@@ -80,6 +87,10 @@ def library_download(seed: int, kind: str):
     path = library_file(seed, kind)
     if path is None:
         raise HTTPException(status_code=404, detail="library file not found")
+    try:
+        path = ensure_servable(path)
+    except ForbiddenPathError as e:
+        raise HTTPException(status_code=403, detail=str(e))
     media = ("application/pdf" if kind.endswith("pdf")
              else "application/vnd.openxmlformats-officedocument."
                   "wordprocessingml.document")
@@ -97,6 +108,10 @@ def job_download(job_id: str, kind: str):
     if not path.exists():
         raise HTTPException(status_code=404,
                             detail="file unavailable (PDF export may be off)")
+    try:
+        path = ensure_servable(path)
+    except ForbiddenPathError as e:
+        raise HTTPException(status_code=403, detail=str(e))
     media = ("application/pdf" if kind.endswith("pdf")
              else "application/vnd.openxmlformats-officedocument."
                   "wordprocessingml.document")

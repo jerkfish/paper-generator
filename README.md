@@ -71,6 +71,29 @@ Word and LibreOffice headless. A failure raises `SchemeQAError` and fails the
 build. LibreOffice is required for the full QA; install it separately if
 `soffice` is not on PATH.
 
+## Phase 0 safety
+
+- Secrets are read only from the environment / Wrangler secrets. `.env` is
+  gitignored; `.env.example` contains names only.
+- The FastAPI app runs a startup secret scan. It fails if an environment
+  secret value appears in a tracked text file (`.env`, `.git`, `.venv`,
+  `outputs` and `data` are excluded).
+- Run the same check manually:
+
+  ```bash
+  uv run python -m src.app.safety --check
+  ```
+
+- `PUBLIC_BUILD=1` strips university branding, omits verbatim slide quotes from
+  public schemes, disables the private Library and refuses to serve files under
+  `data/reference/`, `CSC662/` or `data/papers/`.
+- The proposed public-bundle allowlist is generated with:
+
+  ```bash
+  uv run python -m scripts.public_bundle --write
+  # cloudflare/public_bundle_manifest.txt
+  ```
+
 ## Public build
 
 ```text
@@ -93,6 +116,12 @@ Live generation still works with an API key.
   `seed_*_theory.json` - source data for rebuilding the Library.
 - Lecture decks at `CSC662_DECKS_DIR` (default `~/Desktop/CSC662`).
 
+## Design review
+
+The multi-subject / Cloudflare page design and the proposed public-bundle
+allowlist are in `design/DESIGN.md` and `design/PUBLIC_BUNDLE_PROPOSAL.md`.
+The static page mockups are in `design/mockups/` (open `index.html`).
+
 ## Tests
 
 ```bash
@@ -100,4 +129,5 @@ uv run pytest -q
 ```
 
 Covers the planner/verifier, app job lifecycle, cancel, cost-cap abort, cache
-hit, Library without a key, public branding, and scheme table geometry.
+hit, Library without a key, public branding, scheme table geometry, the
+secret-leak scan, public-path guards, and the public bundle allowlist.

@@ -33,13 +33,14 @@ from src.assemble.scheme_working import (
     working_for,
 )
 from src.assemble.table_fit import fix_tables
-from src.config import OUTPUTS_DIR
+from src.config import OUTPUTS_DIR, PUBLIC_BUILD as CONFIG_PUBLIC_BUILD
 
 PAPER_DOCX = OUTPUTS_DIR / "mock_paper_04.docx"
 SCHEME_DOCX = OUTPUTS_DIR / "mock_scheme_04.docx"
 SCHEME_PDF = OUTPUTS_DIR / "mock_scheme_04.pdf"
 PLAN_JSON = OUTPUTS_DIR / "eval_final_deepseek/seed_12_planner.json"
 THEORY_JSON = OUTPUTS_DIR / "eval_final_deepseek/seed_12_theory.json"
+PUBLIC_BUILD = CONFIG_PUBLIC_BUILD
 
 
 def _load() -> tuple[dict, dict, dict]:
@@ -62,6 +63,14 @@ def _label(slot: dict, accepted: dict, placeholders: dict) -> str:
 def _computed_question(slot: dict) -> dict | None:
     from src.assemble.build_docx_paper_04 import _computed_question as cq
     return cq(slot)
+
+
+def quote_for_scheme(pt: dict, public: bool | None = None) -> str:
+    """Verbatim quote, or a public-build omission marker."""
+    is_public = PUBLIC_BUILD if public is None else public
+    if is_public:
+        return "[verbatim slide quote omitted in public build]"
+    return f'"{pt["quote"]}"'
 
 
 def _entailment_label(pt: dict) -> str:
@@ -135,7 +144,7 @@ def _status(doc, slot: dict, accepted: dict, placeholders: dict) -> None:
         cells = table.add_row().cells
         _cell_text(cells[0], str(i), size=8)
         _cell_text(cells[1], pt["point"], size=8)
-        _cell_text(cells[2], f'"{pt["quote"]}"', size=8)
+        _cell_text(cells[2], quote_for_scheme(pt), size=8)
         chunk = str(pt["chunk_id"]).replace(
             "::", "::" + "​").replace("-", "-" + "​")
         _cell_text(cells[3], f"{pt['source_file']}, slide "
@@ -143,9 +152,12 @@ def _status(doc, slot: dict, accepted: dict, placeholders: dict) -> None:
         _cell_text(cells[4], _entailment_label(pt), size=8)
         _cell_text(cells[5], f"{pt.get('stem_overlap', pt.get('term_overlap', 1.0)):.2f}" + (" LOW" if pt.get("low_stem_overlap") else ""), size=8)
     doc.add_paragraph().paragraph_format.space_after = Pt(2)
-    add_para(doc, "Confidence: supported by lecture slides (not lecturer-marked) - each point carries a verbatim quote "
-                  "from the cited lecture slide.", italic=True, size=9,
-             before=2, after=1)
+    confidence = ("Confidence: supported by lecture slides (not lecturer-marked) - "
+                  "source citation retained; verbatim quote omitted in the public build."
+                  if PUBLIC_BUILD else
+                  "Confidence: supported by lecture slides (not lecturer-marked) - "
+                  "each point carries a verbatim quote from the cited lecture slide.")
+    add_para(doc, confidence, italic=True, size=9, before=2, after=1)
     if q.get("low_style_confidence"):
         add_para(doc, f"Style confidence: LOW - exact examples n<3; widened "
                       f"via {q.get('style_mode', '')}.", italic=True, size=9,
@@ -154,7 +166,9 @@ def _status(doc, slot: dict, accepted: dict, placeholders: dict) -> None:
              italic=True, size=9, after=6)
 
 
-def build() -> None:
+def build(public: bool | None = None) -> None:
+    global PUBLIC_BUILD
+    PUBLIC_BUILD = CONFIG_PUBLIC_BUILD if public is None else bool(public)
     slots, accepted, placeholders = _load()
     doc = docx.Document(str(PAPER_DOCX))
     paras = doc.paragraphs
@@ -172,12 +186,14 @@ def build() -> None:
     sourced_marks = sum(s["marks"] for s in slots.values()
                         if s["kind"] == "theory" and s["slot"] in accepted)
 
+    quote_note = ("Computed answers show working; theory answers are supported by lecture slides (not lecturer-marked); verbatim quotes are omitted in this public build; slide citations are retained."
+                  if PUBLIC_BUILD else
+                  "Computed answers show working; theory answers are supported by lecture slides (not lecturer-marked) with a verbatim quote and slide citation.")
     cover_notes = [
         ("INSTRUCTIONS TO CANDIDATES", "MARKING SCHEME NOTES"),
         ("This question paper consists",
          "This marking scheme accompanies the CSC662 mock paper (October 2026)."),
-        ("PART B (2 Questions)",
-         "Computed answers show working; theory answers are supported by lecture slides (not lecturer-marked) with a verbatim quote and slide citation."),
+        ("PART B (2 Questions)", quote_note),
         ("Answer ALL questions in the Answer Booklet",
          "Supported theory marking points quote the lecture decks; any "
          "unresolved slot would remain a visible placeholder."),
@@ -214,24 +230,37 @@ def build() -> None:
     add_para(doc, "Labels: computed / supported by lecture slides (not lecturer-marked) / placeholder. No official "
                   "marking scheme exists for the real CSC662 papers; this is "
                   "generated for the mock.", italic=True, size=9, after=4)
-    add_para(doc, "Entailment labels: supported = the quote directly supports "
-                  "the marking point (or the point passed the stem-overlap "
-                  "gate without an LLM check); partly supported = the quote "
-                  "supports part of the point or is ambiguous; not supported = "
-                  "the quote does not support the point. Only 'not supported' "
-                  "points triggered regeneration.", italic=True, size=9, after=10)
+    entail_note = ("Entailment labels: supported = the private quote directly "
+                   "supports the point (or the point passed the stem-overlap "
+                   "gate); partly supported = partial/ambiguous support; "
+                   "not supported = no support. Quote text is omitted here; "
+                   "verdicts come from private verification.")
+    if not PUBLIC_BUILD:
+        entail_note = ("Entailment labels: supported = the quote directly supports "
+                       "the marking point (or the point passed the stem-overlap "
+                       "gate without an LLM check); partly supported = the quote "
+                       "supports part of the point or is ambiguous; not supported = "
+                       "the quote does not support the point. Only 'not supported' "
+                       "points triggered regeneration.")
+    add_para(doc, entail_note, italic=True, size=9, after=10)
     add_para(doc, f"Part A: 10 x (2 + 6) = 80 marks. Part B: 2 x (5 + 5) = "
                   f"20 marks. Total: 100 marks. Slots: {n_comp} computed, "
                   f"{n_sourced} supported by lecture slides, {n_ph} placeholder.",
              size=10, after=6)
-    add_para(doc, "Methods: computed answers use verified solvers. Theory "
-                  "answers are supported by lecture slides (not lecturer-"
-                  "marked). Each marking point carries a verbatim quote, a "
-                  "deck/slide/chunk citation and a term-overlap score; low "
-                  "overlap is flagged for human review. Sources are restricted "
-                  "to the slot topic's allowed decks, and a slide is not "
-                  "reused across questions where an alternative exists.",
-             italic=True, size=9, after=10)
+    methods = ("Methods: computed answers use verified solvers. Theory "
+               "answers are supported by lecture slides (not lecturer-marked). "
+               "Each point carries a deck/slide citation and overlap score; "
+               "verbatim quote text is omitted from this public build. Low "
+               "overlap is flagged for human review."
+               if PUBLIC_BUILD else
+               "Methods: computed answers use verified solvers. Theory answers "
+               "are supported by lecture slides (not lecturer-marked). Each "
+               "marking point carries a verbatim quote, a deck/slide/chunk "
+               "citation and a term-overlap score; low overlap is flagged for "
+               "human review. Sources are restricted to the slot topic's "
+               "allowed decks, and a slide is not reused across questions "
+               "where an alternative exists.")
+    add_para(doc, methods, italic=True, size=9, after=10)
 
     for i in range(1, 11):
         add_para(doc, f"PART A - QUESTION {i}", bold=True, size=12,
