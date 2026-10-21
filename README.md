@@ -1,13 +1,34 @@
 # Mock Paper Generator
 
-Local study tool for CSC662 Computer Security. It plans a realistic or
-practice paper, drafts grounded theory questions from the lecture decks,
-verifies the marking points, and exports a Word/PDF paper and marking scheme.
+CSC662 Computer Security study tool. It plans realistic or practice papers,
+drafts grounded theory questions from lecture decks, verifies marking points,
+and exports Word/PDF papers and marking schemes.
 
-Everything runs on this machine. There are no accounts, payments or uploads;
-lecture slides and past papers never leave the machine.
+There are two environments:
 
-## Run the web UI
+- **Local generator** - runs on this machine, can call the LLM, and keeps
+  lecture decks and past papers private.
+- **Public site** - a library-only deployment that serves pre-generated
+  public papers/schemes through Cloudflare. It runs no Python and makes no LLM
+  calls.
+
+## Current deployment
+
+| Item | Value |
+|---|---|
+| Public site | **https://uitmpapergen.download** |
+| `www` | `https://www.uitmpapergen.download` -> 301 -> apex |
+| Fallback | https://papergen.jerkfish123.workers.dev |
+| Worker | `cloudflare/worker/` |
+| D1 database | `papergen` (`9d99c331-d8ba-495e-9a8d-35e295bb882c`) |
+| R2 bucket | `exampapers` |
+| Public bundle | 96 files, 18.36 MB |
+| R2 bucket contents | 104 objects, 19.79 MB (bundle + shared gallery files) |
+| R2 quota used | 222 / 10,000 internal Class A, 0 Class B |
+| Contact | auzair1990@gmail.com |
+| Repository | https://github.com/jerkfish/paper-generator |
+
+## Run the local web UI
 
 ```bash
 uv sync
@@ -21,7 +42,7 @@ Or:
 uv run uvicorn src.app.main:app --host 127.0.0.1 --port 8000
 ```
 
-## Pages
+## Local routes
 
 | Route | Purpose |
 |---|---|
@@ -29,15 +50,31 @@ uv run uvicorn src.app.main:app --host 127.0.0.1 --port 8000
 | `/csc662` | Subject hub: generate, Library, gallery |
 | `/csc662/library` | Filterable table of the 20 prebuilt papers |
 | `/csc662/generate` | Generate a new paper as a background job |
-| `/gallery` | Public shared papers (no entries enabled locally) |
+| `/gallery` | Gallery page; the API is supplied by the deployed Worker |
 | `/paused` | Daily-cap fallback notice |
 
 The Library filters by text, computed marks, topic and placeholder count.
 Click any column title to sort ascending/descending; the next click reverses
-the direction. The filtering and sorting are a small vanilla-JS enhancement,
-so the static public bundle works the same way. The job page shows one row per
-question and per-part slot status, updated from real job events. There is no
-fake timer, animation or typewriter; the plain table is the v2 design fallback.
+the direction. Filtering and sorting are a small vanilla-JS enhancement, so
+the static public bundle behaves the same way.
+
+The job page shows one row per question and per-part slot status, updated from
+real job events. There is no fake timer, animation or typewriter.
+
+## Public routes
+
+The public deployment is **library-only**. The Generate page is a static
+notice; no API key or Python process exists there.
+
+| Route | Purpose |
+|---|---|
+| `/` | Subject table |
+| `/csc662` | Subject hub |
+| `/csc662/library` | Sortable/filterable Library with Share buttons |
+| `/csc662/generate` | Static "live generation disabled" page |
+| `/gallery` | D1-backed shared-paper gallery |
+| `/paused` | Paused notice |
+| `/library/CSC662/...` | R2 papers and schemes |
 
 ## Subject registry
 
@@ -51,13 +88,15 @@ subjects/CSC645/subject.json   status: coming_soon
 
 Each record contains the code, title, status, header text, template path,
 fingerprint metadata, deck map, topic-deck allow-list and enabled computed
-generators. `status: coming_soon` subjects appear on the home page but have
-no papers, cache folder or generators.
+generators. `status: coming_soon` subjects appear on the home page but have no
+papers, cache folder or generators.
 
 Computed generators are subject plugins: the CSC662 types (Vigenere, ACM,
 columnar, rail fence, OTP, Caesar) live in `src/generators/`. Another subject
-needs its own planner and generator plugin before its status can become
-`available`. Routes, cache keys and Library folders are subject-scoped.
+needs its own planner, deck map and generator plugin before it can become
+`available`. Routes, cache keys and Library folders are subject-scoped, but the
+generation and Worker code still contains CSC662-specific checks; see
+`docs/LIFECYCLE.md`.
 
 ## Download names
 
@@ -71,20 +110,32 @@ CSC662 Seed 07 2026 (practice 14).pdf
 
 `YEAR` is the UTC year of generation (the cached Library uses the year stored
 when it was prebuilt). Practice mode adds ` (practice N)` where `N` is the
-requested computed marks. Seeds are zero-padded to two digits, so seed 7 is
-`Seed 07` and seed 12345 remains `Seed 12345`.
+requested computed marks. Seeds are zero-padded to two digits: seed 7 is
+`Seed 07`, seed 12345 remains `Seed 12345`.
 
-## API key
+## Local generation
 
-Only live generation needs a key. Put it in `.env` (gitignored):
+Only live generation needs an API key. Put it in `.env` (gitignored):
 
 ```text
 DEEPSEEK_API_KEY=...
 ```
 
 The default model is `deepseek-flash` (DeepSeek-V4.1-Flash-1017). With no key,
-the Library still works; the Generate page explains that live generation is
-unavailable.
+the local Library still works; the Generate page explains that live generation
+is unavailable.
+
+The pipeline is:
+
+1. Planner builds 24 slots (A1-A10, B1, B2).
+2. Theory module retrieves lecture chunks with BM25, drafts questions and
+   marking points, then verifies source overlap, entailment, near-copy against
+   past papers, topic/deck allow-lists and style confidence.
+3. Paper builder creates the original local-build cover and computed questions.
+4. Scheme builder adds working, citations and quote-free public marking points.
+5. Word COM exports PDF; scheme table geometry and margins are QA checked in
+   Word and LibreOffice.
+6. Result is cached under `outputs/web_cache/CSC662/<config-hash>/`.
 
 ## Library
 
@@ -109,8 +160,7 @@ uv run python -m scripts.migrate_cache_subjects
 ## Cost cap and cache
 
 - Per-run cap: `MOCKGEN_COST_CAP_USD` (default **$0.05**). The generator
-  checks the running token cost after every LLM call and aborts with status
-  `cost_capped`.
+  checks running token cost after every LLM call and aborts with `cost_capped`.
 - Cache key: subject + mode + seed + computed marks + model + thresholds +
   `PUBLIC_BUILD`. A cache hit returns instantly with **$0** run cost.
 
@@ -125,45 +175,34 @@ Word and LibreOffice headless. A failure raises `SchemeQAError` and fails the
 build. LibreOffice is required for the full QA; install it separately if
 `soffice` is not on PATH.
 
-## Phase 0 safety
+## Safety and public build
 
 - Secrets are read only from the environment / Wrangler secrets. `.env` is
-  gitignored; `.env.example` contains names only.
+  gitignored; `.env.example` contains names and non-secret public values.
 - The FastAPI app runs a startup secret scan. It fails if an environment
-  secret value appears in a tracked text file (`.env`, `.git`, `.venv`,
-  `outputs` and `data` are excluded).
-- Run the same check manually:
+  secret value appears in a tracked text file.
+- Run the check manually:
 
   ```bash
   uv run python -m src.app.safety --check
   ```
 
 - `PUBLIC_BUILD=1` keeps the original local-build cover, omits verbatim slide
-  quotes from public schemes, disables the private Library and refuses to serve
-  files under `data/reference/`, `CSC662/` or `data/papers/`.
-  Set `MOCKGEN_PUBLIC_STRIP_BRANDING=1` only if you intentionally want the old
-  generic-branding cover.
-- The proposed public-bundle allowlist is generated with:
+  quotes from public schemes, disables the private Library in the live FastAPI
+  app and refuses to serve files under `data/reference/`, `CSC662/` or
+  `data/papers/`.
+- Set `MOCKGEN_PUBLIC_STRIP_BRANDING=1` only if you intentionally want the old
+  generic-branding cover. The default is **0** (original cover retained).
+- Public document URLs include `?v=<mtime>`, so a rebuilt PDF is not hidden by
+  a browser cache.
+- The public-bundle allowlist is generated with:
 
   ```bash
   uv run python -m scripts.public_bundle --write
-  # cloudflare/public_bundle_manifest.txt
+  # cloudflare/public_bundle_manifest.txt / .json
   ```
 
-## Public build
-
-```text
-PUBLIC_BUILD=1
-```
-
-This keeps the original local-build cover (university name, crest and reference
-code) and disables the Library in the live FastAPI app. Public schemes still
-omit verbatim slide quotes. Live generation still works with an API key.
-The static public bundle uses the same rule.
-
-## Public bundle
-
-Build the static/public bundle from the private Library cache:
+## Build the public bundle
 
 ```bash
 uv run python -m scripts.build_public_bundle --out outputs/public_bundle
@@ -174,8 +213,8 @@ uv run python -m scripts.build_public_bundle --out outputs/public_bundle --pages
 ```
 
 The builder keeps each paper's original local-build cover, rebuilds each
-scheme with verbatim slide quotes omitted, renders the pages from the app
-templates, and writes:
+scheme with verbatim slide quotes omitted, renders the public pages, and
+writes:
 
 ```text
 index.html
@@ -184,70 +223,99 @@ csc662/library/index.html
 csc662/generate/index.html
 gallery/index.html
 paused/index.html
-assets/style.css, htmx.min.js, library.js
+assets/style.css, htmx.min.js, library.js, gallery.js
 subjects/<CODE>/subject.json
 library/manifest.json
 library/CSC662/manifest.json
 library/CSC662/papers/*.docx, *.pdf
 library/CSC662/schemes/*.docx, *.pdf
+static/gallery-shell.html
 ```
 
-The builder fails if it finds a scheme without the quote-omission marker or a
-forbidden path. The public-bundle allowlist is in
-`cloudflare/public_bundle_manifest.txt`.
+The builder fails on a forbidden path or a scheme without the quote-omission
+marker.
 
-## Cloudflare/R2 preparation
-
-The public bundle uses per-subject folders
-(`library/CSC662/papers/`, `library/CSC662/schemes/`) and public-safe subject
-metadata. The built bundle is **96 files / 18.36 MB** and has been uploaded to R2. R2 access keys are read from `.env`.
-
-Free-tier compliance and the backup plan are documented in
-`cloudflare/R2_QUOTA_PLAN.md`; the minimal credential scopes are in
-`cloudflare/TOKEN_SCOPES.md`. The sync tool budgets 1 GiB storage, 10,000
-Class A operations/month and 100,000 Class B operations/month, and aborts
-before crossing a cap:
+## Publish to R2
 
 ```bash
 # dry run: no credentials, no network calls
 uv run python -m scripts.r2_sync --bundle outputs/public_bundle
 
-# upload (requires R2_ACCESS_KEY_ID/R2_SECRET_ACCESS_KEY):
+# upload (requires R2_ACCESS_KEY_ID / R2_SECRET_ACCESS_KEY)
 uv run --with boto3 python -m scripts.r2_sync \
   --bundle outputs/public_bundle --upload
+
+# verify the bucket
+uv run --with boto3 python -m scripts.r2_sync --check
 ```
 
-R2 configuration is read from the environment: `R2_ACCOUNT_ID`, `R2_BUCKET`
-(default `exampapers`), optional `R2_ENDPOINT`, `R2_ACCESS_KEY_ID`, and
-`R2_SECRET_ACCESS_KEY`. The bucket name is not a secret; access keys are.
-
-The built bundle has been uploaded to R2: **96 objects, 16,011,605 bytes**.
+- One bucket listing per sync; only changed files are uploaded.
+- A local backup is made before each upload.
+- Hard budgets: 1 GiB, 5,000 objects, 10,000 Class A/month and 100,000
+  Class B/month. The tool aborts before crossing a cap.
+- Runtime state: `outputs/r2_sync_state.json`; quota ledger:
+  `outputs/r2_quota_ledger.json`.
+- R2 configuration: `R2_ACCOUNT_ID`, `R2_BUCKET` (default `exampapers`),
+  optional `R2_ENDPOINT`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`.
+- Free-tier compliance and backup plan: `cloudflare/R2_QUOTA_PLAN.md`.
+- Minimal credential scopes: `cloudflare/TOKEN_SCOPES.md`.
 
 ## Cloudflare Worker and gallery
 
-The library-only Worker is deployed at
-**https://uitmpapergen.download** (and `www` redirects to the apex).
-It lives in `cloudflare/worker/`,
-serves the static bundle from R2, exposes a D1-backed gallery, and copies
-PUBLIC_BUILD library files into `shared/<id>/` on share. There is no Python
-runtime and no LLM call.
+The library-only Worker lives in `cloudflare/worker/`. It serves the static
+bundle from R2, exposes a D1-backed gallery and copies PUBLIC_BUILD files into
+`shared/<id>/` when someone shares a Library paper. There is no Python runtime
+and no LLM call.
+
+Current Worker state:
+
+- Custom domains: `uitmpapergen.download` and `www.uitmpapergen.download`
+- D1 schema applied (`migrations/0001_gallery.sql`)
+- Gallery capped at 100 active entries, 7-day expiry
+- Daily Cron at 03:00 UTC deletes expired rows and R2 objects
+- R2 lifecycle rule for `shared/` is **not installed** yet; see below
+
+Deploy or redeploy:
 
 ```bash
 cd cloudflare/worker
 bun test
-bun x wrangler d1 create papergen
-# put the returned database_id into wrangler.toml
-bun run db:migrate
-bun x wrangler r2 bucket lifecycle add exampapers expire-shared-7d shared/ --expire-days 7
 bun run deploy
 ```
 
-The Worker config is `cloudflare/worker/wrangler.toml`; deployment requires a
-Cloudflare API token with Workers Scripts Write, D1 Write and Workers R2
-Storage Read (or `wrangler login`). Add Workers R2 Storage Write for lifecycle
-management and Zone Workers Routes Write + Zone Read only for a custom domain. The gallery is capped at 100
-active entries and entries expire after 7 days. See
-`cloudflare/worker/README.md`.
+Initial setup (already done for this account):
+
+```bash
+bun x wrangler d1 create papergen
+# put the returned database_id into wrangler.toml
+bun run db:migrate
+```
+
+Deployment needs a Cloudflare API token with Workers Scripts Write, D1 Write
+and Workers R2 Storage Read (or `wrangler login`). Add Workers R2 Storage Write
+for lifecycle management and Zone Workers Routes Write + Zone Read only for a
+custom domain. `Workers Routes:Edit` is not a valid permission name.
+
+### R2 lifecycle status
+
+Show the current rules:
+
+```bash
+uv run python -m scripts.r2_lifecycle --show
+```
+
+Only the default multipart-abort rule is present. Applying the `shared/`
+7-day rule currently fails because the token lacks Workers R2 Storage Write:
+
+```bash
+uv run python -m scripts.r2_lifecycle --apply
+# Cloudflare API permission denied
+```
+
+Add that permission, or set the rule in the dashboard:
+R2 -> `exampapers` -> Settings -> Object lifecycle rules -> prefix `shared/`,
+delete after 7 days. The daily Cron already removes expired objects, so the
+lifecycle rule is the storage backstop.
 
 ## Data required at runtime
 
@@ -264,23 +332,25 @@ active entries and entries expire after 7 days. See
 
 ## Lifecycle
 
-See `docs/LIFECYCLE.md` for the local generation, public bundle, R2 upload,
-Worker serving, gallery and new-subject onboarding flow.
+See `docs/LIFECYCLE.md` for the complete flow: local generation, public bundle,
+R2 upload, Worker serving, gallery share/expiry and adding a new subject.
 
 ## Design review
 
-The multi-subject / Cloudflare page design and the proposed public-bundle
-allowlist are in `design/DESIGN.md` and `design/PUBLIC_BUNDLE_PROPOSAL.md`.
-The static page mockups are in `design/mockups/` (open `index.html`).
+The multi-subject / Cloudflare page design and the public-bundle allowlist are
+in `design/DESIGN.md` and `design/PUBLIC_BUNDLE_PROPOSAL.md`. Static page
+mockups are in `design/mockups/`.
 
 ## Tests
 
 ```bash
-uv run pytest -q
+uv run pytest -q        # 160 Python tests
+cd cloudflare/worker
+bun test                # 5 Worker tests
 ```
 
-Covers the planner/verifier, app job lifecycle, cancel, cost-cap abort, cache
-hit, Library without a key, public branding, scheme table geometry, subject
-discovery, download names, subject-scoped routes, sortable Library headers,
-public-bundle rendering/validation, the secret-leak scan, public-path guards,
-the public bundle allowlist, and the R2 quota guard.
+Coverage includes the planner/verifier, job lifecycle, cancel, cost-cap abort,
+cache hit, Library without a key, scheme table geometry, subject discovery,
+download names, subject-scoped routes, sortable/filterable Library, public
+bundle rendering/validation, secret scan, public-path guards, bundle allowlist
+and R2 quota guard.
