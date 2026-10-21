@@ -20,7 +20,7 @@ except Exception:  # dotenv optional at runtime
 # --- paths ---------------------------------------------------------------
 ORIGINAL_PAPERS_DIR = PROJECT_ROOT / "CSC662"  # user's originals - never modified
 DATA_DIR = PROJECT_ROOT / "data"
-PAPERS_DIR = DATA_DIR / "papers"               # read-only working copies
+PAPERS_ROOT = DATA_DIR / "papers"              # read-only working copies
 NOTES_DIR = DATA_DIR / "notes"                 # lecture material
 TRACKING_DIR = DATA_DIR / "tracking"
 TRACKING_XLSX = TRACKING_DIR / "mock_paper_planner.xlsx"
@@ -31,6 +31,10 @@ OUTPUTS_DIR = PROJECT_ROOT / "outputs"
 # read-only inputs; the generator never writes to them.
 REFERENCE_DIR = DATA_DIR / "reference"
 LECTURE_DECKS_ROOT = DATA_DIR / "lecturedecks"
+
+
+def subject_papers_dir(subject: str) -> Path:
+    return PAPERS_ROOT / str(subject).strip().upper()
 
 
 def subject_reference_dir(subject: str) -> Path:
@@ -53,6 +57,7 @@ def subject_lecture_decks_dir(subject: str) -> Path:
 
 
 # Backwards-compatible CSC662 aliases.
+PAPERS_DIR = subject_papers_dir("CSC662")
 LECTURE_DECKS_DIR = subject_lecture_decks_dir("CSC662")
 THEORY_CACHE_DIR = TRACKING_DIR / "theory"
 

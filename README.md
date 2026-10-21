@@ -333,15 +333,17 @@ lifecycle rule is the storage backstop.
 Per-subject input folders:
 
 ```text
+data/papers/<SUBJECT>/         past-paper working copies
 data/reference/<SUBJECT>/      templates, crest and cover assets
 data/lecturedecks/<SUBJECT>/   lecture decks, if the subject uses them
 ```
 
-The CSC662 template was moved to `data/reference/CSC662/`. CSC580 and CSC645
-have empty reference folders ready for future subjects. The CSC662 lecture
-folder exists at `data/lecturedecks/CSC662/`; when it is empty the loader uses
-the external `CSC662_DECKS_DIR`/Desktop fallback, so no 52 MB of slides need to
-be copied into the repository.
+The 38 CSC662 papers were moved to `data/papers/CSC662/`. The CSC662 template
+is at `data/reference/CSC662/`. CSC580 and CSC645 have empty reference folders
+ready for future subjects; their paper folders can be created when papers are
+added. The CSC662 lecture folder exists at `data/lecturedecks/CSC662/`; when it
+is empty the loader uses the external `CSC662_DECKS_DIR`/Desktop fallback, so
+no 52 MB of slides need to be copied into the repository.
 - Lecture decks at `data/lecturedecks/CSC662/`; if that folder has no decks,
   the loader falls back to `CSC662_DECKS_DIR` (default `~/Desktop/CSC662`).
 

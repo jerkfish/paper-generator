@@ -323,4 +323,6 @@ def test_subject_input_folders_are_per_subject():
     assert template.parent == config.subject_reference_dir("CSC662")
     assert config.subject_reference_dir("CSC580").is_dir()
     assert config.subject_reference_dir("CSC645").is_dir()
+    assert config.subject_papers_dir("CSC662").is_dir()
+    assert any(config.subject_papers_dir("CSC662").glob("*.pdf"))
     assert config.LECTURE_DECKS_ROOT.is_dir()
