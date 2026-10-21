@@ -164,7 +164,8 @@ metadata. R2 sync is prepared but not enabled until a public bundle and R2
 access keys exist.
 
 Free-tier compliance and the backup plan are documented in
-`cloudflare/R2_QUOTA_PLAN.md`. The sync tool budgets 1 GiB storage, 10,000
+`cloudflare/R2_QUOTA_PLAN.md`; the minimal credential scopes are in
+`cloudflare/TOKEN_SCOPES.md`. The sync tool budgets 1 GiB storage, 10,000
 Class A operations/month and 100,000 Class B operations/month, and aborts
 before crossing a cap:
 

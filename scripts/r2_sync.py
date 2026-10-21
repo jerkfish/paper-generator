@@ -33,6 +33,12 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+try:  # local .env is gitignored; deployment uses real environment secrets
+    from dotenv import load_dotenv
+    load_dotenv(ROOT / ".env")
+except Exception:
+    pass
+
 MAX_STORAGE_BYTES = 1 * 1024 ** 3        # 1 GiB
 MAX_OBJECTS = 5_000
 MAX_CLASS_A = 10_000
@@ -275,13 +281,43 @@ def _content_type(key: str) -> str:
     }.get(suffix, "application/octet-stream")
 
 
+def check_bucket(bucket: str) -> dict:
+    """Verify credentials with one LIST and report the bucket contents."""
+    client = _client()
+    ledger = load_ledger()
+    ledger["class_a"] += 1
+    _save_json(LEDGER_PATH, ledger)
+    remote: dict[str, int] = {}
+    pages = 0
+    for page in client.get_paginator("list_objects_v2").paginate(Bucket=bucket):
+        pages += 1
+        if pages > 1:
+            ledger = load_ledger()
+            ledger["class_a"] += 1
+            _save_json(LEDGER_PATH, ledger)
+        for obj in page.get("Contents", []):
+            remote[obj["Key"]] = int(obj.get("Size", 0))
+    ledger = load_ledger()
+    ledger["objects"] = len(remote)
+    ledger["bytes"] = sum(remote.values())
+    _save_json(LEDGER_PATH, ledger)
+    return {"bucket": bucket, "objects": len(remote),
+            "bytes": sum(remote.values()), "list_pages": pages,
+            "class_a": pages}
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--bundle", default=str(ROOT / "outputs" / "public_bundle"))
     ap.add_argument("--bucket", default=os.environ.get("R2_BUCKET", "exampapers"))
     ap.add_argument("--upload", action="store_true",
                     help="perform the sync (default is a dry run)")
+    ap.add_argument("--check", action="store_true",
+                    help="verify R2 credentials with one bucket listing")
     args = ap.parse_args()
+    if args.check:
+        print(json.dumps(check_bucket(args.bucket), indent=2))
+        return
     bundle = Path(args.bundle).resolve()
     files = bundle_files(bundle)
     est = estimate(files)
