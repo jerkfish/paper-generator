@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSC662 Library</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Mock Paper Generator</h1>
+<div class="nav">
+  <a href="index.html">Subjects</a>
+  <a href="library.html">Library</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="subject-csc662.html">CSC662</a>
+</div>
+<hr>
+
+<p class="small"><a href="index.html">Subjects</a> &gt; <a href="subject-csc662.html">CSC662</a> &gt; Library</p>
+<h2>CSC662 Library</h2>
+<p>20 realistic papers. Cached; no API key and no LLM call. Downloads are paper and scheme in DOCX/PDF.</p>
+
+<form action="#" method="get">
+  <fieldset>
+    <legend>Filter</legend>
+    <label for="q">Text:</label>
+    <input type="text" id="q" name="q" size="28" value="">
+    <label for="computed">Computed marks:</label>
+    <select id="computed" name="computed">
+      <option>any</option><option>0</option><option>2</option><option>6</option><option>12</option><option>14</option>
+    </select>
+    <label for="placeholders">Placeholders:</label>
+    <select id="placeholders" name="placeholders"><option>any</option><option>0</option><option>1+</option></select>
+    <input type="submit" value="Apply">
+    <input type="reset" value="Reset">
+    <span class="small">(static mockup; live table is HTMX-filtered)</span>
+  </fieldset>
+</form>
+
+<p class="small">Showing 20 of 20. Topic abbreviations: ATK attacks/malware, AUT authentication, ACC access control, TRU trusted computing, SWS software/OS, NET network, ETH ethics, CIP classical ciphers. Numbers are accepted marks.</p>
+
+<div class="table-scroll">
+<table>
+  <tr>
+    <th>Seed</th><th>Mode</th><th>Computed<br>marks</th><th>Topic mix (marks)</th><th>Place-<br>holders</th><th>Paper</th><th>Scheme</th>
+  </tr>
+  <tr>
+    <td class="nowrap">01</td>
+    <td>realistic</td>
+    <td>0</td>
+    <td class="mono nowrap">ATK 24 ACC 18 ETH 18 AUT 16 SWS 8 NET 8 TRU 8</td>
+    <td>0</td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+  </tr>
+  <tr>
+    <td class="nowrap">02</td>
+    <td>realistic</td>
+    <td>0</td>
+    <td class="mono nowrap">ATK 24 ACC 18 AUT 16 ETH 16 TRU 8 SWS 8 NET 8</td>
+    <td><span class="warn">1</span></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+  </tr>
+  <tr>
+    <td class="nowrap">03</td>
+    <td>realistic</td>
+    <td>0</td>
+    <td class="mono nowrap">ATK 26 ETH 16 ACC 16 AUT 16 TRU 10 SWS 8 NET 8</td>
+    <td>0</td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+  </tr>
+  <tr>
+    <td class="nowrap">04</td>
+    <td>realistic</td>
+    <td>0</td>
+    <td class="mono nowrap">ATK 24 AUT 18 ETH 16 ACC 16 NET 10 TRU 8 SWS 8</td>
+    <td>0</td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+  </tr>
+  <tr>
+    <td class="nowrap">05</td>
+    <td>realistic</td>
+    <td>14</td>
+    <td class="mono nowrap">AUT 18 ATK 16 ACC 12 NET 8 CIP 8 TRU 8 SWS 8 ETH 8</td>
+    <td>0</td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+  </tr>
+  <tr>
+    <td class="nowrap">06</td>
+    <td>realistic</td>
+    <td>14</td>
+    <td class="mono nowrap">AUT 16 ATK 14 ACC 12 ETH 10 TRU 8 NET 8 SWS 8 CIP 2</td>
+    <td><span class="warn">2</span></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+  </tr>
+  <tr>
+    <td class="nowrap">07</td>
+    <td>realistic</td>
+    <td>2</td>
+    <td class="mono nowrap">ATK 24 AUT 18 ETH 18 NET 8 TRU 8 ACC 8 SWS 8 CIP 6</td>
+    <td>0</td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+  </tr>
+  <tr>
+    <td class="nowrap">08</td>
+    <td>realistic</td>
+    <td>0</td>
+    <td class="mono nowrap">ATK 24 AUT 18 ACC 18 ETH 16 TRU 8 SWS 8 NET 8</td>
+    <td>0</td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+  </tr>
+  <tr>
+    <td class="nowrap">09</td>
+    <td>realistic</td>
+    <td>6</td>
+    <td class="mono nowrap">ATK 24 AUT 18 ETH 16 TRU 10 NET 8 SWS 8 ACC 8 CIP 2</td>
+    <td>0</td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+  </tr>
+  <tr>
+    <td class="nowrap">10</td>
+    <td>realistic</td>
+    <td>14</td>
+    <td class="mono nowrap">ATK 18 AUT 16 TRU 10 CIP 8 ACC 8 ETH 8 NET 8 SWS 2</td>
+    <td><span class="warn">2</span></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+  </tr>
+  <tr>
+    <td class="nowrap">11</td>
+    <td>realistic</td>
+    <td>6</td>
+    <td class="mono nowrap">ATK 24 ETH 18 AUT 16 SWS 10 NET 8 ACC 8 TRU 8 CIP 2</td>
+    <td>0</td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+  </tr>
+  <tr>
+    <td class="nowrap">12</td>
+    <td>realistic</td>
+    <td>6</td>
+    <td class="mono nowrap">ATK 24 AUT 18 ETH 16 TRU 10 SWS 8 ACC 8 NET 8 CIP 2</td>
+    <td>0</td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+  </tr>
+  <tr>
+    <td class="nowrap">13</td>
+    <td>realistic</td>
+    <td>0</td>
+    <td class="mono nowrap">ATK 24 AUT 18 ACC 16 NET 8 SWS 8 TRU 8 ETH 8</td>
+    <td><span class="warn">2</span></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+  </tr>
+  <tr>
+    <td class="nowrap">14</td>
+    <td>realistic</td>
+    <td>0</td>
+    <td class="mono nowrap">ATK 24 ETH 18 ACC 16 AUT 16 TRU 10 NET 8 SWS 8</td>
+    <td>0</td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+  </tr>
+  <tr>
+    <td class="nowrap">15</td>
+    <td>realistic</td>
+    <td>0</td>
+    <td class="mono nowrap">ATK 26 ETH 18 AUT 16 ACC 16 NET 8 TRU 8 SWS 8</td>
+    <td>0</td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+  </tr>
+  <tr>
+    <td class="nowrap">16</td>
+    <td>realistic</td>
+    <td>2</td>
+    <td class="mono nowrap">ATK 24 AUT 18 ACC 18 TRU 8 SWS 8 ETH 8 NET 8 CIP 6</td>
+    <td>0</td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+  </tr>
+  <tr>
+    <td class="nowrap">17</td>
+    <td>realistic</td>
+    <td>12</td>
+    <td class="mono nowrap">ATK 24 AUT 18 ACC 12 SWS 8 ETH 8 NET 8 TRU 8 CIP 2</td>
+    <td>0</td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+  </tr>
+  <tr>
+    <td class="nowrap">18</td>
+    <td>realistic</td>
+    <td>0</td>
+    <td class="mono nowrap">ATK 26 ACC 18 AUT 16 ETH 16 SWS 8 TRU 8 NET 8</td>
+    <td>0</td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+  </tr>
+  <tr>
+    <td class="nowrap">19</td>
+    <td>realistic</td>
+    <td>0</td>
+    <td class="mono nowrap">ATK 24 ETH 18 ACC 18 AUT 16 NET 8 SWS 8 TRU 8</td>
+    <td>0</td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+  </tr>
+  <tr>
+    <td class="nowrap">20</td>
+    <td>realistic</td>
+    <td>0</td>
+    <td class="mono nowrap">ATK 24 AUT 18 ETH 16 ACC 16 SWS 10 NET 8 TRU 8</td>
+    <td>0</td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+    <td class="nowrap"><a href="#">DOCX</a> / <a href="#">PDF</a></td>
+  </tr>
+</table>
+</div>
+
+<p class="small">Paper: <span class="mono">CSC662 Seed 12 2026.pdf</span>. Scheme: <span class="mono">CSC662 Seed 12 2026 - Marking Scheme.pdf</span>. Practice mode adds &quot;(practice N)&quot; before the extension.</p>
+
+<hr>
+<p class="small">Study aid, not an official paper. Theory answers are supported by lecture slides, not lecturer-marked. <a href="gallery.html#takedown">Takedown contact</a>.</p>
+
+<div class="footer">
+  <hr>
+  <p class="small">Contact: <a href="mailto:contact@example.com">contact@example.com</a><br>
+  Git repository: <a href="https://github.com/your-username/paper-generator">github.com/your-username/paper-generator</a></p>
+</div>
+</body>
+</html>

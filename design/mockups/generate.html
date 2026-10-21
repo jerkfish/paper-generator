@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSC662 Generate</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Mock Paper Generator</h1>
+<div class="nav">
+  <a href="index.html">Subjects</a>
+  <a href="library.html">Library</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="subject-csc662.html">CSC662</a>
+</div>
+<hr>
+
+<p class="small"><a href="index.html">Subjects</a> &gt; <a href="subject-csc662.html">CSC662</a> &gt; Generate</p>
+<h2>Generate a paper</h2>
+<p>Background job. The table below is updated from real job events, not a timer.</p>
+
+<form action="#" method="post">
+  <fieldset>
+    <legend>Run settings</legend>
+    <table>
+      <tr><td><label for="mode">Mode</label></td><td><select id="mode" name="mode"><option>realistic</option><option>practice</option></select></td></tr>
+      <tr><td><label for="seed">Seed (optional)</label></td><td><input type="number" id="seed" name="seed" value="12" min="1" max="99999"> <span class="small">same seed + config = cache hit</span></td></tr>
+      <tr><td><label for="computed">Computed marks N</label></td><td><input type="number" id="computed" name="computed" value="22" min="0" max="80" disabled> <span class="small">practice only</span></td></tr>
+      <tr><td>Verification</td><td><span class="small">[ ] Turnstile challenge (checked before a live run)</span></td></tr>
+      <tr><td></td><td><input type="submit" value="Generate"> <input type="button" value="Cancel"></td></tr>
+    </table>
+    <p class="small">Per-run cap $0.05. Daily cap and per-IP limit apply before public live generation.</p>
+  </fieldset>
+</form>
+
+<h2>Job status: <span class="warn">running</span></h2>
+<table>
+  <tr><th>Cost so far</th><th>Attempts</th><th>Accepted</th><th>Placeholders</th><th>Elapsed</th></tr>
+  <tr><td>$0.0314</td><td>7</td><td>5 / 24</td><td>1</td><td>01:42</td></tr>
+</table>
+
+<p class="mono">Pipeline: Retrieve &gt; Draft &gt; <strong>Verify</strong> &gt; Accept</p>
+<p class="mono">Progress: [#####...............] 5 / 24</p>
+<p class="status">log: A3b rejected: quote is a slide title; retrying with a sentence from the same slide.</p>
+
+<h3>Paper outline</h3>
+<table>
+  <tr><th>Question</th><th>a</th><th>b</th><th>Note</th></tr>
+  <tr><td>A1</td><td class="ok">accepted</td><td class="ok">accepted</td><td></td></tr>
+  <tr><td>A2</td><td class="ok">accepted</td><td class="ok">accepted</td><td></td></tr>
+  <tr><td>A3</td><td class="ok">accepted</td><td class="warn">verifying</td><td>retry 2</td></tr>
+  <tr><td>A4</td><td class="warn">placeholder</td><td>waiting</td><td>no verified quote; dashed in final UI</td></tr>
+  <tr><td>A5</td><td>waiting</td><td>waiting</td><td></td></tr>
+  <tr><td>A6</td><td>waiting</td><td>waiting</td><td></td></tr>
+  <tr><td>A7</td><td>waiting</td><td>waiting</td><td></td></tr>
+  <tr><td>A8</td><td>waiting</td><td>waiting</td><td></td></tr>
+  <tr><td>A9</td><td>waiting</td><td>waiting</td><td></td></tr>
+  <tr><td>A10</td><td>waiting</td><td>waiting</td><td></td></tr>
+  <tr><td>B1</td><td>waiting</td><td>waiting</td><td>scenario if sampled</td></tr>
+  <tr><td>B2</td><td>waiting</td><td>waiting</td><td>scenario if sampled</td></tr>
+</table>
+
+<h3>Last accepted: A3a (2 marks)</h3>
+<table>
+  <tr><td>Question</td><td>Explain how a substitution cipher works and what serves as its key.</td></tr>
+  <tr><td>Source</td><td>031 - Classical Cryptography, slide 4</td></tr>
+  <tr><td>Entailment</td><td>supported (stem gate)</td></tr>
+</table>
+
+<h3>Downloads</h3>
+<p>Not available until the job completes. Cancelling keeps the last completed paper.</p>
+<p><span class="small">Paper DOCX / PDF &nbsp; Scheme DOCX / PDF (links appear on completion)</span></p>
+
+<h2>Accessibility / fallback</h2>
+<p class="small">The live table is updated from job events. If the event endpoint is unavailable, the last known table remains readable. Reduced motion does not change any information; there are no animated timers in this design.</p>
+
+<hr>
+<p class="small">Study aid, not an official paper. Theory answers are supported by lecture slides, not lecturer-marked. Placeholders stay visibly marked. <a href="gallery.html#takedown">Takedown contact</a>.</p>
+
+<div class="footer">
+  <hr>
+  <p class="small">Contact: <a href="mailto:contact@example.com">contact@example.com</a><br>
+  Git repository: <a href="https://github.com/your-username/paper-generator">github.com/your-username/paper-generator</a></p>
+</div>
+</body>
+</html>

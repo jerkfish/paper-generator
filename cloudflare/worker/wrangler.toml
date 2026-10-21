@@ -1,0 +1,35 @@
+name = "papergen"
+main = "src/index.js"
+compatibility_date = "2026-10-21"
+workers_dev = true
+
+# D1 database created with `bun x wrangler d1 create papergen`.
+[[d1_databases]]
+binding = "DB"
+database_name = "papergen"
+database_id = "9d99c331-d8ba-495e-9a8d-35e295bb882c"
+migrations_dir = "migrations"
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "exampapers"
+
+[vars]
+SUBJECT = "CSC662"
+CANONICAL_HOST = "uitmpapergen.download"
+GALLERY_TTL_DAYS = "7"
+MAX_GALLERY_ENTRIES = "100"
+
+[triggers]
+crons = ["0 3 * * *"]
+
+[observability]
+enabled = true
+
+[[routes]]
+pattern = "uitmpapergen.download"
+custom_domain = true
+
+[[routes]]
+pattern = "www.uitmpapergen.download"
+custom_domain = true

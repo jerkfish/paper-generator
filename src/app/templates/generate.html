@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}{{ subject.code }} Generate{% endblock %}
+{% block content %}
+<p class="small"><a href="/">Subjects</a> &gt;
+  <a href="/{{ subject.route }}">{{ subject.code }}</a> &gt; Generate</p>
+<h2>{{ subject.code }} Generate</h2>
+<p>Realistic or practice mode. Generation runs as a background job and is
+  updated from real job events; there is no simulated progress.</p>
+
+{% if generate_disabled|default(false) %}
+<div class="notice">Live generation is not enabled in this deployment.
+  Browse the Library for pre-generated papers.</div>
+{% else %}
+{% if not has_key %}
+<div class="notice">DEEPSEEK_API_KEY is not set. Live generation is
+  unavailable; the pre-generated Library still works.</div>
+{% endif %}
+
+<form hx-post="/{{ subject.route }}/generate" hx-target="#job"
+      hx-swap="outerHTML">
+  <fieldset>
+    <legend>New paper</legend>
+    <label for="mode">Mode</label>
+    <select id="mode" name="mode">
+      <option value="realistic" selected>Realistic</option>
+      <option value="practice">Practice</option>
+    </select>
+    <label for="seed">Seed</label>
+    <input type="number" id="seed" name="seed" min="1" max="99999"
+           placeholder="random">
+    <label for="computed_marks">Computed marks N</label>
+    <input type="number" id="computed_marks" name="computed_marks"
+           min="0" max="80" value="22" disabled>
+    <span class="small">practice only</span>
+    <button type="submit">Generate</button>
+    <span class="small">Per-run cap ${{ "%.2f"|format(cost_cap) }}.
+      A cached seed returns instantly and costs $0.</span>
+  </fieldset>
+</form>
+
+<div id="job"></div>
+
+<script>
+  (function () {
+    var mode = document.getElementById("mode");
+    var cm = document.getElementById("computed_marks");
+    function sync() {
+      if (!mode || !cm) return;
+      cm.disabled = mode.value !== "practice";
+    }
+    if (mode) mode.addEventListener("change", sync);
+    sync();
+  })();
+</script>
+{% endif %}
+{% endblock %}

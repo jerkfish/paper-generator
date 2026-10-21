@@ -1,0 +1,229 @@
+{
+  "seed": 5,
+  "mode": "realistic",
+  "computed_marks": null,
+  "model": "deepseek-flash",
+  "cost_usd": 0.044065,
+  "accepted": 21,
+  "placeholders": 0,
+  "created": 1792471959.2919686,
+  "files": {
+    "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC662\\d3bf38231ba420da9311\\paper.docx",
+    "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC662\\d3bf38231ba420da9311\\paper.pdf",
+    "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC662\\d3bf38231ba420da9311\\scheme.docx",
+    "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC662\\d3bf38231ba420da9311\\scheme.pdf"
+  },
+  "progress": [
+    {
+      "question": "A10",
+      "slot": "A10a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A10",
+      "slot": "A10b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A1",
+      "slot": "A1b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A2",
+      "slot": "A2a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A3",
+      "slot": "A3a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A3",
+      "slot": "A3b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A4",
+      "slot": "A4a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A5",
+      "slot": "A5a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A5",
+      "slot": "A5b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A6",
+      "slot": "A6a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A6",
+      "slot": "A6b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A7",
+      "slot": "A7a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A7",
+      "slot": "A7b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A8",
+      "slot": "A8a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A8",
+      "slot": "A8b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A9",
+      "slot": "A9a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "A9",
+      "slot": "A9b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "B1",
+      "slot": "B1a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "B1",
+      "slot": "B1b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "B2",
+      "slot": "B2a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    },
+    {
+      "question": "B2",
+      "slot": "B2b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0,
+      "accepted": 0,
+      "placeholders": 0
+    }
+  ],
+  "summary": {
+    "seed": 5,
+    "mode": "realistic",
+    "accepted": 21,
+    "placeholders": 0,
+    "model": "deepseek-flash",
+    "cost_usd": 0.044065,
+    "cached": true,
+    "pdf_available": true
+  },
+  "subject": "CSC662",
+  "year": 2026,
+  "topic_marks": {
+    "classical ciphers": 8,
+    "authentication/biometrics": 18,
+    "access control models": 12,
+    "trusted computing/blockchain": 8,
+    "attacks/malware": 16,
+    "software/OS security": 8,
+    "risk/management (ethics)": 8,
+    "network security": 8
+  }
+}

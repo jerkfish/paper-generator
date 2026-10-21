@@ -1,8 +1,0 @@
-{
-  "Q2a": "DEVICERETURNEDANDWIPEDONE",
-  "Q4a": "TRAINEMPLOYEESONSECURITY",
-  "Q2b": "EDEPDVBGAFNCTQDEHKNCPLRTNC",
-  "Q4b": "GFPNIPPRFNFARXMPFLIRBLNC",
-  "Q5b": "LOGINAUDIT",
-  "Q3b": "| Subject \\ Object | X-1 | REPORT | DATA |\n|---|---|---|---|\n| Ali | readwrite | - | - |\n| Yati | read | - | - |\n| Umi | - | execute | - |\n| Root | - | - | executereadwrite |\n\n**ACLs (per object):**\n- X-1 -> Ali: readwrite; Yati: read\n- REPORT -> Umi: execute\n- DATA -> Root: executereadwrite\n\n**Capability lists (per subject):**\n- Ali -> X-1: readwrite\n- Yati -> X-1: read\n- Umi -> REPORT: execute\n- Root -> DATA: executereadwrite\n\n**Diagram (Graphviz dot):**\n\n```dot\ndigraph ACM {\n  rankdir=LR;\n  node [shape=box];\n  \"Ali\";\n  \"Yati\";\n  \"Umi\";\n  \"Root\";\n  \"X-1\" [shape=ellipse];\n  \"REPORT\" [shape=ellipse];\n  \"DATA\" [shape=ellipse];\n  \"Ali\" -> \"X-1\" [label=\"read, write\"];\n  \"Root\" -> \"DATA\" [label=\"execute, read, write\"];\n  \"Umi\" -> \"REPORT\" [label=\"execute\"];\n  \"Yati\" -> \"X-1\" [label=\"read\"];\n}\n```"
-}

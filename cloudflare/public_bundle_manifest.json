@@ -1,0 +1,578 @@
+[
+  {
+    "path": "index.html",
+    "source": "generated from app templates",
+    "status": "present",
+    "url": "index.html"
+  },
+  {
+    "path": "csc662/index.html",
+    "source": "generated from app templates",
+    "status": "present",
+    "url": "csc662/index.html"
+  },
+  {
+    "path": "csc662/library/index.html",
+    "source": "generated from app templates",
+    "status": "present",
+    "url": "csc662/library/index.html"
+  },
+  {
+    "path": "csc662/generate/index.html",
+    "source": "generated from app templates",
+    "status": "present",
+    "url": "csc662/generate/index.html"
+  },
+  {
+    "path": "gallery/index.html",
+    "source": "generated from app templates",
+    "status": "present",
+    "url": "gallery/index.html"
+  },
+  {
+    "path": "paused/index.html",
+    "source": "generated from app templates",
+    "status": "present",
+    "url": "paused/index.html"
+  },
+  {
+    "path": "static/gallery-shell.html",
+    "source": "generated from app templates",
+    "status": "present",
+    "url": "static/gallery-shell.html"
+  },
+  {
+    "path": "assets/style.css",
+    "source": "copied from src/app/static",
+    "status": "present",
+    "url": "assets/style.css"
+  },
+  {
+    "path": "assets/htmx.min.js",
+    "source": "copied from src/app/static",
+    "status": "present",
+    "url": "assets/htmx.min.js"
+  },
+  {
+    "path": "assets/library.js",
+    "source": "copied from src/app/static",
+    "status": "present",
+    "url": "assets/library.js"
+  },
+  {
+    "path": "assets/gallery.js",
+    "source": "copied from src/app/static",
+    "status": "present",
+    "url": "assets/gallery.js"
+  },
+  {
+    "path": "subjects/CSC662/subject.json",
+    "source": "generated from registry; public-safe fields only",
+    "status": "present",
+    "url": "subjects/CSC662/subject.json"
+  },
+  {
+    "path": "library/manifest.json",
+    "source": "generated from public Library metadata",
+    "status": "present",
+    "url": "library/manifest.json"
+  },
+  {
+    "path": "library/CSC662/manifest.json",
+    "source": "generated from public Library metadata",
+    "status": "present",
+    "url": "library/CSC662/manifest.json"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 01 2026.docx",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2001%202026.docx"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 01 2026.pdf",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2001%202026.pdf"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 01 2026 - Marking Scheme.docx",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2001%202026%20-%20Marking%20Scheme.docx"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 01 2026 - Marking Scheme.pdf",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2001%202026%20-%20Marking%20Scheme.pdf"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 02 2026.docx",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2002%202026.docx"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 02 2026.pdf",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2002%202026.pdf"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 02 2026 - Marking Scheme.docx",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2002%202026%20-%20Marking%20Scheme.docx"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 02 2026 - Marking Scheme.pdf",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2002%202026%20-%20Marking%20Scheme.pdf"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 03 2026.docx",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2003%202026.docx"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 03 2026.pdf",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2003%202026.pdf"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 03 2026 - Marking Scheme.docx",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2003%202026%20-%20Marking%20Scheme.docx"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 03 2026 - Marking Scheme.pdf",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2003%202026%20-%20Marking%20Scheme.pdf"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 04 2026.docx",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2004%202026.docx"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 04 2026.pdf",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2004%202026.pdf"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 04 2026 - Marking Scheme.docx",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2004%202026%20-%20Marking%20Scheme.docx"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 04 2026 - Marking Scheme.pdf",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2004%202026%20-%20Marking%20Scheme.pdf"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 05 2026.docx",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2005%202026.docx"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 05 2026.pdf",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2005%202026.pdf"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 05 2026 - Marking Scheme.docx",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2005%202026%20-%20Marking%20Scheme.docx"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 05 2026 - Marking Scheme.pdf",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2005%202026%20-%20Marking%20Scheme.pdf"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 06 2026.docx",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2006%202026.docx"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 06 2026.pdf",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2006%202026.pdf"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 06 2026 - Marking Scheme.docx",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2006%202026%20-%20Marking%20Scheme.docx"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 06 2026 - Marking Scheme.pdf",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2006%202026%20-%20Marking%20Scheme.pdf"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 07 2026.docx",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2007%202026.docx"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 07 2026.pdf",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2007%202026.pdf"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 07 2026 - Marking Scheme.docx",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2007%202026%20-%20Marking%20Scheme.docx"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 07 2026 - Marking Scheme.pdf",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2007%202026%20-%20Marking%20Scheme.pdf"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 08 2026.docx",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2008%202026.docx"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 08 2026.pdf",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2008%202026.pdf"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 08 2026 - Marking Scheme.docx",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2008%202026%20-%20Marking%20Scheme.docx"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 08 2026 - Marking Scheme.pdf",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2008%202026%20-%20Marking%20Scheme.pdf"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 09 2026.docx",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2009%202026.docx"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 09 2026.pdf",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2009%202026.pdf"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 09 2026 - Marking Scheme.docx",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2009%202026%20-%20Marking%20Scheme.docx"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 09 2026 - Marking Scheme.pdf",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2009%202026%20-%20Marking%20Scheme.pdf"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 10 2026.docx",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2010%202026.docx"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 10 2026.pdf",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2010%202026.pdf"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 10 2026 - Marking Scheme.docx",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2010%202026%20-%20Marking%20Scheme.docx"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 10 2026 - Marking Scheme.pdf",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2010%202026%20-%20Marking%20Scheme.pdf"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 11 2026.docx",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2011%202026.docx"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 11 2026.pdf",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2011%202026.pdf"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 11 2026 - Marking Scheme.docx",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2011%202026%20-%20Marking%20Scheme.docx"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 11 2026 - Marking Scheme.pdf",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2011%202026%20-%20Marking%20Scheme.pdf"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 12 2026.docx",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2012%202026.docx"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 12 2026.pdf",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2012%202026.pdf"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 12 2026 - Marking Scheme.docx",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2012%202026%20-%20Marking%20Scheme.docx"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 12 2026 - Marking Scheme.pdf",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2012%202026%20-%20Marking%20Scheme.pdf"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 13 2026.docx",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2013%202026.docx"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 13 2026.pdf",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2013%202026.pdf"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 13 2026 - Marking Scheme.docx",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2013%202026%20-%20Marking%20Scheme.docx"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 13 2026 - Marking Scheme.pdf",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2013%202026%20-%20Marking%20Scheme.pdf"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 14 2026.docx",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2014%202026.docx"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 14 2026.pdf",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2014%202026.pdf"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 14 2026 - Marking Scheme.docx",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2014%202026%20-%20Marking%20Scheme.docx"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 14 2026 - Marking Scheme.pdf",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2014%202026%20-%20Marking%20Scheme.pdf"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 15 2026.docx",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2015%202026.docx"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 15 2026.pdf",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2015%202026.pdf"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 15 2026 - Marking Scheme.docx",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2015%202026%20-%20Marking%20Scheme.docx"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 15 2026 - Marking Scheme.pdf",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2015%202026%20-%20Marking%20Scheme.pdf"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 16 2026.docx",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2016%202026.docx"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 16 2026.pdf",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2016%202026.pdf"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 16 2026 - Marking Scheme.docx",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2016%202026%20-%20Marking%20Scheme.docx"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 16 2026 - Marking Scheme.pdf",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2016%202026%20-%20Marking%20Scheme.pdf"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 17 2026.docx",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2017%202026.docx"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 17 2026.pdf",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2017%202026.pdf"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 17 2026 - Marking Scheme.docx",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2017%202026%20-%20Marking%20Scheme.docx"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 17 2026 - Marking Scheme.pdf",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2017%202026%20-%20Marking%20Scheme.pdf"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 18 2026.docx",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2018%202026.docx"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 18 2026.pdf",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2018%202026.pdf"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 18 2026 - Marking Scheme.docx",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2018%202026%20-%20Marking%20Scheme.docx"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 18 2026 - Marking Scheme.pdf",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2018%202026%20-%20Marking%20Scheme.pdf"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 19 2026.docx",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2019%202026.docx"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 19 2026.pdf",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2019%202026.pdf"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 19 2026 - Marking Scheme.docx",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2019%202026%20-%20Marking%20Scheme.docx"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 19 2026 - Marking Scheme.pdf",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2019%202026%20-%20Marking%20Scheme.pdf"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 20 2026.docx",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2020%202026.docx"
+  },
+  {
+    "path": "library/CSC662/papers/CSC662 Seed 20 2026.pdf",
+    "source": "PUBLIC_BUILD output",
+    "status": "present",
+    "url": "library/CSC662/papers/CSC662%20Seed%2020%202026.pdf"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 20 2026 - Marking Scheme.docx",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2020%202026%20-%20Marking%20Scheme.docx"
+  },
+  {
+    "path": "library/CSC662/schemes/CSC662 Seed 20 2026 - Marking Scheme.pdf",
+    "source": "PUBLIC_BUILD output; quote-free scheme",
+    "status": "present",
+    "url": "library/CSC662/schemes/CSC662%20Seed%2020%202026%20-%20Marking%20Scheme.pdf"
+  },
+  {
+    "path": "subjects/CSC580/subject.json",
+    "source": "generated from registry coming_soon stub",
+    "status": "present",
+    "url": "subjects/CSC580/subject.json"
+  },
+  {
+    "path": "subjects/CSC645/subject.json",
+    "source": "generated from registry coming_soon stub",
+    "status": "present",
+    "url": "subjects/CSC645/subject.json"
+  }
+]

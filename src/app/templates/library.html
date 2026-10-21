@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}{{ subject.code }} Library{% endblock %}
+{% block content %}
+<p class="small"><a href="/">Subjects</a> &gt;
+  <a href="/{{ subject.route }}">{{ subject.code }}</a> &gt; Library</p>
+<h2>{{ subject.code }} Library</h2>
+<p>{{ total }} realistic papers. Cached; no API key and no LLM call.
+  Downloads are paper and scheme in DOCX/PDF.</p>
+
+{% if not (library_disabled|default(public)) %}
+<form id="library-filter" action="/{{ subject.route }}/library" method="get">
+  <fieldset>
+    <legend>Filter</legend>
+    <label for="q">Text:</label>
+    <input type="text" id="q" name="q" size="24" value="{{ q }}">
+    <label for="computed">Computed marks:</label>
+    <select id="computed" name="computed">
+      <option value="any">any</option>
+      {% for value in computed_options %}
+      <option value="{{ value }}" {% if computed != 'any' and computed|int == value %}selected{% endif %}>{{ value }}</option>
+      {% endfor %}
+    </select>
+    <label for="topic">Topic:</label>
+    <select id="topic" name="topic">
+      <option value="any">any</option>
+      {% for value in topics %}
+      <option value="{{ value }}" {% if topic == value %}selected{% endif %}>{{ value }}</option>
+      {% endfor %}
+    </select>
+    <label for="placeholders">Placeholders:</label>
+    <select id="placeholders" name="placeholders">
+      <option value="any" {% if placeholders == 'any' %}selected{% endif %}>any</option>
+      <option value="0" {% if placeholders == '0' %}selected{% endif %}>0</option>
+      <option value="1+" {% if placeholders == '1+' %}selected{% endif %}>1+</option>
+    </select>
+    <input type="submit" value="Apply">
+    <a href="/{{ subject.route }}/library">Reset</a>
+  </fieldset>
+</form>
+{% endif %}
+
+{% include "_library.html" %}
+{% endblock %}

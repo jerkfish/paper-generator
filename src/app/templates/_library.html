@@ -1,30 +1,67 @@
-{% if public %}
-  <p class="muted">Library is disabled in PUBLIC_BUILD. Only fresh generated
-    papers with generic branding are available.</p>
+<div id="library-results">
+{% if library_disabled|default(public) %}
+  <p class="notice">Library is disabled in PUBLIC_BUILD. Only fresh generated
+    public-build papers are available.</p>
 {% elif not items %}
-  <p class="muted">No prebuilt papers yet. Run
-    <code>uv run python -m src.app.prebuild_library</code> to cache the
-    20-seed accepted sets. Generation still works with an API key.</p>
+  <p class="muted">No prebuilt papers match the filter.</p>
 {% else %}
-  <table>
+  {% set urls = item_urls|default({}) %}
+  <p class="small" id="library-count">Showing {{ items|length }} of {{ total }}.</p>
+  <p class="small">Topic abbreviations: ATK attacks/malware, AUT authentication,
+    ACC access control, TRU trusted computing, SWS software/OS, NET network,
+    ETH ethics, CIP classical ciphers. Numbers are accepted marks. Click a
+    column title to sort ascending/descending.</p>
+  <div class="table-scroll">
+  <table id="library-table">
     <thead>
-      <tr><th>Seed</th><th>Accepted</th><th>Placeholders</th><th>Model</th><th>Files</th></tr>
+    <tr>
+      <th data-sort="seed" aria-sort="none"><button type="button" class="sort" data-sort="seed" data-type="number">Seed<span class="sort-mark"></span></button></th>
+      <th data-sort="mode" aria-sort="none"><button type="button" class="sort" data-sort="mode">Mode<span class="sort-mark"></span></button></th>
+      <th data-sort="computed" aria-sort="none"><button type="button" class="sort" data-sort="computed" data-type="number">Computed<br>marks<span class="sort-mark"></span></button></th>
+      <th data-sort="topics" aria-sort="none"><button type="button" class="sort" data-sort="topics">Topic mix (marks)<span class="sort-mark"></span></button></th>
+      <th data-sort="placeholders" aria-sort="none"><button type="button" class="sort" data-sort="placeholders" data-type="number">Place-<br>holders<span class="sort-mark"></span></button></th>
+      <th data-sort="paper" aria-sort="none"><button type="button" class="sort" data-sort="paper">Paper<span class="sort-mark"></span></button></th>
+      <th data-sort="scheme" aria-sort="none"><button type="button" class="sort" data-sort="scheme">Scheme<span class="sort-mark"></span></button></th>
+      {% if gallery_enabled|default(false) %}<th>Share</th>{% endif %}
+    </tr>
     </thead>
     <tbody>
-      {% for item in items %}
-      <tr>
-        <td>{{ item.seed }}</td>
-        <td>{{ item.accepted }}</td>
-        <td>{{ item.placeholders }}</td>
-        <td class="muted">{{ item.model }}</td>
-        <td>
-          {% if item.files.paper_docx %}<a href="/library/{{ item.seed }}/paper_docx">paper.docx</a>{% endif %}
-          {% if item.files.paper_pdf %} · <a href="/library/{{ item.seed }}/paper_pdf">paper.pdf</a>{% endif %}
-          {% if item.files.scheme_docx %} · <a href="/library/{{ item.seed }}/scheme_docx">scheme.docx</a>{% endif %}
-          {% if item.files.scheme_pdf %} · <a href="/library/{{ item.seed }}/scheme_pdf">scheme.pdf</a>{% endif %}
-        </td>
-      </tr>
-      {% endfor %}
+    {% for item in items %}
+    <tr data-seed="{{ item.seed }}"
+        data-mode="{{ item.mode }}"
+        data-computed="{{ item.computed_display }}"
+        data-topics="{{ item.topic_keys|default(item.topic_marks.keys()|join('|')) }}"
+        data-placeholders="{{ item.placeholders }}"
+        data-paper="{{ item.downloads.paper_pdf }}"
+        data-scheme="{{ item.downloads.scheme_pdf }}"
+        data-text="{{ item.seed }} {{ item.mode }} {{ item.year }} {{ item.topic_mix }} {{ item.topic_marks.keys()|join(' ') }}">
+      <td class="nowrap">{{ "%02d"|format(item.seed) }}</td>
+      <td>{{ item.mode }}</td>
+      <td>{{ item.computed_display }}</td>
+      <td class="mono nowrap">{{ item.topic_mix }}</td>
+      <td>{% if item.placeholders %}<span class="warn">{{ item.placeholders }}</span>{% else %}0{% endif %}</td>
+      <td class="nowrap">
+        {% set paper_urls = urls.get(item.seed|string, {}) %}
+        {% if item.files.paper_docx %}<a href="{{ paper_urls.get('paper_docx') or '/' ~ subject.route ~ '/library/' ~ item.seed ~ '/paper_docx' }}" title="{{ item.downloads.paper_docx }}">DOCX</a>{% endif %}
+        {% if item.files.paper_docx and item.files.paper_pdf %} / {% endif %}
+        {% if item.files.paper_pdf %}<a href="{{ paper_urls.get('paper_pdf') or '/' ~ subject.route ~ '/library/' ~ item.seed ~ '/paper_pdf' }}" title="{{ item.downloads.paper_pdf }}">PDF</a>{% endif %}
+      </td>
+      <td class="nowrap">
+        {% set scheme_urls = urls.get(item.seed|string, {}) %}
+        {% if item.files.scheme_docx %}<a href="{{ scheme_urls.get('scheme_docx') or '/' ~ subject.route ~ '/library/' ~ item.seed ~ '/scheme_docx' }}" title="{{ item.downloads.scheme_docx }}">DOCX</a>{% endif %}
+        {% if item.files.scheme_docx and item.files.scheme_pdf %} / {% endif %}
+        {% if item.files.scheme_pdf %}<a href="{{ scheme_urls.get('scheme_pdf') or '/' ~ subject.route ~ '/library/' ~ item.seed ~ '/scheme_pdf' }}" title="{{ item.downloads.scheme_pdf }}">PDF</a>{% endif %}
+      </td>
+      {% if gallery_enabled|default(false) %}
+      <td class="nowrap">
+        <button type="button" class="share" data-seed="{{ item.seed }}" data-mode="{{ item.mode }}">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      {% endif %}
+    </tr>
+    {% endfor %}
     </tbody>
   </table>
+  </div>
 {% endif %}
+</div>

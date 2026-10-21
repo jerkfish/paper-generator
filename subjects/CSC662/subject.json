@@ -1,0 +1,98 @@
+{
+  "code": "CSC662",
+  "title": "Computer Security",
+  "status": "available",
+  "header_text": "CSC662 COMPUTER SECURITY",
+  "template_path": "data/reference/CSC662 FEBRUARY 2026-raw docx.docx",
+  "fingerprint": {
+    "source": "data/tracking/mock_paper_planner.xlsx",
+    "modern_era": "2018+",
+    "clean_modern_papers": 10,
+    "computed_distribution_mean": 4.0
+  },
+  "deck_map": {
+    "011": "attacks/malware",
+    "021": "attacks/malware",
+    "022": "authentication/biometrics",
+    "072": "authentication/biometrics",
+    "023": "access control models",
+    "024": "access control models",
+    "031": "classical ciphers",
+    "032": "block ciphers",
+    "033": "block ciphers",
+    "034": "block ciphers",
+    "035": "general cryptography",
+    "036": "general cryptography",
+    "037": "hashing/signatures",
+    "038": "authentication/biometrics",
+    "041": "software/OS security",
+    "042": "software/OS security",
+    "051": "software/OS security",
+    "052": "software/OS security",
+    "053": "software/OS security",
+    "061": "network security",
+    "062": "network security",
+    "071": "risk/management (ethics)",
+    "073": "trusted computing/blockchain",
+    "074": "trusted computing/blockchain",
+    "074B": "trusted computing/blockchain"
+  },
+  "topic_deck_allowlist": {
+    "attacks/malware": [
+      "011",
+      "022",
+      "041",
+      "042",
+      "051",
+      "052",
+      "061",
+      "062"
+    ],
+    "authentication/biometrics": [
+      "022",
+      "023",
+      "041",
+      "042",
+      "072"
+    ],
+    "access control models": [
+      "023",
+      "024",
+      "041",
+      "042",
+      "073"
+    ],
+    "trusted computing/blockchain": [
+      "038",
+      "073",
+      "074",
+      "074B"
+    ],
+    "software/OS security": [
+      "041",
+      "042",
+      "051",
+      "052"
+    ],
+    "network security": [
+      "052",
+      "061",
+      "062"
+    ],
+    "risk/management (ethics)": [
+      "071"
+    ],
+    "classical ciphers": [
+      "031"
+    ]
+  },
+  "enabled_computed_generators": [
+    "vigenere",
+    "acm",
+    "columnar_keyword",
+    "columnar_3x4",
+    "rail_fence",
+    "otp",
+    "caesar"
+  ]
+}

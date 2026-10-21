@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ site_name }}{% endblock %}</title>
+  <script src="{{ asset_base|default('/static') }}/htmx.min.js" defer></script>
+  <script src="{{ asset_base|default('/static') }}/library.js" defer></script>
+  <link rel="stylesheet" href="{{ asset_base|default('/static') }}/style.css">
+</head>
+<body>
+<h1>{{ site_name }}</h1>
+<div class="nav">
+  <a href="/">Subjects</a>
+  {% for nav_subject in subjects %}
+    {% if nav_subject.available %}<a href="/{{ nav_subject.route }}">{{ nav_subject.code }}</a>
+    <a href="/{{ nav_subject.route }}/library">Library</a>{% endif %}
+  {% endfor %}
+  <a href="/gallery">Gallery</a>
+</div>
+<hr>
+
+{% if public and not (static_bundle|default(false)) %}
+<div class="notice">Public build: papers keep the original local-build
+cover; public schemes omit verbatim slide quotes. The private Library is
+disabled.</div>
+{% elif static_bundle|default(false) %}
+<div class="notice">Public bundle: papers keep the original local-build cover;
+public schemes omit verbatim slide quotes. The Library contains PUBLIC_BUILD
+files only.</div>
+{% endif %}
+
+{% block content %}{% endblock %}
+
+<div class="footer">
+  <hr>
+  <p class="small">Study aid, not an official paper. Theory answers are
+  supported by lecture slides, not lecturer-marked.
+  <a href="/gallery#takedown">Takedown contact</a>.</p>
+  <p class="small">Contact:
+  <a href="mailto:{{ contact_email }}">{{ contact_email }}</a><br>
+  Git repository:
+  <a href="{{ repo_url }}">{{ repo_url }}</a></p>
+</div>
+</body>
+</html>
