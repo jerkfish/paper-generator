@@ -88,7 +88,9 @@
       "circular_measure.radians",
       "triangle_geometry.solve_triangle"
     ],
-    "pdf_available": true
+    "pdf_available": true,
+    "has_practice_mode": false,
+    "has_placeholders": false
   },
   "progress": [
     {
@@ -353,5 +355,7 @@
       "right_overflow": []
     },
     "problems": []
-  }
+  },
+  "has_practice_mode": false,
+  "has_placeholders": false
 }

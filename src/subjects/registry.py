@@ -37,6 +37,8 @@ class Subject:
     deck_map: dict = field(default_factory=dict)
     topic_deck_allowlist: dict = field(default_factory=dict)
     enabled_computed_generators: list[str] = field(default_factory=list)
+    has_practice_mode: bool = True
+    has_placeholders: bool = True
     registry_path: Path | None = None
 
     @property
@@ -55,6 +57,8 @@ class Subject:
             "status": self.status,
             "header_text": self.header_text,
             "enabled_computed_generators": list(self.enabled_computed_generators),
+            "has_practice_mode": self.has_practice_mode,
+            "has_placeholders": self.has_placeholders,
         }
 
 
@@ -88,6 +92,8 @@ def _load_one(path: Path) -> Subject:
         topic_deck_allowlist=dict(data.get("topic_deck_allowlist") or {}),
         enabled_computed_generators=list(
             data.get("enabled_computed_generators") or []),
+        has_practice_mode=bool(data.get("has_practice_mode", True)),
+        has_placeholders=bool(data.get("has_placeholders", True)),
         registry_path=path,
     )
 

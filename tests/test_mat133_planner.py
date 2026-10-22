@@ -1,11 +1,14 @@
 """Deterministic MAT133 planner and Library prebuild contract."""
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import pytest
+from fastapi.testclient import TestClient
 
-from src.app.jobs import JobManager
+from src.app import jobs, main
+from src.app.jobs import JobManager, filter_library, library_item
 from src.mat133.generators.registry import REGISTRY
 from src.mat133.planner import (GENERATOR_LABELS, TOPIC_SHORT, TOPIC_TITLES,
                                 build_paper)
@@ -71,6 +74,110 @@ def test_topic_marks_equal_part_marks():
 def test_mat133_rejects_practice_mode():
     with pytest.raises(ValueError, match="deterministic"):
         JobManager().create("practice", 1, None, subject="MAT133")
+
+
+def _write_cached_paper(tmp_path, monkeypatch, subject: str, **extra):
+    monkeypatch.setattr(jobs.config, "WEB_CACHE_DIR", tmp_path / "cache")
+    monkeypatch.setattr(jobs.config, "OUTPUTS_DIR", tmp_path)
+    out = jobs.cache_path("realistic", 1, None, subject=subject)
+    out.mkdir(parents=True)
+    paper = out / "paper.pdf"
+    paper.write_bytes(b"%PDF")
+    meta = {
+        "subject": subject, "seed": 1, "mode": "realistic",
+        "computed_marks": None, "created": 1767225600, "year": 2026,
+        "accepted": 15, "placeholders": 0, "model": "test",
+        "topic_marks": {"functions": 9},
+        "files": {"paper_pdf": str(paper)},
+        "summary": {}, "progress": [],
+    }
+    meta.update(extra)
+    (out / "meta.json").write_text(json.dumps(meta), encoding="utf-8")
+    return out
+
+
+def test_mat133_library_item_exposes_total_marks_and_flags(tmp_path,
+                                                           monkeypatch):
+    _write_cached_paper(
+        tmp_path, monkeypatch, "MAT133", total_marks=68,
+        has_practice_mode=False, has_placeholders=False)
+    item = library_item(1, "MAT133")
+    assert item is not None
+    assert item["computed_display"] == 0
+    assert item["total_marks"] == 68
+    assert item["marks_value"] == 68
+    assert item["marks_label"] == "Total marks"
+    assert item["has_practice_mode"] is False
+    assert item["has_placeholders"] is False
+
+
+def test_mat133_filter_uses_total_marks(tmp_path, monkeypatch):
+    _write_cached_paper(
+        tmp_path, monkeypatch, "MAT133", total_marks=68,
+        has_practice_mode=False, has_placeholders=False)
+    items = [library_item(1, "MAT133")]
+    assert [i["seed"] for i in filter_library(items, computed="68")] == [1]
+    assert filter_library(items, computed="70") == []
+    # A subject without placeholders is not excluded by the placeholder filter.
+    assert [i["seed"] for i in filter_library(items, placeholders="0")] == [1]
+
+
+def test_mat133_library_page_shows_total_marks_and_dash(tmp_path, monkeypatch):
+    _write_cached_paper(
+        tmp_path, monkeypatch, "MAT133", total_marks=68,
+        has_practice_mode=False, has_placeholders=False)
+    html = TestClient(main.app).get("/mat133/library").text
+    assert "Total marks" in html
+    assert "Computed marks" not in html
+    assert "68" in html
+    assert "&mdash;" in html or "—" in html
+    assert 'id="placeholders"' not in html
+
+
+def test_public_manifest_exports_mat133_total_marks(tmp_path):
+    from scripts.build_public_bundle import _write_manifests
+    item = {
+        "subject": "MAT133", "seed": 1, "mode": "realistic",
+        "computed_display": 0, "total_marks": 68, "marks_value": 68,
+        "has_practice_mode": False, "has_placeholders": False,
+        "year": 2026, "accepted": 15, "placeholders": 0,
+        "topic_marks": {"functions": 9}, "topic_mix": "FUN 9",
+        "downloads": {
+            "paper_docx": "MAT133 Seed 01 2026.docx",
+            "paper_pdf": "MAT133 Seed 01 2026.pdf",
+            "scheme_docx": "MAT133 Seed 01 2026 - Marking Scheme.docx",
+            "scheme_pdf": "MAT133 Seed 01 2026 - Marking Scheme.pdf",
+        },
+    }
+    _write_manifests(tmp_path, {"MAT133": [item]})
+    manifest = json.loads(
+        (tmp_path / "library" / "MAT133" / "manifest.json").read_text(
+            encoding="utf-8"))
+    paper = manifest["papers"][0]
+    assert manifest["has_practice_mode"] is False
+    assert manifest["has_placeholders"] is False
+    assert paper["total_marks"] == 68
+    assert paper["marks_value"] == 68
+    assert paper["has_practice_mode"] is False
+    subject = json.loads(
+        (tmp_path / "subjects" / "MAT133" / "subject.json").read_text(
+            encoding="utf-8"))
+    assert subject["has_practice_mode"] is False
+    assert subject["has_placeholders"] is False
+
+
+def test_csc662_library_page_keeps_computed_marks(tmp_path, monkeypatch):
+    _write_cached_paper(
+        tmp_path, monkeypatch, "CSC662", computed_marks=22,
+        has_practice_mode=True, has_placeholders=True, placeholders=2)
+    src = tmp_path / "eval_final_deepseek"
+    src.mkdir()
+    (src / "seed_01_theory.json").write_text("{}", encoding="utf-8")
+    html = TestClient(main.app).get("/csc662/library").text
+    assert "Computed" in html
+    assert "Placeholders" in html
+    assert 'id="placeholders"' in html
+    assert (">—<" not in html) and ("&mdash;" not in html)
 
 
 def test_same_seed_same_generator_diagrams(tmp_path):

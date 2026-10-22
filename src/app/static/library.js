@@ -24,6 +24,15 @@
       return row.getAttribute("data-" + key) || "";
     }
 
+    function numericValue(value) {
+      if (value === null || value === undefined) return null;
+      var text = String(value).trim();
+      if (!text || text === "—" || text === "–" || text === "N/A" ||
+          text.toLowerCase() === "n/a") return null;
+      var number = parseFloat(text);
+      return isNaN(number) ? null : number;
+    }
+
     function setIndicators() {
       table.querySelectorAll("th[data-sort]").forEach(function (th) {
         var active = th.getAttribute("data-sort") === sortKey;
@@ -46,7 +55,12 @@
         var bv = rowValue(b, key);
         var cmp;
         if (type === "number") {
-          cmp = (parseFloat(av) || 0) - (parseFloat(bv) || 0);
+          var an = numericValue(av);
+          var bn = numericValue(bv);
+          if (an === null && bn === null) cmp = 0;
+          else if (an === null) cmp = -1;
+          else if (bn === null) cmp = 1;
+          else cmp = an - bn;
         } else {
           cmp = av.localeCompare(bv, undefined,
             { numeric: true, sensitivity: "base" });

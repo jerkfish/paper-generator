@@ -127,6 +127,9 @@ def _cache_save(path: Path, job: "Job") -> None:
         "cost_usd": job.cost_usd,
         "accepted": job.accepted,
         "placeholders": job.placeholders,
+        "total_marks": job.summary.get("total_marks"),
+        "has_practice_mode": job.summary.get("has_practice_mode", True),
+        "has_placeholders": job.summary.get("has_placeholders", True),
         "created": time.time(),
         "year": utc_year(job.finished or job.created),
         "topic_marks": job.summary.get("topic_marks", {}),
@@ -629,6 +632,23 @@ def library_item(seed: int, subject: str = DEFAULT_SUBJECT) -> dict | None:
     computed = meta.get("computed_marks")
     if computed is None:
         computed = plan.get("computed_marks")
+    try:
+        subject_record = get_subject(code)
+    except SubjectNotFound:
+        subject_record = None
+    has_practice = bool(meta.get(
+        "has_practice_mode",
+        getattr(subject_record, "has_practice_mode", True)))
+    has_placeholders = bool(meta.get(
+        "has_placeholders",
+        getattr(subject_record, "has_placeholders", True)))
+    total_marks = meta.get("total_marks")
+    if total_marks is None:
+        total_marks = plan.get("total_marks")
+    computed_display = 0 if computed is None else int(computed)
+    marks_value = computed_display
+    if not has_practice and total_marks is not None:
+        marks_value = int(total_marks)
     year = int(meta.get("year") or utc_year(
         meta.get("created") or time.time()))
     marks = computed if mode == "practice" else None
@@ -646,7 +666,12 @@ def library_item(seed: int, subject: str = DEFAULT_SUBJECT) -> dict | None:
         "seed": seed,
         "mode": mode,
         "computed_marks": computed,
-        "computed_display": 0 if computed is None else int(computed),
+        "computed_display": computed_display,
+        "total_marks": int(total_marks) if total_marks is not None else None,
+        "marks_value": marks_value,
+        "marks_label": ("Computed marks" if has_practice else "Total marks"),
+        "has_practice_mode": has_practice,
+        "has_placeholders": has_placeholders,
         "year": year,
         "accepted": meta.get("accepted", 0),
         "placeholders": meta.get("placeholders", 0),
@@ -700,17 +725,20 @@ def filter_library(items: list[dict], q: str = "", computed: str = "any",
                 continue
         if computed not in ("", "any"):
             try:
-                if int(item.get("computed_display", 0)) != int(computed):
+                value = item.get("marks_value",
+                                 item.get("computed_display", 0))
+                if int(value) != int(computed):
                     continue
-            except ValueError:
+            except (TypeError, ValueError):
                 continue
         if topic not in ("", "any"):
             if not int((item.get("topic_marks") or {}).get(topic, 0)):
                 continue
-        if placeholders == "0" and int(item.get("placeholders", 0)) != 0:
-            continue
-        if placeholders == "1+" and int(item.get("placeholders", 0)) < 1:
-            continue
+        if item.get("has_placeholders", True):
+            if placeholders == "0" and int(item.get("placeholders", 0)) != 0:
+                continue
+            if placeholders == "1+" and int(item.get("placeholders", 0)) < 1:
+                continue
         out.append(item)
     return out
 

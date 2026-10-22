@@ -257,8 +257,9 @@ def _render_pages(out: Path, subject_items: dict[str, list[dict]]) -> dict:
         topics = sorted({name for item in items
                          for name, marks in item["topic_marks"].items()
                          if int(marks) > 0})
-        computed_options = sorted({int(item["computed_display"])
-                                   for item in items})
+        computed_options = sorted({
+            int(item.get("marks_value", item["computed_display"]) or 0)
+            for item in items})
         pages[f"{subject.route}/index.html"] = render(
             "subject.html", subject=subject, paper_count=len(items),
             registry_display=f"subjects/{code}/subject.json",
@@ -293,6 +294,8 @@ def _write_manifests(out: Path, subject_items: dict[str, list[dict]]) -> dict:
         data = item.public_dict()
         items = subject_items.get(item.code, [])
         data["paper_count"] = len(items)
+        data["has_practice_mode"] = item.has_practice_mode
+        data["has_placeholders"] = item.has_placeholders
         if items:
             data["library_manifest"] = f"/library/{item.code}/manifest.json"
             data["routes"] = {
@@ -314,6 +317,11 @@ def _write_manifests(out: Path, subject_items: dict[str, list[dict]]) -> dict:
                 "seed": item["seed"],
                 "mode": item["mode"],
                 "computed_marks": item["computed_display"],
+                "total_marks": item.get("total_marks"),
+                "marks_value": item.get("marks_value",
+                                        item["computed_display"]),
+                "has_practice_mode": item.get("has_practice_mode", True),
+                "has_placeholders": item.get("has_placeholders", True),
                 "year": item["year"],
                 "accepted": item["accepted"],
                 "placeholders": item["placeholders"],
@@ -331,6 +339,8 @@ def _write_manifests(out: Path, subject_items: dict[str, list[dict]]) -> dict:
             "subject": code,
             "title": subject.title,
             "year": utc_year(),
+            "has_practice_mode": subject.has_practice_mode,
+            "has_placeholders": subject.has_placeholders,
             "count": len(papers),
             "papers": papers,
         }

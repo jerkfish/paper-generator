@@ -26,9 +26,9 @@ There are two environments:
 | Worker | `cloudflare/worker/` |
 | D1 database | `papergen` (`9d99c331-d8ba-495e-9a8d-35e295bb882c`) |
 | R2 bucket | `exampapers` |
-| Public bundle | 181 files, 52,384,519 bytes / 49.96 MiB (CSC662 + MAT133) |
-| R2 bucket contents | 189 objects, 53,817,347 bytes / 51.33 MiB (bundle + 8 shared files) |
-| R2 quota used | 407 / 10,000 internal Class A, 0 Class B (October 2026) |
+| Public bundle | 181 files, 52,389,765 bytes / 49.96 MiB (CSC662 + MAT133) |
+| R2 bucket contents | 189 objects, 53,822,593 bytes / 51.33 MiB (bundle + 8 shared files) |
+| R2 quota used | 427 / 10,000 internal Class A, 0 Class B (October 2026) |
 | Worker | Deployed with CSC662 and MAT133 routes (version `597dd1ca`) |
 | Subjects | CSC662 and MAT133 available; CSC580/CSC645 coming soon |
 | Contact | auzair1990@gmail.com |
@@ -62,10 +62,14 @@ uv run uvicorn src.app.main:app --host 127.0.0.1 --port 8000
 | `/gallery` | Gallery page; the API is supplied by the deployed Worker |
 | `/paused` | Daily-cap fallback notice |
 
-The Library filters by text, computed marks, topic and placeholder count.
-Click any column title to sort ascending/descending; the next click reverses
-the direction. Filtering and sorting are a small vanilla-JS enhancement, so
-the static public bundle behaves the same way.
+The Library is subject-aware. CSC662 keeps the **Computed marks** column
+(practice-mode `N`), numeric **Placeholders** and its placeholder filter.
+MAT133 has no practice mode and no placeholders, so the same position becomes
+**Total marks** (64-72), the placeholder column shows **—**, and the marks
+filter operates on total marks. Click any column title to sort
+ascending/descending; the next click reverses the direction. Filtering and
+sorting are a small vanilla-JS enhancement, so the static public bundle
+behaves the same way.
 
 The job page shows one row per question and per-part slot status, updated from
 real job events. There is no fake timer, animation or typewriter. MAT133 jobs
@@ -132,7 +136,9 @@ same structure observed in the past papers:
 
 Each seed deterministically selects the generators and parameters. A paper
 has 15 parts, 64-72 marks and a full `NO | SOLUTION | MARK` marking scheme.
-Across seeds 1-20, all 57 generators are exercised.
+Across seeds 1-20, all 57 generators are exercised. MAT133 Library metadata
+exports `total_marks`, `has_practice_mode: false` and
+`has_placeholders: false`; the public manifests carry the same fields.
 
 ```bash
 # rebuild the paper text/OCR cache and the question log (cached LLM calls free)
@@ -456,15 +462,16 @@ mockups are in `design/mockups/`.
 ## Tests
 
 ```bash
-uv run pytest -q        # 238 Python tests
+uv run pytest -q        # 243 Python tests
 cd cloudflare/worker
 bun test                # 5 Worker tests
 ```
 
 Coverage includes the planner/verifier, job lifecycle, cancel, cost-cap abort,
 cache hit, Library without a key, scheme table geometry, subject discovery,
-download names, subject-scoped routes, sortable/filterable Library, public
-bundle rendering/validation, secret scan, public-path guards, bundle allowlist,
+download names, subject-scoped routes, sortable/filterable Library,
+subject-aware marks/placeholder columns, public bundle rendering/validation,
+secret scan, public-path guards, bundle allowlist,
 R2 quota guard, MAT133 taxonomy/question-log integrity, all 57 MAT133
 generators, the MAT133 deterministic planner, the 20-seed generator coverage
 and the MAT133 DOCX/XML builder.

@@ -138,7 +138,9 @@ def library(request: Request, code: str, q: str = "", computed: str = "any",
     topics = sorted({name for item in items
                      for name, marks in (item["topic_marks"] or {}).items()
                      if int(marks) > 0})
-    computed_options = sorted({int(item["computed_display"]) for item in items})
+    computed_options = sorted({
+        int(item.get("marks_value", item["computed_display"]) or 0)
+        for item in items})
     context = _context(request, subject=subject, items=filtered,
                        total=len(items), q=q, computed=computed, topic=topic,
                        placeholders=placeholders, topics=topics,

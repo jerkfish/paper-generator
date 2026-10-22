@@ -252,9 +252,12 @@ MAT133 completed the full lifecycle:
 
 ## 8. What is live now
 
-- Public bundle: 181 files, 52,384,519 bytes / 49.96 MiB, original local-build
+- Public bundle: 181 files, 52,389,765 bytes / 49.96 MiB, original local-build
   covers; CSC662 schemes are quote-free.
-- R2: 189 objects (bundle + 8 shared gallery files), 53,817,347 bytes.
+- R2: 189 objects (bundle + 8 shared gallery files), 53,822,593 bytes.
+- Library metadata: CSC662 exposes computed marks and numeric placeholders;
+  MAT133 exposes total marks (64-72), `has_practice_mode: false` and
+  `has_placeholders: false`.
 - Public subjects: CSC662 and MAT133, 20 Library papers each.
 - D1: gallery schema applied; user-shared entries exist.
 - Custom domain: apex and www, HTTPS, www -> apex redirect.
