@@ -109,6 +109,7 @@ def forbidden_roots() -> list[Path]:
     return [
         data_dir / "reference",
         data_dir / "lecturedecks",
+        data_dir / "papers",
         Path(config.REFERENCE_DIR),
         Path(config.ORIGINAL_PAPERS_DIR),
         Path(config.PAPERS_DIR),

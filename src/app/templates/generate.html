@@ -4,14 +4,19 @@
 <p class="small"><a href="/">Subjects</a> &gt;
   <a href="/{{ subject.route }}">{{ subject.code }}</a> &gt; Generate</p>
 <h2>{{ subject.code }} Generate</h2>
-<p>Realistic or practice mode. Generation runs as a background job and is
-  updated from real job events; there is no simulated progress.</p>
+<p>{% if deterministic %}Deterministic computed generators. No API key, no
+  LLM call and no cost.{% else %}Realistic or practice mode.{% endif %}
+  Generation runs as a background job and is updated from real job events;
+  there is no simulated progress.</p>
 
 {% if generate_disabled|default(false) %}
 <div class="notice">Live generation is not enabled in this deployment.
   Browse the Library for pre-generated papers.</div>
 {% else %}
-{% if not has_key %}
+{% if deterministic %}
+<div class="notice">MAT133 is deterministic: a seed always produces the same
+  paper and marking scheme from the 57 computed generators.</div>
+{% elif not has_key %}
 <div class="notice">DEEPSEEK_API_KEY is not set. Live generation is
   unavailable; the pre-generated Library still works.</div>
 {% endif %}
@@ -20,20 +25,27 @@
       hx-swap="outerHTML">
   <fieldset>
     <legend>New paper</legend>
+    {% if deterministic %}
+    <input type="hidden" name="mode" value="realistic">
+    {% else %}
     <label for="mode">Mode</label>
     <select id="mode" name="mode">
       <option value="realistic" selected>Realistic</option>
       <option value="practice">Practice</option>
     </select>
+    {% endif %}
     <label for="seed">Seed</label>
     <input type="number" id="seed" name="seed" min="1" max="99999"
            placeholder="random">
+    {% if not deterministic %}
     <label for="computed_marks">Computed marks N</label>
     <input type="number" id="computed_marks" name="computed_marks"
            min="0" max="80" value="22" disabled>
     <span class="small">practice only</span>
+    {% endif %}
     <button type="submit">Generate</button>
-    <span class="small">Per-run cap ${{ "%.2f"|format(cost_cap) }}.
+    <span class="small">{% if deterministic %}No key and no cost.
+      {% else %}Per-run cap ${{ "%.2f"|format(cost_cap) }}.{% endif %}
       A cached seed returns instantly and costs $0.</span>
   </fieldset>
 </form>

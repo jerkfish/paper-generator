@@ -111,7 +111,8 @@ class LLMResult:
 
 def chat_json_result(system: str, user: str, model: str | None = None,
                      temperature: float = 0.2,
-                     usage: Usage | None = None) -> LLMResult:
+                     usage: Usage | None = None,
+                     max_tokens: int = 8000) -> LLMResult:
     """Chat completion forced into a JSON object, with retries.
 
     Token usage is accumulated in `usage` across every attempt that received
@@ -134,7 +135,7 @@ def chat_json_result(system: str, user: str, model: str | None = None,
                     {"thinking": {"type": "disabled"}}
                     if _provider(chosen_model) == "deepseek"
                     else {"enable_thinking": False}),
-                "max_tokens": 8000,
+                "max_tokens": max_tokens,
             }
             if use_json_mode:
                 kwargs["response_format"] = {"type": "json_object"}

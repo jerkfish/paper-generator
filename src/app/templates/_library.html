@@ -7,17 +7,14 @@
 {% else %}
   {% set urls = item_urls|default({}) %}
   <p class="small" id="library-count">Showing {{ items|length }} of {{ total }}.</p>
-  <p class="small">Topic abbreviations: ATK attacks/malware, AUT authentication,
-    ACC access control, TRU trusted computing, SWS software/OS, NET network,
-    ETH ethics, CIP classical ciphers. Numbers are accepted marks. Click a
-    column title to sort ascending/descending.</p>
+  <p class="small">{{ topic_legend|default('Topic abbreviations are shown in the Topic mix column. Click a column title to sort ascending/descending.') }}</p>
   <div class="table-scroll">
   <table id="library-table">
     <thead>
     <tr>
       <th data-sort="seed" aria-sort="none"><button type="button" class="sort" data-sort="seed" data-type="number">Seed<span class="sort-mark"></span></button></th>
       <th data-sort="mode" aria-sort="none"><button type="button" class="sort" data-sort="mode">Mode<span class="sort-mark"></span></button></th>
-      <th data-sort="computed" aria-sort="none"><button type="button" class="sort" data-sort="computed" data-type="number">Computed<br>marks<span class="sort-mark"></span></button></th>
+      <th data-sort="computed" aria-sort="none"><button type="button" class="sort" data-sort="computed" data-type="number">{% if subject.has_practice_mode %}Computed<br>marks{% else %}Total<br>marks{% endif %}<span class="sort-mark"></span></button></th>
       <th data-sort="topics" aria-sort="none"><button type="button" class="sort" data-sort="topics">Topic mix (marks)<span class="sort-mark"></span></button></th>
       <th data-sort="placeholders" aria-sort="none"><button type="button" class="sort" data-sort="placeholders" data-type="number">Place-<br>holders<span class="sort-mark"></span></button></th>
       <th data-sort="paper" aria-sort="none"><button type="button" class="sort" data-sort="paper">Paper<span class="sort-mark"></span></button></th>
@@ -29,17 +26,17 @@
     {% for item in items %}
     <tr data-seed="{{ item.seed }}"
         data-mode="{{ item.mode }}"
-        data-computed="{{ item.computed_display }}"
+        data-computed="{{ item.marks_value|default(item.computed_display) }}"
         data-topics="{{ item.topic_keys|default(item.topic_marks.keys()|join('|')) }}"
-        data-placeholders="{{ item.placeholders }}"
+        data-placeholders="{% if item.has_placeholders|default(true) %}{{ item.placeholders }}{% endif %}"
         data-paper="{{ item.downloads.paper_pdf }}"
         data-scheme="{{ item.downloads.scheme_pdf }}"
-        data-text="{{ item.seed }} {{ item.mode }} {{ item.year }} {{ item.topic_mix }} {{ item.topic_marks.keys()|join(' ') }}">
+        data-text="{{ item.seed }} {{ item.mode }} {{ item.year }} {{ item.marks_value|default(item.computed_display) }} {{ item.topic_mix }} {{ item.topic_marks.keys()|join(' ') }}">
       <td class="nowrap">{{ "%02d"|format(item.seed) }}</td>
       <td>{{ item.mode }}</td>
-      <td>{{ item.computed_display }}</td>
+      <td>{{ item.marks_value|default(item.computed_display) }}</td>
       <td class="mono nowrap">{{ item.topic_mix }}</td>
-      <td>{% if item.placeholders %}<span class="warn">{{ item.placeholders }}</span>{% else %}0{% endif %}</td>
+      <td>{% if item.has_placeholders|default(true) %}{% if item.placeholders %}<span class="warn">{{ item.placeholders }}</span>{% else %}0{% endif %}{% else %}&mdash;{% endif %}</td>
       <td class="nowrap">
         {% set paper_urls = urls.get(item.seed|string, {}) %}
         {% if item.files.paper_docx %}<a href="{{ paper_urls.get('paper_docx') or '/' ~ subject.route ~ '/library/' ~ item.seed ~ '/paper_docx' }}" title="{{ item.downloads.paper_docx }}">DOCX</a>{% endif %}
@@ -54,7 +51,7 @@
       </td>
       {% if gallery_enabled|default(false) %}
       <td class="nowrap">
-        <button type="button" class="share" data-seed="{{ item.seed }}" data-mode="{{ item.mode }}">Share</button>
+        <button type="button" class="share" data-subject="{{ subject.code }}" data-seed="{{ item.seed }}" data-mode="{{ item.mode }}">Share</button>
         <span class="share-status small"></span>
       </td>
       {% endif %}

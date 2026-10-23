@@ -1,0 +1,31 @@
+{
+  "group": 1,
+  "questions": 3,
+  "parts": 16,
+  "marks": 71.0,
+  "failures": [],
+  "paper_pages": 5,
+  "scheme_pages": 5,
+  "paper_pdf_check": {
+    "pages": 5,
+    "page1_has_cover": true,
+    "page1_has_mat133": true,
+    "body_starts_on_page2": true,
+    "headings_found": true,
+    "scheme_heading": true,
+    "full_marks": true,
+    "forbidden_tokens": [],
+    "right_overflow": []
+  },
+  "scheme_pdf_check": {
+    "pages": 5,
+    "page1_has_cover": true,
+    "page1_has_mat133": true,
+    "body_starts_on_page2": true,
+    "headings_found": true,
+    "scheme_heading": true,
+    "full_marks": true,
+    "forbidden_tokens": [],
+    "right_overflow": []
+  }
+}

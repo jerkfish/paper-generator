@@ -15,15 +15,17 @@ no lecture map and no computed generator plugin yet.</div>
   <tr><th>Path</th><th>Description</th><th>Action</th></tr>
   <tr>
     <td>Generate a new paper</td>
-    <td>Realistic or practice mode, optional seed. Background job;
-      slot-by-slot status. Needs an API key. Per-run cap
-      ${{ "%.2f"|format(cost_cap) }}.</td>
+    <td>{% if deterministic|default(false) %}Deterministic computed paper from
+      a seed. No API key, no LLM call and no cost.{% else %}Realistic or
+      practice mode, optional seed. Background job; slot-by-slot status.
+      Needs an API key. Per-run cap
+      ${{ "%.2f"|format(cost_cap) }}.{% endif %}</td>
     <td>{% if generate_disabled|default(false) %}<span class="small">disabled in this deployment</span>
       {% else %}<a href="/{{ subject.route }}/generate">generate</a>{% endif %}</td>
   </tr>
   <tr>
     <td>Browse pre-generated papers</td>
-    <td>{{ paper_count }} realistic papers. Table list with filters and
+    <td>{{ paper_count }} prebuilt papers. Table list with filters and
       instant paper/scheme downloads. No API key, no LLM call.</td>
     <td>{% if library_disabled|default(public) %}<span class="small">private Library disabled in public build</span>
       {% else %}<a href="/{{ subject.route }}/library">library</a>{% endif %}</td>
@@ -44,9 +46,9 @@ no lecture map and no computed generator plugin yet.</div>
         topic allow-list, enabled computed generators</td></tr>
   <tr><td>Computed generators</td><td>{{ generator_labels|join(', ') }}</td>
       <td>subject plugins; another subject needs its own</td></tr>
-  <tr><td>Clean modern papers</td>
-      <td>{{ subject.fingerprint.get('clean_modern_papers', '') }}</td>
-      <td>{{ subject.fingerprint.get('modern_era', '') }}</td></tr>
+  <tr><td>Source papers</td>
+      <td>{{ subject.fingerprint.get('paper_count', subject.fingerprint.get('clean_modern_papers', '')) }}</td>
+      <td>{{ subject.fingerprint.get('modern_era', 'paper-derived') }}</td></tr>
   <tr><td>Public build</td>
       <td>original local-build cover; no verbatim quotes in public schemes</td>
       <td>original material never leaves the machine</td></tr>
@@ -54,7 +56,9 @@ no lecture map and no computed generator plugin yet.</div>
 {% endif %}
 
 <h2>Notes</h2>
-<p class="small">Theory answers are supported by lecture slides, not
-lecturer-marked. Placeholders are shown as placeholders, not silently
-filled.</p>
+<p class="small">{% if deterministic|default(false) %}Questions and marking
+schemes come from deterministic paper-derived generators, not
+lecturer-marked answers.{% else %}Theory answers are supported by lecture
+slides, not lecturer-marked. Placeholders are shown as placeholders, not
+silently filled.{% endif %}</p>
 {% endblock %}

@@ -15,7 +15,6 @@ binding = "BUCKET"
 bucket_name = "exampapers"
 
 [vars]
-SUBJECT = "CSC662"
 CANONICAL_HOST = "uitmpapergen.download"
 GALLERY_TTL_DAYS = "7"
 MAX_GALLERY_ENTRIES = "100"

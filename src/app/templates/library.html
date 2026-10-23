@@ -4,7 +4,7 @@
 <p class="small"><a href="/">Subjects</a> &gt;
   <a href="/{{ subject.route }}">{{ subject.code }}</a> &gt; Library</p>
 <h2>{{ subject.code }} Library</h2>
-<p>{{ total }} realistic papers. Cached; no API key and no LLM call.
+<p>{{ total }} prebuilt papers. Cached; no API key and no LLM call.
   Downloads are paper and scheme in DOCX/PDF.</p>
 
 {% if not (library_disabled|default(public)) %}
@@ -13,7 +13,7 @@
     <legend>Filter</legend>
     <label for="q">Text:</label>
     <input type="text" id="q" name="q" size="24" value="{{ q }}">
-    <label for="computed">Computed marks:</label>
+    <label for="computed">{% if subject.has_practice_mode %}Computed marks:{% else %}Total marks:{% endif %}</label>
     <select id="computed" name="computed">
       <option value="any">any</option>
       {% for value in computed_options %}
@@ -27,12 +27,14 @@
       <option value="{{ value }}" {% if topic == value %}selected{% endif %}>{{ value }}</option>
       {% endfor %}
     </select>
+    {% if subject.has_placeholders %}
     <label for="placeholders">Placeholders:</label>
     <select id="placeholders" name="placeholders">
       <option value="any" {% if placeholders == 'any' %}selected{% endif %}>any</option>
       <option value="0" {% if placeholders == '0' %}selected{% endif %}>0</option>
       <option value="1+" {% if placeholders == '1+' %}selected{% endif %}>1+</option>
     </select>
+    {% endif %}
     <input type="submit" value="Apply">
     <a href="/{{ subject.route }}/library">Reset</a>
   </fieldset>

@@ -20,11 +20,8 @@ if str(ROOT) not in sys.path:
 from src.subjects.registry import load_subjects
 
 BUNDLE_DIR = ROOT / "outputs" / "public_bundle"
-STATIC_PATHS = (
+BASE_STATIC_PATHS = (
     "index.html",
-    "csc662/index.html",
-    "csc662/library/index.html",
-    "csc662/generate/index.html",
     "gallery/index.html",
     "paused/index.html",
     "static/gallery-shell.html",
@@ -32,9 +29,10 @@ STATIC_PATHS = (
     "assets/htmx.min.js",
     "assets/library.js",
     "assets/gallery.js",
+    "library/manifest.json",
 )
 FORBIDDEN_PREFIXES = (
-    "data/", "CSC662/", "outputs/", "tests/", "src/", "private/",
+    "data/", "CSC662/", "MAT133/", "outputs/", "tests/", "src/", "private/",
     ".env", "wrangler", "design/",
 )
 
@@ -49,10 +47,22 @@ def _status(relative: str, default: str = "generated") -> str:
     return "present" if (BUNDLE_DIR / relative).is_file() else default
 
 
+def _library_year(code: str) -> int:
+    path = BUNDLE_DIR / "library" / code / "manifest.json"
+    if path.is_file():
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            year = int(data.get("year"))
+            if year > 2000:
+                return year
+        except Exception:
+            pass
+    return datetime.now(timezone.utc).year
+
+
 def build_manifest() -> list[dict]:
-    year = datetime.now(timezone.utc).year
     entries: list[dict] = []
-    for path in STATIC_PATHS:
+    for path in BASE_STATIC_PATHS:
         entries.append({
             "path": path,
             "source": ("generated from app templates"
@@ -72,13 +82,20 @@ def build_manifest() -> list[dict]:
         })
         if not subject.available:
             continue
-        for name in ("library/manifest.json",
-                     f"library/{code}/manifest.json"):
+        for page in (f"{subject.route}/index.html",
+                     f"{subject.route}/library/index.html",
+                     f"{subject.route}/generate/index.html"):
             entries.append({
-                "path": name,
-                "source": "generated from public Library metadata",
-                "status": _status(name),
+                "path": page,
+                "source": "generated from app templates",
+                "status": _status(page),
             })
+        entries.append({
+            "path": f"library/{code}/manifest.json",
+            "source": "generated from public Library metadata",
+            "status": _status(f"library/{code}/manifest.json"),
+        })
+        year = _library_year(code)
         for seed in range(1, 21):
             for scheme in (False, True):
                 for ext in ("docx", "pdf"):

@@ -5,7 +5,8 @@
  * and records an expiring row in D1.
  */
 
-const SUBJECT = "CSC662";
+const SUBJECTS = ["CSC662", "MAT133"];
+const SUBJECT_ROUTES = { csc662: "CSC662", mat133: "MAT133" };
 const DEFAULT_TTL_DAYS = 7;
 const DEFAULT_MAX_ENTRIES = 100;
 const ID_RE = /^[a-f0-9]{32}$/;
@@ -13,17 +14,19 @@ const ID_RE = /^[a-f0-9]{32}$/;
 const PAGE_MAP = {
   "/": "index.html",
   "/index.html": "index.html",
-  "/csc662": "csc662/index.html",
-  "/csc662/": "csc662/index.html",
-  "/csc662/library": "csc662/library/index.html",
-  "/csc662/library/": "csc662/library/index.html",
-  "/csc662/generate": "csc662/generate/index.html",
-  "/csc662/generate/": "csc662/generate/index.html",
   "/gallery": "gallery/index.html",
   "/gallery/": "gallery/index.html",
   "/paused": "paused/index.html",
   "/paused/": "paused/index.html",
 };
+for (const route of Object.keys(SUBJECT_ROUTES)) {
+  PAGE_MAP[`/${route}`] = `${route}/index.html`;
+  PAGE_MAP[`/${route}/`] = `${route}/index.html`;
+  PAGE_MAP[`/${route}/library`] = `${route}/library/index.html`;
+  PAGE_MAP[`/${route}/library/`] = `${route}/library/index.html`;
+  PAGE_MAP[`/${route}/generate`] = `${route}/generate/index.html`;
+  PAGE_MAP[`/${route}/generate/`] = `${route}/generate/index.html`;
+}
 
 const CONTENT_TYPES = {
   ".html": "text/html; charset=utf-8",
@@ -69,7 +72,7 @@ export function normaliseShare(body) {
   for (const key of Object.keys(body)) {
     if (!allowed.has(key)) throw new Error("unexpected field");
   }
-  if (body.subject !== SUBJECT) throw new Error("unknown subject");
+  if (!SUBJECTS.includes(body.subject)) throw new Error("unknown subject");
   if (body.mode !== "realistic") {
     throw new Error("only realistic library papers can be shared");
   }
@@ -77,7 +80,7 @@ export function normaliseShare(body) {
   if (!Number.isInteger(seed) || seed < 1 || seed > 20) {
     throw new Error("seed must be an integer from 1 to 20");
   }
-  return { subject: SUBJECT, mode: "realistic", seed };
+  return { subject: body.subject, mode: "realistic", seed };
 }
 
 function maxEntries(env) {
@@ -213,7 +216,7 @@ async function sharePaper(request, env) {
   }
 
   const manifestObject = await env.BUCKET.get(
-    `library/${SUBJECT}/manifest.json`);
+    `library/${share.subject}/manifest.json`);
   if (!manifestObject) return json({ error: "Library manifest missing" }, 500);
   const manifest = await manifestObject.json();
   const entry = (manifest.papers || []).find(

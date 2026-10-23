@@ -12,9 +12,11 @@ from fastapi.templating import Jinja2Templates
 from src import config
 from src.app.filenames import content_disposition
 from src.app.jobs import (filter_library, library_count, library_file,
-                          library_item, library_items, manager)
+                          library_item, library_items, manager,
+                          topic_legend)
 from src.app.safety import (ForbiddenPathError, assert_no_secret_leaks,
                             ensure_servable)
+from src.mat133.planner import GENERATOR_LABELS as MAT133_GENERATOR_LABELS
 from src.planner.planner import TYPE_LABEL
 from src.subjects.registry import (Subject, SubjectNotFound, get_subject,
                                    load_subjects)
@@ -117,11 +119,13 @@ def subject_page(request: Request, code: str) -> HTMLResponse:
                 config.PROJECT_ROOT).as_posix()
         except ValueError:
             registry = str(subject.registry_path)
-    labels = [TYPE_LABEL.get(g, g) for g in subject.enabled_computed_generators]
+    labels = [TYPE_LABEL.get(g) or MAT133_GENERATOR_LABELS.get(g, g)
+              for g in subject.enabled_computed_generators]
     return templates.TemplateResponse(
         request=request, name="subject.html",
         context=_context(request, subject=subject, paper_count=paper_count,
-                         registry_display=registry, generator_labels=labels))
+                         registry_display=registry, generator_labels=labels,
+                         deterministic=subject.code == "MAT133"))
 
 
 @app.get("/{code}/library", response_class=HTMLResponse)
@@ -134,11 +138,14 @@ def library(request: Request, code: str, q: str = "", computed: str = "any",
     topics = sorted({name for item in items
                      for name, marks in (item["topic_marks"] or {}).items()
                      if int(marks) > 0})
-    computed_options = sorted({int(item["computed_display"]) for item in items})
+    computed_options = sorted({
+        int(item.get("marks_value", item["computed_display"]) or 0)
+        for item in items})
     context = _context(request, subject=subject, items=filtered,
                        total=len(items), q=q, computed=computed, topic=topic,
                        placeholders=placeholders, topics=topics,
-                       computed_options=computed_options)
+                       computed_options=computed_options,
+                       topic_legend=topic_legend(subject.code))
     name = ("_library.html"
             if request.headers.get("HX-Request") == "true" else "library.html")
     return templates.TemplateResponse(request=request, name=name,
@@ -162,7 +169,8 @@ def generate_page(request: Request, code: str) -> HTMLResponse:
     subject = _require_subject_page(code)
     return templates.TemplateResponse(
         request=request, name="generate.html",
-        context=_context(request, subject=subject))
+        context=_context(request, subject=subject,
+                         deterministic=subject.code == "MAT133"))
 
 
 @app.post("/{code}/generate", response_class=HTMLResponse)

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery</title>
+  <script src="/assets/htmx.min.js" defer></script>
+  <script src="/assets/library.js" defer></script>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<h1>Mock Paper Generator</h1>
+<div class="nav">
+  <a href="/">Subjects</a>
+  
+    <a href="/csc662">CSC662</a>
+  
+    <a href="/mat133">MAT133</a>
+  
+    
+  
+    
+  
+  <a href="/gallery">Gallery</a>
+</div>
+<hr>
+
+
+<div class="notice">Public bundle: papers keep the original local-build cover;
+public schemes omit verbatim slide quotes. The Library contains PUBLIC_BUILD
+files only.</div>
+
+
+
+<h2>Public gallery</h2>
+<p>Papers shared by students. Every entry follows the PUBLIC_BUILD file rules and
+  contains no user-provided text. Entries are deleted automatically after
+  7 days.</p>
+<div class="notice">Study aid, not an official paper. Theory answers are
+  supported by lecture slides and are not lecturer-marked. Items auto-delete
+  after 7 days. No accounts; no IP logging beyond rate limiting.</div>
+
+<p id="gallery-status" class="error" hidden></p>
+<div class="table-scroll">
+<table id="gallery-table" hidden>
+  <thead>
+  <tr><th>Subject</th><th>Seed</th><th>Mode</th><th>Computed</th>
+      <th>Created</th><th>Expires</th><th>ID</th><th>Paper</th><th>Scheme</th></tr>
+  </thead>
+  <tbody></tbody>
+</table>
+</div>
+<p id="gallery-empty">No shared papers are currently listed. Use the Share
+  button in the Library to publish one from the pre-generated set.</p>
+
+<script src="/assets/gallery.js" defer></script>
+
+<h2 id="takedown">Takedown</h2>
+<p>If you believe a shared paper should be removed, contact
+  <a href="mailto:auzair1990@gmail.com">auzair1990@gmail.com</a> with the entry
+  ID. Shared files are purged automatically after their expiry date.</p>
+
+
+<div class="footer">
+  <hr>
+  <p class="small">Study aid, not an official paper. Theory answers are
+  supported by lecture slides where available; MAT133 answers come from
+  deterministic paper-derived generators. Not lecturer-marked.
+  <a href="/gallery#takedown">Takedown contact</a>.</p>
+  <p class="small">Contact:
+  <a href="mailto:auzair1990@gmail.com">auzair1990@gmail.com</a><br>
+  Git repository:
+  <a href="https://github.com/jerkfish/paper-generator">https://github.com/jerkfish/paper-generator</a></p>
+</div>
+</body>
+</html>

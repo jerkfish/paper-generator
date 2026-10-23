@@ -127,6 +127,9 @@ def _cache_save(path: Path, job: "Job") -> None:
         "cost_usd": job.cost_usd,
         "accepted": job.accepted,
         "placeholders": job.placeholders,
+        "total_marks": job.summary.get("total_marks"),
+        "has_practice_mode": job.summary.get("has_practice_mode", True),
+        "has_placeholders": job.summary.get("has_placeholders", True),
         "created": time.time(),
         "year": utc_year(job.finished or job.created),
         "topic_marks": job.summary.get("topic_marks", {}),
@@ -215,11 +218,42 @@ class Job:
         attempts = max((int(e.get("calls", 0)) for e in self.progress),
                        default=0)
         total = 24
+        if self.subject == "MAT133":
+            names = [f"Q{i}" for i in range(1, 6)]
+            by_slot = {e.get("slot", ""): e for e in self.progress}
+            latest = {e.get("question", ""): e for e in self.progress}
+
+            def _cell(question: str, part: str) -> dict:
+                slot = f"{question}{part}"
+                event = by_slot.get(slot)
+                fallback = ("ready" if self.status == "done" else "waiting")
+                return {
+                    "slot": slot,
+                    "status": (event.get("status", fallback)
+                               if event else fallback),
+                    "message": event.get("message", "") if event else "",
+                }
+
+            questions = [{
+                "name": name,
+                "status": (latest.get(name, {}).get("status")
+                           or ("ready" if self.status == "done"
+                               else "waiting")),
+                "slot": "",
+                "message": "",
+            } for name in names]
+            rows = [{
+                "name": name,
+                "a": _cell(name, "a"),
+                "b": _cell(name, "b"),
+            } for name in names]
+            total = max(1, self.accepted or 15)
         decided = min(total, self.accepted + self.placeholders)
         last_accepted = ""
         for event in self.progress:
             if event.get("status") == "accepted":
                 last_accepted = str(event.get("slot", ""))
+        filled = int(round(20 * decided / total)) if total else 0
         return {
             "id": self.id, "subject": self.subject, "mode": self.mode,
             "seed": self.seed, "computed_marks": self.computed_marks,
@@ -228,7 +262,11 @@ class Job:
             "progress": self.progress, "questions": questions,
             "rows": rows, "cost_usd": round(self.cost_usd, 6),
             "accepted": self.accepted, "placeholders": self.placeholders,
-            "total_slots": 24,
+            "total_slots": total,
+            "attempts": attempts,
+            "decided": decided,
+            "progress_bar": "=" * filled + "." * (20 - filled),
+            "last_accepted": last_accepted,
             "files": self.files, "summary": self.summary,
             "downloads": self.download_names(),
             "error": self.error, "cached": self.cached,
@@ -269,16 +307,22 @@ class JobManager:
             raise ValueError(f"unknown subject: {subject}") from None
         if not subject_obj.available:
             raise ValueError(f"subject {code} is coming soon")
-        if code != DEFAULT_SUBJECT:
+        deterministic = code == "MAT133"
+        if code not in {DEFAULT_SUBJECT, "MAT133"}:
             raise ValueError(f"subject {code} has no computed generator plugin")
-        if mode not in {"realistic", "practice"}:
+        if deterministic:
+            if mode != "realistic":
+                raise ValueError(
+                    "MAT133 uses deterministic realistic papers; practice "
+                    "mode is not available")
+        elif mode not in {"realistic", "practice"}:
             raise ValueError("mode must be realistic or practice")
         if seed is None:
             seed = random.SystemRandom().randint(1, 10_000)
         if int(seed) < 1:
             raise ValueError("seed must be a positive integer")
         seed = int(seed)
-        if mode == "practice":
+        if mode == "practice" and not deterministic:
             computed_marks = 22 if computed_marks is None else int(computed_marks)
             if not 0 <= computed_marks <= 80:
                 raise ValueError("computed marks must be between 0 and 80")
@@ -304,6 +348,11 @@ class JobManager:
             job.finished = time.time()
             with self._lock:
                 self._jobs[job.id] = job
+            return job
+        if deterministic:
+            with self._lock:
+                self._jobs[job.id] = job
+            self._pool.submit(self._run_mat133, job, cached)
             return job
         if not config.DEEPSEEK_API_KEY:
             job.status = "error"
@@ -419,6 +468,35 @@ class JobManager:
             job.error = f"{e}\n{traceback.format_exc()[-1200:]}"
             job.finished = time.time()
 
+    def _run_mat133(self, job: Job, cache_dir: Path) -> None:
+        from src.mat133.library import build_seed as build_mat133_seed
+
+        job.status = "running"
+        job.message = "Building deterministic MAT133 paper"
+        run_dir = config.WEB_RUNS_DIR / job.subject / job.id
+        run_dir.mkdir(parents=True, exist_ok=True)
+        try:
+            result = build_mat133_seed(job.seed, out_dir=run_dir, force=True)
+            meta = json.loads((run_dir / "meta.json").read_text(
+                encoding="utf-8"))
+            job.files = dict(meta.get("files", {}))
+            job.summary = dict(meta.get("summary", {}))
+            job.progress = list(meta.get("progress", []))
+            job.accepted = int(meta.get("accepted", 0))
+            job.placeholders = int(meta.get("placeholders", 0))
+            job.cost_usd = 0.0
+            job.model = str(meta.get("model", "mat133-deterministic"))
+            job.year = int(meta.get("year") or utc_year())
+            job.status = "done"
+            job.message = "Complete"
+            job.finished = time.time()
+            _cache_save(cache_dir, job)
+        except Exception as e:
+            job.status = "error"
+            job.message = f"Error: {e}"
+            job.error = f"{e}\n{traceback.format_exc()[-1200:]}"
+            job.finished = time.time()
+
 
 TOPIC_SHORT = {
     "attacks/malware": "ATK",
@@ -433,6 +511,20 @@ TOPIC_SHORT = {
     "block ciphers": "BLK",
     "hashing/signatures": "HSH",
     "public-key": "PKI",
+    "functions": "FUN",
+    "inequalities": "INQ",
+    "absolute_value": "ABS",
+    "lines": "LIN",
+    "circles": "CIR",
+    "parabolas": "PAR",
+    "complex_numbers": "CPX",
+    "systems_of_equations": "SYS",
+    "systems_of_inequalities": "SIQ",
+    "polynomials": "POL",
+    "exponential_logarithmic": "EXP",
+    "trigonometry": "TRG",
+    "circular_measure": "CME",
+    "triangle_geometry": "TRI",
     "other": "OTH",
 }
 
@@ -442,6 +534,23 @@ def topic_mix_text(topic_marks: dict) -> str:
                     if int(v) > 0), key=lambda kv: (-kv[1], kv[0]))
     return " ".join(f"{TOPIC_SHORT.get(name, name[:3].upper())} {marks}"
                     for name, marks in parts)
+
+
+def topic_legend(subject: str = DEFAULT_SUBJECT) -> str:
+    """Short abbreviation legend for the Library table."""
+    code = str(subject).upper()
+    if code == "MAT133":
+        return ("Topic abbreviations: FUN functions, INQ inequalities, "
+                "ABS absolute value, LIN lines, CIR circles, PAR parabolas, "
+                "CPX complex numbers, SYS systems, SIQ inequalities systems, "
+                "POL polynomials, EXP exponential/log, TRG trigonometry, "
+                "CME circular measure, TRI triangle geometry. Numbers are "
+                "marks. Click a column title to sort ascending/descending.")
+    return ("Topic abbreviations: ATK attacks/malware, AUT authentication, "
+            "ACC access control, TRU trusted computing, SWS software/OS, "
+            "NET network, ETH ethics, CIP classical ciphers. Numbers are "
+            "accepted marks. Click a column title to sort ascending/"
+            "descending.")
 
 
 def _planner_data(seed: int) -> dict:
@@ -519,10 +628,27 @@ def library_item(seed: int, subject: str = DEFAULT_SUBJECT) -> dict | None:
         return None
     meta = entry[1]
     mode = str(meta.get("mode") or "realistic")
-    plan = _planner_data(seed)
+    plan = _planner_data(seed) if code == DEFAULT_SUBJECT else {}
     computed = meta.get("computed_marks")
     if computed is None:
         computed = plan.get("computed_marks")
+    try:
+        subject_record = get_subject(code)
+    except SubjectNotFound:
+        subject_record = None
+    has_practice = bool(meta.get(
+        "has_practice_mode",
+        getattr(subject_record, "has_practice_mode", True)))
+    has_placeholders = bool(meta.get(
+        "has_placeholders",
+        getattr(subject_record, "has_placeholders", True)))
+    total_marks = meta.get("total_marks")
+    if total_marks is None:
+        total_marks = plan.get("total_marks")
+    computed_display = 0 if computed is None else int(computed)
+    marks_value = computed_display
+    if not has_practice and total_marks is not None:
+        marks_value = int(total_marks)
     year = int(meta.get("year") or utc_year(
         meta.get("created") or time.time()))
     marks = computed if mode == "practice" else None
@@ -540,7 +666,12 @@ def library_item(seed: int, subject: str = DEFAULT_SUBJECT) -> dict | None:
         "seed": seed,
         "mode": mode,
         "computed_marks": computed,
-        "computed_display": 0 if computed is None else int(computed),
+        "computed_display": computed_display,
+        "total_marks": int(total_marks) if total_marks is not None else None,
+        "marks_value": marks_value,
+        "marks_label": ("Computed marks" if has_practice else "Total marks"),
+        "has_practice_mode": has_practice,
+        "has_placeholders": has_placeholders,
         "year": year,
         "accepted": meta.get("accepted", 0),
         "placeholders": meta.get("placeholders", 0),
@@ -594,17 +725,20 @@ def filter_library(items: list[dict], q: str = "", computed: str = "any",
                 continue
         if computed not in ("", "any"):
             try:
-                if int(item.get("computed_display", 0)) != int(computed):
+                value = item.get("marks_value",
+                                 item.get("computed_display", 0))
+                if int(value) != int(computed):
                     continue
-            except ValueError:
+            except (TypeError, ValueError):
                 continue
         if topic not in ("", "any"):
             if not int((item.get("topic_marks") or {}).get(topic, 0)):
                 continue
-        if placeholders == "0" and int(item.get("placeholders", 0)) != 0:
-            continue
-        if placeholders == "1+" and int(item.get("placeholders", 0)) < 1:
-            continue
+        if item.get("has_placeholders", True):
+            if placeholders == "0" and int(item.get("placeholders", 0)) != 0:
+                continue
+            if placeholders == "1+" and int(item.get("placeholders", 0)) < 1:
+                continue
         out.append(item)
     return out
 
