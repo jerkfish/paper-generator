@@ -35,8 +35,9 @@ Screenshots: `design/mockups/*.png` and `*-top.png` (desktop), `*-mobile.png`
 
 - No icons, logos or decorative images in the interface.
 - No card grid. Library is a details table.
-- No animation or typewriter. Generation progress is a table updated from
-  real job events. No fake timer.
+- No typewriter or fake timer. Generation progress is a table updated from
+  real job events, plus a Windows XP-style process bar and an indeterminate
+  block scan while waiting. Reduced motion disables the scan.
 - Mobile: the table scrolls horizontally if needed; no separate mobile app
   shell. Font stays readable at 11-12 px.
 - `prefers-reduced-motion` is respected trivially because there is no motion.
@@ -94,7 +95,8 @@ Seed | Mode | Computed marks | Topic mix (marks) | Placeholders | Paper | Scheme
 - Job status tables:
   - counters: cost, attempts, accepted/24, placeholders, elapsed;
   - textual pipeline: `Retrieve > Draft > Verify > Accept`;
-  - ASCII progress bar;
+  - Windows XP-style segmented process bar, driven by the real
+    accepted/placeholder count;
   - one row per question, columns a/b/note;
   - last accepted question + source + entailment;
   - download links only on completion.

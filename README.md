@@ -26,10 +26,12 @@ There are two environments:
 | Worker | `cloudflare/worker/` |
 | D1 database | `papergen` (`9d99c331-d8ba-495e-9a8d-35e295bb882c`) |
 | R2 bucket | `exampapers` |
-| Public bundle | 181 files, 52,389,765 bytes / 49.96 MiB (CSC662 + MAT133) |
-| R2 bucket contents | 189 objects, 53,822,593 bytes / 51.33 MiB (bundle + 8 shared files) |
-| R2 quota used | 427 / 10,000 internal Class A, 0 Class B (October 2026) |
+| Public bundle | 181 files, 52,394,262 bytes / 49.96 MiB (CSC662 + MAT133) |
+| R2 bucket contents | 189 objects, 53,827,090 bytes / 51.33 MiB (bundle + 8 shared files) |
+| R2 quota used | 482 / 10,000 internal Class A, 0 Class B (October 2026) |
 | Worker | Deployed with CSC662 and MAT133 routes (version `597dd1ca`) |
+| Live mode | Scaffolded in `cloudflare/container-worker/`; not deployed |
+| Live-mode prerequisite | Cloudflare Workers Paid, **$5/month** (Containers has no free tier) |
 | Subjects | CSC662 and MAT133 available; CSC580/CSC645 coming soon |
 | Contact | auzair1990@gmail.com |
 | Repository | https://github.com/jerkfish/paper-generator |
@@ -55,6 +57,7 @@ uv run uvicorn src.app.main:app --host 127.0.0.1 --port 8000
 | `/` | Subject table: CSC662 and MAT133 available; CSC580/CSC645 coming soon |
 | `/csc662` | CSC662 hub: generate, Library, gallery |
 | `/csc662/library` | Filterable table of the 20 prebuilt CSC662 papers |
+| `/generate` | Shortcut to `/csc662/generate` |
 | `/csc662/generate` | Generate a CSC662 paper as a background job (LLM) |
 | `/mat133` | MAT133 hub: deterministic generate and Library |
 | `/mat133/library` | Filterable table of the 20 prebuilt MAT133 papers |
@@ -72,8 +75,11 @@ sorting are a small vanilla-JS enhancement, so the static public bundle
 behaves the same way.
 
 The job page shows one row per question and per-part slot status, updated from
-real job events. There is no fake timer, animation or typewriter. MAT133 jobs
-are deterministic and finish without an API key.
+real job events. Progress uses a Windows XP-style segmented process bar driven
+by the real accepted/placeholder count. Completed realistic Library seeds 1-20
+show a **Share this paper to the public gallery** link, which proxies to the
+public Worker. There is no fake timer or typewriter. MAT133 jobs are
+deterministic and finish without an API key.
 
 ## Public routes
 
@@ -187,11 +193,22 @@ Only CSC662 live generation needs an API key. Put it in `.env` (gitignored):
 
 ```text
 DEEPSEEK_API_KEY=...
+# Public-build generation:
+GEMINI_API_KEY=...
 ```
 
-The default model is `deepseek-flash` (DeepSeek-V4.1-Flash-1017). With no key,
-the CSC662 Library still works; the Generate page explains that live
-generation is unavailable. MAT133 never needs a key.
+Local builds default to `deepseek-flash` (DeepSeek-V4.1-Flash-1017). Public
+builds (`PUBLIC_BUILD=1`) default to **`gemini-3.5-flash`**; `MOCKGEN_MODEL`
+overrides this. If the Gemini key is missing or still the placeholder, public
+generation fails closed instead of silently falling back to DeepSeek. Gemini
+calls send `reasoning_effort: "none"` so thinking tokens do not truncate JSON.
+`GEMINI_API_KEY=REPLACE_WITH_GEMINI_API_KEY` in `.env.example` is a
+placeholder; the live Worker requires the real value via
+`wrangler secret put GEMINI_API_KEY` and refuses to start the container while
+the placeholder is present.
+
+With no key, the CSC662 Library still works; the Generate page explains that
+live generation is unavailable. MAT133 never needs a key.
 
 The CSC662 pipeline is:
 
@@ -246,10 +263,16 @@ uv run python -m scripts.migrate_cache_subjects
 
 ## PDF export and scheme QA
 
-PDF export uses Microsoft Word COM. If Word is unavailable, a CSC662 job
-completes with DOCX links and says PDF export is unavailable. MAT133 prebuild
-treats a missing PDF as a build error because the public bundle needs both
-formats.
+PDF export uses Microsoft Word COM on Windows. Set
+`MOCKGEN_PDF_ENGINE=libreoffice` to use LibreOffice headless; this is the
+default on non-Windows hosts and inside the container. If neither converter is
+available, a CSC662 job completes with DOCX links and says PDF export is
+unavailable. MAT133 prebuild treats a missing PDF as a build error because the
+public bundle needs both formats.
+
+LibreOffice currently renders the MAT133 cover one page longer than Word; the
+live deployment must either serve DOCX only or accept/document that difference
+until the cover is tuned for LibreOffice.
 
 Scheme tables are checked after export: the grid must fit the body usable
 width, and rendered pages are scanned for ink beyond the right margin in both
@@ -351,6 +374,25 @@ uv run --with boto3 python -m scripts.r2_sync --check
   optional `R2_ENDPOINT`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`.
 - Free-tier compliance and backup plan: `cloudflare/R2_QUOTA_PLAN.md`.
 - Minimal credential scopes: `cloudflare/TOKEN_SCOPES.md`.
+
+## Live mode (Phase 4.2)
+
+The optional live deployment runs the FastAPI app in a Cloudflare Container
+and fronts it with a Worker:
+
+- `Dockerfile` — Python 3.12, uv, LibreOffice Writer and Graphviz.
+- `cloudflare/container-worker/` — Worker and Durable Object lifecycle.
+- `docs/DEPLOY_LIVE.md` — costs, secrets, privacy and deploy steps.
+- `MOCKGEN_PDF_ENGINE=libreoffice` switches PDF export from Word COM to
+  LibreOffice headless. The Windows local default remains Word.
+- The live container uses the `GEMINI_API_KEY` Worker secret. The checked-in
+  example is only `REPLACE_WITH_GEMINI_API_KEY`; the Worker refuses to start
+  the container if the secret is missing or still a placeholder.
+
+**Not deployed.** Cloudflare Containers requires the **Workers Paid plan
+($5/month)**; it has no free tier. The deploying machine also needs Docker;
+this machine has no Docker, so the image build/deploy was not executed. The
+library-only site remains $0 and is unaffected.
 
 ## Cloudflare Worker and gallery
 
@@ -462,7 +504,7 @@ mockups are in `design/mockups/`.
 ## Tests
 
 ```bash
-uv run pytest -q        # 243 Python tests
+uv run pytest -q        # 254 Python tests
 cd cloudflare/worker
 bun test                # 5 Worker tests
 ```
@@ -473,5 +515,6 @@ download names, subject-scoped routes, sortable/filterable Library,
 subject-aware marks/placeholder columns, public bundle rendering/validation,
 secret scan, public-path guards, bundle allowlist,
 R2 quota guard, MAT133 taxonomy/question-log integrity, all 57 MAT133
-generators, the MAT133 deterministic planner, the 20-seed generator coverage
-and the MAT133 DOCX/XML builder.
+generators, the MAT133 deterministic planner, the 20-seed generator coverage,
+the MAT133 DOCX/XML builder, provider routing, public-build Gemini selection,
+the `/generate` shortcut/health endpoint and PDF engine selection.

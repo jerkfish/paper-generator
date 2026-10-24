@@ -73,6 +73,73 @@ def test_cache_key_is_subject_specific(monkeypatch, tmp_path):
     assert a.name != b.name
 
 
+def test_health_endpoint():
+    from fastapi.testclient import TestClient
+    response = TestClient(main.app).get("/health")
+    assert response.status_code == 200
+    assert response.json()["ok"] is True
+
+
+def test_gallery_share_proxy_validates_input():
+    from fastapi.testclient import TestClient
+    client = TestClient(main.app)
+    assert client.post("/api/gallery/share",
+                       json={"subject": "NOPE", "mode": "realistic",
+                             "seed": 1}).status_code == 400
+    assert client.post("/api/gallery/share",
+                       json={"subject": "CSC662", "mode": "realistic",
+                             "seed": 0}).status_code == 400
+    assert client.post("/api/gallery/share",
+                       json={"subject": "CSC662", "mode": "practice",
+                             "seed": 1}).status_code == 400
+
+
+def test_gallery_share_proxy_forwards_to_public_worker(monkeypatch):
+    from fastapi.testclient import TestClient
+    captured = {}
+
+    class FakeResponse:
+        status_code = 200
+
+        def json(self):
+            return {"id": "abc", "gallery_url": "/gallery"}
+
+    class FakeClient:
+        async def __aenter__(self):
+            return self
+
+        async def __aexit__(self, *args):
+            return False
+
+        async def post(self, url, json):
+            captured["url"] = url
+            captured["json"] = json
+            return FakeResponse()
+
+    monkeypatch.setattr(main.httpx, "AsyncClient",
+                        lambda **kwargs: FakeClient())
+    response = TestClient(main.app).post(
+        "/api/gallery/share",
+        json={"subject": "CSC662", "mode": "realistic", "seed": 7})
+    assert response.status_code == 200
+    assert captured["url"].endswith("/api/gallery/share")
+    assert captured["json"] == {
+        "subject": "CSC662", "mode": "realistic", "seed": 7}
+
+
+def test_local_generate_shortcut_and_nav(monkeypatch, tmp_path):
+    from fastapi.testclient import TestClient
+    monkeypatch.setattr(jobs.config, "WEB_CACHE_DIR", tmp_path / "cache")
+    monkeypatch.setattr(jobs.config, "OUTPUTS_DIR", tmp_path)
+    client = TestClient(main.app)
+    response = client.get("/generate", follow_redirects=False)
+    assert response.status_code == 307
+    assert response.headers["location"] == "/csc662/generate"
+    html = client.get("/").text
+    assert 'href="/csc662/generate"' in html
+    assert 'href="/mat133/generate"' in html
+
+
 def test_subject_pages_and_coming_soon(monkeypatch, tmp_path):
     from fastapi.testclient import TestClient
     monkeypatch.setattr(jobs.config, "WEB_CACHE_DIR", tmp_path / "cache")
@@ -234,6 +301,9 @@ def test_generate_route_renders_cached_job(monkeypatch, tmp_path):
     assert "DONE" in resp.text
     assert "CSC662 Seed 07 2026.pdf" in resp.text
     assert "/csc662/downloads/" in resp.text
+    assert 'class="xp-progress' in resp.text
+    assert "Share this paper to the public gallery" in resp.text
+    assert 'class="share-job"' in resp.text
 
 
 def test_r2_remote_state_detects_missing_and_changed_objects():

@@ -1,0 +1,38 @@
+name = "papergen-live"
+main = "src/index.js"
+compatibility_date = "2026-10-23"
+workers_dev = true
+upload_source_maps = true
+
+[observability]
+enabled = true
+
+# The Dockerfile lives at the repository root; the build context is the repo
+# root so pyproject.toml, uv.lock, src/ and data/ are available.
+[[containers]]
+class_name = "Backend"
+scheduling_policy = "durable_object"
+
+[containers.images.base]
+dockerfile = "../../Dockerfile"
+build_context = "../.."
+
+[[durable_objects.bindings]]
+name = "BACKEND"
+class_name = "Backend"
+
+[exports.Backend]
+type = "durable-object"
+storage = "sqlite"
+
+[vars]
+MOCKGEN_MODEL = "gemini-3.5-flash"
+MOCKGEN_GEMINI_MODEL = "gemini-3.5-flash"
+MOCKGEN_PDF_ENGINE = "libreoffice"
+MOCKGEN_COST_CAP_USD = "0.05"
+
+# Optional: attach the live Worker to a separate hostname after the library
+# Worker remains on the apex.
+# [[routes]]
+# pattern = "live.uitmpapergen.download"
+# custom_domain = true

@@ -4,16 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}{{ site_name }}{% endblock %}</title>
-  <script src="{{ asset_base|default('/static') }}/htmx.min.js" defer></script>
-  <script src="{{ asset_base|default('/static') }}/library.js" defer></script>
-  <link rel="stylesheet" href="{{ asset_base|default('/static') }}/style.css">
+  <script src="{{ asset_base|default('/static') }}/htmx.min.js?v={{ asset_version|default(0) }}" defer></script>
+  <script src="{{ asset_base|default('/static') }}/library.js?v={{ asset_version|default(0) }}" defer></script>
+  {% if not static_bundle|default(false) %}
+  <script src="{{ asset_base|default('/static') }}/job.js?v={{ asset_version|default(0) }}" defer></script>
+  {% endif %}
+  <link rel="stylesheet" href="{{ asset_base|default('/static') }}/style.css?v={{ asset_version|default(0) }}">
 </head>
 <body>
 <h1>{{ site_name }}</h1>
 <div class="nav">
   <a href="/">Subjects</a>
   {% for nav_subject in subjects %}
-    {% if nav_subject.available %}<a href="/{{ nav_subject.route }}">{{ nav_subject.code }}</a>{% endif %}
+    {% if nav_subject.available %}
+    <a href="/{{ nav_subject.route }}">{{ nav_subject.code }}</a>
+    {% endif %}
   {% endfor %}
   <a href="/gallery">Gallery</a>
 </div>

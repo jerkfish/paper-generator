@@ -1226,11 +1226,9 @@ def main() -> None:
                     help="keep prior accepted questions and retry only the "
                          "groups that ended as placeholders")
     args = ap.parse_args()
-    if args.model.startswith("deepseek"):
-        if not config.DEEPSEEK_API_KEY:
-            raise SystemExit("DEEPSEEK_API_KEY is not set")
-    elif not config.QWEN_API_KEY:
-        raise SystemExit("QWEN_API_KEY is not set")
+    if not config.llm_key_ready(args.model):
+        raise SystemExit(
+            f"no API key is set for model {args.model}")
     prefix = args.out_prefix.split("/")[-1]
     jp = config.OUTPUTS_DIR / f"{prefix}.json"
     mp = config.OUTPUTS_DIR / f"{prefix}.md"

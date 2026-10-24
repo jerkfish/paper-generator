@@ -228,6 +228,11 @@ def _render_pages(out: Path, subject_items: dict[str, list[dict]]) -> dict:
     )
     subjects = list(load_subjects().values())
     counts = {s.code: len(subject_items.get(s.code, [])) for s in subjects}
+    try:
+        asset_version = int(max(
+            p.stat().st_mtime for p in STATIC.iterdir() if p.is_file()))
+    except (OSError, ValueError):
+        asset_version = 0
     base = {
         "site_name": config.SITE_NAME,
         "subjects": subjects,
@@ -237,6 +242,7 @@ def _render_pages(out: Path, subject_items: dict[str, list[dict]]) -> dict:
         "generate_disabled": True,
         "gallery_enabled": True,
         "asset_base": "/assets",
+        "asset_version": asset_version,
         "contact_email": config.CONTACT_EMAIL,
         "repo_url": config.REPO_URL,
         "cost_cap": config.WEB_COST_CAP_USD,

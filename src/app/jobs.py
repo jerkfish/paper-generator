@@ -249,6 +249,8 @@ class Job:
             } for name in names]
             total = max(1, self.accepted or 15)
         decided = min(total, self.accepted + self.placeholders)
+        progress_percent = (round(100 * decided / total)
+                            if total else 0)
         last_accepted = ""
         for event in self.progress:
             if event.get("status") == "accepted":
@@ -265,6 +267,7 @@ class Job:
             "total_slots": total,
             "attempts": attempts,
             "decided": decided,
+            "progress_percent": progress_percent,
             "progress_bar": "=" * filled + "." * (20 - filled),
             "last_accepted": last_accepted,
             "files": self.files, "summary": self.summary,
@@ -354,10 +357,10 @@ class JobManager:
                 self._jobs[job.id] = job
             self._pool.submit(self._run_mat133, job, cached)
             return job
-        if not config.DEEPSEEK_API_KEY:
+        if not config.llm_key_ready():
             job.status = "error"
-            job.error = ("DEEPSEEK_API_KEY is not set. Use the Library tab "
-                         "for cached papers.")
+            job.error = ("No LLM API key is set for the active model. "
+                         "Use the Library tab for cached papers.")
             job.message = job.error
             with self._lock:
                 self._jobs[job.id] = job

@@ -22,7 +22,24 @@
   </table>
 
   <p class="small mono">Pipeline: Retrieve &gt; Draft &gt; Verify &gt; Accept</p>
-  <p class="bar">[{{ job.progress_bar }}] {{ job.decided }}/{{ job.total_slots }} slots decided</p>
+  <div class="xp-progress-panel">
+    <div class="xp-progress-container">
+      <div class="xp-progress-track" role="progressbar"
+           aria-valuemin="0" aria-valuemax="100"
+           aria-valuenow="{{ job.progress_percent }}"
+           aria-label="Generation progress">
+        <div class="xp-progress-fill" style="width: {{ job.progress_percent }}%"></div>
+        {% if job.running and job.decided == 0 %}
+        <div class="xp-progress-scan" aria-hidden="true"></div>
+        {% endif %}
+      </div>
+      <div class="progress-percent">
+        <span>{{ job.progress_percent }}%</span>
+        <span>{{ job.decided }}/{{ job.total_slots }} slots</span>
+      </div>
+    </div>
+    <div class="status-text">{{ job.message }}</div>
+  </div>
   {% if job.last_accepted %}<p class="small">Last accepted slot: {{ job.last_accepted }}</p>{% endif %}
 
   {% if job.running %}
@@ -63,6 +80,17 @@
       placeholders: {{ job.summary.placeholders|default(job.placeholders) }};
       model: {{ job.summary.model|default(job.model) }};
       estimated cost: ${{ "%.4f"|format(job.summary.cost_usd|default(job.cost_usd)) }}.</p>
+    <p class="small">
+      {% if job.mode == 'realistic' and job.seed >= 1 and job.seed <= 20 %}
+      <a href="#" class="share-job"
+         data-subject="{{ job.subject }}"
+         data-seed="{{ job.seed }}"
+         data-mode="{{ job.mode }}">Share this paper to the public gallery</a>
+      <span class="share-job-status" aria-live="polite"></span>
+      {% else %}
+      Public-gallery sharing is available for realistic Library seeds 1-20.
+      {% endif %}
+    </p>
   {% endif %}
 
   {% if job.status == "cost_capped" %}

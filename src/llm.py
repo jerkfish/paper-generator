@@ -12,17 +12,21 @@ _clients: dict[str, OpenAI] = {}
 
 
 def _provider(model: str | None) -> str:
-    # Only the configured official DeepSeek model id routes to DeepSeek.
-    # Legacy DashScope names such as deepseek-v4.1-flash-1017 stay on the
-    # Qwen compatible endpoint.
-    return "deepseek" if str(model or "") == config.DEEPSEEK_MODEL else "qwen"
+    # Gemini model ids use Google's OpenAI-compatible endpoint.  Only the
+    # configured official DeepSeek model id routes to DeepSeek; legacy
+    # DashScope names such as deepseek-v4.1-flash-1017 stay on Qwen.
+    name = str(model or "")
+    if name.startswith("gemini-") or name == config.GEMINI_MODEL:
+        return "gemini"
+    return "deepseek" if name == config.DEEPSEEK_MODEL else "qwen"
 
 
 def client(model: str | None = None) -> OpenAI:
     """Return a provider-specific OpenAI-compatible client.
 
-    A model id beginning with ``deepseek`` uses the official DeepSeek
-    platform; everything else uses the Qwen compatible endpoint.
+    Gemini ids use Google's OpenAI-compatible endpoint; the configured
+    DeepSeek id uses the official DeepSeek platform; everything else uses
+    the Qwen compatible endpoint.
     """
     provider = _provider(model)
     if provider not in _clients:
@@ -32,6 +36,16 @@ def client(model: str | None = None) -> OpenAI:
             _clients[provider] = OpenAI(
                 api_key=config.DEEPSEEK_API_KEY,
                 base_url=config.DEEPSEEK_BASE_URL,
+                timeout=180.0)
+        elif provider == "gemini":
+            if not config._key_usable(config.GEMINI_API_KEY):
+                raise RuntimeError(
+                    "GEMINI_API_KEY is missing or still a placeholder; set "
+                    "a real key locally or use `wrangler secret put` for "
+                    "the live Worker")
+            _clients[provider] = OpenAI(
+                api_key=config.GEMINI_API_KEY,
+                base_url=config.GEMINI_BASE_URL,
                 timeout=180.0)
         else:
             if not config.QWEN_API_KEY:
@@ -121,7 +135,8 @@ def chat_json_result(system: str, user: str, model: str | None = None,
     usage = usage or Usage()
     last_err: Exception | None = None
     use_json_mode = True
-    chosen_model = model or config.QWEN_MODEL
+    chosen_model = model or config.MOCKGEN_MODEL
+    provider = _provider(chosen_model)
     for attempt in range(1, config.LLM_MAX_RETRIES + 1):
         try:
             kwargs: dict = {
@@ -129,14 +144,18 @@ def chat_json_result(system: str, user: str, model: str | None = None,
                 "messages": [{"role": "system", "content": system},
                              {"role": "user", "content": user}],
                 "temperature": temperature,
-                # Both providers default to thinking; exam drafting needs
-                # none of it and thinking tokens are billed as output.
-                "extra_body": (
-                    {"thinking": {"type": "disabled"}}
-                    if _provider(chosen_model) == "deepseek"
-                    else {"enable_thinking": False}),
                 "max_tokens": max_tokens,
             }
+            # DeepSeek and Qwen default to thinking; exam drafting needs none
+            # of it and thinking tokens are billed as output.  Gemini's
+            # OpenAI-compatible endpoint does not accept these fields.
+            if provider == "deepseek":
+                kwargs["extra_body"] = {"thinking": {"type": "disabled"}}
+            elif provider == "qwen":
+                kwargs["extra_body"] = {"enable_thinking": False}
+            elif provider == "gemini" and config.GEMINI_REASONING_EFFORT:
+                kwargs["extra_body"] = {
+                    "reasoning_effort": config.GEMINI_REASONING_EFFORT}
             if use_json_mode:
                 kwargs["response_format"] = {"type": "json_object"}
             resp = client(chosen_model).chat.completions.create(**kwargs)

@@ -1,0 +1,24 @@
+{
+  "code": "CSC662",
+  "title": "Computer Security",
+  "status": "available",
+  "header_text": "CSC662 COMPUTER SECURITY",
+  "enabled_computed_generators": [
+    "vigenere",
+    "acm",
+    "columnar_keyword",
+    "columnar_3x4",
+    "rail_fence",
+    "otp",
+    "caesar"
+  ],
+  "has_practice_mode": true,
+  "has_placeholders": true,
+  "paper_count": 20,
+  "library_manifest": "/library/CSC662/manifest.json",
+  "routes": {
+    "home": "/csc662",
+    "library": "/csc662/library",
+    "generate": "/csc662/generate"
+  }
+}

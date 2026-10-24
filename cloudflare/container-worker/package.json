@@ -1,0 +1,9 @@
+{
+  "name": "papergen-live-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun x wrangler dev",
+    "deploy": "bun x wrangler deploy"
+  }
+}

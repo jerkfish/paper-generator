@@ -17,8 +17,8 @@
 <div class="notice">MAT133 is deterministic: a seed always produces the same
   paper and marking scheme from the 57 computed generators.</div>
 {% elif not has_key %}
-<div class="notice">DEEPSEEK_API_KEY is not set. Live generation is
-  unavailable; the pre-generated Library still works.</div>
+<div class="notice">No API key is set for the active model ({{ model }}).
+  Live generation is unavailable; the pre-generated Library still works.</div>
 {% endif %}
 
 <form hx-post="/{{ subject.route }}/generate" hx-target="#job"

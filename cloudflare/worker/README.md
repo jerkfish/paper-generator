@@ -4,6 +4,10 @@ Serves the static public bundle from R2, adds a D1-backed public gallery, and
 copies PUBLIC_BUILD library files into `shared/<id>/` when someone shares a
 paper. There is no Python runtime and no LLM call in this deployment.
 
+The optional Phase 4.2 live mode is a separate Worker in
+`../container-worker/`; it is scaffolded but not deployed. See
+`../../docs/DEPLOY_LIVE.md` for the Workers Paid requirement and deploy steps.
+
 ## Current deployment
 
 - Worker: https://uitmpapergen.download
@@ -11,7 +15,7 @@ paper. There is no Python runtime and no LLM call in this deployment.
 - workers.dev fallback: https://papergen.jerkfish123.workers.dev
 - D1: `papergen` (`9d99c331-d8ba-495e-9a8d-35e295bb882c`), schema applied.
 - R2: `exampapers`, 181-file public bundle (CSC662 + MAT133) plus shared
-  gallery objects; 189 objects, 53,822,593 bytes after the MAT133 publish.
+  gallery objects; 189 objects, 53,827,090 bytes after the MAT133 publish.
 - Lifecycle: read-only check works; adding the rule needs
   `Workers R2 Storage Write` on the API token (or the dashboard).
 

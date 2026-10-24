@@ -1,0 +1,294 @@
+{
+  "subject": "CSC662",
+  "seed": 1999,
+  "mode": "realistic",
+  "computed_marks": 0,
+  "model": "deepseek-flash",
+  "cost_usd": 0.042708,
+  "accepted": 24,
+  "placeholders": 0,
+  "total_marks": null,
+  "has_practice_mode": true,
+  "has_placeholders": true,
+  "created": 1792755100.072905,
+  "year": 2026,
+  "topic_marks": {
+    "risk/management (ethics)": 18,
+    "attacks/malware": 24,
+    "access control models": 16,
+    "trusted computing/blockchain": 8,
+    "network security": 8,
+    "authentication/biometrics": 18,
+    "software/OS security": 8
+  },
+  "files": {
+    "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC662\\5e6dcf735acf1662d596\\paper.docx",
+    "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC662\\5e6dcf735acf1662d596\\paper.pdf",
+    "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC662\\5e6dcf735acf1662d596\\scheme.docx",
+    "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC662\\5e6dcf735acf1662d596\\scheme.pdf"
+  },
+  "summary": {
+    "subject": "CSC662",
+    "seed": 1999,
+    "mode": "realistic",
+    "computed_marks": 0,
+    "accepted": 24,
+    "placeholders": 0,
+    "model": "deepseek-flash",
+    "cost_usd": 0.042708,
+    "cached": false,
+    "topic_marks": {
+      "risk/management (ethics)": 18,
+      "attacks/malware": 24,
+      "access control models": 16,
+      "trusted computing/blockchain": 8,
+      "network security": 8,
+      "authentication/biometrics": 18,
+      "software/OS security": 8
+    },
+    "pdf_available": true,
+    "pdf_note": ""
+  },
+  "progress": [
+    {
+      "question": "A1",
+      "slot": "A1a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.001635,
+      "calls": 2,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A1",
+      "slot": "A1b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.004955,
+      "calls": 8,
+      "accepted": 2,
+      "placeholders": 0
+    },
+    {
+      "question": "A2",
+      "slot": "A2a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.006578,
+      "calls": 10,
+      "accepted": 3,
+      "placeholders": 0
+    },
+    {
+      "question": "A2",
+      "slot": "A2b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.008601,
+      "calls": 12,
+      "accepted": 4,
+      "placeholders": 0
+    },
+    {
+      "question": "A3",
+      "slot": "A3a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.010115,
+      "calls": 13,
+      "accepted": 5,
+      "placeholders": 0
+    },
+    {
+      "question": "A3",
+      "slot": "A3b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.012046,
+      "calls": 16,
+      "accepted": 6,
+      "placeholders": 0
+    },
+    {
+      "question": "A4",
+      "slot": "A4a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.014831,
+      "calls": 18,
+      "accepted": 7,
+      "placeholders": 0
+    },
+    {
+      "question": "A4",
+      "slot": "A4b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.016623,
+      "calls": 19,
+      "accepted": 8,
+      "placeholders": 0
+    },
+    {
+      "question": "A5",
+      "slot": "A5a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.017831,
+      "calls": 20,
+      "accepted": 9,
+      "placeholders": 0
+    },
+    {
+      "question": "A5",
+      "slot": "A5b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.019244,
+      "calls": 22,
+      "accepted": 10,
+      "placeholders": 0
+    },
+    {
+      "question": "A6",
+      "slot": "A6a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.02027,
+      "calls": 24,
+      "accepted": 11,
+      "placeholders": 0
+    },
+    {
+      "question": "A6",
+      "slot": "A6b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.021606,
+      "calls": 25,
+      "accepted": 12,
+      "placeholders": 0
+    },
+    {
+      "question": "A7",
+      "slot": "A7a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.022922,
+      "calls": 27,
+      "accepted": 13,
+      "placeholders": 0
+    },
+    {
+      "question": "A7",
+      "slot": "A7b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.024725,
+      "calls": 29,
+      "accepted": 14,
+      "placeholders": 0
+    },
+    {
+      "question": "A8",
+      "slot": "A8a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.026122,
+      "calls": 30,
+      "accepted": 15,
+      "placeholders": 0
+    },
+    {
+      "question": "A8",
+      "slot": "A8b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.028232,
+      "calls": 34,
+      "accepted": 16,
+      "placeholders": 0
+    },
+    {
+      "question": "A9",
+      "slot": "A9a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.030932,
+      "calls": 36,
+      "accepted": 17,
+      "placeholders": 0
+    },
+    {
+      "question": "A9",
+      "slot": "A9b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.034099,
+      "calls": 41,
+      "accepted": 18,
+      "placeholders": 0
+    },
+    {
+      "question": "A10",
+      "slot": "A10a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.035372,
+      "calls": 43,
+      "accepted": 19,
+      "placeholders": 0
+    },
+    {
+      "question": "A10",
+      "slot": "A10b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.036794,
+      "calls": 45,
+      "accepted": 20,
+      "placeholders": 0
+    },
+    {
+      "question": "B1",
+      "slot": "B1a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.038531,
+      "calls": 48,
+      "accepted": 21,
+      "placeholders": 0
+    },
+    {
+      "question": "B1",
+      "slot": "B1b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.040153,
+      "calls": 50,
+      "accepted": 22,
+      "placeholders": 0
+    },
+    {
+      "question": "B2",
+      "slot": "B2a",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.041497,
+      "calls": 54,
+      "accepted": 23,
+      "placeholders": 0
+    },
+    {
+      "question": "B2",
+      "slot": "B2b",
+      "status": "accepted",
+      "message": "",
+      "cost_usd": 0.042708,
+      "calls": 57,
+      "accepted": 24,
+      "placeholders": 0
+    }
+  ]
+}

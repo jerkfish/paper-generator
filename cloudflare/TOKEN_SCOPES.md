@@ -41,12 +41,16 @@ R2_SECRET_ACCESS_KEY=<secret access key>
 Only create this when deploying a Worker or Pages project. Use a **separate**
 token, scoped to the one account and, where possible, the one zone.
 
+The library-only Worker works on the free plan. The Phase 4.2 live container
+requires the **Workers Paid plan ($5/month)**; Containers has no free tier.
+
 Essential for the planned deployment:
 
 | Permission | Why |
 |---|---|
 | Account: Workers Scripts Write | Deploy/update the Worker |
 | Account: Workers R2 Storage Read | Read bucket metadata; add Write only if managing lifecycle via API |
+| Account: Containers Write | Build/deploy the Phase 4.2 live container |
 | Account: Workers KV Storage Write | Only if KV is used instead of D1 |
 | Account: D1 Write | Create/query the gallery database |
 | Zone: Workers Routes Write | Route the Worker on a custom domain (not needed for workers.dev) |

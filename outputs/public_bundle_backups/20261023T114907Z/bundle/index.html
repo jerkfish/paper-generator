@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mock Paper Generator</title>
+  <script src="/assets/htmx.min.js?v=1792755422" defer></script>
+  <script src="/assets/library.js?v=1792755422" defer></script>
+  
+  <link rel="stylesheet" href="/assets/style.css?v=1792755422">
+</head>
+<body>
+<h1>Mock Paper Generator</h1>
+<div class="nav">
+  <a href="/">Subjects</a>
+  
+    
+    <a href="/csc662">CSC662</a>
+    
+    
+  
+    
+    <a href="/mat133">MAT133</a>
+    
+    
+  
+    
+  
+    
+  
+  <a href="/gallery">Gallery</a>
+</div>
+<hr>
+
+
+<div class="notice">Public bundle: papers keep the original local-build cover;
+public schemes omit verbatim slide quotes. The Library contains PUBLIC_BUILD
+files only.</div>
+
+
+
+<p>Generate practice papers from lecture material, or browse pre-generated
+papers. Local study aid. No accounts, no uploads.</p>
+<p class="small">Theory answers are supported by lecture slides, not
+lecturer-marked. This is not an official exam paper.</p>
+
+<h2>Subjects</h2>
+<table>
+  <tr><th>Code</th><th>Subject</th><th>Status</th><th>Papers</th><th></th></tr>
+  
+  <tr>
+    <td>CSC662</td>
+    <td>Computer Security</td>
+    <td class="ok">available</td>
+    <td>
+      20 cached realistic papers
+      
+    </td>
+    <td>
+      <a href="/csc662">open</a>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>MAT133</td>
+    <td>Pre-Calculus</td>
+    <td class="ok">available</td>
+    <td>
+      20 cached realistic papers
+      
+    </td>
+    <td>
+      <a href="/mat133">open</a>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>CSC580</td>
+    <td>Software Engineering</td>
+    <td class="muted">coming soon</td>
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr>
+    <td>CSC645</td>
+    <td>Data Security</td>
+    <td class="muted">coming soon</td>
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+</table>
+
+<h2>Purpose</h2>
+<table>
+  <tr><th>Path</th><th>What it does</th><th>Needs a key?</th><th>Cost</th></tr>
+  <tr><td>Generate a new paper</td>
+      <td>Background generation with slot-by-slot status</td>
+      <td>CSC662 yes; MAT133 no (deterministic)</td>
+      <td>CSC662 per-run cap $0.05; MAT133 $0</td></tr>
+  <tr><td>Browse pre-generated papers</td>
+      <td>20 cached realistic papers, instant download</td>
+      <td>no</td><td>$0</td></tr>
+  <tr><td>Public gallery</td>
+      <td>Opt-in shared papers, deleted after 7 days</td>
+      <td>no</td><td>$0</td></tr>
+</table>
+
+
+<div class="footer">
+  <hr>
+  <p class="small">Study aid, not an official paper. Theory answers are
+  supported by lecture slides where available; MAT133 answers come from
+  deterministic paper-derived generators. Not lecturer-marked.
+  <a href="/gallery#takedown">Takedown contact</a>.</p>
+  <p class="small">Contact:
+  <a href="mailto:auzair1990@gmail.com">auzair1990@gmail.com</a><br>
+  Git repository:
+  <a href="https://github.com/jerkfish/paper-generator">https://github.com/jerkfish/paper-generator</a></p>
+</div>
+</body>
+</html>

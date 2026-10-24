@@ -81,8 +81,33 @@ DEEPSEEK_BASE_URL = os.environ.get(
     "DEEPSEEK_BASE_URL", "https://api.deepseek.com")
 DEEPSEEK_MODEL = os.environ.get(
     "MOCKGEN_DEEPSEEK_MODEL", "deepseek-flash")
+
+# Google Gemini (OpenAI-compatible endpoint).  Used as the default model for
+# public-build generation; local builds keep DeepSeek unless overridden.
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
+GEMINI_BASE_URL = os.environ.get(
+    "GEMINI_BASE_URL",
+    "https://generativelanguage.googleapis.com/v1beta/openai/")
+GEMINI_MODEL = os.environ.get(
+    "MOCKGEN_GEMINI_MODEL", "gemini-3.5-flash")
+# Gemini 3.5 Flash accepts reasoning_effort="none" on the OpenAI-compatible
+# endpoint; this keeps thinking tokens (and latency/cost) out of drafting.
+# Set MOCKGEN_GEMINI_REASONING_EFFORT="" for models that reject the field.
+GEMINI_REASONING_EFFORT = os.environ.get(
+    "MOCKGEN_GEMINI_REASONING_EFFORT", "none").strip()
+
+
+def _looks_like_placeholder(value: str) -> bool:
+    """Reject template values such as REPLACE_WITH_GEMINI_API_KEY."""
+    text = str(value or "").strip().upper()
+    return (not text or text.startswith(("REPLACE", "YOUR_", "CHANGE_"))
+            or "PLACEHOLDER" in text or text in {"XXX", "TODO", "SECRET"})
+
+
+def _key_usable(value: str) -> bool:
+    return bool(value) and not _looks_like_placeholder(value)
 # Primary evaluation model for the final hardened run.
-MOCKGEN_MODEL = os.environ.get("MOCKGEN_MODEL", DEEPSEEK_MODEL)
+MOCKGEN_MODEL = os.environ.get("MOCKGEN_MODEL") or DEEPSEEK_MODEL
 LLM_MAX_RETRIES = 3
 # Cost estimation.  Defaults are the public qwen-flash list prices seen in
 # the provider price listings on 2026-10-19 (USD per 1M tokens); override
@@ -110,6 +135,10 @@ MODEL_PRICES: dict[str, tuple[float, float]] = {
     "qwen-flash": (0.022, 0.216),
     "qwen3.6-plus": (0.10, 0.30),
     "qwen3.8-max": (1.20, 6.00),
+    # Gemini estimates; the cost cap uses these values.
+    "gemini-3.5-flash": (0.30, 2.50),
+    "gemini-3.5-flash-lite": (0.10, 0.40),
+    "gemini-3.1-flash-lite": (0.10, 0.40),
 }
 
 # --- theory thresholds ---------------------------------------------------
@@ -130,11 +159,32 @@ THEORY_SCENARIO_RATE = float(
 # Local-only study tool. PUBLIC_BUILD strips university branding and disables
 # the Library (which is built from real course material).
 PUBLIC_BUILD = os.environ.get("PUBLIC_BUILD", "0") == "1"
+# Public-build generation defaults to Gemini when the key is configured.
+# MOCKGEN_MODEL always wins if the operator set it explicitly.
+if PUBLIC_BUILD and not os.environ.get("MOCKGEN_MODEL", "").strip():
+    # Public builds use Gemini even when the key is missing/placeholder, so
+    # they fail closed instead of silently falling back to another provider.
+    MOCKGEN_MODEL = os.environ.get("MOCKGEN_PUBLIC_MODEL", GEMINI_MODEL)
+
+
+def llm_key_ready(model: str | None = None) -> bool:
+    """Whether a usable API key for the active model is configured."""
+    name = str(model or MOCKGEN_MODEL)
+    if name.startswith("gemini-"):
+        return _key_usable(GEMINI_API_KEY)
+    if name == DEEPSEEK_MODEL:
+        return _key_usable(DEEPSEEK_API_KEY)
+    return _key_usable(QWEN_API_KEY)
+
+
 # Public builds keep the original local-build cover by default. Set
 # MOCKGEN_PUBLIC_STRIP_BRANDING=1 to restore the old generic-cover behaviour.
 PUBLIC_STRIP_BRANDING = os.environ.get(
     "MOCKGEN_PUBLIC_STRIP_BRANDING", "0") == "1"
 SITE_NAME = os.environ.get("MOCKGEN_SITE_NAME", "Mock Paper Generator")
+# Public deployment used by the local app's gallery-share proxy.
+PUBLIC_SITE_URL = os.environ.get(
+    "MOCKGEN_PUBLIC_SITE_URL", "https://uitmpapergen.download").rstrip("/")
 CONTACT_EMAIL = os.environ.get("MOCKGEN_CONTACT_EMAIL",
                                "auzair1990@gmail.com")
 REPO_URL = os.environ.get("MOCKGEN_REPO_URL",

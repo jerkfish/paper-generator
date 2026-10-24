@@ -1,0 +1,13 @@
+.git
+.gitignore
+.env
+.venv
+**/__pycache__
+**/*.pyc
+CSC662/
+outputs/
+tests/
+design/
+docs/
+cloudflare/worker/node_modules
+cloudflare/worker/.wrangler

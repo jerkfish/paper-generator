@@ -22,13 +22,13 @@ from difflib import SequenceMatcher
 from openpyxl import load_workbook
 from pydantic import BaseModel, Field
 
-from src.config import DATA_DIR, OUTPUTS_DIR, TRACKING_XLSX
+from src.config import DATA_DIR, MOCKGEN_MODEL, OUTPUTS_DIR, TRACKING_XLSX
 from src.generators import ciphers as C
 from src.llm import chat_json
 
 CIPHERS = ("caesar", "vigenere", "playfair", "affine", "columnar", "vernam")
 ALLOWED_MARKS = (2, 6)
-DRAFT_MODEL = "qwen3.7-flash"  # cheap model for per-question draft calls
+DRAFT_MODEL = MOCKGEN_MODEL  # subject model for per-question draft calls
 
 
 def _phrase_bank() -> list[str]:

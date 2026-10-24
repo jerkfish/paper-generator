@@ -742,21 +742,9 @@ def main() -> None:
 
 
 def export_pdf(docx_path: Path, pdf_path: Path) -> int:
-    """Word COM export to PDF; returns the PDF page count."""
-    from pypdf import PdfReader
-
-    docx_path = Path(docx_path).resolve()
-    pdf_path = Path(pdf_path).resolve()
-    ps1 = tmp_ps(docx_path, pdf_path)
-    try:
-        subprocess.run(["powershell.exe", "-NoProfile", "-ExecutionPolicy",
-                        "Bypass", "-File", str(ps1)], capture_output=True,
-                       timeout=300)
-    finally:
-        ps1.unlink(missing_ok=True)
-    if not pdf_path.exists():
-        raise RuntimeError("Word PDF export failed")
-    return len(PdfReader(str(pdf_path)).pages)
+    """Export to PDF with Word COM (Windows) or LibreOffice (container)."""
+    from src.assemble.pdf_export import export_pdf as _export_pdf
+    return _export_pdf(docx_path, pdf_path)
 
 
 def tmp_ps(docx_path: Path, pdf_path: Path) -> Path:

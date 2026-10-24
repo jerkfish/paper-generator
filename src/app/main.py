@@ -4,8 +4,10 @@ from __future__ import annotations
 import html
 from pathlib import Path
 
+import httpx
 from fastapi import FastAPI, Form, HTTPException, Request
-from fastapi.responses import FileResponse, HTMLResponse
+from fastapi.responses import (FileResponse, HTMLResponse, JSONResponse,
+                               RedirectResponse)
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
@@ -23,6 +25,15 @@ from src.subjects.registry import (Subject, SubjectNotFound, get_subject,
 
 APP_DIR = Path(__file__).resolve().parent
 app = FastAPI(title=config.SITE_NAME)
+
+
+def _asset_version() -> int:
+    """Cache-bust local CSS/JS after a UI change."""
+    try:
+        files = [p for p in (APP_DIR / "static").iterdir() if p.is_file()]
+        return int(max(p.stat().st_mtime for p in files))
+    except (OSError, ValueError):
+        return 0
 
 
 @app.on_event("startup")
@@ -46,11 +57,12 @@ def _context(request: Request, **extra) -> dict:
         "static_bundle": False,
         "gallery_enabled": False,
         "asset_base": "/static",
+        "asset_version": _asset_version(),
         "contact_email": config.CONTACT_EMAIL,
         "repo_url": config.REPO_URL,
         "cost_cap": config.WEB_COST_CAP_USD,
         "model": config.MOCKGEN_MODEL,
-        "has_key": bool(config.DEEPSEEK_API_KEY),
+        "has_key": config.llm_key_ready(),
     }
     context.update(extra)
     return context
@@ -93,6 +105,59 @@ def index(request: Request) -> HTMLResponse:
     return templates.TemplateResponse(
         request=request, name="index.html",
         context=_context(request, subjects=subjects, counts=counts))
+
+
+@app.get("/generate")
+def generate_root() -> RedirectResponse:
+    """Convenience path for the local Generate page."""
+    return RedirectResponse(url="/csc662/generate", status_code=307)
+
+
+@app.get("/health")
+def health() -> dict:
+    """Liveness endpoint for the live container/Worker."""
+    return {"ok": True, "public_build": config.PUBLIC_BUILD,
+            "model": config.MOCKGEN_MODEL}
+
+
+@app.post("/api/gallery/share")
+async def local_gallery_share(request: Request) -> JSONResponse:
+    """Proxy the local job page's Share link to the public Worker.
+
+    Sharing still only accepts realistic Library seeds 1-20, exactly like the
+    public Library.  The local app never receives or stores R2 credentials.
+    """
+    try:
+        body = await request.json()
+    except Exception:
+        return JSONResponse({"error": "invalid JSON"}, status_code=400)
+    if not isinstance(body, dict) or set(body) - {"subject", "mode", "seed"}:
+        return JSONResponse({"error": "unexpected field"}, status_code=400)
+    subject = str(body.get("subject", "")).strip().upper()
+    available = {s.code for s in load_subjects().values() if s.available}
+    if subject not in available:
+        return JSONResponse({"error": "unknown subject"}, status_code=400)
+    try:
+        seed = int(body.get("seed"))
+    except (TypeError, ValueError):
+        return JSONResponse({"error": "invalid seed"}, status_code=400)
+    if body.get("mode") != "realistic" or not 1 <= seed <= 20:
+        return JSONResponse(
+            {"error": "only realistic Library seeds 1-20 can be shared"},
+            status_code=400)
+    try:
+        async with httpx.AsyncClient(timeout=20) as client:
+            response = await client.post(
+                f"{config.PUBLIC_SITE_URL}/api/gallery/share",
+                json={"subject": subject, "mode": "realistic", "seed": seed})
+    except httpx.HTTPError as exc:
+        return JSONResponse(
+            {"error": f"public gallery unavailable: {exc}"}, status_code=502)
+    try:
+        data = response.json()
+    except ValueError:
+        data = {"error": "public gallery returned an invalid response"}
+    return JSONResponse(data, status_code=response.status_code)
 
 
 @app.get("/gallery", response_class=HTMLResponse)

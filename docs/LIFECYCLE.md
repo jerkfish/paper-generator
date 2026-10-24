@@ -252,9 +252,9 @@ MAT133 completed the full lifecycle:
 
 ## 8. What is live now
 
-- Public bundle: 181 files, 52,389,765 bytes / 49.96 MiB, original local-build
+- Public bundle: 181 files, 52,394,262 bytes / 49.96 MiB, original local-build
   covers; CSC662 schemes are quote-free.
-- R2: 189 objects (bundle + 8 shared gallery files), 53,822,593 bytes.
+- R2: 189 objects (bundle + 8 shared gallery files), 53,827,090 bytes.
 - Library metadata: CSC662 exposes computed marks and numeric placeholders;
   MAT133 exposes total marks (64-72), `has_practice_mode: false` and
   `has_placeholders: false`.
@@ -266,3 +266,30 @@ MAT133 completed the full lifecycle:
   sharing.
 - Footer contact: auzair1990@gmail.com
 - Footer repository: https://github.com/jerkfish/paper-generator
+
+## 9. Live container mode (Phase 4.2)
+
+Status: **scaffolded, not deployed.**
+
+- `Dockerfile` builds a Linux image with Python 3.12, uv, LibreOffice Writer
+  and Graphviz.
+- `src/assemble/pdf_export.py` uses Word COM on Windows and LibreOffice
+  headless when `MOCKGEN_PDF_ENGINE=libreoffice` or on a non-Windows host.
+- `cloudflare/container-worker/` defines the `papergen-live` Worker, a
+  Durable Object container lifecycle, `/health` readiness, and the optional
+  `live.uitmpapergen.download` route.
+- The container runs with `PUBLIC_BUILD=1`, `MOCKGEN_MODEL=gemini-3.5-flash`
+  and the `GEMINI_API_KEY` Worker secret. The repo only contains the
+  placeholder `REPLACE_WITH_GEMINI_API_KEY`; the Worker refuses to start the
+  container until the real secret is set. `PUBLIC_BUILD=1` also selects
+  Gemini and fails closed rather than falling back to DeepSeek when the key is
+  missing or a placeholder.
+- Cloudflare Containers requires **Workers Paid ($5/month)**; there is no free
+  tier. The library-only deployment remains $0.
+- Docker is required to build the image. This machine has no Docker, so the
+  image and deployment were not executed locally.
+- LibreOffice currently renders the MAT133 cover one page longer than Word;
+  live mode should serve DOCX only or document that difference until the cover
+  is tuned.
+
+Full instructions and pricing are in `docs/DEPLOY_LIVE.md`.
