@@ -47,7 +47,11 @@
         "questions": 2,
         "marks": 30
       }
-    }
+    },
+    "generators": "src/subjects/csc402/generators.py",
+    "generator_sample": "data/tracking/csc402/generator_sample_seed_01.json",
+    "generator_validation": "data/tracking/csc402/generator_validation.json",
+    "generator_count": 13
   },
   "deck_map": {},
   "topic_deck_allowlist": {},

@@ -4,7 +4,7 @@
   "type": "B",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-04T07:12:35Z",
+  "updated": "2026-11-04T07:17:20Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -101,7 +101,7 @@
       "notes": "Built deterministic taxonomy/question log from 21 unique papers: 164 question-level entries; 19/21 papers reconcile to 2015 part-header marks; 2 papers short by 6 and 3 marks; PART A is one aggregate MCQ entry per paper; 10 questions lack parseable marks."
     },
     "5_fingerprint_planner": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "src/subjects/csc402/planner.py",
         "data/tracking/csc402/planner_seed_01.json",
@@ -112,16 +112,21 @@
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": "Awaiting planner/topic-distribution review."
+        "approved": true,
+        "by": "user instruction \"continue\"",
+        "on": "2026-11-04",
+        "note": "Approved the modern 2022-2026 100-mark planner format."
       },
       "notes": "Deterministic modern-format planner: Part A 10 x 1 mark, Part B 5 questions x 2 subparts = 60 marks, Part C 2 x 15 = 30 marks; total 100, 22 slots, 17 questions. Seeds 1-20 validated. Topic/mark patterns derive from the 2022-2026 papers."
     },
     "6_generators": {
-      "status": "pending",
-      "evidence": [],
+      "status": "in_progress",
+      "evidence": [
+        "src/subjects/csc402/generators.py",
+        "data/tracking/csc402/generator_sample_seed_01.json",
+        "data/tracking/csc402/generator_validation.json",
+        "tests/test_csc402_generators.py"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
@@ -129,9 +134,9 @@
         "approved": false,
         "by": "",
         "on": "",
-        "note": ""
+        "note": "Awaiting sample question/answer and marking-guidance review."
       },
-      "notes": ""
+      "notes": "Deterministic generator suite: MCQ banks for six topics, B1-B5 structured generators, four complete-program variants with full C++ answers. Seeds 1-20 all pass: 100 marks, 17 questions, 22 slots; 13 generator ids observed."
     },
     "7_builders_qa": {
       "status": "pending",
@@ -198,8 +203,8 @@
       "opened": "2026-11-04"
     },
     {
-      "stage": "5_fingerprint_planner",
-      "item": "Approve the modern 2022-2026 format assumption: 10 one-mark MCQs, five two-subpart B questions totalling 60, two 15-mark C programs. Part A topic mix and B subpart splits are paper-derived synthetic choices.",
+      "stage": "6_generators",
+      "item": "Review seed-1 sample questions/answers and the 20-seed validation. Confirm the MCQ banks, B1-B5 variants and full-program C answers are acceptable before the stage-7 builder.",
       "blocking": true,
       "opened": "2026-11-04"
     }
