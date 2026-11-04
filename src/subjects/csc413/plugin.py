@@ -16,8 +16,26 @@ def build_seed(seed: int, **kwargs) -> dict:
 
 
 def generator_labels() -> dict:
-    return {}
+    return {
+        "csc413.true_false": "TRUE/FALSE item",
+        "csc413.matching": "Matching item",
+        "csc413.mcq": "Multiple-choice question",
+        "csc413.structured": "Structured question",
+    }
 
 
 def topic_labels() -> dict:
-    return {}
+    return {
+        "multimedia_fundamentals": "FUN",
+        "text": "TXT",
+        "graphics": "GRA",
+        "audio": "AUD",
+        "video": "VID",
+        "animation": "ANI",
+        "authoring_interactivity": "AUT",
+        "hardware_devices": "HW",
+        "web_hypermedia": "WEB",
+        "design_project": "DES",
+        "legal_ethics": "LEG",
+        "virtual_reality": "VR",
+    }

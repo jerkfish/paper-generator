@@ -68,11 +68,20 @@
       "CSC413-2023-02"
     ],
     "slots": 72,
-    "question_count": 64
+    "question_count": 64,
+    "generators": "src/subjects/csc413/generators.py",
+    "generator_sample": "data/tracking/csc413/generator_sample_seed_01.json",
+    "generator_validation": "data/tracking/csc413/generator_validation.json",
+    "generator_count": 4
   },
   "deck_map": {},
   "topic_deck_allowlist": {},
-  "enabled_computed_generators": [],
+  "enabled_computed_generators": [
+    "csc413.true_false",
+    "csc413.matching",
+    "csc413.mcq",
+    "csc413.structured"
+  ],
   "capabilities": {
     "subject_type": "B",
     "generation": "deterministic",
