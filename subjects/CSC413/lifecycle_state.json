@@ -4,7 +4,7 @@
   "type": "B",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-04T18:09:23Z",
+  "updated": "2026-11-04T18:12:13Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -172,7 +172,7 @@
       "notes": "Seed-1 sample built from the approved CSC413 cover template and the standard UTM marking-scheme template. Paper is 5 pages: cover page 1, PART A/B on page 2, PART C on pages 3-4, PART D on page 5. Scheme is 6 pages: cover/notes, PART A key, PART B key, PART C key, and PART D worked answers. DOCX checks have no forbidden tokens or missing content; PDF checks have cover, page-2 body start and zero right overflow. The scheme cover uses the shortened title INTERACTIVE MULTIMEDIA to fit the standard scheme template; the paper cover keeps the full title."
     },
     "8_library_prebuild": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "subjects/CSC413/subject.json",
         "data/reference/CSC413/CSC413 MARKING SCHEME TEMPLATE.docx",
@@ -185,12 +185,12 @@
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": "Awaiting final review of the regenerated 20-seed CSC413 Library with the owner-supplied scheme template."
+        "approved": true,
+        "by": "user instruction \"approved continue\"",
+        "on": "2026-11-05",
+        "note": "Approved the regenerated 20-seed Library built with the owner-supplied CSC413 marking-scheme template."
       },
-      "notes": "Owner accepted the revised paper styling and supplied a CSC413-specific marking-scheme template. The full 20-seed Library was regenerated with the revised builder: every paper 5 pages, every scheme 6 pages, 100 marks, 64 questions, 72 slots, 72 accepted, 0 placeholders, no QA problems. Scheme template is data/reference/CSC413/CSC413 MARKING SCHEME TEMPLATE.docx (CSC413 only). LLM cost $0; nothing published."
+      "notes": "20 seeds in outputs/web_cache/CSC413. Every seed: 100 marks, 64 questions, 72 slots, 72 accepted, 0 placeholders, no QA problems. Every paper is 5 pages; every scheme is 6 pages. Scheme template is data/reference/CSC413/CSC413 MARKING SCHEME TEMPLATE.docx (CSC413 only). Deterministic; LLM cost $0. Approved by the owner; nothing is published."
     },
     "9_publish": {
       "status": "pending",
@@ -204,7 +204,7 @@
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "Hard stop. Publication permission is recorded, but an explicit human instruction is still required before rebuilding the public bundle, uploading to R2 or deploying the Worker."
     },
     "10_close_out": {
       "status": "pending",
