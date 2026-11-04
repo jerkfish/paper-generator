@@ -4,7 +4,7 @@
   "type": "B",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-04T09:46:31Z",
+  "updated": "2026-11-04T10:01:12Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -180,9 +180,9 @@
         "approved": false,
         "by": "",
         "on": "",
-        "note": "Awaiting review of the styled seeds 1-5 before rebuilding 6-20."
+        "note": "Awaiting final review of all 20 styled seeds at the stage-8 gate."
       },
-      "notes": "Seeds 1-5 rebuilt with styled questions: code-block MCQs, Roman-item MCQs, numbered tables, boxed code segments, and table-bearing Part B/C questions. Each rebuilt seed is 6 pages (paper) / 6 pages (scheme), 100 marks, 22 slots, 0 placeholders, no QA problems. Seeds 6-20 still use the earlier plain layout and must be rebuilt before stage-8 closure. Seed 5 is served from rev2_seed05 because the previous PDF was locked; newest valid cache meta wins."
+      "notes": "All 20 seeds rebuilt with the accepted styled layout: code-block MCQs, Roman-item MCQs, numbered tables and boxed code segments. Each seed is 6 pages (paper) / 6 pages (scheme), 100 marks, 17 questions, 22 slots, 0 placeholders and no QA problems. Styled revision seeds 1-20; no seed remains on the earlier plain layout. Seed 5 is served from rev2_seed05 because the previous PDF was locked; newest valid cache meta wins. No publication, R2 upload or Worker deploy has occurred."
     },
     "9_publish": {
       "status": "pending",
@@ -222,7 +222,7 @@
     },
     {
       "stage": "8_library_prebuild",
-      "item": "Review styled seeds 1-5: code-block MCQs, Roman-item MCQs, numbered tables and boxed code. Seeds 6-20 still need the same rebuild before stage 8 can close.",
+      "item": "Review and approve all 20 styled seeds at the stage-8 gate.",
       "blocking": true,
       "opened": "2026-11-04"
     }

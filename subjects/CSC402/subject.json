@@ -55,7 +55,7 @@
     "builder": "src/subjects/csc402/build_docx.py",
     "build_sample": "data/tracking/csc402/build_sample/qa.json",
     "sample_pages": {
-      "paper": 5,
+      "paper": 6,
       "scheme": 6
     },
     "marking_scheme_template": "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx",
@@ -65,7 +65,6 @@
     "library_slots": 22,
     "library_pages": {
       "paper": [
-        5,
         6
       ],
       "scheme": [
@@ -77,9 +76,7 @@
       2,
       3,
       4,
-      5
-    ],
-    "pending_style_rebuild_seeds": [
+      5,
       6,
       7,
       8,
@@ -95,7 +92,8 @@
       18,
       19,
       20
-    ]
+    ],
+    "pending_style_rebuild_seeds": []
   },
   "deck_map": {},
   "topic_deck_allowlist": {},

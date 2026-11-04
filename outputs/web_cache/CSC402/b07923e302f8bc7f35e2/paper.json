@@ -14,6 +14,9 @@
       "marks": 1,
       "topic": "data_types",
       "stem": "Which data type stores a whole number?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
       "options": [
         "string",
         "float",
@@ -34,15 +37,23 @@
       "kind": "mcq",
       "marks": 1,
       "topic": "control_structures",
-      "stem": "How many times does a while loop execute when its condition is false initially?",
+      "stem": "What is displayed by the following code?",
+      "items": [],
+      "blocks": [
+        {
+          "type": "code",
+          "text": "for (int i = 1; i <= 4; i++)\n    cout << i * 2;"
+        }
+      ],
+      "format": "code",
       "options": [
-        "Two",
-        "Until the user stops it",
-        "Zero",
-        "One"
+        "246",
+        "1357",
+        "2468",
+        "1234"
       ],
       "answer": "C",
-      "solution": "while is a pretest loop; a false condition skips the body.",
+      "solution": "The loop displays 2, 4, 6 and 8 without spaces.",
       "parts": [],
       "generator_id": "csc402.mcq.control_structures",
       "slots": [
@@ -56,6 +67,9 @@
       "marks": 1,
       "topic": "fundamentals",
       "stem": "What is pseudocode?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
       "options": [
         "A C++ header file",
         "Machine code produced by an assembler",
@@ -76,15 +90,18 @@
       "kind": "mcq",
       "marks": 1,
       "topic": "control_structures",
-      "stem": "Which part of a for loop is executed after each iteration?",
+      "stem": "How many times does a while loop execute when its condition is false initially?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
       "options": [
-        "The condition only",
-        "The update expression",
-        "The initialisation",
-        "The loop body twice"
+        "Two",
+        "Zero",
+        "One",
+        "Until the user stops it"
       ],
       "answer": "B",
-      "solution": "The update expression runs after each iteration.",
+      "solution": "while is a pretest loop; a false condition skips the body.",
       "parts": [],
       "generator_id": "csc402.mcq.control_structures",
       "slots": [
@@ -97,15 +114,23 @@
       "kind": "mcq",
       "marks": 1,
       "topic": "control_structures",
-      "stem": "Which statement immediately exits a loop?",
+      "stem": "Which of the following are selection structures?",
+      "items": [
+        "if",
+        "switch",
+        "for",
+        "while"
+      ],
+      "blocks": [],
+      "format": "roman_items",
       "options": [
-        "return 0",
-        "cin",
-        "continue",
-        "break"
+        "ii and iv",
+        "iii and iv",
+        "i and iii",
+        "i and ii"
       ],
       "answer": "D",
-      "solution": "break terminates the nearest loop or switch.",
+      "solution": "if and switch select among alternatives.",
       "parts": [],
       "generator_id": "csc402.mcq.control_structures",
       "slots": [
@@ -119,6 +144,9 @@
       "marks": 1,
       "topic": "arrays",
       "stem": "Which declaration creates an integer array of five elements?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
       "options": [
         "int a(5);",
         "array a[5];",
@@ -140,6 +168,9 @@
       "marks": 1,
       "topic": "input_output",
       "stem": "Which input pattern stops when the user enters -1?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
       "options": [
         "A fixed for loop",
         "A sentinel-controlled loop",
@@ -161,6 +192,9 @@
       "marks": 1,
       "topic": "fundamentals",
       "stem": "What does a compiler do?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
       "options": [
         "Translates the whole source program before execution",
         "Draws flowcharts automatically",
@@ -181,15 +215,23 @@
       "kind": "mcq",
       "marks": 1,
       "topic": "data_types",
-      "stem": "What does the % operator return?",
-      "options": [
-        "The square root",
-        "The absolute value",
-        "The quotient",
-        "The remainder of integer division"
+      "stem": "Which of the following are valid identifiers?",
+      "items": [
+        "total_score",
+        "2total",
+        "_count",
+        "int"
       ],
-      "answer": "D",
-      "solution": "% is the modulus operator and returns the remainder.",
+      "blocks": [],
+      "format": "roman_items",
+      "options": [
+        "iii and iv",
+        "ii and iv",
+        "i and iii",
+        "i and ii"
+      ],
+      "answer": "C",
+      "solution": "total_score and _count are valid identifiers.",
       "parts": [],
       "generator_id": "csc402.mcq.data_types",
       "slots": [
@@ -203,6 +245,9 @@
       "marks": 1,
       "topic": "data_types",
       "stem": "Which keyword prevents a variable's value from being changed after initialisation?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
       "options": [
         "const",
         "static",
@@ -224,6 +269,7 @@
       "marks": 5,
       "topic": "fundamentals",
       "stem": "This question tests the program development life cycle.",
+      "stem_blocks": [],
       "options": [],
       "answer": "",
       "solution": "",
@@ -255,22 +301,46 @@
       "kind": "structured",
       "marks": 13,
       "topic": "control_structures",
-      "stem": "A program reads three integer values and displays the largest value.",
+      "stem": "A concert charges the ticket prices shown in Table 1. A negative age is invalid.",
+      "stem_blocks": [
+        {
+          "type": "table",
+          "caption": "Table 1. Concert Ticket Prices",
+          "headers": [
+            "Age Range",
+            "Ticket Price (RM)"
+          ],
+          "rows": [
+            [
+              "0 - 12",
+              "15.00"
+            ],
+            [
+              "13 - 17",
+              "25.00"
+            ],
+            [
+              "18 and above",
+              "40.00"
+            ]
+          ]
+        }
+      ],
       "options": [],
       "answer": "",
       "solution": "",
       "parts": [
         {
-          "text": "Draw a flowchart to find the largest of three values.",
-          "answer": "Start -> read a, b, c -> largest = a -> if b > largest then largest = b -> if c > largest then largest = c -> display largest -> end.",
-          "solution": "Award marks for input, initial assumption, two comparisons, output and flow.",
+          "text": "Draw a flowchart for the ticket price selection.",
+          "answer": "Start -> read age -> if age < 0 display invalid; else if age <= 12 price = 15; else if age <= 17 price = 25; else price = 40 -> display price -> end.",
+          "solution": "Award marks for validation, all ranges, output and flow.",
           "label": "a",
           "marks": 6
         },
         {
-          "text": "Write pseudocode and a complete C++ program for the flowchart.",
-          "answer": "Use if statements to update largest, then cout the result.",
-          "solution": "Award marks for correct comparisons, variable updates and output.",
+          "text": "Write pseudocode and a complete C++ program for the ticket price selection.",
+          "answer": "Use if/else if with the three ranges and an invalid-age branch.",
+          "solution": "Award marks for validation, range conditions, assignment and output.",
           "label": "b",
           "marks": 7
         }
@@ -288,6 +358,7 @@
       "marks": 11,
       "topic": "data_types",
       "stem": "This question tests type conversion and constants.",
+      "stem_blocks": [],
       "options": [],
       "answer": "",
       "solution": "",
@@ -319,7 +390,13 @@
       "kind": "structured",
       "marks": 15,
       "topic": "input_output",
-      "stem": "Study the following array program segment:\n\nint a[5] = {2, 4, 6, 8, 10};\nint s = 0;\nfor (int i = 0; i < 5; i++) {\n    s += a[i];\n}\ncout << s;",
+      "stem": "Study the following array program segment:",
+      "stem_blocks": [
+        {
+          "type": "code",
+          "text": "int a[5] = {2, 4, 6, 8, 10};\nint s = 0;\nfor (int i = 0; i < 5; i++) {\n    s += a[i];\n}\ncout << s;"
+        }
+      ],
       "options": [],
       "answer": "",
       "solution": "",
@@ -351,22 +428,55 @@
       "kind": "structured",
       "marks": 16,
       "topic": "arrays",
-      "stem": "A class records ten student marks in an array.",
+      "stem": "A sports club records the sport names and medal counts in Table 1.",
+      "stem_blocks": [],
       "options": [],
       "answer": "",
       "solution": "",
       "parts": [
         {
-          "text": "Declare an integer array of ten marks and read the marks from the user.",
-          "answer": "int marks[10]; for(int i=0;i<10;i++) cin >> marks[i];",
-          "solution": "Award marks for array declaration, loop and input.",
+          "text": "Declare two parallel arrays for the five sports in Table 1 and initialise them with those values.",
+          "blocks": [
+            {
+              "type": "table",
+              "caption": "Table 2. Sport and Medal Records",
+              "headers": [
+                "Sport",
+                "Medals"
+              ],
+              "rows": [
+                [
+                  "Swimming",
+                  "8"
+                ],
+                [
+                  "Badminton",
+                  "12"
+                ],
+                [
+                  "Athletics",
+                  "7"
+                ],
+                [
+                  "Cycling",
+                  "5"
+                ],
+                [
+                  "Hockey",
+                  "9"
+                ]
+              ]
+            }
+          ],
+          "answer": "string sports[5] = {\"Swimming\",\"Badminton\",\"Athletics\",\"Cycling\",\"Hockey\"}; int medals[5] = {8,12,7,5,9};",
+          "solution": "Award marks for both declarations, correct sizes and related indices.",
           "label": "a",
           "marks": 8
         },
         {
-          "text": "Write a program segment to calculate and display the average, highest mark and number of marks above the average.",
-          "answer": "Compute total and highest in one loop; average = double(total)/10; then second loop counts marks > average.",
-          "solution": "Award marks for total, average, highest, second loop and output.",
+          "text": "Write a program segment to display each sport with its medals, then calculate the total and average medals.",
+          "answer": "Loop i=0..4 to display sports[i] and medals[i], accumulate total, average = double(total)/5.",
+          "solution": "Award marks for paired display, total, average and output.",
           "label": "b",
           "marks": 8
         }
@@ -383,7 +493,35 @@
       "kind": "program",
       "marks": 15,
       "topic": "structures",
-      "stem": "A bookstore records up to five books. Each book has a title, price and quantity in stock.",
+      "stem": "A bookstore records up to five books. Table 1 shows an example of the fields.",
+      "stem_blocks": [
+        {
+          "type": "table",
+          "caption": "Table 3. Book Record Fields",
+          "headers": [
+            "Title",
+            "Price (RM)",
+            "Quantity"
+          ],
+          "rows": [
+            [
+              "Book A",
+              "45.00",
+              "3"
+            ],
+            [
+              "Book B",
+              "30.00",
+              "5"
+            ],
+            [
+              "Book C",
+              "55.00",
+              "2"
+            ]
+          ]
+        }
+      ],
       "options": [],
       "answer": "#include <iostream>\n#include <string>\nusing namespace std;\nstruct Book {\n    string title;\n    double price;\n    int quantity;\n};\nint main() {\n    Book books[5];\n    double totalValue = 0;\n    int mostExpensive = 0;\n    for (int i = 0; i < 5; i++) {\n        cin.ignore();\n        cout << \"Title: \";\n        getline(cin, books[i].title);\n        cout << \"Price and quantity: \";\n        cin >> books[i].price >> books[i].quantity;\n        totalValue += books[i].price * books[i].quantity;\n        if (books[i].price > books[mostExpensive].price) {\n            mostExpensive = i;\n        }\n    }\n    cout << \"Total inventory value: RM\" << totalValue << endl;\n    cout << \"Most expensive: \" << books[mostExpensive].title\n         << \" (RM\" << books[mostExpensive].price << \")\" << endl;\n    return 0;\n}",
       "solution": "Award 3 marks for struct definition, 4 for input, 4 for inventory value, 3 for most expensive and 1 for output.",
@@ -408,6 +546,7 @@
       "marks": 15,
       "topic": "arrays",
       "stem": "A lecturer records the marks of ten students in an array.",
+      "stem_blocks": [],
       "options": [],
       "answer": "#include <iostream>\nusing namespace std;\nint main() {\n    int marks[10], total = 0, highest, highestIndex = 0;\n    int aboveAverage = 0;\n    for (int i = 0; i < 10; i++) {\n        cin >> marks[i];\n        total += marks[i];\n        if (i == 0 || marks[i] > highest) {\n            highest = marks[i];\n            highestIndex = i;\n        }\n    }\n    double average = total / 10.0;\n    for (int i = 0; i < 10; i++) {\n        if (marks[i] > average) aboveAverage++;\n    }\n    cout << \"Average: \" << average << endl;\n    cout << \"Highest: \" << highest\n         << \" at index \" << highestIndex << endl;\n    cout << \"Above average: \" << aboveAverage << endl;\n    return 0;\n}",
       "solution": "Award 3 marks for input, 4 for total/average, 3 for highest/index, 3 for above-average count and 2 for output.",
@@ -463,5 +602,19 @@
     "csc402.mcq.input_output",
     "csc402.short_answer",
     "csc402.trace_or_debug"
-  ]
+  ],
+  "style_profile": {
+    "mcq_formats": {
+      "standard": 7,
+      "code": 1,
+      "roman_items": 2
+    },
+    "table_count": 3,
+    "table_captions": [
+      "Table 1. Concert Ticket Prices",
+      "Table 2. Sport and Medal Records",
+      "Table 3. Book Record Fields"
+    ],
+    "code_block_count": 2
+  }
 }

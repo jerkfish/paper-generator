@@ -514,7 +514,7 @@ mockups are in `design/mockups/`.
 ## Tests
 
 ```bash
-uv run pytest -q        # 283 Python tests
+uv run pytest -q        # 286 Python tests
 cd cloudflare/worker
 bun test                # 6 Worker tests
 ```

@@ -14,6 +14,9 @@
       "marks": 1,
       "topic": "fundamentals",
       "stem": "Which item is NOT a programming paradigm?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
       "options": [
         "Structured programming",
         "Procedural programming",
@@ -34,15 +37,23 @@
       "kind": "mcq",
       "marks": 1,
       "topic": "control_structures",
-      "stem": "How many times does a while loop execute when its condition is false initially?",
+      "stem": "What is displayed by the following code?",
+      "items": [],
+      "blocks": [
+        {
+          "type": "code",
+          "text": "for (int i = 1; i <= 4; i++)\n    cout << i * 2;"
+        }
+      ],
+      "format": "code",
       "options": [
-        "Zero",
-        "Until the user stops it",
-        "Two",
-        "One"
+        "2468",
+        "1357",
+        "246",
+        "1234"
       ],
       "answer": "A",
-      "solution": "while is a pretest loop; a false condition skips the body.",
+      "solution": "The loop displays 2, 4, 6 and 8 without spaces.",
       "parts": [],
       "generator_id": "csc402.mcq.control_structures",
       "slots": [
@@ -56,6 +67,9 @@
       "marks": 1,
       "topic": "data_types",
       "stem": "Which identifier is valid in C++?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
       "options": [
         "total score",
         "2total",
@@ -76,15 +90,23 @@
       "kind": "mcq",
       "marks": 1,
       "topic": "control_structures",
-      "stem": "Which statement immediately exits a loop?",
+      "stem": "Which of the following are selection structures?",
+      "items": [
+        "if",
+        "switch",
+        "for",
+        "while"
+      ],
+      "blocks": [],
+      "format": "roman_items",
       "options": [
-        "break",
-        "continue",
-        "cin",
-        "return 0"
+        "i and ii",
+        "ii and iv",
+        "i and iii",
+        "iii and iv"
       ],
       "answer": "A",
-      "solution": "break terminates the nearest loop or switch.",
+      "solution": "if and switch select among alternatives.",
       "parts": [],
       "generator_id": "csc402.mcq.control_structures",
       "slots": [
@@ -97,15 +119,23 @@
       "kind": "mcq",
       "marks": 1,
       "topic": "data_types",
-      "stem": "Which declaration creates a floating-point variable named price?",
-      "options": [
-        "bool price;",
-        "float price;",
-        "char price;",
-        "int price;"
+      "stem": "Which of the following are valid identifiers?",
+      "items": [
+        "total_score",
+        "2total",
+        "_count",
+        "int"
       ],
-      "answer": "B",
-      "solution": "float is used for real numbers.",
+      "blocks": [],
+      "format": "roman_items",
+      "options": [
+        "iii and iv",
+        "i and ii",
+        "ii and iv",
+        "i and iii"
+      ],
+      "answer": "D",
+      "solution": "total_score and _count are valid identifiers.",
       "parts": [],
       "generator_id": "csc402.mcq.data_types",
       "slots": [
@@ -119,6 +149,9 @@
       "marks": 1,
       "topic": "input_output",
       "stem": "Which operator reads data from cin?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
       "options": [
         "%",
         "=",
@@ -139,15 +172,23 @@
       "kind": "mcq",
       "marks": 1,
       "topic": "data_types",
-      "stem": "What does the % operator return?",
-      "options": [
-        "The quotient",
-        "The square root",
-        "The absolute value",
-        "The remainder of integer division"
+      "stem": "Given the declaration, what is displayed?",
+      "items": [],
+      "blocks": [
+        {
+          "type": "code",
+          "text": "char word[6] = {'p', 'r', 'i', 'n', 't', '\\0'};\ncout << word[3];"
+        }
       ],
-      "answer": "D",
-      "solution": "% is the modulus operator and returns the remainder.",
+      "format": "code",
+      "options": [
+        "n",
+        "p",
+        "t",
+        "i"
+      ],
+      "answer": "C",
+      "solution": "word[3] is 't' because array indexing starts at zero.",
       "parts": [],
       "generator_id": "csc402.mcq.data_types",
       "slots": [
@@ -160,15 +201,18 @@
       "kind": "mcq",
       "marks": 1,
       "topic": "control_structures",
-      "stem": "Which part of a for loop is executed after each iteration?",
+      "stem": "How many times does a while loop execute when its condition is false initially?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
       "options": [
-        "The condition only",
-        "The initialisation",
-        "The update expression",
-        "The loop body twice"
+        "Two",
+        "One",
+        "Zero",
+        "Until the user stops it"
       ],
       "answer": "C",
-      "solution": "The update expression runs after each iteration.",
+      "solution": "while is a pretest loop; a false condition skips the body.",
       "parts": [],
       "generator_id": "csc402.mcq.control_structures",
       "slots": [
@@ -181,15 +225,24 @@
       "kind": "mcq",
       "marks": 1,
       "topic": "fundamentals",
-      "stem": "What is pseudocode?",
-      "options": [
-        "A structured English-like description of an algorithm",
-        "A type of compiler error",
-        "A C++ header file",
-        "Machine code produced by an assembler"
+      "stem": "A computer system's hardware includes which of the following?",
+      "items": [
+        "input devices",
+        "output devices",
+        "central processing unit",
+        "main memory",
+        "secondary storage"
       ],
-      "answer": "A",
-      "solution": "Pseudocode expresses algorithm logic without strict language syntax.",
+      "blocks": [],
+      "format": "roman_items",
+      "options": [
+        "i, ii, iii, iv",
+        "i, ii, iii, v",
+        "i, iii, iv",
+        "i, ii, iii, iv, v"
+      ],
+      "answer": "D",
+      "solution": "All five listed components are part of the hardware.",
       "parts": [],
       "generator_id": "csc402.mcq.fundamentals",
       "slots": [
@@ -202,15 +255,18 @@
       "kind": "mcq",
       "marks": 1,
       "topic": "arrays",
-      "stem": "Which loop is commonly used to process every array element?",
+      "stem": "What is the index of the first element of a C++ array?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
       "options": [
-        "break",
-        "switch",
-        "for",
-        "if"
+        "-1",
+        "0",
+        "1",
+        "The array size"
       ],
-      "answer": "C",
-      "solution": "A for loop with an index visits each element.",
+      "answer": "B",
+      "solution": "C++ arrays are zero-indexed.",
       "parts": [],
       "generator_id": "csc402.mcq.arrays",
       "slots": [
@@ -224,6 +280,7 @@
       "marks": 5,
       "topic": "fundamentals",
       "stem": "This question tests the program development life cycle.",
+      "stem_blocks": [],
       "options": [],
       "answer": "",
       "solution": "",
@@ -255,7 +312,39 @@
       "kind": "structured",
       "marks": 13,
       "topic": "control_structures",
-      "stem": "A program reads a student's score from 0 to 100 and displays the grade: 80-100 A, 60-79 B, 50-59 C, 40-49 D, below 40 F.",
+      "stem": "A program reads a student's score from 0 to 100 and displays the grade shown in Table 1.",
+      "stem_blocks": [
+        {
+          "type": "table",
+          "caption": "Table 1. Grade Scale",
+          "headers": [
+            "Score",
+            "Grade"
+          ],
+          "rows": [
+            [
+              "80-100",
+              "A"
+            ],
+            [
+              "60-79",
+              "B"
+            ],
+            [
+              "50-59",
+              "C"
+            ],
+            [
+              "40-49",
+              "D"
+            ],
+            [
+              "0-39",
+              "F"
+            ]
+          ]
+        }
+      ],
       "options": [],
       "answer": "",
       "solution": "",
@@ -287,22 +376,29 @@
       "kind": "structured",
       "marks": 11,
       "topic": "data_types",
-      "stem": "This question tests type conversion and constants.",
+      "stem": "This question tests operator precedence and assignment.",
+      "stem_blocks": [],
       "options": [],
       "answer": "",
       "solution": "",
       "parts": [
         {
-          "text": "Explain the difference between implicit and explicit type conversion, and give one C++ example of each.",
-          "answer": "Implicit conversion is automatic (int to double); explicit conversion uses a cast such as double(total) or static_cast<double>(total).",
-          "solution": "Award marks for both definitions and valid examples.",
+          "text": "Evaluate the following expressions using the declarations in the code block.",
+          "blocks": [
+            {
+              "type": "code",
+              "text": "int a = 12, b = 5;\ndouble c = 2.5;"
+            }
+          ],
+          "answer": "(i) 13, (ii) 20, (iii) 2, (iv) 3, (v) 3.4",
+          "solution": "Award 1 mark per correct value.",
           "label": "a",
           "marks": 6
         },
         {
-          "text": "Write a C++ program segment that calculates the average of three integer marks as a double and displays it to two decimal places.",
-          "answer": "double average = (m1 + m2 + m3) / 3.0; cout << fixed << setprecision(2) << average;",
-          "solution": "Award marks for floating-point division, fixed/setprecision and output.",
+          "text": "Write C++ statements to declare two integers a and b, read their values, and display their sum, difference, product and remainder.",
+          "answer": "int a, b; cin >> a >> b; cout << a+b << a-b << a*b << a%b;",
+          "solution": "Award marks for declarations, input, four operations and output.",
           "label": "b",
           "marks": 5
         }
@@ -319,7 +415,13 @@
       "kind": "structured",
       "marks": 15,
       "topic": "control_structures",
-      "stem": "Study the following nested loop:\n\nfor (int i = 1; i <= 3; i++) {\n    for (int j = 1; j <= i; j++) {\n        cout << j;\n    }\n    cout << endl;\n}",
+      "stem": "Study the following nested loop:",
+      "stem_blocks": [
+        {
+          "type": "code",
+          "text": "for (int i = 1; i <= 3; i++) {\n    for (int j = 1; j <= i; j++) {\n        cout << j;\n    }\n    cout << endl;\n}"
+        }
+      ],
       "options": [],
       "answer": "",
       "solution": "",
@@ -351,13 +453,46 @@
       "kind": "structured",
       "marks": 16,
       "topic": "arrays",
-      "stem": "A shop stores the prices of five items in an array.",
+      "stem": "A shop stores the item prices shown in Table 1.",
+      "stem_blocks": [],
       "options": [],
       "answer": "",
       "solution": "",
       "parts": [
         {
-          "text": "Declare an array named prices with the values 20.5, 55.0, 15.9, 75.0 and 10.0. Display all values.",
+          "text": "Declare an array named prices using the values in Table 1. Display all values.",
+          "blocks": [
+            {
+              "type": "table",
+              "caption": "Table 2. Item Prices",
+              "headers": [
+                "Item",
+                "Price (RM)"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "20.50"
+                ],
+                [
+                  "2",
+                  "55.00"
+                ],
+                [
+                  "3",
+                  "15.90"
+                ],
+                [
+                  "4",
+                  "75.00"
+                ],
+                [
+                  "5",
+                  "10.00"
+                ]
+              ]
+            }
+          ],
           "answer": "double prices[5] = {20.5, 55.0, 15.9, 75.0, 10.0}; for (int i=0;i<5;i++) cout << prices[i] << endl;",
           "solution": "Award marks for correct type, initialiser, loop and output.",
           "label": "a",
@@ -382,32 +517,9 @@
       "part": "C",
       "kind": "program",
       "marks": 15,
-      "topic": "structures",
-      "stem": "A bookstore records up to five books. Each book has a title, price and quantity in stock.",
-      "options": [],
-      "answer": "#include <iostream>\n#include <string>\nusing namespace std;\nstruct Book {\n    string title;\n    double price;\n    int quantity;\n};\nint main() {\n    Book books[5];\n    double totalValue = 0;\n    int mostExpensive = 0;\n    for (int i = 0; i < 5; i++) {\n        cin.ignore();\n        cout << \"Title: \";\n        getline(cin, books[i].title);\n        cout << \"Price and quantity: \";\n        cin >> books[i].price >> books[i].quantity;\n        totalValue += books[i].price * books[i].quantity;\n        if (books[i].price > books[mostExpensive].price) {\n            mostExpensive = i;\n        }\n    }\n    cout << \"Total inventory value: RM\" << totalValue << endl;\n    cout << \"Most expensive: \" << books[mostExpensive].title\n         << \" (RM\" << books[mostExpensive].price << \")\" << endl;\n    return 0;\n}",
-      "solution": "Award 3 marks for struct definition, 4 for input, 4 for inventory value, 3 for most expensive and 1 for output.",
-      "parts": [
-        {
-          "label": "",
-          "marks": 15,
-          "text": "Define a struct Book. Write a complete C++ program that reads the records, calculates the total inventory value, and displays the title of the most expensive book.",
-          "answer": "#include <iostream>\n#include <string>\nusing namespace std;\nstruct Book {\n    string title;\n    double price;\n    int quantity;\n};\nint main() {\n    Book books[5];\n    double totalValue = 0;\n    int mostExpensive = 0;\n    for (int i = 0; i < 5; i++) {\n        cin.ignore();\n        cout << \"Title: \";\n        getline(cin, books[i].title);\n        cout << \"Price and quantity: \";\n        cin >> books[i].price >> books[i].quantity;\n        totalValue += books[i].price * books[i].quantity;\n        if (books[i].price > books[mostExpensive].price) {\n            mostExpensive = i;\n        }\n    }\n    cout << \"Total inventory value: RM\" << totalValue << endl;\n    cout << \"Most expensive: \" << books[mostExpensive].title\n         << \" (RM\" << books[mostExpensive].price << \")\" << endl;\n    return 0;\n}",
-          "solution": "Award 3 marks for struct definition, 4 for input, 4 for inventory value, 3 for most expensive and 1 for output."
-        }
-      ],
-      "generator_id": "csc402.complete_program.structures",
-      "slots": [
-        "C1"
-      ]
-    },
-    {
-      "number": "C2",
-      "part": "C",
-      "kind": "program",
-      "marks": 15,
       "topic": "arrays",
       "stem": "A lecturer records the marks of ten students in an array.",
+      "stem_blocks": [],
       "options": [],
       "answer": "#include <iostream>\nusing namespace std;\nint main() {\n    int marks[10], total = 0, highest, highestIndex = 0;\n    int aboveAverage = 0;\n    for (int i = 0; i < 10; i++) {\n        cin >> marks[i];\n        total += marks[i];\n        if (i == 0 || marks[i] > highest) {\n            highest = marks[i];\n            highestIndex = i;\n        }\n    }\n    double average = total / 10.0;\n    for (int i = 0; i < 10; i++) {\n        if (marks[i] > average) aboveAverage++;\n    }\n    cout << \"Average: \" << average << endl;\n    cout << \"Highest: \" << highest\n         << \" at index \" << highestIndex << endl;\n    cout << \"Above average: \" << aboveAverage << endl;\n    return 0;\n}",
       "solution": "Award 3 marks for input, 4 for total/average, 3 for highest/index, 3 for above-average count and 2 for output.",
@@ -421,6 +533,54 @@
         }
       ],
       "generator_id": "csc402.complete_program.arrays",
+      "slots": [
+        "C1"
+      ]
+    },
+    {
+      "number": "C2",
+      "part": "C",
+      "kind": "program",
+      "marks": 15,
+      "topic": "control_structures",
+      "stem": "A catering company charges the meal prices shown in Table 1.",
+      "stem_blocks": [
+        {
+          "type": "table",
+          "caption": "Table 3. Meal Price",
+          "headers": [
+            "Quantity Range",
+            "Price per Meal (RM)"
+          ],
+          "rows": [
+            [
+              "50 - 99",
+              "11.50"
+            ],
+            [
+              "100 - 199",
+              "10.50"
+            ],
+            [
+              "200 and above",
+              "9.50"
+            ]
+          ]
+        }
+      ],
+      "options": [],
+      "answer": "#include <iostream>\n#include <iomanip>\n#include <string>\nusing namespace std;\nint main() {\n    string name;\n    int quantity, grandQuantity = 0;\n    double unitPrice, total, grandTotal = 0;\n    char again;\n    do {\n        cout << \"Customer name: \";\n        getline(cin >> ws, name);\n        cout << \"Quantity: \";\n        cin >> quantity;\n        if (quantity < 0) {\n            cout << \"Invalid quantity\" << endl;\n        } else {\n            if (quantity >= 200) unitPrice = 9.50;\n            else if (quantity >= 100) unitPrice = 10.50;\n            else if (quantity >= 50) unitPrice = 11.50;\n            else unitPrice = 12.50;\n            total = quantity * unitPrice;\n            grandTotal += total;\n            grandQuantity += quantity;\n            cout << fixed << setprecision(2);\n            cout << \"Receipt for \" << name << \": \"\n                 << quantity << \" x RM\" << unitPrice\n                 << \" = RM\" << total << endl;\n        }\n        cout << \"Another customer? (y/n): \";\n        cin >> again;\n    } while (again == 'y' || again == 'Y');\n    cout << \"Total quantity: \" << grandQuantity << endl;\n    cout << \"Total sales: RM\" << fixed << setprecision(2)\n         << grandTotal << endl;\n    return 0;\n}",
+      "solution": "Award 3 marks for input/validation, 6 for price selection and total, 3 for repetition, 2 for final totals and 1 for output clarity.",
+      "parts": [
+        {
+          "label": "",
+          "marks": 15,
+          "text": "Write a complete C++ program that reads the customer name and quantity, validates the quantity, calculates the total, displays a receipt, and repeats until the user chooses to stop. At the end, display the total quantity and total sales.",
+          "answer": "#include <iostream>\n#include <iomanip>\n#include <string>\nusing namespace std;\nint main() {\n    string name;\n    int quantity, grandQuantity = 0;\n    double unitPrice, total, grandTotal = 0;\n    char again;\n    do {\n        cout << \"Customer name: \";\n        getline(cin >> ws, name);\n        cout << \"Quantity: \";\n        cin >> quantity;\n        if (quantity < 0) {\n            cout << \"Invalid quantity\" << endl;\n        } else {\n            if (quantity >= 200) unitPrice = 9.50;\n            else if (quantity >= 100) unitPrice = 10.50;\n            else if (quantity >= 50) unitPrice = 11.50;\n            else unitPrice = 12.50;\n            total = quantity * unitPrice;\n            grandTotal += total;\n            grandQuantity += quantity;\n            cout << fixed << setprecision(2);\n            cout << \"Receipt for \" << name << \": \"\n                 << quantity << \" x RM\" << unitPrice\n                 << \" = RM\" << total << endl;\n        }\n        cout << \"Another customer? (y/n): \";\n        cin >> again;\n    } while (again == 'y' || again == 'Y');\n    cout << \"Total quantity: \" << grandQuantity << endl;\n    cout << \"Total sales: RM\" << fixed << setprecision(2)\n         << grandTotal << endl;\n    return 0;\n}",
+          "solution": "Award 3 marks for input/validation, 6 for price selection and total, 3 for repetition, 2 for final totals and 1 for output clarity."
+        }
+      ],
+      "generator_id": "csc402.complete_program.control_structures",
       "slots": [
         "C2"
       ]
@@ -454,7 +614,7 @@
     "csc402.array_program_segment",
     "csc402.code_statement",
     "csc402.complete_program.arrays",
-    "csc402.complete_program.structures",
+    "csc402.complete_program.control_structures",
     "csc402.flowchart_or_pseudocode",
     "csc402.mcq.arrays",
     "csc402.mcq.control_structures",
@@ -463,5 +623,19 @@
     "csc402.mcq.input_output",
     "csc402.short_answer",
     "csc402.trace_or_debug"
-  ]
+  ],
+  "style_profile": {
+    "mcq_formats": {
+      "standard": 5,
+      "code": 2,
+      "roman_items": 3
+    },
+    "table_count": 3,
+    "table_captions": [
+      "Table 1. Grade Scale",
+      "Table 2. Item Prices",
+      "Table 3. Meal Price"
+    ],
+    "code_block_count": 4
+  }
 }
