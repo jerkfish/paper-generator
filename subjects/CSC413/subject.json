@@ -72,7 +72,14 @@
     "generators": "src/subjects/csc413/generators.py",
     "generator_sample": "data/tracking/csc413/generator_sample_seed_01.json",
     "generator_validation": "data/tracking/csc413/generator_validation.json",
-    "generator_count": 4
+    "generator_count": 4,
+    "builder": "src/subjects/csc413/build_docx.py",
+    "build_sample": "data/tracking/csc413/build_sample/qa.json",
+    "sample_pages": {
+      "paper": 5,
+      "scheme": 6
+    },
+    "marking_scheme_template": "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx"
   },
   "deck_map": {},
   "topic_deck_allowlist": {},

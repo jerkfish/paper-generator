@@ -272,7 +272,7 @@ MATCH_BANK = {
 # Each entry: (stem, correct answer, [distractors]).
 MCQ_BANK = {
     "multimedia_fundamentals": [
-        ("Which best defines multimedia?", "Integration of text, graphics, audio, video and animation",
+        ("Which best defines multimedia?", "Text, graphics, audio, video and animation",
          ["Text only", "A single image", "A printed book"]),
         ("A presentation where the user controls the sequence is called:",
          "Non-linear", ["Linear", "Static", "Printed"]),
@@ -284,10 +284,10 @@ MCQ_BANK = {
          ["The system plays automatically", "Only text is shown", "There is no navigation"]),
         ("Which is an example of linear multimedia?", "A cinema presentation",
          ["A website with menus", "An interactive kiosk", "A game with choices"]),
-        ("Convergence in multimedia refers to:", "Merging of computing, media and communications",
+        ("Convergence in multimedia refers to:", "Merging of media and computing",
          ["Deleting media files", "Printing images", "Recording audio only"]),
         ("Which is a benefit of multimedia in education?",
-         "It can combine explanation with visuals and sound",
+         "It combines visuals and sound",
          ["It removes all interaction", "It replaces all teachers", "It uses only text"]),
     ],
     "text": [
