@@ -4,14 +4,34 @@
   "status": "coming_soon",
   "order": 1,
   "header_text": "CSC402 PROGRAMMING I",
-  "template_path": "",
+  "template_path": "data/reference/CSC402/CSC402 TEMPLATE.docx",
   "fingerprint": {
     "source_papers": "data/papers/CSC402",
     "paper_count": 24,
     "unique_papers": 21,
     "year_min": 2013,
     "year_max": 2026,
-    "prepared_corpus": "data/tracking/csc402"
+    "prepared_corpus": "data/tracking/csc402",
+    "taxonomy": "data/tracking/csc402/taxonomy.json",
+    "question_log": "data/tracking/csc402/question_log.json",
+    "taxonomy_summary": "data/tracking/csc402/taxonomy_summary.json",
+    "question_log_entries": 164,
+    "papers_with_reconciled_marks": 19,
+    "part_marks": {
+      "A": [
+        10,
+        15,
+        20
+      ],
+      "B": [
+        50,
+        55,
+        60
+      ],
+      "C": [
+        30
+      ]
+    }
   },
   "deck_map": {},
   "topic_deck_allowlist": {},

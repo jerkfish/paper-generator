@@ -4,7 +4,7 @@
   "type": "B",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-04T07:01:34Z",
+  "updated": "2026-11-04T07:08:21Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -62,7 +62,7 @@
       "notes": "No scheme/template or lecture decks supplied. Deterministic builder will generate both paper and marking scheme from the paper corpus; theory pipeline is disabled."
     },
     "3_template": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "data/reference/CSC402/CSC402 TEMPLATE.docx",
         "data/reference/CSC402/CSC402 TEMPLATE.pdf",
@@ -74,16 +74,21 @@
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": "Awaiting visual approval of the cover candidate."
+        "approved": true,
+        "by": "user instruction \"approved, continue\"",
+        "on": "2026-11-04",
+        "note": "Approved the CSC402 cover candidate; page-2 QA deferred to stage 7 builder."
       },
       "notes": "Candidate built from the standard-cover-derived clean template: title PROGRAMMING I, code CSC402, November 2026, 3 hours, MAT133-only pack items removed, CSC402 footer added. XML valid; 2 sections; 1 image; no template-check problems. The rendered PDF is one cover page; the page-2 transition will be exercised at stage 7 by the builder."
     },
     "4_taxonomy_question_log": {
-      "status": "pending",
-      "evidence": [],
+      "status": "in_progress",
+      "evidence": [
+        "data/tracking/csc402/taxonomy.json",
+        "data/tracking/csc402/question_log.json",
+        "data/tracking/csc402/taxonomy_summary.json",
+        "src/subjects/csc402/taxonomy.py"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
@@ -91,9 +96,9 @@
         "approved": false,
         "by": "",
         "on": "",
-        "note": ""
+        "note": "Awaiting taxonomy/question-log review."
       },
-      "notes": ""
+      "notes": "Built deterministic taxonomy/question log from 21 unique papers: 164 question-level entries; 19/21 papers reconcile to 2015 part-header marks; 2 papers short by 6 and 3 marks; PART A is one aggregate MCQ entry per paper; 10 questions lack parseable marks."
     },
     "5_fingerprint_planner": {
       "status": "pending",
@@ -188,8 +193,8 @@
       "opened": "2026-11-04"
     },
     {
-      "stage": "3_template",
-      "item": "Cover candidate is a one-page template; the page-2 transition cannot be rendered until the stage-7 builder exists. Approve the cover now, or require a body sample before stage 3 is done.",
+      "stage": "4_taxonomy_question_log",
+      "item": "Review taxonomy topics and 164 question-level entries. Two papers (Feb 2025, Jul 2025) are short of the 100-mark total; 10 questions lack parseable marks; Part A MCQ stems are aggregated.",
       "blocking": true,
       "opened": "2026-11-04"
     }
