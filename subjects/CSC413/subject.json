@@ -8,7 +8,42 @@
   "has_placeholders": false,
   "header_text": "CSC413 INTRODUCTION TO INTERACTIVE MULTIMEDIA",
   "template_path": "data/reference/CSC413/CSC413 TEMPLATE.docx",
-  "fingerprint": {},
+  "fingerprint": {
+    "source_papers": "data/papers/CSC413",
+    "paper_count": 16,
+    "unique_papers": 15,
+    "year_min": 2014,
+    "year_max": 2023,
+    "prepared_corpus": "data/tracking/csc413",
+    "taxonomy": "data/tracking/csc413/taxonomy.json",
+    "question_log": "data/tracking/csc413/question_log.json",
+    "taxonomy_summary": "data/tracking/csc413/taxonomy_summary.json",
+    "question_log_entries": 249,
+    "papers_with_reconciled_marks": 13,
+    "part_marks": {
+      "A": [
+        10,
+        15,
+        30,
+        40,
+        70
+      ],
+      "B": [
+        5,
+        15,
+        30,
+        60,
+        70
+      ],
+      "C": [
+        30
+      ],
+      "D": [
+        5,
+        40
+      ]
+    }
+  },
   "deck_map": {},
   "topic_deck_allowlist": {},
   "enabled_computed_generators": [],
