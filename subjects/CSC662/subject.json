@@ -2,6 +2,7 @@
   "code": "CSC662",
   "title": "Computer Security",
   "status": "available",
+  "order": 38,
   "has_practice_mode": true,
   "has_placeholders": true,
   "header_text": "CSC662 COMPUTER SECURITY",
@@ -96,5 +97,58 @@
     "rail_fence",
     "otp",
     "caesar"
-  ]
+  ],
+  "type": "A",
+  "capabilities": {
+    "subject_type": "A",
+    "generation": "llm_theory",
+    "prebuild": "llm_seed_set",
+    "public_documents": "rebuild_scheme",
+    "needs_llm": true,
+    "uses_slides": true,
+    "uses_past_papers": true,
+    "deterministic": false,
+    "practice_mode": true,
+    "placeholders": true,
+    "public_scheme_requires_quote_marker": true
+  },
+  "plugins": {
+    "plan": "src.subjects.csc662.plugin:plan",
+    "library_seeds": "src.subjects.csc662.plugin:library_seeds",
+    "library_metadata": "src.subjects.csc662.plugin:library_metadata",
+    "plan_inputs": "src.subjects.csc662.plugin:plan_inputs",
+    "generator_labels": "src.subjects.csc662.plugin:generator_labels",
+    "topic_labels": "src.subjects.csc662.plugin:topic_labels",
+    "plan_markdown": "src.subjects.csc662.plugin:plan_markdown"
+  },
+  "permissions": {
+    "papers": {
+      "allowed": true,
+      "basis": "project owner supplied working copies; originals remain read-only",
+      "confirmed_by": "project owner",
+      "confirmed_on": "2026-11-04",
+      "notes": "data/papers/CSC662 working copies"
+    },
+    "scheme": {
+      "allowed": true,
+      "basis": "project owner requested generated marking schemes",
+      "confirmed_by": "project owner",
+      "confirmed_on": "2026-11-04",
+      "notes": "public schemes omit verbatim slide quotes"
+    },
+    "slides": {
+      "allowed": true,
+      "basis": "project owner supplied lecture slides",
+      "confirmed_by": "project owner",
+      "confirmed_on": "2026-11-04",
+      "notes": "local retrieval only; source chunks are not published"
+    },
+    "publication": {
+      "allowed": true,
+      "basis": "project owner requested public deployment",
+      "confirmed_by": "project owner",
+      "confirmed_on": "2026-11-04",
+      "notes": "library-only public bundle"
+    }
+  }
 }

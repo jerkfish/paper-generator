@@ -14,8 +14,10 @@ The optional Phase 4.2 live mode is a separate Worker in
 - `www.uitmpapergen.download` redirects to the apex
 - workers.dev fallback: https://papergen.jerkfish123.workers.dev
 - D1: `papergen` (`9d99c331-d8ba-495e-9a8d-35e295bb882c`), schema applied.
-- R2: `exampapers`, 181-file public bundle (CSC662 + MAT133) plus shared
-  gallery objects; 189 objects, 53,827,090 bytes after the MAT133 publish.
+- R2: `exampapers`, the public bundle (all available subjects) plus shared
+  gallery objects. Current bucket: 221 objects, 52,424,641 bytes; the old
+  shared entries expired after their 7-day TTL. Subject routes and share
+  validation come from the generated `subjects.json`, not a Worker list.
 - Lifecycle: read-only check works; adding the rule needs
   `Workers R2 Storage Write` on the API token (or the dashboard).
 
@@ -83,12 +85,9 @@ bun run deploy
 | Route | Behaviour |
 |---|---|
 | `/` | `index.html` from R2 |
-| `/csc662` | subject page |
-| `/csc662/library` | sortable/filterable Library |
-| `/csc662/generate` | static notice (live generation disabled) |
-| `/mat133` | subject page |
-| `/mat133/library` | sortable/filterable Library |
-| `/mat133/generate` | static notice (live generation disabled) |
+| `/<route>` | subject page, resolved from generated `subjects.json` |
+| `/<route>/library` | sortable/filterable Library |
+| `/<route>/generate` | static notice (live generation disabled) |
 | `/gallery` | public gallery page |
 | `/paused` | paused notice |
 | `/assets/*`, `/library/*` | static bundle objects |
@@ -100,8 +99,9 @@ bun run deploy
 ## Share rules
 
 - The request body may contain only `subject`, `mode` and `seed`.
-- Subject must be `CSC662` or `MAT133`; mode must be `realistic`; seed must
-  be 1–20. The Worker reads that subject's `library/<SUBJECT>/manifest.json`.
+- Subject must be an available subject in the generated `subjects.json`; mode
+  must be `realistic`; seed must be 1–20. The Worker reads that subject's
+  `library/<SUBJECT>/manifest.json`.
 - No user text, filenames or URLs are accepted.
 - An existing unexpired row for the same subject/mode/seed is reused, so
   repeat shares cost no R2 operations.
@@ -116,8 +116,8 @@ bun run deploy
 bun test
 ```
 
-Covers static routing, traversal rejection, Content-Disposition, content types
-and share validation.
+Covers generated subject routing, traversal rejection, Content-Disposition,
+content types and share validation.
 
 ## Quota notes
 

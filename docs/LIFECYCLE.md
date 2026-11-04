@@ -176,62 +176,36 @@ four GETs plus D1 operations.
 5. The Worker and custom domain do not need redeploying for content-only
    changes.
 
-## 7. Adding a different subject (for example CSC580)
+## 7. Adding a different subject
 
-The registry supports multiple subjects. CSC662 and MAT133 are the two working
-examples:
+Use `docs/SUBJECT_PLAYBOOK.md` as the authority. The short version:
 
-- CSC662 uses the lecture-deck theory pipeline.
-- MAT133 uses deterministic paper-derived generators and needs no LLM.
+1. Read `docs/SUBJECT_PLAYBOOK.md` and the subject's
+   `subjects/<CODE>/lifecycle_state.json`.
+2. Scaffold without onboarding:
+   ```bash
+   uv run python -m scripts.new_subject <CODE> --type A|B|C --dry-run
+   uv run python -m scripts.new_subject <CODE> --type A|B|C --title "Title"
+   uv run python -m scripts.lifecycle_status <CODE>
+   ```
+   This creates `subject.json` with `status: "coming_soon"`, capabilities,
+   permissions, plugins, a lifecycle state, the working folders and a subject
+   plugin package under `src/subjects/<code>/`.
+3. Complete stages 0-10 in order. Each stage has a [HUMAN] checkpoint; stop
+   and record the approval before moving the lifecycle status to `done`.
+4. Subject-specific code belongs only under `src/subjects/<code>/`. Shared
+   rename/dedupe/OCR/register/template/forbidden-token code is in
+   `src/subjects/preprocess.py`, `templates.py` and `forbidden.py`.
+5. The app, bundle builder and Worker read the registry or generated
+   `subjects.json`. There is no subject allow-list to edit in
+   `src/app/jobs.py`, `scripts/build_public_bundle.py` or
+   `cloudflare/worker/src/index.js`.
+6. Record `permissions.papers`, `scheme`, `slides` and `publication` before
+   stage 9. Stage 9 is a hard stop before R2 upload and Worker deploy.
 
-A new subject needs all of these:
-
-### Data and registry
-
-1. Add `subjects/CSC580/subject.json` with `status: "available"`, title,
-   header text, template path, fingerprint, deck map, topic-deck allow-list
-   and enabled computed generators.
-2. Add the subject papers under `data/papers/<SUBJECT>/`, the template under
-   `data/reference/<SUBJECT>/` and, if the subject uses slides, the decks under
-   `data/lecturedecks/<SUBJECT>/`. No paper folder needs to exist until the
-   subject's papers are added.
-3. Build the subject's question log/fingerprint from its past papers. The
-   CSC662 planner inputs in `data/tracking/mock_paper_planner.xlsx` and
-   `outputs/eval_final_deepseek/` are CSC662-specific; MAT133 has its own
-   `src/mat133/planner.py`.
-4. For a theory-based subject, add its BM25 topic map and topic-to-deck
-   allow-list (`src/theory/bm25.py` currently contains CSC662's).
-5. Add computed-generator plugins if the subject has computed questions.
-6. Add the subject to the small subject allow-lists:
-   - the `{DEFAULT_SUBJECT, "MAT133", ...}` check in `src/app/jobs.py`
-   - the available-subject loop in `scripts/build_public_bundle.py`
-     (already automatic)
-   - `SUBJECTS`, `SUBJECT_ROUTES` and `PAGE_MAP` in
-     `cloudflare/worker/src/index.js`
-7. Add routes/pages under the subject code. The app routes are already
-   `/{code}/...`; the Worker needs matching static maps.
-
-### Generate and curate
-
-1. Run realistic/practice generation with the subject's planner and theory
-   module, or its deterministic generators.
-2. Verify sources, entailment, near-copy, style confidence, or deterministic
-   answer validation for a generator-only subject.
-3. Human-review the 20-seed set; keep placeholders visible.
-4. Build paper/scheme DOCX/PDF and run scheme QA.
-
-### Publish
-
-1. Build the subject's public bundle with
-   `scripts.build_public_bundle.py` (all available subjects by default).
-2. Update the allowlist and run the R2 dry-run/upload.
-3. Add the subject to the Worker route map and D1 share validation.
-4. Deploy the Worker (the custom domain is shared).
-5. Verify `/csc580`, `/csc580/library`, downloads and gallery sharing.
-
-Adding only a `subjects/CSC580/subject.json` makes the subject appear on the
-home page, but it still needs a planner/prebuild, bundle mapping and Worker
-routes before it can publish.
+A subject that only exists as `subject.json` still needs a planner/prebuild,
+builders, a Library cache and explicit publication permission before it can
+publish. Being `available` is not the same as being published.
 
 ### MAT133 status (published)
 
@@ -252,13 +226,15 @@ MAT133 completed the full lifecycle:
 
 ## 8. What is live now
 
-- Public bundle: 181 files, 52,394,262 bytes / 49.96 MiB, original local-build
-  covers; CSC662 schemes are quote-free.
-- R2: 189 objects (bundle + 8 shared gallery files), 53,827,090 bytes.
+- Public bundle: 221 files, 52,424,641 bytes / 50.00 MiB, original local-build
+  covers; CSC662 schemes are quote-free; 44 subject registry files.
+- R2: 221 objects, 52,424,641 bytes; the previous 8 shared gallery files have
+  expired (7-day gallery TTL).
 - Library metadata: CSC662 exposes computed marks and numeric placeholders;
   MAT133 exposes total marks (64-72), `has_practice_mode: false` and
   `has_placeholders: false`.
-- Public subjects: CSC662 and MAT133, 20 Library papers each.
+- Public subjects: CSC662 and MAT133, 20 Library papers each; 42 curriculum
+  stubs are listed as `coming_soon`.
 - D1: gallery schema applied; user-shared entries exist.
 - Custom domain: apex and www, HTTPS, www -> apex redirect.
 - Public site is library-only; the Generate page is a static notice.

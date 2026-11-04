@@ -26,13 +26,13 @@ There are two environments:
 | Worker | `cloudflare/worker/` |
 | D1 database | `papergen` (`9d99c331-d8ba-495e-9a8d-35e295bb882c`) |
 | R2 bucket | `exampapers` |
-| Public bundle | 181 files, 52,394,262 bytes / 49.96 MiB (CSC662 + MAT133) |
-| R2 bucket contents | 189 objects, 53,827,090 bytes / 51.33 MiB (bundle + 8 shared files) |
-| R2 quota used | 482 / 10,000 internal Class A, 0 Class B (October 2026) |
+| Public bundle | 221 files, 52,424,641 bytes / 50.00 MiB (documents + 44 subject stubs) |
+| R2 bucket contents | 221 objects, 52,424,641 bytes / 50.00 MiB |
+| R2 quota used | 58 / 10,000 internal Class A, 0 Class B (November 2026) |
 | Worker | Deployed with CSC662 and MAT133 routes (version `597dd1ca`) |
 | Live mode | Scaffolded in `cloudflare/container-worker/`; not deployed |
 | Live-mode prerequisite | Cloudflare Workers Paid, **$5/month** (Containers has no free tier) |
-| Subjects | CSC662 and MAT133 available; CSC580/CSC645 coming soon |
+| Subjects | CSC662 and MAT133 available; 42 curriculum stubs coming soon |
 | Contact | auzair1990@gmail.com |
 | Repository | https://github.com/jerkfish/paper-generator |
 
@@ -54,7 +54,7 @@ uv run uvicorn src.app.main:app --host 127.0.0.1 --port 8000
 
 | Route | Purpose |
 |---|---|
-| `/` | Subject table: CSC662 and MAT133 available; CSC580/CSC645 coming soon |
+| `/` | Subject table: CSC662 and MAT133 available; 42 curriculum stubs coming soon |
 | `/csc662` | CSC662 hub: generate, Library, gallery |
 | `/csc662/library` | Filterable table of the 20 prebuilt CSC662 papers |
 | `/generate` | Shortcut to `/csc662/generate` |
@@ -108,16 +108,21 @@ subject code, and the Worker reads that subject's
 The app discovers subjects by scanning `subjects/*/subject.json`:
 
 ```text
-subjects/CSC662/subject.json   status: available
-subjects/MAT133/subject.json   status: available (57 deterministic generators)
-subjects/CSC580/subject.json   status: coming_soon
-subjects/CSC645/subject.json   status: coming_soon
+subjects/CSC662/subject.json   status: available, order 38
+subjects/MAT133/subject.json   status: available, order 44
+subjects/CSC402/subject.json   status: coming_soon, order 1
+subjects/CSC413/subject.json   status: coming_soon, order 2
+...
+subjects/CST688/subject.json   status: coming_soon, order 43
 ```
 
-Each record contains the code, title, status, header text, template path,
-fingerprint metadata, deck map, topic-deck allow-list and enabled computed
-generators. `status: coming_soon` subjects appear on the home page but have no
-papers or Library cache.
+The registry follows the curriculum order in the `order` field, with available
+subjects first. There are 44 subjects: CSC662 and MAT133 available, plus 42
+curriculum stubs. CSC402 has a prepared 24-PDF/21-unique-paper corpus but
+remains `coming_soon` until its taxonomy and planner are built. Each record contains the code, title, status, header text,
+template path, fingerprint metadata, deck map, topic-deck allow-list and
+enabled computed generators. Stubs appear on the home page but have no papers
+or Library cache.
 
 Computed generators are subject plugins: the CSC662 types (Vigenere, ACM,
 columnar, rail fence, OTP, Caesar) live in `src/generators/`. MAT133 has its
@@ -310,7 +315,7 @@ cover, missing part labels or missing marks.
 ## Build the public bundle
 
 ```bash
-# all available subjects (CSC662 + MAT133)
+# all available subjects from the registry
 uv run python -m scripts.build_public_bundle --out outputs/public_bundle
 
 # one subject only
@@ -469,6 +474,8 @@ lifecycle rule is the storage backstop.
   taxonomy and question log.
 - `data/tracking/mat133/paper_text/` and `question_log/raw/` - cached OCR/text
   and per-paper extraction (reruns cost $0).
+- `data/tracking/csc402/` - prepared CSC402 paper corpus (24 PDFs, 21 unique;
+  register, cover text, full text/OCR index). No taxonomy or planner yet.
 
 Per-subject input folders:
 
@@ -481,19 +488,21 @@ data/lecturedecks/<SUBJECT>/   lecture decks, if the subject uses them
 The 38 CSC662 papers were moved to `data/papers/CSC662/`. The CSC662 template
 is at `data/reference/CSC662/`. MAT133 papers are in `data/papers/MAT133/`;
 its template and answer scheme are in `data/reference/MAT133/`; it has no
-lecture decks. CSC580 and CSC645 have empty reference folders ready for future
-subjects; their paper folders can be created when papers are added. The CSC662
-lecture folder exists at `data/lecturedecks/CSC662/`; when it is empty the
-loader uses the external `CSC662_DECKS_DIR`/Desktop fallback, so no 52 MB of
-slides need to be copied into the repository.
+lecture decks. The 42 curriculum stubs have no paper or reference data yet;
+create `data/papers/<SUBJECT>/` and `data/reference/<SUBJECT>/` when papers are
+added. The CSC662 lecture folder exists at `data/lecturedecks/CSC662/`; when it
+is empty the loader uses the external `CSC662_DECKS_DIR`/Desktop fallback, so
+no 52 MB of slides need to be copied into the repository.
 
 ## Lifecycle
 
 See `docs/LIFECYCLE.md` for the complete flow: local generation, public bundle,
 R2 upload, Worker serving, gallery share/expiry and adding a new subject.
-MAT133 setup, scheme parse, cover template, taxonomy, question log, builder,
-planner, 20-seed Library and generator validation are in `docs/MAT133.md`; the
-taxonomy/report is in `docs/MAT133_TAXONOMY.md`.
+The subject onboarding playbook is `docs/SUBJECT_PLAYBOOK.md`; every subject's
+current stage is in `subjects/<CODE>/lifecycle_state.json`. MAT133 setup,
+scheme parse, cover template, taxonomy, question log, builder, planner, 20-seed
+Library and generator validation are in `docs/MAT133.md`; the taxonomy/report
+is in `docs/MAT133_TAXONOMY.md`.
 
 ## Design review
 
@@ -504,9 +513,9 @@ mockups are in `design/mockups/`.
 ## Tests
 
 ```bash
-uv run pytest -q        # 254 Python tests
+uv run pytest -q        # 267 Python tests
 cd cloudflare/worker
-bun test                # 5 Worker tests
+bun test                # 6 Worker tests
 ```
 
 Coverage includes the planner/verifier, job lifecycle, cancel, cost-cap abort,

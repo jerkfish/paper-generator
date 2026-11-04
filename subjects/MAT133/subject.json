@@ -2,6 +2,7 @@
   "code": "MAT133",
   "title": "Pre-Calculus",
   "status": "available",
+  "order": 44,
   "has_practice_mode": false,
   "has_placeholders": false,
   "header_text": "MAT133 PRE-CALCULUS",
@@ -74,5 +75,54 @@
   ],
   "taxonomy_path": "data/tracking/mat133/taxonomy.json",
   "question_log_path": "data/tracking/mat133/question_log.json",
-  "generator_count": 57
+  "generator_count": 57,
+  "type": "B",
+  "capabilities": {
+    "subject_type": "B",
+    "generation": "deterministic",
+    "prebuild": "plugin",
+    "public_documents": "copy_cached",
+    "needs_llm": false,
+    "uses_slides": false,
+    "uses_past_papers": true,
+    "deterministic": true,
+    "practice_mode": false,
+    "placeholders": false,
+    "public_scheme_requires_quote_marker": false
+  },
+  "plugins": {
+    "prebuild": "src.subjects.mat133.plugin:build_seed",
+    "generator_labels": "src.subjects.mat133.plugin:generator_labels",
+    "topic_labels": "src.subjects.mat133.plugin:topic_labels"
+  },
+  "permissions": {
+    "papers": {
+      "allowed": true,
+      "basis": "project owner supplied working copies; originals remain read-only",
+      "confirmed_by": "project owner",
+      "confirmed_on": "2026-11-04",
+      "notes": "data/papers/MAT133"
+    },
+    "scheme": {
+      "allowed": true,
+      "basis": "project owner supplied the public answer scheme for parsing",
+      "confirmed_by": "project owner",
+      "confirmed_on": "2026-11-04",
+      "notes": "data/reference/MAT133"
+    },
+    "slides": {
+      "allowed": false,
+      "basis": "not applicable",
+      "confirmed_by": "project owner",
+      "confirmed_on": "2026-11-04",
+      "notes": "No lecture slides are used."
+    },
+    "publication": {
+      "allowed": true,
+      "basis": "project owner requested public deployment",
+      "confirmed_by": "project owner",
+      "confirmed_on": "2026-11-04",
+      "notes": "library-only public bundle"
+    }
+  }
 }

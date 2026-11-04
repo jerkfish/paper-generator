@@ -22,11 +22,12 @@ def _fake_env(monkeypatch, tmp_path):
     monkeypatch.setattr(jobs.config, "DEEPSEEK_API_KEY", "fake-key")
     monkeypatch.setattr(jobs.config, "PUBLIC_BUILD", False)
     monkeypatch.setattr(
-        jobs, "build_plan",
-        lambda mode, style, cm, seed: ([], {
+        jobs, "_plan_for_subject",
+        lambda subject, mode, style, cm, seed: ([], {
             "seed": seed, "computed_marks": 0,
             "assigned_theory_topic_marks": {}, "slots": []}))
-    monkeypatch.setattr(jobs, "to_markdown", lambda summary: "# plan")
+    monkeypatch.setattr(jobs, "_plan_markdown",
+                        lambda subject, summary: "# plan")
     monkeypatch.setattr(jobs, "theory_report", lambda payload: "# theory")
 
 

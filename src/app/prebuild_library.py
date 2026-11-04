@@ -1,4 +1,13 @@
-"""Prebuild the no-LLM Library cache from the 20-seed accepted sets."""
+"""Prebuild the no-LLM Library cache for a registered subject.
+
+The subject's capabilities decide the path:
+
+* a ``prebuild`` plugin (type B/C) builds each seed itself;
+* otherwise a type-A subject uses its ``plan_inputs`` plugin to discover the
+  stored planner/theory JSON and rebuilds the paper/scheme from them.
+
+There is no subject allow-list in this module.
+"""
 from __future__ import annotations
 
 import argparse
@@ -9,25 +18,36 @@ from pathlib import Path
 
 from src import config
 from src.app.filenames import utc_year
-from src.app.jobs import DEFAULT_SUBJECT, cache_path
+from src.app.jobs import cache_path
 from src.assemble.generic_build import build_paper, build_scheme
-from src.mat133.library import build_seed as build_mat133_seed
-from src.subjects.registry import SubjectNotFound, get_subject
-
-SRC = config.OUTPUTS_DIR / "eval_final_deepseek"
-MAT133 = "MAT133"
+from src.subjects.plugins import plugin_for, require_plugin
+from src.subjects.registry import (Subject, SubjectNotFound,
+                                   default_subject_code, get_subject)
 
 
-def build_scheme_only(seed: int, subject: str = DEFAULT_SUBJECT) -> dict:
+def _record(subject: str | Subject | None) -> Subject:
+    if isinstance(subject, Subject):
+        return subject
+    try:
+        return get_subject(subject or default_subject_code())
+    except SubjectNotFound:
+        raise SystemExit(f"unknown subject: {subject}") from None
+
+
+def build_scheme_only(seed: int,
+                      subject: str | Subject | None = None) -> dict:
     """Rebuild only the scheme from stored plan/theory/cache paper."""
-    if subject.upper() == MAT133:
-        return build_mat133_seed(seed, scheme_only=True)
-    plan = SRC / f"seed_{seed:02d}_planner.json"
-    theory = SRC / f"seed_{seed:02d}_theory.json"
-    out = cache_path("realistic", seed, None, subject=subject)
+    record = _record(subject)
+    plugin = plugin_for(record, "prebuild")
+    if plugin is not None:
+        return plugin(seed, scheme_only=True)
+    inputs = require_plugin(record, "plan_inputs")(seed)
+    plan = Path(inputs["plan"])
+    theory = Path(inputs["theory"])
+    out = cache_path("realistic", seed, None, subject=record.code)
     paper_docx = out / "paper.docx"
     if not plan.exists() or not theory.exists() or not paper_docx.exists():
-        return build_seed(seed, force=True, subject=subject)
+        return build_seed(seed, force=True, subject=record)
     scheme = build_scheme(paper_docx, plan, theory,
                           out / "scheme.docx", out / "scheme.pdf",
                           public=config.PUBLIC_BUILD)
@@ -41,14 +61,21 @@ def build_scheme_only(seed: int, subject: str = DEFAULT_SUBJECT) -> dict:
 
 
 def build_seed(seed: int, force: bool = False,
-               subject: str = DEFAULT_SUBJECT) -> dict:
-    if subject.upper() == MAT133:
-        return build_mat133_seed(seed, force=force)
-    plan = SRC / f"seed_{seed:02d}_planner.json"
-    theory = SRC / f"seed_{seed:02d}_theory.json"
+               subject: str | Subject | None = None) -> dict:
+    record = _record(subject)
+    plugin = plugin_for(record, "prebuild")
+    if plugin is not None:
+        return plugin(seed, force=force)
+    return _build_llm_seed(seed, force=force, record=record)
+
+
+def _build_llm_seed(seed: int, *, force: bool, record: Subject) -> dict:
+    inputs = require_plugin(record, "plan_inputs")(seed)
+    plan = Path(inputs["plan"])
+    theory = Path(inputs["theory"])
     if not plan.exists() or not theory.exists():
         raise FileNotFoundError(f"missing seed {seed}")
-    out = cache_path("realistic", seed, None, subject=subject)
+    out = cache_path("realistic", seed, None, subject=record.code)
     if not force and (out / "meta.json").exists():
         return {"seed": seed, "cached": True, "path": str(out)}
     out.mkdir(parents=True, exist_ok=True)
@@ -69,21 +96,30 @@ def build_seed(seed: int, force: bool = False,
     progress = []
     for q in payload.get("accepted", []):
         slot = str(q.get("slot", ""))
-        m = re.match(r"([AB]\d+)", slot)
-        progress.append({"question": m.group(1) if m else slot,
-                         "slot": slot, "status": "accepted",
-                         "message": "", "cost_usd": 0,
-                         "accepted": 0, "placeholders": 0})
+        question = str(q.get("question", ""))
+        if not question:
+            match = re.match(r"^([A-Z]+\d+)", slot)
+            question = match.group(1) if match else slot
+        progress.append({"question": question, "slot": slot,
+                         "status": "accepted", "message": "",
+                         "cost_usd": 0, "calls": 0, "accepted": 0,
+                         "placeholders": 0})
     for p in payload.get("placeholders", []):
         slot = str(p.get("slot", ""))
-        m = re.match(r"([AB]\d+)", slot)
-        progress.append({"question": m.group(1) if m else slot,
-                         "slot": slot, "status": "placeholder",
+        question = str(p.get("question", ""))
+        if not question:
+            match = re.match(r"^([A-Z]+\d+)", slot)
+            question = match.group(1) if match else slot
+        progress.append({"question": question, "slot": slot,
+                         "status": "placeholder",
                          "message": str(p.get("reason", ""))[:200],
-                         "cost_usd": 0, "accepted": 0, "placeholders": 0})
+                         "cost_usd": 0, "calls": 0, "accepted": 0,
+                         "placeholders": 0})
     created = time.time()
+    total_slots = len(payload.get("accepted", [])) + len(
+        payload.get("placeholders", []))
     meta = {
-        "subject": subject.upper(),
+        "subject": record.code,
         "seed": seed,
         "mode": "realistic",
         "computed_marks": None,
@@ -91,17 +127,23 @@ def build_seed(seed: int, force: bool = False,
         "cost_usd": payload.get("usage", {}).get("cost_usd", 0.0),
         "accepted": len(payload.get("accepted", [])),
         "placeholders": len(payload.get("placeholders", [])),
+        "total_slots": total_slots,
+        "has_practice_mode": record.has_practice_mode,
+        "has_placeholders": record.has_placeholders,
         "created": created,
         "year": utc_year(created),
         "topic_marks": topic_marks,
         "files": files,
         "progress": progress,
         "summary": {
-            "subject": subject.upper(),
+            "subject": record.code,
             "seed": seed,
             "mode": "realistic",
             "accepted": len(payload.get("accepted", [])),
             "placeholders": len(payload.get("placeholders", [])),
+            "total_slots": total_slots,
+            "has_practice_mode": record.has_practice_mode,
+            "has_placeholders": record.has_placeholders,
             "model": payload.get("model", ""),
             "cost_usd": payload.get("usage", {}).get("cost_usd", 0.0),
             "cached": True,
@@ -119,7 +161,7 @@ def build_seed(seed: int, force: bool = False,
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--seeds", default="1-20")
-    ap.add_argument("--subject", default=DEFAULT_SUBJECT)
+    ap.add_argument("--subject", default=default_subject_code())
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--schemes-only", action="store_true")
     args = ap.parse_args()
@@ -129,8 +171,8 @@ def main() -> None:
         raise SystemExit(f"unknown subject: {args.subject}") from None
     if not subject.available:
         raise SystemExit(f"subject {subject.code} is coming soon")
-    if subject.code not in {DEFAULT_SUBJECT, MAT133}:
-        raise SystemExit(f"subject {subject.code} has no generator plugin")
+    if not subject.capabilities.get("generation"):
+        raise SystemExit(f"subject {subject.code} has no generation capability")
     args.subject = subject.code
     if "-" in args.seeds:
         a, b = args.seeds.split("-")
@@ -140,9 +182,11 @@ def main() -> None:
     for seed in seeds:
         try:
             if args.schemes_only:
-                print(build_scheme_only(seed, subject=args.subject), flush=True)
+                print(build_scheme_only(seed, subject=args.subject),
+                      flush=True)
             else:
-                print(build_seed(seed, force=args.force, subject=args.subject), flush=True)
+                print(build_seed(seed, force=args.force,
+                                 subject=args.subject), flush=True)
         except Exception as e:
             print(f"seed {seed}: ERROR {e}", flush=True)
 

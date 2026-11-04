@@ -5,9 +5,13 @@ every paper and scheme, renders the public pages and writes the public
 manifests.  It never copies private files directly:
 
 - papers keep the original local-build cover and are re-exported;
-- CSC662 schemes are rebuilt with verbatim slide quotes omitted;
-- MAT133 schemes are deterministic and contain no lecture quotes;
+- subjects whose capability says ``rebuild_scheme`` get public schemes with
+  verbatim slide quotes omitted;
+- subjects whose capability says ``copy_cached`` reuse their cached scheme;
 - only public-safe subject fields and Library metadata are written.
+
+The list of subjects, their routes and their document strategy all come from
+the registry.  A generated ``subjects.json`` is written for the Worker.
 
 Run it without PUBLIC_BUILD=1 (the builder applies the public rules itself):
 
@@ -32,21 +36,24 @@ if str(ROOT) not in sys.path:
 
 from src import config
 from src.app.filenames import utc_year
-from src.app.jobs import DEFAULT_SUBJECT, library_item, topic_legend
+from src.app.jobs import library_item, topic_legend
 from src.assemble.build_docx_paper import export_pdf
 from src.assemble.generic_build import build_scheme
-from src.mat133.planner import GENERATOR_LABELS as MAT133_GENERATOR_LABELS
-from src.planner.planner import TYPE_LABEL
-from src.subjects.registry import get_subject, load_subjects
+from src.subjects.plugins import (
+    generator_labels as subject_generator_labels,
+    require_plugin,
+)
+from src.subjects.registry import (
+    Subject,
+    default_subject_code,
+    get_subject,
+    load_subjects,
+)
 
 APP_DIR = ROOT / "src" / "app"
 TEMPLATES = APP_DIR / "templates"
 STATIC = APP_DIR / "static"
-SUBJECT = DEFAULT_SUBJECT  # backward-compatible default for helpers/tests
-MAT133 = "MAT133"
 SCHEME_MARKER = "[verbatim slide quote omitted in public build]"
-# Only the lecture-deck-based subject needs the public quote-omission marker.
-MARKER_SUBJECTS = {DEFAULT_SUBJECT}
 
 
 def _docx_text(path: Path) -> str:
@@ -82,13 +89,8 @@ def _check_scheme(path: Path, *, require_marker: bool = True) -> list[str]:
     return problems
 
 
-def _generator_labels(subject) -> list[str]:
-    labels = []
-    for generator_id in subject.enabled_computed_generators:
-        label = (TYPE_LABEL.get(generator_id)
-                 or MAT133_GENERATOR_LABELS.get(generator_id))
-        labels.append(label or generator_id)
-    return labels
+def _generator_labels(subject: Subject) -> list[str]:
+    return subject_generator_labels(subject)
 
 
 def _copy_complete(item: dict, papers: Path, schemes: Path,
@@ -113,24 +115,28 @@ def _copy_complete(item: dict, papers: Path, schemes: Path,
     return False
 
 
-def _build_csc662_documents(out: Path, seeds: list[int],
-                           force: bool) -> dict:
-    subject = SUBJECT
-    papers = out / "library" / subject / "papers"
-    schemes = out / "library" / subject / "schemes"
+def _build_rebuilt_documents(out: Path, seeds: list[int], force: bool,
+                             subject: Subject) -> dict:
+    """Copy the paper and rebuild a quote-free public scheme."""
+    papers = out / "library" / subject.code / "papers"
+    schemes = out / "library" / subject.code / "schemes"
     papers.mkdir(parents=True, exist_ok=True)
     schemes.mkdir(parents=True, exist_ok=True)
-    plan_dir = config.OUTPUTS_DIR / "eval_final_deepseek"
+    require_marker = subject.public_scheme_requires_quote_marker
+    plan_inputs = require_plugin(subject, "plan_inputs")
     built = 0
     skipped = 0
     for seed in seeds:
         item = library_item(seed, subject)
         if item is None:
-            raise SystemExit(f"no cached Library item for seed {seed}")
-        plan = plan_dir / f"seed_{seed:02d}_planner.json"
-        theory = plan_dir / f"seed_{seed:02d}_theory.json"
+            raise SystemExit(
+                f"no cached Library item for {subject.code} seed {seed}")
+        inputs = plan_inputs(seed)
+        plan = Path(inputs["plan"])
+        theory = Path(inputs["theory"])
         if not plan.exists() or not theory.exists():
-            raise SystemExit(f"missing planner/theory JSON for seed {seed}")
+            raise SystemExit(
+                f"missing planner/theory JSON for {subject.code} seed {seed}")
         names = item["downloads"]
         paper_docx = papers / names["paper_docx"]
         paper_pdf = papers / names["paper_pdf"]
@@ -138,83 +144,96 @@ def _build_csc662_documents(out: Path, seeds: list[int],
         scheme_pdf = schemes / names["scheme_pdf"]
         if (not force and paper_docx.exists() and paper_pdf.exists()
                 and scheme_docx.exists() and scheme_pdf.exists()):
-            print(f"{subject} seed {seed:02d}: cached bundle files, skipped",
-                  flush=True)
+            print(f"{subject.code} seed {seed:02d}: cached bundle files, "
+                  f"skipped", flush=True)
             skipped += 1
             continue
 
         source_docx = Path(item["files"]["paper_docx"])
         if not source_docx.exists():
-            raise SystemExit(f"missing private paper DOCX for seed {seed}: "
-                             f"{source_docx}")
-        print(f"{subject} seed {seed:02d}: public paper (original cover)",
-              flush=True)
+            raise SystemExit(
+                f"missing private paper DOCX for {subject.code} seed {seed}: "
+                f"{source_docx}")
+        print(f"{subject.code} seed {seed:02d}: public paper "
+              f"(original cover)", flush=True)
         shutil.copy2(source_docx, paper_docx)
         export_pdf(paper_docx, paper_pdf)
 
-        print(f"{subject} seed {seed:02d}: public scheme", flush=True)
+        print(f"{subject.code} seed {seed:02d}: public scheme", flush=True)
         build_scheme(source_docx, plan, theory, scheme_docx, scheme_pdf,
                      public=True)
-        problems = (_check_scheme(scheme_docx, require_marker=True)
-                    + _check_scheme(scheme_pdf, require_marker=True))
+        problems = (_check_scheme(scheme_docx, require_marker=require_marker)
+                    + _check_scheme(scheme_pdf,
+                                    require_marker=require_marker))
         if problems:
             raise SystemExit(f"seed {seed}: " + "; ".join(problems))
         built += 1
-    return {"built": built, "skipped": skipped,
+    return {"strategy": "rebuild_scheme", "built": built, "skipped": skipped,
             "papers": len(list(papers.glob("*.docx"))),
             "schemes": len(list(schemes.glob("*.docx")))}
 
 
-def _build_mat133_documents(out: Path, seeds: list[int],
-                            force: bool) -> dict:
-    papers = out / "library" / MAT133 / "papers"
-    schemes = out / "library" / MAT133 / "schemes"
+def _build_copied_documents(out: Path, seeds: list[int], force: bool,
+                            subject: Subject) -> dict:
+    """Copy the cached paper and scheme, checking the marker if configured."""
+    papers = out / "library" / subject.code / "papers"
+    schemes = out / "library" / subject.code / "schemes"
     papers.mkdir(parents=True, exist_ok=True)
     schemes.mkdir(parents=True, exist_ok=True)
+    require_marker = subject.public_scheme_requires_quote_marker
     built = 0
     skipped = 0
     for seed in seeds:
-        item = library_item(seed, MAT133)
+        item = library_item(seed, subject)
         if item is None:
             raise SystemExit(
-                f"no cached MAT133 Library item for seed {seed}; run "
+                f"no cached {subject.code} Library item for seed {seed}; run "
                 f"prebuild_library first")
-        print(f"{MAT133} seed {seed:02d}: public paper and scheme",
+        print(f"{subject.code} seed {seed:02d}: public paper and scheme",
               flush=True)
         if _copy_complete(item, papers, schemes, force):
-            print(f"{MAT133} seed {seed:02d}: cached bundle files, skipped",
-                  flush=True)
+            print(f"{subject.code} seed {seed:02d}: cached bundle files, "
+                  f"skipped", flush=True)
             skipped += 1
             continue
         names = item["downloads"]
         problems = (
             _check_scheme(schemes / names["scheme_docx"],
-                          require_marker=False)
+                          require_marker=require_marker)
             + _check_scheme(schemes / names["scheme_pdf"],
-                            require_marker=False))
+                            require_marker=require_marker))
         if problems:
             raise SystemExit(f"seed {seed}: " + "; ".join(problems))
         built += 1
-    return {"built": built, "skipped": skipped,
+    return {"strategy": "copy_cached", "built": built, "skipped": skipped,
             "papers": len(list(papers.glob("*.docx"))),
             "schemes": len(list(schemes.glob("*.docx")))}
 
 
 def build_documents(out: Path, seeds: list[int], force: bool = False,
-                    subject: str = SUBJECT) -> dict:
-    if subject.upper() == MAT133:
-        return _build_mat133_documents(out, seeds, force)
-    return _build_csc662_documents(out, seeds, force)
+                    subject: str | Subject | None = None) -> dict:
+    record = subject if isinstance(subject, Subject) else None
+    if record is None:
+        record = get_subject(subject or default_subject_code())
+    strategy = str(record.capabilities.get("public_documents",
+                                           "copy_cached"))
+    if strategy == "rebuild_scheme":
+        return _build_rebuilt_documents(out, seeds, force, record)
+    if strategy == "copy_cached":
+        return _build_copied_documents(out, seeds, force, record)
+    raise SystemExit(
+        f"subject {record.code}: unknown public_documents strategy {strategy!r}")
 
 
 def _urls(item: dict, out_dir: Path | None = None,
-          subject: str = SUBJECT) -> dict:
+          subject: str | None = None) -> dict:
+    code = str(subject or default_subject_code())
     urls = {}
     for kind, name in item["downloads"].items():
         folder = "schemes" if kind.startswith("scheme") else "papers"
-        url = f"/library/{subject}/{folder}/{quote(name, safe='')}"
+        url = f"/library/{code}/{folder}/{quote(name, safe='')}"
         if out_dir is not None:
-            path = out_dir / "library" / subject / folder / name
+            path = out_dir / "library" / code / folder / name
             if path.exists():
                 url += f"?v={int(path.stat().st_mtime)}"
         urls[kind] = url
@@ -270,14 +289,17 @@ def _render_pages(out: Path, subject_items: dict[str, list[dict]]) -> dict:
             "subject.html", subject=subject, paper_count=len(items),
             registry_display=f"subjects/{code}/subject.json",
             generator_labels=_generator_labels(subject),
-            deterministic=code == MAT133)
+            deterministic=subject.deterministic,
+            needs_llm=subject.needs_llm)
         pages[f"{subject.route}/library/index.html"] = render(
             "library.html", subject=subject, items=items, total=len(items),
             q="", computed="any", topic="any", placeholders="any",
             topics=topics, computed_options=computed_options,
-            item_urls=item_urls, topic_legend=topic_legend(code))
+            item_urls=item_urls, topic_legend=topic_legend(subject))
         pages[f"{subject.route}/generate/index.html"] = render(
-            "generate.html", subject=subject, deterministic=code == MAT133)
+            "generate.html", subject=subject,
+            deterministic=subject.deterministic,
+            needs_llm=subject.needs_llm)
     pages["gallery/index.html"] = render("gallery.html", items=[])
     pages["paused/index.html"] = render("paused.html")
     for rel, html in pages.items():
@@ -296,6 +318,7 @@ def _render_pages(out: Path, subject_items: dict[str, list[dict]]) -> dict:
 def _write_manifests(out: Path, subject_items: dict[str, list[dict]]) -> dict:
     subjects = list(load_subjects().values())
     subject_dir = out / "subjects"
+    generated = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     for item in subjects:
         data = item.public_dict()
         items = subject_items.get(item.code, [])
@@ -355,8 +378,9 @@ def _write_manifests(out: Path, subject_items: dict[str, list[dict]]) -> dict:
         lib_path.write_text(json.dumps(lib, indent=2) + "\n",
                             encoding="utf-8")
         total_papers += len(papers)
+
     index = {
-        "generated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "generated": generated,
         "subjects": [
             {"code": s.code, "title": s.title, "status": s.status,
              "papers": len(subject_items.get(s.code, [])),
@@ -368,6 +392,33 @@ def _write_manifests(out: Path, subject_items: dict[str, list[dict]]) -> dict:
     (out / "library").mkdir(parents=True, exist_ok=True)
     (out / "library" / "manifest.json").write_text(
         json.dumps(index, indent=2) + "\n", encoding="utf-8")
+
+    # One generated file drives Worker routing and gallery share validation.
+    worker_index = {
+        "generated": generated,
+        "subjects": [
+            {
+                "code": s.code,
+                "title": s.title,
+                "status": s.status,
+                "route": s.route,
+                "available": s.available,
+                "type": s.subject_type,
+                "papers": len(subject_items.get(s.code, [])),
+                "library_manifest": (
+                    f"/library/{s.code}/manifest.json"
+                    if subject_items.get(s.code) else None),
+                "routes": ({
+                    "home": f"/{s.route}",
+                    "library": f"/{s.route}/library",
+                    "generate": f"/{s.route}/generate",
+                } if subject_items.get(s.code) else None),
+            }
+            for s in subjects
+        ],
+    }
+    (out / "subjects.json").write_text(
+        json.dumps(worker_index, indent=2) + "\n", encoding="utf-8")
     return {"subjects": len(subjects), "papers": total_papers}
 
 
@@ -380,8 +431,13 @@ def _bundle_subject(rel: str) -> str:
 
 def validate(out: Path) -> list[str]:
     problems = []
-    forbidden = ("data/", "CSC662/", "MAT133/", "outputs/", "src/", "tests/",
-                 "design/", ".env", "wrangler")
+    subjects = {s.code: s for s in load_subjects().values()}
+    forbidden = ["data/", "outputs/", "src/", "tests/", "design/", ".env",
+                 "wrangler"] + [f"{code}/" for code in subjects]
+    private_markers = ["data/reference"] + [
+        Path(s.template_path).name for s in subjects.values()
+        if s.template_path
+    ]
     for path in out.rglob("*"):
         if not path.is_file():
             continue
@@ -390,11 +446,13 @@ def validate(out: Path) -> list[str]:
             problems.append(f"forbidden path in bundle: {rel}")
         if path.suffix.lower() in {".docx", ".pdf"}:
             if "Marking Scheme" in path.name:
-                requires = _bundle_subject(rel) in MARKER_SUBJECTS
+                subject = subjects.get(_bundle_subject(rel))
+                requires = bool(
+                    subject and subject.public_scheme_requires_quote_marker)
                 problems.extend(_check_scheme(path, require_marker=requires))
         elif path.suffix.lower() in {".html", ".json", ".css", ".js", ".txt"}:
             text = path.read_text(encoding="utf-8", errors="ignore")
-            if "data/reference" in text or "CSC662 FEBRUARY 2026-raw" in text:
+            if any(marker in text for marker in private_markers):
                 problems.append(f"private path in {rel}")
     for manifest_path in sorted((out / "library").glob("*/manifest.json")):
         try:

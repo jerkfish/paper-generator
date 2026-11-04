@@ -1,0 +1,216 @@
+{
+  "schema_version": 1,
+  "subject": "CSC662",
+  "type": "A",
+  "template_path": "",
+  "created": "2026-11-04T06:27:42Z",
+  "updated": "2026-11-04T06:27:42Z",
+  "stages": {
+    "0_intake": {
+      "status": "done",
+      "evidence": [
+        "subjects/CSC662/subject.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Existing published subject; recorded retroactively."
+      },
+      "notes": ""
+    },
+    "1_preprocess": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/mock_paper_planner.xlsx",
+        "data/papers/CSC662"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Existing published subject; recorded retroactively."
+      },
+      "notes": ""
+    },
+    "2_scheme_slides": {
+      "status": "done",
+      "evidence": [
+        "data/lecturedecks/CSC662",
+        "data/reference/CSC662"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Existing published subject; recorded retroactively."
+      },
+      "notes": ""
+    },
+    "3_template": {
+      "status": "done",
+      "evidence": [
+        "data/reference/CSC662/CSC662 FEBRUARY 2026-raw docx.docx"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Existing published subject; recorded retroactively."
+      },
+      "notes": ""
+    },
+    "4_taxonomy_question_log": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/mock_paper_planner.xlsx"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Existing published subject; recorded retroactively."
+      },
+      "notes": ""
+    },
+    "5_fingerprint_planner": {
+      "status": "done",
+      "evidence": [
+        "outputs/eval_final_deepseek/seed_01_planner.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Existing published subject; recorded retroactively."
+      },
+      "notes": ""
+    },
+    "6_generators": {
+      "status": "done",
+      "evidence": [
+        "src/generators"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Existing published subject; recorded retroactively."
+      },
+      "notes": ""
+    },
+    "7_builders_qa": {
+      "status": "done",
+      "evidence": [
+        "src/assemble"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Existing published subject; recorded retroactively."
+      },
+      "notes": ""
+    },
+    "8_library_prebuild": {
+      "status": "done",
+      "evidence": [
+        "outputs/web_cache/CSC662"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Existing published subject; recorded retroactively."
+      },
+      "notes": ""
+    },
+    "9_publish": {
+      "status": "done",
+      "evidence": [
+        "outputs/public_bundle",
+        "https://uitmpapergen.download",
+        "cloudflare/public_bundle_manifest.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Existing published subject; recorded retroactively."
+      },
+      "notes": ""
+    },
+    "10_close_out": {
+      "status": "in_progress",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [
+        "historical LLM cost is not recorded"
+      ],
+      "human_approval": {
+        "required": true,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": "Historical LLM spend has not been reconstructed. Record per-stage cost and close-out sign-off."
+    }
+  },
+  "unsure": [
+    {
+      "stage": "10_close_out",
+      "item": "Reconstruct historical LLM cost per stage before close-out.",
+      "blocking": true,
+      "opened": "2026-11-04"
+    }
+  ],
+  "llm_cost": {
+    "currency": "USD",
+    "total_usd": 0.0,
+    "by_stage": {
+      "0_intake": 0.0,
+      "1_preprocess": 0.0,
+      "2_scheme_slides": 0.0,
+      "3_template": 0.0,
+      "4_taxonomy_question_log": 0.0,
+      "5_fingerprint_planner": 0.0,
+      "6_generators": 0.0,
+      "7_builders_qa": 0.0,
+      "8_library_prebuild": 0.0,
+      "9_publish": 0.0,
+      "10_close_out": 0.0
+    },
+    "note": "Historical spend not reconstructed; log every future run by stage."
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "subject": "CSC429",
+  "type": "C",
+  "template_path": "",
+  "created": "2026-11-04T06:27:42Z",
+  "updated": "2026-11-04T06:27:42Z",
+  "stages": {
+    "0_intake": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": ""
+    },
+    "1_preprocess": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": ""
+    },
+    "2_scheme_slides": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": ""
+    },
+    "3_template": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": ""
+    },
+    "4_taxonomy_question_log": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": ""
+    },
+    "5_fingerprint_planner": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": ""
+    },
+    "6_generators": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": ""
+    },
+    "7_builders_qa": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": ""
+    },
+    "8_library_prebuild": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": ""
+    },
+    "9_publish": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": ""
+    },
+    "10_close_out": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": ""
+    }
+  },
+  "unsure": [
+    {
+      "stage": "0_intake",
+      "item": "Confirm CSC429 title, subject type (C) and curriculum order with the subject owner.",
+      "blocking": true,
+      "opened": "2026-11-04"
+    },
+    {
+      "stage": "0_intake",
+      "item": "Record papers permission for CSC429.",
+      "blocking": true,
+      "opened": "2026-11-04"
+    },
+    {
+      "stage": "0_intake",
+      "item": "Record scheme permission for CSC429.",
+      "blocking": true,
+      "opened": "2026-11-04"
+    },
+    {
+      "stage": "0_intake",
+      "item": "Record lecture-slides permission for CSC429.",
+      "blocking": true,
+      "opened": "2026-11-04"
+    },
+    {
+      "stage": "9_publish",
+      "item": "Record publication permission for CSC429 before any upload or deploy.",
+      "blocking": true,
+      "opened": "2026-11-04"
+    }
+  ],
+  "llm_cost": {
+    "currency": "USD",
+    "total_usd": 0.0,
+    "by_stage": {
+      "0_intake": 0.0,
+      "1_preprocess": 0.0,
+      "2_scheme_slides": 0.0,
+      "3_template": 0.0,
+      "4_taxonomy_question_log": 0.0,
+      "5_fingerprint_planner": 0.0,
+      "6_generators": 0.0,
+      "7_builders_qa": 0.0,
+      "8_library_prebuild": 0.0,
+      "9_publish": 0.0,
+      "10_close_out": 0.0
+    }
+  }
+}

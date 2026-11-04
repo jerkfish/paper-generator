@@ -1,7 +1,7 @@
 {
-  "class_a": 459,
+  "class_a": 56,
   "class_b": 0,
-  "month": "2026-10",
+  "month": "2026-11",
   "objects": {
     "assets/gallery.js": {
       "etag": "f505bd697ea3e57e3d3e894d487d2abe",
@@ -24,29 +24,29 @@
       "size": 5954
     },
     "csc662/generate/index.html": {
-      "etag": "ad77b850d19eaa9f5b5428e7252161e2",
-      "sha256": "2bd27b893804bfd29dc697fc8af29b1056e14e563be421eb30d052999fd46ea1",
-      "size": 1796
+      "etag": "b54d3427ce372346c70baafe283c43f0",
+      "sha256": "0db3c5e01eae22c889222a0b4d44c245988b4aa8eb373343321c4460a0090c7d",
+      "size": 2196
     },
     "csc662/index.html": {
-      "etag": "bc2fe87720f4c31ec56efe14839a01ff",
-      "sha256": "2f71ab25b5ad7390700aca0050eb89ed43584e7af54d15aab5d852b8c559e26f",
-      "size": 3396
+      "etag": "f233ebaa8001b0b7cca4c9d391a4019d",
+      "sha256": "b48743ee4f270ccbefddeac82c0f9db40b2053b9ee4347c0118df546d8385507",
+      "size": 3796
     },
     "csc662/library/index.html": {
-      "etag": "feba06442faca22b7129c20c1fe776f2",
-      "sha256": "7d724a9a92d18362bbb0b0a3055fd0eba96032064aabbd929116ebbb4cfb14aa",
-      "size": 41248
+      "etag": "bbf6c30a7d8efcde38cf4e89ee7dd00e",
+      "sha256": "7aa95c8251851045293f4b89f2c3d1d52dc4f719e0a758efa2de268d592b3311",
+      "size": 41648
     },
     "gallery/index.html": {
-      "etag": "83b0d5f8b1c2876e206319ba264efca1",
-      "sha256": "a169e0413fda5000e1007d8bba772093a177b8e3abc6cf0cddfc7878ca5bdd87",
-      "size": 2598
+      "etag": "6cfad71774ed94fe9c71893ef09c00e5",
+      "sha256": "9afe2da61a101e150a546d3d5f4ee17d73593f53a57129f4e60e01899394975c",
+      "size": 2998
     },
     "index.html": {
-      "etag": "3814b52907f50610091c2a2fe4a433de",
-      "sha256": "eae1f68479c22dab8af165a68b1c65cc7691adf7c3a160aa9df36c81ccc0a57d",
-      "size": 3230
+      "etag": "20585756035e38710b1310f65d85f160",
+      "sha256": "21d51bb5bb7fb3c262391eb65b1c0e94fbfbb5bc27855c637d2e8e399a4cb3ec",
+      "size": 11831
     },
     "library/CSC662/manifest.json": {
       "etag": "e498c589b3f8d1a5ee1ce84b708ff93a",
@@ -859,54 +859,254 @@
       "size": 500907
     },
     "library/manifest.json": {
-      "etag": "fc3ec0903eb329c743fae420a0123018",
-      "sha256": "a46ef34aa29fea0c17768818db0e3d1f137c5ee03c7f7ec3117b4318d4dfc4fb",
-      "size": 725
+      "etag": "91ea917be08550d368a37c84af35e9b6",
+      "sha256": "df037f66c8737271786b27b75f99e5e78adaa8893f49e245ed8882f9036f7a20",
+      "size": 7286
     },
     "mat133/generate/index.html": {
-      "etag": "249bd60e9c024a46f28b3edaa0325ac3",
-      "sha256": "471be43322b653355019bee90ddef4a93549d96c88324d87560de031bb1d061e",
-      "size": 1843
+      "etag": "33cde8e9b46940a92afc9a5556991b28",
+      "sha256": "e814502fc8c53e900cf66cd198b6a3c721a501e29c5f65792576786642e724f0",
+      "size": 2243
     },
     "mat133/index.html": {
-      "etag": "e28c0456adc253ac48453a5b13e349cd",
-      "sha256": "89763264b55c8ff70dcce1262b12d512d40b4dad4fb37fa6a7fecb99fd7d087a",
-      "size": 4350
+      "etag": "576e43858a5fb81ba50be82402087a31",
+      "sha256": "743b3f057eed4afd5167a7b8199bdbef2328dddac8683841e6ebebbfc1f31ed1",
+      "size": 4750
     },
     "mat133/library/index.html": {
-      "etag": "bb3f2f8950564333ae3415ebd36eb10b",
-      "sha256": "4e989dfa1964e853ef5a691d2d0ae3795e26b29485c28a066bdfc8789ec74ed5",
-      "size": 42816
+      "etag": "2373c6816b4ef0f4a33d7a0f46e5cc8f",
+      "sha256": "68588a344ab611ab9c103e42d1c5fd360d34bf5a10c6c48627c1a1b304dffd78",
+      "size": 43216
     },
     "paused/index.html": {
-      "etag": "b57b1e64acea89864cef4de5aa5f1037",
-      "sha256": "715f089bc26c076b82f01d01ebb11a97a522299668f7832124dfe3d236722ba9",
-      "size": 1692
+      "etag": "f6d5ef066d439266d3f7930f7be97945",
+      "sha256": "c87468eea556931735ce04798927dc5142e5506047466c7d89bc24d00b52c38c",
+      "size": 2092
     },
     "static/gallery-shell.html": {
-      "etag": "83b0d5f8b1c2876e206319ba264efca1",
-      "sha256": "a169e0413fda5000e1007d8bba772093a177b8e3abc6cf0cddfc7878ca5bdd87",
-      "size": 2598
+      "etag": "6cfad71774ed94fe9c71893ef09c00e5",
+      "sha256": "9afe2da61a101e150a546d3d5f4ee17d73593f53a57129f4e60e01899394975c",
+      "size": 2998
+    },
+    "subjects/CSC402/subject.json": {
+      "etag": "9336689465ef5c6663d2611cd3425b0d",
+      "sha256": "7d57162c1c5f98130bbb410376ed47fb13f7cc2c656d0798c9a295d5f4c8b8c5",
+      "size": 258
+    },
+    "subjects/CSC404/subject.json": {
+      "etag": "749c05885b73de5382dd986b5b9b8074",
+      "sha256": "6e7bf8c06ffb4a3184de246258bbad7b90397dc1457025bb27f491841485b84e",
+      "size": 260
+    },
+    "subjects/CSC413/subject.json": {
+      "etag": "6293024809cc4743ed8b90727da8d2bf",
+      "sha256": "cf664b68fccb8b37f5c11b981044a20717a391b21e9cf808eabc38931c293d40",
+      "size": 308
+    },
+    "subjects/CSC429/subject.json": {
+      "etag": "0ece004ee17cbc494b5bb04dcaeda0c0",
+      "sha256": "7c9cac547033d086c562ea7517b243b8fe897c298a10704414db20099015fa24",
+      "size": 308
+    },
+    "subjects/CSC435/subject.json": {
+      "etag": "3488b6dc9cc2653254a6946c3b2824a7",
+      "sha256": "19e129f0aa4518daafce70457c1d57071f8e82bbf22a44bdadb4ead99afcce97",
+      "size": 287
+    },
+    "subjects/CSC508/subject.json": {
+      "etag": "ede54dca4acfeadcb815d1aeb46dc402",
+      "sha256": "9434bc89791243cf4a046cf596787273e65e3ef1ad5d28a1a17f4e3ff8e982e5",
+      "size": 263
+    },
+    "subjects/CSC510/subject.json": {
+      "etag": "88f1672a889bd5decc3bdf55277949f9",
+      "sha256": "1114e97136a30ef6f9b15d7425b755e78ab75fa73fd31031a0229b853966e237",
+      "size": 271
+    },
+    "subjects/CSC520/subject.json": {
+      "etag": "7eb2de33474c0ee5070684f29087db55",
+      "sha256": "3813b70d0e7140b4f59ba972bd77e58637f7ae889fffe0061be096b6550421bc",
+      "size": 295
+    },
+    "subjects/CSC562/subject.json": {
+      "etag": "e2708b019fd042ebef8b346b560a0d67",
+      "sha256": "bcef549f6e23f0603ed3e286b8716a77c73a1908a0f68f00e0d782a0c4c3d244",
+      "size": 325
+    },
+    "subjects/CSC569/subject.json": {
+      "etag": "b8283f48d2b921d37174ad1022b66d52",
+      "sha256": "b5a0009951b949c2f9b2a2c3e641eaf52f67eeda2fa658c08a3cf7cf0197cf20",
+      "size": 279
+    },
+    "subjects/CSC575/subject.json": {
+      "etag": "3b0f59ae44b74edbab9acff370fd57dd",
+      "sha256": "6d26b4c44e0a24979868fda3ecdda8c5b4e8b37ad44ce625ece85ba47b070ccd",
+      "size": 287
+    },
+    "subjects/CSC577/subject.json": {
+      "etag": "3025dba7f10a9d65e7ffb52b6f3f60b1",
+      "sha256": "ad01e94225be6e662a273be93b53935e303a40147d97b77fdcfcae2a2677e7b3",
+      "size": 325
     },
     "subjects/CSC580/subject.json": {
-      "etag": "61e7e21e58ca374be0b8754e7602c7d7",
-      "sha256": "33a4ef101aff9981b25a829220b7a48527345c66cb89e438abf422fc5c0081f0",
-      "size": 257
+      "etag": "36aa2afb74b9aa48e7a8a1803a24b7d1",
+      "sha256": "5900c04ac9a36936135dc28be4e41a372ededfc82899bbce732f40596af08853",
+      "size": 271
+    },
+    "subjects/CSC583/subject.json": {
+      "etag": "8460564abd1ca6398adc7228d003c286",
+      "sha256": "c700cacdc4dec72a594e50ef3a45d316ffc47ee550c2b5d5e7f937aea3a36b66",
+      "size": 301
+    },
+    "subjects/CSC584/subject.json": {
+      "etag": "682eacfa6887b2512acb3b5553d605dc",
+      "sha256": "90a747e34d6d47229f8a5bdf355b41dbc9c7cacf7386cc0d00e7b43afc1007c5",
+      "size": 277
     },
     "subjects/CSC645/subject.json": {
-      "etag": "dc0038666427b9b112bcc9e22c91bfc3",
-      "sha256": "e945b503f092aaf5d0b4930eab5e0c0913f12c3e9a06a03aac42c753f13bae59",
-      "size": 243
+      "etag": "13bcb91480f58731ac399afc0cd06718",
+      "sha256": "9c483e9529fdfc37681ab8ab9b7042778bd2e1a5f33617e9a6858e390b30793a",
+      "size": 291
+    },
+    "subjects/CSC649/subject.json": {
+      "etag": "82ee7887d98fc5b8b604183e8b458536",
+      "sha256": "9be34d85ba03dfd85817e8fa5d6b6beef94bd52a7a5766122eaa0c7d558b4e10",
+      "size": 301
     },
     "subjects/CSC662/subject.json": {
-      "etag": "9332042d3dafd8962c25f1935da9a5bd",
-      "sha256": "4b3f5fdaf5d6188393f029c4855c755417ceb7cffab61d0b3f0904f91615751e",
-      "size": 546
+      "etag": "f1fa498f534cf58bcfc895d76946c0f9",
+      "sha256": "8502fc3173607765c75df071d01fb2ad8f4c24687baa6b63a87e932cd81756f8",
+      "size": 562
+    },
+    "subjects/CSC683/subject.json": {
+      "etag": "385a9b09908d1295cb73e2ea7cf23096",
+      "sha256": "54594ca92e18d4baa2714e271158d073003f9871734c87a64cb4c7a5ef8738d9",
+      "size": 287
+    },
+    "subjects/CSP600/subject.json": {
+      "etag": "68c045cb13d37c2c8f52191eeef1912e",
+      "sha256": "8e682eb87e70791ec0b15fc32364f9b8498cd017913991dcf94e901cf376ccf4",
+      "size": 271
+    },
+    "subjects/CSP650/subject.json": {
+      "etag": "395495703f540fae6ee806edabe553f4",
+      "sha256": "d1b7f0d94352f7a7836a0ad35f31ebe1dd34b092ba7806c14f355c5b7215c184",
+      "size": 247
+    },
+    "subjects/CST688/subject.json": {
+      "etag": "ee3c1763e1a9232a73611570d1eb96d4",
+      "sha256": "0814ad55ac60cb300838c19d8e96eae39df339c03201dfb335fdf5c714190766",
+      "size": 307
+    },
+    "subjects/CTU552/subject.json": {
+      "etag": "d1bb633c59a798e6bc4f68ddf9de12ab",
+      "sha256": "11f90f90dd584242f37f83b3cf9111f16f36cd0a2b20341d3783d8b238bbb401",
+      "size": 290
+    },
+    "subjects/CTU554/subject.json": {
+      "etag": "69e18f847bd38c2bef0a3bc88a947bbe",
+      "sha256": "2915100bae8fd600579d62284406f998077018f17613af6ce33492d3c1529e84",
+      "size": 284
+    },
+    "subjects/EET699/subject.json": {
+      "etag": "d13e8df1b5b6ce5b12ab2112a5f01467",
+      "sha256": "1fed716cbf3aa2a77c2f4baffc23ba791771b8ae1f4fcca71b69e12a572afe7e",
+      "size": 267
+    },
+    "subjects/ENT600/subject.json": {
+      "etag": "0a1c9fa8df5cc425dfd1fcd5a7f32994",
+      "sha256": "7b59d50ad0a56093bb772d5df7b858d06e6e41eb496487cd9d7ed970f59b5574",
+      "size": 287
+    },
+    "subjects/HBU111/subject.json": {
+      "etag": "1620f60e023ee808f565557dc3519f90",
+      "sha256": "0faf6d4d8572337f789db8d8e3af6eafa2ffd2e4fb414eb29c0e26b5df14078b",
+      "size": 270
+    },
+    "subjects/HBU121/subject.json": {
+      "etag": "99ed59c0dd307a5130a0304f2bcc08d0",
+      "sha256": "31baee6c6f61cf91ecc2d1127ca6d35aa35d3bef6fab3276a9380943279174e6",
+      "size": 273
+    },
+    "subjects/HBU131/subject.json": {
+      "etag": "d4a3588bb7ea1f2787b10fd533a18959",
+      "sha256": "3ebdca1e57163b1b3022f1ebe327c3ae6ae9238d6a7657f7c8a80e0de28da546",
+      "size": 275
+    },
+    "subjects/ICT450/subject.json": {
+      "etag": "a70b0699fd118c533bf6272d13dd74c4",
+      "sha256": "16770f40a99cceca3a027b75d2e8c3b77d90eaa08a8ace8de4e9e34178fc8303",
+      "size": 294
+    },
+    "subjects/ICT502/subject.json": {
+      "etag": "329b541c3a938b27112604f4f815f2da",
+      "sha256": "7a656c322bd650051748f211a005ca17071b96cb6bc80fb06f98b12eb1718204",
+      "size": 273
+    },
+    "subjects/ICT652/subject.json": {
+      "etag": "4789f6f38804b08976579a75beb4c3b4",
+      "sha256": "75baf57858274b1fb2672092953c5060826766d91b4e5345433805fcd9ed32a5",
+      "size": 327
+    },
+    "subjects/ITT400/subject.json": {
+      "etag": "a2190eca8aa9b0aacc079af2ca85d15f",
+      "sha256": "49d8240bfaa439ec5ac6b3a845db200825e50c41e3d4d5b7b4658f7c0fdafaa2",
+      "size": 331
+    },
+    "subjects/LCC401/subject.json": {
+      "etag": "9ce612c878a6fa8cf774b38c7c25566c",
+      "sha256": "d40be508085937fca6a9401ec5509aa7526deac80cd8cac6114b5cef1974dba2",
+      "size": 287
+    },
+    "subjects/LCC500/subject.json": {
+      "etag": "3b6df5bbf3604af1cc2c6f85c8f813a7",
+      "sha256": "5c2b2dcf46ed191435c79bea94146526f5fe5ea180a8322c8d6bded9b70c9b88",
+      "size": 303
     },
     "subjects/MAT133/subject.json": {
-      "etag": "afca8a9d7fc06a7e0cdedc39032a91d5",
-      "sha256": "4432bac40e4a6db2aff234ac999218e9538c79c47c492c08743a7139d3126962",
-      "size": 2396
+      "etag": "0f06e1d03eff2e00b64be31588341b45",
+      "sha256": "a3fec2c890de498b0a025b02e3f072b675b03bb92b6538a6d0dbb0c59d07c69b",
+      "size": 2412
+    },
+    "subjects/MAT406/subject.json": {
+      "etag": "c250919f529f38c76aa5d0a3f980f462",
+      "sha256": "c116cd46ceade0d7c432ca866a415bad7faf0a30e903985b5464c83fb9ffebec",
+      "size": 276
+    },
+    "subjects/MAT421/subject.json": {
+      "etag": "dfe1bce78657e127bcfb5b6cb21f71f2",
+      "sha256": "d29bf304c7177909a3f63991e3e308eccecfb8a71ac6e9b9cc664f890d74c335",
+      "size": 253
+    },
+    "subjects/MAT423/subject.json": {
+      "etag": "89e8faa2453d6b12e8d1c2398634925f",
+      "sha256": "e66206abc8721a7e98c9303a536f67957e776f2ea7b0171dc02a21ef7dc2a72e",
+      "size": 265
+    },
+    "subjects/STA404/subject.json": {
+      "etag": "a6bc908aa69cc78aba6a94180dc8587c",
+      "sha256": "ebdac1f97a41fbfcb8bbc3cd7da2a72367e8b630de4e28f8f14c87fc8fccc4e2",
+      "size": 319
+    },
+    "subjects/STA416/subject.json": {
+      "etag": "28588f4856e2e1d8351b7525937e9b8c",
+      "sha256": "de84fdf2b06452b63586ae4c746281309c81de166eb294c074667309044e8b02",
+      "size": 301
+    },
+    "subjects/TMC401/subject.json": {
+      "etag": "90f5fd6e8fb839d0e919f1d0ac492dfe",
+      "sha256": "7bc996782357218dbf65b94e26d5e8dc382a4d08f2bb70c6be6d50411288aa3e",
+      "size": 295
+    },
+    "subjects/TMC451/subject.json": {
+      "etag": "0a57701e9165aece300674dcf6756cbb",
+      "sha256": "a9acba1e321bbb80a38ad6e8372051b39433529bed0410fb3b0c6faf96534f3d",
+      "size": 297
+    },
+    "subjects/TMC501/subject.json": {
+      "etag": "fcf7f1527026a0bbbf0e08479afcc1de",
+      "sha256": "3260c567a70e1d5eb13639bce0c2d16d8afa95100ef95f8cd5ce56b73172315d",
+      "size": 299
     }
   }
 }

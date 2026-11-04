@@ -15,7 +15,8 @@ from pathlib import Path
 
 from src import config
 from src.app.filenames import utc_year
-from src.app.jobs import DEFAULT_SUBJECT, _config_hash
+from src.app.jobs import _config_hash
+from src.subjects.registry import default_subject_code
 
 
 def _planner_topic_marks(seed: int) -> dict:
@@ -32,7 +33,7 @@ def _planner_topic_marks(seed: int) -> dict:
 
 def migrate(seed_root: Path | None = None, move: bool = False) -> list[dict]:
     root = Path(seed_root or config.WEB_CACHE_DIR)
-    subject = DEFAULT_SUBJECT
+    subject = default_subject_code()
     done = []
     for meta_path in sorted(root.glob("*/meta.json")):
         if meta_path.parent.parent.name == subject:
