@@ -1,56 +1,79 @@
 {
   "schema_version": 1,
   "subject": "CSC413",
-  "type": "C",
+  "type": "B",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-04T06:27:42Z",
+  "updated": "2026-11-04T15:58:00Z",
   "stages": {
     "0_intake": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "subjects/CSC413/subject.json",
+        "subjects/CSC413/lifecycle_state.json",
+        "docs/CSC413.md",
+        "src/subjects/csc413/plugin.py",
+        "data/papers/CSC413",
+        "data/tracking/csc413",
+        "data/tracking/csc413/intake_inspection.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"Type B; Scheme: No Scheme will be supplied; Slides: No Slides will be supplied; Publication: true\"",
+        "on": "2026-11-04",
+        "note": "Reclassified to type B deterministic; supplied scheme and slides waived; publication permission recorded."
       },
-      "notes": ""
+      "notes": "16 owner-supplied PDFs inspected: 15 unique, 1 byte-identical duplicate pair; readable covers confirm INTRODUCTION TO INTERACTIVE MULTIMEDIA / CSC413. Owner reclassified the subject to type B deterministic and waived supplied scheme and lecture decks. Publication permission is recorded but stage 9 remains a hard stop. Registry stays coming_soon until the deterministic pipeline is built."
     },
     "1_preprocess": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "data/tracking/csc413/papers_summary.json",
+        "data/tracking/csc413/papers_register.json",
+        "data/tracking/csc413/cover_text.json",
+        "data/tracking/csc413/paper_text/index.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"continue\"",
+        "on": "2026-11-04",
+        "note": "Approved the 15 unique papers, the single duplicate pair and the high-confidence month/year register."
       },
-      "notes": ""
+      "notes": "16 working copies registered: 15 unique, 1 byte-identical duplicate pair. All 15 unique covers parsed to a month/year with high confidence (range 2014-2023); no low-confidence covers. OCR was used for scanned papers; every unique paper has a non-empty corpus text. No files were renamed and the supplied originals were not modified."
     },
     "2_scheme_slides": {
-      "status": "pending",
-      "evidence": [],
+      "status": "skipped",
+      "evidence": [
+        "subjects/CSC413/subject.json",
+        "docs/CSC413.md"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"Scheme : No Scheme will be supplied; Slides : No Slides will be supplied\"",
+        "on": "2026-11-04",
+        "note": "Scheme and slides waived; stage 2 skipped for type B."
       },
-      "notes": ""
+      "notes": "Owner waived the supplied marking scheme and lecture decks. CSC413 is type B deterministic; there is no scheme to parse and the theory pipeline is disabled. The generated marking scheme is project output."
     },
     "3_template": {
       "status": "pending",
-      "evidence": [],
+      "evidence": [
+        "subjects/CSC413/subject.json",
+        "data/reference/CSC413/CSC413 TEMPLATE.docx",
+        "data/reference/CSC413/CSC413 TEMPLATE.pdf",
+        "data/tracking/csc413/template_check.json",
+        "data/tracking/csc413/template_cover.png",
+        "src/subjects/csc413/template_build.py"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
@@ -58,9 +81,9 @@
         "approved": false,
         "by": "",
         "on": "",
-        "note": ""
+        "note": "Awaiting approval of the CSC413 cover and confirmation of the mock examination month/year (provisional NOVEMBER 2026)."
       },
-      "notes": ""
+      "notes": "Candidate built from the clean MAT133 template (itself derived from the standard UTM cover). Title INTRODUCTION TO INTERACTIVE MULTIMEDIA is rendered on two 9 pt lines so the COURSE CODE/EXAMINATION/TIME values stay aligned. Header is CS/NOV 2026/CSC413, duration 3 HOURS, and the footer is CSC413. Structural check: XML valid, 2 sections, 1 image, 2 footers, no problems; rendered cover is 1 page. The November 2026 mock date is provisional and owner confirmation is required. The source MAT133 template was not modified. Page-2 body transition is deferred to the stage-7 builder."
     },
     "4_taxonomy_question_log": {
       "status": "pending",
@@ -163,32 +186,8 @@
   },
   "unsure": [
     {
-      "stage": "0_intake",
-      "item": "Confirm CSC413 title, subject type (C) and curriculum order with the subject owner.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "0_intake",
-      "item": "Record papers permission for CSC413.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "0_intake",
-      "item": "Record scheme permission for CSC413.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "0_intake",
-      "item": "Record lecture-slides permission for CSC413.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "9_publish",
-      "item": "Record publication permission for CSC413 before any upload or deploy.",
+      "stage": "3_template",
+      "item": "Confirm the cover examination month/year: NOVEMBER 2026 is a provisional mock date; the owner did not specify one.",
       "blocking": true,
       "opened": "2026-11-04"
     }
