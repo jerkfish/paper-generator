@@ -15,5 +15,57 @@
   },
   "deck_map": {},
   "topic_deck_allowlist": {},
-  "enabled_computed_generators": []
+  "enabled_computed_generators": [],
+  "permissions": {
+    "papers": {
+      "allowed": true,
+      "basis": "project owner supplied the 24 working PDFs and instructed onboarding to continue",
+      "confirmed_by": "user instruction \"continue\"",
+      "confirmed_on": "2026-11-04",
+      "notes": "Working copies only under data/papers/CSC402; originals remain read-only."
+    },
+    "scheme": {
+      "allowed": true,
+      "basis": "owner waived supplied scheme; generated schemes are project output",
+      "confirmed_by": "user instruction \"Waive, and Reclassify then Continue\"",
+      "confirmed_on": "2026-11-04",
+      "notes": "No official scheme will be parsed. The deterministic builder must generate its own scheme."
+    },
+    "slides": {
+      "allowed": true,
+      "basis": "owner waived; not applicable to type B",
+      "confirmed_by": "user instruction \"Waive, and Reclassify then Continue\"",
+      "confirmed_on": "2026-11-04",
+      "notes": "No lecture decks will be used. Theory pipeline disabled."
+    },
+    "publication": {
+      "allowed": false,
+      "basis": "not requested; publishing prohibited in this task",
+      "confirmed_by": "",
+      "confirmed_on": "",
+      "notes": "Never upload or deploy without a separate explicit instruction."
+    }
+  },
+  "type": "B",
+  "has_practice_mode": false,
+  "has_placeholders": false,
+  "capabilities": {
+    "subject_type": "B",
+    "generation": "deterministic",
+    "prebuild": "plugin",
+    "public_documents": "copy_cached",
+    "needs_llm": false,
+    "uses_slides": false,
+    "uses_past_papers": true,
+    "deterministic": true,
+    "practice_mode": false,
+    "placeholders": false,
+    "public_scheme_requires_quote_marker": false,
+    "planner_style": "modern"
+  },
+  "plugins": {
+    "prebuild": "src.subjects.csc402.plugin:build_seed",
+    "generator_labels": "src.subjects.csc402.plugin:generator_labels",
+    "topic_labels": "src.subjects.csc402.plugin:topic_labels"
+  }
 }

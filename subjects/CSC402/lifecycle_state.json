@@ -1,24 +1,30 @@
 {
   "schema_version": 1,
   "subject": "CSC402",
-  "type": "C",
+  "type": "B",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-04T06:27:42Z",
+  "updated": "2026-11-04T07:01:34Z",
   "stages": {
     "0_intake": {
-      "status": "in_progress",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "subjects/CSC402/subject.json",
+        "subjects/CSC402/lifecycle_state.json",
+        "docs/CSC402.md",
+        "data/papers/CSC402",
+        "data/tracking/csc402/papers_summary.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"continue\"",
+        "on": "2026-11-04",
+        "note": "Title Programming I, type C (provisional), order 1 and paper permission accepted; scheme/slides recorded as not supplied."
       },
-      "notes": ""
+      "notes": "24 working PDFs, 21 unique, 3 byte-identical duplicate copies; 24 non-empty text entries. No scheme/template and no lecture decks found."
     },
     "1_preprocess": {
       "status": "done",
@@ -31,30 +37,39 @@
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": "Prepared before the playbook; approve rename/dedupe/OCR summary."
+        "approved": true,
+        "by": "user instruction \"continue\"",
+        "on": "2026-11-04",
+        "note": "Approved the 24-file / 21-unique / 3-duplicate report. Legacy summary schema retained."
       },
       "notes": ""
     },
     "2_scheme_slides": {
-      "status": "pending",
-      "evidence": [],
+      "status": "skipped",
+      "evidence": [
+        "subjects/CSC402/subject.json",
+        "docs/CSC402.md"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"Waive, and Reclassify then Continue\"",
+        "on": "2026-11-04",
+        "note": "Scheme and slides waived; CSC402 reclassified from type C to type B deterministic."
       },
-      "notes": ""
+      "notes": "No scheme/template or lecture decks supplied. Deterministic builder will generate both paper and marking scheme from the paper corpus; theory pipeline is disabled."
     },
     "3_template": {
-      "status": "pending",
-      "evidence": [],
+      "status": "in_progress",
+      "evidence": [
+        "data/reference/CSC402/CSC402 TEMPLATE.docx",
+        "data/reference/CSC402/CSC402 TEMPLATE.pdf",
+        "data/tracking/csc402/template_check.json",
+        "data/tracking/csc402/template_cover.png",
+        "src/subjects/csc402/template_build.py"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
@@ -62,9 +77,9 @@
         "approved": false,
         "by": "",
         "on": "",
-        "note": ""
+        "note": "Awaiting visual approval of the cover candidate."
       },
-      "notes": ""
+      "notes": "Candidate built from the standard-cover-derived clean template: title PROGRAMMING I, code CSC402, November 2026, 3 hours, MAT133-only pack items removed, CSC402 footer added. XML valid; 2 sections; 1 image; no template-check problems. The rendered PDF is one cover page; the page-2 transition will be exercised at stage 7 by the builder."
     },
     "4_taxonomy_question_log": {
       "status": "pending",
@@ -167,38 +182,14 @@
   },
   "unsure": [
     {
-      "stage": "0_intake",
-      "item": "Confirm CSC402 title, subject type (C) and curriculum order with the subject owner.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "0_intake",
-      "item": "Record papers permission for CSC402.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "0_intake",
-      "item": "Record scheme permission for CSC402.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "0_intake",
-      "item": "Record lecture-slides permission for CSC402.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
       "stage": "9_publish",
       "item": "Record publication permission for CSC402 before any upload or deploy.",
       "blocking": true,
       "opened": "2026-11-04"
     },
     {
-      "stage": "1_preprocess",
-      "item": "Approve the 24-file / 21-unique / 3-duplicate preprocessing report.",
+      "stage": "3_template",
+      "item": "Cover candidate is a one-page template; the page-2 transition cannot be rendered until the stage-7 builder exists. Approve the cover now, or require a body sample before stage 3 is done.",
       "blocking": true,
       "opened": "2026-11-04"
     }
