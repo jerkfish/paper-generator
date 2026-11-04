@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import json
 import tempfile
+import time
 import zipfile
 from pathlib import Path
 
@@ -23,6 +24,7 @@ from docx.oxml.ns import qn
 from docx.shared import Inches, Pt
 
 from src import config
+from src.app.filenames import utc_year
 from src.assemble.pdf_export import export_pdf
 from src.subjects.csc402.generators import generate_paper
 from src.subjects.csc402.planner import build_plan
@@ -65,6 +67,97 @@ def _marks(doc, marks: int) -> None:
           italic=True, align=WD_ALIGN_PARAGRAPH.RIGHT, after=3)
 
 
+def _set_cell_shading(cell, fill: str = "F2F2F2") -> None:
+    tc_pr = cell._tc.get_or_add_tcPr()
+    shading = OxmlElement("w:shd")
+    shading.set(qn("w:fill"), fill)
+    tc_pr.append(shading)
+
+
+def _no_split(table) -> None:
+    for row in table.rows:
+        tr_pr = row._tr.get_or_add_trPr()
+        if tr_pr.find(qn("w:cantSplit")) is None:
+            tr_pr.append(OxmlElement("w:cantSplit"))
+        for cell in row.cells:
+            for paragraph in cell.paragraphs:
+                paragraph.paragraph_format.keep_with_next = True
+    if table.rows:
+        for cell in table.rows[-1].cells:
+            for paragraph in cell.paragraphs:
+                paragraph.paragraph_format.keep_with_next = False
+
+
+def _code_block(doc, text: str) -> None:
+    table = doc.add_table(rows=1, cols=1)
+    table.autofit = False
+    _set_table_borders(table)
+    _set_cell_margins(table)
+    _no_split(table)
+    cell = table.rows[0].cells[0]
+    cell.width = Inches(6.15)
+    table.columns[0].width = Inches(6.15)
+    _set_cell_shading(cell, "F5F5F5")
+    lines = text.splitlines() or [text]
+    first = True
+    for line in lines:
+        paragraph = cell.paragraphs[0] if first else cell.add_paragraph()
+        first = False
+        paragraph.paragraph_format.space_before = Pt(0)
+        paragraph.paragraph_format.space_after = Pt(0)
+        paragraph.paragraph_format.line_spacing = 1.0
+        _run(paragraph, line if line else " ", size=9, mono=True)
+
+
+def _table_block(doc, headers: list[str], rows: list[list[str]],
+                 caption: str = "") -> None:
+    if caption:
+        _para(doc, caption, italic=True, size=9.5,
+              align=WD_ALIGN_PARAGRAPH.CENTER, before=3, after=2,
+              keep=True)
+    table = doc.add_table(rows=1, cols=len(headers))
+    table.autofit = False
+    _set_table_borders(table)
+    _set_cell_margins(table)
+    width = Inches(5.8 / max(1, len(headers)))
+    for index, text in enumerate(headers):
+        cell = table.rows[0].cells[index]
+        cell.width = width
+        cell.text = ""
+        cell.paragraphs[0].alignment = WD_ALIGN_PARAGRAPH.CENTER
+        cell.paragraphs[0].paragraph_format.space_after = Pt(1)
+        _run(cell.paragraphs[0], str(text), bold=True, size=9.5)
+    for row in rows:
+        cells = table.add_row().cells
+        for index, text in enumerate(row):
+            cell = cells[index]
+            cell.width = width
+            cell.text = ""
+            cell.paragraphs[0].alignment = WD_ALIGN_PARAGRAPH.CENTER
+            cell.paragraphs[0].paragraph_format.space_after = Pt(1)
+            _run(cell.paragraphs[0], str(text), size=9.5)
+    _no_split(table)
+    _para(doc, "", after=2)
+
+
+def _render_blocks(doc, blocks: list[dict] | None) -> None:
+    for block in blocks or []:
+        kind = block.get("type")
+        if kind == "code":
+            _code_block(doc, str(block.get("text", "")))
+        elif kind == "table":
+            _table_block(doc, list(block.get("headers") or []),
+                         list(block.get("rows") or []),
+                         str(block.get("caption", "")))
+        elif kind == "text":
+            _para(doc, str(block.get("text", "")), size=10.5, after=3)
+
+
+def _roman(value: int) -> str:
+    return {1: "i", 2: "ii", 3: "iii", 4: "iv", 5: "v",
+            6: "vi", 7: "vii", 8: "viii"}.get(value, str(value))
+
+
 def _part_heading(doc, text: str) -> None:
     _para(doc, text, size=12, bold=True, align=WD_ALIGN_PARAGRAPH.CENTER,
           before=8, after=8, keep=True)
@@ -103,17 +196,33 @@ def build_paper_docx(paper: dict, out_docx: Path,
     for index, question in enumerate(mcqs, start=1):
         _para(doc, f"{index}. {question['stem']}", size=10.5, before=2,
               after=2, keep=True)
-        for option_index, option in enumerate(question["options"]):
-            _para(doc, f"     {'ABCD'[option_index]}. {option}", size=10.5,
-                  after=1)
-        _para(doc, "", after=2)
+        _render_blocks(doc, question.get("blocks"))
+        if question.get("items"):
+            for item_index, item in enumerate(question["items"], start=1):
+                _para(doc, f"     {_roman(item_index)}. {item}",
+                      size=10.5, after=1)
+        option_style = question.get("option_style", "lines")
+        if option_style == "compact":
+            for start in range(0, len(question["options"]), 2):
+                pair = question["options"][start:start + 2]
+                text = "     ".join(
+                    f"{'ABCD'[start + offset]}. {option}"
+                    for offset, option in enumerate(pair))
+                _para(doc, text, size=10.5, after=1)
+        else:
+            for option_index, option in enumerate(question["options"]):
+                _para(doc, f"     {'ABCD'[option_index]}. {option}",
+                      size=10.5, after=1)
+        _para(doc, "", after=4)
 
     doc.add_page_break()
     _part_heading(doc, "PART B (60 MARKS)")
     for question in [q for q in paper["questions"] if q["part"] == "B"]:
         _question_heading(doc, question["number"])
         if question["stem"]:
-            _para(doc, question["stem"], size=10.5, after=4)
+            _para(doc, question["stem"], size=10.5, after=4,
+                  keep=bool(question["parts"] or question.get("stem_blocks")))
+        _render_blocks(doc, question.get("stem_blocks"))
         for part in question["parts"]:
             p = doc.add_paragraph()
             p.paragraph_format.space_before = Pt(3)
@@ -122,6 +231,9 @@ def build_paper_docx(paper: dict, out_docx: Path,
             p.paragraph_format.first_line_indent = Inches(-0.3)
             _run(p, f"{part['label']}) ", bold=True)
             _run(p, part["text"])
+            if part.get("blocks"):
+                p.paragraph_format.keep_with_next = True
+            _render_blocks(doc, part.get("blocks"))
             _marks(doc, part["marks"])
 
     doc.add_page_break()
@@ -129,8 +241,10 @@ def build_paper_docx(paper: dict, out_docx: Path,
     for question in [q for q in paper["questions"] if q["part"] == "C"]:
         _question_heading(doc, question["number"])
         _para(doc, question["stem"], size=10.5, after=4)
+        _render_blocks(doc, question.get("stem_blocks"))
         part = question["parts"][0]
         _para(doc, part["text"], size=10.5, after=3)
+        _render_blocks(doc, part.get("blocks"))
         _marks(doc, part["marks"])
 
     _para(doc, "END OF QUESTION PAPER", italic=True, size=9,
@@ -440,8 +554,28 @@ def _validate_pdf(path: Path, *, scheme: bool) -> dict:
 
 
 def build_seed(seed: int, out_dir: Path | None = None,
-               export: bool = True) -> dict:
+               export: bool = True, force: bool = False) -> dict:
     out = Path(out_dir) if out_dir is not None else DEFAULT_OUT
+    meta_path = out / "meta.json"
+    if not force and meta_path.exists():
+        try:
+            meta = json.loads(meta_path.read_text(encoding="utf-8"))
+            files = [Path(value) for value in (meta.get("files") or {}).values()
+                     if value]
+            if files and all(path.exists() for path in files):
+                qa_path = out / "qa.json"
+                qa = (json.loads(qa_path.read_text(encoding="utf-8"))
+                      if qa_path.exists() else {})
+                return {
+                    **qa,
+                    "seed": seed, "cached": True, "path": str(out),
+                    "pdf": bool(meta.get("files", {}).get("paper_pdf")),
+                    "scheme_pdf_available": bool(meta.get("files", {}).get("scheme_pdf")),
+                    "files": meta.get("files", {}),
+                    "problems": qa.get("problems", []),
+                }
+        except Exception:
+            pass
     out.mkdir(parents=True, exist_ok=True)
     plan = build_plan(seed)
     paper = generate_paper(plan)
@@ -491,7 +625,74 @@ def build_seed(seed: int, out_dir: Path | None = None,
         qa["paper_pdf"].get("problems", []) +
         qa["scheme_pdf"].get("problems", []))
     (out / "qa.json").write_text(json.dumps(qa, indent=2), encoding="utf-8")
-    return qa
+    if qa["problems"]:
+        raise RuntimeError(
+            f"CSC402 seed {seed} validation failed: "
+            + "; ".join(qa["problems"][:5]))
+    created = time.time()
+    progress = []
+    for question in paper["questions"]:
+        if question["part"] == "A":
+            progress.append({
+                "question": question["number"],
+                "slot": question["number"],
+                "status": "accepted",
+                "message": question["topic"],
+                "cost_usd": 0, "calls": 0,
+                "accepted": 1, "placeholders": 0,
+            })
+        else:
+            for slot in question["slots"]:
+                progress.append({
+                    "question": question["number"],
+                    "slot": slot,
+                    "status": "accepted",
+                    "message": question["topic"],
+                    "cost_usd": 0, "calls": 0,
+                    "accepted": 1, "placeholders": 0,
+                })
+    meta = {
+        "subject": SUBJECT,
+        "seed": seed,
+        "mode": "realistic",
+        "computed_marks": None,
+        "model": "csc402-deterministic",
+        "cost_usd": 0.0,
+        "accepted": len(progress),
+        "placeholders": 0,
+        "total_slots": len(progress),
+        "total_marks": paper["total_marks"],
+        "question_count": paper["question_count"],
+        "has_practice_mode": False,
+        "has_placeholders": False,
+        "created": created,
+        "year": utc_year(created),
+        "topic_marks": plan["topic_marks"],
+        "files": qa["files"],
+        "summary": {
+            "subject": SUBJECT,
+            "seed": seed,
+            "mode": "realistic",
+            "accepted": len(progress),
+            "placeholders": 0,
+            "total_slots": len(progress),
+            "total_marks": paper["total_marks"],
+            "question_count": paper["question_count"],
+            "has_practice_mode": False,
+            "has_placeholders": False,
+            "model": "csc402-deterministic",
+            "cost_usd": 0.0,
+            "cached": True,
+            "topic_marks": plan["topic_marks"],
+            "pdf_available": bool(export),
+        },
+        "progress": progress,
+        "validation": qa,
+    }
+    meta_path.write_text(json.dumps(meta, indent=2), encoding="utf-8")
+    return {**qa, "seed": seed, "cached": False, "path": str(out),
+            "pdf": bool(export), "scheme_pdf_available": bool(export),
+            "accepted": len(progress), "total_marks": paper["total_marks"]}
 
 
 def main() -> None:
@@ -499,8 +700,10 @@ def main() -> None:
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--out", default=str(DEFAULT_OUT))
     ap.add_argument("--no-pdf", action="store_true")
+    ap.add_argument("--force", action="store_true")
     args = ap.parse_args()
-    qa = build_seed(args.seed, Path(args.out), export=not args.no_pdf)
+    qa = build_seed(args.seed, Path(args.out), export=not args.no_pdf,
+                    force=args.force)
     print(json.dumps({
         "seed": qa["seed"],
         "files": qa["files"],

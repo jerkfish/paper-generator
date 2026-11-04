@@ -4,7 +4,7 @@
   "type": "B",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-04T08:55:47Z",
+  "updated": "2026-11-04T09:46:31Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -139,7 +139,7 @@
       "notes": "Deterministic generator suite: MCQ banks for six topics, B1-B5 structured generators, four complete-program variants with full C++ answers. Seeds 1-20 all pass: 100 marks, 17 questions, 22 slots; 13 generator ids observed."
     },
     "7_builders_qa": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "src/subjects/csc402/build_docx.py",
         "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx",
@@ -158,16 +158,21 @@
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": "Awaiting visual QA of the revised standard-template scheme."
+        "approved": true,
+        "by": "user instruction \"approved continue\"",
+        "on": "2026-11-04",
+        "note": "Approved the revised standard-template marking scheme and seed-1 build."
       },
       "notes": "Revised scheme uses the owner-supplied standard marking-scheme template data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx. Cover patched to CSC402 PROGRAMMING I / NOV 2026 (MOCK) / 3 HOURS; notes replaced with CSC402 deterministic-scheme text; answer key and worked answers appended. Paper 5 pages, scheme 6 pages; DOCX/PDF QA has no problems."
     },
     "8_library_prebuild": {
-      "status": "pending",
-      "evidence": [],
+      "status": "in_progress",
+      "evidence": [
+        "data/tracking/csc402/library_prebuild.json",
+        "outputs/web_cache/CSC402",
+        "data/tracking/csc402/generator_validation.json",
+        "data/tracking/csc402/build_sample/qa.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
@@ -175,9 +180,9 @@
         "approved": false,
         "by": "",
         "on": "",
-        "note": ""
+        "note": "Awaiting review of the styled seeds 1-5 before rebuilding 6-20."
       },
-      "notes": ""
+      "notes": "Seeds 1-5 rebuilt with styled questions: code-block MCQs, Roman-item MCQs, numbered tables, boxed code segments, and table-bearing Part B/C questions. Each rebuilt seed is 6 pages (paper) / 6 pages (scheme), 100 marks, 22 slots, 0 placeholders, no QA problems. Seeds 6-20 still use the earlier plain layout and must be rebuilt before stage-8 closure. Seed 5 is served from rev2_seed05 because the previous PDF was locked; newest valid cache meta wins."
     },
     "9_publish": {
       "status": "pending",
@@ -216,8 +221,8 @@
       "opened": "2026-11-04"
     },
     {
-      "stage": "7_builders_qa",
-      "item": "Review the revised standard-template marking scheme cover and answer key (scheme 6 pages; paper 5 pages). Confirm the standard template is the intended scheme format before stage 8.",
+      "stage": "8_library_prebuild",
+      "item": "Review styled seeds 1-5: code-block MCQs, Roman-item MCQs, numbered tables and boxed code. Seeds 6-20 still need the same rebuild before stage 8 can close.",
       "blocking": true,
       "opened": "2026-11-04"
     }

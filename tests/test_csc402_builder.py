@@ -7,7 +7,7 @@ from src.subjects.csc402.build_docx import build_seed
 
 
 def test_docx_paper_and_scheme_are_structurally_valid(tmp_path):
-    qa = build_seed(1, tmp_path, export=False)
+    qa = build_seed(1, tmp_path, export=False, force=True)
     assert qa["problems"] == []
     paper = Path(qa["files"]["paper_docx"])
     scheme = Path(qa["files"]["scheme_docx"])
@@ -30,3 +30,19 @@ def test_docx_paper_and_scheme_are_structurally_valid(tmp_path):
     with zipfile.ZipFile(str(scheme)) as archive:
         xml = archive.read("word/document.xml").decode("utf-8")
     assert "NOV 2026 (MOCK)" in xml
+
+
+def test_plugin_writes_library_meta(tmp_path):
+    from src.subjects.csc402.plugin import build_seed as plugin_build
+    result = plugin_build(2, out_dir=tmp_path, force=True, export=False)
+    assert result["accepted"] == 22
+    assert result["total_marks"] == 100
+    meta = __import__("json").loads(
+        (tmp_path / "meta.json").read_text(encoding="utf-8"))
+    assert meta["subject"] == "CSC402"
+    assert meta["accepted"] == meta["total_slots"] == 22
+    assert meta["placeholders"] == 0
+    assert meta["total_marks"] == 100
+    assert meta["has_practice_mode"] is False
+    assert meta["has_placeholders"] is False
+    assert len(meta["progress"]) == 22

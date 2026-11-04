@@ -233,7 +233,7 @@ MAT133 completed the full lifecycle:
 - Library metadata: CSC662 exposes computed marks and numeric placeholders;
   MAT133 exposes total marks (64-72), `has_practice_mode: false` and
   `has_placeholders: false`.
-- Public subjects: CSC662 and MAT133, 20 Library papers each; 42 curriculum
+- Public subjects: CSC662 and MAT133, 20 Library papers each; 41 curriculum
   stubs are listed as `coming_soon`.
 - D1: gallery schema applied; user-shared entries exist.
 - Custom domain: apex and www, HTTPS, www -> apex redirect.

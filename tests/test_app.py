@@ -65,7 +65,7 @@ def test_job_lifecycle(monkeypatch, tmp_path):
     monkeypatch.setattr(jobs, "build_paper", fake_paper)
     monkeypatch.setattr(jobs, "build_scheme", fake_scheme)
     manager = jobs.JobManager()
-    job = manager.create("realistic", 99, None)
+    job = manager.create("realistic", 99, None, subject="CSC662")
     _wait(job)
     assert job.status == "done", job.error
     assert job.accepted == 1
@@ -82,7 +82,7 @@ def test_cost_cap_abort(monkeypatch, tmp_path):
 
     monkeypatch.setattr(jobs, "generate", fake_generate)
     manager = jobs.JobManager()
-    job = manager.create("realistic", 98, None)
+    job = manager.create("realistic", 98, None, subject="CSC662")
     _wait(job)
     assert job.status == "cost_capped"
     assert "cost cap" in job.message.lower()
@@ -101,7 +101,7 @@ def test_cancel_running_job(monkeypatch, tmp_path):
 
     monkeypatch.setattr(jobs, "generate", fake_generate)
     manager = jobs.JobManager()
-    job = manager.create("realistic", 97, None)
+    job = manager.create("realistic", 97, None, subject="CSC662")
     time.sleep(0.05)
     assert manager.cancel(job.id)
     _wait(job)
@@ -111,7 +111,7 @@ def test_cancel_running_job(monkeypatch, tmp_path):
 def test_cache_hit_needs_no_key(monkeypatch, tmp_path):
     _fake_env(monkeypatch, tmp_path)
     monkeypatch.setattr(jobs.config, "DEEPSEEK_API_KEY", "")
-    out = jobs.cache_path("realistic", 7, None, public=False)
+    out = jobs.cache_path("realistic", 7, None, public=False, subject="CSC662")
     out.mkdir(parents=True)
     (out / "paper.docx").write_bytes(b"docx")
     (out / "meta.json").write_text(json.dumps({
@@ -130,7 +130,7 @@ def test_cache_hit_needs_no_key(monkeypatch, tmp_path):
 
     monkeypatch.setattr(jobs, "generate", fake_generate)
     manager = jobs.JobManager()
-    job = manager.create("realistic", 7, None)
+    job = manager.create("realistic", 7, None, subject="CSC662")
     assert job.status == "done"
     assert job.cached is True
     assert job.cost_usd == 0.0
@@ -185,7 +185,7 @@ def test_library_works_without_key(monkeypatch, tmp_path):
     src.mkdir(parents=True)
     (src / "seed_07_theory.json").write_text("{}", encoding="utf-8")
     monkeypatch.setattr(jobs.config, "OUTPUTS_DIR", tmp_path)
-    out = jobs.cache_path("realistic", 7, None, public=False)
+    out = jobs.cache_path("realistic", 7, None, public=False, subject="CSC662")
     out.mkdir(parents=True)
     paper = out / "paper.pdf"
     paper.write_bytes(b"pdf")
@@ -195,7 +195,7 @@ def test_library_works_without_key(monkeypatch, tmp_path):
         "files": {"paper_pdf": str(paper)}, "summary": {},
         "progress": [],
     }), encoding="utf-8")
-    items = jobs.library_items()
+    items = jobs.library_items("CSC662")
     assert len(items) == 1
     assert items[0]["seed"] == 7
-    assert jobs.library_file(7, "paper_pdf") == paper
+    assert jobs.library_file(7, "paper_pdf", subject="CSC662") == paper

@@ -1,0 +1,466 @@
+{
+  "subject": "CSC402",
+  "seed": 20,
+  "generated_by": "src.subjects.csc402.generators",
+  "planner": "src.subjects.csc402.planner",
+  "total_marks": 100,
+  "question_count": 17,
+  "slot_count": 22,
+  "questions": [
+    {
+      "number": "A1",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "control_structures",
+      "stem": "Which structure chooses between two alternative paths?",
+      "options": [
+        "array",
+        "if...else",
+        "struct",
+        "for"
+      ],
+      "answer": "B",
+      "solution": "if...else performs two-way selection.",
+      "parts": [],
+      "generator_id": "csc402.mcq.control_structures",
+      "slots": [
+        "A1"
+      ]
+    },
+    {
+      "number": "A2",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "control_structures",
+      "stem": "How many times does a while loop execute when its condition is false initially?",
+      "options": [
+        "Two",
+        "Until the user stops it",
+        "Zero",
+        "One"
+      ],
+      "answer": "C",
+      "solution": "while is a pretest loop; a false condition skips the body.",
+      "parts": [],
+      "generator_id": "csc402.mcq.control_structures",
+      "slots": [
+        "A2"
+      ]
+    },
+    {
+      "number": "A3",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "data_types",
+      "stem": "What does the % operator return?",
+      "options": [
+        "The quotient",
+        "The absolute value",
+        "The square root",
+        "The remainder of integer division"
+      ],
+      "answer": "D",
+      "solution": "% is the modulus operator and returns the remainder.",
+      "parts": [],
+      "generator_id": "csc402.mcq.data_types",
+      "slots": [
+        "A3"
+      ]
+    },
+    {
+      "number": "A4",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "fundamentals",
+      "stem": "Which phase of the program development life cycle defines what the program must do?",
+      "options": [
+        "Analysis",
+        "Coding",
+        "Testing",
+        "Maintenance"
+      ],
+      "answer": "A",
+      "solution": "Analysis establishes the requirements before design and coding.",
+      "parts": [],
+      "generator_id": "csc402.mcq.fundamentals",
+      "slots": [
+        "A4"
+      ]
+    },
+    {
+      "number": "A5",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "arrays",
+      "stem": "What happens when an array index is outside its valid range?",
+      "options": [
+        "The compiler always rejects the program",
+        "The array becomes a string",
+        "Undefined behaviour may occur",
+        "C++ automatically resizes the array"
+      ],
+      "answer": "C",
+      "solution": "C++ does not perform automatic bounds checking.",
+      "parts": [],
+      "generator_id": "csc402.mcq.arrays",
+      "slots": [
+        "A5"
+      ]
+    },
+    {
+      "number": "A6",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "input_output",
+      "stem": "Which input pattern stops when the user enters -1?",
+      "options": [
+        "A sentinel-controlled loop",
+        "A function prototype",
+        "A fixed for loop",
+        "A switch statement"
+      ],
+      "answer": "A",
+      "solution": "A sentinel value ends the loop.",
+      "parts": [],
+      "generator_id": "csc402.mcq.input_output",
+      "slots": [
+        "A6"
+      ]
+    },
+    {
+      "number": "A7",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "fundamentals",
+      "stem": "Which term describes a finite sequence of precise steps that solves a problem?",
+      "options": [
+        "Variable",
+        "Algorithm",
+        "Compiler",
+        "Array"
+      ],
+      "answer": "B",
+      "solution": "An algorithm is a finite, ordered set of unambiguous steps.",
+      "parts": [],
+      "generator_id": "csc402.mcq.fundamentals",
+      "slots": [
+        "A7"
+      ]
+    },
+    {
+      "number": "A8",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "data_types",
+      "stem": "Which data type stores a whole number?",
+      "options": [
+        "string",
+        "char",
+        "int",
+        "float"
+      ],
+      "answer": "C",
+      "solution": "int stores whole numbers; float stores real values.",
+      "parts": [],
+      "generator_id": "csc402.mcq.data_types",
+      "slots": [
+        "A8"
+      ]
+    },
+    {
+      "number": "A9",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "control_structures",
+      "stem": "Which loop is guaranteed to execute its body at least once?",
+      "options": [
+        "for",
+        "while",
+        "if",
+        "do...while"
+      ],
+      "answer": "D",
+      "solution": "do...while tests the condition after the body.",
+      "parts": [],
+      "generator_id": "csc402.mcq.control_structures",
+      "slots": [
+        "A9"
+      ]
+    },
+    {
+      "number": "A10",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "data_types",
+      "stem": "Which declaration creates a floating-point variable named price?",
+      "options": [
+        "float price;",
+        "int price;",
+        "bool price;",
+        "char price;"
+      ],
+      "answer": "A",
+      "solution": "float is used for real numbers.",
+      "parts": [],
+      "generator_id": "csc402.mcq.data_types",
+      "slots": [
+        "A10"
+      ]
+    },
+    {
+      "number": "B1",
+      "part": "B",
+      "kind": "structured",
+      "marks": 5,
+      "topic": "debugging_testing",
+      "stem": "This question tests algorithms and programming errors.",
+      "options": [],
+      "answer": "",
+      "solution": "",
+      "parts": [
+        {
+          "text": "Define algorithm and pseudocode.",
+          "answer": "An algorithm is a finite sequence of precise steps that solves a problem. Pseudocode is a structured English-like description of an algorithm.",
+          "solution": "Award 1 mark for each correct definition.",
+          "label": "a",
+          "marks": 2
+        },
+        {
+          "text": "Explain THREE types of programming errors and give one example of each.",
+          "answer": "Syntax error: missing semicolon. Runtime error: division by zero. Logic error: using < instead of <= in a condition.",
+          "solution": "Award 0.5 mark for each type and 0.5 mark for a valid example.",
+          "label": "b",
+          "marks": 3
+        }
+      ],
+      "generator_id": "csc402.short_answer",
+      "slots": [
+        "B1a",
+        "B1b"
+      ]
+    },
+    {
+      "number": "B2",
+      "part": "B",
+      "kind": "structured",
+      "marks": 13,
+      "topic": "fundamentals",
+      "stem": "A program reads a student's score from 0 to 100 and displays the grade: 80-100 A, 60-79 B, 50-59 C, 40-49 D, below 40 F.",
+      "options": [],
+      "answer": "",
+      "solution": "",
+      "parts": [
+        {
+          "text": "Draw a flowchart for the grade classification.",
+          "answer": "Start -> read score -> decision score >= 80 -> A; else score >= 60 -> B; else score >= 50 -> C; else score >= 40 -> D; else F -> display grade -> end.",
+          "solution": "Award marks for terminal symbols, input, four/five decisions, each output and correct flow.",
+          "label": "a",
+          "marks": 5
+        },
+        {
+          "text": "Write pseudocode for the algorithm and convert it into a complete C++ program.",
+          "answer": "IF score >= 80 THEN grade = A ELSE IF score >= 60 THEN grade = B ... ENDIF; use if/else if in C++ and display grade.",
+          "solution": "Award marks for correct pseudocode, complete C++ structure, conditions, input and output.",
+          "label": "b",
+          "marks": 8
+        }
+      ],
+      "generator_id": "csc402.flowchart_or_pseudocode",
+      "slots": [
+        "B2a",
+        "B2b"
+      ]
+    },
+    {
+      "number": "B3",
+      "part": "B",
+      "kind": "structured",
+      "marks": 11,
+      "topic": "data_types",
+      "stem": "This question tests declarations, constants and expressions.",
+      "options": [],
+      "answer": "",
+      "solution": "",
+      "parts": [
+        {
+          "text": "Write C++ declarations for: an integer age, a double price, a constant discount rate of 0.10 and a character grade.",
+          "answer": "int age; double price; const double DISCOUNT = 0.10; char grade;",
+          "solution": "Award marks for correct types, names and const initialisation.",
+          "label": "a",
+          "marks": 6
+        },
+        {
+          "text": "Write C++ statements to read age and price, calculate price after discount, and display the result.",
+          "answer": "cin >> age >> price; price = price - price * DISCOUNT; cout << price;",
+          "solution": "Award marks for input, discount expression and output.",
+          "label": "b",
+          "marks": 5
+        }
+      ],
+      "generator_id": "csc402.code_statement",
+      "slots": [
+        "B3a",
+        "B3b"
+      ]
+    },
+    {
+      "number": "B4",
+      "part": "B",
+      "kind": "structured",
+      "marks": 15,
+      "topic": "input_output",
+      "stem": "Study the following nested loop:\n\nfor (int i = 1; i <= 3; i++) {\n    for (int j = 1; j <= i; j++) {\n        cout << j;\n    }\n    cout << endl;\n}",
+      "options": [],
+      "answer": "",
+      "solution": "",
+      "parts": [
+        {
+          "text": "Trace the program and show the exact output.",
+          "answer": "1\\n12\\n123",
+          "solution": "Award marks for each line and the exact row lengths.",
+          "label": "a",
+          "marks": 7
+        },
+        {
+          "text": "Identify TWO logic errors in a version that prints four rows but reuses j without resetting it. Rewrite the corrected code.",
+          "answer": "The inner loop must initialise j = 1 for every row and the outer loop must run to 4. Correct code: for (int i=1;i<=4;i++){for(int j=1;j<=i;j++) cout<<j; cout<<endl;}",
+          "solution": "Award marks for each error and the corrected loop.",
+          "label": "b",
+          "marks": 8
+        }
+      ],
+      "generator_id": "csc402.trace_or_debug",
+      "slots": [
+        "B4a",
+        "B4b"
+      ]
+    },
+    {
+      "number": "B5",
+      "part": "B",
+      "kind": "structured",
+      "marks": 16,
+      "topic": "arrays",
+      "stem": "A sports club stores sport names and medal counts in parallel arrays.",
+      "options": [],
+      "answer": "",
+      "solution": "",
+      "parts": [
+        {
+          "text": "Declare two parallel arrays for five sports and initialise them with suitable values.",
+          "answer": "string sports[5] = {\"Swimming\",\"Badminton\",\"Athletics\",\"Cycling\",\"Hockey\"}; int medals[5] = {8,12,7,5,9};",
+          "solution": "Award marks for both declarations, correct sizes and related indices.",
+          "label": "a",
+          "marks": 6
+        },
+        {
+          "text": "Write a program segment to display each sport with its medals, then calculate the total and average medals.",
+          "answer": "Loop i=0..4 to display sports[i] and medals[i], accumulate total, average = double(total)/5.",
+          "solution": "Award marks for paired display, total, average and output.",
+          "label": "b",
+          "marks": 10
+        }
+      ],
+      "generator_id": "csc402.array_program_segment",
+      "slots": [
+        "B5a",
+        "B5b"
+      ]
+    },
+    {
+      "number": "C1",
+      "part": "C",
+      "kind": "program",
+      "marks": 15,
+      "topic": "input_output",
+      "stem": "A cafe sells three items: coffee RM8.50, tea RM6.00 and juice RM9.50. A 10% discount is given when the subtotal is at least RM50.",
+      "options": [],
+      "answer": "#include <iostream>\n#include <iomanip>\n#include <string>\nusing namespace std;\nint main() {\n    int code, quantity;\n    double price = 0, subtotal, discount = 0;\n    string name;\n    cout << \"Item code (1 coffee, 2 tea, 3 juice): \";\n    cin >> code;\n    cout << \"Quantity: \";\n    cin >> quantity;\n    if (code == 1) { name = \"Coffee\"; price = 8.50; }\n    else if (code == 2) { name = \"Tea\"; price = 6.00; }\n    else if (code == 3) { name = \"Juice\"; price = 9.50; }\n    else { cout << \"Invalid item code\" << endl; return 1; }\n    subtotal = price * quantity;\n    if (subtotal >= 50) discount = subtotal * 0.10;\n    cout << fixed << setprecision(2);\n    cout << \"Item: \" << name << endl;\n    cout << \"Quantity: \" << quantity << endl;\n    cout << \"Subtotal: RM\" << subtotal << endl;\n    cout << \"Discount: RM\" << discount << endl;\n    cout << \"Amount to pay: RM\" << subtotal - discount << endl;\n    return 0;\n}",
+      "solution": "Award 3 marks for input, 5 for price/subtotal, 4 for discount, 2 for formatting and 1 for completeness.",
+      "parts": [
+        {
+          "label": "",
+          "marks": 15,
+          "text": "Write a complete C++ program that reads the item code and quantity, calculates the subtotal and discount, and displays a formatted receipt with the item name, quantity, subtotal, discount and amount to pay.",
+          "answer": "#include <iostream>\n#include <iomanip>\n#include <string>\nusing namespace std;\nint main() {\n    int code, quantity;\n    double price = 0, subtotal, discount = 0;\n    string name;\n    cout << \"Item code (1 coffee, 2 tea, 3 juice): \";\n    cin >> code;\n    cout << \"Quantity: \";\n    cin >> quantity;\n    if (code == 1) { name = \"Coffee\"; price = 8.50; }\n    else if (code == 2) { name = \"Tea\"; price = 6.00; }\n    else if (code == 3) { name = \"Juice\"; price = 9.50; }\n    else { cout << \"Invalid item code\" << endl; return 1; }\n    subtotal = price * quantity;\n    if (subtotal >= 50) discount = subtotal * 0.10;\n    cout << fixed << setprecision(2);\n    cout << \"Item: \" << name << endl;\n    cout << \"Quantity: \" << quantity << endl;\n    cout << \"Subtotal: RM\" << subtotal << endl;\n    cout << \"Discount: RM\" << discount << endl;\n    cout << \"Amount to pay: RM\" << subtotal - discount << endl;\n    return 0;\n}",
+          "solution": "Award 3 marks for input, 5 for price/subtotal, 4 for discount, 2 for formatting and 1 for completeness."
+        }
+      ],
+      "generator_id": "csc402.complete_program.input_output",
+      "slots": [
+        "C1"
+      ]
+    },
+    {
+      "number": "C2",
+      "part": "C",
+      "kind": "program",
+      "marks": 15,
+      "topic": "input_output",
+      "stem": "A cafe sells three items: coffee RM8.50, tea RM6.00 and juice RM9.50. A 10% discount is given when the subtotal is at least RM50.",
+      "options": [],
+      "answer": "#include <iostream>\n#include <iomanip>\n#include <string>\nusing namespace std;\nint main() {\n    int code, quantity;\n    double price = 0, subtotal, discount = 0;\n    string name;\n    cout << \"Item code (1 coffee, 2 tea, 3 juice): \";\n    cin >> code;\n    cout << \"Quantity: \";\n    cin >> quantity;\n    if (code == 1) { name = \"Coffee\"; price = 8.50; }\n    else if (code == 2) { name = \"Tea\"; price = 6.00; }\n    else if (code == 3) { name = \"Juice\"; price = 9.50; }\n    else { cout << \"Invalid item code\" << endl; return 1; }\n    subtotal = price * quantity;\n    if (subtotal >= 50) discount = subtotal * 0.10;\n    cout << fixed << setprecision(2);\n    cout << \"Item: \" << name << endl;\n    cout << \"Quantity: \" << quantity << endl;\n    cout << \"Subtotal: RM\" << subtotal << endl;\n    cout << \"Discount: RM\" << discount << endl;\n    cout << \"Amount to pay: RM\" << subtotal - discount << endl;\n    return 0;\n}",
+      "solution": "Award 3 marks for input, 5 for price/subtotal, 4 for discount, 2 for formatting and 1 for completeness.",
+      "parts": [
+        {
+          "label": "",
+          "marks": 15,
+          "text": "Write a complete C++ program that reads the item code and quantity, calculates the subtotal and discount, and displays a formatted receipt with the item name, quantity, subtotal, discount and amount to pay.",
+          "answer": "#include <iostream>\n#include <iomanip>\n#include <string>\nusing namespace std;\nint main() {\n    int code, quantity;\n    double price = 0, subtotal, discount = 0;\n    string name;\n    cout << \"Item code (1 coffee, 2 tea, 3 juice): \";\n    cin >> code;\n    cout << \"Quantity: \";\n    cin >> quantity;\n    if (code == 1) { name = \"Coffee\"; price = 8.50; }\n    else if (code == 2) { name = \"Tea\"; price = 6.00; }\n    else if (code == 3) { name = \"Juice\"; price = 9.50; }\n    else { cout << \"Invalid item code\" << endl; return 1; }\n    subtotal = price * quantity;\n    if (subtotal >= 50) discount = subtotal * 0.10;\n    cout << fixed << setprecision(2);\n    cout << \"Item: \" << name << endl;\n    cout << \"Quantity: \" << quantity << endl;\n    cout << \"Subtotal: RM\" << subtotal << endl;\n    cout << \"Discount: RM\" << discount << endl;\n    cout << \"Amount to pay: RM\" << subtotal - discount << endl;\n    return 0;\n}",
+          "solution": "Award 3 marks for input, 5 for price/subtotal, 4 for discount, 2 for formatting and 1 for completeness."
+        }
+      ],
+      "generator_id": "csc402.complete_program.input_output",
+      "slots": [
+        "C2"
+      ]
+    }
+  ],
+  "slot_map": {
+    "A1": "A1",
+    "A2": "A2",
+    "A3": "A3",
+    "A4": "A4",
+    "A5": "A5",
+    "A6": "A6",
+    "A7": "A7",
+    "A8": "A8",
+    "A9": "A9",
+    "A10": "A10",
+    "B1a": "B1",
+    "B1b": "B1",
+    "B2a": "B2",
+    "B2b": "B2",
+    "B3a": "B3",
+    "B3b": "B3",
+    "B4a": "B4",
+    "B4b": "B4",
+    "B5a": "B5",
+    "B5b": "B5",
+    "C1": "C1",
+    "C2": "C2"
+  },
+  "generator_ids": [
+    "csc402.array_program_segment",
+    "csc402.code_statement",
+    "csc402.complete_program.input_output",
+    "csc402.flowchart_or_pseudocode",
+    "csc402.mcq.arrays",
+    "csc402.mcq.control_structures",
+    "csc402.mcq.data_types",
+    "csc402.mcq.fundamentals",
+    "csc402.mcq.input_output",
+    "csc402.short_answer",
+    "csc402.trace_or_debug"
+  ]
+}

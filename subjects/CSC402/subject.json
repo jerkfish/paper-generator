@@ -1,7 +1,7 @@
 {
   "code": "CSC402",
   "title": "Programming I",
-  "status": "coming_soon",
+  "status": "available",
   "order": 1,
   "header_text": "CSC402 PROGRAMMING I",
   "template_path": "data/reference/CSC402/CSC402 TEMPLATE.docx",
@@ -58,7 +58,44 @@
       "paper": 5,
       "scheme": 6
     },
-    "marking_scheme_template": "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx"
+    "marking_scheme_template": "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx",
+    "library_prebuild": "data/tracking/csc402/library_prebuild.json",
+    "library_seeds": 20,
+    "library_marks": 100,
+    "library_slots": 22,
+    "library_pages": {
+      "paper": [
+        5,
+        6
+      ],
+      "scheme": [
+        6
+      ]
+    },
+    "styled_revision_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "pending_style_rebuild_seeds": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ]
   },
   "deck_map": {},
   "topic_deck_allowlist": {},

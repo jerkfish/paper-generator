@@ -1,0 +1,320 @@
+{
+  "subject": "CSC402",
+  "seed": 14,
+  "mode": "realistic",
+  "computed_marks": null,
+  "model": "csc402-deterministic",
+  "cost_usd": 0.0,
+  "accepted": 22,
+  "placeholders": 0,
+  "total_slots": 22,
+  "total_marks": 100,
+  "question_count": 17,
+  "has_practice_mode": false,
+  "has_placeholders": false,
+  "created": 1793783222.1716712,
+  "year": 2026,
+  "topic_marks": {
+    "input_output": 1,
+    "data_types": 14,
+    "fundamentals": 2,
+    "control_structures": 46,
+    "arrays": 17,
+    "debugging_testing": 5,
+    "structures": 15
+  },
+  "files": {
+    "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC402\\82eaeee73f729acc0724\\CSC402 Seed 14 2026.docx",
+    "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC402\\82eaeee73f729acc0724\\CSC402 Seed 14 2026.pdf",
+    "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC402\\82eaeee73f729acc0724\\CSC402 Seed 14 2026 - Marking Scheme.docx",
+    "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC402\\82eaeee73f729acc0724\\CSC402 Seed 14 2026 - Marking Scheme.pdf"
+  },
+  "summary": {
+    "subject": "CSC402",
+    "seed": 14,
+    "mode": "realistic",
+    "accepted": 22,
+    "placeholders": 0,
+    "total_slots": 22,
+    "total_marks": 100,
+    "question_count": 17,
+    "has_practice_mode": false,
+    "has_placeholders": false,
+    "model": "csc402-deterministic",
+    "cost_usd": 0.0,
+    "cached": true,
+    "topic_marks": {
+      "input_output": 1,
+      "data_types": 14,
+      "fundamentals": 2,
+      "control_structures": 46,
+      "arrays": 17,
+      "debugging_testing": 5,
+      "structures": 15
+    },
+    "pdf_available": true
+  },
+  "progress": [
+    {
+      "question": "A1",
+      "slot": "A1",
+      "status": "accepted",
+      "message": "input_output",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A2",
+      "slot": "A2",
+      "status": "accepted",
+      "message": "data_types",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A3",
+      "slot": "A3",
+      "status": "accepted",
+      "message": "fundamentals",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A4",
+      "slot": "A4",
+      "status": "accepted",
+      "message": "control_structures",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A5",
+      "slot": "A5",
+      "status": "accepted",
+      "message": "fundamentals",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A6",
+      "slot": "A6",
+      "status": "accepted",
+      "message": "control_structures",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A7",
+      "slot": "A7",
+      "status": "accepted",
+      "message": "data_types",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A8",
+      "slot": "A8",
+      "status": "accepted",
+      "message": "control_structures",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A9",
+      "slot": "A9",
+      "status": "accepted",
+      "message": "arrays",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A10",
+      "slot": "A10",
+      "status": "accepted",
+      "message": "data_types",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B1",
+      "slot": "B1a",
+      "status": "accepted",
+      "message": "debugging_testing",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B1",
+      "slot": "B1b",
+      "status": "accepted",
+      "message": "debugging_testing",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B2",
+      "slot": "B2a",
+      "status": "accepted",
+      "message": "control_structures",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B2",
+      "slot": "B2b",
+      "status": "accepted",
+      "message": "control_structures",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B3",
+      "slot": "B3a",
+      "status": "accepted",
+      "message": "data_types",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B3",
+      "slot": "B3b",
+      "status": "accepted",
+      "message": "data_types",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B4",
+      "slot": "B4a",
+      "status": "accepted",
+      "message": "control_structures",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B4",
+      "slot": "B4b",
+      "status": "accepted",
+      "message": "control_structures",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B5",
+      "slot": "B5a",
+      "status": "accepted",
+      "message": "arrays",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B5",
+      "slot": "B5b",
+      "status": "accepted",
+      "message": "arrays",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C1",
+      "slot": "C1",
+      "status": "accepted",
+      "message": "control_structures",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C2",
+      "slot": "C2",
+      "status": "accepted",
+      "message": "structures",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    }
+  ],
+  "validation": {
+    "subject": "CSC402",
+    "seed": 14,
+    "paper_docx": {
+      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC402\\82eaeee73f729acc0724\\CSC402 Seed 14 2026.docx",
+      "xml_valid": true,
+      "forbidden_tokens": [],
+      "missing": [],
+      "problems": []
+    },
+    "scheme_docx": {
+      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC402\\82eaeee73f729acc0724\\CSC402 Seed 14 2026 - Marking Scheme.docx",
+      "xml_valid": true,
+      "forbidden_tokens": [],
+      "missing": [],
+      "problems": []
+    },
+    "paper_pdf": {
+      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC402\\82eaeee73f729acc0724\\CSC402 Seed 14 2026.pdf",
+      "pages": 5,
+      "page1_cover": true,
+      "body_starts_page2": true,
+      "right_overflow": [],
+      "problems": []
+    },
+    "scheme_pdf": {
+      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC402\\82eaeee73f729acc0724\\CSC402 Seed 14 2026 - Marking Scheme.pdf",
+      "pages": 6,
+      "page1_cover": true,
+      "body_starts_page2": false,
+      "right_overflow": [],
+      "problems": []
+    },
+    "files": {
+      "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC402\\82eaeee73f729acc0724\\CSC402 Seed 14 2026.docx",
+      "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC402\\82eaeee73f729acc0724\\CSC402 Seed 14 2026.pdf",
+      "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC402\\82eaeee73f729acc0724\\CSC402 Seed 14 2026 - Marking Scheme.docx",
+      "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC402\\82eaeee73f729acc0724\\CSC402 Seed 14 2026 - Marking Scheme.pdf"
+    },
+    "problems": []
+  }
+}

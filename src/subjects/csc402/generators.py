@@ -10,6 +10,7 @@ copied.  The generator is deterministic for a given seed.
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import random
 import textwrap
@@ -167,13 +168,124 @@ MCQ_BANK = {
 }
 
 
+
+MCQ_BANK["fundamentals"].extend([
+    {
+        "text": "A computer system's hardware includes which of the following?",
+        "format": "roman_items",
+        "items": ["input devices", "output devices", "central processing unit",
+                  "main memory", "secondary storage"],
+        "options": ["i, ii, iii, iv", "i, ii, iii, v", "i, iii, iv",
+                    "i, ii, iii, iv, v"],
+        "answer": 3,
+        "solution": "All five listed components are part of the hardware.",
+    },
+    {
+        "text": "What is displayed by the following code?",
+        "format": "code",
+        "code": "int x = 5;\ncout << x * 2;",
+        "options": ["5", "10", "25", "7"],
+        "answer": 1,
+        "solution": "x * 2 is 10; cout displays the value.",
+    },
+])
+
+MCQ_BANK["data_types"].extend([
+    {
+        "text": "Which of the following are valid identifiers?",
+        "format": "roman_items",
+        "items": ["total_score", "2total", "_count", "int"],
+        "options": ["i and ii", "i and iii", "ii and iv", "iii and iv"],
+        "answer": 1,
+        "solution": "total_score and _count are valid identifiers.",
+    },
+    {
+        "text": "Given the declaration, what is displayed?",
+        "format": "code",
+        "code": "char word[6] = {'p', 'r', 'i', 'n', 't', '\\0'};\ncout << word[3];",
+        "options": ["i", "n", "t", "p"],
+        "answer": 2,
+        "solution": "word[3] is 't' because array indexing starts at zero.",
+    },
+])
+
+MCQ_BANK["control_structures"].extend([
+    {
+        "text": "Which of the following are selection structures?",
+        "format": "roman_items",
+        "items": ["if", "switch", "for", "while"],
+        "options": ["i and ii", "i and iii", "ii and iv", "iii and iv"],
+        "answer": 0,
+        "solution": "if and switch select among alternatives.",
+    },
+    {
+        "text": "What is displayed by the following code?",
+        "format": "code",
+        "code": "for (int i = 1; i <= 4; i++)\n    cout << i * 2;",
+        "options": ["2468", "1234", "246", "1357"],
+        "answer": 0,
+        "solution": "The loop displays 2, 4, 6 and 8 without spaces.",
+    },
+])
+
+MCQ_BANK["arrays"].extend([
+    {
+        "text": "Which of the following declarations are valid?",
+        "format": "roman_items",
+        "items": ["int a[5];", "int b;", "int c[3] = {1, 2, 3};",
+                  "int d[];"],
+        "options": ["i and ii", "i and iii", "ii and iv", "iii and iv"],
+        "answer": 1,
+        "solution": "a and c are valid array declarations.",
+    },
+    {
+        "text": "What is displayed by the following code?",
+        "format": "code",
+        "code": "int a[4] = {3, 6, 9, 12};\ncout << a[1] + a[3];",
+        "options": ["15", "18", "9", "12"],
+        "answer": 0,
+        "solution": "a[1] is 6 and a[3] is 12, so the sum is 18.",
+    },
+])
+
+MCQ_BANK["input_output"].extend([
+    {
+        "text": "What is displayed by the following code?",
+        "format": "code",
+        "code": "int x = 7;\ncout << x / 2 << \" \" << x % 2;",
+        "options": ["3 1", "3.5 1", "4 1", "3 0"],
+        "answer": 0,
+        "solution": "Integer division gives 3 and the remainder is 1.",
+    },
+    {
+        "text": "Which of the following are stream operators?",
+        "format": "roman_items",
+        "items": ["<<", ">>", "==", "="],
+        "options": ["i and ii", "i and iii", "ii and iv", "iii and iv"],
+        "answer": 0,
+        "solution": "<< inserts into a stream and >> extracts from one.",
+    },
+])
+
+
+PREFERRED_MCQ_FORMAT = {
+    "A2": "code", "A4": "code", "A7": "code",
+    "A5": "roman_items", "A9": "roman_items",
+}
+
+
 def _mcq_bank(topic: str) -> list[dict]:
     return MCQ_BANK.get(topic) or MCQ_BANK["fundamentals"]
 
 
 def _make_mcq(slot: dict, rng: random.Random, used: set[str]) -> dict:
     bank = _mcq_bank(slot["topic"])
-    candidates = [item for item in bank if item["text"] not in used]
+    preferred = PREFERRED_MCQ_FORMAT.get(slot["slot"], "standard")
+    candidates = [item for item in bank
+                  if item["text"] not in used
+                  and item.get("format", "standard") == preferred]
+    if not candidates:
+        candidates = [item for item in bank if item["text"] not in used]
     if not candidates:
         candidates = bank
     item = rng.choice(candidates)
@@ -189,6 +301,10 @@ def _make_mcq(slot: dict, rng: random.Random, used: set[str]) -> dict:
         "marks": slot["marks"],
         "topic": slot["topic"],
         "stem": item["text"],
+        "items": list(item.get("items") or []),
+        "blocks": ([{"type": "code", "text": item["code"]}]
+                   if item.get("code") else []),
+        "format": item.get("format", "standard"),
         "options": options,
         "answer": answer,
         "solution": item["solution"],
@@ -257,7 +373,13 @@ def _b1(marks: list[int], rng: random.Random) -> dict:
 
 B2_VARIANTS = [
     {
-        "stem": "A program reads a student's score from 0 to 100 and displays the grade: 80-100 A, 60-79 B, 50-59 C, 40-49 D, below 40 F.",
+        "stem": "A program reads a student's score from 0 to 100 and displays the grade shown in Table 1.",
+        "stem_blocks": [
+            {"type": "table", "caption": "Table 1. Grade Scale",
+             "headers": ["Score", "Grade"],
+             "rows": [["80-100", "A"], ["60-79", "B"], ["50-59", "C"],
+                      ["40-49", "D"], ["0-39", "F"]]},
+        ],
         "parts": [
             {"text": "Draw a flowchart for the grade classification.",
              "answer": "Start -> read score -> decision score >= 80 -> A; else score >= 60 -> B; else score >= 50 -> C; else score >= 40 -> D; else F -> display grade -> end.",
@@ -290,7 +412,13 @@ B2_VARIANTS = [
         ],
     },
     {
-        "stem": "A concert charges RM15 for ages 0-12, RM25 for ages 13-17 and RM40 for ages 18 and above. A negative age is invalid.",
+        "stem": "A concert charges the ticket prices shown in Table 1. A negative age is invalid.",
+        "stem_blocks": [
+            {"type": "table", "caption": "Table 1. Concert Ticket Prices",
+             "headers": ["Age Range", "Ticket Price (RM)"],
+             "rows": [["0 - 12", "15.00"], ["13 - 17", "25.00"],
+                      ["18 and above", "40.00"]]},
+        ],
         "parts": [
             {"text": "Draw a flowchart for the ticket price selection.",
              "answer": "Start -> read age -> if age < 0 display invalid; else if age <= 12 price = 15; else if age <= 17 price = 25; else price = 40 -> display price -> end.",
@@ -304,9 +432,10 @@ B2_VARIANTS = [
 
 
 def _b2(marks: list[int], rng: random.Random) -> dict:
-    item = rng.choice(B2_VARIANTS)
+    item = B2_VARIANTS[rng.choice([0, 3])]
     return {
         "stem": item["stem"],
+        "stem_blocks": list(item.get("stem_blocks") or []),
         "parts": [
             {**part, "label": chr(ord("a") + index), "marks": marks[index]}
             for index, part in enumerate(item["parts"])
@@ -329,7 +458,9 @@ B3_VARIANTS = [
     {
         "stem": "This question tests operator precedence and assignment.",
         "parts": [
-            {"text": "Evaluate the following expressions: (i) 7 + 3 * 2, (ii) (7 + 3) * 2, (iii) 17 % 5, (iv) 17 / 5, (v) 17.0 / 5.",
+            {"text": "Evaluate the following expressions using the declarations in the code block.",
+             "blocks": [{"type": "code",
+                         "text": "int a = 12, b = 5;\ndouble c = 2.5;"}],
              "answer": "(i) 13, (ii) 20, (iii) 2, (iv) 3, (v) 3.4",
              "solution": "Award 1 mark per correct value."},
             {"text": "Write C++ statements to declare two integers a and b, read their values, and display their sum, difference, product and remainder.",
@@ -364,7 +495,8 @@ def _b3(marks: list[int], rng: random.Random) -> dict:
 
 B4_VARIANTS = [
     {
-        "stem": "Study the following C++ program segment:\n\nint total = 0;\nfor (int i = 1; i <= 5; i++) {\n    total += i;\n}\ncout << total;",
+        "stem": "Study the following C++ program segment:",
+        "stem_blocks": [{"type": "code", "text": "int total = 0;\nfor (int i = 1; i <= 5; i++) {\n    total += i;\n}\ncout << total;"}],
         "parts": [
             {"text": "Trace the program and state the output.",
              "answer": "15",
@@ -375,7 +507,8 @@ B4_VARIANTS = [
         ],
     },
     {
-        "stem": "Study the following nested loop:\n\nfor (int i = 1; i <= 3; i++) {\n    for (int j = 1; j <= i; j++) {\n        cout << j;\n    }\n    cout << endl;\n}",
+        "stem": "Study the following nested loop:",
+        "stem_blocks": [{"type": "code", "text": "for (int i = 1; i <= 3; i++) {\n    for (int j = 1; j <= i; j++) {\n        cout << j;\n    }\n    cout << endl;\n}"}],
         "parts": [
             {"text": "Trace the program and show the exact output.",
              "answer": "1\\n12\\n123",
@@ -386,7 +519,8 @@ B4_VARIANTS = [
         ],
     },
     {
-        "stem": "Study the following array program segment:\n\nint a[5] = {2, 4, 6, 8, 10};\nint s = 0;\nfor (int i = 0; i < 5; i++) {\n    s += a[i];\n}\ncout << s;",
+        "stem": "Study the following array program segment:",
+        "stem_blocks": [{"type": "code", "text": "int a[5] = {2, 4, 6, 8, 10};\nint s = 0;\nfor (int i = 0; i < 5; i++) {\n    s += a[i];\n}\ncout << s;"}],
         "parts": [
             {"text": "Trace the program and state the output.",
              "answer": "30",
@@ -403,6 +537,7 @@ def _b4(marks: list[int], rng: random.Random) -> dict:
     item = rng.choice(B4_VARIANTS)
     return {
         "stem": item["stem"],
+        "stem_blocks": list(item.get("stem_blocks") or []),
         "parts": [
             {**part, "label": chr(ord("a") + index), "marks": marks[index]}
             for index, part in enumerate(item["parts"])
@@ -412,9 +547,13 @@ def _b4(marks: list[int], rng: random.Random) -> dict:
 
 B5_VARIANTS = [
     {
-        "stem": "A shop stores the prices of five items in an array.",
+        "stem": "A shop stores the item prices shown in Table 1.",
         "parts": [
-            {"text": "Declare an array named prices with the values 20.5, 55.0, 15.9, 75.0 and 10.0. Display all values.",
+            {"text": "Declare an array named prices using the values in Table 1. Display all values.",
+             "blocks": [{"type": "table", "caption": "Table 1. Item Prices",
+                         "headers": ["Item", "Price (RM)"],
+                         "rows": [["1", "20.50"], ["2", "55.00"], ["3", "15.90"],
+                                  ["4", "75.00"], ["5", "10.00"]]}],
              "answer": "double prices[5] = {20.5, 55.0, 15.9, 75.0, 10.0}; for (int i=0;i<5;i++) cout << prices[i] << endl;",
              "solution": "Award marks for correct type, initialiser, loop and output."},
             {"text": "Write a program segment that applies a 10% discount to prices above RM50 and stores the results in a second array. Display both arrays.",
@@ -434,9 +573,14 @@ B5_VARIANTS = [
         ],
     },
     {
-        "stem": "A sports club stores sport names and medal counts in parallel arrays.",
+        "stem": "A sports club records the sport names and medal counts in Table 1.",
         "parts": [
-            {"text": "Declare two parallel arrays for five sports and initialise them with suitable values.",
+            {"text": "Declare two parallel arrays for the five sports in Table 1 and initialise them with those values.",
+             "blocks": [{"type": "table", "caption": "Table 1. Sport and Medal Records",
+                         "headers": ["Sport", "Medals"],
+                         "rows": [["Swimming", "8"], ["Badminton", "12"],
+                                  ["Athletics", "7"], ["Cycling", "5"],
+                                  ["Hockey", "9"]]}],
              "answer": "string sports[5] = {\"Swimming\",\"Badminton\",\"Athletics\",\"Cycling\",\"Hockey\"}; int medals[5] = {8,12,7,5,9};",
              "solution": "Award marks for both declarations, correct sizes and related indices."},
             {"text": "Write a program segment to display each sport with its medals, then calculate the total and average medals.",
@@ -448,7 +592,7 @@ B5_VARIANTS = [
 
 
 def _b5(marks: list[int], rng: random.Random) -> dict:
-    item = rng.choice(B5_VARIANTS)
+    item = B5_VARIANTS[rng.choice([0, 2])]
     return {
         "stem": item["stem"],
         "parts": [
@@ -460,7 +604,13 @@ def _b5(marks: list[int], rng: random.Random) -> dict:
 
 C_VARIANTS = {
     "control_structures": {
-        "stem": "A catering company charges RM12.50 per meal. Orders of 50-99 meals cost RM11.50 each, 100-199 cost RM10.50 each, and 200 or more cost RM9.50 each.",
+        "stem": "A catering company charges the meal prices shown in Table 1.",
+        "stem_blocks": [
+            {"type": "table", "caption": "Table 1. Meal Price",
+             "headers": ["Quantity Range", "Price per Meal (RM)"],
+             "rows": [["50 - 99", "11.50"], ["100 - 199", "10.50"],
+                      ["200 and above", "9.50"]]},
+        ],
         "task": "Write a complete C++ program that reads the customer name and quantity, validates the quantity, calculates the total, displays a receipt, and repeats until the user chooses to stop. At the end, display the total quantity and total sales.",
         "answer": textwrap.dedent("""
             #include <iostream>
@@ -504,7 +654,12 @@ C_VARIANTS = {
         "solution": "Award 3 marks for input/validation, 6 for price selection and total, 3 for repetition, 2 for final totals and 1 for output clarity.",
     },
     "input_output": {
-        "stem": "A cafe sells three items: coffee RM8.50, tea RM6.00 and juice RM9.50. A 10% discount is given when the subtotal is at least RM50.",
+        "stem": "A cafe sells the items shown in Table 1. A 10% discount is given when the subtotal is at least RM50.",
+        "stem_blocks": [
+            {"type": "table", "caption": "Table 1. Cafe Menu",
+             "headers": ["Item", "Price (RM)"],
+             "rows": [["Coffee", "8.50"], ["Tea", "6.00"], ["Juice", "9.50"]]},
+        ],
         "task": "Write a complete C++ program that reads the item code and quantity, calculates the subtotal and discount, and displays a formatted receipt with the item name, quantity, subtotal, discount and amount to pay.",
         "answer": textwrap.dedent("""
             #include <iostream>
@@ -567,7 +722,13 @@ C_VARIANTS = {
         "solution": "Award 3 marks for input, 4 for total/average, 3 for highest/index, 3 for above-average count and 2 for output.",
     },
     "structures": {
-        "stem": "A bookstore records up to five books. Each book has a title, price and quantity in stock.",
+        "stem": "A bookstore records up to five books. Table 1 shows an example of the fields.",
+        "stem_blocks": [
+            {"type": "table", "caption": "Table 1. Book Record Fields",
+             "headers": ["Title", "Price (RM)", "Quantity"],
+             "rows": [["Book A", "45.00", "3"], ["Book B", "30.00", "5"],
+                      ["Book C", "55.00", "2"]]},
+        ],
         "task": "Define a struct Book. Write a complete C++ program that reads the records, calculates the total inventory value, and displays the title of the most expensive book.",
         "answer": textwrap.dedent("""
             #include <iostream>
@@ -604,18 +765,18 @@ C_VARIANTS = {
 }
 
 
-def _c_question(slot: dict, rng: random.Random) -> dict:
-    topic = slot["topic"] if slot["topic"] in C_VARIANTS else "control_structures"
-    item = C_VARIANTS[topic]
-    if topic == "control_structures" and rng.random() < 0.5:
-        item = C_VARIANTS["input_output"]
-        topic = "input_output"
-    elif topic == "input_output" and rng.random() < 0.5:
-        item = C_VARIANTS["arrays"]
-        topic = "arrays"
-    elif topic == "arrays" and rng.random() < 0.5:
-        item = C_VARIANTS["structures"]
-        topic = "structures"
+def _c_question(slot: dict, rng: random.Random,
+                exclude: set[str] | None = None) -> dict:
+    exclude = set(exclude or [])
+    preferred = slot["topic"] if slot["topic"] in C_VARIANTS else "control_structures"
+    candidates = [topic for topic in
+                  (preferred, "control_structures", "input_output",
+                   "arrays", "structures")
+                  if topic in C_VARIANTS and topic not in exclude]
+    if not candidates:
+        candidates = list(C_VARIANTS)
+    topic = rng.choice(candidates)
+    item = copy.deepcopy(C_VARIANTS[topic])
     return {
         "number": slot["slot"],
         "part": "C",
@@ -623,6 +784,7 @@ def _c_question(slot: dict, rng: random.Random) -> dict:
         "marks": slot["marks"],
         "topic": topic,
         "stem": item["stem"],
+        "stem_blocks": list(item.get("stem_blocks") or []),
         "options": [],
         "answer": item["answer"],
         "solution": item["solution"],
@@ -635,6 +797,51 @@ def _c_question(slot: dict, rng: random.Random) -> dict:
         }],
         "generator_id": f"csc402.complete_program.{topic}",
         "slots": [slot["slot"]],
+    }
+
+
+
+def _number_tables(questions: list[dict]) -> None:
+    number = 0
+    for question in questions:
+        block_groups = [question.get("stem_blocks") or [],
+                        question.get("blocks") or []]
+        for part in question.get("parts") or []:
+            block_groups.append(part.get("blocks") or [])
+        for blocks in block_groups:
+            for block in blocks:
+                if block.get("type") != "table":
+                    continue
+                number += 1
+                caption = str(block.get("caption") or "").strip()
+                if caption.lower().startswith("table ") and "." in caption:
+                    caption = caption.split(".", 1)[1].strip()
+                block["caption"] = (
+                    f"Table {number}. {caption}" if caption else f"Table {number}.")
+
+
+def _style_profile(questions: list[dict]) -> dict:
+    mcq_formats: dict[str, int] = {}
+    tables: list[str] = []
+    code_blocks = 0
+    for question in questions:
+        if question["part"] == "A":
+            key = question.get("format", "standard")
+            mcq_formats[key] = mcq_formats.get(key, 0) + 1
+        groups = [question.get("stem_blocks") or [],
+                  question.get("blocks") or []]
+        groups += [part.get("blocks") or [] for part in question.get("parts", [])]
+        for blocks in groups:
+            for block in blocks:
+                if block.get("type") == "table":
+                    tables.append(str(block.get("caption", "")))
+                elif block.get("type") == "code":
+                    code_blocks += 1
+    return {
+        "mcq_formats": mcq_formats,
+        "table_count": len(tables),
+        "table_captions": tables,
+        "code_block_count": code_blocks,
     }
 
 
@@ -663,7 +870,7 @@ def generate_paper(plan: dict | None = None, seed: int | None = None) -> dict:
         }.get(task)
         if builder is None:
             raise ValueError(f"no CSC402 generator for task {task}")
-        item = builder(marks, rng)
+        item = copy.deepcopy(builder(marks, rng))
         questions.append({
             "number": question_label,
             "part": "B",
@@ -671,6 +878,7 @@ def generate_paper(plan: dict | None = None, seed: int | None = None) -> dict:
             "marks": sum(marks),
             "topic": slots[0]["topic"],
             "stem": item["stem"],
+            "stem_blocks": list(item.get("stem_blocks") or []),
             "options": [],
             "answer": "",
             "solution": "",
@@ -678,9 +886,13 @@ def generate_paper(plan: dict | None = None, seed: int | None = None) -> dict:
             "generator_id": f"csc402.{task}",
             "slots": [slot["slot"] for slot in slots],
         })
+    c_topics: set[str] = set()
     for slot in plan["slots"]:
         if slot["part"] == "C":
-            questions.append(_c_question(slot, rng))
+            question = _c_question(slot, rng, exclude=c_topics)
+            c_topics.add(question["topic"])
+            questions.append(question)
+    _number_tables(questions)
     slot_map = {}
     for question in questions:
         for slot in question["slots"]:
@@ -697,6 +909,7 @@ def generate_paper(plan: dict | None = None, seed: int | None = None) -> dict:
         "questions": questions,
         "slot_map": slot_map,
         "generator_ids": sorted({q["generator_id"] for q in questions}),
+        "style_profile": _style_profile(questions),
     }
 
 

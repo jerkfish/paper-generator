@@ -32,7 +32,7 @@ There are two environments:
 | Worker | Deployed with CSC662 and MAT133 routes (version `597dd1ca`) |
 | Live mode | Scaffolded in `cloudflare/container-worker/`; not deployed |
 | Live-mode prerequisite | Cloudflare Workers Paid, **$5/month** (Containers has no free tier) |
-| Subjects | CSC662 and MAT133 available; 42 curriculum stubs coming soon |
+| Subjects | Local registry: CSC402, CSC662 and MAT133 available; 41 curriculum stubs coming soon. Public site: CSC662 and MAT133 only (CSC402 not published) |
 | Contact | auzair1990@gmail.com |
 | Repository | https://github.com/jerkfish/paper-generator |
 
@@ -54,7 +54,7 @@ uv run uvicorn src.app.main:app --host 127.0.0.1 --port 8000
 
 | Route | Purpose |
 |---|---|
-| `/` | Subject table: CSC662 and MAT133 available; 42 curriculum stubs coming soon |
+| `/` | Local subject table: CSC402, CSC662 and MAT133 available; 41 curriculum stubs coming soon |
 | `/csc662` | CSC662 hub: generate, Library, gallery |
 | `/csc662/library` | Filterable table of the 20 prebuilt CSC662 papers |
 | `/generate` | Shortcut to `/csc662/generate` |
@@ -108,21 +108,22 @@ subject code, and the Worker reads that subject's
 The app discovers subjects by scanning `subjects/*/subject.json`:
 
 ```text
+subjects/CSC402/subject.json   status: available, order 1
 subjects/CSC662/subject.json   status: available, order 38
 subjects/MAT133/subject.json   status: available, order 44
-subjects/CSC402/subject.json   status: coming_soon, order 1
 subjects/CSC413/subject.json   status: coming_soon, order 2
 ...
 subjects/CST688/subject.json   status: coming_soon, order 43
 ```
 
 The registry follows the curriculum order in the `order` field, with available
-subjects first. There are 44 subjects: CSC662 and MAT133 available, plus 42
-curriculum stubs. CSC402 has a prepared 24-PDF/21-unique-paper corpus but
-remains `coming_soon` until its taxonomy and planner are built. Each record contains the code, title, status, header text,
-template path, fingerprint metadata, deck map, topic-deck allow-list and
-enabled computed generators. Stubs appear on the home page but have no papers
-or Library cache.
+subjects first. There are 44 subjects: CSC402, CSC662 and MAT133 are
+available locally, plus 41 curriculum stubs. CSC402 is a type-B deterministic
+subject with a 20-seed private Library, but it is **not published**; the public
+site still contains only CSC662 and MAT133. Each record contains the code,
+title, status, header text, template path, fingerprint metadata, capabilities,
+plugins, permissions, deck map, topic-deck allow-list and enabled computed
+generators. Stubs appear on the home page but have no papers or Library cache.
 
 Computed generators are subject plugins: the CSC662 types (Vigenere, ACM,
 columnar, rail fence, OTP, Caesar) live in `src/generators/`. MAT133 has its
@@ -474,8 +475,8 @@ lifecycle rule is the storage backstop.
   taxonomy and question log.
 - `data/tracking/mat133/paper_text/` and `question_log/raw/` - cached OCR/text
   and per-paper extraction (reruns cost $0).
-- `data/tracking/csc402/` - prepared CSC402 paper corpus (24 PDFs, 21 unique;
-  register, cover text, full text/OCR index). No taxonomy or planner yet.
+- `data/tracking/csc402/` - CSC402 paper corpus, taxonomy/question log,
+  generator validation, build sample and 20-seed Library summary.
 
 Per-subject input folders:
 
@@ -488,7 +489,7 @@ data/lecturedecks/<SUBJECT>/   lecture decks, if the subject uses them
 The 38 CSC662 papers were moved to `data/papers/CSC662/`. The CSC662 template
 is at `data/reference/CSC662/`. MAT133 papers are in `data/papers/MAT133/`;
 its template and answer scheme are in `data/reference/MAT133/`; it has no
-lecture decks. The 42 curriculum stubs have no paper or reference data yet;
+lecture decks. The 41 remaining curriculum stubs have no paper or reference data yet;
 create `data/papers/<SUBJECT>/` and `data/reference/<SUBJECT>/` when papers are
 added. The CSC662 lecture folder exists at `data/lecturedecks/CSC662/`; when it
 is empty the loader uses the external `CSC662_DECKS_DIR`/Desktop fallback, so
@@ -513,7 +514,7 @@ mockups are in `design/mockups/`.
 ## Tests
 
 ```bash
-uv run pytest -q        # 267 Python tests
+uv run pytest -q        # 283 Python tests
 cd cloudflare/worker
 bun test                # 6 Worker tests
 ```

@@ -76,7 +76,7 @@ def test_job_download_refuses_reference_file(monkeypatch, tmp_path):
     ref.parent.mkdir()
     ref.write_bytes(b"template")
     monkeypatch.setattr(safety.config, "DATA_DIR", tmp_path)
-    job = Job(id="phase0test", mode="realistic", seed=1, computed_marks=None)
+    job = Job(id="phase0test", mode="realistic", seed=1, computed_marks=None, subject="CSC662")
     job.files = {"paper_docx": str(ref)}
     manager._jobs[job.id] = job
     try:

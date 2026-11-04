@@ -1,0 +1,651 @@
+{
+  "subject": "CSC402",
+  "seed": 5,
+  "generated_by": "src.subjects.csc402.generators",
+  "planner": "src.subjects.csc402.planner",
+  "total_marks": 100,
+  "question_count": 17,
+  "slot_count": 22,
+  "questions": [
+    {
+      "number": "A1",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "data_types",
+      "stem": "Which declaration creates a floating-point variable named price?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
+      "options": [
+        "float price;",
+        "int price;",
+        "bool price;",
+        "char price;"
+      ],
+      "answer": "A",
+      "solution": "float is used for real numbers.",
+      "parts": [],
+      "generator_id": "csc402.mcq.data_types",
+      "slots": [
+        "A1"
+      ]
+    },
+    {
+      "number": "A2",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "control_structures",
+      "stem": "What is displayed by the following code?",
+      "items": [],
+      "blocks": [
+        {
+          "type": "code",
+          "text": "for (int i = 1; i <= 4; i++)\n    cout << i * 2;"
+        }
+      ],
+      "format": "code",
+      "options": [
+        "1234",
+        "246",
+        "2468",
+        "1357"
+      ],
+      "answer": "C",
+      "solution": "The loop displays 2, 4, 6 and 8 without spaces.",
+      "parts": [],
+      "generator_id": "csc402.mcq.control_structures",
+      "slots": [
+        "A2"
+      ]
+    },
+    {
+      "number": "A3",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "data_types",
+      "stem": "Which data type stores a whole number?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
+      "options": [
+        "string",
+        "char",
+        "float",
+        "int"
+      ],
+      "answer": "D",
+      "solution": "int stores whole numbers; float stores real values.",
+      "parts": [],
+      "generator_id": "csc402.mcq.data_types",
+      "slots": [
+        "A3"
+      ]
+    },
+    {
+      "number": "A4",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "data_types",
+      "stem": "Given the declaration, what is displayed?",
+      "items": [],
+      "blocks": [
+        {
+          "type": "code",
+          "text": "char word[6] = {'p', 'r', 'i', 'n', 't', '\\0'};\ncout << word[3];"
+        }
+      ],
+      "format": "code",
+      "options": [
+        "n",
+        "i",
+        "t",
+        "p"
+      ],
+      "answer": "C",
+      "solution": "word[3] is 't' because array indexing starts at zero.",
+      "parts": [],
+      "generator_id": "csc402.mcq.data_types",
+      "slots": [
+        "A4"
+      ]
+    },
+    {
+      "number": "A5",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "arrays",
+      "stem": "Which of the following declarations are valid?",
+      "items": [
+        "int a[5];",
+        "int b;",
+        "int c[3] = {1, 2, 3};",
+        "int d[];"
+      ],
+      "blocks": [],
+      "format": "roman_items",
+      "options": [
+        "i and iii",
+        "iii and iv",
+        "ii and iv",
+        "i and ii"
+      ],
+      "answer": "A",
+      "solution": "a and c are valid array declarations.",
+      "parts": [],
+      "generator_id": "csc402.mcq.arrays",
+      "slots": [
+        "A5"
+      ]
+    },
+    {
+      "number": "A6",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "fundamentals",
+      "stem": "What does a compiler do?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
+      "options": [
+        "Draws flowcharts automatically",
+        "Executes one source statement at a time",
+        "Translates the whole source program before execution",
+        "Stores only integer values"
+      ],
+      "answer": "C",
+      "solution": "A compiler translates the complete source file into object code.",
+      "parts": [],
+      "generator_id": "csc402.mcq.fundamentals",
+      "slots": [
+        "A6"
+      ]
+    },
+    {
+      "number": "A7",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "fundamentals",
+      "stem": "Which tool represents an algorithm using standard graphical symbols?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
+      "options": [
+        "Compiler",
+        "Pseudocode",
+        "Debugger",
+        "Flowchart"
+      ],
+      "answer": "D",
+      "solution": "A flowchart uses standard symbols such as terminals, processes and decisions.",
+      "parts": [],
+      "generator_id": "csc402.mcq.fundamentals",
+      "slots": [
+        "A7"
+      ]
+    },
+    {
+      "number": "A8",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "control_structures",
+      "stem": "Which statement is most suitable for selecting among several constant cases?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
+      "options": [
+        "do...while",
+        "while",
+        "switch",
+        "for"
+      ],
+      "answer": "C",
+      "solution": "switch selects a case based on a constant expression.",
+      "parts": [],
+      "generator_id": "csc402.mcq.control_structures",
+      "slots": [
+        "A8"
+      ]
+    },
+    {
+      "number": "A9",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "control_structures",
+      "stem": "Which of the following are selection structures?",
+      "items": [
+        "if",
+        "switch",
+        "for",
+        "while"
+      ],
+      "blocks": [],
+      "format": "roman_items",
+      "options": [
+        "iii and iv",
+        "ii and iv",
+        "i and ii",
+        "i and iii"
+      ],
+      "answer": "C",
+      "solution": "if and switch select among alternatives.",
+      "parts": [],
+      "generator_id": "csc402.mcq.control_structures",
+      "slots": [
+        "A9"
+      ]
+    },
+    {
+      "number": "A10",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "input_output",
+      "stem": "Which header is required for cin and cout?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
+      "options": [
+        "<cmath>",
+        "<iomanip>",
+        "<iostream>",
+        "<string>"
+      ],
+      "answer": "C",
+      "solution": "cin and cout are declared in <iostream>.",
+      "parts": [],
+      "generator_id": "csc402.mcq.input_output",
+      "slots": [
+        "A10"
+      ]
+    },
+    {
+      "number": "B1",
+      "part": "B",
+      "kind": "structured",
+      "marks": 5,
+      "topic": "fundamentals",
+      "stem": "This question tests algorithms and programming errors.",
+      "stem_blocks": [],
+      "options": [],
+      "answer": "",
+      "solution": "",
+      "parts": [
+        {
+          "text": "Define algorithm and pseudocode.",
+          "answer": "An algorithm is a finite sequence of precise steps that solves a problem. Pseudocode is a structured English-like description of an algorithm.",
+          "solution": "Award 1 mark for each correct definition.",
+          "label": "a",
+          "marks": 2
+        },
+        {
+          "text": "Explain THREE types of programming errors and give one example of each.",
+          "answer": "Syntax error: missing semicolon. Runtime error: division by zero. Logic error: using < instead of <= in a condition.",
+          "solution": "Award 0.5 mark for each type and 0.5 mark for a valid example.",
+          "label": "b",
+          "marks": 3
+        }
+      ],
+      "generator_id": "csc402.short_answer",
+      "slots": [
+        "B1a",
+        "B1b"
+      ]
+    },
+    {
+      "number": "B2",
+      "part": "B",
+      "kind": "structured",
+      "marks": 13,
+      "topic": "fundamentals",
+      "stem": "A program reads a student's score from 0 to 100 and displays the grade shown in Table 1.",
+      "stem_blocks": [
+        {
+          "type": "table",
+          "caption": "Table 1. Grade Scale",
+          "headers": [
+            "Score",
+            "Grade"
+          ],
+          "rows": [
+            [
+              "80-100",
+              "A"
+            ],
+            [
+              "60-79",
+              "B"
+            ],
+            [
+              "50-59",
+              "C"
+            ],
+            [
+              "40-49",
+              "D"
+            ],
+            [
+              "0-39",
+              "F"
+            ]
+          ]
+        }
+      ],
+      "options": [],
+      "answer": "",
+      "solution": "",
+      "parts": [
+        {
+          "text": "Draw a flowchart for the grade classification.",
+          "answer": "Start -> read score -> decision score >= 80 -> A; else score >= 60 -> B; else score >= 50 -> C; else score >= 40 -> D; else F -> display grade -> end.",
+          "solution": "Award marks for terminal symbols, input, four/five decisions, each output and correct flow.",
+          "label": "a",
+          "marks": 6
+        },
+        {
+          "text": "Write pseudocode for the algorithm and convert it into a complete C++ program.",
+          "answer": "IF score >= 80 THEN grade = A ELSE IF score >= 60 THEN grade = B ... ENDIF; use if/else if in C++ and display grade.",
+          "solution": "Award marks for correct pseudocode, complete C++ structure, conditions, input and output.",
+          "label": "b",
+          "marks": 7
+        }
+      ],
+      "generator_id": "csc402.flowchart_or_pseudocode",
+      "slots": [
+        "B2a",
+        "B2b"
+      ]
+    },
+    {
+      "number": "B3",
+      "part": "B",
+      "kind": "structured",
+      "marks": 11,
+      "topic": "data_types",
+      "stem": "This question tests operator precedence and assignment.",
+      "stem_blocks": [],
+      "options": [],
+      "answer": "",
+      "solution": "",
+      "parts": [
+        {
+          "text": "Evaluate the following expressions using the declarations in the code block.",
+          "blocks": [
+            {
+              "type": "code",
+              "text": "int a = 12, b = 5;\ndouble c = 2.5;"
+            }
+          ],
+          "answer": "(i) 13, (ii) 20, (iii) 2, (iv) 3, (v) 3.4",
+          "solution": "Award 1 mark per correct value.",
+          "label": "a",
+          "marks": 5
+        },
+        {
+          "text": "Write C++ statements to declare two integers a and b, read their values, and display their sum, difference, product and remainder.",
+          "answer": "int a, b; cin >> a >> b; cout << a+b << a-b << a*b << a%b;",
+          "solution": "Award marks for declarations, input, four operations and output.",
+          "label": "b",
+          "marks": 6
+        }
+      ],
+      "generator_id": "csc402.code_statement",
+      "slots": [
+        "B3a",
+        "B3b"
+      ]
+    },
+    {
+      "number": "B4",
+      "part": "B",
+      "kind": "structured",
+      "marks": 15,
+      "topic": "input_output",
+      "stem": "Study the following nested loop:",
+      "stem_blocks": [
+        {
+          "type": "code",
+          "text": "for (int i = 1; i <= 3; i++) {\n    for (int j = 1; j <= i; j++) {\n        cout << j;\n    }\n    cout << endl;\n}"
+        }
+      ],
+      "options": [],
+      "answer": "",
+      "solution": "",
+      "parts": [
+        {
+          "text": "Trace the program and show the exact output.",
+          "answer": "1\\n12\\n123",
+          "solution": "Award marks for each line and the exact row lengths.",
+          "label": "a",
+          "marks": 10
+        },
+        {
+          "text": "Identify TWO logic errors in a version that prints four rows but reuses j without resetting it. Rewrite the corrected code.",
+          "answer": "The inner loop must initialise j = 1 for every row and the outer loop must run to 4. Correct code: for (int i=1;i<=4;i++){for(int j=1;j<=i;j++) cout<<j; cout<<endl;}",
+          "solution": "Award marks for each error and the corrected loop.",
+          "label": "b",
+          "marks": 5
+        }
+      ],
+      "generator_id": "csc402.trace_or_debug",
+      "slots": [
+        "B4a",
+        "B4b"
+      ]
+    },
+    {
+      "number": "B5",
+      "part": "B",
+      "kind": "structured",
+      "marks": 16,
+      "topic": "arrays",
+      "stem": "A shop stores the item prices shown in Table 1.",
+      "stem_blocks": [],
+      "options": [],
+      "answer": "",
+      "solution": "",
+      "parts": [
+        {
+          "text": "Declare an array named prices using the values in Table 1. Display all values.",
+          "blocks": [
+            {
+              "type": "table",
+              "caption": "Table 2. Item Prices",
+              "headers": [
+                "Item",
+                "Price (RM)"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "20.50"
+                ],
+                [
+                  "2",
+                  "55.00"
+                ],
+                [
+                  "3",
+                  "15.90"
+                ],
+                [
+                  "4",
+                  "75.00"
+                ],
+                [
+                  "5",
+                  "10.00"
+                ]
+              ]
+            }
+          ],
+          "answer": "double prices[5] = {20.5, 55.0, 15.9, 75.0, 10.0}; for (int i=0;i<5;i++) cout << prices[i] << endl;",
+          "solution": "Award marks for correct type, initialiser, loop and output.",
+          "label": "a",
+          "marks": 10
+        },
+        {
+          "text": "Write a program segment that applies a 10% discount to prices above RM50 and stores the results in a second array. Display both arrays.",
+          "answer": "double sale[5]; for(int i=0;i<5;i++){ sale[i] = prices[i] > 50 ? prices[i]*0.9 : prices[i]; } then display both arrays.",
+          "solution": "Award marks for second array, condition, discount, preservation and output.",
+          "label": "b",
+          "marks": 6
+        }
+      ],
+      "generator_id": "csc402.array_program_segment",
+      "slots": [
+        "B5a",
+        "B5b"
+      ]
+    },
+    {
+      "number": "C1",
+      "part": "C",
+      "kind": "program",
+      "marks": 15,
+      "topic": "structures",
+      "stem": "A bookstore records up to five books. Table 1 shows an example of the fields.",
+      "stem_blocks": [
+        {
+          "type": "table",
+          "caption": "Table 4. Book Record Fields",
+          "headers": [
+            "Title",
+            "Price (RM)",
+            "Quantity"
+          ],
+          "rows": [
+            [
+              "Book A",
+              "45.00",
+              "3"
+            ],
+            [
+              "Book B",
+              "30.00",
+              "5"
+            ],
+            [
+              "Book C",
+              "55.00",
+              "2"
+            ]
+          ]
+        }
+      ],
+      "options": [],
+      "answer": "#include <iostream>\n#include <string>\nusing namespace std;\nstruct Book {\n    string title;\n    double price;\n    int quantity;\n};\nint main() {\n    Book books[5];\n    double totalValue = 0;\n    int mostExpensive = 0;\n    for (int i = 0; i < 5; i++) {\n        cin.ignore();\n        cout << \"Title: \";\n        getline(cin, books[i].title);\n        cout << \"Price and quantity: \";\n        cin >> books[i].price >> books[i].quantity;\n        totalValue += books[i].price * books[i].quantity;\n        if (books[i].price > books[mostExpensive].price) {\n            mostExpensive = i;\n        }\n    }\n    cout << \"Total inventory value: RM\" << totalValue << endl;\n    cout << \"Most expensive: \" << books[mostExpensive].title\n         << \" (RM\" << books[mostExpensive].price << \")\" << endl;\n    return 0;\n}",
+      "solution": "Award 3 marks for struct definition, 4 for input, 4 for inventory value, 3 for most expensive and 1 for output.",
+      "parts": [
+        {
+          "label": "",
+          "marks": 15,
+          "text": "Define a struct Book. Write a complete C++ program that reads the records, calculates the total inventory value, and displays the title of the most expensive book.",
+          "answer": "#include <iostream>\n#include <string>\nusing namespace std;\nstruct Book {\n    string title;\n    double price;\n    int quantity;\n};\nint main() {\n    Book books[5];\n    double totalValue = 0;\n    int mostExpensive = 0;\n    for (int i = 0; i < 5; i++) {\n        cin.ignore();\n        cout << \"Title: \";\n        getline(cin, books[i].title);\n        cout << \"Price and quantity: \";\n        cin >> books[i].price >> books[i].quantity;\n        totalValue += books[i].price * books[i].quantity;\n        if (books[i].price > books[mostExpensive].price) {\n            mostExpensive = i;\n        }\n    }\n    cout << \"Total inventory value: RM\" << totalValue << endl;\n    cout << \"Most expensive: \" << books[mostExpensive].title\n         << \" (RM\" << books[mostExpensive].price << \")\" << endl;\n    return 0;\n}",
+          "solution": "Award 3 marks for struct definition, 4 for input, 4 for inventory value, 3 for most expensive and 1 for output."
+        }
+      ],
+      "generator_id": "csc402.complete_program.structures",
+      "slots": [
+        "C1"
+      ]
+    },
+    {
+      "number": "C2",
+      "part": "C",
+      "kind": "program",
+      "marks": 15,
+      "topic": "structures",
+      "stem": "A bookstore records up to five books. Table 1 shows an example of the fields.",
+      "stem_blocks": [
+        {
+          "type": "table",
+          "caption": "Table 4. Book Record Fields",
+          "headers": [
+            "Title",
+            "Price (RM)",
+            "Quantity"
+          ],
+          "rows": [
+            [
+              "Book A",
+              "45.00",
+              "3"
+            ],
+            [
+              "Book B",
+              "30.00",
+              "5"
+            ],
+            [
+              "Book C",
+              "55.00",
+              "2"
+            ]
+          ]
+        }
+      ],
+      "options": [],
+      "answer": "#include <iostream>\n#include <string>\nusing namespace std;\nstruct Book {\n    string title;\n    double price;\n    int quantity;\n};\nint main() {\n    Book books[5];\n    double totalValue = 0;\n    int mostExpensive = 0;\n    for (int i = 0; i < 5; i++) {\n        cin.ignore();\n        cout << \"Title: \";\n        getline(cin, books[i].title);\n        cout << \"Price and quantity: \";\n        cin >> books[i].price >> books[i].quantity;\n        totalValue += books[i].price * books[i].quantity;\n        if (books[i].price > books[mostExpensive].price) {\n            mostExpensive = i;\n        }\n    }\n    cout << \"Total inventory value: RM\" << totalValue << endl;\n    cout << \"Most expensive: \" << books[mostExpensive].title\n         << \" (RM\" << books[mostExpensive].price << \")\" << endl;\n    return 0;\n}",
+      "solution": "Award 3 marks for struct definition, 4 for input, 4 for inventory value, 3 for most expensive and 1 for output.",
+      "parts": [
+        {
+          "label": "",
+          "marks": 15,
+          "text": "Define a struct Book. Write a complete C++ program that reads the records, calculates the total inventory value, and displays the title of the most expensive book.",
+          "answer": "#include <iostream>\n#include <string>\nusing namespace std;\nstruct Book {\n    string title;\n    double price;\n    int quantity;\n};\nint main() {\n    Book books[5];\n    double totalValue = 0;\n    int mostExpensive = 0;\n    for (int i = 0; i < 5; i++) {\n        cin.ignore();\n        cout << \"Title: \";\n        getline(cin, books[i].title);\n        cout << \"Price and quantity: \";\n        cin >> books[i].price >> books[i].quantity;\n        totalValue += books[i].price * books[i].quantity;\n        if (books[i].price > books[mostExpensive].price) {\n            mostExpensive = i;\n        }\n    }\n    cout << \"Total inventory value: RM\" << totalValue << endl;\n    cout << \"Most expensive: \" << books[mostExpensive].title\n         << \" (RM\" << books[mostExpensive].price << \")\" << endl;\n    return 0;\n}",
+          "solution": "Award 3 marks for struct definition, 4 for input, 4 for inventory value, 3 for most expensive and 1 for output."
+        }
+      ],
+      "generator_id": "csc402.complete_program.structures",
+      "slots": [
+        "C2"
+      ]
+    }
+  ],
+  "slot_map": {
+    "A1": "A1",
+    "A2": "A2",
+    "A3": "A3",
+    "A4": "A4",
+    "A5": "A5",
+    "A6": "A6",
+    "A7": "A7",
+    "A8": "A8",
+    "A9": "A9",
+    "A10": "A10",
+    "B1a": "B1",
+    "B1b": "B1",
+    "B2a": "B2",
+    "B2b": "B2",
+    "B3a": "B3",
+    "B3b": "B3",
+    "B4a": "B4",
+    "B4b": "B4",
+    "B5a": "B5",
+    "B5b": "B5",
+    "C1": "C1",
+    "C2": "C2"
+  },
+  "generator_ids": [
+    "csc402.array_program_segment",
+    "csc402.code_statement",
+    "csc402.complete_program.structures",
+    "csc402.flowchart_or_pseudocode",
+    "csc402.mcq.arrays",
+    "csc402.mcq.control_structures",
+    "csc402.mcq.data_types",
+    "csc402.mcq.fundamentals",
+    "csc402.mcq.input_output",
+    "csc402.short_answer",
+    "csc402.trace_or_debug"
+  ]
+}

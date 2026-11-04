@@ -603,31 +603,37 @@ def _library_seeds(subject: str | Subject | None = None) -> list[int]:
 
 
 def _cache_entry(seed: int, subject: str) -> tuple[Path, dict] | None:
-    """Find a cached paper by seed, realistic first, then any mode."""
+    """Find the newest cached paper for a seed, realistic first.
+
+    A rebuild may have to use a new folder when the old cache file is locked;
+    the newest valid meta wins so the Library never serves a stale paper.
+    """
     code = str(subject).upper()
-    preferred = cache_path("realistic", seed, None, subject=code)
-    meta = _cache_meta(preferred)
-    if meta:
-        return preferred, meta
     cache_dir = config.WEB_CACHE_DIR / code
-    if not cache_dir.exists():
-        return None
-    candidates: list[tuple[str, Path, dict]] = []
-    for meta_path in cache_dir.glob("*/meta.json"):
+    paths = {cache_path("realistic", seed, None, subject=code)}
+    if cache_dir.exists():
+        for meta_path in cache_dir.glob("*/meta.json"):
+            try:
+                data = json.loads(meta_path.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+            if int(data.get("seed", -1)) == int(seed):
+                paths.add(meta_path.parent)
+    candidates: list[tuple[str, float, str, Path, dict]] = []
+    for path in paths:
+        data = _cache_meta(path)
+        if not data:
+            continue
         try:
-            data = json.loads(meta_path.read_text(encoding="utf-8"))
-        except Exception:
-            continue
-        if int(data.get("seed", -1)) != int(seed):
-            continue
-        if not _cache_meta(meta_path.parent):
-            continue
-        candidates.append((str(data.get("mode") or ""), meta_path.parent,
-                           data))
+            created = float(data.get("created") or 0)
+        except (TypeError, ValueError):
+            created = 0.0
+        candidates.append((str(data.get("mode") or ""), created, path.name,
+                           path, data))
     if not candidates:
         return None
-    candidates.sort(key=lambda row: (row[0] != "realistic", row[1].name))
-    return candidates[0][1], candidates[0][2]
+    candidates.sort(key=lambda row: (row[0] != "realistic", -row[1], row[2]))
+    return candidates[0][3], candidates[0][4]
 
 
 def library_item(seed: int,
@@ -707,8 +713,7 @@ def library_count(subject: str | Subject | None = None) -> int:
         subject or default_subject_code()).upper()
     count = 0
     for seed in _library_seeds(record or code):
-        if _cache_meta(cache_path("realistic", seed, None, public=False,
-                                  subject=code)):
+        if _cache_entry(seed, code):
             count += 1
     return count
 
