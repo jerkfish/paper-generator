@@ -52,17 +52,20 @@
   <h3>Slots</h3>
   <div class="table-scroll">
   <table>
-    <tr><th>Question</th><th>Part a</th><th>Part b</th><th>Note</th></tr>
+    <tr><th>Question</th><th>Parts</th><th>Note</th></tr>
     {% for row in job.rows %}
     <tr>
       <td>{{ row.name }}</td>
-      <td class="status {{ row.a.status }}">{{ row.a.status }}</td>
-      <td class="status {{ row.b.status }}">{{ row.b.status }}</td>
-      <td class="small">{{ row.a.message or row.b.message }}</td>
+      <td>
+        {% for cell in row.cells %}<span class="status {{ cell.status }}">{{ cell.label }} {{ cell.status }}</span>{% if not loop.last %} &nbsp;{% endif %}{% endfor %}
+        {% if not row.cells %}<span class="muted">no events yet</span>{% endif %}
+      </td>
+      <td class="small">{% for cell in row.cells %}{{ cell.message }}{% if not loop.last %}; {% endif %}{% endfor %}</td>
     </tr>
     {% endfor %}
   </table>
   </div>
+  {% if not job.rows %}<p class="small muted">The subject planner has not emitted slot events yet.</p>{% endif %}
 
   {% if job.status == "done" %}
     <h3>Downloads</h3>

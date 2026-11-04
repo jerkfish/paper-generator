@@ -118,7 +118,8 @@ subjects/CST688/subject.json   status: coming_soon, order 43
 
 The registry follows the curriculum order in the `order` field, with available
 subjects first. There are 44 subjects: CSC662 and MAT133 available, plus 42
-curriculum stubs. Each record contains the code, title, status, header text,
+curriculum stubs. CSC402 has a prepared 24-PDF/21-unique-paper corpus but
+remains `coming_soon` until its taxonomy and planner are built. Each record contains the code, title, status, header text,
 template path, fingerprint metadata, deck map, topic-deck allow-list and
 enabled computed generators. Stubs appear on the home page but have no papers
 or Library cache.
@@ -314,7 +315,7 @@ cover, missing part labels or missing marks.
 ## Build the public bundle
 
 ```bash
-# all available subjects (CSC662 + MAT133)
+# all available subjects from the registry
 uv run python -m scripts.build_public_bundle --out outputs/public_bundle
 
 # one subject only
@@ -473,6 +474,8 @@ lifecycle rule is the storage backstop.
   taxonomy and question log.
 - `data/tracking/mat133/paper_text/` and `question_log/raw/` - cached OCR/text
   and per-paper extraction (reruns cost $0).
+- `data/tracking/csc402/` - prepared CSC402 paper corpus (24 PDFs, 21 unique;
+  register, cover text, full text/OCR index). No taxonomy or planner yet.
 
 Per-subject input folders:
 
@@ -495,9 +498,11 @@ no 52 MB of slides need to be copied into the repository.
 
 See `docs/LIFECYCLE.md` for the complete flow: local generation, public bundle,
 R2 upload, Worker serving, gallery share/expiry and adding a new subject.
-MAT133 setup, scheme parse, cover template, taxonomy, question log, builder,
-planner, 20-seed Library and generator validation are in `docs/MAT133.md`; the
-taxonomy/report is in `docs/MAT133_TAXONOMY.md`.
+The subject onboarding playbook is `docs/SUBJECT_PLAYBOOK.md`; every subject's
+current stage is in `subjects/<CODE>/lifecycle_state.json`. MAT133 setup,
+scheme parse, cover template, taxonomy, question log, builder, planner, 20-seed
+Library and generator validation are in `docs/MAT133.md`; the taxonomy/report
+is in `docs/MAT133_TAXONOMY.md`.
 
 ## Design review
 
@@ -508,9 +513,9 @@ mockups are in `design/mockups/`.
 ## Tests
 
 ```bash
-uv run pytest -q        # 255 Python tests
+uv run pytest -q        # 267 Python tests
 cd cloudflare/worker
-bun test                # 5 Worker tests
+bun test                # 6 Worker tests
 ```
 
 Coverage includes the planner/verifier, job lifecycle, cancel, cost-cap abort,

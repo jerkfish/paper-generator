@@ -30,9 +30,10 @@ BASE_STATIC_PATHS = (
     "assets/library.js",
     "assets/gallery.js",
     "library/manifest.json",
+    "subjects.json",
 )
 FORBIDDEN_PREFIXES = (
-    "data/", "CSC662/", "MAT133/", "outputs/", "tests/", "src/", "private/",
+    "data/", "outputs/", "tests/", "src/", "private/",
     ".env", "wrangler", "design/",
 )
 
@@ -113,9 +114,12 @@ def build_manifest() -> list[dict]:
 
 def errors(entries: list[dict]) -> list[str]:
     out = []
+    subjects = load_subjects()
+    forbidden = tuple(FORBIDDEN_PREFIXES) + tuple(
+        f"{code}/" for code in subjects)
     for entry in entries:
         path = entry["path"]
-        if any(path.startswith(prefix) for prefix in FORBIDDEN_PREFIXES):
+        if any(path.startswith(prefix) for prefix in forbidden):
             out.append(f"forbidden public path: {path}")
         if entry["status"] == "missing":
             out.append(f"missing source for {path}: {entry['source']}")

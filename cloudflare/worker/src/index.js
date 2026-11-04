@@ -5,13 +5,13 @@
  * and records an expiring row in D1.
  */
 
-const SUBJECTS = ["CSC662", "MAT133"];
-const SUBJECT_ROUTES = { csc662: "CSC662", mat133: "MAT133" };
 const DEFAULT_TTL_DAYS = 7;
 const DEFAULT_MAX_ENTRIES = 100;
 const ID_RE = /^[a-f0-9]{32}$/;
 
-const PAGE_MAP = {
+// Fixed pages only.  Subject routes come from the generated subjects.json in
+// the bundle, so adding a subject never requires editing this file.
+const BASE_PAGE_MAP = {
   "/": "index.html",
   "/index.html": "index.html",
   "/gallery": "gallery/index.html",
@@ -19,14 +19,6 @@ const PAGE_MAP = {
   "/paused": "paused/index.html",
   "/paused/": "paused/index.html",
 };
-for (const route of Object.keys(SUBJECT_ROUTES)) {
-  PAGE_MAP[`/${route}`] = `${route}/index.html`;
-  PAGE_MAP[`/${route}/`] = `${route}/index.html`;
-  PAGE_MAP[`/${route}/library`] = `${route}/library/index.html`;
-  PAGE_MAP[`/${route}/library/`] = `${route}/library/index.html`;
-  PAGE_MAP[`/${route}/generate`] = `${route}/generate/index.html`;
-  PAGE_MAP[`/${route}/generate/`] = `${route}/generate/index.html`;
-}
 
 const CONTENT_TYPES = {
   ".html": "text/html; charset=utf-8",
@@ -43,7 +35,21 @@ export function contentType(key) {
   return CONTENT_TYPES[key.slice(dot).toLowerCase()] || "application/octet-stream";
 }
 
-export function pageKey(pathname) {
+export function subjectEntries(subjects = []) {
+  return (Array.isArray(subjects) ? subjects : []).map((entry) => {
+    if (typeof entry === "string") {
+      return { code: entry, route: entry.toLowerCase(), available: true };
+    }
+    return {
+      ...entry,
+      code: String(entry.code || ""),
+      route: String(entry.route || entry.code || "").toLowerCase(),
+      available: entry.available !== false,
+    };
+  }).filter((entry) => entry.code && entry.route && entry.available);
+}
+
+export function pageKey(pathname, subjects = []) {
   let decoded;
   try {
     decoded = decodeURIComponent(pathname);
@@ -51,7 +57,22 @@ export function pageKey(pathname) {
     return null;
   }
   if (decoded.includes("..") || decoded.includes("\0")) return null;
-  if (PAGE_MAP[decoded]) return PAGE_MAP[decoded];
+  if (BASE_PAGE_MAP[decoded]) return BASE_PAGE_MAP[decoded];
+
+  for (const entry of subjectEntries(subjects)) {
+    const route = entry.route.replace(/^\/+|\/+$/g, "");
+    if (!route) continue;
+    const base = `/${route}`;
+    if (decoded === base || decoded === `${base}/`) {
+      return `${route}/index.html`;
+    }
+    if (decoded === `${base}/library` || decoded === `${base}/library/`) {
+      return `${route}/library/index.html`;
+    }
+    if (decoded === `${base}/generate` || decoded === `${base}/generate/`) {
+      return `${route}/generate/index.html`;
+    }
+  }
   for (const prefix of ["/assets/", "/library/", "/subjects/", "/static/"]) {
     if (decoded.startsWith(prefix)) return decoded.slice(1);
   }
@@ -66,13 +87,15 @@ export function disposition(name) {
   return `attachment; filename="${ascii}"; filename*=UTF-8''${encodeURIComponent(name)}`;
 }
 
-export function normaliseShare(body) {
+export function normaliseShare(body, subjects = []) {
   if (!body || typeof body !== "object") throw new Error("invalid request");
   const allowed = new Set(["subject", "mode", "seed"]);
   for (const key of Object.keys(body)) {
     if (!allowed.has(key)) throw new Error("unexpected field");
   }
-  if (!SUBJECTS.includes(body.subject)) throw new Error("unknown subject");
+  const known = new Set(subjectEntries(subjects).map((entry) => entry.code));
+  const subject = String(body.subject || "").toUpperCase();
+  if (!known.has(subject)) throw new Error("unknown subject");
   if (body.mode !== "realistic") {
     throw new Error("only realistic library papers can be shared");
   }
@@ -80,7 +103,27 @@ export function normaliseShare(body) {
   if (!Number.isInteger(seed) || seed < 1 || seed > 20) {
     throw new Error("seed must be an integer from 1 to 20");
   }
-  return { subject: body.subject, mode: "realistic", seed };
+  return { subject, mode: "realistic", seed };
+}
+
+async function loadSubjects(env) {
+  const object = await env.BUCKET.get("subjects.json");
+  if (!object) return [];
+  try {
+    const data = await object.json();
+    return Array.isArray(data.subjects) ? data.subjects : [];
+  } catch {
+    return [];
+  }
+}
+
+async function subjectsForPath(pathname, env) {
+  if (BASE_PAGE_MAP[pathname]) return [];
+  if (pathname.startsWith("/assets/") || pathname.startsWith("/library/") ||
+      pathname.startsWith("/subjects/") || pathname.startsWith("/static/")) {
+    return [];
+  }
+  return loadSubjects(env);
 }
 
 function maxEntries(env) {
@@ -135,7 +178,8 @@ function staticHeaders(key, size, etag) {
 }
 
 async function serveStatic(request, env, url) {
-  const key = pageKey(url.pathname);
+  const subjects = await subjectsForPath(url.pathname, env);
+  const key = pageKey(url.pathname, subjects);
   if (!key) return notFound();
   if (request.method === "HEAD") {
     const head = await env.BUCKET.head(key);
@@ -189,7 +233,7 @@ async function sharePaper(request, env) {
   }
   let share;
   try {
-    share = normaliseShare(body);
+    share = normaliseShare(body, await loadSubjects(env));
   } catch (error) {
     return json({ error: error.message }, 400);
   }

@@ -18,9 +18,9 @@ from src.app.jobs import (filter_library, library_count, library_file,
                           topic_legend)
 from src.app.safety import (ForbiddenPathError, assert_no_secret_leaks,
                             ensure_servable)
-from src.mat133.planner import GENERATOR_LABELS as MAT133_GENERATOR_LABELS
-from src.planner.planner import TYPE_LABEL
-from src.subjects.registry import (Subject, SubjectNotFound, get_subject,
+from src.subjects.plugins import generator_labels as subject_generator_labels
+from src.subjects.registry import (Subject, SubjectNotFound,
+                                   default_subject_code, get_subject,
                                    load_subjects)
 
 APP_DIR = Path(__file__).resolve().parent
@@ -109,8 +109,9 @@ def index(request: Request) -> HTMLResponse:
 
 @app.get("/generate")
 def generate_root() -> RedirectResponse:
-    """Convenience path for the local Generate page."""
-    return RedirectResponse(url="/csc662/generate", status_code=307)
+    """Convenience path for the first available subject's Generate page."""
+    code = default_subject_code().lower()
+    return RedirectResponse(url=f"/{code}/generate", status_code=307)
 
 
 @app.get("/health")
@@ -184,13 +185,13 @@ def subject_page(request: Request, code: str) -> HTMLResponse:
                 config.PROJECT_ROOT).as_posix()
         except ValueError:
             registry = str(subject.registry_path)
-    labels = [TYPE_LABEL.get(g) or MAT133_GENERATOR_LABELS.get(g, g)
-              for g in subject.enabled_computed_generators]
+    labels = subject_generator_labels(subject)
     return templates.TemplateResponse(
         request=request, name="subject.html",
         context=_context(request, subject=subject, paper_count=paper_count,
                          registry_display=registry, generator_labels=labels,
-                         deterministic=subject.code == "MAT133"))
+                         deterministic=subject.deterministic,
+                         needs_llm=subject.needs_llm))
 
 
 @app.get("/{code}/library", response_class=HTMLResponse)
@@ -235,7 +236,8 @@ def generate_page(request: Request, code: str) -> HTMLResponse:
     return templates.TemplateResponse(
         request=request, name="generate.html",
         context=_context(request, subject=subject,
-                         deterministic=subject.code == "MAT133"))
+                         deterministic=subject.deterministic,
+                         needs_llm=subject.needs_llm))
 
 
 @app.post("/{code}/generate", response_class=HTMLResponse)
