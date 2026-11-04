@@ -18,9 +18,9 @@
   {% for nav_subject in subjects %}
     {% if nav_subject.available %}
     <a href="/{{ nav_subject.route }}">{{ nav_subject.code }}</a>
-    {% if not static_bundle|default(false) %}
+    <!-- {% if not static_bundle|default(false) %}
     <a href="/{{ nav_subject.route }}/generate">Generate {{ nav_subject.code }}</a>
-    {% endif %}
+    {% endif %} -->
     {% endif %}
   {% endfor %}
   <a href="/gallery">Gallery</a>

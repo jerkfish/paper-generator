@@ -4,7 +4,7 @@
   "type": "B",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-04T10:01:12Z",
+  "updated": "2026-11-04T10:24:30Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -166,7 +166,7 @@
       "notes": "Revised scheme uses the owner-supplied standard marking-scheme template data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx. Cover patched to CSC402 PROGRAMMING I / NOV 2026 (MOCK) / 3 HOURS; notes replaced with CSC402 deterministic-scheme text; answer key and worked answers appended. Paper 5 pages, scheme 6 pages; DOCX/PDF QA has no problems."
     },
     "8_library_prebuild": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "data/tracking/csc402/library_prebuild.json",
         "outputs/web_cache/CSC402",
@@ -177,12 +177,12 @@
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": "Awaiting final review of all 20 styled seeds at the stage-8 gate."
+        "approved": true,
+        "by": "user instruction \"stage 8 approved, continue\"",
+        "on": "2026-11-04",
+        "note": "Approved all 20 styled Library seeds (6-page paper / 6-page scheme, no QA problems)."
       },
-      "notes": "All 20 seeds rebuilt with the accepted styled layout: code-block MCQs, Roman-item MCQs, numbered tables and boxed code segments. Each seed is 6 pages (paper) / 6 pages (scheme), 100 marks, 17 questions, 22 slots, 0 placeholders and no QA problems. Styled revision seeds 1-20; no seed remains on the earlier plain layout. Seed 5 is served from rev2_seed05 because the previous PDF was locked; newest valid cache meta wins. No publication, R2 upload or Worker deploy has occurred."
+      "notes": "All 20 seeds rebuilt with the accepted styled layout: code-block MCQs, Roman-item MCQs, numbered tables and boxed code segments. Each seed is 6 pages (paper) / 6 pages (scheme), 100 marks, 17 questions, 22 slots, 0 placeholders and no QA problems. Styled revision seeds 1-20; no seed remains on the earlier plain layout. Seed 5 is served from rev2_seed05 because the previous PDF was locked; newest valid cache meta wins. Stage 8 approved by the owner; no publication, R2 upload or Worker deploy has occurred."
     },
     "9_publish": {
       "status": "pending",
@@ -196,7 +196,7 @@
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "Hard stop. Publication requires a separate explicit human instruction covering public-bundle rebuild, R2 upload and Worker deploy. The original task instruction remains: do not publish."
     },
     "10_close_out": {
       "status": "pending",
@@ -217,12 +217,6 @@
     {
       "stage": "9_publish",
       "item": "Record publication permission for CSC402 before any upload or deploy.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "8_library_prebuild",
-      "item": "Review and approve all 20 styled seeds at the stage-8 gate.",
       "blocking": true,
       "opened": "2026-11-04"
     }
