@@ -4,7 +4,7 @@
   "type": "B",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-04T07:17:20Z",
+  "updated": "2026-11-04T08:55:47Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -120,7 +120,7 @@
       "notes": "Deterministic modern-format planner: Part A 10 x 1 mark, Part B 5 questions x 2 subparts = 60 marks, Part C 2 x 15 = 30 marks; total 100, 22 slots, 17 questions. Seeds 1-20 validated. Topic/mark patterns derive from the 2022-2026 papers."
     },
     "6_generators": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "src/subjects/csc402/generators.py",
         "data/tracking/csc402/generator_sample_seed_01.json",
@@ -131,16 +131,29 @@
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": "Awaiting sample question/answer and marking-guidance review."
+        "approved": true,
+        "by": "user instruction \"continue\"",
+        "on": "2026-11-04",
+        "note": "Approved the generated sample and 20-seed generator validation."
       },
       "notes": "Deterministic generator suite: MCQ banks for six topics, B1-B5 structured generators, four complete-program variants with full C++ answers. Seeds 1-20 all pass: 100 marks, 17 questions, 22 slots; 13 generator ids observed."
     },
     "7_builders_qa": {
-      "status": "pending",
-      "evidence": [],
+      "status": "in_progress",
+      "evidence": [
+        "src/subjects/csc402/build_docx.py",
+        "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx",
+        "data/tracking/csc402/build_sample/CSC402 Seed 01 2026.docx",
+        "data/tracking/csc402/build_sample/CSC402 Seed 01 2026.pdf",
+        "data/tracking/csc402/build_sample/CSC402 Seed 01 2026 - Marking Scheme.docx",
+        "data/tracking/csc402/build_sample/CSC402 Seed 01 2026 - Marking Scheme.pdf",
+        "data/tracking/csc402/build_sample/qa.json",
+        "data/tracking/csc402/build_sample/paper_page2.png",
+        "data/tracking/csc402/build_sample/paper_page4.png",
+        "data/tracking/csc402/build_sample/paper_page5.png",
+        "data/tracking/csc402/build_sample/scheme_page1.png",
+        "data/tracking/csc402/build_sample/scheme_page2.png"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
@@ -148,9 +161,9 @@
         "approved": false,
         "by": "",
         "on": "",
-        "note": ""
+        "note": "Awaiting visual QA of the revised standard-template scheme."
       },
-      "notes": ""
+      "notes": "Revised scheme uses the owner-supplied standard marking-scheme template data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx. Cover patched to CSC402 PROGRAMMING I / NOV 2026 (MOCK) / 3 HOURS; notes replaced with CSC402 deterministic-scheme text; answer key and worked answers appended. Paper 5 pages, scheme 6 pages; DOCX/PDF QA has no problems."
     },
     "8_library_prebuild": {
       "status": "pending",
@@ -203,8 +216,8 @@
       "opened": "2026-11-04"
     },
     {
-      "stage": "6_generators",
-      "item": "Review seed-1 sample questions/answers and the 20-seed validation. Confirm the MCQ banks, B1-B5 variants and full-program C answers are acceptable before the stage-7 builder.",
+      "stage": "7_builders_qa",
+      "item": "Review the revised standard-template marking scheme cover and answer key (scheme 6 pages; paper 5 pages). Confirm the standard template is the intended scheme format before stage 8.",
       "blocking": true,
       "opened": "2026-11-04"
     }

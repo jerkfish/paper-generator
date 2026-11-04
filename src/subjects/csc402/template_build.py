@@ -87,6 +87,9 @@ def _rewrite_docx_xml(source: Path, target: Path) -> None:
                 xml = _widen_title_box(xml)
                 xml = _set_duration_hours(xml)
                 data = xml.encode("utf-8")
+            elif item.filename.startswith("word/footer") and item.filename.endswith(".xml"):
+                # The source footer says "Opta"; the intended word is "Cipta".
+                data = data.replace(b"Opta", b"Cipta")
             zout.writestr(item, data)
 
 
