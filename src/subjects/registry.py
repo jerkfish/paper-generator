@@ -39,6 +39,7 @@ class Subject:
     enabled_computed_generators: list[str] = field(default_factory=list)
     has_practice_mode: bool = True
     has_placeholders: bool = True
+    order: int = 9999
     registry_path: Path | None = None
 
     @property
@@ -59,6 +60,7 @@ class Subject:
             "enabled_computed_generators": list(self.enabled_computed_generators),
             "has_practice_mode": self.has_practice_mode,
             "has_placeholders": self.has_placeholders,
+            "order": self.order,
         }
 
 
@@ -94,6 +96,7 @@ def _load_one(path: Path) -> Subject:
             data.get("enabled_computed_generators") or []),
         has_practice_mode=bool(data.get("has_practice_mode", True)),
         has_placeholders=bool(data.get("has_placeholders", True)),
+        order=int(data.get("order", 9999)),
         registry_path=path,
     )
 
@@ -115,7 +118,8 @@ def load_subjects(root: Path | None = None) -> dict[str, Subject]:
         raise SubjectError(f"no subjects found under {base}")
     return dict(sorted(
         found.items(),
-        key=lambda item: (item[1].status != "available", item[0])))
+        key=lambda item: (item[1].status != "available",
+                          item[1].order, item[0])))
 
 
 def get_subject(code: str, root: Path | None = None) -> Subject:

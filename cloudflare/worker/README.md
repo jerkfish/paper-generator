@@ -15,7 +15,8 @@ The optional Phase 4.2 live mode is a separate Worker in
 - workers.dev fallback: https://papergen.jerkfish123.workers.dev
 - D1: `papergen` (`9d99c331-d8ba-495e-9a8d-35e295bb882c`), schema applied.
 - R2: `exampapers`, 181-file public bundle (CSC662 + MAT133) plus shared
-  gallery objects; 189 objects, 53,827,090 bytes after the MAT133 publish.
+  gallery objects. Current bucket: 221 objects, 52,424,641 bytes; the old
+  shared entries expired after their 7-day TTL.
 - Lifecycle: read-only check works; adding the rule needs
   `Workers R2 Storage Write` on the API token (or the dashboard).
 
