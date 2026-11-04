@@ -4,7 +4,7 @@
   "type": "B",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-04T17:48:49Z",
+  "updated": "2026-11-04T18:09:23Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -174,10 +174,11 @@
     "8_library_prebuild": {
       "status": "in_progress",
       "evidence": [
+        "subjects/CSC413/subject.json",
+        "data/reference/CSC413/CSC413 MARKING SCHEME TEMPLATE.docx",
         "data/tracking/csc413/style_samples/summary.json",
-        "data/tracking/csc413/style_samples/seed_01",
-        "data/tracking/csc413/style_samples/seed_02",
-        "data/tracking/csc413/style_samples/seed_03",
+        "data/tracking/csc413/library_prebuild.json",
+        "outputs/web_cache/CSC413",
         "src/subjects/csc413/build_docx.py"
       ],
       "llm_cost_usd": 0.0,
@@ -187,9 +188,9 @@
         "approved": false,
         "by": "",
         "on": "",
-        "note": "Awaiting review of the three revised sample seeds before rebuilding the 20-seed Library."
+        "note": "Awaiting final review of the regenerated 20-seed CSC413 Library with the owner-supplied scheme template."
       },
-      "notes": "Owner rejected the first 20-seed Library for styling. Three revised seed samples were rebuilt from the supplied CSC413 DOCX look: left-aligned bold part headings, hanging numbered questions, five-column Table A, right-aligned marks, question blocks kept together and cleaner scheme notes. Each sample is a 5-page paper and 6-page scheme with no QA problems. The original 20-seed cache remains marked rejected; rebuild after sample approval."
+      "notes": "Owner accepted the revised paper styling and supplied a CSC413-specific marking-scheme template. The full 20-seed Library was regenerated with the revised builder: every paper 5 pages, every scheme 6 pages, 100 marks, 64 questions, 72 slots, 72 accepted, 0 placeholders, no QA problems. Scheme template is data/reference/CSC413/CSC413 MARKING SCHEME TEMPLATE.docx (CSC413 only). LLM cost $0; nothing published."
     },
     "9_publish": {
       "status": "pending",

@@ -79,7 +79,7 @@
       "paper": 5,
       "scheme": 6
     },
-    "marking_scheme_template": "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx",
+    "marking_scheme_template": "data/reference/CSC413/CSC413 MARKING SCHEME TEMPLATE.docx",
     "library_prebuild": "data/tracking/csc413/library_prebuild.json",
     "library_seeds": 20,
     "library_marks": 100,
@@ -87,8 +87,7 @@
     "library_slots": 72,
     "library_pages": {
       "paper": [
-        5,
-        6
+        5
       ],
       "scheme": [
         6
@@ -130,7 +129,7 @@
       "basis": "owner waived supplied scheme; generated schemes are project output",
       "confirmed_by": "user instruction \"Scheme : No Scheme will be supplied\"",
       "confirmed_on": "2026-11-04",
-      "notes": "No official scheme will be parsed. The deterministic builder must generate its own scheme."
+      "notes": "Owner supplied a CSC413-specific marking-scheme template on 2026-11-05; use data/reference/CSC413/CSC413 MARKING SCHEME TEMPLATE.docx for CSC413 only. The global standard template remains the default for other subjects."
     },
     "slides": {
       "allowed": true,

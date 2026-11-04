@@ -33,8 +33,8 @@ from src.subjects.csc413.planner import build_plan
 SUBJECT = "CSC413"
 TRACKING = config.TRACKING_DIR / "csc413"
 TEMPLATE = config.subject_reference_dir("CSC413") / "CSC413 TEMPLATE.docx"
-SCHEME_TEMPLATE = (config.REFERENCE_DIR / "standard" /
-                   "UTM_STANDARD_MARKING_SCHEME.docx")
+SCHEME_TEMPLATE = (config.subject_reference_dir("CSC413") /
+                   "CSC413 MARKING SCHEME TEMPLATE.docx")
 DEFAULT_OUT = TRACKING / "build_sample"
 FORBIDDEN = ("CSC662", "MAT133", "CSC402", "TODO", "placeholder",
              "data/reference")
@@ -408,14 +408,11 @@ def _scheme_body(doc, paper: dict) -> None:
 
 def _build_scheme_docx(paper: dict, out_docx: Path,
                        template: Path = SCHEME_TEMPLATE) -> Path:
+    """Append answer keys to the owner-supplied CSC413 scheme template."""
     out_docx.parent.mkdir(parents=True, exist_ok=True)
-    with tempfile.TemporaryDirectory(prefix="csc413_scheme_") as tmp:
-        rewritten = Path(tmp) / "scheme_template.docx"
-        _rewrite_scheme_template(template, rewritten)
-        doc = docx.Document(str(rewritten))
-        _patch_scheme_notes(doc, paper)
-        _scheme_body(doc, paper)
-        doc.save(str(out_docx))
+    doc = docx.Document(str(template))
+    _scheme_body(doc, paper)
+    doc.save(str(out_docx))
     return out_docx
 
 
