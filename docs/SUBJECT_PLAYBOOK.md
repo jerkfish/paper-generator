@@ -453,6 +453,12 @@ uv run pytest -q
 MAT133's validation is `src/mat133/library.py::_validate`; CSC662's public
 marker is checked by `scripts/build_public_bundle.py::_check_scheme`.
 
+**Standard marking-scheme template.** Use
+`data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx` for the scheme
+cover and notes until the owner changes it. Patch the course/title/code/date
+fields and append the answer key/worked answers; do not create a new scheme
+cover.
+
 **References.** `src/assemble/generic_build.py`,
 `src/mat133/build_docx.py`, `src/assemble/pdf_export.py`,
 `src/subjects/forbidden.py`.

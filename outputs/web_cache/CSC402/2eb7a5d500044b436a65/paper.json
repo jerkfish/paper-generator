@@ -1,0 +1,635 @@
+{
+  "subject": "CSC402",
+  "seed": 9,
+  "generated_by": "src.subjects.csc402.generators",
+  "planner": "src.subjects.csc402.planner",
+  "total_marks": 100,
+  "question_count": 17,
+  "slot_count": 22,
+  "questions": [
+    {
+      "number": "A1",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "input_output",
+      "stem": "What does endl do?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
+      "options": [
+        "Declares an integer",
+        "Writes a newline and flushes the stream",
+        "Ends the program",
+        "Reads a line"
+      ],
+      "answer": "B",
+      "solution": "endl inserts a newline and flushes the output buffer.",
+      "parts": [],
+      "generator_id": "csc402.mcq.input_output",
+      "slots": [
+        "A1"
+      ]
+    },
+    {
+      "number": "A2",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "arrays",
+      "stem": "What is displayed by the following code?",
+      "items": [],
+      "blocks": [
+        {
+          "type": "code",
+          "text": "int a[4] = {3, 6, 9, 12};\ncout << a[1] + a[3];"
+        }
+      ],
+      "format": "code",
+      "options": [
+        "12",
+        "9",
+        "18",
+        "15"
+      ],
+      "answer": "D",
+      "solution": "a[1] is 6 and a[3] is 12, so the sum is 18.",
+      "parts": [],
+      "generator_id": "csc402.mcq.arrays",
+      "slots": [
+        "A2"
+      ]
+    },
+    {
+      "number": "A3",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "control_structures",
+      "stem": "Which statement immediately exits a loop?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
+      "options": [
+        "return 0",
+        "cin",
+        "continue",
+        "break"
+      ],
+      "answer": "D",
+      "solution": "break terminates the nearest loop or switch.",
+      "parts": [],
+      "generator_id": "csc402.mcq.control_structures",
+      "slots": [
+        "A3"
+      ]
+    },
+    {
+      "number": "A4",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "data_types",
+      "stem": "Given the declaration, what is displayed?",
+      "items": [],
+      "blocks": [
+        {
+          "type": "code",
+          "text": "char word[6] = {'p', 'r', 'i', 'n', 't', '\\0'};\ncout << word[3];"
+        }
+      ],
+      "format": "code",
+      "options": [
+        "i",
+        "p",
+        "t",
+        "n"
+      ],
+      "answer": "C",
+      "solution": "word[3] is 't' because array indexing starts at zero.",
+      "parts": [],
+      "generator_id": "csc402.mcq.data_types",
+      "slots": [
+        "A4"
+      ]
+    },
+    {
+      "number": "A5",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "data_types",
+      "stem": "Which of the following are valid identifiers?",
+      "items": [
+        "total_score",
+        "2total",
+        "_count",
+        "int"
+      ],
+      "blocks": [],
+      "format": "roman_items",
+      "options": [
+        "iii and iv",
+        "ii and iv",
+        "i and ii",
+        "i and iii"
+      ],
+      "answer": "D",
+      "solution": "total_score and _count are valid identifiers.",
+      "parts": [],
+      "generator_id": "csc402.mcq.data_types",
+      "slots": [
+        "A5"
+      ]
+    },
+    {
+      "number": "A6",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "fundamentals",
+      "stem": "Which term describes a finite sequence of precise steps that solves a problem?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
+      "options": [
+        "Compiler",
+        "Variable",
+        "Array",
+        "Algorithm"
+      ],
+      "answer": "D",
+      "solution": "An algorithm is a finite, ordered set of unambiguous steps.",
+      "parts": [],
+      "generator_id": "csc402.mcq.fundamentals",
+      "slots": [
+        "A6"
+      ]
+    },
+    {
+      "number": "A7",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "data_types",
+      "stem": "Which values can a bool variable hold?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
+      "options": [
+        "any integer",
+        "true or false",
+        "any character",
+        "any decimal"
+      ],
+      "answer": "B",
+      "solution": "A bool holds true or false.",
+      "parts": [],
+      "generator_id": "csc402.mcq.data_types",
+      "slots": [
+        "A7"
+      ]
+    },
+    {
+      "number": "A8",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "control_structures",
+      "stem": "How many times does a while loop execute when its condition is false initially?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
+      "options": [
+        "Until the user stops it",
+        "Zero",
+        "Two",
+        "One"
+      ],
+      "answer": "B",
+      "solution": "while is a pretest loop; a false condition skips the body.",
+      "parts": [],
+      "generator_id": "csc402.mcq.control_structures",
+      "slots": [
+        "A8"
+      ]
+    },
+    {
+      "number": "A9",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "control_structures",
+      "stem": "Which of the following are selection structures?",
+      "items": [
+        "if",
+        "switch",
+        "for",
+        "while"
+      ],
+      "blocks": [],
+      "format": "roman_items",
+      "options": [
+        "ii and iv",
+        "iii and iv",
+        "i and iii",
+        "i and ii"
+      ],
+      "answer": "D",
+      "solution": "if and switch select among alternatives.",
+      "parts": [],
+      "generator_id": "csc402.mcq.control_structures",
+      "slots": [
+        "A9"
+      ]
+    },
+    {
+      "number": "A10",
+      "part": "A",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "fundamentals",
+      "stem": "Which item is NOT a programming paradigm?",
+      "items": [],
+      "blocks": [],
+      "format": "standard",
+      "options": [
+        "Debugging",
+        "Structured programming",
+        "Object-oriented programming",
+        "Procedural programming"
+      ],
+      "answer": "A",
+      "solution": "Debugging is an activity, not a programming paradigm.",
+      "parts": [],
+      "generator_id": "csc402.mcq.fundamentals",
+      "slots": [
+        "A10"
+      ]
+    },
+    {
+      "number": "B1",
+      "part": "B",
+      "kind": "structured",
+      "marks": 5,
+      "topic": "fundamentals",
+      "stem": "This question tests algorithms and programming errors.",
+      "stem_blocks": [],
+      "options": [],
+      "answer": "",
+      "solution": "",
+      "parts": [
+        {
+          "text": "Define algorithm and pseudocode.",
+          "answer": "An algorithm is a finite sequence of precise steps that solves a problem. Pseudocode is a structured English-like description of an algorithm.",
+          "solution": "Award 1 mark for each correct definition.",
+          "label": "a",
+          "marks": 3
+        },
+        {
+          "text": "Explain THREE types of programming errors and give one example of each.",
+          "answer": "Syntax error: missing semicolon. Runtime error: division by zero. Logic error: using < instead of <= in a condition.",
+          "solution": "Award 0.5 mark for each type and 0.5 mark for a valid example.",
+          "label": "b",
+          "marks": 2
+        }
+      ],
+      "generator_id": "csc402.short_answer",
+      "slots": [
+        "B1a",
+        "B1b"
+      ]
+    },
+    {
+      "number": "B2",
+      "part": "B",
+      "kind": "structured",
+      "marks": 13,
+      "topic": "fundamentals",
+      "stem": "A program reads a student's score from 0 to 100 and displays the grade shown in Table 1.",
+      "stem_blocks": [
+        {
+          "type": "table",
+          "caption": "Table 1. Grade Scale",
+          "headers": [
+            "Score",
+            "Grade"
+          ],
+          "rows": [
+            [
+              "80-100",
+              "A"
+            ],
+            [
+              "60-79",
+              "B"
+            ],
+            [
+              "50-59",
+              "C"
+            ],
+            [
+              "40-49",
+              "D"
+            ],
+            [
+              "0-39",
+              "F"
+            ]
+          ]
+        }
+      ],
+      "options": [],
+      "answer": "",
+      "solution": "",
+      "parts": [
+        {
+          "text": "Draw a flowchart for the grade classification.",
+          "answer": "Start -> read score -> decision score >= 80 -> A; else score >= 60 -> B; else score >= 50 -> C; else score >= 40 -> D; else F -> display grade -> end.",
+          "solution": "Award marks for terminal symbols, input, four/five decisions, each output and correct flow.",
+          "label": "a",
+          "marks": 8
+        },
+        {
+          "text": "Write pseudocode for the algorithm and convert it into a complete C++ program.",
+          "answer": "IF score >= 80 THEN grade = A ELSE IF score >= 60 THEN grade = B ... ENDIF; use if/else if in C++ and display grade.",
+          "solution": "Award marks for correct pseudocode, complete C++ structure, conditions, input and output.",
+          "label": "b",
+          "marks": 5
+        }
+      ],
+      "generator_id": "csc402.flowchart_or_pseudocode",
+      "slots": [
+        "B2a",
+        "B2b"
+      ]
+    },
+    {
+      "number": "B3",
+      "part": "B",
+      "kind": "structured",
+      "marks": 11,
+      "topic": "data_types",
+      "stem": "This question tests operator precedence and assignment.",
+      "stem_blocks": [],
+      "options": [],
+      "answer": "",
+      "solution": "",
+      "parts": [
+        {
+          "text": "Evaluate the following expressions using the declarations in the code block.",
+          "blocks": [
+            {
+              "type": "code",
+              "text": "int a = 12, b = 5;\ndouble c = 2.5;"
+            }
+          ],
+          "answer": "(i) 13, (ii) 20, (iii) 2, (iv) 3, (v) 3.4",
+          "solution": "Award 1 mark per correct value.",
+          "label": "a",
+          "marks": 5
+        },
+        {
+          "text": "Write C++ statements to declare two integers a and b, read their values, and display their sum, difference, product and remainder.",
+          "answer": "int a, b; cin >> a >> b; cout << a+b << a-b << a*b << a%b;",
+          "solution": "Award marks for declarations, input, four operations and output.",
+          "label": "b",
+          "marks": 6
+        }
+      ],
+      "generator_id": "csc402.code_statement",
+      "slots": [
+        "B3a",
+        "B3b"
+      ]
+    },
+    {
+      "number": "B4",
+      "part": "B",
+      "kind": "structured",
+      "marks": 15,
+      "topic": "input_output",
+      "stem": "Study the following C++ program segment:",
+      "stem_blocks": [
+        {
+          "type": "code",
+          "text": "int total = 0;\nfor (int i = 1; i <= 5; i++) {\n    total += i;\n}\ncout << total;"
+        }
+      ],
+      "options": [],
+      "answer": "",
+      "solution": "",
+      "parts": [
+        {
+          "text": "Trace the program and state the output.",
+          "answer": "15",
+          "solution": "The loop adds 1+2+3+4+5. Award marks for the sequence and final output.",
+          "label": "a",
+          "marks": 10
+        },
+        {
+          "text": "Rewrite the loop using a while loop. Then explain what changes if the condition is i < 5.",
+          "answer": "int i = 1; while (i <= 5) { total += i; i++; } With i < 5 the result is 10 because 5 is not added.",
+          "solution": "Award marks for correct while structure, update and changed result.",
+          "label": "b",
+          "marks": 5
+        }
+      ],
+      "generator_id": "csc402.trace_or_debug",
+      "slots": [
+        "B4a",
+        "B4b"
+      ]
+    },
+    {
+      "number": "B5",
+      "part": "B",
+      "kind": "structured",
+      "marks": 16,
+      "topic": "arrays",
+      "stem": "A sports club records the sport names and medal counts in Table 1.",
+      "stem_blocks": [],
+      "options": [],
+      "answer": "",
+      "solution": "",
+      "parts": [
+        {
+          "text": "Declare two parallel arrays for the five sports in Table 1 and initialise them with those values.",
+          "blocks": [
+            {
+              "type": "table",
+              "caption": "Table 2. Sport and Medal Records",
+              "headers": [
+                "Sport",
+                "Medals"
+              ],
+              "rows": [
+                [
+                  "Swimming",
+                  "8"
+                ],
+                [
+                  "Badminton",
+                  "12"
+                ],
+                [
+                  "Athletics",
+                  "7"
+                ],
+                [
+                  "Cycling",
+                  "5"
+                ],
+                [
+                  "Hockey",
+                  "9"
+                ]
+              ]
+            }
+          ],
+          "answer": "string sports[5] = {\"Swimming\",\"Badminton\",\"Athletics\",\"Cycling\",\"Hockey\"}; int medals[5] = {8,12,7,5,9};",
+          "solution": "Award marks for both declarations, correct sizes and related indices.",
+          "label": "a",
+          "marks": 6
+        },
+        {
+          "text": "Write a program segment to display each sport with its medals, then calculate the total and average medals.",
+          "answer": "Loop i=0..4 to display sports[i] and medals[i], accumulate total, average = double(total)/5.",
+          "solution": "Award marks for paired display, total, average and output.",
+          "label": "b",
+          "marks": 10
+        }
+      ],
+      "generator_id": "csc402.array_program_segment",
+      "slots": [
+        "B5a",
+        "B5b"
+      ]
+    },
+    {
+      "number": "C1",
+      "part": "C",
+      "kind": "program",
+      "marks": 15,
+      "topic": "arrays",
+      "stem": "A lecturer records the marks of ten students in an array.",
+      "stem_blocks": [],
+      "options": [],
+      "answer": "#include <iostream>\nusing namespace std;\nint main() {\n    int marks[10], total = 0, highest, highestIndex = 0;\n    int aboveAverage = 0;\n    for (int i = 0; i < 10; i++) {\n        cin >> marks[i];\n        total += marks[i];\n        if (i == 0 || marks[i] > highest) {\n            highest = marks[i];\n            highestIndex = i;\n        }\n    }\n    double average = total / 10.0;\n    for (int i = 0; i < 10; i++) {\n        if (marks[i] > average) aboveAverage++;\n    }\n    cout << \"Average: \" << average << endl;\n    cout << \"Highest: \" << highest\n         << \" at index \" << highestIndex << endl;\n    cout << \"Above average: \" << aboveAverage << endl;\n    return 0;\n}",
+      "solution": "Award 3 marks for input, 4 for total/average, 3 for highest/index, 3 for above-average count and 2 for output.",
+      "parts": [
+        {
+          "label": "",
+          "marks": 15,
+          "text": "Write a complete C++ program that reads ten marks, displays the average, the highest mark and its index, and counts how many marks are above the average.",
+          "answer": "#include <iostream>\nusing namespace std;\nint main() {\n    int marks[10], total = 0, highest, highestIndex = 0;\n    int aboveAverage = 0;\n    for (int i = 0; i < 10; i++) {\n        cin >> marks[i];\n        total += marks[i];\n        if (i == 0 || marks[i] > highest) {\n            highest = marks[i];\n            highestIndex = i;\n        }\n    }\n    double average = total / 10.0;\n    for (int i = 0; i < 10; i++) {\n        if (marks[i] > average) aboveAverage++;\n    }\n    cout << \"Average: \" << average << endl;\n    cout << \"Highest: \" << highest\n         << \" at index \" << highestIndex << endl;\n    cout << \"Above average: \" << aboveAverage << endl;\n    return 0;\n}",
+          "solution": "Award 3 marks for input, 4 for total/average, 3 for highest/index, 3 for above-average count and 2 for output."
+        }
+      ],
+      "generator_id": "csc402.complete_program.arrays",
+      "slots": [
+        "C1"
+      ]
+    },
+    {
+      "number": "C2",
+      "part": "C",
+      "kind": "program",
+      "marks": 15,
+      "topic": "control_structures",
+      "stem": "A catering company charges the meal prices shown in Table 1.",
+      "stem_blocks": [
+        {
+          "type": "table",
+          "caption": "Table 3. Meal Price",
+          "headers": [
+            "Quantity Range",
+            "Price per Meal (RM)"
+          ],
+          "rows": [
+            [
+              "50 - 99",
+              "11.50"
+            ],
+            [
+              "100 - 199",
+              "10.50"
+            ],
+            [
+              "200 and above",
+              "9.50"
+            ]
+          ]
+        }
+      ],
+      "options": [],
+      "answer": "#include <iostream>\n#include <iomanip>\n#include <string>\nusing namespace std;\nint main() {\n    string name;\n    int quantity, grandQuantity = 0;\n    double unitPrice, total, grandTotal = 0;\n    char again;\n    do {\n        cout << \"Customer name: \";\n        getline(cin >> ws, name);\n        cout << \"Quantity: \";\n        cin >> quantity;\n        if (quantity < 0) {\n            cout << \"Invalid quantity\" << endl;\n        } else {\n            if (quantity >= 200) unitPrice = 9.50;\n            else if (quantity >= 100) unitPrice = 10.50;\n            else if (quantity >= 50) unitPrice = 11.50;\n            else unitPrice = 12.50;\n            total = quantity * unitPrice;\n            grandTotal += total;\n            grandQuantity += quantity;\n            cout << fixed << setprecision(2);\n            cout << \"Receipt for \" << name << \": \"\n                 << quantity << \" x RM\" << unitPrice\n                 << \" = RM\" << total << endl;\n        }\n        cout << \"Another customer? (y/n): \";\n        cin >> again;\n    } while (again == 'y' || again == 'Y');\n    cout << \"Total quantity: \" << grandQuantity << endl;\n    cout << \"Total sales: RM\" << fixed << setprecision(2)\n         << grandTotal << endl;\n    return 0;\n}",
+      "solution": "Award 3 marks for input/validation, 6 for price selection and total, 3 for repetition, 2 for final totals and 1 for output clarity.",
+      "parts": [
+        {
+          "label": "",
+          "marks": 15,
+          "text": "Write a complete C++ program that reads the customer name and quantity, validates the quantity, calculates the total, displays a receipt, and repeats until the user chooses to stop. At the end, display the total quantity and total sales.",
+          "answer": "#include <iostream>\n#include <iomanip>\n#include <string>\nusing namespace std;\nint main() {\n    string name;\n    int quantity, grandQuantity = 0;\n    double unitPrice, total, grandTotal = 0;\n    char again;\n    do {\n        cout << \"Customer name: \";\n        getline(cin >> ws, name);\n        cout << \"Quantity: \";\n        cin >> quantity;\n        if (quantity < 0) {\n            cout << \"Invalid quantity\" << endl;\n        } else {\n            if (quantity >= 200) unitPrice = 9.50;\n            else if (quantity >= 100) unitPrice = 10.50;\n            else if (quantity >= 50) unitPrice = 11.50;\n            else unitPrice = 12.50;\n            total = quantity * unitPrice;\n            grandTotal += total;\n            grandQuantity += quantity;\n            cout << fixed << setprecision(2);\n            cout << \"Receipt for \" << name << \": \"\n                 << quantity << \" x RM\" << unitPrice\n                 << \" = RM\" << total << endl;\n        }\n        cout << \"Another customer? (y/n): \";\n        cin >> again;\n    } while (again == 'y' || again == 'Y');\n    cout << \"Total quantity: \" << grandQuantity << endl;\n    cout << \"Total sales: RM\" << fixed << setprecision(2)\n         << grandTotal << endl;\n    return 0;\n}",
+          "solution": "Award 3 marks for input/validation, 6 for price selection and total, 3 for repetition, 2 for final totals and 1 for output clarity."
+        }
+      ],
+      "generator_id": "csc402.complete_program.control_structures",
+      "slots": [
+        "C2"
+      ]
+    }
+  ],
+  "slot_map": {
+    "A1": "A1",
+    "A2": "A2",
+    "A3": "A3",
+    "A4": "A4",
+    "A5": "A5",
+    "A6": "A6",
+    "A7": "A7",
+    "A8": "A8",
+    "A9": "A9",
+    "A10": "A10",
+    "B1a": "B1",
+    "B1b": "B1",
+    "B2a": "B2",
+    "B2b": "B2",
+    "B3a": "B3",
+    "B3b": "B3",
+    "B4a": "B4",
+    "B4b": "B4",
+    "B5a": "B5",
+    "B5b": "B5",
+    "C1": "C1",
+    "C2": "C2"
+  },
+  "generator_ids": [
+    "csc402.array_program_segment",
+    "csc402.code_statement",
+    "csc402.complete_program.arrays",
+    "csc402.complete_program.control_structures",
+    "csc402.flowchart_or_pseudocode",
+    "csc402.mcq.arrays",
+    "csc402.mcq.control_structures",
+    "csc402.mcq.data_types",
+    "csc402.mcq.fundamentals",
+    "csc402.mcq.input_output",
+    "csc402.short_answer",
+    "csc402.trace_or_debug"
+  ],
+  "style_profile": {
+    "mcq_formats": {
+      "standard": 6,
+      "code": 2,
+      "roman_items": 2
+    },
+    "table_count": 3,
+    "table_captions": [
+      "Table 1. Grade Scale",
+      "Table 2. Sport and Medal Records",
+      "Table 3. Meal Price"
+    ],
+    "code_block_count": 4
+  }
+}

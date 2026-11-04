@@ -12,9 +12,10 @@ from src.app.filenames import (content_disposition, download_filename,
 from src.subjects.registry import get_subject, load_subjects
 
 
-def test_registry_discovers_csc662_and_stubs():
+def test_registry_discovers_csc402_and_stubs():
     subjects = load_subjects()
-    assert list(subjects)[0] == "CSC662"
+    assert list(subjects)[0] == "CSC402"
+    assert subjects["CSC402"].available
     assert subjects["CSC662"].available
     assert subjects["CSC662"].enabled_computed_generators
     assert subjects["CSC662"].topic_deck_allowlist
@@ -30,9 +31,9 @@ def test_registry_discovers_csc662_and_stubs():
 def test_registry_order_follows_curriculum():
     subjects = load_subjects()
     codes = list(subjects)
-    assert codes[:2] == ["CSC662", "MAT133"]
+    assert codes[:3] == ["CSC402", "CSC662", "MAT133"]
     expected_stubs = [
-        "CSC402", "CSC413", "CSC429", "CTU552", "HBU111", "ICT450",
+        "CSC413", "CSC429", "CTU552", "HBU111", "ICT450",
         "MAT406", "CSC404", "CTU554", "HBU121", "ICT502", "ITT400",
         "MAT421", "STA416", "CSC435", "CSC510", "CSC520", "CSC583",
         "HBU131", "LCC401", "MAT423", "TMC401", "CSC508", "CSC569",
@@ -40,7 +41,7 @@ def test_registry_order_follows_curriculum():
         "CSC645", "CSC649", "CSP600", "ENT600", "STA404", "TMC501",
         "CSC562", "CSC683", "CSP650", "EET699", "ICT652", "CST688",
     ]
-    assert codes[2:] == expected_stubs
+    assert codes[3:] == expected_stubs
     assert len(subjects) == 44
     assert subjects["CSC580"].title == "Parallel Processing"
     assert subjects["CSC645"].title == "Algorithm Analysis and Design"
@@ -155,8 +156,9 @@ def test_local_generate_shortcut_and_nav(monkeypatch, tmp_path):
     client = TestClient(main.app)
     response = client.get("/generate", follow_redirects=False)
     assert response.status_code == 307
-    assert response.headers["location"] == "/csc662/generate"
+    assert response.headers["location"] == "/csc402/generate"
     html = client.get("/").text
+    assert 'href="/csc402/generate"' in html
     assert 'href="/csc662/generate"' in html
     assert 'href="/mat133/generate"' in html
 
@@ -381,7 +383,7 @@ def test_public_urls_are_percent_encoded():
         "scheme_docx": "CSC662 Seed 07 2026 - Marking Scheme.docx",
         "scheme_pdf": "CSC662 Seed 07 2026 - Marking Scheme.pdf",
     }}
-    urls = _urls(item)
+    urls = _urls(item, subject="CSC662")
     assert urls["paper_pdf"] == (
         "/library/CSC662/papers/CSC662%20Seed%2007%202026.pdf")
     assert urls["scheme_pdf"] == (
@@ -425,3 +427,23 @@ def test_subject_input_folders_are_per_subject():
     assert config.subject_papers_dir("CSC662").is_dir()
     assert any(config.subject_papers_dir("CSC662").glob("*.pdf"))
     assert config.LECTURE_DECKS_ROOT.is_dir()
+
+
+def test_cache_entry_prefers_newest_duplicate_seed(monkeypatch, tmp_path):
+    cache = tmp_path / "cache"
+    monkeypatch.setattr(jobs.config, "WEB_CACHE_DIR", cache)
+    old = jobs.cache_path("realistic", 5, None, subject="CSC402")
+    new = cache / "CSC402" / "rev2_seed05"
+    for path, created, label in ((old, 100, "old"), (new, 200, "new")):
+        path.mkdir(parents=True, exist_ok=True)
+        paper = path / "paper.pdf"
+        paper.write_bytes(b"%PDF")
+        (path / "meta.json").write_text(json.dumps({
+            "subject": "CSC402", "seed": 5, "mode": "realistic",
+            "created": created, "year": 2026, "accepted": 22,
+            "placeholders": 0, "files": {"paper_pdf": str(paper)},
+            "summary": {}, "progress": [], "revision": label,
+        }), encoding="utf-8")
+    path, meta = jobs._cache_entry(5, "CSC402")
+    assert path == new
+    assert meta["revision"] == "new"

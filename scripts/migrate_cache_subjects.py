@@ -16,7 +16,6 @@ from pathlib import Path
 from src import config
 from src.app.filenames import utc_year
 from src.app.jobs import _config_hash
-from src.subjects.registry import default_subject_code
 
 
 def _planner_topic_marks(seed: int) -> dict:
@@ -31,9 +30,11 @@ def _planner_topic_marks(seed: int) -> dict:
         return {}
 
 
-def migrate(seed_root: Path | None = None, move: bool = False) -> list[dict]:
+def migrate(seed_root: Path | None = None, move: bool = False,
+            subject: str = "CSC662") -> list[dict]:
+    """Migrate the legacy flat CSC662 cache; ``subject`` is explicit."""
     root = Path(seed_root or config.WEB_CACHE_DIR)
-    subject = default_subject_code()
+    subject = str(subject).upper()
     done = []
     for meta_path in sorted(root.glob("*/meta.json")):
         if meta_path.parent.parent.name == subject:
@@ -77,8 +78,10 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--move", action="store_true",
                     help="remove the old flat cache after copying")
+    ap.add_argument("--subject", default="CSC662",
+                    help="legacy subject whose flat cache is being migrated")
     args = ap.parse_args()
-    for row in migrate(move=args.move):
+    for row in migrate(move=args.move, subject=args.subject):
         print(row, flush=True)
 
 

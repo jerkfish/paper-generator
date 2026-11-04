@@ -1,24 +1,30 @@
 {
   "schema_version": 1,
   "subject": "CSC402",
-  "type": "C",
+  "type": "B",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-04T06:27:42Z",
+  "updated": "2026-11-04T10:24:30Z",
   "stages": {
     "0_intake": {
-      "status": "in_progress",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "subjects/CSC402/subject.json",
+        "subjects/CSC402/lifecycle_state.json",
+        "docs/CSC402.md",
+        "data/papers/CSC402",
+        "data/tracking/csc402/papers_summary.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"continue\"",
+        "on": "2026-11-04",
+        "note": "Title Programming I, type C (provisional), order 1 and paper permission accepted; scheme/slides recorded as not supplied."
       },
-      "notes": ""
+      "notes": "24 working PDFs, 21 unique, 3 byte-identical duplicate copies; 24 non-empty text entries. No scheme/template and no lecture decks found."
     },
     "1_preprocess": {
       "status": "done",
@@ -31,110 +37,152 @@
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": "Prepared before the playbook; approve rename/dedupe/OCR summary."
+        "approved": true,
+        "by": "user instruction \"continue\"",
+        "on": "2026-11-04",
+        "note": "Approved the 24-file / 21-unique / 3-duplicate report. Legacy summary schema retained."
       },
       "notes": ""
     },
     "2_scheme_slides": {
-      "status": "pending",
-      "evidence": [],
+      "status": "skipped",
+      "evidence": [
+        "subjects/CSC402/subject.json",
+        "docs/CSC402.md"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"Waive, and Reclassify then Continue\"",
+        "on": "2026-11-04",
+        "note": "Scheme and slides waived; CSC402 reclassified from type C to type B deterministic."
       },
-      "notes": ""
+      "notes": "No scheme/template or lecture decks supplied. Deterministic builder will generate both paper and marking scheme from the paper corpus; theory pipeline is disabled."
     },
     "3_template": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "data/reference/CSC402/CSC402 TEMPLATE.docx",
+        "data/reference/CSC402/CSC402 TEMPLATE.pdf",
+        "data/tracking/csc402/template_check.json",
+        "data/tracking/csc402/template_cover.png",
+        "src/subjects/csc402/template_build.py"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"approved, continue\"",
+        "on": "2026-11-04",
+        "note": "Approved the CSC402 cover candidate; page-2 QA deferred to stage 7 builder."
       },
-      "notes": ""
+      "notes": "Candidate built from the standard-cover-derived clean template: title PROGRAMMING I, code CSC402, November 2026, 3 hours, MAT133-only pack items removed, CSC402 footer added. XML valid; 2 sections; 1 image; no template-check problems. The rendered PDF is one cover page; the page-2 transition will be exercised at stage 7 by the builder."
     },
     "4_taxonomy_question_log": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "data/tracking/csc402/taxonomy.json",
+        "data/tracking/csc402/question_log.json",
+        "data/tracking/csc402/taxonomy_summary.json",
+        "src/subjects/csc402/taxonomy.py"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"approved continue\"",
+        "on": "2026-11-04",
+        "note": "Approved the taxonomy and 164-entry question log with the recorded mark caveats."
       },
-      "notes": ""
+      "notes": "Built deterministic taxonomy/question log from 21 unique papers: 164 question-level entries; 19/21 papers reconcile to 2015 part-header marks; 2 papers short by 6 and 3 marks; PART A is one aggregate MCQ entry per paper; 10 questions lack parseable marks."
     },
     "5_fingerprint_planner": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "src/subjects/csc402/planner.py",
+        "data/tracking/csc402/planner_seed_01.json",
+        "data/tracking/csc402/taxonomy_summary.json",
+        "data/tracking/csc402/question_log.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"continue\"",
+        "on": "2026-11-04",
+        "note": "Approved the modern 2022-2026 100-mark planner format."
       },
-      "notes": ""
+      "notes": "Deterministic modern-format planner: Part A 10 x 1 mark, Part B 5 questions x 2 subparts = 60 marks, Part C 2 x 15 = 30 marks; total 100, 22 slots, 17 questions. Seeds 1-20 validated. Topic/mark patterns derive from the 2022-2026 papers."
     },
     "6_generators": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "src/subjects/csc402/generators.py",
+        "data/tracking/csc402/generator_sample_seed_01.json",
+        "data/tracking/csc402/generator_validation.json",
+        "tests/test_csc402_generators.py"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"continue\"",
+        "on": "2026-11-04",
+        "note": "Approved the generated sample and 20-seed generator validation."
       },
-      "notes": ""
+      "notes": "Deterministic generator suite: MCQ banks for six topics, B1-B5 structured generators, four complete-program variants with full C++ answers. Seeds 1-20 all pass: 100 marks, 17 questions, 22 slots; 13 generator ids observed."
     },
     "7_builders_qa": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "src/subjects/csc402/build_docx.py",
+        "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx",
+        "data/tracking/csc402/build_sample/CSC402 Seed 01 2026.docx",
+        "data/tracking/csc402/build_sample/CSC402 Seed 01 2026.pdf",
+        "data/tracking/csc402/build_sample/CSC402 Seed 01 2026 - Marking Scheme.docx",
+        "data/tracking/csc402/build_sample/CSC402 Seed 01 2026 - Marking Scheme.pdf",
+        "data/tracking/csc402/build_sample/qa.json",
+        "data/tracking/csc402/build_sample/paper_page2.png",
+        "data/tracking/csc402/build_sample/paper_page4.png",
+        "data/tracking/csc402/build_sample/paper_page5.png",
+        "data/tracking/csc402/build_sample/scheme_page1.png",
+        "data/tracking/csc402/build_sample/scheme_page2.png"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"approved continue\"",
+        "on": "2026-11-04",
+        "note": "Approved the revised standard-template marking scheme and seed-1 build."
       },
-      "notes": ""
+      "notes": "Revised scheme uses the owner-supplied standard marking-scheme template data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx. Cover patched to CSC402 PROGRAMMING I / NOV 2026 (MOCK) / 3 HOURS; notes replaced with CSC402 deterministic-scheme text; answer key and worked answers appended. Paper 5 pages, scheme 6 pages; DOCX/PDF QA has no problems."
     },
     "8_library_prebuild": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "data/tracking/csc402/library_prebuild.json",
+        "outputs/web_cache/CSC402",
+        "data/tracking/csc402/generator_validation.json",
+        "data/tracking/csc402/build_sample/qa.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"stage 8 approved, continue\"",
+        "on": "2026-11-04",
+        "note": "Approved all 20 styled Library seeds (6-page paper / 6-page scheme, no QA problems)."
       },
-      "notes": ""
+      "notes": "All 20 seeds rebuilt with the accepted styled layout: code-block MCQs, Roman-item MCQs, numbered tables and boxed code segments. Each seed is 6 pages (paper) / 6 pages (scheme), 100 marks, 17 questions, 22 slots, 0 placeholders and no QA problems. Styled revision seeds 1-20; no seed remains on the earlier plain layout. Seed 5 is served from rev2_seed05 because the previous PDF was locked; newest valid cache meta wins. Stage 8 approved by the owner; no publication, R2 upload or Worker deploy has occurred."
     },
     "9_publish": {
       "status": "pending",
@@ -148,7 +196,7 @@
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "Hard stop. Publication requires a separate explicit human instruction covering public-bundle rebuild, R2 upload and Worker deploy. The original task instruction remains: do not publish."
     },
     "10_close_out": {
       "status": "pending",
@@ -167,38 +215,8 @@
   },
   "unsure": [
     {
-      "stage": "0_intake",
-      "item": "Confirm CSC402 title, subject type (C) and curriculum order with the subject owner.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "0_intake",
-      "item": "Record papers permission for CSC402.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "0_intake",
-      "item": "Record scheme permission for CSC402.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "0_intake",
-      "item": "Record lecture-slides permission for CSC402.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
       "stage": "9_publish",
       "item": "Record publication permission for CSC402 before any upload or deploy.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "1_preprocess",
-      "item": "Approve the 24-file / 21-unique / 3-duplicate preprocessing report.",
       "blocking": true,
       "opened": "2026-11-04"
     }

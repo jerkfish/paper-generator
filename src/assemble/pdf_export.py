@@ -70,4 +70,9 @@ def export_pdf(docx_path: Path, pdf_path: Path) -> int:
     if not pdf_path.exists():
         raise RuntimeError(
             f"{pdf_engine()} PDF export failed for {docx_path.name}")
-    return len(PdfReader(str(pdf_path)).pages)
+    reader = PdfReader(str(pdf_path))
+    try:
+        pages = len(reader.pages)
+    finally:
+        reader.stream.close()
+    return pages

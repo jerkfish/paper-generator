@@ -1,0 +1,41 @@
+{
+  "subject": "CSC402",
+  "seed": 5,
+  "paper_docx": {
+    "path": "outputs\\web_cache\\CSC402\\rev2_seed05\\CSC402 Seed 05 2026.docx",
+    "xml_valid": true,
+    "forbidden_tokens": [],
+    "missing": [],
+    "problems": []
+  },
+  "scheme_docx": {
+    "path": "outputs\\web_cache\\CSC402\\rev2_seed05\\CSC402 Seed 05 2026 - Marking Scheme.docx",
+    "xml_valid": true,
+    "forbidden_tokens": [],
+    "missing": [],
+    "problems": []
+  },
+  "paper_pdf": {
+    "path": "outputs\\web_cache\\CSC402\\rev2_seed05\\CSC402 Seed 05 2026.pdf",
+    "pages": 6,
+    "page1_cover": true,
+    "body_starts_page2": true,
+    "right_overflow": [],
+    "problems": []
+  },
+  "scheme_pdf": {
+    "path": "outputs\\web_cache\\CSC402\\rev2_seed05\\CSC402 Seed 05 2026 - Marking Scheme.pdf",
+    "pages": 6,
+    "page1_cover": true,
+    "body_starts_page2": false,
+    "right_overflow": [],
+    "problems": []
+  },
+  "files": {
+    "paper_docx": "outputs\\web_cache\\CSC402\\rev2_seed05\\CSC402 Seed 05 2026.docx",
+    "paper_pdf": "outputs\\web_cache\\CSC402\\rev2_seed05\\CSC402 Seed 05 2026.pdf",
+    "scheme_docx": "outputs\\web_cache\\CSC402\\rev2_seed05\\CSC402 Seed 05 2026 - Marking Scheme.docx",
+    "scheme_pdf": "outputs\\web_cache\\CSC402\\rev2_seed05\\CSC402 Seed 05 2026 - Marking Scheme.pdf"
+  },
+  "problems": []
+}

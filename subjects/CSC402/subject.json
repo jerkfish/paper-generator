@@ -1,19 +1,153 @@
 {
   "code": "CSC402",
   "title": "Programming I",
-  "status": "coming_soon",
+  "status": "available",
   "order": 1,
   "header_text": "CSC402 PROGRAMMING I",
-  "template_path": "",
+  "template_path": "data/reference/CSC402/CSC402 TEMPLATE.docx",
   "fingerprint": {
     "source_papers": "data/papers/CSC402",
     "paper_count": 24,
     "unique_papers": 21,
     "year_min": 2013,
     "year_max": 2026,
-    "prepared_corpus": "data/tracking/csc402"
+    "prepared_corpus": "data/tracking/csc402",
+    "taxonomy": "data/tracking/csc402/taxonomy.json",
+    "question_log": "data/tracking/csc402/question_log.json",
+    "taxonomy_summary": "data/tracking/csc402/taxonomy_summary.json",
+    "question_log_entries": 164,
+    "papers_with_reconciled_marks": 19,
+    "part_marks": {
+      "A": [
+        10,
+        15,
+        20
+      ],
+      "B": [
+        50,
+        55,
+        60
+      ],
+      "C": [
+        30
+      ]
+    },
+    "planner": "src/subjects/csc402/planner.py",
+    "planner_sample": "data/tracking/csc402/planner_seed_01.json",
+    "planner_format": {
+      "A": {
+        "questions": 10,
+        "marks": 10
+      },
+      "B": {
+        "questions": 5,
+        "marks": 60
+      },
+      "C": {
+        "questions": 2,
+        "marks": 30
+      }
+    },
+    "generators": "src/subjects/csc402/generators.py",
+    "generator_sample": "data/tracking/csc402/generator_sample_seed_01.json",
+    "generator_validation": "data/tracking/csc402/generator_validation.json",
+    "generator_count": 13,
+    "builder": "src/subjects/csc402/build_docx.py",
+    "build_sample": "data/tracking/csc402/build_sample/qa.json",
+    "sample_pages": {
+      "paper": 6,
+      "scheme": 6
+    },
+    "marking_scheme_template": "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx",
+    "library_prebuild": "data/tracking/csc402/library_prebuild.json",
+    "library_seeds": 20,
+    "library_marks": 100,
+    "library_slots": 22,
+    "library_pages": {
+      "paper": [
+        6
+      ],
+      "scheme": [
+        6
+      ]
+    },
+    "styled_revision_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "pending_style_rebuild_seeds": []
   },
   "deck_map": {},
   "topic_deck_allowlist": {},
-  "enabled_computed_generators": []
+  "enabled_computed_generators": [],
+  "permissions": {
+    "papers": {
+      "allowed": true,
+      "basis": "project owner supplied the 24 working PDFs and instructed onboarding to continue",
+      "confirmed_by": "user instruction \"continue\"",
+      "confirmed_on": "2026-11-04",
+      "notes": "Working copies only under data/papers/CSC402; originals remain read-only."
+    },
+    "scheme": {
+      "allowed": true,
+      "basis": "owner waived supplied scheme; generated schemes are project output",
+      "confirmed_by": "user instruction \"Waive, and Reclassify then Continue\"",
+      "confirmed_on": "2026-11-04",
+      "notes": "No official scheme will be parsed. The deterministic builder must generate its own scheme."
+    },
+    "slides": {
+      "allowed": true,
+      "basis": "owner waived; not applicable to type B",
+      "confirmed_by": "user instruction \"Waive, and Reclassify then Continue\"",
+      "confirmed_on": "2026-11-04",
+      "notes": "No lecture decks will be used. Theory pipeline disabled."
+    },
+    "publication": {
+      "allowed": false,
+      "basis": "not requested; publishing prohibited in this task",
+      "confirmed_by": "",
+      "confirmed_on": "",
+      "notes": "Never upload or deploy without a separate explicit instruction."
+    }
+  },
+  "type": "B",
+  "has_practice_mode": false,
+  "has_placeholders": false,
+  "capabilities": {
+    "subject_type": "B",
+    "generation": "deterministic",
+    "prebuild": "plugin",
+    "public_documents": "copy_cached",
+    "needs_llm": false,
+    "uses_slides": false,
+    "uses_past_papers": true,
+    "deterministic": true,
+    "practice_mode": false,
+    "placeholders": false,
+    "public_scheme_requires_quote_marker": false,
+    "planner_style": "modern"
+  },
+  "plugins": {
+    "prebuild": "src.subjects.csc402.plugin:build_seed",
+    "generator_labels": "src.subjects.csc402.plugin:generator_labels",
+    "topic_labels": "src.subjects.csc402.plugin:topic_labels"
+  }
 }
