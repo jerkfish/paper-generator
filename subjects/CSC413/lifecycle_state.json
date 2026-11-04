@@ -4,7 +4,7 @@
   "type": "B",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-04T16:21:25Z",
+  "updated": "2026-11-04T16:29:11Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -86,7 +86,7 @@
       "notes": "Candidate built from the clean MAT133 template (itself derived from the standard UTM cover). Title INTRODUCTION TO INTERACTIVE MULTIMEDIA is rendered on two 9 pt lines so the COURSE CODE/EXAMINATION/TIME values stay aligned. Header is CS/NOV 2026/CSC413, duration 3 HOURS, and the footer is CSC413. Structural check: XML valid, 2 sections, 1 image, 2 footers, no problems; rendered cover is 1 page. The November 2026 mock date was approved by the owner. The source MAT133 template was not modified. Page-2 body transition is deferred to the stage-7 builder."
     },
     "4_taxonomy_question_log": {
-      "status": "pending",
+      "status": "done",
       "evidence": [
         "data/tracking/csc413/taxonomy.json",
         "data/tracking/csc413/question_log.json",
@@ -98,16 +98,21 @@
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": "Awaiting review of the topic taxonomy, the 249-entry question log and the recorded OCR/mark caveats before the planner stage."
+        "approved": true,
+        "by": "user instruction \"approved, continue\"",
+        "on": "2026-11-05",
+        "note": "Approved the taxonomy and question log with the recorded OCR/marks caveats."
       },
       "notes": "Parsed 15 unique papers into 249 question-level entries across a 12-topic interactive-multimedia taxonomy. Expected marks 1450; parsed 1436; 13/15 papers reconcile. The modern 2022 and 2023 papers are fully question-level (15/15/30/4 and matching marks). 13 papers have at least one objective part logged as an aggregate because old OCR/text lines do not reliably preserve individual items. 2019-06 parses 96/100 and 2016-12 parses 90/100; six individual questions have no parseable marks. Those caveats are recorded in taxonomy_summary.json and are the review items for this gate."
     },
     "5_fingerprint_planner": {
       "status": "pending",
-      "evidence": [],
+      "evidence": [
+        "src/subjects/csc413/planner.py",
+        "data/tracking/csc413/planner_seed_01.json",
+        "data/tracking/csc413/taxonomy_summary.json",
+        "tests/test_csc413_planner.py"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
@@ -115,9 +120,9 @@
         "approved": false,
         "by": "",
         "on": "",
-        "note": ""
+        "note": "Awaiting approval of the 15/15/30/4 slot contract, the Part D mark patterns and the smoothed topic sequence."
       },
-      "notes": ""
+      "notes": "Deterministic modern planner derived from CSC413-2022-02 and CSC413-2023-02: PART A 15 TRUE/FALSE (15), PART B 15 matching (15), PART C 30 MCQs (30), PART D 4 structured questions with three subparts each (40). Total 100 marks, 64 questions, 72 slots. Part D uses the observed 2/3/5, 2/4/4, 3/3/4 and 3/3/4 mark patterns. Seeds 1-20 validate. Topic mix is a smoothed 60-slot sequence from the modern papers; Part D topics are sampled from the six topics observed in modern structured questions."
     },
     "6_generators": {
       "status": "pending",
@@ -190,20 +195,7 @@
       "notes": ""
     }
   },
-  "unsure": [
-    {
-      "stage": "4_taxonomy_question_log",
-      "item": "13 papers have at least one objective part logged as an aggregate; individual items were not reliably reconstructed from old OCR. The 2022 and 2023 papers are question-level.",
-      "blocking": true,
-      "opened": "2026-11-05"
-    },
-    {
-      "stage": "4_taxonomy_question_log",
-      "item": "Marks reconciliation is short for 2019-06 (96/100) and 2016-12 (90/100); six individual questions have no parseable marks. Review before using these papers for mark weights.",
-      "blocking": true,
-      "opened": "2026-11-05"
-    }
-  ],
+  "unsure": [],
   "llm_cost": {
     "currency": "USD",
     "total_usd": 0.0,

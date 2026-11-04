@@ -42,7 +42,33 @@
         5,
         40
       ]
-    }
+    },
+    "planner": "src/subjects/csc413/planner.py",
+    "planner_sample": "data/tracking/csc413/planner_seed_01.json",
+    "planner_format": {
+      "A": {
+        "questions": 15,
+        "marks": 15
+      },
+      "B": {
+        "questions": 15,
+        "marks": 15
+      },
+      "C": {
+        "questions": 30,
+        "marks": 30
+      },
+      "D": {
+        "questions": 4,
+        "marks": 40
+      }
+    },
+    "modern_papers": [
+      "CSC413-2022-02",
+      "CSC413-2023-02"
+    ],
+    "slots": 72,
+    "question_count": 64
   },
   "deck_map": {},
   "topic_deck_allowlist": {},
