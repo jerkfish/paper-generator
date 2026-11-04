@@ -4,7 +4,7 @@
   "type": "B",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-04T07:08:21Z",
+  "updated": "2026-11-04T07:12:35Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -82,7 +82,7 @@
       "notes": "Candidate built from the standard-cover-derived clean template: title PROGRAMMING I, code CSC402, November 2026, 3 hours, MAT133-only pack items removed, CSC402 footer added. XML valid; 2 sections; 1 image; no template-check problems. The rendered PDF is one cover page; the page-2 transition will be exercised at stage 7 by the builder."
     },
     "4_taxonomy_question_log": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "data/tracking/csc402/taxonomy.json",
         "data/tracking/csc402/question_log.json",
@@ -93,16 +93,21 @@
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": "Awaiting taxonomy/question-log review."
+        "approved": true,
+        "by": "user instruction \"approved continue\"",
+        "on": "2026-11-04",
+        "note": "Approved the taxonomy and 164-entry question log with the recorded mark caveats."
       },
       "notes": "Built deterministic taxonomy/question log from 21 unique papers: 164 question-level entries; 19/21 papers reconcile to 2015 part-header marks; 2 papers short by 6 and 3 marks; PART A is one aggregate MCQ entry per paper; 10 questions lack parseable marks."
     },
     "5_fingerprint_planner": {
-      "status": "pending",
-      "evidence": [],
+      "status": "in_progress",
+      "evidence": [
+        "src/subjects/csc402/planner.py",
+        "data/tracking/csc402/planner_seed_01.json",
+        "data/tracking/csc402/taxonomy_summary.json",
+        "data/tracking/csc402/question_log.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
@@ -110,9 +115,9 @@
         "approved": false,
         "by": "",
         "on": "",
-        "note": ""
+        "note": "Awaiting planner/topic-distribution review."
       },
-      "notes": ""
+      "notes": "Deterministic modern-format planner: Part A 10 x 1 mark, Part B 5 questions x 2 subparts = 60 marks, Part C 2 x 15 = 30 marks; total 100, 22 slots, 17 questions. Seeds 1-20 validated. Topic/mark patterns derive from the 2022-2026 papers."
     },
     "6_generators": {
       "status": "pending",
@@ -193,8 +198,8 @@
       "opened": "2026-11-04"
     },
     {
-      "stage": "4_taxonomy_question_log",
-      "item": "Review taxonomy topics and 164 question-level entries. Two papers (Feb 2025, Jul 2025) are short of the 100-mark total; 10 questions lack parseable marks; Part A MCQ stems are aggregated.",
+      "stage": "5_fingerprint_planner",
+      "item": "Approve the modern 2022-2026 format assumption: 10 one-mark MCQs, five two-subpart B questions totalling 60, two 15-mark C programs. Part A topic mix and B subpart splits are paper-derived synthetic choices.",
       "blocking": true,
       "opened": "2026-11-04"
     }

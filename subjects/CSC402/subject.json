@@ -31,6 +31,22 @@
       "C": [
         30
       ]
+    },
+    "planner": "src/subjects/csc402/planner.py",
+    "planner_sample": "data/tracking/csc402/planner_seed_01.json",
+    "planner_format": {
+      "A": {
+        "questions": 10,
+        "marks": 10
+      },
+      "B": {
+        "questions": 5,
+        "marks": 60
+      },
+      "C": {
+        "questions": 2,
+        "marks": 30
+      }
     }
   },
   "deck_map": {},
