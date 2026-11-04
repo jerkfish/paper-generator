@@ -528,7 +528,8 @@ uv run python -m scripts.r2_sync --bundle outputs/public_bundle
 uv run --with boto3 python -m scripts.r2_sync --bundle outputs/public_bundle --upload
 
 # 5. [HUMAN] Worker deploy
-cd cloudflare/worker && bun run deploy
+cd cloudflare/worker 
+bun x wrangler deploy
 
 # 6. verify the generated subject route, not a hand-edited route
 curl -I https://uitmpapergen.download/<route>

@@ -1,5 +1,5 @@
 {
-  "class_a": 56,
+  "class_a": 193,
   "class_b": 0,
   "month": "2026-11",
   "objects": {
@@ -14,14 +14,29 @@
       "size": 50917
     },
     "assets/library.js": {
-      "etag": "58937369b3513c4a2b03e03ebc695d14",
-      "sha256": "398b358cf267ad3f4b7696ce5e345d5d0647775a8ddf755dc1b8e54469272066",
-      "size": 6736
+      "etag": "524f52a86166ae501580c17186fffbf1",
+      "sha256": "88665f9912b1aad2ea8619ee333ce8e08ad23b900e164558dfcb60339e348700",
+      "size": 6730
     },
     "assets/style.css": {
       "etag": "8cb76dc1a5343cd3519319a0fe8c3397",
       "sha256": "d872fa2f433b3682527c006abb156f7d77282cad6ca1b51770f2e1083e8ce0d1",
       "size": 5954
+    },
+    "csc402/generate/index.html": {
+      "etag": "72439b545758c580c49bd2ccf15cc5fe",
+      "sha256": "848ca8dffab3e04044a9e12ff547069bff404b0007dfa4022b7a33b6866ff162",
+      "size": 2318
+    },
+    "csc402/index.html": {
+      "etag": "b1154085a2168103c8f270782578947f",
+      "sha256": "0d376a6ce5108777db6502f62307d6a592b1b067bb91b2393f61ec8fdd56274c",
+      "size": 3657
+    },
+    "csc402/library/index.html": {
+      "etag": "ae01ecce362d1bf57711cb58189f6328",
+      "sha256": "c2f07c7e566f7ada993149bbce596b1c8ab4e2990255c60a92b9aea1cc5a1c62",
+      "size": 37529
     },
     "csc662/generate/index.html": {
       "etag": "b54d3427ce372346c70baafe283c43f0",
@@ -39,14 +54,419 @@
       "size": 41648
     },
     "gallery/index.html": {
-      "etag": "6cfad71774ed94fe9c71893ef09c00e5",
-      "sha256": "9afe2da61a101e150a546d3d5f4ee17d73593f53a57129f4e60e01899394975c",
-      "size": 2998
+      "etag": "8893fc363fd422d21235a00e0ed3f0cf",
+      "sha256": "0b625364ae69a954207f63cd29ed23a4300cc34df827a3f57e058dbb70daba58",
+      "size": 3073
     },
     "index.html": {
-      "etag": "20585756035e38710b1310f65d85f160",
-      "sha256": "21d51bb5bb7fb3c262391eb65b1c0e94fbfbb5bc27855c637d2e8e399a4cb3ec",
-      "size": 11831
+      "etag": "621b0008425cdde1c50c3d5eb2230750",
+      "sha256": "39d7f694d4a8be4f5aa493184e2ab5f69e3bfe92a800090b9109fec81db2c2cb",
+      "size": 12037
+    },
+    "library/CSC402/manifest.json": {
+      "etag": "6812207ed6bfe4c87f2355d8d8be40d5",
+      "sha256": "d7969eaf6afde8424820b1adac65698783f795002bd93980972316dc830cc59e",
+      "size": 27241
+    },
+    "library/CSC402/papers/CSC402 Seed 01 2026.docx": {
+      "etag": "a672c0a816923dd5db3ecebb04bb1367",
+      "sha256": "00d9ebe5afa63836c11040fbb6d858052cb52b756fafa221cdf714e0b500548b",
+      "size": 34067
+    },
+    "library/CSC402/papers/CSC402 Seed 01 2026.pdf": {
+      "etag": "f0ab3f9fab0cba95124e8ef9cdafc419",
+      "sha256": "7634a101c25e5cb1ec331a2ff8e41da01137a8d71331bd49d6c603de58aa4e10",
+      "size": 239990
+    },
+    "library/CSC402/papers/CSC402 Seed 02 2026.docx": {
+      "etag": "f098f6df303d552ff0c70b5d2a7d16d8",
+      "sha256": "acb55a425dff04c7131be9557b71d6f0f13afa758e26ee2350404918141a4586",
+      "size": 33995
+    },
+    "library/CSC402/papers/CSC402 Seed 02 2026.pdf": {
+      "etag": "0eea553a0ef20228538230142d371564",
+      "sha256": "2565f928242f794c5f05d20c1cda6668755e667bace1414c6f6fee75aa13c1a4",
+      "size": 239540
+    },
+    "library/CSC402/papers/CSC402 Seed 03 2026.docx": {
+      "etag": "8c51fdb7edf3011083e65c0d5a35c34a",
+      "sha256": "f8e623ae24a1f59dea3ac6f8a5b35e650f8b45a9e8a5210dbae70dbb0a15f051",
+      "size": 34091
+    },
+    "library/CSC402/papers/CSC402 Seed 03 2026.pdf": {
+      "etag": "134434d1cb9bacf5b231b8310436663d",
+      "sha256": "c732b65a896bf157ca59e9d0169cd748275a82796063e76088f1edb2796d02d4",
+      "size": 241415
+    },
+    "library/CSC402/papers/CSC402 Seed 04 2026.docx": {
+      "etag": "aea069eb106e7c65104d0bd07b8f5de0",
+      "sha256": "b6692c043380dbe67f7f2c849e697fb9c1b6d89a113a825303306af2f77cd48a",
+      "size": 33921
+    },
+    "library/CSC402/papers/CSC402 Seed 04 2026.pdf": {
+      "etag": "e86ab6065d1010634f466bcfdb56f665",
+      "sha256": "34374306b2e1a564ea8be126a4ba7f9eb733b688250d311d0f2f2d3b77e5e0fc",
+      "size": 238463
+    },
+    "library/CSC402/papers/CSC402 Seed 05 2026.docx": {
+      "etag": "0a5056ac8c6824e4620ce464f3702de6",
+      "sha256": "901eff0ed7f79ed90fac317084f7f94edc8a296f7a159d27d07727ef3a8d0002",
+      "size": 34152
+    },
+    "library/CSC402/papers/CSC402 Seed 05 2026.pdf": {
+      "etag": "c6bcf09baa7793aca9ad94be61fe6126",
+      "sha256": "131af8b2046bf5fdf726778a6f58119a2a4bd1c2a8ea04649d9a8885e0ae7f47",
+      "size": 241332
+    },
+    "library/CSC402/papers/CSC402 Seed 06 2026.docx": {
+      "etag": "71200bc61c20594caa7bfbb4c1da390f",
+      "sha256": "67d1562dc538d784e3cbdd853348cd8a932f2d343d806b0ff76fe746fb82bf19",
+      "size": 33902
+    },
+    "library/CSC402/papers/CSC402 Seed 06 2026.pdf": {
+      "etag": "93c69bd97e052e42bda6a009ec9292b8",
+      "sha256": "566ea5fde97a2eeec0e7f10e3d145138add62a0c23f03d0356ba5bd12a6f675a",
+      "size": 235758
+    },
+    "library/CSC402/papers/CSC402 Seed 07 2026.docx": {
+      "etag": "7551f67ef3506343cc244da690d398ca",
+      "sha256": "0611144e1b1bad99b907a027179b5a4b7f52dd794c80ae4d9cab8f0a9cf42296",
+      "size": 34260
+    },
+    "library/CSC402/papers/CSC402 Seed 07 2026.pdf": {
+      "etag": "57ad10a4c29cd52f1674265017951805",
+      "sha256": "c1a75193eef4c60ba565fe8bf28536be6b757663caa74011717b43c1c0098a9f",
+      "size": 240808
+    },
+    "library/CSC402/papers/CSC402 Seed 08 2026.docx": {
+      "etag": "b95cbac8b7031c1bca5cd356f9b63a8b",
+      "sha256": "a436af31ac0fd533a5c9ff95578e537d9ae29e5ec4bc5eeab169453fd34aef6d",
+      "size": 34115
+    },
+    "library/CSC402/papers/CSC402 Seed 08 2026.pdf": {
+      "etag": "d5d4fd9346992f3cc2ff8430afc461e6",
+      "sha256": "d7c4e9a22047588ab007b9b352e36adaeffd93c9bd742b351ae126c294669c1a",
+      "size": 239998
+    },
+    "library/CSC402/papers/CSC402 Seed 09 2026.docx": {
+      "etag": "be31100339bc4919967c263203fbdf00",
+      "sha256": "a7214a79da39569ff1e57851e2f882b4e7cf0bb96ac5532a547996f128a8c71f",
+      "size": 34025
+    },
+    "library/CSC402/papers/CSC402 Seed 09 2026.pdf": {
+      "etag": "5bdbdefe22c6d5cf76add30dceb1663c",
+      "sha256": "2d2086b126b6834d8dffb64387ae06dda0d4d7cd45628bce2e0918e549da1ff7",
+      "size": 238690
+    },
+    "library/CSC402/papers/CSC402 Seed 10 2026.docx": {
+      "etag": "6663eb2f7475673b6812e6bce9aa0ee3",
+      "sha256": "5134c08faf7ebebd6cfe35f60336ce3d173919288393d704770b0bcb5432fe1a",
+      "size": 34057
+    },
+    "library/CSC402/papers/CSC402 Seed 10 2026.pdf": {
+      "etag": "1f8f2ddb87c38395962ba0749f9214c2",
+      "sha256": "9e653b7abb895a8819943b1efa3494a8acad86f8ca072e23a483318939f8cc99",
+      "size": 241281
+    },
+    "library/CSC402/papers/CSC402 Seed 11 2026.docx": {
+      "etag": "150c30b95678b4a35548ef6b68e8b9b9",
+      "sha256": "cabbdfc6d41c420ab99ee4004cb6374f9dac17d1bbe2252a8a4e5d11162df56b",
+      "size": 34160
+    },
+    "library/CSC402/papers/CSC402 Seed 11 2026.pdf": {
+      "etag": "0ac84c1cf2cfc6eeded277e79a8d401f",
+      "sha256": "840732f3055a65445a2cab56fa47a0477e9bc981519a8dce5f1473980b005d80",
+      "size": 242356
+    },
+    "library/CSC402/papers/CSC402 Seed 12 2026.docx": {
+      "etag": "542fda82f28df73e0e4a615766f76ae3",
+      "sha256": "5aef0c96f343c928f37d7c9be475b0e7f73b6e18be90842a5ad1010cfa0df6f8",
+      "size": 33939
+    },
+    "library/CSC402/papers/CSC402 Seed 12 2026.pdf": {
+      "etag": "b7a60646b62c96a5d7229f15db6a831d",
+      "sha256": "a41733b0256ecf4913b6758b7712610f6e144eef25d03e83e7fc3f88ef5c8d07",
+      "size": 239331
+    },
+    "library/CSC402/papers/CSC402 Seed 13 2026.docx": {
+      "etag": "fa1ef8f0af516b7710f8265bd3437b2d",
+      "sha256": "bcb9c093042a903d7f6f43c8188656e5bc6ca839ec20f42c8a45d73211e63e81",
+      "size": 34148
+    },
+    "library/CSC402/papers/CSC402 Seed 13 2026.pdf": {
+      "etag": "4479664fc167cbaed4bbaa4d0a279256",
+      "sha256": "368033ab3f258d41292d13abc2832cb42a714990084a4515168080bd7dcaba65",
+      "size": 240697
+    },
+    "library/CSC402/papers/CSC402 Seed 14 2026.docx": {
+      "etag": "f8443ad25d624280e17952c56cf0e7f4",
+      "sha256": "e946e57b3e75a629c5ab71d18ae649ca3587f8141fe73f04cea10edf0c554d97",
+      "size": 33981
+    },
+    "library/CSC402/papers/CSC402 Seed 14 2026.pdf": {
+      "etag": "73e9f6b48170f31352bac28c40a206a2",
+      "sha256": "8356c221e31fc0efa29845e7e7b03b75e277dee4acc14b222d2324cc4962930a",
+      "size": 237312
+    },
+    "library/CSC402/papers/CSC402 Seed 15 2026.docx": {
+      "etag": "fd9d4b1f7ff894ec77e3b053a59f4d06",
+      "sha256": "74b48ec0629c544b0f88c20db7dec7d2d908a3ea113bf8bb9525976c48e4af00",
+      "size": 34165
+    },
+    "library/CSC402/papers/CSC402 Seed 15 2026.pdf": {
+      "etag": "8f7a3ddd2b7ddb01c74ab66d57a33f0a",
+      "sha256": "7b70e5322355b4cd8eea9a00e915a5896bbeeab872b7634089e502f12c210fd2",
+      "size": 241386
+    },
+    "library/CSC402/papers/CSC402 Seed 16 2026.docx": {
+      "etag": "da2ff14f37328b31da2e3b98426823a1",
+      "sha256": "25b2cfee638890b704c7ac35f9a1a807531cb60551cde17c8f9066302e09d223",
+      "size": 34149
+    },
+    "library/CSC402/papers/CSC402 Seed 16 2026.pdf": {
+      "etag": "5e0acd0cecbc3d17eae22bbea3063de6",
+      "sha256": "dd7932c65a00cbd3f9750c8b02b2a9dcd5e333d065cde45d96788b1c79330f97",
+      "size": 240003
+    },
+    "library/CSC402/papers/CSC402 Seed 17 2026.docx": {
+      "etag": "4f309061ded6ee36bb169885b31c81cc",
+      "sha256": "3e0b954bece61d1e2bb4565453c35e6291fe59b02eb7f3ddd7c4a8594801cc4d",
+      "size": 34035
+    },
+    "library/CSC402/papers/CSC402 Seed 17 2026.pdf": {
+      "etag": "fafa3ec012e39a7bbe4b3c10184ff384",
+      "sha256": "1be6cd2c3c92de1cfd90a034cd3242e12603ea85891b0694fd9a9ea460b7f279",
+      "size": 239674
+    },
+    "library/CSC402/papers/CSC402 Seed 18 2026.docx": {
+      "etag": "db2a74b94c60ad79e93ad18e4a8c109a",
+      "sha256": "89bb092702ca30a637099767834fdba1bd976f9ec1a492278b91246eb8af2b37",
+      "size": 34030
+    },
+    "library/CSC402/papers/CSC402 Seed 18 2026.pdf": {
+      "etag": "56031b91383197e71f5d1e315b502054",
+      "sha256": "da69fc3d74623ac371be361b96861eae15aa51f290c31960d055babdb99af72f",
+      "size": 237523
+    },
+    "library/CSC402/papers/CSC402 Seed 19 2026.docx": {
+      "etag": "ad22f8f991af0b1dfc6475cd37dad432",
+      "sha256": "b2f3ed62cea045ad8a009ed94a955b819d0cc6762d7a119d8bfbf812f8441494",
+      "size": 34058
+    },
+    "library/CSC402/papers/CSC402 Seed 19 2026.pdf": {
+      "etag": "b97fa4e2107d282c3e09b274fbe714ec",
+      "sha256": "d0f9110d51a0210e33dc9dc079b60b18cb43362d5a64af2932a0c89b729e476e",
+      "size": 240942
+    },
+    "library/CSC402/papers/CSC402 Seed 20 2026.docx": {
+      "etag": "2ccd4aa10ca41c51fdccd0c1c18eeab4",
+      "sha256": "e08cb8783f0f8852f8215992dcbcddb2c946f1facafc2d0d7534e4a2f9898e56",
+      "size": 34051
+    },
+    "library/CSC402/papers/CSC402 Seed 20 2026.pdf": {
+      "etag": "8153eb8ad9171237699dfec9b94776ee",
+      "sha256": "c94c83ff396199c21e8dab3b8d03835faebd47cdf586355a0a00550b73b41cb2",
+      "size": 237488
+    },
+    "library/CSC402/schemes/CSC402 Seed 01 2026 - Marking Scheme.docx": {
+      "etag": "ae30499f19c94b169f18db30aaba88c0",
+      "sha256": "bf610752089828d264606e89c7eb03d791909dfa48763a27e52fc5f114d4d839",
+      "size": 36754
+    },
+    "library/CSC402/schemes/CSC402 Seed 01 2026 - Marking Scheme.pdf": {
+      "etag": "f9ab70d1b0b7ca6cfae7b512f86e0e46",
+      "sha256": "c9dc89bdb0637eb7bb30219621ea06285efdcd648ac7c91c834ac33c2f3f6ada",
+      "size": 287330
+    },
+    "library/CSC402/schemes/CSC402 Seed 02 2026 - Marking Scheme.docx": {
+      "etag": "a503b0feae0235ac83191ec7b0b85ad8",
+      "sha256": "0dbd19c654bcc4335cbde0d31f55dcc91ec52b43af8d50b5e60a28801bd403e8",
+      "size": 36571
+    },
+    "library/CSC402/schemes/CSC402 Seed 02 2026 - Marking Scheme.pdf": {
+      "etag": "9bb7f718f317058924cf8bd9fb28fa04",
+      "sha256": "a997703952730cb21163c88aadc59c2e004a035f38d35d6377f477574e7ecf5c",
+      "size": 284792
+    },
+    "library/CSC402/schemes/CSC402 Seed 03 2026 - Marking Scheme.docx": {
+      "etag": "09d4ba97d0a95f3e222d67d41abd39b1",
+      "sha256": "dfdd89eba811a8ef9b743a3bdfd0700333d2ffec5e9f1af60e8af082d6ff3472",
+      "size": 36697
+    },
+    "library/CSC402/schemes/CSC402 Seed 03 2026 - Marking Scheme.pdf": {
+      "etag": "379e54a9337af3ac0874ec1bb9556a42",
+      "sha256": "cc928f81e054f9b7dcbfd900776c2ae656a61581f134bdb83bf79431b573f57c",
+      "size": 288311
+    },
+    "library/CSC402/schemes/CSC402 Seed 04 2026 - Marking Scheme.docx": {
+      "etag": "771f44d54e3b682f2dda74f1b604f3de",
+      "sha256": "a749c97bfcd60081cb5d2575b264bb2d11ee402b6dbef7dea23481cd8be3d83d",
+      "size": 36601
+    },
+    "library/CSC402/schemes/CSC402 Seed 04 2026 - Marking Scheme.pdf": {
+      "etag": "454df364aad6fe040501fe0135d38137",
+      "sha256": "02549ff5fdc93cbde126785956a02925f70968fe46a83531bc85f4bd3a4694d4",
+      "size": 286728
+    },
+    "library/CSC402/schemes/CSC402 Seed 05 2026 - Marking Scheme.docx": {
+      "etag": "d08f0eb8fcbeb4c7eadda9202d1fb61c",
+      "sha256": "079306e835487457b792e0bf7a902b7ac92fd51a15401e4fd121cab54ca715d3",
+      "size": 36700
+    },
+    "library/CSC402/schemes/CSC402 Seed 05 2026 - Marking Scheme.pdf": {
+      "etag": "e1cf03fa70cac72d6acfb2dc42cf3fa8",
+      "sha256": "ddc5c09e9dfbc7fd52b1ec7b6106338e9d42ad6c94cdb5ea44b2b41a44deaca0",
+      "size": 287935
+    },
+    "library/CSC402/schemes/CSC402 Seed 06 2026 - Marking Scheme.docx": {
+      "etag": "af13fe27e5fa778e828cb9bf0806b385",
+      "sha256": "b20e45e3d8b9b920ed3afd982a2f63be9017a1bbdeffc98dc01a4e9949d255e5",
+      "size": 36614
+    },
+    "library/CSC402/schemes/CSC402 Seed 06 2026 - Marking Scheme.pdf": {
+      "etag": "497bc75edaee909a6976c7b22c449e73",
+      "sha256": "5dfb3937f057100419a18c9b677b636a9617cc72574affd853a6f8a1e29d4986",
+      "size": 285637
+    },
+    "library/CSC402/schemes/CSC402 Seed 07 2026 - Marking Scheme.docx": {
+      "etag": "86a93b13281fec952f1cbb452c01ac65",
+      "sha256": "e001398756bd3742375d7ef42a245cfbea2f17b212fd481e6e4e9da8da440cce",
+      "size": 36690
+    },
+    "library/CSC402/schemes/CSC402 Seed 07 2026 - Marking Scheme.pdf": {
+      "etag": "c95bcac7bac013d25c233675c909961a",
+      "sha256": "4198bffbb8290c94e9f89bdf66f9d2e448578d5ddaca7e0453d8fccad44f7624",
+      "size": 287668
+    },
+    "library/CSC402/schemes/CSC402 Seed 08 2026 - Marking Scheme.docx": {
+      "etag": "093ed7502ffe721577f40286c593b51f",
+      "sha256": "d2b7bcc383e78430694744ca6b3e6a497b539c4696b0ec8c84532896add4f43e",
+      "size": 36845
+    },
+    "library/CSC402/schemes/CSC402 Seed 08 2026 - Marking Scheme.pdf": {
+      "etag": "f56eb143d5d347eafb42fc4a8dfb1dcc",
+      "sha256": "fda42839895dadb910b0d9d507363889e8ddc5e8b2ef723798b573f7f8728d86",
+      "size": 288848
+    },
+    "library/CSC402/schemes/CSC402 Seed 09 2026 - Marking Scheme.docx": {
+      "etag": "21ed97423de78e6c52f5ab3e635ea487",
+      "sha256": "86997420b2cc505c026ff47cb47b95dc196bb71b5ed7d51da1c3bbaf63beb8fd",
+      "size": 36765
+    },
+    "library/CSC402/schemes/CSC402 Seed 09 2026 - Marking Scheme.pdf": {
+      "etag": "9183222a4fde95b5c1514c8927542a60",
+      "sha256": "f8f6e69295cfaae6b30199d3b0006105f525d258b333e442d699345b8585794e",
+      "size": 287649
+    },
+    "library/CSC402/schemes/CSC402 Seed 10 2026 - Marking Scheme.docx": {
+      "etag": "6f4bf603b4e60d57ad0a1ca6a599c32f",
+      "sha256": "b1757a15dd99acbd7963c8efed7b4aacf0f14b98101f23697e7955b6155d2fe1",
+      "size": 36508
+    },
+    "library/CSC402/schemes/CSC402 Seed 10 2026 - Marking Scheme.pdf": {
+      "etag": "5f98c5a0cae1b4575e7e2b919fec886f",
+      "sha256": "8596246389c6ed02f184cf7f0f2764e916a3060394c0c6f9598fc6093d5692c4",
+      "size": 285453
+    },
+    "library/CSC402/schemes/CSC402 Seed 11 2026 - Marking Scheme.docx": {
+      "etag": "401c7f75918d66dcae989b354ff6ca1a",
+      "sha256": "cbbb5e79641a91cb3161452384cb60a1a20b07764a03ce894cafa8b1c1f0de85",
+      "size": 36873
+    },
+    "library/CSC402/schemes/CSC402 Seed 11 2026 - Marking Scheme.pdf": {
+      "etag": "4d68d70cba71f41f17111cda34501b91",
+      "sha256": "06e0238d0f2b20288373b073d3683fbc253eb72888220fb786e88e9866b5d583",
+      "size": 289058
+    },
+    "library/CSC402/schemes/CSC402 Seed 12 2026 - Marking Scheme.docx": {
+      "etag": "3253f2973764b8abff4f93470d789717",
+      "sha256": "83f01887b9795cf6fb2ec532b0649af6491438c523ab3590944157d6ca5e06f4",
+      "size": 36647
+    },
+    "library/CSC402/schemes/CSC402 Seed 12 2026 - Marking Scheme.pdf": {
+      "etag": "941ff6dbe5e10fb95f90f9f3599db21f",
+      "sha256": "1e3d642fe8e5cb206f851efbb62ebb3f0272518df833b482c1beee31a18bdaf4",
+      "size": 286099
+    },
+    "library/CSC402/schemes/CSC402 Seed 13 2026 - Marking Scheme.docx": {
+      "etag": "d48f6ef19b0faea282faa853661e05ea",
+      "sha256": "a9ce90d9c406c1cb049564bbf4151f2f6bb87628fdcb7a215553bc1624e3814a",
+      "size": 36837
+    },
+    "library/CSC402/schemes/CSC402 Seed 13 2026 - Marking Scheme.pdf": {
+      "etag": "27992eb2b7b71d4f0ff5d4932c44a5be",
+      "sha256": "04a440dfc36ae8791401684fd3667786150af8efce8e05e165b1eaa177fdb596",
+      "size": 287328
+    },
+    "library/CSC402/schemes/CSC402 Seed 14 2026 - Marking Scheme.docx": {
+      "etag": "4303680fea3b7c26d83bb84ac4b79246",
+      "sha256": "1781d4009c3ee2326a9d1c14057625b2275054193bc114a45500a654096e4dd6",
+      "size": 36534
+    },
+    "library/CSC402/schemes/CSC402 Seed 14 2026 - Marking Scheme.pdf": {
+      "etag": "71250a078c2b5421ea00f1636af8128b",
+      "sha256": "48f7868a2d55f19b98e3eec9e6b797cfe5897195c1c865c2670bfe8b13f8ff58",
+      "size": 285173
+    },
+    "library/CSC402/schemes/CSC402 Seed 15 2026 - Marking Scheme.docx": {
+      "etag": "a90286c0bf83829043c46a458dd883ee",
+      "sha256": "38c3aac1bd977c99abd80cf7f0109fb62df7ac0bc168e89185127f2f6f020bd2",
+      "size": 36905
+    },
+    "library/CSC402/schemes/CSC402 Seed 15 2026 - Marking Scheme.pdf": {
+      "etag": "af424c1c44298cfb6eac810cbf2d1175",
+      "sha256": "3b7376ce5159fb63484fe3d7a2deaec93c18b7ec3c09f9c84ad3e959fb678b6a",
+      "size": 288305
+    },
+    "library/CSC402/schemes/CSC402 Seed 16 2026 - Marking Scheme.docx": {
+      "etag": "a08d30107978dcf7516143dc751b8adf",
+      "sha256": "c845146e2b4ab125e36a12798eb9c243d6f8a8fc485e590bb9534a8ab6c11fd2",
+      "size": 36767
+    },
+    "library/CSC402/schemes/CSC402 Seed 16 2026 - Marking Scheme.pdf": {
+      "etag": "555eddc5d4069d592c1097b94ec31c59",
+      "sha256": "f893c495255ad8520998f5b4d7f8ab5138c988f394b75f03433c3dcce9a7c2b9",
+      "size": 289272
+    },
+    "library/CSC402/schemes/CSC402 Seed 17 2026 - Marking Scheme.docx": {
+      "etag": "ce4836f5a8a63ad04b070b368cda787e",
+      "sha256": "d4fb9f2956af61902361f97ee3ed79c8f855b2b25bf95804a6e6c2bc67ed493a",
+      "size": 36854
+    },
+    "library/CSC402/schemes/CSC402 Seed 17 2026 - Marking Scheme.pdf": {
+      "etag": "755f27dc51e10ebd815cdedda41840d6",
+      "sha256": "f9635e655093c3ee9e24a093fb44dd310ea13f1bb14f72857c3d160e2eb4191c",
+      "size": 287357
+    },
+    "library/CSC402/schemes/CSC402 Seed 18 2026 - Marking Scheme.docx": {
+      "etag": "897155353a75329bfbbf4fbf17690efc",
+      "sha256": "59b4d396a2ead52d63cf49821952f82a6a1d583707f687bfb001130e631bf652",
+      "size": 36544
+    },
+    "library/CSC402/schemes/CSC402 Seed 18 2026 - Marking Scheme.pdf": {
+      "etag": "7431da03d8ca544dc2b305560385b9d9",
+      "sha256": "b65c9c886d8ff757901ecb805bdbdd5a2b69278940616001a8892c911d933e16",
+      "size": 283822
+    },
+    "library/CSC402/schemes/CSC402 Seed 19 2026 - Marking Scheme.docx": {
+      "etag": "2949bb4f3ba184b6fef3f0fe4a7de64a",
+      "sha256": "9a361d50ca1f7cf2b777d75ac5a87bc75b83a90aeb493d8c8782bb39a0842cee",
+      "size": 36855
+    },
+    "library/CSC402/schemes/CSC402 Seed 19 2026 - Marking Scheme.pdf": {
+      "etag": "519b98a95cca3fd1bdad764dd6799db2",
+      "sha256": "4c6856b71f536c3bb651ecc1cf90540db242bc41e594f7419ecbfdc84551a560",
+      "size": 289671
+    },
+    "library/CSC402/schemes/CSC402 Seed 20 2026 - Marking Scheme.docx": {
+      "etag": "a88c94c3abea33a466cc5e628d41e39c",
+      "sha256": "c0b6c651d9cf4bc94b5631cdb22b7848a174dab16e43fdb0db470d679a7947e1",
+      "size": 36854
+    },
+    "library/CSC402/schemes/CSC402 Seed 20 2026 - Marking Scheme.pdf": {
+      "etag": "1516705c87b0ed7c30ee02c82d154123",
+      "sha256": "ef64b8e58d6bae29d2071c2a9f223291ce64f318d6f3a861f52471565518e05a",
+      "size": 289151
     },
     "library/CSC662/manifest.json": {
       "etag": "e498c589b3f8d1a5ee1ce84b708ff93a",
@@ -859,9 +1279,9 @@
       "size": 500907
     },
     "library/manifest.json": {
-      "etag": "91ea917be08550d368a37c84af35e9b6",
-      "sha256": "df037f66c8737271786b27b75f99e5e78adaa8893f49e245ed8882f9036f7a20",
-      "size": 7286
+      "etag": "ca5ff946f71ca523974fbbba31fea36c",
+      "sha256": "07ead0b76ebcade5c838cf559cef2876c811206f980524c0b779c896677479e0",
+      "size": 7256
     },
     "mat133/generate/index.html": {
       "etag": "33cde8e9b46940a92afc9a5556991b28",
@@ -879,234 +1299,239 @@
       "size": 43216
     },
     "paused/index.html": {
-      "etag": "f6d5ef066d439266d3f7930f7be97945",
-      "sha256": "c87468eea556931735ce04798927dc5142e5506047466c7d89bc24d00b52c38c",
-      "size": 2092
+      "etag": "22f610ea1ff63afc27279a645b96c8e7",
+      "sha256": "def1d8369772da2dec9c02a6ff281e131835aa84d98d3248c13d6f15e3a4eba5",
+      "size": 2167
     },
     "static/gallery-shell.html": {
-      "etag": "6cfad71774ed94fe9c71893ef09c00e5",
-      "sha256": "9afe2da61a101e150a546d3d5f4ee17d73593f53a57129f4e60e01899394975c",
-      "size": 2998
+      "etag": "8893fc363fd422d21235a00e0ed3f0cf",
+      "sha256": "0b625364ae69a954207f63cd29ed23a4300cc34df827a3f57e058dbb70daba58",
+      "size": 3073
+    },
+    "subjects.json": {
+      "etag": "30445b39da25fb6d23ba378fd4487bb6",
+      "sha256": "ba5ef6cfda57c5d4fa32b0247bc6478553522b723fb32a210db97660e8157739",
+      "size": 11942
     },
     "subjects/CSC402/subject.json": {
-      "etag": "9336689465ef5c6663d2611cd3425b0d",
-      "sha256": "7d57162c1c5f98130bbb410376ed47fb13f7cc2c656d0798c9a295d5f4c8b8c5",
-      "size": 258
+      "etag": "b61175411cb79a9ddc70aedc28ba20ef",
+      "sha256": "3a25fe0d08963cf1ff06b74b9433317dca1ce3adefa745c0b121f71bc22299f5",
+      "size": 821
     },
     "subjects/CSC404/subject.json": {
-      "etag": "749c05885b73de5382dd986b5b9b8074",
-      "sha256": "6e7bf8c06ffb4a3184de246258bbad7b90397dc1457025bb27f491841485b84e",
-      "size": 260
+      "etag": "59a835b20c60c892420d86b6ff8f1f8f",
+      "sha256": "6d3ca74bae373f3eea84e7e52f57d607083ce958e3a1493922a32657d0244264",
+      "size": 642
     },
     "subjects/CSC413/subject.json": {
-      "etag": "6293024809cc4743ed8b90727da8d2bf",
-      "sha256": "cf664b68fccb8b37f5c11b981044a20717a391b21e9cf808eabc38931c293d40",
-      "size": 308
+      "etag": "9ebc59e14553eb0b03a778b4ef743613",
+      "sha256": "44b86fc6cbab26483bd65e6d5176461742a37be21ce6a544d1adcfbd1754cf49",
+      "size": 690
     },
     "subjects/CSC429/subject.json": {
-      "etag": "0ece004ee17cbc494b5bb04dcaeda0c0",
-      "sha256": "7c9cac547033d086c562ea7517b243b8fe897c298a10704414db20099015fa24",
-      "size": 308
+      "etag": "1f03c09cd84bf183499240f0851bc1db",
+      "sha256": "5279d8a45d7581a6b90a57946ec3dc72a3f425ae3cabd37f782faf1cd3155808",
+      "size": 690
     },
     "subjects/CSC435/subject.json": {
-      "etag": "3488b6dc9cc2653254a6946c3b2824a7",
-      "sha256": "19e129f0aa4518daafce70457c1d57071f8e82bbf22a44bdadb4ead99afcce97",
-      "size": 287
+      "etag": "ffecd5044d4abf7f6029bdbbc3172fcd",
+      "sha256": "a08a97340d8fbdab898c4bda82b4ac44814ee5011699f09921f5282b7d9ea97b",
+      "size": 669
     },
     "subjects/CSC508/subject.json": {
-      "etag": "ede54dca4acfeadcb815d1aeb46dc402",
-      "sha256": "9434bc89791243cf4a046cf596787273e65e3ef1ad5d28a1a17f4e3ff8e982e5",
-      "size": 263
+      "etag": "5d19e2ca9e3378befeb2f7768fa05797",
+      "sha256": "9763987958393619f0c796c8649f2668b893f71b1b9cb92caea02bb1b4f42a7f",
+      "size": 645
     },
     "subjects/CSC510/subject.json": {
-      "etag": "88f1672a889bd5decc3bdf55277949f9",
-      "sha256": "1114e97136a30ef6f9b15d7425b755e78ab75fa73fd31031a0229b853966e237",
-      "size": 271
+      "etag": "b5e0c5996bc59422a2741b1555ae96a1",
+      "sha256": "7741bbb734e117a90676860f2e1dd7fdda59107111a38d0098269c9ee46bfe8e",
+      "size": 653
     },
     "subjects/CSC520/subject.json": {
-      "etag": "7eb2de33474c0ee5070684f29087db55",
-      "sha256": "3813b70d0e7140b4f59ba972bd77e58637f7ae889fffe0061be096b6550421bc",
-      "size": 295
+      "etag": "4c234c084d314106d0cfafe7ced6a8fe",
+      "sha256": "3dae480a0ba072e93ebd16580ff4199581dadc56aa1630ec148cea00710a7459",
+      "size": 677
     },
     "subjects/CSC562/subject.json": {
-      "etag": "e2708b019fd042ebef8b346b560a0d67",
-      "sha256": "bcef549f6e23f0603ed3e286b8716a77c73a1908a0f68f00e0d782a0c4c3d244",
-      "size": 325
+      "etag": "5c0b1fed20dcca448dc617d942440924",
+      "sha256": "88a920712c43ae73ad396756bc7b249a29c627421ba75b7887a1db47e4be8b5d",
+      "size": 707
     },
     "subjects/CSC569/subject.json": {
-      "etag": "b8283f48d2b921d37174ad1022b66d52",
-      "sha256": "b5a0009951b949c2f9b2a2c3e641eaf52f67eeda2fa658c08a3cf7cf0197cf20",
-      "size": 279
+      "etag": "30fd31f9a6b1a651c0a47178ca7f632a",
+      "sha256": "0ad8eaf7d934aaf25404b126d8992f96819a9317a6634ac643c7a5c123316a7b",
+      "size": 661
     },
     "subjects/CSC575/subject.json": {
-      "etag": "3b0f59ae44b74edbab9acff370fd57dd",
-      "sha256": "6d26b4c44e0a24979868fda3ecdda8c5b4e8b37ad44ce625ece85ba47b070ccd",
-      "size": 287
+      "etag": "8c4fda4096405047cf51bb4a9de881fe",
+      "sha256": "7f833785b20dab34619c710127c4c7ec498d42e95fd0328ffcde16301cff024b",
+      "size": 669
     },
     "subjects/CSC577/subject.json": {
-      "etag": "3025dba7f10a9d65e7ffb52b6f3f60b1",
-      "sha256": "ad01e94225be6e662a273be93b53935e303a40147d97b77fdcfcae2a2677e7b3",
-      "size": 325
+      "etag": "44f860c26603db91307d3da1380e0efc",
+      "sha256": "110414f448a89ee93358de33a2cc669f7c3b3b47e9b9c141df172e65cc3191a4",
+      "size": 707
     },
     "subjects/CSC580/subject.json": {
-      "etag": "36aa2afb74b9aa48e7a8a1803a24b7d1",
-      "sha256": "5900c04ac9a36936135dc28be4e41a372ededfc82899bbce732f40596af08853",
-      "size": 271
+      "etag": "b1faee5659ac2200038117730d0f6588",
+      "sha256": "88327bdec9a0cba1c31a0eea477bd711b319ce3e066f3c38284ba2cb943d6744",
+      "size": 653
     },
     "subjects/CSC583/subject.json": {
-      "etag": "8460564abd1ca6398adc7228d003c286",
-      "sha256": "c700cacdc4dec72a594e50ef3a45d316ffc47ee550c2b5d5e7f937aea3a36b66",
-      "size": 301
+      "etag": "7d8874653f1ab09556a4a9ce746f677b",
+      "sha256": "abb0dd0a9839b7d11962fddc686abea992d070be8ae7755290a2c1810aa161ae",
+      "size": 683
     },
     "subjects/CSC584/subject.json": {
-      "etag": "682eacfa6887b2512acb3b5553d605dc",
-      "sha256": "90a747e34d6d47229f8a5bdf355b41dbc9c7cacf7386cc0d00e7b43afc1007c5",
-      "size": 277
+      "etag": "26a447aea4874f12e26f4eb9013c133a",
+      "sha256": "76ca97c18a8b5ca0ed7577eb5626f81623e4dbf1f24cb5502a70dba6c1045d62",
+      "size": 659
     },
     "subjects/CSC645/subject.json": {
-      "etag": "13bcb91480f58731ac399afc0cd06718",
-      "sha256": "9c483e9529fdfc37681ab8ab9b7042778bd2e1a5f33617e9a6858e390b30793a",
-      "size": 291
+      "etag": "35c4a2fab07955472a5535f12885adbe",
+      "sha256": "4c658a76265ebb1551668f5320bc79d7fc35526a1ef8a8c8eb568adb7f5917fa",
+      "size": 673
     },
     "subjects/CSC649/subject.json": {
-      "etag": "82ee7887d98fc5b8b604183e8b458536",
-      "sha256": "9be34d85ba03dfd85817e8fa5d6b6beef94bd52a7a5766122eaa0c7d558b4e10",
-      "size": 301
+      "etag": "b4e4b9a58c7b818760905417c8e3e9f3",
+      "sha256": "89233c0570612f092e03eaac707f1e20906ccf7c1a15f194261ec32d9fd011d8",
+      "size": 683
     },
     "subjects/CSC662/subject.json": {
-      "etag": "f1fa498f534cf58bcfc895d76946c0f9",
-      "sha256": "8502fc3173607765c75df071d01fb2ad8f4c24687baa6b63a87e932cd81756f8",
-      "size": 562
+      "etag": "fc66e57b107eca697d0081c73f41bc70",
+      "sha256": "7d81c3e3f27a2b6ad9bf6ac97b946d779be604ced161033f58e9249ec7b83d72",
+      "size": 781
     },
     "subjects/CSC683/subject.json": {
-      "etag": "385a9b09908d1295cb73e2ea7cf23096",
-      "sha256": "54594ca92e18d4baa2714e271158d073003f9871734c87a64cb4c7a5ef8738d9",
-      "size": 287
+      "etag": "ea5a18ec461a3469b97d1c8bcfc75f06",
+      "sha256": "b44c7af8ffb7a6ce8ac274d1148a6ac24cea8e9a225b6e3413997483c66402e8",
+      "size": 669
     },
     "subjects/CSP600/subject.json": {
-      "etag": "68c045cb13d37c2c8f52191eeef1912e",
-      "sha256": "8e682eb87e70791ec0b15fc32364f9b8498cd017913991dcf94e901cf376ccf4",
-      "size": 271
+      "etag": "698068618c1dfabcee6e61e68d3cb609",
+      "sha256": "07532cf907030ddc6f76e64cd1e6af6a08d9929d586b70f133b29964b0393833",
+      "size": 653
     },
     "subjects/CSP650/subject.json": {
-      "etag": "395495703f540fae6ee806edabe553f4",
-      "sha256": "d1b7f0d94352f7a7836a0ad35f31ebe1dd34b092ba7806c14f355c5b7215c184",
-      "size": 247
+      "etag": "da499865094138fdaf606b92573f5828",
+      "sha256": "12797cac9746f6119e426abaaf3b0c9fd5fe95e4229a37a8a8440e0d5ef2fdec",
+      "size": 629
     },
     "subjects/CST688/subject.json": {
-      "etag": "ee3c1763e1a9232a73611570d1eb96d4",
-      "sha256": "0814ad55ac60cb300838c19d8e96eae39df339c03201dfb335fdf5c714190766",
-      "size": 307
+      "etag": "7778dc0d6f4dcae73f3c4fde80edc9d3",
+      "sha256": "00ae1f62a5b2749d019aab1c459c77f37ed6ec96af740ec396cbb064433c1155",
+      "size": 689
     },
     "subjects/CTU552/subject.json": {
-      "etag": "d1bb633c59a798e6bc4f68ddf9de12ab",
-      "sha256": "11f90f90dd584242f37f83b3cf9111f16f36cd0a2b20341d3783d8b238bbb401",
-      "size": 290
+      "etag": "85039069cf26a620f77cac746c660d8f",
+      "sha256": "18e1f809cb9a22afc079b5571bfefdf38abef13c0a44777b750170a565bac051",
+      "size": 672
     },
     "subjects/CTU554/subject.json": {
-      "etag": "69e18f847bd38c2bef0a3bc88a947bbe",
-      "sha256": "2915100bae8fd600579d62284406f998077018f17613af6ce33492d3c1529e84",
-      "size": 284
+      "etag": "2e32997eccba36e020282063750909b6",
+      "sha256": "d0808a5cd6058f1f1c6d5b7373653997dab92187bd1e942792935f036f6cbdf6",
+      "size": 666
     },
     "subjects/EET699/subject.json": {
-      "etag": "d13e8df1b5b6ce5b12ab2112a5f01467",
-      "sha256": "1fed716cbf3aa2a77c2f4baffc23ba791771b8ae1f4fcca71b69e12a572afe7e",
-      "size": 267
+      "etag": "45d47971cfe1c5e97c65197885da8d7e",
+      "sha256": "24925643e06762d69d44d6c3e57c9fc2ba625f190ac40af5d42dbbf544cbef5d",
+      "size": 649
     },
     "subjects/ENT600/subject.json": {
-      "etag": "0a1c9fa8df5cc425dfd1fcd5a7f32994",
-      "sha256": "7b59d50ad0a56093bb772d5df7b858d06e6e41eb496487cd9d7ed970f59b5574",
-      "size": 287
+      "etag": "9357da497140e2d40767059327729891",
+      "sha256": "ea7778039c8a1cfc935f92f60cc836ca678f0cc5059761c544a2e456cfbc323f",
+      "size": 669
     },
     "subjects/HBU111/subject.json": {
-      "etag": "1620f60e023ee808f565557dc3519f90",
-      "sha256": "0faf6d4d8572337f789db8d8e3af6eafa2ffd2e4fb414eb29c0e26b5df14078b",
-      "size": 270
+      "etag": "7ff55d93f84c0e496d017ea542349100",
+      "sha256": "80ab8075062fdae3140a3c5fc701747f609425d4846f99fcebf036b73a640973",
+      "size": 652
     },
     "subjects/HBU121/subject.json": {
-      "etag": "99ed59c0dd307a5130a0304f2bcc08d0",
-      "sha256": "31baee6c6f61cf91ecc2d1127ca6d35aa35d3bef6fab3276a9380943279174e6",
-      "size": 273
+      "etag": "18deaec4f09b5e39e792f3f3a243690e",
+      "sha256": "58c9e955808e53798864e5fc32eb6b3c8301bd967809adb19551ef989717731a",
+      "size": 655
     },
     "subjects/HBU131/subject.json": {
-      "etag": "d4a3588bb7ea1f2787b10fd533a18959",
-      "sha256": "3ebdca1e57163b1b3022f1ebe327c3ae6ae9238d6a7657f7c8a80e0de28da546",
-      "size": 275
+      "etag": "a063e79fc31d3d86391c052015b47315",
+      "sha256": "9480e023aca7a71acd541f3564ace69f1a0516a192946e642de6ba06dd20aa5f",
+      "size": 657
     },
     "subjects/ICT450/subject.json": {
-      "etag": "a70b0699fd118c533bf6272d13dd74c4",
-      "sha256": "16770f40a99cceca3a027b75d2e8c3b77d90eaa08a8ace8de4e9e34178fc8303",
-      "size": 294
+      "etag": "f50514ccb18867545bfbf9905e695d5a",
+      "sha256": "bd45709368461c00055612158d46148e9e4779208f52fe2f07d5ec33ddef0f01",
+      "size": 676
     },
     "subjects/ICT502/subject.json": {
-      "etag": "329b541c3a938b27112604f4f815f2da",
-      "sha256": "7a656c322bd650051748f211a005ca17071b96cb6bc80fb06f98b12eb1718204",
-      "size": 273
+      "etag": "43a717d666120adc566e6b6d25d79bce",
+      "sha256": "11a506e04cf498a1ca2aef4e456f5eca63bbc527546d075e9ce097e184f03e9c",
+      "size": 655
     },
     "subjects/ICT652/subject.json": {
-      "etag": "4789f6f38804b08976579a75beb4c3b4",
-      "sha256": "75baf57858274b1fb2672092953c5060826766d91b4e5345433805fcd9ed32a5",
-      "size": 327
+      "etag": "de00bdcf4b5c68c61e8ab4a1696f51b6",
+      "sha256": "dc2abeefcb62a0c2c5e4e8acda2cb6bf25fccc56df99e3fd155d292219fafdc8",
+      "size": 709
     },
     "subjects/ITT400/subject.json": {
-      "etag": "a2190eca8aa9b0aacc079af2ca85d15f",
-      "sha256": "49d8240bfaa439ec5ac6b3a845db200825e50c41e3d4d5b7b4658f7c0fdafaa2",
-      "size": 331
+      "etag": "b74cd4caae6af7dc37c63ab01503802b",
+      "sha256": "939dae33bc86b38507f50bee266baa98f8259963fed97f1acd38fb4445ee7649",
+      "size": 713
     },
     "subjects/LCC401/subject.json": {
-      "etag": "9ce612c878a6fa8cf774b38c7c25566c",
-      "sha256": "d40be508085937fca6a9401ec5509aa7526deac80cd8cac6114b5cef1974dba2",
-      "size": 287
+      "etag": "0b27eb9f2ce5eee5d95a99d2f3dad2a7",
+      "sha256": "9806983f28d1ab811cfaf9c02e0088be506220a2e61aa89a40e22a03e0e5519a",
+      "size": 669
     },
     "subjects/LCC500/subject.json": {
-      "etag": "3b6df5bbf3604af1cc2c6f85c8f813a7",
-      "sha256": "5c2b2dcf46ed191435c79bea94146526f5fe5ea180a8322c8d6bded9b70c9b88",
-      "size": 303
+      "etag": "b4974bba070041dec1a5245eee6b0ed6",
+      "sha256": "da38e4263087fd11b4678a0920d8814132d39b126a4cf3c15a2a4f11e5c54acc",
+      "size": 685
     },
     "subjects/MAT133/subject.json": {
-      "etag": "0f06e1d03eff2e00b64be31588341b45",
-      "sha256": "a3fec2c890de498b0a025b02e3f072b675b03bb92b6538a6d0dbb0c59d07c69b",
-      "size": 2412
+      "etag": "31c230bdfce41eac7604eda446f7c412",
+      "sha256": "fd63fdcfabda4676db04813f51d371ccd866f375a998ea7e7e94dcdc01056a9a",
+      "size": 2629
     },
     "subjects/MAT406/subject.json": {
-      "etag": "c250919f529f38c76aa5d0a3f980f462",
-      "sha256": "c116cd46ceade0d7c432ca866a415bad7faf0a30e903985b5464c83fb9ffebec",
-      "size": 276
+      "etag": "e6fbbe7b67a2995c9855b5777a1338c2",
+      "sha256": "e15dae14f1fc92b7f34f0fc275cb824ddaff8e7e2de1d1dc51e6ec1751cba665",
+      "size": 658
     },
     "subjects/MAT421/subject.json": {
-      "etag": "dfe1bce78657e127bcfb5b6cb21f71f2",
-      "sha256": "d29bf304c7177909a3f63991e3e308eccecfb8a71ac6e9b9cc664f890d74c335",
-      "size": 253
+      "etag": "8b6ec409c5766b5b255e3f42536f9c47",
+      "sha256": "c604e987d7f16119477f3d3d27d16a8c2c7b8f1e935a000b031cc15c73798e60",
+      "size": 635
     },
     "subjects/MAT423/subject.json": {
-      "etag": "89e8faa2453d6b12e8d1c2398634925f",
-      "sha256": "e66206abc8721a7e98c9303a536f67957e776f2ea7b0171dc02a21ef7dc2a72e",
-      "size": 265
+      "etag": "20b32e80b7ab7ecd6f442494071a6fa8",
+      "sha256": "f3bebc8649d97756a1e647fd721a2c9cfbedbe408faa0b9c84d5cea1d596b7b3",
+      "size": 647
     },
     "subjects/STA404/subject.json": {
-      "etag": "a6bc908aa69cc78aba6a94180dc8587c",
-      "sha256": "ebdac1f97a41fbfcb8bbc3cd7da2a72367e8b630de4e28f8f14c87fc8fccc4e2",
-      "size": 319
+      "etag": "a005eba7d9e48899e9a9a7363ca987d2",
+      "sha256": "0f3de2963cb394a58151b1e7f86f5ade2d51b57364a37c0e3c050d32a0a65b4f",
+      "size": 701
     },
     "subjects/STA416/subject.json": {
-      "etag": "28588f4856e2e1d8351b7525937e9b8c",
-      "sha256": "de84fdf2b06452b63586ae4c746281309c81de166eb294c074667309044e8b02",
-      "size": 301
+      "etag": "a04b4aedebb8bfa7a0778b530a61569d",
+      "sha256": "67e8dbef5a668c7cead3dbff172113e86b93eedb4529e968ef09eec18825fcfe",
+      "size": 683
     },
     "subjects/TMC401/subject.json": {
-      "etag": "90f5fd6e8fb839d0e919f1d0ac492dfe",
-      "sha256": "7bc996782357218dbf65b94e26d5e8dc382a4d08f2bb70c6be6d50411288aa3e",
-      "size": 295
+      "etag": "fec43d26d6d7dcf7125a7a93eb3da5f7",
+      "sha256": "93cbdfdbd6549cdc85bfa347fa4bbf955fd3bfa624d458cd361cd45821c2d49a",
+      "size": 677
     },
     "subjects/TMC451/subject.json": {
-      "etag": "0a57701e9165aece300674dcf6756cbb",
-      "sha256": "a9acba1e321bbb80a38ad6e8372051b39433529bed0410fb3b0c6faf96534f3d",
-      "size": 297
+      "etag": "cc6e18cdaefd407bbc338aef36da6af5",
+      "sha256": "34aa73051a6dd5052946f3d189125667ce1087cfa6fa6b1443021d1ab18bda4b",
+      "size": 679
     },
     "subjects/TMC501/subject.json": {
-      "etag": "fcf7f1527026a0bbbf0e08479afcc1de",
-      "sha256": "3260c567a70e1d5eb13639bce0c2d16d8afa95100ef95f8cd5ce56b73172315d",
-      "size": 299
+      "etag": "22807333d567f6a2975441c4c468c152",
+      "sha256": "6a637f2ddc5d415dfbda9a41cdea9c58c66a508fbd8b09dfb5e131bb59a91730",
+      "size": 681
     }
   }
 }

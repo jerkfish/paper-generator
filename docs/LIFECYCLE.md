@@ -1,119 +1,135 @@
 # Project lifecycle
 
-Current public deployment: **https://uitmpapergen.download** (library-only).
+Last updated: **2026-11-04**
 
-The public site does not run Python and does not generate papers. Generation
-happens locally; the public bundle is built from the local cache and uploaded
-to R2. The Worker serves the bundle and a small D1-backed gallery.
+Public site: **https://uitmpapergen.download** (library-only).
 
-## 1. Local generation (CSC662 today)
+Generation runs locally. The public site has no Python process, no API key and
+no live generation; it serves a prebuilt bundle from R2 through a Cloudflare
+Worker. The Worker also provides a small D1-backed gallery.
 
-1. **Inputs stay read-only**
-   - Original papers: `CSC662/`
-   - Working copies: `data/papers/<SUBJECT>/`
-   - Lecture decks: `data/lecturedecks/CSC662/` (falls back to
-     `CSC662_DECKS_DIR` or `~/Desktop/CSC662` while the folder is empty)
-   - Template: `data/reference/CSC662/CSC662 FEBRUARY 2026-raw docx.docx`
-
-2. **Plan the paper**
-   - The planner reads the question log/fingerprint and builds 24 slots
-     (A1-A10, B1, B2).
-   - Realistic mode uses the observed topic distribution; practice mode uses
-     requested computed marks N.
-   - Computed slots use the subject's generator plugins (Vigenere, ACM,
-     columnar, rail fence, OTP, Caesar for CSC662).
-
-3. **Draft and verify theory questions**
-   - The theory module retrieves lecture chunks with BM25.
-   - The LLM drafts grounded questions and marking points.
-   - Verification checks source overlap, entailment, near-copy against the
-     35 past papers, topic/deck allow-lists, and style confidence.
-   - Unresolved slots remain visible placeholders, not invented answers.
-
-4. **Build paper and scheme**
-   - Paper: the subject template, original local-build cover, computed
-     questions (including the Vigenere tableau where needed).
-   - Scheme: computed working, supported theory points, citations; public
-     schemes omit verbatim slide quotes.
-   - Word COM exports PDF; scheme table geometry and margins are QA checked in
-     Word and LibreOffice.
-
-5. **Cache**
-   - Result goes to `outputs/web_cache/CSC662/<config-hash>/`.
-   - `meta.json` stores seed, mode, computed marks, year, topic marks,
-     accepted/placeholder counts, file paths and a config hash.
-   - The same subject + mode + seed + config hash returns instantly with no LLM
-     call.
-
-Commands:
+Stage definitions, evidence rules and [HUMAN] gates live in
+`docs/SUBJECT_PLAYBOOK.md`. Per-subject progress lives in
+`subjects/<CODE>/lifecycle_state.json`; query it with:
 
 ```bash
-uv run python -m src.app.main
-# open http://127.0.0.1:8000/csc662/generate
-
-# rebuild the 20-seed Library without LLM calls
-uv run python -m src.app.prebuild_library --seeds 1-20 --subject CSC662
+uv run python -m scripts.lifecycle_status <CODE>
 ```
 
-### MAT133 local generation
+## Current state
 
-MAT133 has no lecture decks and no theory module. Its planner is
-`src/mat133/planner.py`:
+| Subject | Type | Local generation | Public |
+|---|---|---|---|
+| **CSC402** Programming I | B | Deterministic plugin; 20-seed private Library | **Not published**; stage 9 pending |
+| **CSC662** Computer Security | A | LLM theory plus deterministic computed generators; 20-seed Library | Published |
+| **MAT133** Pre-Calculus | B | Deterministic paper-derived generators; 20-seed Library | Published |
 
-- five questions: inequalities/absolute value; functions/coordinate geometry;
-  complex numbers/algebra; systems/coordinate geometry; trigonometry/geometry;
-- 15 parts, 64-72 marks, all deterministic from the seed;
-- diagrams and LaTeX working come from the 57 generator plugins;
-- no API key and no LLM call.
+- The registry has 44 subjects: 3 `available` and 41 `coming_soon` curriculum
+  stubs.
+- CSC402 stages 0-8 are approved and complete. Stage 9 (publication) is a hard
+  stop; no CSC402 papers, downloads or Library route are published. The public
+  bundle only carries the `coming_soon` registry stub.
+- CSC402's publication permission is `allowed: false` in
+  `subjects/CSC402/subject.json`. Do not change it without an explicit owner
+  instruction.
+- The public navigation's Generate link is disabled in
+  `src/app/templates/base.html`. Keep it disabled while the public site is
+  library-only.
+- Public bundle and R2 snapshot: 221 files / 221 objects, 52,424,641 bytes
+  (50.00 MiB), including 44 subject registry files.
+- Public subjects are CSC662 and MAT133, with 20 Library papers each. The
+  Generate routes are static notices; the live gallery is D1-backed.
+
+## 1. Local generation
 
 ```bash
-uv run python -m src.app.prebuild_library --seeds 1-20 --subject MAT133
-# local web UI: http://127.0.0.1:8000/mat133/generate
+uv sync
+uv run python -m src.app.main
+# open http://127.0.0.1:8000
+```
+
+Local routes are subject-scoped: `/<code>`, `/<code>/library` and
+`/<code>/generate`. **CSC402** routes exist only locally.
+
+Generation behaviour comes from the registry, not from a subject allow-list:
+
+- **Type A (CSC662)** — the planner reads the fingerprint/question log and
+  builds 24 slots (A1-A10, B1, B2). Realistic mode uses the observed topic
+  distribution; practice mode uses requested computed marks. Theory questions
+  are drafted from lecture decks, verified (source overlap, entailment,
+  near-copy, topic/deck allow-lists) and may remain visible placeholders.
+  Computed slots use the CSC662 generator plugins.
+- **Type B (CSC402, MAT133)** — no lecture decks, no LLM and no placeholders.
+  A subject plugin builds every slot deterministically from the seed.
+  CSC402 uses the modern 100-mark format: 10 MCQs (10 marks), 5 structured
+  questions (60 marks) and 2 complete programs (30 marks); 17 questions and
+  22 slots. MAT133 uses five questions / 15 parts / 64-72 marks.
+- Subject-specific code lives under `src/subjects/<code>/`. MAT133's adapter
+  reuses the existing implementation in `src/mat133/`.
+
+Cache:
+
+- Results go to `outputs/web_cache/<CODE>/<config-hash>/`.
+- `meta.json` records seed, mode, marks, counts, files and validation.
+- Re-running the same subject + mode + seed + config is instant and costs $0.
+- If a rebuild had to use a new folder (for example, a locked PDF), the newest
+  valid cache meta wins.
+
+Prebuild the Library:
+
+```bash
+uv run python -m src.app.prebuild_library --seeds 1-20 --subject <CODE>
+# add --force to rebuild existing seeds
 ```
 
 ## 2. Public bundle
 
-```bash
-uv run python -m scripts.build_public_bundle --out outputs/public_bundle
-```
+The public bundle is built from the private Library cache. The registry drives
+the subject list, routes and document strategy.
 
-The builder:
-
-- reads the private Library cache;
-- copies each paper DOCX and exports PDF, keeping the original local-build
-  cover and crest;
-- rebuilds each scheme with verbatim slide quotes omitted;
-- renders the public pages from the app templates;
-- writes public-safe subject JSON and the Library manifest;
-- adds `?v=<mtime>` to document URLs so browsers do not reuse an older PDF;
-- fails on forbidden paths or a scheme missing the quote-omission marker.
-
-The explicit allowlist is generated with:
+| Capability | Subjects | Behaviour |
+|---|---|---|
+| `rebuild_scheme` | Type A (CSC662) | Copy/re-export the paper; rebuild the public scheme with verbatim slide quotes omitted; require the quote-omission marker |
+| `copy_cached` | Type B (CSC402, MAT133) | Copy the already-public-safe paper and scheme from the Library cache |
 
 ```bash
-uv run python -m scripts.public_bundle --write
-# cloudflare/public_bundle_manifest.txt / .json
+# Publish only the currently approved subjects.
+uv run python -m scripts.build_public_bundle \
+  --out outputs/public_bundle --subject CSC662 --subject MAT133
+
+# Pages/manifests only; no Word/LibreOffice export.
+uv run python -m scripts.build_public_bundle --out outputs/public_bundle \
+  --subject CSC662 --subject MAT133 --pages-only
 ```
+
+The builder writes the public pages, assets, per-subject JSON, Library
+manifests and the generated `subjects.json` used by the Worker. It fails on
+forbidden paths, private-path leaks, missing manifest files or a missing
+required scheme marker.
+
+**Caution:** with no `--subject`, the builder includes every `available`
+subject. Always pass explicit `--subject` values while CSC402 is unpublished.
 
 ## 3. R2 upload
 
 ```bash
-# dry run: no network calls
+# Dry run: no network calls.
 uv run python -m scripts.r2_sync --bundle outputs/public_bundle
 
-# upload
+# Upload changed objects only.
 uv run --with boto3 python -m scripts.r2_sync \
   --bundle outputs/public_bundle --upload
 ```
 
-- One `ListObjectsV2` and only changed PUTs.
-- Hard budgets: 1 GiB, 5,000 objects, 10,000 Class A/month,
+- Hard budgets: 1 GiB, 5,000 objects, 10,000 Class A/month and
   100,000 Class B/month.
 - A local backup is made before each upload.
 - State: `outputs/r2_sync_state.json`; quota ledger:
   `outputs/r2_quota_ledger.json`.
+- Do not upload without explicit publication approval for every subject in
+  the bundle.
 
-## 4. Serving and custom domain
+## 4. Worker, routes and gallery
 
 The Worker is in `cloudflare/worker/`.
 
@@ -123,149 +139,81 @@ The Worker is in `cloudflare/worker/`.
   `www.uitmpapergen.download` (www redirects to the apex)
 - Cron: daily 03:00 UTC
 
-Routes:
+Subject routes are generated from `subjects.json`; the Worker has no
+hard-coded subject list.
 
 | Path | Source |
 |---|---|
 | `/` | `index.html` |
-| `/csc662` | `csc662/index.html` |
-| `/csc662/library` | `csc662/library/index.html` |
-| `/csc662/generate` | static notice; live generation disabled |
+| `/<code>` | `<code>/index.html` |
+| `/<code>/library` | `<code>/library/index.html` |
+| `/<code>/generate` | static notice; live generation disabled |
 | `/gallery` | `gallery/index.html` + D1 API |
 | `/paused` | `paused/index.html` |
-| `/library/CSC662/...` | R2 objects with download filenames |
+| `/library/<CODE>/...` | R2 objects with download filenames |
 | `/api/gallery` | non-expired D1 rows |
 
-Deploy:
+Deploy only when publication is approved:
 
 ```bash
 cd cloudflare/worker
 bun x wrangler deploy
 ```
 
-Custom-domain DNS records and certificates are created by Cloudflare when the
-`custom_domain = true` routes are deployed. A new subject uses the same
-hostname with a different path; no new domain is needed.
-
-## 5. Gallery share and expiry
+Gallery sharing:
 
 1. A visitor clicks **Share** on a Library row.
-2. `POST /api/gallery/share` accepts only `subject`, `mode` and `seed`.
+2. `POST /api/gallery/share` accepts only `subject`, `mode: realistic` and
+   seed 1-20.
 3. The Worker finds the existing public manifest entry.
-4. If an unexpired row for the same subject/mode/seed exists, it returns that
-   ID and copies nothing.
-5. Otherwise it copies four files (paper/scheme × DOCX/PDF) from
-   `library/CSC662/...` to `shared/<32-hex-id>/`, inserts a D1 row with
-   `created_at` and `expires_at`, and returns the ID.
+4. An unexpired row for the same subject/mode/seed is reused.
+5. Otherwise four files (paper/scheme x DOCX/PDF) are copied from
+   `library/<CODE>/...` to `shared/<32-hex-id>/`, a D1 row is inserted with
+   `created_at`/`expires_at`, and the ID is returned.
 6. `/gallery` lists only `expires_at > now`.
 7. The daily Cron deletes expired D1 rows and R2 objects.
-8. The R2 `shared/` lifecycle rule (prefix `shared/`, 7 days) is the storage
-   backstop. It is currently not installed because the API token lacks
-   `Workers R2 Storage Write`.
+8. The R2 lifecycle rule for the `shared/` prefix is the storage backstop. It
+   is not installed because the API token lacks `Workers R2 Storage Write`.
 
-The active gallery is capped at 100 entries. Each share costs four R2 PUTs and
-four GETs plus D1 operations.
+The gallery is capped at 100 active entries and shares expire after 7 days
+(`GALLERY_TTL_DAYS`). Each share costs four R2 PUTs and four GETs plus D1
+operations.
 
-## 6. Updating the public site
+## 5. Updating the public site
 
-1. Rebuild changed documents/pages locally.
-2. Run the bundle builder (`--pages-only` if documents are unchanged).
+1. Rebuild changed documents in the local Library.
+2. Rebuild the bundle with explicit `--subject` values.
 3. Run the R2 dry-run, then `--upload`; only changed objects are sent.
-4. Document links carry `?v=<mtime>`, so the new PDF is fetched instead of a
-   browser-cached old copy.
-5. The Worker and custom domain do not need redeploying for content-only
-   changes.
+4. Document URLs carry `?v=<mtime>`, so a rebuilt PDF is not hidden by a
+   browser cache.
+5. Content-only changes do not require redeploying the Worker.
 
-## 7. Adding a different subject
+## 6. Adding a subject
 
-Use `docs/SUBJECT_PLAYBOOK.md` as the authority. The short version:
+Use `docs/SUBJECT_PLAYBOOK.md` as the authority. In short:
 
-1. Read `docs/SUBJECT_PLAYBOOK.md` and the subject's
-   `subjects/<CODE>/lifecycle_state.json`.
-2. Scaffold without onboarding:
-   ```bash
-   uv run python -m scripts.new_subject <CODE> --type A|B|C --dry-run
-   uv run python -m scripts.new_subject <CODE> --type A|B|C --title "Title"
-   uv run python -m scripts.lifecycle_status <CODE>
-   ```
-   This creates `subject.json` with `status: "coming_soon"`, capabilities,
-   permissions, plugins, a lifecycle state, the working folders and a subject
-   plugin package under `src/subjects/<code>/`.
-3. Complete stages 0-10 in order. Each stage has a [HUMAN] checkpoint; stop
-   and record the approval before moving the lifecycle status to `done`.
-4. Subject-specific code belongs only under `src/subjects/<code>/`. Shared
-   rename/dedupe/OCR/register/template/forbidden-token code is in
-   `src/subjects/preprocess.py`, `templates.py` and `forbidden.py`.
-5. The app, bundle builder and Worker read the registry or generated
-   `subjects.json`. There is no subject allow-list to edit in
-   `src/app/jobs.py`, `scripts/build_public_bundle.py` or
-   `cloudflare/worker/src/index.js`.
-6. Record `permissions.papers`, `scheme`, `slides` and `publication` before
-   stage 9. Stage 9 is a hard stop before R2 upload and Worker deploy.
+```bash
+uv run python -m scripts.new_subject <CODE> --type A|B|C --dry-run
+uv run python -m scripts.new_subject <CODE> --type A|B|C --title "Title"
+uv run python -m scripts.lifecycle_status <CODE>
+```
 
-A subject that only exists as `subject.json` still needs a planner/prebuild,
-builders, a Library cache and explicit publication permission before it can
-publish. Being `available` is not the same as being published.
+- Complete stages 0-10 in order. Every stage has a [HUMAN] gate; record the
+  approval and evidence before marking it `done`.
+- Record `permissions.papers`, `scheme`, `slides` and `publication` before
+  stage 9.
+- Stage 9 is a hard stop before public-bundle rebuild, R2 upload and Worker
+  deploy.
+- Subject-specific code belongs only under `src/subjects/<code>/`. Shared
+  preprocessing is in `src/subjects/preprocess.py`, `templates.py` and
+  `forbidden.py`.
+- The app, bundle builder and Worker read the registry or generated
+  `subjects.json`. Adding a hard-coded subject list is a bug.
+- Being `available` locally is not the same as being published.
 
-### MAT133 status (published)
+## 7. Live container mode
 
-MAT133 completed the full lifecycle:
-
-- `data/papers/MAT133/` — 41 papers, renamed and registered.
-- `data/reference/MAT133/` — standard cover/template and answer scheme.
-- `data/tracking/mat133/taxonomy.json` and `question_log.json` — paper-derived
-  taxonomy and question log.
-- `src/mat133/` — template body builder, 57 deterministic generators and the
-  five-question planner.
-- `outputs/web_cache/MAT133/` — 20-seed Library; all 57 generators are used
-  across seeds 1-20; every seed passes DOCX/PDF validation.
-- `outputs/public_bundle/mat133/` and `library/MAT133/` — public pages and 80
-  documents.
-- Worker routes and gallery share validation accept MAT133.
-- `subjects/MAT133/subject.json` is `available`.
-
-## 8. What is live now
-
-- Public bundle: 221 files, 52,424,641 bytes / 50.00 MiB, original local-build
-  covers; CSC662 schemes are quote-free; 44 subject registry files.
-- R2: 221 objects, 52,424,641 bytes; the previous 8 shared gallery files have
-  expired (7-day gallery TTL).
-- Library metadata: CSC662 exposes computed marks and numeric placeholders;
-  MAT133 exposes total marks (64-72), `has_practice_mode: false` and
-  `has_placeholders: false`.
-- Public subjects: CSC662 and MAT133, 20 Library papers each; 41 curriculum
-  stubs are listed as `coming_soon`.
-- D1: gallery schema applied; user-shared entries exist.
-- Custom domain: apex and www, HTTPS, www -> apex redirect.
-- Public site is library-only; the Generate page is a static notice.
-- Worker routes: `/csc662...` and `/mat133...`, plus subject-aware gallery
-  sharing.
-- Footer contact: auzair1990@gmail.com
-- Footer repository: https://github.com/jerkfish/paper-generator
-
-## 9. Live container mode (Phase 4.2)
-
-Status: **scaffolded, not deployed.**
-
-- `Dockerfile` builds a Linux image with Python 3.12, uv, LibreOffice Writer
-  and Graphviz.
-- `src/assemble/pdf_export.py` uses Word COM on Windows and LibreOffice
-  headless when `MOCKGEN_PDF_ENGINE=libreoffice` or on a non-Windows host.
-- `cloudflare/container-worker/` defines the `papergen-live` Worker, a
-  Durable Object container lifecycle, `/health` readiness, and the optional
-  `live.uitmpapergen.download` route.
-- The container runs with `PUBLIC_BUILD=1`, `MOCKGEN_MODEL=gemini-3.5-flash`
-  and the `GEMINI_API_KEY` Worker secret. The repo only contains the
-  placeholder `REPLACE_WITH_GEMINI_API_KEY`; the Worker refuses to start the
-  container until the real secret is set. `PUBLIC_BUILD=1` also selects
-  Gemini and fails closed rather than falling back to DeepSeek when the key is
-  missing or a placeholder.
-- Cloudflare Containers requires **Workers Paid ($5/month)**; there is no free
-  tier. The library-only deployment remains $0.
-- Docker is required to build the image. This machine has no Docker, so the
-  image and deployment were not executed locally.
-- LibreOffice currently renders the MAT133 cover one page longer than Word;
-  live mode should serve DOCX only or document that difference until the cover
-  is tuned.
-
-Full instructions and pricing are in `docs/DEPLOY_LIVE.md`.
+Status: **scaffolded, not deployed.** The library-only deployment remains
+$0/month; live generation requires Cloudflare Workers Paid ($5/month) and
+Docker to build the image. Full instructions and pricing are in
+`docs/DEPLOY_LIVE.md`.

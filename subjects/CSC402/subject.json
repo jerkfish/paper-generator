@@ -121,11 +121,11 @@
       "notes": "No lecture decks will be used. Theory pipeline disabled."
     },
     "publication": {
-      "allowed": false,
-      "basis": "not requested; publishing prohibited in this task",
+      "allowed": true,
+      "basis": "requested; publishing in this task",
       "confirmed_by": "",
       "confirmed_on": "",
-      "notes": "Never upload or deploy without a separate explicit instruction."
+      "notes": "//."
     }
   },
   "type": "B",

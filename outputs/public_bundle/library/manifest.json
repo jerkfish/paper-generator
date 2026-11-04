@@ -1,24 +1,24 @@
 {
-  "generated": "2026-11-04T05:13:53Z",
+  "generated": "2026-11-04T11:15:24Z",
   "subjects": [
+    {
+      "code": "CSC402",
+      "title": "Programming I",
+      "status": "available",
+      "papers": 20,
+      "manifest": "/library/CSC402/manifest.json"
+    },
     {
       "code": "CSC662",
       "title": "Computer Security",
       "status": "available",
-      "papers": 20,
-      "manifest": "/library/CSC662/manifest.json"
+      "papers": 0,
+      "manifest": null
     },
     {
       "code": "MAT133",
       "title": "Pre-Calculus",
       "status": "available",
-      "papers": 20,
-      "manifest": "/library/MAT133/manifest.json"
-    },
-    {
-      "code": "CSC402",
-      "title": "Programming I",
-      "status": "coming_soon",
       "papers": 0,
       "manifest": null
     },
