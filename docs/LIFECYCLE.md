@@ -107,8 +107,10 @@ manifests and the generated `subjects.json` used by the Worker. It fails on
 forbidden paths, private-path leaks, missing manifest files or a missing
 required scheme marker.
 
-**Caution:** with no `--subject`, the builder includes every `available`
-subject. Always pass explicit `--subject` values while CSC402 is unpublished.
+**Subject selection:** with no `--subject`, the builder includes every
+`available` subject whose `permissions.publication.allowed` is true, plus the
+`coming_soon` stubs. Always pass explicit `--subject` values for a partial
+rebuild.
 
 ## 3. R2 upload
 

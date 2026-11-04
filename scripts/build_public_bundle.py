@@ -240,13 +240,50 @@ def _urls(item: dict, out_dir: Path | None = None,
     return urls
 
 
+def _public_subjects() -> list[Subject]:
+    """Subjects the public bundle may expose.
+
+    ``coming_soon`` stubs are always public metadata.  An ``available``
+    subject is exposed only after its publication permission is recorded.
+    """
+    public: list[Subject] = []
+    for subject in load_subjects().values():
+        allowed = bool(
+            (subject.permissions or {}).get("publication", {}).get("allowed"))
+        if not subject.available or allowed:
+            public.append(subject)
+    return public
+
+
+def _bundle_count(out: Path, code: str, built: int) -> int:
+    """Count papers already present in the bundle for a partial rebuild.
+
+    A ``--subject`` build only carries items for the selected subjects.  Read
+    the existing manifest so the homepage does not show zero for subjects
+    whose pages and documents are still in the bundle.
+    """
+    if built:
+        return built
+    manifest = out / "library" / code / "manifest.json"
+    if not manifest.is_file():
+        return 0
+    try:
+        data = json.loads(manifest.read_text(encoding="utf-8"))
+        return max(0, int(data.get("count") or 0))
+    except (OSError, TypeError, ValueError):
+        return 0
+
+
 def _render_pages(out: Path, subject_items: dict[str, list[dict]]) -> dict:
     env = Environment(
         loader=FileSystemLoader(str(TEMPLATES)),
         autoescape=select_autoescape(["html", "xml"]),
     )
-    subjects = list(load_subjects().values())
-    counts = {s.code: len(subject_items.get(s.code, [])) for s in subjects}
+    subjects = _public_subjects()
+    counts = {
+        s.code: _bundle_count(out, s.code, len(subject_items.get(s.code, [])))
+        for s in subjects
+    }
     try:
         asset_version = int(max(
             p.stat().st_mtime for p in STATIC.iterdir() if p.is_file()))
@@ -316,7 +353,7 @@ def _render_pages(out: Path, subject_items: dict[str, list[dict]]) -> dict:
 
 
 def _write_manifests(out: Path, subject_items: dict[str, list[dict]]) -> dict:
-    subjects = list(load_subjects().values())
+    subjects = _public_subjects()
     subject_dir = out / "subjects"
     generated = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     for item in subjects:
@@ -482,11 +519,12 @@ def build(out: Path, seeds: list[int], force: bool = False,
     if config.PUBLIC_BUILD:
         raise SystemExit("run the builder without PUBLIC_BUILD=1")
     out.mkdir(parents=True, exist_ok=True)
-    available = {s.code for s in load_subjects().values() if s.available}
+    available = {s.code for s in _public_subjects() if s.available}
     codes = [code.upper() for code in (subjects or sorted(available))]
     unknown = [code for code in codes if code not in available]
     if unknown:
-        raise SystemExit(f"subject not available: {', '.join(unknown)}")
+        raise SystemExit(
+            f"subject not available for publication: {', '.join(unknown)}")
     subject_items: dict[str, list[dict]] = {}
     for code in codes:
         items = [library_item(seed, code) for seed in seeds]

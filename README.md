@@ -316,7 +316,7 @@ cover, missing part labels or missing marks.
 ## Build the public bundle
 
 ```bash
-# all available subjects from the registry
+# every publication-approved available subject from the registry
 uv run python -m scripts.build_public_bundle --out outputs/public_bundle
 
 # one subject only
@@ -514,7 +514,7 @@ mockups are in `design/mockups/`.
 ## Tests
 
 ```bash
-uv run pytest -q        # 286 Python tests
+uv run pytest -q        # 289 Python tests
 cd cloudflare/worker
 bun test                # 6 Worker tests
 ```

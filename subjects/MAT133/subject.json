@@ -93,7 +93,8 @@
   "plugins": {
     "prebuild": "src.subjects.mat133.plugin:build_seed",
     "generator_labels": "src.subjects.mat133.plugin:generator_labels",
-    "topic_labels": "src.subjects.mat133.plugin:topic_labels"
+    "topic_labels": "src.subjects.mat133.plugin:topic_labels",
+    "library_seeds": "src.subjects.mat133.plugin:library_seeds"
   },
   "permissions": {
     "papers": {

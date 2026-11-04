@@ -11,9 +11,16 @@ from __future__ import annotations
 from src.mat133.library import build_seed as _build_seed
 from src.mat133.planner import GENERATOR_LABELS, TOPIC_SHORT
 
+LIBRARY_SEEDS = list(range(1, 21))
+
 
 def build_seed(seed: int, **kwargs) -> dict:
     return _build_seed(seed, **kwargs)
+
+
+def library_seeds() -> list[int]:
+    """The public Library is the standard 20-seed set."""
+    return list(LIBRARY_SEEDS)
 
 
 def generator_labels() -> dict:

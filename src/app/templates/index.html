@@ -14,10 +14,14 @@ lecturer-marked. This is not an official exam paper.</p>
     <td>{{ subject.code }}</td>
     <td>{{ subject.title }}</td>
     <td class="{{ 'ok' if subject.available else 'muted' }}">{{ subject.status.replace('_', ' ') }}</td>
+    {% set paper_count = counts.get(subject.code, 0) %}
     <td>
       {% if not subject.available %}no data
       {% elif library_disabled|default(public) %}public bundle
-      {% else %}{{ counts.get(subject.code, 0) }} cached realistic papers
+      {% elif paper_count %}
+        {{ paper_count }} {{ 'public paper' if public else 'cached realistic paper' }}{{ '' if paper_count == 1 else 's' }}
+      {% elif public %}not in this public bundle
+      {% else %}0 cached realistic papers
       {% endif %}
     </td>
     <td>

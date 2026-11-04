@@ -1,0 +1,674 @@
+{
+  "subject": "CSC402",
+  "title": "Programming I",
+  "year": 2026,
+  "has_practice_mode": false,
+  "has_placeholders": false,
+  "count": 20,
+  "papers": [
+    {
+      "seed": 1,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 22,
+      "placeholders": 0,
+      "topic_marks": {
+        "fundamentals": 7,
+        "arrays": 17,
+        "input_output": 1,
+        "control_structures": 46,
+        "data_types": 14,
+        "structures": 15
+      },
+      "topic_mix": "CTL 46 ARR 17 STR 15 DAT 14 FUN 7 I/O 1",
+      "files": {
+        "paper_docx": "library/CSC402/papers/CSC402 Seed 01 2026.docx",
+        "paper_pdf": "library/CSC402/papers/CSC402 Seed 01 2026.pdf",
+        "scheme_docx": "library/CSC402/schemes/CSC402 Seed 01 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC402/schemes/CSC402 Seed 01 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC402/papers/CSC402%20Seed%2001%202026.docx?v=1793790756",
+        "paper_pdf": "/library/CSC402/papers/CSC402%20Seed%2001%202026.pdf?v=1793790760",
+        "scheme_docx": "/library/CSC402/schemes/CSC402%20Seed%2001%202026%20-%20Marking%20Scheme.docx?v=1793790769",
+        "scheme_pdf": "/library/CSC402/schemes/CSC402%20Seed%2001%202026%20-%20Marking%20Scheme.pdf?v=1793790773"
+      }
+    },
+    {
+      "seed": 2,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 22,
+      "placeholders": 0,
+      "topic_marks": {
+        "control_structures": 16,
+        "input_output": 16,
+        "fundamentals": 7,
+        "data_types": 14,
+        "arrays": 32,
+        "structures": 15
+      },
+      "topic_mix": "ARR 32 CTL 16 I/O 16 STR 15 DAT 14 FUN 7",
+      "files": {
+        "paper_docx": "library/CSC402/papers/CSC402 Seed 02 2026.docx",
+        "paper_pdf": "library/CSC402/papers/CSC402 Seed 02 2026.pdf",
+        "scheme_docx": "library/CSC402/schemes/CSC402 Seed 02 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC402/schemes/CSC402 Seed 02 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC402/papers/CSC402%20Seed%2002%202026.docx?v=1793788924",
+        "paper_pdf": "/library/CSC402/papers/CSC402%20Seed%2002%202026.pdf?v=1793788924",
+        "scheme_docx": "/library/CSC402/schemes/CSC402%20Seed%2002%202026%20-%20Marking%20Scheme.docx?v=1793788924",
+        "scheme_pdf": "/library/CSC402/schemes/CSC402%20Seed%2002%202026%20-%20Marking%20Scheme.pdf?v=1793788924"
+      }
+    },
+    {
+      "seed": 3,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 22,
+      "placeholders": 0,
+      "topic_marks": {
+        "data_types": 14,
+        "control_structures": 18,
+        "fundamentals": 15,
+        "input_output": 16,
+        "arrays": 17,
+        "debugging_testing": 5,
+        "structures": 15
+      },
+      "topic_mix": "CTL 18 ARR 17 I/O 16 FUN 15 STR 15 DAT 14 DBG 5",
+      "files": {
+        "paper_docx": "library/CSC402/papers/CSC402 Seed 03 2026.docx",
+        "paper_pdf": "library/CSC402/papers/CSC402 Seed 03 2026.pdf",
+        "scheme_docx": "library/CSC402/schemes/CSC402 Seed 03 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC402/schemes/CSC402 Seed 03 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC402/papers/CSC402%20Seed%2003%202026.docx?v=1793788924",
+        "paper_pdf": "/library/CSC402/papers/CSC402%20Seed%2003%202026.pdf?v=1793788924",
+        "scheme_docx": "/library/CSC402/schemes/CSC402%20Seed%2003%202026%20-%20Marking%20Scheme.docx?v=1793788924",
+        "scheme_pdf": "/library/CSC402/schemes/CSC402%20Seed%2003%202026%20-%20Marking%20Scheme.pdf?v=1793788924"
+      }
+    },
+    {
+      "seed": 4,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 22,
+      "placeholders": 0,
+      "topic_marks": {
+        "arrays": 32,
+        "data_types": 14,
+        "fundamentals": 7,
+        "input_output": 16,
+        "control_structures": 16,
+        "structures": 15
+      },
+      "topic_mix": "ARR 32 CTL 16 I/O 16 STR 15 DAT 14 FUN 7",
+      "files": {
+        "paper_docx": "library/CSC402/papers/CSC402 Seed 04 2026.docx",
+        "paper_pdf": "library/CSC402/papers/CSC402 Seed 04 2026.pdf",
+        "scheme_docx": "library/CSC402/schemes/CSC402 Seed 04 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC402/schemes/CSC402 Seed 04 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC402/papers/CSC402%20Seed%2004%202026.docx?v=1793788924",
+        "paper_pdf": "/library/CSC402/papers/CSC402%20Seed%2004%202026.pdf?v=1793788924",
+        "scheme_docx": "/library/CSC402/schemes/CSC402%20Seed%2004%202026%20-%20Marking%20Scheme.docx?v=1793788924",
+        "scheme_pdf": "/library/CSC402/schemes/CSC402%20Seed%2004%202026%20-%20Marking%20Scheme.pdf?v=1793788924"
+      }
+    },
+    {
+      "seed": 5,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 22,
+      "placeholders": 0,
+      "topic_marks": {
+        "data_types": 14,
+        "control_structures": 3,
+        "arrays": 32,
+        "fundamentals": 20,
+        "input_output": 16,
+        "structures": 15
+      },
+      "topic_mix": "ARR 32 FUN 20 I/O 16 STR 15 DAT 14 CTL 3",
+      "files": {
+        "paper_docx": "library/CSC402/papers/CSC402 Seed 05 2026.docx",
+        "paper_pdf": "library/CSC402/papers/CSC402 Seed 05 2026.pdf",
+        "scheme_docx": "library/CSC402/schemes/CSC402 Seed 05 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC402/schemes/CSC402 Seed 05 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC402/papers/CSC402%20Seed%2005%202026.docx?v=1793788924",
+        "paper_pdf": "/library/CSC402/papers/CSC402%20Seed%2005%202026.pdf?v=1793788924",
+        "scheme_docx": "/library/CSC402/schemes/CSC402%20Seed%2005%202026%20-%20Marking%20Scheme.docx?v=1793788924",
+        "scheme_pdf": "/library/CSC402/schemes/CSC402%20Seed%2005%202026%20-%20Marking%20Scheme.pdf?v=1793788924"
+      }
+    },
+    {
+      "seed": 6,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 22,
+      "placeholders": 0,
+      "topic_marks": {
+        "control_structures": 18,
+        "arrays": 17,
+        "data_types": 14,
+        "fundamentals": 15,
+        "input_output": 31,
+        "debugging_testing": 5
+      },
+      "topic_mix": "I/O 31 CTL 18 ARR 17 FUN 15 DAT 14 DBG 5",
+      "files": {
+        "paper_docx": "library/CSC402/papers/CSC402 Seed 06 2026.docx",
+        "paper_pdf": "library/CSC402/papers/CSC402 Seed 06 2026.pdf",
+        "scheme_docx": "library/CSC402/schemes/CSC402 Seed 06 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC402/schemes/CSC402 Seed 06 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC402/papers/CSC402%20Seed%2006%202026.docx?v=1793788924",
+        "paper_pdf": "/library/CSC402/papers/CSC402%20Seed%2006%202026.pdf?v=1793788924",
+        "scheme_docx": "/library/CSC402/schemes/CSC402%20Seed%2006%202026%20-%20Marking%20Scheme.docx?v=1793788924",
+        "scheme_pdf": "/library/CSC402/schemes/CSC402%20Seed%2006%202026%20-%20Marking%20Scheme.pdf?v=1793788924"
+      }
+    },
+    {
+      "seed": 7,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 22,
+      "placeholders": 0,
+      "topic_marks": {
+        "arrays": 32,
+        "control_structures": 18,
+        "data_types": 14,
+        "fundamentals": 20,
+        "input_output": 16
+      },
+      "topic_mix": "ARR 32 FUN 20 CTL 18 I/O 16 DAT 14",
+      "files": {
+        "paper_docx": "library/CSC402/papers/CSC402 Seed 07 2026.docx",
+        "paper_pdf": "library/CSC402/papers/CSC402 Seed 07 2026.pdf",
+        "scheme_docx": "library/CSC402/schemes/CSC402 Seed 07 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC402/schemes/CSC402 Seed 07 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC402/papers/CSC402%20Seed%2007%202026.docx?v=1793788924",
+        "paper_pdf": "/library/CSC402/papers/CSC402%20Seed%2007%202026.pdf?v=1793788924",
+        "scheme_docx": "/library/CSC402/schemes/CSC402%20Seed%2007%202026%20-%20Marking%20Scheme.docx?v=1793788924",
+        "scheme_pdf": "/library/CSC402/schemes/CSC402%20Seed%2007%202026%20-%20Marking%20Scheme.pdf?v=1793788924"
+      }
+    },
+    {
+      "seed": 8,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 22,
+      "placeholders": 0,
+      "topic_marks": {
+        "arrays": 32,
+        "data_types": 14,
+        "input_output": 16,
+        "control_structures": 3,
+        "fundamentals": 20,
+        "structures": 15
+      },
+      "topic_mix": "ARR 32 FUN 20 I/O 16 STR 15 DAT 14 CTL 3",
+      "files": {
+        "paper_docx": "library/CSC402/papers/CSC402 Seed 08 2026.docx",
+        "paper_pdf": "library/CSC402/papers/CSC402 Seed 08 2026.pdf",
+        "scheme_docx": "library/CSC402/schemes/CSC402 Seed 08 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC402/schemes/CSC402 Seed 08 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC402/papers/CSC402%20Seed%2008%202026.docx?v=1793788924",
+        "paper_pdf": "/library/CSC402/papers/CSC402%20Seed%2008%202026.pdf?v=1793788924",
+        "scheme_docx": "/library/CSC402/schemes/CSC402%20Seed%2008%202026%20-%20Marking%20Scheme.docx?v=1793788924",
+        "scheme_pdf": "/library/CSC402/schemes/CSC402%20Seed%2008%202026%20-%20Marking%20Scheme.pdf?v=1793788924"
+      }
+    },
+    {
+      "seed": 9,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 22,
+      "placeholders": 0,
+      "topic_marks": {
+        "input_output": 16,
+        "arrays": 32,
+        "control_structures": 3,
+        "data_types": 14,
+        "fundamentals": 20,
+        "structures": 15
+      },
+      "topic_mix": "ARR 32 FUN 20 I/O 16 STR 15 DAT 14 CTL 3",
+      "files": {
+        "paper_docx": "library/CSC402/papers/CSC402 Seed 09 2026.docx",
+        "paper_pdf": "library/CSC402/papers/CSC402 Seed 09 2026.pdf",
+        "scheme_docx": "library/CSC402/schemes/CSC402 Seed 09 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC402/schemes/CSC402 Seed 09 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC402/papers/CSC402%20Seed%2009%202026.docx?v=1793788924",
+        "paper_pdf": "/library/CSC402/papers/CSC402%20Seed%2009%202026.pdf?v=1793788924",
+        "scheme_docx": "/library/CSC402/schemes/CSC402%20Seed%2009%202026%20-%20Marking%20Scheme.docx?v=1793788924",
+        "scheme_pdf": "/library/CSC402/schemes/CSC402%20Seed%2009%202026%20-%20Marking%20Scheme.pdf?v=1793788924"
+      }
+    },
+    {
+      "seed": 10,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 22,
+      "placeholders": 0,
+      "topic_marks": {
+        "control_structures": 18,
+        "data_types": 14,
+        "fundamentals": 15,
+        "arrays": 32,
+        "input_output": 16,
+        "debugging_testing": 5
+      },
+      "topic_mix": "ARR 32 CTL 18 I/O 16 FUN 15 DAT 14 DBG 5",
+      "files": {
+        "paper_docx": "library/CSC402/papers/CSC402 Seed 10 2026.docx",
+        "paper_pdf": "library/CSC402/papers/CSC402 Seed 10 2026.pdf",
+        "scheme_docx": "library/CSC402/schemes/CSC402 Seed 10 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC402/schemes/CSC402 Seed 10 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC402/papers/CSC402%20Seed%2010%202026.docx?v=1793788924",
+        "paper_pdf": "/library/CSC402/papers/CSC402%20Seed%2010%202026.pdf?v=1793788924",
+        "scheme_docx": "/library/CSC402/schemes/CSC402%20Seed%2010%202026%20-%20Marking%20Scheme.docx?v=1793788924",
+        "scheme_pdf": "/library/CSC402/schemes/CSC402%20Seed%2010%202026%20-%20Marking%20Scheme.pdf?v=1793788924"
+      }
+    },
+    {
+      "seed": 11,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 22,
+      "placeholders": 0,
+      "topic_marks": {
+        "data_types": 14,
+        "fundamentals": 7,
+        "control_structures": 46,
+        "input_output": 1,
+        "arrays": 17,
+        "structures": 15
+      },
+      "topic_mix": "CTL 46 ARR 17 STR 15 DAT 14 FUN 7 I/O 1",
+      "files": {
+        "paper_docx": "library/CSC402/papers/CSC402 Seed 11 2026.docx",
+        "paper_pdf": "library/CSC402/papers/CSC402 Seed 11 2026.pdf",
+        "scheme_docx": "library/CSC402/schemes/CSC402 Seed 11 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC402/schemes/CSC402 Seed 11 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC402/papers/CSC402%20Seed%2011%202026.docx?v=1793788924",
+        "paper_pdf": "/library/CSC402/papers/CSC402%20Seed%2011%202026.pdf?v=1793788924",
+        "scheme_docx": "/library/CSC402/schemes/CSC402%20Seed%2011%202026%20-%20Marking%20Scheme.docx?v=1793788924",
+        "scheme_pdf": "/library/CSC402/schemes/CSC402%20Seed%2011%202026%20-%20Marking%20Scheme.pdf?v=1793788924"
+      }
+    },
+    {
+      "seed": 12,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 22,
+      "placeholders": 0,
+      "topic_marks": {
+        "arrays": 17,
+        "input_output": 31,
+        "fundamentals": 15,
+        "data_types": 14,
+        "control_structures": 3,
+        "debugging_testing": 5,
+        "structures": 15
+      },
+      "topic_mix": "I/O 31 ARR 17 FUN 15 STR 15 DAT 14 DBG 5 CTL 3",
+      "files": {
+        "paper_docx": "library/CSC402/papers/CSC402 Seed 12 2026.docx",
+        "paper_pdf": "library/CSC402/papers/CSC402 Seed 12 2026.pdf",
+        "scheme_docx": "library/CSC402/schemes/CSC402 Seed 12 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC402/schemes/CSC402 Seed 12 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC402/papers/CSC402%20Seed%2012%202026.docx?v=1793788924",
+        "paper_pdf": "/library/CSC402/papers/CSC402%20Seed%2012%202026.pdf?v=1793788924",
+        "scheme_docx": "/library/CSC402/schemes/CSC402%20Seed%2012%202026%20-%20Marking%20Scheme.docx?v=1793788924",
+        "scheme_pdf": "/library/CSC402/schemes/CSC402%20Seed%2012%202026%20-%20Marking%20Scheme.pdf?v=1793788924"
+      }
+    },
+    {
+      "seed": 13,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 22,
+      "placeholders": 0,
+      "topic_marks": {
+        "control_structures": 3,
+        "data_types": 14,
+        "fundamentals": 20,
+        "arrays": 32,
+        "input_output": 16,
+        "structures": 15
+      },
+      "topic_mix": "ARR 32 FUN 20 I/O 16 STR 15 DAT 14 CTL 3",
+      "files": {
+        "paper_docx": "library/CSC402/papers/CSC402 Seed 13 2026.docx",
+        "paper_pdf": "library/CSC402/papers/CSC402 Seed 13 2026.pdf",
+        "scheme_docx": "library/CSC402/schemes/CSC402 Seed 13 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC402/schemes/CSC402 Seed 13 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC402/papers/CSC402%20Seed%2013%202026.docx?v=1793788924",
+        "paper_pdf": "/library/CSC402/papers/CSC402%20Seed%2013%202026.pdf?v=1793788924",
+        "scheme_docx": "/library/CSC402/schemes/CSC402%20Seed%2013%202026%20-%20Marking%20Scheme.docx?v=1793788924",
+        "scheme_pdf": "/library/CSC402/schemes/CSC402%20Seed%2013%202026%20-%20Marking%20Scheme.pdf?v=1793788924"
+      }
+    },
+    {
+      "seed": 14,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 22,
+      "placeholders": 0,
+      "topic_marks": {
+        "input_output": 1,
+        "data_types": 14,
+        "fundamentals": 2,
+        "control_structures": 46,
+        "arrays": 17,
+        "debugging_testing": 5,
+        "structures": 15
+      },
+      "topic_mix": "CTL 46 ARR 17 STR 15 DAT 14 DBG 5 FUN 2 I/O 1",
+      "files": {
+        "paper_docx": "library/CSC402/papers/CSC402 Seed 14 2026.docx",
+        "paper_pdf": "library/CSC402/papers/CSC402 Seed 14 2026.pdf",
+        "scheme_docx": "library/CSC402/schemes/CSC402 Seed 14 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC402/schemes/CSC402 Seed 14 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC402/papers/CSC402%20Seed%2014%202026.docx?v=1793788924",
+        "paper_pdf": "/library/CSC402/papers/CSC402%20Seed%2014%202026.pdf?v=1793788924",
+        "scheme_docx": "/library/CSC402/schemes/CSC402%20Seed%2014%202026%20-%20Marking%20Scheme.docx?v=1793788924",
+        "scheme_pdf": "/library/CSC402/schemes/CSC402%20Seed%2014%202026%20-%20Marking%20Scheme.pdf?v=1793788924"
+      }
+    },
+    {
+      "seed": 15,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 22,
+      "placeholders": 0,
+      "topic_marks": {
+        "control_structures": 3,
+        "input_output": 16,
+        "data_types": 14,
+        "fundamentals": 15,
+        "arrays": 32,
+        "debugging_testing": 5,
+        "structures": 15
+      },
+      "topic_mix": "ARR 32 I/O 16 FUN 15 STR 15 DAT 14 DBG 5 CTL 3",
+      "files": {
+        "paper_docx": "library/CSC402/papers/CSC402 Seed 15 2026.docx",
+        "paper_pdf": "library/CSC402/papers/CSC402 Seed 15 2026.pdf",
+        "scheme_docx": "library/CSC402/schemes/CSC402 Seed 15 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC402/schemes/CSC402 Seed 15 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC402/papers/CSC402%20Seed%2015%202026.docx?v=1793788924",
+        "paper_pdf": "/library/CSC402/papers/CSC402%20Seed%2015%202026.pdf?v=1793788924",
+        "scheme_docx": "/library/CSC402/schemes/CSC402%20Seed%2015%202026%20-%20Marking%20Scheme.docx?v=1793788924",
+        "scheme_pdf": "/library/CSC402/schemes/CSC402%20Seed%2015%202026%20-%20Marking%20Scheme.pdf?v=1793788924"
+      }
+    },
+    {
+      "seed": 16,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 22,
+      "placeholders": 0,
+      "topic_marks": {
+        "fundamentals": 15,
+        "control_structures": 3,
+        "data_types": 14,
+        "input_output": 31,
+        "arrays": 17,
+        "debugging_testing": 5,
+        "structures": 15
+      },
+      "topic_mix": "I/O 31 ARR 17 FUN 15 STR 15 DAT 14 DBG 5 CTL 3",
+      "files": {
+        "paper_docx": "library/CSC402/papers/CSC402 Seed 16 2026.docx",
+        "paper_pdf": "library/CSC402/papers/CSC402 Seed 16 2026.pdf",
+        "scheme_docx": "library/CSC402/schemes/CSC402 Seed 16 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC402/schemes/CSC402 Seed 16 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC402/papers/CSC402%20Seed%2016%202026.docx?v=1793788924",
+        "paper_pdf": "/library/CSC402/papers/CSC402%20Seed%2016%202026.pdf?v=1793788924",
+        "scheme_docx": "/library/CSC402/schemes/CSC402%20Seed%2016%202026%20-%20Marking%20Scheme.docx?v=1793788924",
+        "scheme_pdf": "/library/CSC402/schemes/CSC402%20Seed%2016%202026%20-%20Marking%20Scheme.pdf?v=1793788924"
+      }
+    },
+    {
+      "seed": 17,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 22,
+      "placeholders": 0,
+      "topic_marks": {
+        "fundamentals": 7,
+        "control_structures": 31,
+        "data_types": 14,
+        "input_output": 1,
+        "arrays": 32,
+        "structures": 15
+      },
+      "topic_mix": "ARR 32 CTL 31 STR 15 DAT 14 FUN 7 I/O 1",
+      "files": {
+        "paper_docx": "library/CSC402/papers/CSC402 Seed 17 2026.docx",
+        "paper_pdf": "library/CSC402/papers/CSC402 Seed 17 2026.pdf",
+        "scheme_docx": "library/CSC402/schemes/CSC402 Seed 17 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC402/schemes/CSC402 Seed 17 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC402/papers/CSC402%20Seed%2017%202026.docx?v=1793788924",
+        "paper_pdf": "/library/CSC402/papers/CSC402%20Seed%2017%202026.pdf?v=1793788924",
+        "scheme_docx": "/library/CSC402/schemes/CSC402%20Seed%2017%202026%20-%20Marking%20Scheme.docx?v=1793788924",
+        "scheme_pdf": "/library/CSC402/schemes/CSC402%20Seed%2017%202026%20-%20Marking%20Scheme.pdf?v=1793788924"
+      }
+    },
+    {
+      "seed": 18,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 22,
+      "placeholders": 0,
+      "topic_marks": {
+        "data_types": 14,
+        "control_structures": 16,
+        "fundamentals": 7,
+        "arrays": 32,
+        "input_output": 16,
+        "structures": 15
+      },
+      "topic_mix": "ARR 32 CTL 16 I/O 16 STR 15 DAT 14 FUN 7",
+      "files": {
+        "paper_docx": "library/CSC402/papers/CSC402 Seed 18 2026.docx",
+        "paper_pdf": "library/CSC402/papers/CSC402 Seed 18 2026.pdf",
+        "scheme_docx": "library/CSC402/schemes/CSC402 Seed 18 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC402/schemes/CSC402 Seed 18 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC402/papers/CSC402%20Seed%2018%202026.docx?v=1793788924",
+        "paper_pdf": "/library/CSC402/papers/CSC402%20Seed%2018%202026.pdf?v=1793788924",
+        "scheme_docx": "/library/CSC402/schemes/CSC402%20Seed%2018%202026%20-%20Marking%20Scheme.docx?v=1793788924",
+        "scheme_pdf": "/library/CSC402/schemes/CSC402%20Seed%2018%202026%20-%20Marking%20Scheme.pdf?v=1793788924"
+      }
+    },
+    {
+      "seed": 19,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 22,
+      "placeholders": 0,
+      "topic_marks": {
+        "input_output": 31,
+        "control_structures": 3,
+        "fundamentals": 20,
+        "data_types": 14,
+        "arrays": 17,
+        "structures": 15
+      },
+      "topic_mix": "I/O 31 FUN 20 ARR 17 STR 15 DAT 14 CTL 3",
+      "files": {
+        "paper_docx": "library/CSC402/papers/CSC402 Seed 19 2026.docx",
+        "paper_pdf": "library/CSC402/papers/CSC402 Seed 19 2026.pdf",
+        "scheme_docx": "library/CSC402/schemes/CSC402 Seed 19 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC402/schemes/CSC402 Seed 19 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC402/papers/CSC402%20Seed%2019%202026.docx?v=1793788924",
+        "paper_pdf": "/library/CSC402/papers/CSC402%20Seed%2019%202026.pdf?v=1793788924",
+        "scheme_docx": "/library/CSC402/schemes/CSC402%20Seed%2019%202026%20-%20Marking%20Scheme.docx?v=1793788924",
+        "scheme_pdf": "/library/CSC402/schemes/CSC402%20Seed%2019%202026%20-%20Marking%20Scheme.pdf?v=1793788924"
+      }
+    },
+    {
+      "seed": 20,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 22,
+      "placeholders": 0,
+      "topic_marks": {
+        "control_structures": 18,
+        "data_types": 14,
+        "fundamentals": 15,
+        "arrays": 17,
+        "input_output": 31,
+        "debugging_testing": 5
+      },
+      "topic_mix": "I/O 31 CTL 18 ARR 17 FUN 15 DAT 14 DBG 5",
+      "files": {
+        "paper_docx": "library/CSC402/papers/CSC402 Seed 20 2026.docx",
+        "paper_pdf": "library/CSC402/papers/CSC402 Seed 20 2026.pdf",
+        "scheme_docx": "library/CSC402/schemes/CSC402 Seed 20 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC402/schemes/CSC402 Seed 20 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC402/papers/CSC402%20Seed%2020%202026.docx?v=1793788924",
+        "paper_pdf": "/library/CSC402/papers/CSC402%20Seed%2020%202026.pdf?v=1793788924",
+        "scheme_docx": "/library/CSC402/schemes/CSC402%20Seed%2020%202026%20-%20Marking%20Scheme.docx?v=1793788924",
+        "scheme_pdf": "/library/CSC402/schemes/CSC402%20Seed%2020%202026%20-%20Marking%20Scheme.pdf?v=1793788924"
+      }
+    }
+  ]
+}
