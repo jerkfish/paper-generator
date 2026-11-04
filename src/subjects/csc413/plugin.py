@@ -8,11 +8,19 @@ from __future__ import annotations
 
 
 
-def build_seed(seed: int, **kwargs) -> dict:
+def build_seed(seed: int, out_dir=None, force: bool = False, **kwargs) -> dict:
     """Build one deterministic paper and write meta.json in ``out_dir``."""
-    raise NotImplementedError(
-        f"CSC413 deterministic builder is not implemented; complete "
-        "stages 5-7 first")
+    from src.subjects.csc413.build_docx import build_seed as _build_seed
+    if out_dir is None:
+        from src.app.jobs import cache_path
+        out_dir = cache_path("realistic", seed, None, subject="CSC413")
+    export = bool(kwargs.get("export", True))
+    return _build_seed(seed, out_dir=out_dir, export=export, force=force)
+
+
+def library_seeds() -> list[int]:
+    """The private Library is the standard 20-seed set."""
+    return list(range(1, 21))
 
 
 def generator_labels() -> dict:

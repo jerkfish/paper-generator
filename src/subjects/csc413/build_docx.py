@@ -70,13 +70,29 @@ def _marks(doc, marks: int, *, keep: bool = False) -> None:
 
 
 def _part_heading(doc, text: str) -> None:
-    _para(doc, text, size=12, bold=True, align=WD_ALIGN_PARAGRAPH.CENTER,
-          before=8, after=8, keep=True)
+    _para(doc, text, size=12, bold=True, align=WD_ALIGN_PARAGRAPH.LEFT,
+          before=10, after=6, keep=True)
 
 
 def _question_heading(doc, number: str) -> None:
     _para(doc, f"QUESTION {number[1:]}", size=11.5, bold=True,
           before=10, after=4, keep=True)
+
+
+def _numbered_para(doc, number: int, text: str, *, size: float = 11,
+                   before: float = 2, after: float = 2,
+                   bold_number: bool = True):
+    paragraph = doc.add_paragraph()
+    pf = paragraph.paragraph_format
+    pf.left_indent = Inches(0.35)
+    pf.first_line_indent = Inches(-0.35)
+    pf.space_before = Pt(before)
+    pf.space_after = Pt(after)
+    pf.keep_with_next = True
+    pf.tab_stops.add_tab_stop(Inches(0.35))
+    _run(paragraph, f"{number}.\t", size=size, bold=bold_number)
+    _run(paragraph, text, size=size)
+    return paragraph
 
 
 def _set_table_borders(table) -> None:
@@ -121,40 +137,39 @@ def _no_borders(table) -> None:
     tbl_pr.append(borders)
 
 
-def _option_line(doc, left: str, right: str) -> None:
+def _option_line(doc, left: str, right: str, *, keep: bool = True) -> None:
     paragraph = doc.add_paragraph()
     pf = paragraph.paragraph_format
-    pf.left_indent = Inches(0.35)
+    pf.left_indent = Inches(0.65)
     pf.space_before = Pt(0)
     pf.space_after = Pt(0)
-    pf.keep_with_next = True
-    pf.tab_stops.add_tab_stop(Inches(3.25))
-    _run(paragraph, f"{left}\t{right}", size=9.5)
+    pf.keep_with_next = keep
+    pf.tab_stops.add_tab_stop(Inches(3.35))
+    _run(paragraph, f"{left}\t{right}", size=10.5)
 
 
 def _option_lines(doc, options: list[str]) -> None:
-    _option_line(doc, f"A. {options[0]}", f"B. {options[1]}")
-    _option_line(doc, f"C. {options[2]}", f"D. {options[3]}")
-    _para(doc, "", after=2)
+    _option_line(doc, f"A. {options[0]}", f"B. {options[1]}", keep=True)
+    _option_line(doc, f"C. {options[2]}", f"D. {options[3]}", keep=False)
 
 
 def _matching_table(doc, options: list[dict]) -> None:
-    _para(doc, "Table A. Matching options", italic=True, size=9.5,
+    _para(doc, "Table A", size=11, bold=True,
           align=WD_ALIGN_PARAGRAPH.CENTER, before=3, after=3, keep=True)
-    rows = 5
-    cols = 3
+    rows = 3
+    cols = 5
     table = doc.add_table(rows=rows, cols=cols)
     table.autofit = False
     _set_table_borders(table)
     _set_cell_margins(table)
-    width = Inches(2.0)
+    width = Inches(1.25)
     for index, option in enumerate(options):
         cell = table.rows[index // cols].cells[index % cols]
         cell.width = width
         cell.text = ""
         cell.paragraphs[0].paragraph_format.space_after = Pt(1)
         _run(cell.paragraphs[0], f"{option['label']}. {option['text']}",
-             size=9)
+             size=10.5)
     _no_split(table)
     _para(doc, "", after=3)
 
@@ -171,29 +186,26 @@ def _build_paper_docx(paper: dict, out_docx: Path,
 
     _part_heading(doc, "PART A (15 MARKS)")
     _para(doc, "State TRUE (T) or FALSE (F) for the following statements.",
-          italic=True, size=9.5, after=8)
+          size=11, after=8)
     for index, question in enumerate(
             [q for q in paper["questions"] if q["part"] == "A"], start=1):
-        _para(doc, f"{index}. {question['stem']}", size=10.5, before=2,
-              after=2, keep=True)
+        _numbered_para(doc, index, question["stem"])
 
     _part_heading(doc, "PART B (15 MARKS)")
     _para(doc, "Select the most appropriate answer from Table A for each of "
-          "the following questions.", italic=True, size=9.5, after=4)
+          "the following questions.", size=11, after=4)
     _matching_table(doc, paper["matching_options"])
     for index, question in enumerate(
             [q for q in paper["questions"] if q["part"] == "B"], start=1):
-        _para(doc, f"{index}. {question['stem']}", size=10.5, before=2,
-              after=2, keep=True)
+        _numbered_para(doc, index, question["stem"])
 
     doc.add_page_break()
     _part_heading(doc, "PART C (30 MARKS)")
     _para(doc, "Choose the correct answer for each question.",
-          italic=True, size=9.5, after=8)
+          size=11, after=8)
     for index, question in enumerate(
             [q for q in paper["questions"] if q["part"] == "C"], start=1):
-        _para(doc, f"{index}. {question['stem']}", size=10.5, before=2,
-              after=1, keep=True)
+        _numbered_para(doc, index, question["stem"], before=3, after=1)
         _option_lines(doc, question["options"])
 
     _part_heading(doc, "PART D (40 MARKS)")
@@ -206,9 +218,10 @@ def _build_paper_docx(paper: dict, out_docx: Path,
             p.paragraph_format.space_after = Pt(1)
             p.paragraph_format.left_indent = Inches(0.3)
             p.paragraph_format.first_line_indent = Inches(-0.3)
+            p.paragraph_format.keep_with_next = True
             _run(p, f"{part['label']}) ", bold=True)
             _run(p, part["text"])
-            _marks(doc, part["marks"])
+            _marks(doc, part["marks"], keep=True)
 
     _para(doc, "END OF QUESTION PAPER", italic=True, size=9,
           align=WD_ALIGN_PARAGRAPH.CENTER, before=14, after=4)
@@ -265,7 +278,7 @@ def _rewrite_scheme_template(source: Path, target: Path) -> None:
             zout.writestr(item, data)
 
 
-def _set_paragraph_text(paragraph, text: str) -> None:
+def _set_paragraph_text(paragraph, text: str, *, left: bool = False) -> None:
     first = paragraph.runs[0] if paragraph.runs else None
     font_name = first.font.name if first is not None else "Arial"
     font_size = first.font.size if first is not None else Pt(10)
@@ -282,6 +295,13 @@ def _set_paragraph_text(paragraph, text: str) -> None:
     run.font.size = font_size
     run.bold = bold
     run.italic = italic
+    if left:
+        paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
+        pf = paragraph.paragraph_format
+        pf.tab_stops.clear_all()
+        pf.right_indent = None
+        if pf.left_indent is not None and pf.left_indent > Inches(1):
+            pf.left_indent = Inches(0.5)
 
 
 def _patch_scheme_notes(doc, paper: dict) -> None:
@@ -291,33 +311,33 @@ def _patch_scheme_notes(doc, paper: dict) -> None:
             _set_paragraph_text(
                 paragraph,
                 "This marking scheme accompanies the CSC413 mock paper "
-                "(NOV 2026).")
+                "(NOV 2026).", left=True)
         elif text.startswith("Computed answers show working"):
             _set_paragraph_text(
                 paragraph,
                 "Answers show the expected marking points; all questions are "
-                "deterministic and paper-derived; no lecture slides are used.")
+                "deterministic and paper-derived; no lecture slides are used.", left=True)
         elif text.startswith("Supported theory marking points"):
             _set_paragraph_text(
                 paragraph,
                 "Marking points show the expected answer and the allocation "
-                "of marks; unresolved slots would remain visible.")
+                "of marks; unresolved slots would remain visible.", left=True)
         elif text.startswith("Part A ="):
             _set_paragraph_text(
                 paragraph,
                 "Part A = 15 x 1 mark; Part B = 15 x 1 mark; "
-                "Part C = 30 x 1 mark; Part D = 4 x 10 marks; total = 100.")
+                "Part C = 30 x 1 mark; Part D = 4 x 10 marks; total = 100.", left=True)
         elif text.startswith("Computed:"):
             _set_paragraph_text(
                 paragraph,
                 f"Questions: {paper['question_count']}. "
                 f"Slots: {paper['slot_count']}. Placeholders: 0. "
-                "No LLM call.")
+                "No LLM call.", left=True)
         elif text.startswith("Near-copy rejection"):
             _set_paragraph_text(
                 paragraph,
                 "Structure derived from 15 unique CSC413 past papers; "
-                "no past-paper text is copied.")
+                "no past-paper text is copied.", left=True)
 
 
 def _answer_key_table(doc, headers: tuple[str, ...],

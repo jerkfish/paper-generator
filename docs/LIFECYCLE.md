@@ -21,11 +21,15 @@ uv run python -m scripts.lifecycle_status <CODE>
 | Subject | Type | Local generation | Public |
 |---|---|---|---|
 | **CSC402** Programming I | B | Deterministic plugin; 20-seed private Library | **Not published**; stage 9 pending |
+| **CSC413** Introduction to Interactive Multimedia | B | TRUE/FALSE, matching, MCQ and structured generators; 20-seed Library | **Not published**; stage 8 in progress |
 | **CSC662** Computer Security | A | LLM theory plus deterministic computed generators; 20-seed Library | Published |
 | **MAT133** Pre-Calculus | B | Deterministic paper-derived generators; 20-seed Library | Published |
 
-- The registry has 44 subjects: 3 `available` and 41 `coming_soon` curriculum
+- The registry has 44 subjects: 4 `available` and 40 `coming_soon` curriculum
   stubs.
+- CSC413 stages 0-7 are complete; stage 8 built the 20-seed private Library
+  and awaits [HUMAN] approval. Its publication permission is `allowed: true`,
+  but stage 9 remains a hard stop and nothing has been uploaded or deployed.
 - CSC402 stages 0-8 are approved and complete. Stage 9 (publication) is a hard
   stop; no CSC402 papers, downloads or Library route are published. The public
   bundle only carries the `coming_soon` registry stub.

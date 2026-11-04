@@ -4,7 +4,7 @@
   "type": "B",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-04T16:50:14Z",
+  "updated": "2026-11-04T17:48:49Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -144,7 +144,7 @@
       "notes": "Four deterministic generators cover the plan: TRUE/FALSE, matching, MCQ and structured. All 20 seeds validate at 100 marks, 64 questions and 72 slots; matching uses 15 distinct terms and options; structured questions have three subparts totalling 10 marks. No placeholders or unanswered slots. Content banks cover all 12 taxonomy topics; Part B is one shared matching table; Part D uses six structured scenarios with marks assigned by the plan. LLM cost is $0 by design."
     },
     "7_builders_qa": {
-      "status": "pending",
+      "status": "done",
       "evidence": [
         "src/subjects/csc413/build_docx.py",
         "data/reference/CSC413/CSC413 TEMPLATE.docx",
@@ -164,16 +164,22 @@
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": "Awaiting visual approval of the 5-page paper and 6-page scheme, including the shortened scheme-cover title."
+        "approved": true,
+        "by": "user instruction \"approved, continue\"",
+        "on": "2026-11-05",
+        "note": "Approved the 5-page paper, 6-page scheme and shortened scheme-cover title."
       },
       "notes": "Seed-1 sample built from the approved CSC413 cover template and the standard UTM marking-scheme template. Paper is 5 pages: cover page 1, PART A/B on page 2, PART C on pages 3-4, PART D on page 5. Scheme is 6 pages: cover/notes, PART A key, PART B key, PART C key, and PART D worked answers. DOCX checks have no forbidden tokens or missing content; PDF checks have cover, page-2 body start and zero right overflow. The scheme cover uses the shortened title INTERACTIVE MULTIMEDIA to fit the standard scheme template; the paper cover keeps the full title."
     },
     "8_library_prebuild": {
-      "status": "pending",
-      "evidence": [],
+      "status": "in_progress",
+      "evidence": [
+        "data/tracking/csc413/style_samples/summary.json",
+        "data/tracking/csc413/style_samples/seed_01",
+        "data/tracking/csc413/style_samples/seed_02",
+        "data/tracking/csc413/style_samples/seed_03",
+        "src/subjects/csc413/build_docx.py"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
@@ -181,9 +187,9 @@
         "approved": false,
         "by": "",
         "on": "",
-        "note": ""
+        "note": "Awaiting review of the three revised sample seeds before rebuilding the 20-seed Library."
       },
-      "notes": ""
+      "notes": "Owner rejected the first 20-seed Library for styling. Three revised seed samples were rebuilt from the supplied CSC413 DOCX look: left-aligned bold part headings, hanging numbered questions, five-column Table A, right-aligned marks, question blocks kept together and cleaner scheme notes. Each sample is a 5-page paper and 6-page scheme with no QA problems. The original 20-seed cache remains marked rejected; rebuild after sample approval."
     },
     "9_publish": {
       "status": "pending",
@@ -214,14 +220,7 @@
       "notes": ""
     }
   },
-  "unsure": [
-    {
-      "stage": "7_builders_qa",
-      "item": "The scheme cover uses the shortened course title INTERACTIVE MULTIMEDIA to fit the standard scheme template; the paper cover uses the full title. Confirm this presentation choice.",
-      "blocking": true,
-      "opened": "2026-11-05"
-    }
-  ],
+  "unsure": [],
   "llm_cost": {
     "currency": "USD",
     "total_usd": 0.0,

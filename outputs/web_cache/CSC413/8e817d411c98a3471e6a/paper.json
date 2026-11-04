@@ -1,0 +1,1112 @@
+{
+  "subject": "CSC413",
+  "seed": 8,
+  "generated_by": "src.subjects.csc413.generators",
+  "planner": "src.subjects.csc413.planner",
+  "total_marks": 100,
+  "part_marks": {
+    "A": 15,
+    "B": 15,
+    "C": 30,
+    "D": 40
+  },
+  "topic_marks": {
+    "audio": 6,
+    "multimedia_fundamentals": 10,
+    "hardware_devices": 6,
+    "animation": 17,
+    "video": 5,
+    "graphics": 8,
+    "authoring_interactivity": 17,
+    "web_hypermedia": 15,
+    "legal_ethics": 1,
+    "text": 3,
+    "virtual_reality": 1,
+    "design_project": 11
+  },
+  "question_count": 64,
+  "slot_count": 72,
+  "questions": [
+    {
+      "number": "A1",
+      "part": "A",
+      "kind": "true_false",
+      "marks": 1,
+      "topic": "audio",
+      "stem": "MIDI files store digitized audio samples.",
+      "answer": "FALSE",
+      "solution": "MIDI stores musical instructions, not samples."
+    },
+    {
+      "number": "A2",
+      "part": "A",
+      "kind": "true_false",
+      "marks": 1,
+      "topic": "multimedia_fundamentals",
+      "stem": "Hypermedia combines multimedia with hyperlinks.",
+      "answer": "TRUE",
+      "solution": "Hypermedia adds linked navigation to multimedia."
+    },
+    {
+      "number": "A3",
+      "part": "A",
+      "kind": "true_false",
+      "marks": 1,
+      "topic": "hardware_devices",
+      "stem": "A graphics tablet is used to draw directly into a computer.",
+      "answer": "TRUE",
+      "solution": "A tablet is a drawing input device."
+    },
+    {
+      "number": "A4",
+      "part": "A",
+      "kind": "true_false",
+      "marks": 1,
+      "topic": "animation",
+      "stem": "Keyframes define important positions in an animation.",
+      "answer": "TRUE",
+      "solution": "Keyframes mark major changes."
+    },
+    {
+      "number": "A5",
+      "part": "A",
+      "kind": "true_false",
+      "marks": 1,
+      "topic": "multimedia_fundamentals",
+      "stem": "A linear presentation allows users to choose their own path.",
+      "answer": "FALSE",
+      "solution": "A linear presentation follows a fixed sequence."
+    },
+    {
+      "number": "A6",
+      "part": "A",
+      "kind": "true_false",
+      "marks": 1,
+      "topic": "multimedia_fundamentals",
+      "stem": "A multimedia project always uses every media element.",
+      "answer": "FALSE",
+      "solution": "A project selects the elements it needs."
+    },
+    {
+      "number": "A7",
+      "part": "A",
+      "kind": "true_false",
+      "marks": 1,
+      "topic": "multimedia_fundamentals",
+      "stem": "Multimedia combines text, graphics, audio, video and animation.",
+      "answer": "TRUE",
+      "solution": "These are the core multimedia elements."
+    },
+    {
+      "number": "A8",
+      "part": "A",
+      "kind": "true_false",
+      "marks": 1,
+      "topic": "video",
+      "stem": "Frame rate is the number of video frames displayed per second.",
+      "answer": "TRUE",
+      "solution": "Frame rate is measured in fps."
+    },
+    {
+      "number": "A9",
+      "part": "A",
+      "kind": "true_false",
+      "marks": 1,
+      "topic": "animation",
+      "stem": "Tweening creates intermediate frames between keyframes.",
+      "answer": "TRUE",
+      "solution": "Tweening fills the gaps."
+    },
+    {
+      "number": "A10",
+      "part": "A",
+      "kind": "true_false",
+      "marks": 1,
+      "topic": "animation",
+      "stem": "Cel animation is created by drawing each frame by hand.",
+      "answer": "TRUE",
+      "solution": "Cel animation uses hand-drawn frames."
+    },
+    {
+      "number": "A11",
+      "part": "A",
+      "kind": "true_false",
+      "marks": 1,
+      "topic": "video",
+      "stem": "Interlacing displays every line of a video frame at the same time.",
+      "answer": "FALSE",
+      "solution": "Interlacing draws alternate lines."
+    },
+    {
+      "number": "A12",
+      "part": "A",
+      "kind": "true_false",
+      "marks": 1,
+      "topic": "graphics",
+      "stem": "CMYK is used for printed output.",
+      "answer": "TRUE",
+      "solution": "CMYK is a subtractive print model."
+    },
+    {
+      "number": "A13",
+      "part": "A",
+      "kind": "true_false",
+      "marks": 1,
+      "topic": "authoring_interactivity",
+      "stem": "Authoring tools help developers organise and edit multimedia elements.",
+      "answer": "TRUE",
+      "solution": "Authoring tools assemble media."
+    },
+    {
+      "number": "A14",
+      "part": "A",
+      "kind": "true_false",
+      "marks": 1,
+      "topic": "web_hypermedia",
+      "stem": "Streaming allows media to begin playing before the whole file is downloaded.",
+      "answer": "TRUE",
+      "solution": "Streaming delivers media continuously."
+    },
+    {
+      "number": "A15",
+      "part": "A",
+      "kind": "true_false",
+      "marks": 1,
+      "topic": "graphics",
+      "stem": "Higher resolution always means a smaller file.",
+      "answer": "FALSE",
+      "solution": "Higher resolution usually increases file size."
+    },
+    {
+      "number": "B1",
+      "part": "B",
+      "kind": "matching",
+      "marks": 1,
+      "topic": "multimedia_fundamentals",
+      "stem": "integration of text, graphics, audio, video and animation",
+      "answer": "F",
+      "answer_term": "Multimedia",
+      "solution": "Multimedia matches this description."
+    },
+    {
+      "number": "B2",
+      "part": "B",
+      "kind": "matching",
+      "marks": 1,
+      "topic": "graphics",
+      "stem": "image made of pixels",
+      "answer": "I",
+      "answer_term": "Bitmap",
+      "solution": "Bitmap matches this description."
+    },
+    {
+      "number": "B3",
+      "part": "B",
+      "kind": "matching",
+      "marks": 1,
+      "topic": "audio",
+      "stem": "converting sound into digital values",
+      "answer": "E",
+      "answer_term": "Sampling",
+      "solution": "Sampling matches this description."
+    },
+    {
+      "number": "B4",
+      "part": "B",
+      "kind": "matching",
+      "marks": 1,
+      "topic": "authoring_interactivity",
+      "stem": "visual sequence plan",
+      "answer": "K",
+      "answer_term": "Storyboard",
+      "solution": "Storyboard matches this description."
+    },
+    {
+      "number": "B5",
+      "part": "B",
+      "kind": "matching",
+      "marks": 1,
+      "topic": "audio",
+      "stem": "standard for musical notes and instructions",
+      "answer": "B",
+      "answer_term": "MIDI",
+      "solution": "MIDI matches this description."
+    },
+    {
+      "number": "B6",
+      "part": "B",
+      "kind": "matching",
+      "marks": 1,
+      "topic": "animation",
+      "stem": "important frame in an animation",
+      "answer": "A",
+      "answer_term": "Keyframe",
+      "solution": "Keyframe matches this description."
+    },
+    {
+      "number": "B7",
+      "part": "B",
+      "kind": "matching",
+      "marks": 1,
+      "topic": "hardware_devices",
+      "stem": "input device that digitises documents",
+      "answer": "N",
+      "answer_term": "Scanner",
+      "solution": "Scanner matches this description."
+    },
+    {
+      "number": "B8",
+      "part": "B",
+      "kind": "matching",
+      "marks": 1,
+      "topic": "web_hypermedia",
+      "stem": "software that displays web pages",
+      "answer": "O",
+      "answer_term": "Browser",
+      "solution": "Browser matches this description."
+    },
+    {
+      "number": "B9",
+      "part": "B",
+      "kind": "matching",
+      "marks": 1,
+      "topic": "audio",
+      "stem": "height of a sound wave",
+      "answer": "G",
+      "answer_term": "Amplitude",
+      "solution": "Amplitude matches this description."
+    },
+    {
+      "number": "B10",
+      "part": "B",
+      "kind": "matching",
+      "marks": 1,
+      "topic": "web_hypermedia",
+      "stem": "language for web structure",
+      "answer": "L",
+      "answer_term": "HTML",
+      "solution": "HTML matches this description."
+    },
+    {
+      "number": "B11",
+      "part": "B",
+      "kind": "matching",
+      "marks": 1,
+      "topic": "animation",
+      "stem": "generating in-between frames",
+      "answer": "D",
+      "answer_term": "Tweening",
+      "solution": "Tweening matches this description."
+    },
+    {
+      "number": "B12",
+      "part": "B",
+      "kind": "matching",
+      "marks": 1,
+      "topic": "multimedia_fundamentals",
+      "stem": "presentation without user control of sequence",
+      "answer": "C",
+      "answer_term": "Linear multimedia",
+      "solution": "Linear multimedia matches this description."
+    },
+    {
+      "number": "B13",
+      "part": "B",
+      "kind": "matching",
+      "marks": 1,
+      "topic": "legal_ethics",
+      "stem": "exclusive rights of a creator",
+      "answer": "H",
+      "answer_term": "Copyright",
+      "solution": "Copyright matches this description."
+    },
+    {
+      "number": "B14",
+      "part": "B",
+      "kind": "matching",
+      "marks": 1,
+      "topic": "hardware_devices",
+      "stem": "output device for large drawings",
+      "answer": "J",
+      "answer_term": "Plotter",
+      "solution": "Plotter matches this description."
+    },
+    {
+      "number": "B15",
+      "part": "B",
+      "kind": "matching",
+      "marks": 1,
+      "topic": "authoring_interactivity",
+      "stem": "authoring tool organised like pages or cards",
+      "answer": "M",
+      "answer_term": "Card-based tool",
+      "solution": "Card-based tool matches this description."
+    },
+    {
+      "number": "C1",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "web_hypermedia",
+      "stem": "A browser is used to:",
+      "options": [
+        "Print documents only",
+        "Scan images",
+        "Display web pages",
+        "Edit audio"
+      ],
+      "answer": "C",
+      "answer_text": "Display web pages",
+      "solution": "The correct answer is Display web pages."
+    },
+    {
+      "number": "C2",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "authoring_interactivity",
+      "stem": "A prototype is:",
+      "options": [
+        "A final release",
+        "A font",
+        "An early model of a product",
+        "A codec"
+      ],
+      "answer": "C",
+      "answer_text": "An early model of a product",
+      "solution": "The correct answer is An early model of a product."
+    },
+    {
+      "number": "C3",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "graphics",
+      "stem": "Which colour model is subtractive?",
+      "options": [
+        "HSV",
+        "CMYK",
+        "HSL",
+        "RGB"
+      ],
+      "answer": "B",
+      "answer_text": "CMYK",
+      "solution": "The correct answer is CMYK."
+    },
+    {
+      "number": "C4",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "text",
+      "stem": "Kerning adjusts:",
+      "options": [
+        "Page size",
+        "Space between individual character pairs",
+        "Font colour",
+        "Line length"
+      ],
+      "answer": "B",
+      "answer_text": "Space between individual character pairs",
+      "solution": "The correct answer is Space between individual character pairs."
+    },
+    {
+      "number": "C5",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "virtual_reality",
+      "stem": "Virtual reality creates:",
+      "options": [
+        "A text font",
+        "A camera lens",
+        "A printed page",
+        "A simulated environment"
+      ],
+      "answer": "D",
+      "answer_text": "A simulated environment",
+      "solution": "The correct answer is A simulated environment."
+    },
+    {
+      "number": "C6",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "hardware_devices",
+      "stem": "Which is an output device?",
+      "options": [
+        "Plotter",
+        "Scanner",
+        "Keyboard",
+        "Mouse"
+      ],
+      "answer": "A",
+      "answer_text": "Plotter",
+      "solution": "The correct answer is Plotter."
+    },
+    {
+      "number": "C7",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "web_hypermedia",
+      "stem": "A hyperlink links to:",
+      "options": [
+        "Only audio",
+        "Another resource",
+        "Only text",
+        "Only images"
+      ],
+      "answer": "B",
+      "answer_text": "Another resource",
+      "solution": "The correct answer is Another resource."
+    },
+    {
+      "number": "C8",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "video",
+      "stem": "Chroma key is used to:",
+      "options": [
+        "Scan images",
+        "Add text",
+        "Compress audio",
+        "Replace a colour background"
+      ],
+      "answer": "D",
+      "answer_text": "Replace a colour background",
+      "solution": "The correct answer is Replace a colour background."
+    },
+    {
+      "number": "C9",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "text",
+      "stem": "Hypertext contains:",
+      "options": [
+        "Only images",
+        "Links to other content",
+        "Only audio",
+        "No text"
+      ],
+      "answer": "B",
+      "answer_text": "Links to other content",
+      "solution": "The correct answer is Links to other content."
+    },
+    {
+      "number": "C10",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "audio",
+      "stem": "Amplitude of a sound wave relates to:",
+      "options": [
+        "Loudness",
+        "Colour",
+        "Frame rate",
+        "Pitch"
+      ],
+      "answer": "A",
+      "answer_text": "Loudness",
+      "solution": "The correct answer is Loudness."
+    },
+    {
+      "number": "C11",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "hardware_devices",
+      "stem": "Which is an input device?",
+      "options": [
+        "Monitor",
+        "Scanner",
+        "Plotter",
+        "Printer"
+      ],
+      "answer": "B",
+      "answer_text": "Scanner",
+      "solution": "The correct answer is Scanner."
+    },
+    {
+      "number": "C12",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "design_project",
+      "stem": "A wireframe is:",
+      "options": [
+        "A codec",
+        "A low-fidelity layout sketch",
+        "A final video",
+        "A sound file"
+      ],
+      "answer": "B",
+      "answer_text": "A low-fidelity layout sketch",
+      "solution": "The correct answer is A low-fidelity layout sketch."
+    },
+    {
+      "number": "C13",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "video",
+      "stem": "Interlacing:",
+      "options": [
+        "Adds sound",
+        "Removes colour",
+        "Draws every line at once",
+        "Draws alternate lines of a frame"
+      ],
+      "answer": "D",
+      "answer_text": "Draws alternate lines of a frame",
+      "solution": "The correct answer is Draws alternate lines of a frame."
+    },
+    {
+      "number": "C14",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "authoring_interactivity",
+      "stem": "Which is an authoring tool category?",
+      "options": [
+        "Card-based",
+        "RGB",
+        "JPEG",
+        "CMYK"
+      ],
+      "answer": "A",
+      "answer_text": "Card-based",
+      "solution": "The correct answer is Card-based."
+    },
+    {
+      "number": "C15",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "authoring_interactivity",
+      "stem": "An authoring tool is used to:",
+      "options": [
+        "Only browse the web",
+        "Only print text",
+        "Assemble multimedia elements",
+        "Only record audio"
+      ],
+      "answer": "C",
+      "answer_text": "Assemble multimedia elements",
+      "solution": "The correct answer is Assemble multimedia elements."
+    },
+    {
+      "number": "C16",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "multimedia_fundamentals",
+      "stem": "Which best defines multimedia?",
+      "options": [
+        "A single image",
+        "A printed book",
+        "Text, graphics, audio, video and animation",
+        "Text only"
+      ],
+      "answer": "C",
+      "answer_text": "Text, graphics, audio, video and animation",
+      "solution": "The correct answer is Text, graphics, audio, video and animation."
+    },
+    {
+      "number": "C17",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "hardware_devices",
+      "stem": "RAM is:",
+      "options": [
+        "A web browser",
+        "An input device",
+        "Permanent storage",
+        "Temporary working memory"
+      ],
+      "answer": "D",
+      "answer_text": "Temporary working memory",
+      "solution": "The correct answer is Temporary working memory."
+    },
+    {
+      "number": "C18",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "authoring_interactivity",
+      "stem": "A storyboard is:",
+      "options": [
+        "A sound file",
+        "A colour model",
+        "A visual sequence plan",
+        "A video codec"
+      ],
+      "answer": "C",
+      "answer_text": "A visual sequence plan",
+      "solution": "The correct answer is A visual sequence plan."
+    },
+    {
+      "number": "C19",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "graphics",
+      "stem": "CMYK is used mainly for:",
+      "options": [
+        "Printed output",
+        "Sound mixing",
+        "Screen display",
+        "Animation"
+      ],
+      "answer": "A",
+      "answer_text": "Printed output",
+      "solution": "The correct answer is Printed output."
+    },
+    {
+      "number": "C20",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "audio",
+      "stem": "Sampling converts:",
+      "options": [
+        "Images to vectors",
+        "Text to speech",
+        "Digital video to text",
+        "Analog sound to digital values"
+      ],
+      "answer": "D",
+      "answer_text": "Analog sound to digital values",
+      "solution": "The correct answer is Analog sound to digital values."
+    },
+    {
+      "number": "C21",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "graphics",
+      "stem": "A bitmap image is made of:",
+      "options": [
+        "Mathematical objects",
+        "Sound samples",
+        "Text characters",
+        "Pixels"
+      ],
+      "answer": "D",
+      "answer_text": "Pixels",
+      "solution": "The correct answer is Pixels."
+    },
+    {
+      "number": "C22",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "text",
+      "stem": "A serif font has:",
+      "options": [
+        "Small strokes at character ends",
+        "No spacing",
+        "Only uppercase letters",
+        "No strokes"
+      ],
+      "answer": "A",
+      "answer_text": "Small strokes at character ends",
+      "solution": "The correct answer is Small strokes at character ends."
+    },
+    {
+      "number": "C23",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "multimedia_fundamentals",
+      "stem": "Convergence in multimedia refers to:",
+      "options": [
+        "Recording audio only",
+        "Merging of media and computing",
+        "Printing images",
+        "Deleting media files"
+      ],
+      "answer": "B",
+      "answer_text": "Merging of media and computing",
+      "solution": "The correct answer is Merging of media and computing."
+    },
+    {
+      "number": "C24",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "multimedia_fundamentals",
+      "stem": "Hypermedia is best described as:",
+      "options": [
+        "A printed manual",
+        "Text-only media",
+        "A single video file",
+        "Multimedia with hyperlinks"
+      ],
+      "answer": "D",
+      "answer_text": "Multimedia with hyperlinks",
+      "solution": "The correct answer is Multimedia with hyperlinks."
+    },
+    {
+      "number": "C25",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "video",
+      "stem": "MPEG is:",
+      "options": [
+        "A storage device",
+        "An image editor",
+        "A font",
+        "A video compression family"
+      ],
+      "answer": "D",
+      "answer_text": "A video compression family",
+      "solution": "The correct answer is A video compression family."
+    },
+    {
+      "number": "C26",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "graphics",
+      "stem": "Resolution refers to:",
+      "options": [
+        "Font size",
+        "Number of pixels in an image",
+        "Colour name",
+        "File type"
+      ],
+      "answer": "B",
+      "answer_text": "Number of pixels in an image",
+      "solution": "The correct answer is Number of pixels in an image."
+    },
+    {
+      "number": "C27",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "multimedia_fundamentals",
+      "stem": "Which is an example of linear multimedia?",
+      "options": [
+        "A game with choices",
+        "An interactive kiosk",
+        "A cinema presentation",
+        "A website with menus"
+      ],
+      "answer": "C",
+      "answer_text": "A cinema presentation",
+      "solution": "The correct answer is A cinema presentation."
+    },
+    {
+      "number": "C28",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "animation",
+      "stem": "Morphing changes:",
+      "options": [
+        "File format",
+        "Font size",
+        "One shape into another",
+        "Audio pitch"
+      ],
+      "answer": "C",
+      "answer_text": "One shape into another",
+      "solution": "The correct answer is One shape into another."
+    },
+    {
+      "number": "C29",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "animation",
+      "stem": "Path animation moves an object:",
+      "options": [
+        "Randomly",
+        "Only vertically",
+        "Along a predefined route",
+        "Without motion"
+      ],
+      "answer": "C",
+      "answer_text": "Along a predefined route",
+      "solution": "The correct answer is Along a predefined route."
+    },
+    {
+      "number": "C30",
+      "part": "C",
+      "kind": "mcq",
+      "marks": 1,
+      "topic": "graphics",
+      "stem": "RGB is used mainly for:",
+      "options": [
+        "Screen display",
+        "Audio recording",
+        "Video editing only",
+        "Printed output"
+      ],
+      "answer": "A",
+      "answer_text": "Screen display",
+      "solution": "The correct answer is Screen display."
+    },
+    {
+      "number": "D1",
+      "part": "D",
+      "kind": "structured",
+      "marks": 10,
+      "topic": "design_project",
+      "stem": "A shopping complex requires a kiosk that gives customers location and retailer information.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "text": "State TWO important project team roles for completing the kiosk.",
+          "answer": "A project manager and an interface designer are important roles."
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "Design a low-fidelity prototype for a pre-school courseware home page. The page must show topic menus, the course title and the school logo.",
+          "answer": "A simple sketch with a title, logo and large topic buttons is sufficient at low fidelity."
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "text": "Discuss TWO factors that lead to the wide use of mobile devices in games and shopping applications.",
+          "answer": "Portability and constant connectivity make mobile devices convenient for games and shopping."
+        }
+      ]
+    },
+    {
+      "number": "D2",
+      "part": "D",
+      "kind": "structured",
+      "marks": 10,
+      "topic": "authoring_interactivity",
+      "stem": "A company wants an interactive product demonstration that runs on a kiosk and on the web.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "State TWO features to consider when choosing authoring software.",
+          "answer": "Interactivity support and export formats are important features."
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "Explain the interactivity level suitable for the demonstration.",
+          "answer": "A medium level with menus and buttons lets users explore without overwhelming them."
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "text": "Explain TWO authoring tool categories appropriate for this project.",
+          "answer": "Card-based tools suit structured screens; timeline-based tools suit animation and media sequencing."
+        }
+      ]
+    },
+    {
+      "number": "D3",
+      "part": "D",
+      "kind": "structured",
+      "marks": 10,
+      "topic": "web_hypermedia",
+      "stem": "A museum wants a website that presents its collection and lets visitors explore related exhibits.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "State TWO differences between linear and non-linear navigation.",
+          "answer": "Linear follows a fixed sequence; non-linear lets users choose their own path."
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "text": "Describe TWO roles of hyperlinks in the website.",
+          "answer": "They connect related exhibits and let users move between pages."
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "text": "Explain how streaming and compression affect multimedia delivery on the web.",
+          "answer": "Compression reduces file size for faster transfer; streaming lets audio or video play while it downloads."
+        }
+      ]
+    },
+    {
+      "number": "D4",
+      "part": "D",
+      "kind": "structured",
+      "marks": 10,
+      "topic": "animation",
+      "stem": "You are required to animate a company logo. The logo depicts a planet orbiting the sun.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "text": "State TWO animation file formats suitable for this project.",
+          "answer": "GIF and MP4 are suitable; SWF is also acceptable."
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "Describe the steps of cel animation and ONE advantage of using it.",
+          "answer": "Draw each frame, capture the frames in sequence, then play them back; it gives direct artistic control."
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "text": "Differentiate 2-D and 2.5-D animation with ONE example for each.",
+          "answer": "2-D uses flat drawings such as a cartoon; 2.5-D adds depth to flat artwork, such as parallax layers in a game."
+        }
+      ]
+    }
+  ],
+  "matching_options": [
+    {
+      "label": "A",
+      "text": "Keyframe"
+    },
+    {
+      "label": "B",
+      "text": "MIDI"
+    },
+    {
+      "label": "C",
+      "text": "Linear multimedia"
+    },
+    {
+      "label": "D",
+      "text": "Tweening"
+    },
+    {
+      "label": "E",
+      "text": "Sampling"
+    },
+    {
+      "label": "F",
+      "text": "Multimedia"
+    },
+    {
+      "label": "G",
+      "text": "Amplitude"
+    },
+    {
+      "label": "H",
+      "text": "Copyright"
+    },
+    {
+      "label": "I",
+      "text": "Bitmap"
+    },
+    {
+      "label": "J",
+      "text": "Plotter"
+    },
+    {
+      "label": "K",
+      "text": "Storyboard"
+    },
+    {
+      "label": "L",
+      "text": "HTML"
+    },
+    {
+      "label": "M",
+      "text": "Card-based tool"
+    },
+    {
+      "label": "N",
+      "text": "Scanner"
+    },
+    {
+      "label": "O",
+      "text": "Browser"
+    }
+  ],
+  "slot_map": {
+    "A1": "A1",
+    "A2": "A2",
+    "A3": "A3",
+    "A4": "A4",
+    "A5": "A5",
+    "A6": "A6",
+    "A7": "A7",
+    "A8": "A8",
+    "A9": "A9",
+    "A10": "A10",
+    "A11": "A11",
+    "A12": "A12",
+    "A13": "A13",
+    "A14": "A14",
+    "A15": "A15",
+    "B1": "B1",
+    "B2": "B2",
+    "B3": "B3",
+    "B4": "B4",
+    "B5": "B5",
+    "B6": "B6",
+    "B7": "B7",
+    "B8": "B8",
+    "B9": "B9",
+    "B10": "B10",
+    "B11": "B11",
+    "B12": "B12",
+    "B13": "B13",
+    "B14": "B14",
+    "B15": "B15",
+    "C1": "C1",
+    "C2": "C2",
+    "C3": "C3",
+    "C4": "C4",
+    "C5": "C5",
+    "C6": "C6",
+    "C7": "C7",
+    "C8": "C8",
+    "C9": "C9",
+    "C10": "C10",
+    "C11": "C11",
+    "C12": "C12",
+    "C13": "C13",
+    "C14": "C14",
+    "C15": "C15",
+    "C16": "C16",
+    "C17": "C17",
+    "C18": "C18",
+    "C19": "C19",
+    "C20": "C20",
+    "C21": "C21",
+    "C22": "C22",
+    "C23": "C23",
+    "C24": "C24",
+    "C25": "C25",
+    "C26": "C26",
+    "C27": "C27",
+    "C28": "C28",
+    "C29": "C29",
+    "C30": "C30",
+    "D1a": "D1",
+    "D1b": "D1",
+    "D1c": "D1",
+    "D2a": "D2",
+    "D2b": "D2",
+    "D2c": "D2",
+    "D3a": "D3",
+    "D3b": "D3",
+    "D3c": "D3",
+    "D4a": "D4",
+    "D4b": "D4",
+    "D4c": "D4"
+  },
+  "style_profile": {
+    "true_false": 15,
+    "matching": 15,
+    "mcq": 30,
+    "structured": 4,
+    "structured_subparts": 12,
+    "matching_options": 15
+  }
+}
