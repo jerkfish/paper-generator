@@ -9,7 +9,11 @@ from pathlib import Path
 
 
 def generator_labels() -> dict:
-    return {}
+    return {
+        "csc429.number_base_conversion": "Number-base conversion",
+        "csc429.signed_arithmetic": "Signed arithmetic and complements",
+        "csc429.ieee754_single": "IEEE 754 single precision",
+    }
 
 
 def topic_labels() -> dict:

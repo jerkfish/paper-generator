@@ -20,6 +20,7 @@ from collections import Counter
 from pathlib import Path
 
 from src import config
+from src.subjects.csc429.generators import GENERATOR_IDS
 from src.subjects.csc429.taxonomy import TOPICS
 
 SUBJECT = "CSC429"
@@ -125,18 +126,20 @@ def mark_pools(log: dict, quota: dict[str, int]) -> tuple[list[str], list[str]]:
 def _slot(label: str, part: str, marks: int, topic: str) -> dict:
     if topic not in TOPICS or topic == "other":
         raise ValueError(f"unknown taxonomy topic: {topic}")
+    generated = topic == "data_representation"
     return {
         "slot": label,
         "part": part,
         "question": label,
-        "kind": "real_bank_question",
+        "kind": "generated_question" if generated else "real_bank_question",
         "marks": marks,
         "topic": topic,
         "topic_label": TOPICS[topic]["title"],
         "task": "assembly_program" if part == "B" else "short_answer",
         "title": SINGLE_MARK_TITLES[label],
-        "resolver": "csc429.real_bank",
-        "variant_policy": "verbatim",
+        "resolver": "csc429.generator" if generated else "csc429.real_bank",
+        "variant_policy": "controlled_numeric" if generated else "verbatim",
+        "generator_pool": list(GENERATOR_IDS) if generated else [],
         "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
     }
 
@@ -252,8 +255,12 @@ def validate_plan(plan: dict) -> None:
     for slot in slots:
         if slot["topic"] not in TOPICS or slot["topic"] == "other":
             raise ValueError(f"invalid topic in slot {slot['slot']}")
-        if slot["resolver"] != "csc429.real_bank":
-            raise ValueError(f"unresolved slot {slot['slot']}")
+        expected = ("csc429.generator" if slot["topic"] == "data_representation"
+                    else "csc429.real_bank")
+        if slot["resolver"] != expected:
+            raise ValueError(
+                f"slot {slot['slot']} has resolver {slot['resolver']!r}, "
+                f"expected {expected!r}")
 
 
 def main() -> None:

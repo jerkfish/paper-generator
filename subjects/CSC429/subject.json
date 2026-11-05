@@ -64,11 +64,20 @@
       "io_system": 2,
       "parallel_architecture": 1,
       "assembly_programming": 1
-    }
+    },
+    "generators": "src/subjects/csc429/generators.py",
+    "generator_sample": "data/tracking/csc429/generator_sample_seed_01.json",
+    "generator_validation": "data/tracking/csc429/generator_validation.json",
+    "generator_count": 3,
+    "generator_slots_20_seeds": 40
   },
   "deck_map": {},
   "topic_deck_allowlist": {},
-  "enabled_computed_generators": [],
+  "enabled_computed_generators": [
+    "csc429.number_base_conversion",
+    "csc429.signed_arithmetic",
+    "csc429.ieee754_single"
+  ],
   "capabilities": {
     "subject_type": "C",
     "generation": "deterministic",

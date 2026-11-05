@@ -16,6 +16,12 @@ def test_planner_is_deterministic_and_balanced():
         5, 5, 5, 5, 10, 10, 10, 10, 10, 10, 20
     ]
     assert plan["slots"][-1]["topic"] == "assembly_programming"
+    data_slots = [slot for slot in plan["slots"]
+                  if slot["topic"] == "data_representation"]
+    assert data_slots
+    assert all(slot["resolver"] == "csc429.generator" for slot in data_slots)
+    assert all(slot["variant_policy"] == "controlled_numeric"
+               for slot in data_slots)
     topics = {slot["topic"] for slot in plan["slots"] if slot["part"] == "A"}
     assert len(topics) == 7
     assert "other" not in topics
