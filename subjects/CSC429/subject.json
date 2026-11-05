@@ -51,7 +51,20 @@
         "marks": 20
       }
     },
-    "generation_model": "deterministic_real_question_bank"
+    "generation_model": "deterministic_real_question_bank",
+    "planner": "src/subjects/csc429/planner.py",
+    "planner_sample": "data/tracking/csc429/planner_seed_01.json",
+    "planner_slots": 11,
+    "planner_topic_quota": {
+      "computer_generations": 1,
+      "computer_architecture": 2,
+      "data_representation": 2,
+      "instruction_set_addressing": 1,
+      "memory_system": 1,
+      "io_system": 2,
+      "parallel_architecture": 1,
+      "assembly_programming": 1
+    }
   },
   "deck_map": {},
   "topic_deck_allowlist": {},
