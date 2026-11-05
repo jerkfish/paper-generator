@@ -1,0 +1,1250 @@
+{
+  "subject": "CSC429",
+  "planner_version": 1,
+  "generated_by": "src.subjects.csc429.planner",
+  "style": "modern",
+  "seed": 11,
+  "target_format": {
+    "A": {
+      "questions": 10,
+      "marks": 80,
+      "slot_marks": [
+        5,
+        5,
+        5,
+        5,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ]
+    },
+    "B": {
+      "questions": 1,
+      "marks": 20
+    }
+  },
+  "source_evidence": [
+    "data/tracking/csc429/taxonomy.json",
+    "data/tracking/csc429/question_log.json",
+    "data/tracking/csc429/taxonomy_summary.json"
+  ],
+  "topic_quota": {
+    "computer_generations": 1,
+    "data_representation": 2,
+    "memory_system": 1,
+    "io_system": 2,
+    "parallel_architecture": 1,
+    "computer_architecture": 2,
+    "instruction_set_addressing": 1
+  },
+  "part_marks": {
+    "A": 80,
+    "B": 20
+  },
+  "topic_marks": {
+    "computer_generations": 5,
+    "instruction_set_addressing": 5,
+    "data_representation": 15,
+    "parallel_architecture": 5,
+    "memory_system": 10,
+    "computer_architecture": 20,
+    "io_system": 20,
+    "assembly_programming": 20
+  },
+  "total_marks": 100,
+  "question_count": 11,
+  "slot_count": 11,
+  "slots": [
+    {
+      "slot": "A1",
+      "part": "A",
+      "question": "A1",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "computer_generations",
+      "topic_label": "Computer generations and history",
+      "task": "short_answer",
+      "title": "Five-mark question 1",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2019-06-A1",
+      "paper_id": "CSC429-2019-06",
+      "source_file": "CSC429 (12).pdf",
+      "source_pages": [
+        2
+      ],
+      "asset_ids": [
+        "CSC429-2019-06-F1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 2,
+          "y": 210.57,
+          "text": "Question 1 is based on the following Figure 1."
+        },
+        {
+          "type": "figure",
+          "page": 2,
+          "y": 246.57,
+          "asset_id": "CSC429-2019-06-F1",
+          "path": "data/tracking/csc429/assets/CSC429-2019-06/CSC429-2019-06-F1.png",
+          "crop_box": [
+            35.87,
+            246.57,
+            298.92,
+            339.39
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2019-06\\page_002.jpg",
+          "page_points": [
+            597.84,
+            848.4
+          ],
+          "width_px": 731,
+          "height_px": 257
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 253.04,
+          "text": "The development of component X led to a drastic increase in speed and efficiency of computers. Component X is a single, complete electronic semiconductor circuits contained on pieces of silicon, and sometimes called as chips."
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 386.23,
+          "text": "a) What is the name of component X?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 424.38,
+          "text": "b) In which computer generation was component X introduced?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 462.53,
+          "text": "c) Who is the inventor of component X?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 500.69,
+          "text": "d) State ONE (1) input device and ONE (1) output device that was introduced in the same generation as component X."
+        }
+      ],
+      "text": "Question 1 is based on the following Figure 1.\nThe development of component X led\nto a drastic increase in speed and\nefficiency of computers. Component X\nis a single, complete electronic\nsemiconductor circuits contained on\npieces of silicon, and sometimes\ncalled as chips.\nFigure 1: Component X\na) What is the name of component X?\nb) In which computer generation was component X introduced?\nc) Who is the inventor of component X?\nd) State ONE (1) input device and ONE (1) output device that was introduced in the same\ngeneration as component X.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) What is the name of component X?",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            92.5,
+            386.23,
+            286.86,
+            398.46
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) In which computer generation was component X introduced?",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            92.14,
+            424.38,
+            410.32,
+            437.34
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) Who is the inventor of component X?",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            91.78,
+            462.53,
+            294.42,
+            475.13
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "d",
+          "text": "d) State ONE (1) input device and ONE (1) output device that was introduced in the same\ngeneration as component X.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            91.06,
+            500.69,
+            544.93,
+            513.65
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A2",
+      "part": "A",
+      "question": "A2",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "instruction_set_addressing",
+      "topic_label": "Instruction formats and addressing modes",
+      "task": "short_answer",
+      "title": "Five-mark question 2",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2014-06-A9",
+      "paper_id": "CSC429-2014-06",
+      "source_file": "CSC429 (1).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [
+        "CSC429-2014-06-F2"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 409.32,
+          "text": "Given the following Figure 2."
+        },
+        {
+          "type": "figure",
+          "page": 5,
+          "y": 434.88,
+          "asset_id": "CSC429-2014-06-F2",
+          "path": "data/tracking/csc429/assets/CSC429-2014-06/CSC429-2014-06-F2.png",
+          "crop_box": [
+            35.68,
+            434.88,
+            559.04,
+            583.16
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2014-06\\page_005.jpg",
+          "page_points": [
+            594.72,
+            847.44
+          ],
+          "width_px": 1453,
+          "height_px": 411
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 626.4,
+          "text": "a) Label the addressing technique illustrated in Figure 2."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 664.2,
+          "text": "b) Explain how the addressing technique in 9(a) is used."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 699.84,
+          "text": "List ONE (1) advantage and ONE (1) disadvantage of the addressing technique in"
+        }
+      ],
+      "text": "Given the following Figure 2.\nInstruction\nOpcode\nAddress A\nMemory\nOperand\nFigure 2\nLabel the addressing technique illustrated in Figure 2.\na)\nExplain how the addressing technique in 9(a) is used.\nb)\nList ONE (1) advantage and ONE (1) disadvantage of the addressing technique in",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a)\nExplain how the addressing technique in 9(a) is used.",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            72.0,
+            626.4,
+            81.0,
+            636.48
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b)\nList ONE (1) advantage and ONE (1) disadvantage of the addressing technique in",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            72.36,
+            664.2,
+            81.0,
+            675.0
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A3",
+      "part": "A",
+      "question": "A3",
+      "kind": "generated_question",
+      "marks": 5,
+      "topic": "data_representation",
+      "topic_label": "Data representation and number systems",
+      "task": "short_answer",
+      "title": "Five-mark question 3",
+      "resolver": "csc429.generator",
+      "variant_policy": "controlled_numeric",
+      "generator_pool": [
+        "csc429.number_base_conversion",
+        "csc429.signed_arithmetic",
+        "csc429.ieee754_single"
+      ],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-GEN-11-A3",
+      "paper_id": "CSC429-GEN-11",
+      "source_file": "",
+      "source_pages": [],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 1,
+          "y": 0,
+          "text": "Convert 2.5 to IEEE 754 single-precision format. Give the answer in hexadecimal and show the sign, exponent and mantissa fields."
+        }
+      ],
+      "text": "Convert 2.5 to IEEE 754 single-precision format. Give the answer in hexadecimal and show the sign, exponent and mantissa fields.",
+      "subparts": [],
+      "answer": "2.510 = 0x40200000 (sign=0, exponent=10000000, fraction=01000000000000000000000)",
+      "marking": [
+        "1 mark for the sign bit.",
+        "1 mark for the biased exponent.",
+        "1 mark for the 23-bit fraction.",
+        "1 mark for the correct 32-bit grouping.",
+        "1 mark for the final hexadecimal value."
+      ],
+      "generator_id": "csc429.ieee754_single",
+      "metadata": {
+        "value": 2.5,
+        "hex": "40200000",
+        "binary": "01000000001000000000000000000000",
+        "sign": 0,
+        "exponent": 128,
+        "fraction": 2097152,
+        "exponent_bits": "10000000",
+        "fraction_bits": "01000000000000000000000"
+      }
+    },
+    {
+      "slot": "A4",
+      "part": "A",
+      "question": "A4",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "parallel_architecture",
+      "topic_label": "Parallel and multiprocessor architecture",
+      "task": "short_answer",
+      "title": "Five-mark question 4",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2018-01-A10",
+      "paper_id": "CSC429-2018-01",
+      "source_file": "CSC429 (8).pdf",
+      "source_pages": [
+        6
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 6,
+          "y": 147.58,
+          "text": "a) How classification of parallel processor is constructed?"
+        },
+        {
+          "type": "text",
+          "page": 6,
+          "y": 186.45,
+          "text": "b) Give ONE (1) example for each parallel processor architecture."
+        }
+      ],
+      "text": "a) How classification of parallel processor is constructed?\nb) Give ONE (1) example for each parallel processor architecture.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) How classification of parallel processor is constructed?",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            70.91,
+            147.58,
+            356.69,
+            158.74
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Give ONE (1) example for each parallel processor architecture.",
+          "marks": 3,
+          "marks_source": "explicit",
+          "bbox": [
+            70.91,
+            186.45,
+            396.64,
+            197.97
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A5",
+      "part": "A",
+      "question": "A5",
+      "kind": "generated_question",
+      "marks": 10,
+      "topic": "data_representation",
+      "topic_label": "Data representation and number systems",
+      "task": "short_answer",
+      "title": "Ten-mark question 5",
+      "resolver": "csc429.generator",
+      "variant_policy": "controlled_numeric",
+      "generator_pool": [
+        "csc429.number_base_conversion",
+        "csc429.signed_arithmetic",
+        "csc429.ieee754_single"
+      ],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-GEN-11-A5",
+      "paper_id": "CSC429-GEN-11",
+      "source_file": "",
+      "source_pages": [],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 1,
+          "y": 0,
+          "text": "Answer both parts for the same expression. Assume an 8-bit byte.\nExpression: 28 - (-78)"
+        },
+        {
+          "type": "text",
+          "page": 1,
+          "y": 1,
+          "text": "a) Calculate 28 - (-78) using sign and magnitude."
+        },
+        {
+          "type": "text",
+          "page": 1,
+          "y": 2,
+          "text": "b) Calculate 28 - (-78) using 1's and 2's complement."
+        }
+      ],
+      "text": "Answer both parts for the same expression. Assume an 8-bit byte.\nExpression: 28 - (-78)",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Calculate 28 - (-78) using sign and magnitude.",
+          "marks": 5,
+          "answer": "left 28 -> 0 0011100; right -78 -> 1 1001110; 28 - (-78) = 106 -> sign-magnitude 0 1101010",
+          "marking": [
+            "1 mark for operand representations.",
+            "1 mark for sign handling.",
+            "1 mark for magnitude arithmetic.",
+            "1 mark for the result sign bit.",
+            "1 mark for the final byte."
+          ]
+        },
+        {
+          "label": "b",
+          "text": "Calculate 28 - (-78) using 1's and 2's complement.",
+          "marks": 5,
+          "answer": "left 28 -> 1's 00011100, 2's 00011100; right -78 -> 1's 10110001, 2's 10110010; 28 - (-78) = 106 -> 1's 01101010, 2's 01101010",
+          "marking": [
+            "1 mark for the positive operand in binary.",
+            "1 mark for the 1's complement of the negative operand.",
+            "1 mark for adding 1 to form the 2's complement.",
+            "1 mark for the correct 8-bit result.",
+            "1 mark for converting the result back to decimal."
+          ]
+        }
+      ],
+      "answer": "left 28 -> SM 0 0011100, 2's 00011100; right -78 -> SM 1 1001110, 2's 10110010; 28 - (-78) = 106 -> SM 0 1101010, 1's 01101010, 2's 01101010",
+      "marking": [
+        "Part a: 5 marks.",
+        "Part b: 5 marks."
+      ],
+      "generator_id": "csc429.signed_arithmetic",
+      "metadata": {
+        "left": 28,
+        "right": -78,
+        "result": 106,
+        "sign_magnitude": "0 1101010",
+        "ones": "01101010",
+        "twos": "01101010"
+      }
+    },
+    {
+      "slot": "A6",
+      "part": "A",
+      "question": "A6",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "memory_system",
+      "topic_label": "Memory hierarchy and cache",
+      "task": "short_answer",
+      "title": "Ten-mark question 6",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2016-06-A7",
+      "paper_id": "CSC429-2016-06",
+      "source_file": "CSC429 (5).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 310.28,
+          "text": "Replacement algorithm is used to determine which entry in a cache to flush to main memory when it is desired to cache a new block of data."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 348.43,
+          "text": "a) Which mapping function does not need to have a replacement algorithm?"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 386.59,
+          "text": "b) Describe FOUR (4) types of replacement algorithm."
+        }
+      ],
+      "text": "Replacement algorithm is used to determine which entry in a cache to flush to main\nmemory when it is desired to cache a new block of data.\na) Which mapping function does not need to have a replacement algorithm?\nb) Describe FOUR (4) types of replacement algorithm.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Which mapping function does not need to have a replacement algorithm?",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            71.99,
+            348.43,
+            446.67,
+            359.95
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Describe FOUR (4) types of replacement algorithm.",
+          "marks": 8,
+          "marks_source": "explicit",
+          "bbox": [
+            71.99,
+            386.59,
+            339.41,
+            398.1
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A7",
+      "part": "A",
+      "question": "A7",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "computer_architecture",
+      "topic_label": "Computer architecture and CPU organisation",
+      "task": "short_answer",
+      "title": "Ten-mark question 7",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2015-06-A4",
+      "paper_id": "CSC429-2015-06",
+      "source_file": "CSC429 (3).pdf",
+      "source_pages": [
+        3
+      ],
+      "asset_ids": [
+        "CSC429-2015-06-F1-2"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 141.12,
+          "text": "Computer consists of four main components as illustrated in Figure 1. Each component has its own function in ensuring that the computer system works well. Question 4 is based on"
+        },
+        {
+          "type": "figure",
+          "page": 3,
+          "y": 198.72,
+          "asset_id": "CSC429-2015-06-F1-2",
+          "path": "data/tracking/csc429/assets/CSC429-2015-06/CSC429-2015-06-F1-2.png",
+          "crop_box": [
+            35.86,
+            198.72,
+            561.74,
+            419.72
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2015-06\\page_003.jpg",
+          "page_points": [
+            597.6,
+            847.44
+          ],
+          "width_px": 1461,
+          "height_px": 613
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 461.16,
+          "text": "a) Explain THREE (3) types of system interconnection."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 499.32,
+          "text": "b) State TWO (2) sub-components of central processing unit and its function."
+        }
+      ],
+      "text": "Computer consists of four main components as illustrated in Figure 1. Each component has\nits own function in ensuring that the computer system works well. Question 4 is based on\nFigure 1.\nPeripherals\nCentral\nMain\nProcessing\nMemory\nUnit\nComputer\nSystems\nInterconnection\nInput\nOutput\nCommunication\nlines\nFigure 1 : Components of computer\na) Explain THREE (3) types of system interconnection.\nb) State TWO (2) sub-components of central processing unit and its function.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Explain THREE (3) types of system interconnection.",
+          "marks": 6,
+          "marks_source": "explicit",
+          "bbox": [
+            69.48,
+            461.16,
+            340.56,
+            472.68
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) State TWO (2) sub-components of central processing unit and its function.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            69.48,
+            499.32,
+            448.92,
+            511.2
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A8",
+      "part": "A",
+      "question": "A8",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "computer_architecture",
+      "topic_label": "Computer architecture and CPU organisation",
+      "task": "short_answer",
+      "title": "Ten-mark question 8",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2014-12-A4",
+      "paper_id": "CSC429-2014-12",
+      "source_file": "CSC429 (2).pdf",
+      "source_pages": [
+        3
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 146.16,
+          "text": "Processor contains a number of registers used for temporary storage of data. Describe FIVE (5) types of registers."
+        }
+      ],
+      "text": "Processor contains a number of registers used for temporary storage of data. Describe FIVE\n(5) types of registers.",
+      "subparts": [
+        {
+          "label": "main",
+          "text": "Processor contains a number of registers used for temporary storage of data. Describe FIVE\n(5) types of registers.",
+          "marks": 10,
+          "marks_source": "explicit",
+          "bbox": [
+            69.48,
+            146.16,
+            523.8,
+            157.68
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A9",
+      "part": "A",
+      "question": "A9",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "io_system",
+      "topic_label": "Input/output and interrupts",
+      "task": "short_answer",
+      "title": "Ten-mark question 9",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2019-12-A9",
+      "paper_id": "CSC429-2019-12",
+      "source_file": "CSC429 (13).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [
+        "CSC429-2019-12-F2"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 148.01,
+          "text": "a) Define interrupt."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 184.4,
+          "text": "b) Differentiate between interrupt and direct manipulation access."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 237.0,
+          "text": "c) Given the following scenario. Dilan is surfing woolworth.com to buy groceries online. While he is comparing prices of products in woolworth.com and one other website, two messages popped up onto his screen. Figure 2 (a) and (b) illustrate the conveyed messages."
+        },
+        {
+          "type": "mixed",
+          "page": 5,
+          "y": 322.25,
+          "asset_id": "CSC429-2019-12-F2",
+          "lines": [
+            "Are you sure you want to",
+            "There is a hardware event failure",
+            "in this computer. Please reboot",
+            "cancel this request?",
+            "this computer now."
+          ]
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 376.42,
+          "text": "(a)"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 376.42,
+          "text": "(b)"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 439.28,
+          "text": "i) Identify the type of interrupt in Figure 2(a) and Figure 2(b) with proper justification."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 477.18,
+          "text": "ii) While interruptroutinefor Interrupt Ais executing, it is interrupted by interrupt Bwhich has a higher priority than interrupt A. What will happen to interrupt routine A?"
+        }
+      ],
+      "text": "a)\nDefine interrupt.\nb)\nDifferentiate between interrupt and direct manipulation access.\nc)\nGiven the following scenario.\nDilan is surfing woolworth.com to buy groceries online. While he is comparing prices of\nproducts in woolworth.com and one other website, two messages popped up onto his\nscreen. Figure 2 (a) and (b) illustrate the conveyed messages.\nAre you sure you want to\nThere is a hardware event failure\nin this computer. Please reboot\ncancel this request?\nthis computer now.\n(a)\n(b)\nFigure 2: The pop-up messages\ni)\nIdentify the type of interrupt in Figure 2(a) and Figure 2(b) with proper justification.\nii)\nWhile interruptroutinefor Interrupt Ais executing, it is interrupted by interrupt Bwhich\nhas a higher priority than interrupt A. What will happen to interrupt routine A?",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a)\nDefine interrupt.",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            83.89,
+            148.01,
+            92.08,
+            162.08
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b)\nDifferentiate between interrupt and direct manipulation access.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            84.25,
+            184.4,
+            94.24,
+            200.41
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c)\nGiven the following scenario.\nDilan is surfing woolworth.com to buy groceries online. While he is comparing prices of\nproducts in woolworth.com and one other website, two messages popped up onto his\nscreen. Figure 2 (a) and (b) illustrate the conveyed messages.\nAre you sure you want to\nThere is a hardware event failure\nin this computer. Please reboot\ncancel this request?\nthis computer now.\n(a)\n(b)\nFigure 2: The pop-up messages",
+          "marks": null,
+          "marks_source": "missing",
+          "bbox": [
+            84.13,
+            237.0,
+            92.71,
+            251.75
+          ],
+          "figure_refs": [
+            "Figure 2"
+          ],
+          "asset_ids": [
+            "CSC429-2019-12-F2"
+          ]
+        },
+        {
+          "label": "i",
+          "text": "i)\nIdentify the type of interrupt in Figure 2(a) and Figure 2(b) with proper justification.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            105.28,
+            439.28,
+            110.23,
+            455.29
+          ],
+          "figure_refs": [
+            "Figure 2"
+          ],
+          "asset_ids": [
+            "CSC429-2019-12-F2"
+          ]
+        },
+        {
+          "label": "ii",
+          "text": "ii)\nWhile interruptroutinefor Interrupt Ais executing, it is interrupted by interrupt Bwhich\nhas a higher priority than interrupt A. What will happen to interrupt routine A?",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            102.4,
+            477.18,
+            109.76,
+            493.52
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A10",
+      "part": "A",
+      "question": "A10",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "io_system",
+      "topic_label": "Input/output and interrupts",
+      "task": "short_answer",
+      "title": "Ten-mark question 10",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2026-02-A9",
+      "paper_id": "CSC429-2026-02",
+      "source_file": "CSC429 (21).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 106.82,
+          "text": "a) When is an l/O module installed?"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 144.62,
+          "text": "b) What will happen if the l/O module is not installed?"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 180.81,
+          "text": "c) Explain ONE (1) category of l/O module"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 220.58,
+          "text": "d) What does it mean by 'hot connection'?"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 258.2,
+          "text": "e) List THREE (3) common interfaces to external devices."
+        }
+      ],
+      "text": "a) When is an l/O module installed?\nb) What will happen if the l/O module is not installed?\nc) Explain ONE (1) category of l/O module\nd) What does it mean by 'hot connection'?\ne) List THREE (3) common interfaces to external devices.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) When is an l/O module installed?",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            65.16,
+            106.82,
+            245.23,
+            129.49
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) What will happen if the l/O module is not installed?",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            65.52,
+            144.62,
+            331.27,
+            167.29
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) Explain ONE (1) category of l/O module",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            65.16,
+            180.81,
+            278.51,
+            205.54
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "d",
+          "text": "d) What does it mean by 'hot connection'?",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            65.16,
+            220.58,
+            274.98,
+            243.25
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "e",
+          "text": "e) List THREE (3) common interfaces to external devices.",
+          "marks": 3,
+          "marks_source": "explicit",
+          "bbox": [
+            65.16,
+            258.2,
+            351.35,
+            281.56
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "B1",
+      "part": "B",
+      "question": "B1",
+      "kind": "real_bank_question",
+      "marks": 20,
+      "topic": "assembly_programming",
+      "topic_label": "Assembly-language programming",
+      "task": "assembly_program",
+      "title": "Twenty-mark assembly-programming question",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2025-07-B1",
+      "paper_id": "CSC429-2025-07",
+      "source_file": "CSC429 (20).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [
+        "CSC429-2025-07-F1",
+        "CSC429-2025-07-T1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 138.65,
+          "text": "Question 1 is based on Figure 1 and Table 1."
+        },
+        {
+          "type": "figure",
+          "page": 5,
+          "y": 171.0,
+          "asset_id": "CSC429-2025-07-F1",
+          "path": "data/tracking/csc429/assets/CSC429-2025-07/CSC429-2025-07-F1.png",
+          "crop_box": [
+            33.72,
+            171.0,
+            528.24,
+            223.58
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2025-07\\page_005.jpg",
+          "page_points": [
+            561.96,
+            806.76
+          ],
+          "width_px": 1374,
+          "height_px": 146
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 262.86,
+          "text": "write an appropriate program using correct assembly language notations to compute the equation snbwn in Figure 1 using instructions for zero-address, one-address, and three- address. The available instructioni are provided in Tabte 1. The register labeled A, B, C, and D are fixed, white registers x, y, and z can be used temporarily. The final answer must be stored in register z."
+        },
+        {
+          "type": "table",
+          "page": 5,
+          "y": 388.73,
+          "asset_id": "CSC429-2025-07-T1",
+          "table": {
+            "columns": 3,
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Zero-address",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "One-address",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "Three-address",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "PUSH p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "LOAD p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "ADD (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "POP p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "STOR p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "suB (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "ADD",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "ADD p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MUL (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "SUB",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "SUB p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "DIV (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "MUL",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MUL p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "DIV",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "DIV p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  }
+                ]
+              }
+            ],
+            "non_empty_ratio": 0.905,
+            "source": "layout"
+          }
+        }
+      ],
+      "text": "Question 1 is based on Figure 1 and Table 1.\nz=A2-B*C+jl_\nD+5\nFigure 1\nwrite an appropriate program using correct assembly language notations to compute the\nequation snbwn in Figure 1 using instructions for zero-address, one-address, and three-\naddress. The available instructioni are provided in Tabte 1. The register labeled A, B, C, and\nD are fixed, white registers x, y, and z can be used temporarily. The final answer must be\nstored in register z.\nTable 1: Machine instruction\nThree-address\nOne-address\nZero-address\nADD (p,q,r)\nLOAD p\nPUSH p\nsuB (p,q,r)\nSTOR p\nPOP p\nMUL (p,q,r)\nADD p\nADD\nDIV (p,q,r)\nSUB p\nSUB\nMUL p\nMUL\nDIV p\nDIV",
+      "subparts": [
+        {
+          "label": "main",
+          "text": "Question 1 is based on Figure 1 and Table 1.\nz=A2-B*C+jl_\nD+5\nFigure 1\nwrite an appropriate program using correct assembly language notations to compute the\nequation snbwn in Figure 1 using instructions for zero-address, one-address, and three-\naddress. The available instructioni are provided in Tabte 1. The register labeled A, B, C, and\nD are fixed, white registers x, y, and z can be used temporarily. The final answer must be\nstored in register z.\nTable 1: Machine instruction\nThree-address\nOne-address\nZero-address\nADD (p,q,r)\nLOAD p\nPUSH p\nsuB (p,q,r)\nSTOR p\nPOP p\nMUL (p,q,r)\nADD p\nADD\nDIV (p,q,r)\nSUB p\nSUB\nMUL p\nMUL\nDIV p\nDIV",
+          "marks": 20,
+          "marks_source": "explicit",
+          "bbox": [
+            57.24,
+            138.65,
+            276.73,
+            155.21
+          ],
+          "figure_refs": [
+            "Figure 1",
+            "Table 1"
+          ],
+          "asset_ids": [
+            "CSC429-2025-07-F1",
+            "CSC429-2025-07-T1"
+          ]
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    }
+  ],
+  "notes": "Real past-paper questions only. Topic quotas are the largest-remainder allocation of the observed Part A topic mix; each quota is split between 5- and 10-mark slots using the topic's observed 5/10-mark availability. Every slot resolves to the real bank."
+}

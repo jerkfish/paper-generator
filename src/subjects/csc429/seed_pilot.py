@@ -1031,6 +1031,7 @@ def _add_question(document, slot: dict, out_dir: Path) -> None:
     heading.paragraph_format.line_spacing = 1.5
     heading.paragraph_format.space_before = Pt(10)
     heading.paragraph_format.space_after = Pt(2)
+    heading.paragraph_format.keep_with_next = True
     heading.paragraph_format.tab_stops.add_tab_stop(
         Cm(16.2), WD_TAB_ALIGNMENT.RIGHT)
     run = heading.add_run(f"QUESTION {slot['slot']}")

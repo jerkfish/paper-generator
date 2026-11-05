@@ -69,7 +69,19 @@
     "generator_sample": "data/tracking/csc429/generator_sample_seed_01.json",
     "generator_validation": "data/tracking/csc429/generator_validation.json",
     "generator_count": 3,
-    "generator_slots_20_seeds": 40
+    "generator_slots_20_seeds": 40,
+    "builder": "src/subjects/csc429/build_docx.py",
+    "build_sample": "data/tracking/csc429/build_sample/qa.json",
+    "sample_pages": {
+      "paper": 6,
+      "scheme": 5
+    },
+    "marking_scheme": {
+      "template": "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx",
+      "generated_answers": true,
+      "real_bank_source_references": true,
+      "invented_answers": false
+    }
   },
   "deck_map": {},
   "topic_deck_allowlist": {},

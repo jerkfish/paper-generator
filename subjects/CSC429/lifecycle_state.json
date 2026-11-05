@@ -4,7 +4,7 @@
   "type": "C",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-05T15:40:25Z",
+  "updated": "2026-11-05T16:12:43Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -154,7 +154,7 @@
       "notes": "Deterministic planner built and sample plans written for seeds 1-3. Fixed 11-slot contract: A1-A4 at 5 marks, A5-A10 at 10 marks, B1 at 20 marks; Part A 80 + Part B 20 = 100. Topic quota derived from the Stage-4 Part A log, reserving one slot for every observed topic and giving the three extra slots to the largest topics: data 2, architecture 2, I/O 2, memory 1, generations 1, parallel 1, addressing 1, assembly 1. Every slot resolves to csc429.real_bank with verbatim variant policy and the figure/table/mixed presentation policy. Same seed reproduces the same plan. subject.json.fingerprint records the planner sample and quota. LLM cost $0.00."
     },
     "6_generators": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "data/tracking/csc429/generator_sample_seed_01.json",
         "data/tracking/csc429/generator_validation.json",
@@ -163,8 +163,52 @@
         "subjects/CSC429/subject.json"
       ],
       "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-05",
+        "note": "Owner approved continue after sampling the generated arithmetic, IEEE 754 and number-base questions."
+      },
+      "notes": "Three deterministic generators implemented: number-base conversion, signed arithmetic with sign-magnitude/1's/2's complement, and IEEE 754 single precision encode/decode. Planner data-representation slots resolve to csc429.generator; all other slots remain csc429.real_bank. 5-mark slots yield one worked question, 10-mark slots yield two 5-mark subparts. A 20-seed validation produced 40 generated slots, all three generators used, and zero answer errors; generator_sample_seed_01.json records seed 1. LLM cost $0.00."
+    },
+    "7_builders_qa": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/csc429/build_sample/paper.docx",
+        "data/tracking/csc429/build_sample/paper.pdf",
+        "data/tracking/csc429/build_sample/scheme.docx",
+        "data/tracking/csc429/build_sample/scheme.pdf",
+        "data/tracking/csc429/build_sample/qa.json",
+        "data/tracking/csc429/build_sample/meta.json",
+        "data/tracking/csc429/build_sample/plan.json",
+        "src/subjects/csc429/build_docx.py",
+        "tests/test_csc429_build.py",
+        "outputs/web_cache/CSC429/95cdd1cd76725ab5b3ce/meta.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-06",
+        "note": "Owner approved the rest of Stage 7 after the scheme crest was fixed; only the missing crest was rejected."
+      },
+      "notes": "Stage-7 builder implemented and run for seed 1. The builder resolves the Stage-5 plan: data slots use the Stage-6 generators; other slots select real bank questions by topic/marks with source diversity. Paper and scheme use the approved CSC429 template and the standard UTM marking-scheme template. Seed 1: 11 slots, 100 marks, 2 generated + 9 real-bank, 6 paper pages and 5 scheme pages. QA: XML valid, cover/page-2 checks pass, no right overflow, no forbidden tokens, all question headings present, generated answers in the scheme, real questions carry source file/page. The registry plugin also builds the cache copy at outputs/web_cache/CSC429/95cdd1cd76725ab5b3ce. LLM cost $0.00."
+    },
+    "8_library_prebuild": {
+      "status": "in_progress",
+      "evidence": [
+        "data/tracking/csc429/library_validation.json",
+        "outputs/web_cache/CSC429/",
+        "src/subjects/csc429/plugin.py",
+        "src/subjects/csc429/build_docx.py"
+      ],
+      "llm_cost_usd": 0.0,
       "blockers": [
-        "Awaiting human review of the generated data-representation sample and marking points."
+        "Awaiting human acceptance of the 20-seed library set. subject.json.status remains coming_soon until acceptance/publish decisions."
       ],
       "human_approval": {
         "required": true,
@@ -173,35 +217,7 @@
         "on": "",
         "note": ""
       },
-      "notes": "Three deterministic generators implemented: number-base conversion, signed arithmetic with sign-magnitude/1's/2's complement, and IEEE 754 single precision encode/decode. Planner data-representation slots resolve to csc429.generator; all other slots remain csc429.real_bank. 5-mark slots yield one worked question, 10-mark slots yield two 5-mark subparts. A 20-seed validation produced 40 generated slots, all three generators used, and zero answer errors; generator_sample_seed_01.json records seed 1. LLM cost $0.00."
-    },
-    "7_builders_qa": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
-    },
-    "8_library_prebuild": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
+      "notes": "20 deterministic seeds built through the registry plugin into outputs/web_cache/CSC429/<config-hash>/. Every cache has meta.json, qa.json, paper/scheme DOCX and PDF. library_validation.json records 20/20 seeds, no QA problems, total marks 100, paper pages 5-7, scheme pages 5-6, crest in every scheme DOCX and PDF page 1. library_items returned 20 entries when tested with a temporary available status; subject.json.status remains coming_soon so nothing is exposed. One transient Word export failure for seed 2 was retried successfully. LLM cost $0.00."
     },
     "9_publish": {
       "status": "pending",

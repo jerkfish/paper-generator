@@ -58,12 +58,40 @@ def plan_inputs(seed: int) -> dict[str, Path]:
 
 
 def library_seeds() -> list[int]:
-    return []
+    import json
+    from src import config
+    seeds = set()
+    root = config.WEB_CACHE_DIR / "CSC429"
+    for meta in root.glob("*/meta.json"):
+        try:
+            payload = json.loads(meta.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        if payload.get("subject") != "CSC429":
+            continue
+        try:
+            seeds.add(int(payload.get("seed")))
+        except (TypeError, ValueError):
+            continue
+    return sorted(seed for seed in seeds if seed > 0)
 
 
 def library_metadata(seed: int) -> dict:
     import json
     from src import config
+    candidates = []
+    for meta in (config.WEB_CACHE_DIR / "CSC429").glob("*/meta.json"):
+        try:
+            payload = json.loads(meta.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        if payload.get("subject") != "CSC429":
+            continue
+        if int(payload.get("seed", -1)) != int(seed):
+            continue
+        candidates.append((float(payload.get("created") or 0), payload))
+    if candidates:
+        return max(candidates, key=lambda row: row[0])[1]
     path = config.TRACKING_DIR / "csc429" / f"planner_seed_{int(seed):02d}.json"
     if not path.exists():
         return {}
@@ -73,6 +101,11 @@ def library_metadata(seed: int) -> dict:
         return {}
 
 
-def build_seed(seed: int, **kwargs) -> dict:
-    raise NotImplementedError(
-        "CSC429 builder is not implemented; complete stages 6-7 first")
+def build_seed(seed: int, out_dir: Path | None = None,
+               force: bool = False, **kwargs) -> dict:
+    from src.subjects.csc429.build_docx import build_seed as _build_seed
+    if out_dir is None:
+        from src.app.jobs import cache_path
+        out_dir = cache_path("realistic", seed, None, subject="CSC429")
+    export = bool(kwargs.get("export", True))
+    return _build_seed(seed, out_dir=out_dir, export=export, force=force)

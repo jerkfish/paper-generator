@@ -1,0 +1,1223 @@
+{
+  "subject": "CSC429",
+  "planner_version": 1,
+  "generated_by": "src.subjects.csc429.planner",
+  "style": "modern",
+  "seed": 14,
+  "target_format": {
+    "A": {
+      "questions": 10,
+      "marks": 80,
+      "slot_marks": [
+        5,
+        5,
+        5,
+        5,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ]
+    },
+    "B": {
+      "questions": 1,
+      "marks": 20
+    }
+  },
+  "source_evidence": [
+    "data/tracking/csc429/taxonomy.json",
+    "data/tracking/csc429/question_log.json",
+    "data/tracking/csc429/taxonomy_summary.json"
+  ],
+  "topic_quota": {
+    "computer_generations": 1,
+    "data_representation": 2,
+    "memory_system": 1,
+    "io_system": 2,
+    "parallel_architecture": 1,
+    "computer_architecture": 2,
+    "instruction_set_addressing": 1
+  },
+  "part_marks": {
+    "A": 80,
+    "B": 20
+  },
+  "topic_marks": {
+    "instruction_set_addressing": 5,
+    "parallel_architecture": 5,
+    "data_representation": 15,
+    "computer_generations": 5,
+    "computer_architecture": 20,
+    "io_system": 20,
+    "memory_system": 10,
+    "assembly_programming": 20
+  },
+  "total_marks": 100,
+  "question_count": 11,
+  "slot_count": 11,
+  "slots": [
+    {
+      "slot": "A1",
+      "part": "A",
+      "question": "A1",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "instruction_set_addressing",
+      "topic_label": "Instruction formats and addressing modes",
+      "task": "short_answer",
+      "title": "Five-mark question 1",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2014-06-A9",
+      "paper_id": "CSC429-2014-06",
+      "source_file": "CSC429 (1).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [
+        "CSC429-2014-06-F2"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 409.32,
+          "text": "Given the following Figure 2."
+        },
+        {
+          "type": "figure",
+          "page": 5,
+          "y": 434.88,
+          "asset_id": "CSC429-2014-06-F2",
+          "path": "data/tracking/csc429/assets/CSC429-2014-06/CSC429-2014-06-F2.png",
+          "crop_box": [
+            35.68,
+            434.88,
+            559.04,
+            583.16
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2014-06\\page_005.jpg",
+          "page_points": [
+            594.72,
+            847.44
+          ],
+          "width_px": 1453,
+          "height_px": 411
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 626.4,
+          "text": "a) Label the addressing technique illustrated in Figure 2."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 664.2,
+          "text": "b) Explain how the addressing technique in 9(a) is used."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 699.84,
+          "text": "List ONE (1) advantage and ONE (1) disadvantage of the addressing technique in"
+        }
+      ],
+      "text": "Given the following Figure 2.\nInstruction\nOpcode\nAddress A\nMemory\nOperand\nFigure 2\nLabel the addressing technique illustrated in Figure 2.\na)\nExplain how the addressing technique in 9(a) is used.\nb)\nList ONE (1) advantage and ONE (1) disadvantage of the addressing technique in",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a)\nExplain how the addressing technique in 9(a) is used.",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            72.0,
+            626.4,
+            81.0,
+            636.48
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b)\nList ONE (1) advantage and ONE (1) disadvantage of the addressing technique in",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            72.36,
+            664.2,
+            81.0,
+            675.0
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A2",
+      "part": "A",
+      "question": "A2",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "parallel_architecture",
+      "topic_label": "Parallel and multiprocessor architecture",
+      "task": "short_answer",
+      "title": "Five-mark question 2",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2016-06-A10",
+      "paper_id": "CSC429-2016-06",
+      "source_file": "CSC429 (5).pdf",
+      "source_pages": [
+        6
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 6,
+          "y": 555.04,
+          "text": "Complete the following taxonomy of parallel processor architecture with appropriate example."
+        },
+        {
+          "type": "text",
+          "page": 6,
+          "y": 600.4,
+          "text": "Single Instruction Multiple Data Stream ii Processor Organization Multiple Instruction Multiple Data Stream"
+        },
+        {
+          "type": "text",
+          "page": 6,
+          "y": 712.7,
+          "text": "v"
+        }
+      ],
+      "text": "Complete the following taxonomy of parallel processor architecture with appropriate\nexample.\nSingle Instruction Multiple\nData Stream\nii\nProcessor Organization\nMultiple Instruction Multiple\nData Stream\nv",
+      "subparts": [
+        {
+          "label": "main",
+          "text": "Complete the following taxonomy of parallel processor architecture with appropriate\nexample.\nSingle Instruction Multiple\nData Stream\nii\nProcessor Organization\nMultiple Instruction Multiple\nData Stream\nv",
+          "marks": 5,
+          "marks_source": "explicit",
+          "bbox": [
+            66.23,
+            555.04,
+            514.7,
+            566.56
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A3",
+      "part": "A",
+      "question": "A3",
+      "kind": "generated_question",
+      "marks": 5,
+      "topic": "data_representation",
+      "topic_label": "Data representation and number systems",
+      "task": "short_answer",
+      "title": "Five-mark question 3",
+      "resolver": "csc429.generator",
+      "variant_policy": "controlled_numeric",
+      "generator_pool": [
+        "csc429.number_base_conversion",
+        "csc429.signed_arithmetic",
+        "csc429.ieee754_single"
+      ],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-GEN-14-A3",
+      "paper_id": "CSC429-GEN-14",
+      "source_file": "",
+      "source_pages": [],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 1,
+          "y": 0,
+          "text": "Convert -6.75 to IEEE 754 single-precision format. Give the answer in hexadecimal and show the sign, exponent and mantissa fields."
+        }
+      ],
+      "text": "Convert -6.75 to IEEE 754 single-precision format. Give the answer in hexadecimal and show the sign, exponent and mantissa fields.",
+      "subparts": [],
+      "answer": "-6.7510 = 0xC0D80000 (sign=1, exponent=10000001, fraction=10110000000000000000000)",
+      "marking": [
+        "1 mark for the sign bit.",
+        "1 mark for the biased exponent.",
+        "1 mark for the 23-bit fraction.",
+        "1 mark for the correct 32-bit grouping.",
+        "1 mark for the final hexadecimal value."
+      ],
+      "generator_id": "csc429.ieee754_single",
+      "metadata": {
+        "value": -6.75,
+        "hex": "C0D80000",
+        "binary": "11000000110110000000000000000000",
+        "sign": 1,
+        "exponent": 129,
+        "fraction": 5767168,
+        "exponent_bits": "10000001",
+        "fraction_bits": "10110000000000000000000"
+      }
+    },
+    {
+      "slot": "A4",
+      "part": "A",
+      "question": "A4",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "computer_generations",
+      "topic_label": "Computer generations and history",
+      "task": "short_answer",
+      "title": "Five-mark question 4",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2024-01-A2",
+      "paper_id": "CSC429-2024-01",
+      "source_file": "CSC429 (16).pdf",
+      "source_pages": [
+        2
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 2,
+          "y": 420.12,
+          "text": "a) Discuss TWO (2) major technologies in the fourth computer generation and their impact on the modern computer."
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 470.88,
+          "text": "b) Give ONE (1) example of using artificial intelligence (A1) in everyday life."
+        }
+      ],
+      "text": "a) Discuss TWO (2) major technologies in the fourth computer generation and their impact\non the modern computer.\nb) Give ONE (1) example of using artificial intelligence (A1) in everyday life.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Discuss TWO (2) major technologies in the fourth computer generation and their impact\non the modern computer.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            83.85,
+            420.12,
+            536.9,
+            432.72
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Give ONE (1) example of using artificial intelligence (A1) in everyday life.",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            84.21,
+            470.88,
+            452.7,
+            483.12
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A5",
+      "part": "A",
+      "question": "A5",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "computer_architecture",
+      "topic_label": "Computer architecture and CPU organisation",
+      "task": "short_answer",
+      "title": "Ten-mark question 5",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2024-07-A7",
+      "paper_id": "CSC429-2024-07",
+      "source_file": "CSC429 (17).pdf",
+      "source_pages": [
+        3
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 537.77,
+          "text": "Given that the size of the data bus is 32 bits, the size of the address bus is 8 bits, and the size of the control bus is 4 bits."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 575.93,
+          "text": "a) Determine the size of the word and provide relevant justification."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 614.09,
+          "text": "b) Determine the size of the register and provide relevant justification."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 652.01,
+          "text": "c) Discuss what will happen if system interconnection is blocked from the perspective of the machine cycle."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 702.41,
+          "text": "d) Elaborate the role of CPU interconnection."
+        }
+      ],
+      "text": "Given that the size of the data bus is 32 bits, the size of the address bus is 8 bits, and the\nsize of the control bus is 4 bits.\na) Determine the size of the word and provide relevant justification.\nb) Determine the size of the register and provide relevant justification.\nc) Discuss what will happen if system interconnection is blocked from the perspective of the\nmachine cycle.\nd) Elaborate the role of CPU interconnection.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Determine the size of the word and provide relevant justification.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            63.12,
+            575.93,
+            393.98,
+            591.05
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Determine the size of the register and provide relevant justification.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            63.12,
+            614.09,
+            406.94,
+            629.21
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) Discuss what will happen if system interconnection is blocked from the perspective of the\nmachine cycle.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            63.12,
+            652.01,
+            514.45,
+            667.13
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "d",
+          "text": "d) Elaborate the role of CPU interconnection.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            62.64,
+            702.41,
+            287.66,
+            717.53
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A6",
+      "part": "A",
+      "question": "A6",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "computer_architecture",
+      "topic_label": "Computer architecture and CPU organisation",
+      "task": "short_answer",
+      "title": "Ten-mark question 6",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2019-12-A8",
+      "paper_id": "CSC429-2019-12",
+      "source_file": "CSC429 (13).pdf",
+      "source_pages": [
+        4
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 552.82,
+          "text": "a) State TWO (2) different types of bus."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 590.44,
+          "text": "b) The size of a word is 32 bits and the size of the block is 256 bits. Determine of the following:"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 615.75,
+          "text": "i) The byte for word"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 628.2,
+          "text": "ii) The byte for block,"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 641.38,
+          "text": "iii) Size of the register,"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 654.91,
+          "text": "iv) Size of the data bus."
+        }
+      ],
+      "text": "a)\nState TWO (2) different types of bus.\nb)\nThe size of a word is 32 bits and the size of the block is 256 bits. Determine of the\nfollowing:\ni)\nThe byte for word\nii)\nThe byte for block,\niii)\nSize of the register,\niv)\nSize of the data bus.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a)\nState TWO (2) different types of bus.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            83.16,
+            552.82,
+            91.94,
+            567.9
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b)\nThe size of a word is 32 bits and the size of the block is 256 bits. Determine of the\nfollowing:",
+          "marks": null,
+          "marks_source": "missing",
+          "bbox": [
+            83.05,
+            590.44,
+            93.46,
+            607.11
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "i",
+          "text": "i)\nThe byte for word",
+          "marks": null,
+          "marks_source": "grouped",
+          "bbox": [
+            104.55,
+            615.75,
+            111.14,
+            630.15
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "ii",
+          "text": "ii)\nThe byte for block,",
+          "marks": null,
+          "marks_source": "grouped",
+          "bbox": [
+            102.16,
+            628.2,
+            109.28,
+            642.95
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "iii",
+          "text": "iii)\nSize of the register,",
+          "marks": null,
+          "marks_source": "grouped",
+          "bbox": [
+            99.52,
+            641.38,
+            109.3,
+            656.46
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "iv",
+          "text": "iv)\nSize of the data bus.",
+          "marks": 8,
+          "marks_source": "grouped",
+          "bbox": [
+            98.79,
+            654.91,
+            110.23,
+            668.65
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A7",
+      "part": "A",
+      "question": "A7",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "io_system",
+      "topic_label": "Input/output and interrupts",
+      "task": "short_answer",
+      "title": "Ten-mark question 7",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2017-07-A8",
+      "paper_id": "CSC429-2017-07",
+      "source_file": "CSC429 (7).pdf",
+      "source_pages": [
+        4
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 632.43,
+          "text": "a) Discuss THREE (3) types of interfaces to extemal devices."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 670.95,
+          "text": "b) Classify the following input/output devices to their respective 1/0 module:"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 683.54,
+          "text": "i) Network interface card"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 696.5,
+          "text": "ii) Scanner Touch Screen"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 721.7,
+          "text": "iv) Register"
+        }
+      ],
+      "text": "a) Discuss THREE (3) types of interfaces to extemal devices.\nb) Classify the following input/output devices to their respective 1/0 module:\ni)\nNetwork interface card\nii)\nScanner\nTouch Screen\niv)\nRegister",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Discuss THREE (3) types of interfaces to extemal devices.",
+          "marks": 6,
+          "marks_source": "explicit",
+          "bbox": [
+            69.11,
+            632.43,
+            373.61,
+            643.95
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Classify the following input/output devices to their respective 1/0 module:",
+          "marks": null,
+          "marks_source": "missing",
+          "bbox": [
+            69.11,
+            670.95,
+            442.35,
+            682.82
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "i",
+          "text": "i)\nNetwork interface card",
+          "marks": null,
+          "marks_source": "grouped",
+          "bbox": [
+            87.1,
+            683.54,
+            92.14,
+            694.7
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "ii",
+          "text": "ii)\nScanner\nTouch Screen",
+          "marks": null,
+          "marks_source": "grouped",
+          "bbox": [
+            87.1,
+            696.5,
+            94.66,
+            707.3
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "iv",
+          "text": "iv)\nRegister",
+          "marks": 4,
+          "marks_source": "grouped",
+          "bbox": [
+            86.74,
+            721.7,
+            97.9,
+            732.5
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A8",
+      "part": "A",
+      "question": "A8",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "io_system",
+      "topic_label": "Input/output and interrupts",
+      "task": "short_answer",
+      "title": "Ten-mark question 8",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2018-06-A9",
+      "paper_id": "CSC429-2018-06",
+      "source_file": "CSC429 (10).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 269.6,
+          "text": "a) Explain the problem in polling 1/0 method."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 308.12,
+          "text": "b) Explain how buffering can help to improve the device overall performance?"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 346.63,
+          "text": "c) Discuss how DMA technique can help the 1/0 transfer performance instead of using polling method and interrupt 1/0 method?"
+        }
+      ],
+      "text": "a) Explain the problem in polling 1/0 method.\nb) Explain how buffering can help to improve the device overall performance?\nc) Discuss how DMA technique can help the 1/0 transfer performance instead of using polling\nmethod and interrupt 1/0 method?",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Explain the problem in polling 1/0 method.",
+          "marks": 3,
+          "marks_source": "explicit",
+          "bbox": [
+            76.3,
+            269.6,
+            294.42,
+            281.48
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Explain how buffering can help to improve the device overall performance?",
+          "marks": 3,
+          "marks_source": "explicit",
+          "bbox": [
+            76.3,
+            308.12,
+            455.67,
+            320.71
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) Discuss how DMA technique can help the 1/0 transfer performance instead of using polling\nmethod and interrupt 1/0 method?",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            75.59,
+            346.63,
+            522.26,
+            359.59
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A9",
+      "part": "A",
+      "question": "A9",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "memory_system",
+      "topic_label": "Memory hierarchy and cache",
+      "task": "short_answer",
+      "title": "Ten-mark question 9",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2025-07-A8",
+      "paper_id": "CSC429-2025-07",
+      "source_file": "CSC429 (20).pdf",
+      "source_pages": [
+        4
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 100.71,
+          "text": "a) Explain how the bits are stored in the SRAM and DFiAM."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 140.3,
+          "text": "b) Why is SRAM technology faster than DRAM technology?"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 176.85,
+          "text": "c) Compare SRAM and DRAM in terms of cost and power consumption."
+        }
+      ],
+      "text": "a) Explain how the bits are stored in the SRAM and DFiAM.\nb) Why is SRAM technology faster than DRAM technology?\nc) Compare SRAM and DRAM in terms of cost and power consumption.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Explain how the bits are stored in the SRAM and DFiAM.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            55.44,
+            100.71,
+            351.93,
+            124.75
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Why is SRAM technology faster than DRAM technology?",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            55.8,
+            140.3,
+            354.87,
+            162.97
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) Compare SRAM and DRAM in terms of cost and power consumption.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            55.44,
+            176.85,
+            413.44,
+            201.58
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A10",
+      "part": "A",
+      "question": "A10",
+      "kind": "generated_question",
+      "marks": 10,
+      "topic": "data_representation",
+      "topic_label": "Data representation and number systems",
+      "task": "short_answer",
+      "title": "Ten-mark question 10",
+      "resolver": "csc429.generator",
+      "variant_policy": "controlled_numeric",
+      "generator_pool": [
+        "csc429.number_base_conversion",
+        "csc429.signed_arithmetic",
+        "csc429.ieee754_single"
+      ],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-GEN-14-A10",
+      "paper_id": "CSC429-GEN-14",
+      "source_file": "",
+      "source_pages": [],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 1,
+          "y": 0,
+          "text": "Answer both parts. Show your complete workflow.\na) Convert 137710 to hexadecimal.\nb) Convert 4B816 to decimal."
+        },
+        {
+          "type": "text",
+          "page": 1,
+          "y": 1,
+          "text": "a) Convert 137710 to hexadecimal."
+        },
+        {
+          "type": "text",
+          "page": 1,
+          "y": 2,
+          "text": "b) Convert 4B816 to decimal."
+        }
+      ],
+      "text": "Answer both parts. Show your complete workflow.\na) Convert 137710 to hexadecimal.\nb) Convert 4B816 to decimal.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Convert 137710 to hexadecimal.",
+          "marks": 5,
+          "answer": "137710 = 56116",
+          "marking": [
+            "1 mark for repeated division by 16.",
+            "1 mark for correct remainders.",
+            "1 mark for reading remainders in reverse order.",
+            "1 mark for the correct hexadecimal digits.",
+            "1 mark for the base subscript."
+          ]
+        },
+        {
+          "label": "b",
+          "text": "Convert 4B816 to decimal.",
+          "marks": 5,
+          "answer": "4B816 = 120810",
+          "marking": [
+            "1 mark for place values 16^2, 16^1 and 16^0.",
+            "1 mark for correct digit values.",
+            "1 mark for correct products.",
+            "1 mark for correct addition.",
+            "1 mark for the final decimal value."
+          ]
+        }
+      ],
+      "answer": "a) 137710 = 56116; b) 4B816 = 120810",
+      "marking": [
+        "Part a: 5 marks.",
+        "Part b: 5 marks."
+      ],
+      "generator_id": "csc429.number_base_conversion",
+      "metadata": {
+        "base": null,
+        "converted": null,
+        "dec_value": 1377,
+        "hex_value": 1208
+      }
+    },
+    {
+      "slot": "B1",
+      "part": "B",
+      "question": "B1",
+      "kind": "real_bank_question",
+      "marks": 20,
+      "topic": "assembly_programming",
+      "topic_label": "Assembly-language programming",
+      "task": "assembly_program",
+      "title": "Twenty-mark assembly-programming question",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2026-02-B1",
+      "paper_id": "CSC429-2026-02",
+      "source_file": "CSC429 (21).pdf",
+      "source_pages": [
+        6
+      ],
+      "asset_ids": [
+        "CSC429-2026-02-F5",
+        "CSC429-2026-02-T1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 6,
+          "y": 137.58,
+          "text": "Question 1 is based on Figure 5 and Table 1"
+        },
+        {
+          "type": "figure",
+          "page": 6,
+          "y": 170.28,
+          "asset_id": "CSC429-2026-02-F5",
+          "path": "data/tracking/csc429/assets/CSC429-2026-02/CSC429-2026-02-F5.png",
+          "crop_box": [
+            34.47,
+            170.28,
+            540.09,
+            210.43
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2026-02\\page_006.jpg",
+          "page_points": [
+            574.56,
+            806.76
+          ],
+          "width_px": 1405,
+          "height_px": 111
+        },
+        {
+          "type": "text",
+          "page": 6,
+          "y": 236.76,
+          "text": "Write an appropriate program using conect assembly language notations to compute the equation shown in Figure 5 using instructions for zero-address, one-address, and three- address. The available instructions are provided in Table 1. The registers labeled A, B, C, and D are fixed, while registers x, y, and z can be used temporarily. The final answer must be stored in register z."
+        },
+        {
+          "type": "table",
+          "page": 6,
+          "y": 362.45,
+          "asset_id": "CSC429-2026-02-T1",
+          "table": {
+            "columns": 3,
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Zero-address",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "One-address",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "Three-address",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "PUSH p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "LOAD p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "ADD (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "POP p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "STOR p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "SUB (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "ADD",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "ADD p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MUL (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "SUB",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "SUB p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "DIV (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "MUL",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MUL p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "DIV",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "DIV p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  }
+                ]
+              }
+            ],
+            "non_empty_ratio": 0.905,
+            "source": "layout"
+          }
+        }
+      ],
+      "text": "Question 1 is based on Figure 5 and Table 1\nz-A+c2/B*D-3A\nFigure 5\nWrite an appropriate program using conect assembly language notations to compute the\nequation shown in Figure 5 using instructions for zero-address, one-address, and three-\naddress. The available instructions are provided in Table 1. The registers labeled A, B, C, and\nD are fixed, while registers x, y, and z can be used temporarily. The final answer must be\nstored in register z.\nTable 1: lt/achine instruction\nThree-address\nZero-address\nOne-address\nADD (p,q,r)\nLOAD p\nPUSH p\nSUB (p,q,r)\nSTOR p\nPOP p\nMUL (p,q,r)\nADD p\nADD\nDIV (p,q,r)\nSUB p\nSUB\nMUL p\nMUL\nDIV p\nDIV",
+      "subparts": [
+        {
+          "label": "main",
+          "text": "Question 1 is based on Figure 5 and Table 1\nz-A+c2/B*D-3A\nFigure 5\nWrite an appropriate program using conect assembly language notations to compute the\nequation shown in Figure 5 using instructions for zero-address, one-address, and three-\naddress. The available instructions are provided in Table 1. The registers labeled A, B, C, and\nD are fixed, while registers x, y, and z can be used temporarily. The final answer must be\nstored in register z.\nTable 1: lt/achine instruction\nThree-address\nZero-address\nOne-address\nADD (p,q,r)\nLOAD p\nPUSH p\nSUB (p,q,r)\nSTOR p\nPOP p\nMUL (p,q,r)\nADD p\nADD\nDIV (p,q,r)\nSUB p\nSUB\nMUL p\nMUL\nDIV p\nDIV",
+          "marks": 20,
+          "marks_source": "explicit",
+          "bbox": [
+            66.24,
+            137.58,
+            281.45,
+            153.62
+          ],
+          "figure_refs": [
+            "Figure 5",
+            "Table 1"
+          ],
+          "asset_ids": [
+            "CSC429-2026-02-F5",
+            "CSC429-2026-02-T1"
+          ]
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    }
+  ],
+  "notes": "Real past-paper questions only. Topic quotas are the largest-remainder allocation of the observed Part A topic mix; each quota is split between 5- and 10-mark slots using the topic's observed 5/10-mark availability. Every slot resolves to the real bank."
+}
