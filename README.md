@@ -30,13 +30,13 @@ There are two environments:
 | Worker | `cloudflare/worker/` |
 | D1 database | `papergen` (`9d99c331-d8ba-495e-9a8d-35e295bb882c`) |
 | R2 bucket | `exampapers` |
-| Public bundle | 221 files, 52,424,641 bytes / 50.00 MiB (documents + 44 subject stubs) |
-| R2 bucket contents | 221 objects, 52,424,641 bytes / 50.00 MiB |
-| R2 quota used | 58 / 10,000 internal Class A, 0 Class B (November 2026) |
-| Worker | Deployed with CSC662 and MAT133 routes (version `597dd1ca`) |
+| Public bundle | 390 files, 75,951,553 bytes / 72.43 MiB (documents + 44 subject stubs) |
+| R2 bucket contents | 390 objects, 75,951,553 bytes / 72.43 MiB |
+| R2 quota used | 302 / 10,000 internal Class A, 0 Class B (November 2026) |
+| Worker | Deployed with CSC413, CSC662 and MAT133 routes |
 | Live mode | Scaffolded in `cloudflare/container-worker/`; not deployed |
 | Live-mode prerequisite | Cloudflare Workers Paid, **$5/month** (Containers has no free tier) |
-| Subjects | Local registry: CSC402, CSC413, CSC662 and MAT133 available; 40 curriculum stubs coming soon. Public site: CSC662 and MAT133 only (CSC402 and CSC413 not published) |
+| Subjects | Local registry: CSC402, CSC413, CSC662 and MAT133 available; 40 curriculum stubs coming soon. Public site: CSC413, CSC662 and MAT133 (CSC402 not published) |
 | Contact | auzair1990@gmail.com |
 | Repository | https://github.com/jerkfish/paper-generator |
 
@@ -95,6 +95,9 @@ notice; no API key or Python process exists there.
 | Route | Purpose |
 |---|---|
 | `/` | Subject table |
+| `/csc413` | CSC413 hub |
+| `/csc413/library` | Sortable/filterable CSC413 Library with Share buttons |
+| `/csc413/generate` | Static "live generation disabled" page |
 | `/csc662` | CSC662 hub |
 | `/csc662/library` | Sortable/filterable CSC662 Library with Share buttons |
 | `/csc662/generate` | Static "live generation disabled" page |
@@ -105,8 +108,8 @@ notice; no API key or Python process exists there.
 | `/paused` | Paused notice |
 | `/library/<SUBJECT>/...` | R2 papers and schemes |
 
-The Worker maps both `/csc662...` and `/mat133...`. A share request carries the
-subject code, and the Worker reads that subject's
+The Worker maps `/csc413...`, `/csc662...` and `/mat133...`. A share request
+carries the subject code, and the Worker reads that subject's
 `library/<SUBJECT>/manifest.json`.
 
 ## Subject registry
@@ -125,9 +128,9 @@ subjects/CST688/subject.json   status: coming_soon, order 43
 The registry follows the curriculum order in the `order` field, with available
 subjects first. There are 44 subjects: CSC402, CSC413, CSC662 and MAT133 are
 available locally, plus 40 curriculum stubs. CSC402 and CSC413 are type-B
-deterministic subjects with 20-seed private Libraries, but they are **not
-published**; the public site still contains only CSC662 and MAT133. Each
-record contains the code,
+deterministic subjects with 20-seed private Libraries. CSC413 is **published**;
+CSC402 is **not published**. The public site contains CSC413, CSC662 and
+MAT133. Each record contains the code,
 title, status, header text, template path, fingerprint metadata, capabilities,
 plugins, permissions, deck map, topic-deck allow-list and enabled computed
 generators. Stubs appear on the home page but have no papers or Library cache.

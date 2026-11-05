@@ -4,7 +4,7 @@
   "type": "B",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-04T18:12:13Z",
+  "updated": "2026-11-05T01:07:31Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -193,32 +193,46 @@
       "notes": "20 seeds in outputs/web_cache/CSC413. Every seed: 100 marks, 64 questions, 72 slots, 72 accepted, 0 placeholders, no QA problems. Every paper is 5 pages; every scheme is 6 pages. Scheme template is data/reference/CSC413/CSC413 MARKING SCHEME TEMPLATE.docx (CSC413 only). Deterministic; LLM cost $0. Approved by the owner; nothing is published."
     },
     "9_publish": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "outputs/public_bundle/subjects.json",
+        "outputs/public_bundle/library/CSC413/manifest.json",
+        "outputs/public_bundle/csc413/index.html",
+        "outputs/public_bundle/csc413/library/index.html",
+        "outputs/r2_sync_state.json",
+        "outputs/r2_quota_ledger.json",
+        "data/tracking/csc413/library_prebuild.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"check stage 9, if its done, marked csc413 as done\"",
+        "on": "2026-11-05",
+        "note": "Verified public bundle, R2 objects and live routes/downloads; approved publication close-out."
       },
-      "notes": "Hard stop. Publication permission is recorded, but an explicit human instruction is still required before rebuilding the public bundle, uploading to R2 or deploying the Worker."
+      "notes": "Published. Public bundle contains CSC413 with 20 papers and 80 documents; subjects.json includes the /csc413 route. R2 has 390 objects / 75,951,553 bytes; the CSC413 portion is 85 keys. Live checks: /csc413/, /csc413/library/, the Library manifest, paper/scheme PDFs and DOCX all return 200; live scheme is 6 pages with the CSC413 marking-scheme cover. The Worker resolves the route from subjects.json; no subject list was edited. Quota is within the plan."
     },
     "10_close_out": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "subjects/CSC413/lifecycle_state.json",
+        "subjects/CSC413/subject.json",
+        "docs/CSC413.md",
+        "docs/LIFECYCLE.md",
+        "README.md"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"marked csc413 as done\"",
+        "on": "2026-11-05",
+        "note": "Close-out approved after verified publication and final gates."
       },
-      "notes": ""
+      "notes": "Close-out complete. Stage history, evidence, deviations and live URLs are recorded in docs/CSC413.md and lifecycle_state.json. No blocking unsure items. LLM cost $0."
     }
   },
   "unsure": [],

@@ -1,6 +1,6 @@
 # Project lifecycle
 
-Last updated: **2026-11-04**
+Last updated: **2026-11-05**
 
 Public site: **https://uitmpapergen.download** (library-only).
 
@@ -21,16 +21,15 @@ uv run python -m scripts.lifecycle_status <CODE>
 | Subject | Type | Local generation | Public |
 |---|---|---|---|
 | **CSC402** Programming I | B | Deterministic plugin; 20-seed private Library | **Not published**; stage 9 pending |
-| **CSC413** Introduction to Interactive Multimedia | B | TRUE/FALSE, matching, MCQ and structured generators; 20-seed Library | **Not published**; stage 9 pending |
+| **CSC413** Introduction to Interactive Multimedia | B | TRUE/FALSE, matching, MCQ and structured generators; 20-seed Library | Published |
 | **CSC662** Computer Security | A | LLM theory plus deterministic computed generators; 20-seed Library | Published |
 | **MAT133** Pre-Calculus | B | Deterministic paper-derived generators; 20-seed Library | Published |
 
 - The registry has 44 subjects: 4 `available` and 40 `coming_soon` curriculum
   stubs.
-- CSC413 stages 0-8 are complete: the 20-seed private Library uses the
-  owner-supplied CSC413 marking-scheme template. Publication permission is
-  `allowed: true`, but stage 9 remains a hard stop and nothing has been
-  uploaded or deployed.
+- CSC413 stages 0-10 are complete and published at
+  https://uitmpapergen.download/csc413/. It uses the owner-supplied CSC413
+  marking-scheme template and a 20-paper Library.
 - CSC402 stages 0-8 are approved and complete. Stage 9 (publication) is a hard
   stop; no CSC402 papers, downloads or Library route are published. The public
   bundle only carries the `coming_soon` registry stub.
@@ -40,10 +39,10 @@ uv run python -m scripts.lifecycle_status <CODE>
 - The public navigation's Generate link is disabled in
   `src/app/templates/base.html`. Keep it disabled while the public site is
   library-only.
-- Public bundle and R2 snapshot: 221 files / 221 objects, 52,424,641 bytes
-  (50.00 MiB), including 44 subject registry files.
-- Public subjects are CSC662 and MAT133, with 20 Library papers each. The
-  Generate routes are static notices; the live gallery is D1-backed.
+- Public bundle and R2 snapshot: 390 files / 390 objects, 75,951,553 bytes
+  (72.43 MiB), including 44 subject registry files.
+- Public subjects are CSC413, CSC662 and MAT133, with 20 Library papers each.
+  The Generate routes are static notices; the live gallery is D1-backed.
 
 ## 1. Local generation
 
