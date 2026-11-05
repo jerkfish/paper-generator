@@ -1,0 +1,350 @@
+{
+  "subject": "CSC429",
+  "papers_total": 20,
+  "papers_valid": 20,
+  "coverage": {
+    "csc429.computer_generations_history": 29,
+    "csc429.data_representation": 60,
+    "csc429.cpu_organization": 31,
+    "csc429.memory_cache": 20,
+    "csc429.interrupts_io": 31,
+    "csc429.buses_interconnection": 9,
+    "csc429.parallel_architectures": 20,
+    "csc429.assembly": 20
+  },
+  "missing_generators": [],
+  "data_kinds": {
+    "5:ieee": 12,
+    "5:signed": 18,
+    "10:signed": 5,
+    "5:base": 10,
+    "10:ieee": 7,
+    "10:bases": 8
+  },
+  "missing_data_kinds": [],
+  "assembly_templates": {
+    "sum_product_difference_2": 4,
+    "sum_over_difference": 3,
+    "product_sum_difference": 2,
+    "difference_product_quotient": 5,
+    "sum_product_difference": 6
+  },
+  "missing_assembly_templates": [],
+  "figure_kinds": {
+    "von_neumann": 20,
+    "cpu_datapath": 20,
+    "cache_mapping": 20
+  },
+  "missing_figure_kinds": [],
+  "results": [
+    {
+      "seed": 1,
+      "problems": [],
+      "total_marks": 100,
+      "question_count": 11,
+      "generator_ids": [
+        "csc429.assembly",
+        "csc429.computer_generations_history",
+        "csc429.cpu_organization",
+        "csc429.data_representation",
+        "csc429.interrupts_io",
+        "csc429.memory_cache",
+        "csc429.parallel_architectures"
+      ]
+    },
+    {
+      "seed": 2,
+      "problems": [],
+      "total_marks": 100,
+      "question_count": 11,
+      "generator_ids": [
+        "csc429.assembly",
+        "csc429.buses_interconnection",
+        "csc429.computer_generations_history",
+        "csc429.cpu_organization",
+        "csc429.data_representation",
+        "csc429.interrupts_io",
+        "csc429.memory_cache",
+        "csc429.parallel_architectures"
+      ]
+    },
+    {
+      "seed": 3,
+      "problems": [],
+      "total_marks": 100,
+      "question_count": 11,
+      "generator_ids": [
+        "csc429.assembly",
+        "csc429.computer_generations_history",
+        "csc429.cpu_organization",
+        "csc429.data_representation",
+        "csc429.interrupts_io",
+        "csc429.memory_cache",
+        "csc429.parallel_architectures"
+      ]
+    },
+    {
+      "seed": 4,
+      "problems": [],
+      "total_marks": 100,
+      "question_count": 11,
+      "generator_ids": [
+        "csc429.assembly",
+        "csc429.computer_generations_history",
+        "csc429.cpu_organization",
+        "csc429.data_representation",
+        "csc429.interrupts_io",
+        "csc429.memory_cache",
+        "csc429.parallel_architectures"
+      ]
+    },
+    {
+      "seed": 5,
+      "problems": [],
+      "total_marks": 100,
+      "question_count": 11,
+      "generator_ids": [
+        "csc429.assembly",
+        "csc429.computer_generations_history",
+        "csc429.cpu_organization",
+        "csc429.data_representation",
+        "csc429.interrupts_io",
+        "csc429.memory_cache",
+        "csc429.parallel_architectures"
+      ]
+    },
+    {
+      "seed": 6,
+      "problems": [],
+      "total_marks": 100,
+      "question_count": 11,
+      "generator_ids": [
+        "csc429.assembly",
+        "csc429.buses_interconnection",
+        "csc429.computer_generations_history",
+        "csc429.cpu_organization",
+        "csc429.data_representation",
+        "csc429.interrupts_io",
+        "csc429.memory_cache",
+        "csc429.parallel_architectures"
+      ]
+    },
+    {
+      "seed": 7,
+      "problems": [],
+      "total_marks": 100,
+      "question_count": 11,
+      "generator_ids": [
+        "csc429.assembly",
+        "csc429.computer_generations_history",
+        "csc429.cpu_organization",
+        "csc429.data_representation",
+        "csc429.interrupts_io",
+        "csc429.memory_cache",
+        "csc429.parallel_architectures"
+      ]
+    },
+    {
+      "seed": 8,
+      "problems": [],
+      "total_marks": 100,
+      "question_count": 11,
+      "generator_ids": [
+        "csc429.assembly",
+        "csc429.computer_generations_history",
+        "csc429.cpu_organization",
+        "csc429.data_representation",
+        "csc429.interrupts_io",
+        "csc429.memory_cache",
+        "csc429.parallel_architectures"
+      ]
+    },
+    {
+      "seed": 9,
+      "problems": [],
+      "total_marks": 100,
+      "question_count": 11,
+      "generator_ids": [
+        "csc429.assembly",
+        "csc429.buses_interconnection",
+        "csc429.computer_generations_history",
+        "csc429.cpu_organization",
+        "csc429.data_representation",
+        "csc429.interrupts_io",
+        "csc429.memory_cache",
+        "csc429.parallel_architectures"
+      ]
+    },
+    {
+      "seed": 10,
+      "problems": [],
+      "total_marks": 100,
+      "question_count": 11,
+      "generator_ids": [
+        "csc429.assembly",
+        "csc429.buses_interconnection",
+        "csc429.computer_generations_history",
+        "csc429.cpu_organization",
+        "csc429.data_representation",
+        "csc429.interrupts_io",
+        "csc429.memory_cache",
+        "csc429.parallel_architectures"
+      ]
+    },
+    {
+      "seed": 11,
+      "problems": [],
+      "total_marks": 100,
+      "question_count": 11,
+      "generator_ids": [
+        "csc429.assembly",
+        "csc429.buses_interconnection",
+        "csc429.computer_generations_history",
+        "csc429.cpu_organization",
+        "csc429.data_representation",
+        "csc429.interrupts_io",
+        "csc429.memory_cache",
+        "csc429.parallel_architectures"
+      ]
+    },
+    {
+      "seed": 12,
+      "problems": [],
+      "total_marks": 100,
+      "question_count": 11,
+      "generator_ids": [
+        "csc429.assembly",
+        "csc429.buses_interconnection",
+        "csc429.computer_generations_history",
+        "csc429.cpu_organization",
+        "csc429.data_representation",
+        "csc429.interrupts_io",
+        "csc429.memory_cache",
+        "csc429.parallel_architectures"
+      ]
+    },
+    {
+      "seed": 13,
+      "problems": [],
+      "total_marks": 100,
+      "question_count": 11,
+      "generator_ids": [
+        "csc429.assembly",
+        "csc429.computer_generations_history",
+        "csc429.cpu_organization",
+        "csc429.data_representation",
+        "csc429.interrupts_io",
+        "csc429.memory_cache",
+        "csc429.parallel_architectures"
+      ]
+    },
+    {
+      "seed": 14,
+      "problems": [],
+      "total_marks": 100,
+      "question_count": 11,
+      "generator_ids": [
+        "csc429.assembly",
+        "csc429.buses_interconnection",
+        "csc429.computer_generations_history",
+        "csc429.cpu_organization",
+        "csc429.data_representation",
+        "csc429.interrupts_io",
+        "csc429.memory_cache",
+        "csc429.parallel_architectures"
+      ]
+    },
+    {
+      "seed": 15,
+      "problems": [],
+      "total_marks": 100,
+      "question_count": 11,
+      "generator_ids": [
+        "csc429.assembly",
+        "csc429.computer_generations_history",
+        "csc429.cpu_organization",
+        "csc429.data_representation",
+        "csc429.interrupts_io",
+        "csc429.memory_cache",
+        "csc429.parallel_architectures"
+      ]
+    },
+    {
+      "seed": 16,
+      "problems": [],
+      "total_marks": 100,
+      "question_count": 11,
+      "generator_ids": [
+        "csc429.assembly",
+        "csc429.computer_generations_history",
+        "csc429.cpu_organization",
+        "csc429.data_representation",
+        "csc429.interrupts_io",
+        "csc429.memory_cache",
+        "csc429.parallel_architectures"
+      ]
+    },
+    {
+      "seed": 17,
+      "problems": [],
+      "total_marks": 100,
+      "question_count": 11,
+      "generator_ids": [
+        "csc429.assembly",
+        "csc429.buses_interconnection",
+        "csc429.computer_generations_history",
+        "csc429.cpu_organization",
+        "csc429.data_representation",
+        "csc429.interrupts_io",
+        "csc429.memory_cache",
+        "csc429.parallel_architectures"
+      ]
+    },
+    {
+      "seed": 18,
+      "problems": [],
+      "total_marks": 100,
+      "question_count": 11,
+      "generator_ids": [
+        "csc429.assembly",
+        "csc429.computer_generations_history",
+        "csc429.cpu_organization",
+        "csc429.data_representation",
+        "csc429.interrupts_io",
+        "csc429.memory_cache",
+        "csc429.parallel_architectures"
+      ]
+    },
+    {
+      "seed": 19,
+      "problems": [],
+      "total_marks": 100,
+      "question_count": 11,
+      "generator_ids": [
+        "csc429.assembly",
+        "csc429.buses_interconnection",
+        "csc429.computer_generations_history",
+        "csc429.cpu_organization",
+        "csc429.data_representation",
+        "csc429.interrupts_io",
+        "csc429.memory_cache",
+        "csc429.parallel_architectures"
+      ]
+    },
+    {
+      "seed": 20,
+      "problems": [],
+      "total_marks": 100,
+      "question_count": 11,
+      "generator_ids": [
+        "csc429.assembly",
+        "csc429.computer_generations_history",
+        "csc429.cpu_organization",
+        "csc429.data_representation",
+        "csc429.interrupts_io",
+        "csc429.memory_cache",
+        "csc429.parallel_architectures"
+      ]
+    }
+  ]
+}

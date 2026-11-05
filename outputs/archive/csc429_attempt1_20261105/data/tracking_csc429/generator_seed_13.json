@@ -1,0 +1,425 @@
+{
+  "subject": "CSC429",
+  "seed": 13,
+  "generated_by": "src.subjects.csc429.generators",
+  "planner": "src.subjects.csc429.planner",
+  "total_marks": 100,
+  "part_marks": {
+    "A": 80,
+    "B": 20
+  },
+  "topic_marks": {
+    "computer_generations_history": 10,
+    "data_representation": 20,
+    "cpu_organization": 10,
+    "memory_cache": 10,
+    "interrupts_io": 20,
+    "parallel_architectures": 10,
+    "instruction_set_assembly": 20
+  },
+  "question_count": 11,
+  "slot_count": 11,
+  "questions": [
+    {
+      "number": "A1",
+      "part": "A",
+      "kind": "structured",
+      "marks": 5,
+      "topic": "computer_generations_history",
+      "generator_id": "csc429.computer_generations_history",
+      "stem": "Study {figure} and answer the following questions.",
+      "parts": [
+        {
+          "marks": 2,
+          "text": "Name the computer organization shown in the figure and state its two key principles.",
+          "answer": "Von Neumann architecture. Instructions and data are stored in the same memory, and the CPU executes instructions sequentially unless a branch changes the control flow.",
+          "label": "a"
+        },
+        {
+          "marks": 3,
+          "text": "Explain the function of the control unit and the arithmetic logic unit in this organization.",
+          "answer": "The control unit fetches and decodes instructions and generates the control signals. The ALU performs arithmetic and logical operations and records status flags.",
+          "label": "b"
+        }
+      ],
+      "figure": {
+        "kind": "von_neumann",
+        "caption": "Stored-program computer organization.",
+        "width_cm": 14.0
+      }
+    },
+    {
+      "number": "A2",
+      "part": "A",
+      "kind": "structured",
+      "marks": 5,
+      "topic": "computer_generations_history",
+      "generator_id": "csc429.computer_generations_history",
+      "stem": "John von Neumann contributed the stored-program concept.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "Name TWO computers inspired by von Neumann's architecture.",
+          "answer": "Any two of: IAS machine, EDVAC, EDSAC, MANCHESTER Mark I."
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "Describe the stored-program concept.",
+          "answer": "Instructions and data are stored together in the same memory; the CPU fetches and executes instructions from memory, so a program can be changed without rewiring the machine."
+        }
+      ]
+    },
+    {
+      "number": "A3",
+      "part": "A",
+      "kind": "structured",
+      "marks": 5,
+      "topic": "data_representation",
+      "generator_id": "csc429.data_representation",
+      "stem": "Answer the following data-representation questions. Show your complete workflow.",
+      "parts": [
+        {
+          "marks": 2,
+          "text": "Represent -88 in 8-bit sign-magnitude form.",
+          "answer": "11011000 (sign bit 1, magnitude 88).",
+          "label": "a"
+        },
+        {
+          "marks": 3,
+          "text": "Represent -88 in 8-bit two's complement form.",
+          "answer": "10101000.",
+          "label": "b"
+        }
+      ],
+      "verification": {
+        "kind": "signed",
+        "value": -88,
+        "sign_magnitude": "11011000",
+        "twos": "10101000"
+      }
+    },
+    {
+      "number": "A4",
+      "part": "A",
+      "kind": "structured",
+      "marks": 5,
+      "topic": "data_representation",
+      "generator_id": "csc429.data_representation",
+      "stem": "Answer the following data-representation questions. Show your complete workflow.",
+      "parts": [
+        {
+          "marks": 2,
+          "text": "Convert 176 to binary. Show your workflow.",
+          "answer": "176 = 10110000₂.",
+          "label": "a"
+        },
+        {
+          "marks": 3,
+          "text": "Convert 00111100₂ to decimal. Show your workflow.",
+          "answer": "00111100₂ = 60₁₀.",
+          "label": "b"
+        }
+      ],
+      "verification": {
+        "kind": "base",
+        "dec": 176,
+        "binary_value": 60
+      }
+    },
+    {
+      "number": "A5",
+      "part": "A",
+      "kind": "structured",
+      "marks": 10,
+      "topic": "data_representation",
+      "generator_id": "csc429.data_representation",
+      "stem": "Answer the following data-representation questions. Show your complete workflow.",
+      "parts": [
+        {
+          "marks": 5,
+          "text": "Convert -156.15625 to IEEE 754 single precision in hexadecimal. Show the sign, exponent and mantissa.",
+          "answer": "sign=1, exponent=10000110, mantissa=00111000010100000000000 -> C31C2800.",
+          "label": "a"
+        },
+        {
+          "marks": 5,
+          "text": "Convert the IEEE 754 single-precision value C31C2800 to decimal.",
+          "answer": "C31C2800 = -156.15625.",
+          "label": "b"
+        }
+      ],
+      "verification": {
+        "kind": "ieee",
+        "value": -156.15625,
+        "hex": "C31C2800"
+      }
+    },
+    {
+      "number": "A6",
+      "part": "A",
+      "kind": "structured",
+      "marks": 10,
+      "topic": "cpu_organization",
+      "generator_id": "csc429.cpu_organization",
+      "stem": "Study {figure} and answer the following questions.",
+      "parts": [
+        {
+          "marks": 2,
+          "text": "Identify the register that holds the address of the next instruction and the register that holds the instruction currently being decoded.",
+          "answer": "PC holds the address of the next instruction; IR holds the instruction currently being decoded.",
+          "label": "a"
+        },
+        {
+          "marks": 3,
+          "text": "Explain the roles of MAR and MBR during a memory read.",
+          "answer": "The MAR holds the address to be accessed. The memory places the selected word in the MBR, which then supplies it to the CPU (for example, to the IR).",
+          "label": "b"
+        },
+        {
+          "marks": 5,
+          "text": "Describe the fetch-decode-execute cycle using the components shown in the figure.",
+          "answer": "Fetch: PC -> MAR; memory read; MBR -> IR; PC is incremented. Decode: the CU interprets the opcode in IR and issues control signals. Execute: operands are read, the ALU performs the operation, the result and flags are written back, and the next instruction is fetched.",
+          "label": "c"
+        }
+      ],
+      "figure": {
+        "kind": "cpu_datapath",
+        "caption": "CPU, memory and system bus organization.",
+        "width_cm": 14.5
+      }
+    },
+    {
+      "number": "A7",
+      "part": "A",
+      "kind": "structured",
+      "marks": 10,
+      "topic": "memory_cache",
+      "generator_id": "csc429.memory_cache",
+      "stem": "Study {figure} and answer the following questions.",
+      "parts": [
+        {
+          "marks": 2,
+          "text": "The cache uses a 16-bit address split into a 4-bit tag, a 3-bit line number and a 9-bit offset. For address 0x1A2B, give the tag, line number and offset in binary.",
+          "answer": "0x1A2B = 0001 1010 0010 1011; tag = 0001, line = 101, offset = 000101011.",
+          "label": "a"
+        },
+        {
+          "marks": 4,
+          "text": "Using the cache state shown in the figure, determine whether each address is a hit or a miss: (i) 0x1A2B, (ii) 0x2A2B. Explain your reasoning.",
+          "answer": "(i) Hit: tag 0001 and line 101; line 5 is valid with tag 0001. (ii) Miss: tag 0010 and line 101; line 5 is valid but its tag is 0001, so the tags do not match.",
+          "label": "b"
+        },
+        {
+          "marks": 4,
+          "text": "Explain why the cache compares tags and how temporal and spatial locality improve the hit rate.",
+          "answer": "The tag identifies which memory block occupies a line; comparing tags prevents returning data from a different block. Temporal locality means recently used data is likely reused, and spatial locality means nearby addresses are likely used, so keeping blocks in cache raises the hit rate.",
+          "label": "c"
+        }
+      ],
+      "figure": {
+        "kind": "cache_mapping",
+        "caption": "Direct-mapped cache organization and address fields.",
+        "width_cm": 14.5,
+        "data": {
+          "address_bits": 16,
+          "tag_bits": 4,
+          "line_bits": 3,
+          "offset_bits": 9,
+          "addresses": [
+            "0x1A2B",
+            "0x2A2B"
+          ],
+          "cache": {
+            "line3": {
+              "valid": 1,
+              "tag": "0010"
+            },
+            "line5": {
+              "valid": 1,
+              "tag": "0001"
+            }
+          }
+        }
+      }
+    },
+    {
+      "number": "A8",
+      "part": "A",
+      "kind": "structured",
+      "marks": 10,
+      "topic": "interrupts_io",
+      "generator_id": "csc429.interrupts_io",
+      "stem": "Multiple interrupts can arrive while the CPU is servicing another interrupt.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "text": "Explain nested interrupts.",
+          "answer": "A higher-priority interrupt can interrupt a lower-priority ISR; the CPU saves the lower ISR context and services the higher-priority one first."
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "Describe how interrupt priority determines the order of service.",
+          "answer": "The interrupt controller compares priorities and presents the highest-priority pending request to the CPU first."
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "text": "Explain the sequence of events when a higher-priority interrupt arrives during an ISR.",
+          "answer": "The CPU finishes the current instruction, saves the current context, acknowledges the higher-priority interrupt and jumps to its ISR; the lower ISR resumes after the higher one returns."
+        }
+      ]
+    },
+    {
+      "number": "A9",
+      "part": "A",
+      "kind": "structured",
+      "marks": 10,
+      "topic": "interrupts_io",
+      "generator_id": "csc429.interrupts_io",
+      "stem": "The CPU can use programmed I/O, interrupt-driven I/O or DMA.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "Describe programmed I/O.",
+          "answer": "The CPU repeatedly checks the device status and transfers data itself, so it wastes time polling."
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "Describe interrupt-driven I/O.",
+          "answer": "The device signals the CPU with an interrupt when it is ready; the CPU services the device in an ISR instead of polling."
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "text": "Explain how DMA improves I/O performance and state ONE advantage over interrupt-driven I/O.",
+          "answer": "A DMA controller transfers a block directly between the device and memory while the CPU continues other work; one interrupt is needed at completion, so there is less CPU overhead per transfer."
+        }
+      ]
+    },
+    {
+      "number": "A10",
+      "part": "A",
+      "kind": "structured",
+      "marks": 10,
+      "topic": "parallel_architectures",
+      "generator_id": "csc429.parallel_architectures",
+      "stem": "Flynn's taxonomy classifies computer architectures by instruction and data streams.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "text": "Describe SISD, SIMD, MISD and MIMD.",
+          "answer": "SISD: one instruction/one data stream. SIMD: one instruction/ multiple data streams. MISD: multiple instructions/one data stream. MIMD: multiple instructions/multiple data streams."
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "text": "Give ONE example of SIMD and ONE example of MIMD.",
+          "answer": "SIMD: GPU/vector processor. MIMD: multicore CPU or cluster."
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "text": "Explain the difference between shared-memory and distributed-memory MIMD.",
+          "answer": "Shared-memory MIMD uses one address space accessible by all processors; distributed-memory MIMD gives each processor local memory and communicates by messages."
+        }
+      ]
+    },
+    {
+      "number": "B1",
+      "part": "B",
+      "kind": "assembly",
+      "marks": 20,
+      "topic": "instruction_set_assembly",
+      "generator_id": "csc429.assembly",
+      "stem": "Write appropriate programs using zero-, one- and three-address instructions to compute Z = (A + B) * (C - D) / E. Registers A, B, C, D and E must not be modified; X, Y and Z are temporary registers; the final answer must be stored in Z. Available instructions: zero-address PUSH, POP, ADD, SUB, MUL, DIV; one-address LOAD, STORE, ADD, SUB, MUL, DIV; three-address ADD, SUB, MUL, DIV.",
+      "parts": [
+        {
+          "marks": 6,
+          "label": "a",
+          "text": "Write a zero-address program for the expression.",
+          "answer": "PUSH A\nPUSH B\nADD\nPUSH C\nPUSH D\nSUB\nMUL\nPUSH E\nDIV\nPOP Z"
+        },
+        {
+          "marks": 6,
+          "label": "b",
+          "text": "Write a one-address program for the expression.",
+          "answer": "LOAD A\nADD B\nSTORE X\nLOAD C\nSUB D\nSTORE Y\nLOAD X\nMUL Y\nSTORE X\nLOAD X\nDIV E\nSTORE Z"
+        },
+        {
+          "marks": 8,
+          "label": "c",
+          "text": "Write a three-address program for the expression.",
+          "answer": "ADD X, A, B\nSUB Y, C, D\nMUL X, X, Y\nDIV Z, X, E"
+        }
+      ],
+      "expression": "(A + B) * (C - D) / E",
+      "programs": {
+        "zero": [
+          "PUSH A",
+          "PUSH B",
+          "ADD",
+          "PUSH C",
+          "PUSH D",
+          "SUB",
+          "MUL",
+          "PUSH E",
+          "DIV",
+          "POP Z"
+        ],
+        "one": [
+          "LOAD A",
+          "ADD B",
+          "STORE X",
+          "LOAD C",
+          "SUB D",
+          "STORE Y",
+          "LOAD X",
+          "MUL Y",
+          "STORE X",
+          "LOAD X",
+          "DIV E",
+          "STORE Z"
+        ],
+        "three": [
+          "ADD X, A, B",
+          "SUB Y, C, D",
+          "MUL X, X, Y",
+          "DIV Z, X, E"
+        ]
+      },
+      "test_values": {
+        "A": 6,
+        "B": 2,
+        "C": 4,
+        "D": 1,
+        "E": 2
+      },
+      "expected_value": 12.0,
+      "template_id": "sum_product_difference"
+    }
+  ],
+  "style_profile": {
+    "part_a_questions": 10,
+    "part_b_questions": 1,
+    "computed_data_questions": 3,
+    "assembly_questions": 1,
+    "figure_questions": 3
+  },
+  "generator_ids": [
+    "csc429.computer_generations_history",
+    "csc429.data_representation",
+    "csc429.cpu_organization",
+    "csc429.memory_cache",
+    "csc429.interrupts_io",
+    "csc429.buses_interconnection",
+    "csc429.parallel_architectures",
+    "csc429.assembly"
+  ]
+}

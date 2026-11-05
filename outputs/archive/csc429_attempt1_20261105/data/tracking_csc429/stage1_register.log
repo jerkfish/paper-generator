@@ -1,0 +1,171 @@
+{
+  "subject": "CSC429",
+  "papers_dir": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\papers\\CSC429",
+  "total": 23,
+  "unique": 20,
+  "duplicates": 3,
+  "duplicate_groups": [
+    {
+      "canonical": "CSC429 (10).pdf",
+      "duplicates": [
+        "CSC429 (9).pdf"
+      ]
+    },
+    {
+      "canonical": "CSC429 (18).pdf",
+      "duplicates": [
+        "CSC429 (19).pdf"
+      ]
+    },
+    {
+      "canonical": "CSC429 (21).pdf",
+      "duplicates": [
+        "CSC429 (22).pdf"
+      ]
+    }
+  ],
+  "month_year_found": 20,
+  "low_confidence": [],
+  "renamed": false,
+  "ocr": true,
+  "corpus": [
+    {
+      "paper": "CSC429 (1).pdf",
+      "chars": 5574,
+      "source": "ocr",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429 (1).txt"
+    },
+    {
+      "paper": "CSC429 (10).pdf",
+      "chars": 5378,
+      "source": "ocr",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429 (10).txt"
+    },
+    {
+      "paper": "CSC429 (11).pdf",
+      "chars": 5397,
+      "source": "ocr",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429 (11).txt"
+    },
+    {
+      "paper": "CSC429 (12).pdf",
+      "chars": 7190,
+      "source": "ocr",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429 (12).txt"
+    },
+    {
+      "paper": "CSC429 (13).pdf",
+      "chars": 5642,
+      "source": "text",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429 (13).txt"
+    },
+    {
+      "paper": "CSC429 (14).pdf",
+      "chars": 6042,
+      "source": "text",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429 (14).txt"
+    },
+    {
+      "paper": "CSC429 (15).pdf",
+      "chars": 5009,
+      "source": "ocr",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429 (15).txt"
+    },
+    {
+      "paper": "CSC429 (16).pdf",
+      "chars": 5965,
+      "source": "ocr",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429 (16).txt"
+    },
+    {
+      "paper": "CSC429 (17).pdf",
+      "chars": 5275,
+      "source": "text",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429 (17).txt"
+    },
+    {
+      "paper": "CSC429 (18).pdf",
+      "chars": 5948,
+      "source": "text",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429 (18).txt"
+    },
+    {
+      "paper": "CSC429 (2).pdf",
+      "chars": 5116,
+      "source": "ocr",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429 (2).txt"
+    },
+    {
+      "paper": "CSC429 (20).pdf",
+      "chars": 5447,
+      "source": "text",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429 (20).txt"
+    },
+    {
+      "paper": "CSC429 (21).pdf",
+      "chars": 5470,
+      "source": "text",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429 (21).txt"
+    },
+    {
+      "paper": "CSC429 (3).pdf",
+      "chars": 5646,
+      "source": "ocr",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429 (3).txt"
+    },
+    {
+      "paper": "CSC429 (4).pdf",
+      "chars": 6352,
+      "source": "ocr",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429 (4).txt"
+    },
+    {
+      "paper": "CSC429 (5).pdf",
+      "chars": 5887,
+      "source": "ocr",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429 (5).txt"
+    },
+    {
+      "paper": "CSC429 (6).pdf",
+      "chars": 6974,
+      "source": "ocr",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429 (6).txt"
+    },
+    {
+      "paper": "CSC429 (7).pdf",
+      "chars": 4931,
+      "source": "ocr",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429 (7).txt"
+    },
+    {
+      "paper": "CSC429 (8).pdf",
+      "chars": 6091,
+      "source": "ocr",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429 (8).txt"
+    },
+    {
+      "paper": "CSC429.pdf",
+      "chars": 4851,
+      "source": "ocr",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429.txt"
+    },
+    {
+      "paper": "CSC429 (19).pdf",
+      "chars": 5948,
+      "source": "duplicate",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429 (19).txt"
+    },
+    {
+      "paper": "CSC429 (22).pdf",
+      "chars": 5470,
+      "source": "duplicate",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429 (22).txt"
+    },
+    {
+      "paper": "CSC429 (9).pdf",
+      "chars": 5378,
+      "source": "duplicate",
+      "text_file": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\csc429\\paper_text\\CSC429 (9).txt"
+    }
+  ]
+}

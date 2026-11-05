@@ -7,183 +7,11 @@
   "has_practice_mode": false,
   "has_placeholders": false,
   "header_text": "CSC429 COMPUTER ORGANIZATION AND ARCHITECTURE",
-  "template_path": "data/reference/CSC429/CSC429 TEMPLATE.docx",
-  "fingerprint": {
-    "source_papers": "data/papers/CSC429",
-    "paper_count": 20,
-    "unique_papers": 20,
-    "prepared_corpus": "data/tracking/csc429",
-    "taxonomy": "data/tracking/csc429/taxonomy.json",
-    "question_log": "data/tracking/csc429/question_log.json",
-    "taxonomy_summary": "data/tracking/csc429/taxonomy_summary.json",
-    "question_log_entries": 213,
-    "papers_with_reconciled_marks": 9,
-    "total_marks": 2000,
-    "part_marks": {
-      "A": [
-        80,
-        85
-      ],
-      "B": [
-        15,
-        20
-      ]
-    },
-    "part_questions": {
-      "A": [
-        5,
-        10
-      ],
-      "B": [
-        1
-      ]
-    },
-    "topic_order": [
-      "data_representation",
-      "instruction_set_assembly",
-      "interrupts_io",
-      "cpu_organization",
-      "memory_cache",
-      "computer_generations_history",
-      "parallel_architectures",
-      "buses_interconnection",
-      "other",
-      "storage_devices"
-    ],
-    "topic_marks": {
-      "data_representation": 552,
-      "instruction_set_assembly": 380,
-      "interrupts_io": 289,
-      "cpu_organization": 277,
-      "memory_cache": 218,
-      "computer_generations_history": 147,
-      "parallel_architectures": 129,
-      "buses_interconnection": 70,
-      "other": 0,
-      "storage_devices": 0
-    },
-    "figure_assets": {
-      "dir": "data/tracking/csc429/assets",
-      "dpi": 200,
-      "papers_with_assets": 20,
-      "images": 125
-    },
-    "planner": {
-      "module": "src.subjects.csc429.planner",
-      "style": "modern",
-      "seed_range": [
-        1,
-        20
-      ],
-      "seeds_passed": 20,
-      "slot_marks": [
-        5,
-        5,
-        5,
-        5,
-        10,
-        10,
-        10,
-        10,
-        10,
-        10,
-        20
-      ],
-      "part_marks": {
-        "A": 80,
-        "B": 20
-      },
-      "question_count": 11,
-      "slot_count": 11,
-      "topic_sequences": [
-        {
-          "id": "2024_01",
-          "source": "CSC429-2024-01",
-          "topics": [
-            "computer_generations_history",
-            "computer_generations_history",
-            "data_representation",
-            "data_representation",
-            "data_representation",
-            "buses_interconnection",
-            "cpu_organization",
-            "memory_cache",
-            "interrupts_io",
-            "parallel_architectures"
-          ]
-        },
-        {
-          "id": "2025_02",
-          "source": "CSC429-2025-02",
-          "topics": [
-            "computer_generations_history",
-            "cpu_organization",
-            "data_representation",
-            "data_representation",
-            "data_representation",
-            "cpu_organization",
-            "memory_cache",
-            "interrupts_io",
-            "interrupts_io",
-            "parallel_architectures"
-          ]
-        },
-        {
-          "id": "2023_02",
-          "source": "CSC429-2023-02",
-          "topics": [
-            "computer_generations_history",
-            "computer_generations_history",
-            "data_representation",
-            "data_representation",
-            "data_representation",
-            "cpu_organization",
-            "memory_cache",
-            "interrupts_io",
-            "interrupts_io",
-            "parallel_architectures"
-          ]
-        },
-        {
-          "id": "2024_07",
-          "source": "CSC429-2024-07",
-          "topics": [
-            "computer_generations_history",
-            "cpu_organization",
-            "data_representation",
-            "data_representation",
-            "data_representation",
-            "cpu_organization",
-            "buses_interconnection",
-            "memory_cache",
-            "interrupts_io",
-            "parallel_architectures"
-          ]
-        }
-      ],
-      "source_papers": [
-        "CSC429-2023-02",
-        "CSC429-2023-07",
-        "CSC429-2024-01",
-        "CSC429-2024-07",
-        "CSC429-2025-02",
-        "CSC429-2025-07",
-        "CSC429-2026-02"
-      ]
-    }
-  },
+  "template_path": "",
+  "fingerprint": {},
   "deck_map": {},
   "topic_deck_allowlist": {},
-  "enabled_computed_generators": [
-    "csc429.computer_generations_history",
-    "csc429.data_representation",
-    "csc429.cpu_organization",
-    "csc429.memory_cache",
-    "csc429.interrupts_io",
-    "csc429.buses_interconnection",
-    "csc429.parallel_architectures",
-    "csc429.assembly"
-  ],
+  "enabled_computed_generators": [],
   "capabilities": {
     "subject_type": "C",
     "generation": "deterministic",
@@ -211,7 +39,7 @@
       "basis": "owner waived (no scheme supplied)",
       "confirmed_by": "owner",
       "confirmed_on": "2026-11-05",
-      "notes": "Owner waived a supplied scheme at stage 0; generated answers will be used in later stages."
+      "notes": "Owner waived a supplied scheme at stage 0."
     },
     "slides": {
       "allowed": false,
@@ -229,6 +57,7 @@
     }
   },
   "plugins": {
+    "stage1_assets": "src.subjects.csc429.stage1:run_pipeline",
     "generator_labels": "src.subjects.csc429.plugin:generator_labels",
     "topic_labels": "src.subjects.csc429.plugin:topic_labels",
     "plan": "src.subjects.csc429.plugin:plan",

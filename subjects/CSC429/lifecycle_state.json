@@ -4,7 +4,7 @@
   "type": "C",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-05T08:11:42Z",
+  "updated": "2026-11-05T14:10:18Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -14,7 +14,7 @@
         "docs/CSC429.md",
         "src/subjects/csc429/",
         "data/papers/CSC429/",
-        "data/tracking/csc429/input_manifest.json",
+        "data/tracking/csc429/papers_register.json",
         "data/tracking/csc429/papers_summary.json"
       ],
       "llm_cost_usd": 0.0,
@@ -26,157 +26,36 @@
         "on": "2026-11-05",
         "note": "Type C/order 3 confirmed; scheme and lecture slides waived; publication kept false; 23 supplied PDFs accepted as inputs."
       },
-      "notes": "Stage-0 intake approved on 2026-11-05. 23 working copies (20 unique, 3 duplicate pairs) match the input manifest. Papers permission allowed; scheme and slides waived; publication remains false."
+      "notes": "Stage-0 intake approved on 2026-11-05. The Stage 1+ attempt was rejected because it invented descriptive questions instead of drawing real past-paper questions and their original diagrams. Stage 1 is being redone."
     },
     "1_preprocess": {
-      "status": "done",
+      "status": "in_progress",
       "evidence": [
         "data/tracking/csc429/papers_register.json",
         "data/tracking/csc429/papers_summary.json",
         "data/tracking/csc429/cover_text.json",
         "data/tracking/csc429/paper_text/index.json",
-        "data/tracking/csc429/stage1_register.log"
-      ],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": true,
-        "by": "owner",
-        "on": "2026-11-05",
-        "note": "Stage-1 register, duplicate groups and OCR corpus approved."
-      },
-      "notes": "23 files; 20 unique; 3 duplicate pairs. 6 text-layer + 14 OCR corpora; every unique paper has text. 20/20 covers parsed high confidence; 0 low-confidence covers. LLM cost $0.00. Owner-approved 2026-11-05."
-    },
-    "2_scheme_slides": {
-      "status": "not_applicable",
-      "evidence": [
-        "subjects/CSC429/subject.json",
-        "docs/CSC429.md"
-      ],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": true,
-        "by": "owner",
-        "on": "2026-11-05",
-        "note": "Owner waived scheme and lecture slides at stage 0; no scheme or slide material will be used."
-      },
-      "notes": "scheme: owner waived (no scheme supplied). slides: owner waived (no slides supplied). No scheme parser or deck inventory created."
-    },
-    "3_template": {
-      "status": "done",
-      "evidence": [
-        "data/reference/CSC429/CSC429 TEMPLATE.docx",
-        "data/reference/CSC429/CSC429 TEMPLATE.pdf",
-        "data/tracking/csc429/template_check.json",
-        "data/tracking/csc429/template_cover.png",
-        "docs/CSC429.md"
-      ],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": true,
-        "by": "owner",
-        "on": "2026-11-05",
-        "note": "Owner updated and approved data/reference/CSC429/CSC429 TEMPLATE.docx."
-      },
-      "notes": "Owner-updated template used as the approved Stage-3 template. 55 paragraphs, 2 sections, 1 footer, 1 image; check clean; no problems. PDF preview is the cover page; page-2 transition will be checked in the generated paper."
-    },
-    "4_taxonomy_question_log": {
-      "status": "done",
-      "evidence": [
-        "data/tracking/csc429/taxonomy.json",
-        "data/tracking/csc429/question_log.json",
-        "data/tracking/csc429/taxonomy_summary.json",
-        "data/tracking/csc429/assets/",
-        "src/subjects/csc429/taxonomy.py",
-        "tests/test_csc429_taxonomy.py",
-        "docs/CSC429.md"
-      ],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": true,
-        "by": "owner",
-        "on": "2026-11-05",
-        "note": "Stage-4 taxonomy, question log, marks reconciliation and 200 dpi figure/table assets approved."
-      },
-      "notes": "20 papers; 213 entries; expected 2000 marks; parsed 2062; 9/20 reconciled; 27 unsure items were reviewed and accepted for planning. 125 source pages captured at 200 dpi (JPEG 90); 76 entries carry figure/table/image references. LLM cost $0.00."
-    },
-    "5_fingerprint_planner": {
-      "status": "done",
-      "evidence": [
-        "src/subjects/csc429/planner.py",
-        "src/subjects/csc429/plugin.py",
-        "data/tracking/csc429/planner_seed_01.json",
-        "data/tracking/csc429/planner_validation.json",
-        "data/tracking/csc429/planner_seed_01.json",
-        "tests/test_csc429_planner.py",
-        "docs/CSC429.md",
-        "subjects/CSC429/subject.json"
-      ],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": true,
-        "by": "owner",
-        "on": "2026-11-05",
-        "note": "Stage-5 slot pattern, seed-1 plan and 20-seed determinism validation approved."
-      },
-      "notes": "Modern format: Part A 10 structured questions at 5,5,5,5,10,10,10,10,10,10 (80 marks); Part B 1 assembly question (20 marks). Four observed topic sequences; seeds 1-20 passed. computed_marks=100. LLM cost $0.00."
-    },
-    "6_generators": {
-      "status": "done",
-      "evidence": [
-        "src/subjects/csc429/generators.py",
-        "src/subjects/csc429/plugin.py",
-        "data/tracking/csc429/generator_seed_01.json",
-        "data/tracking/csc429/generator_seed_20.json",
-        "data/tracking/csc429/generator_validation.json",
-        "tests/test_csc429_generators.py",
-        "docs/CSC429.md",
-        "subjects/CSC429/subject.json"
-      ],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": true,
-        "by": "owner",
-        "on": "2026-11-05",
-        "note": "Owner approved the eight generators, 20-seed coverage, deterministic answer verification and deterministic capability change."
-      },
-      "notes": "Eight deterministic generators registered and labelled. 20/20 seeds valid; all 8 generator IDs covered; all six data-representation kinds and all five assembly templates used. Stage-7 revision added three diagram variants (von_neumann for history 5, cpu_datapath for CPU 10, cache_mapping for memory 10), three per seed, revalidated 20/20. Data answers recomputed with format/int/struct; zero-, one- and three-address programs simulated to the same value. Unsupported kinds fail closed. capabilities.generation=deterministic approved. LLM cost $0.00."
-    },
-    "7_builders_qa": {
-      "status": "in_progress",
-      "evidence": [
-        "src/subjects/csc429/builder.py",
-        "src/subjects/csc429/figures.py",
-        "src/subjects/csc429/generators.py",
-        "src/subjects/csc429/plugin.py",
-        "data/reference/CSC429/CSC429 SCHEME TEMPLATE.docx",
-        "tests/test_csc429_builder.py",
-        "tests/test_csc429_figures.py",
-        "tests/test_csc429_generators.py",
-        "outputs/web_cache/CSC429/95cdd1cd76725ab5b3ce_rev2/paper.docx",
-        "outputs/web_cache/CSC429/95cdd1cd76725ab5b3ce_rev2/paper.pdf",
-        "outputs/web_cache/CSC429/95cdd1cd76725ab5b3ce_rev2/scheme.docx",
-        "outputs/web_cache/CSC429/95cdd1cd76725ab5b3ce_rev2/scheme.pdf",
-        "outputs/web_cache/CSC429/95cdd1cd76725ab5b3ce_rev2/meta.json",
-        "outputs/web_cache/CSC429/95cdd1cd76725ab5b3ce_rev2/qa.json",
-        "outputs/web_cache/CSC429/95cdd1cd76725ab5b3ce_rev2/figures/",
-        "outputs/web_cache/CSC429/95cdd1cd76725ab5b3ce_rev2/preview/",
+        "data/tracking/csc429/pages_manifest.json",
+        "data/tracking/csc429/layout_manifest.json",
+        "data/tracking/csc429/assets/manifest.json",
+        "data/tracking/csc429/assets/CSC429-2019-12/contact_sheet.png",
+        "data/tracking/csc429/question_bank_draft.json",
+        "data/tracking/csc429/stage1_report.json",
+        "src/subjects/csc429/capture.py",
+        "src/subjects/csc429/layout.py",
+        "src/subjects/csc429/assets.py",
+        "src/subjects/csc429/questions.py",
+        "src/subjects/csc429/stage1.py",
+        "src/ingest/ocr.py",
+        "tests/test_csc429_capture.py",
+        "tests/test_csc429_assets.py",
+        "tests/test_csc429_questions.py",
+        "tests/test_csc429_stage1.py",
         "docs/CSC429.md"
       ],
       "llm_cost_usd": 0.0,
       "blockers": [
-        "Awaiting human visual approval of the rendered paper and scheme (cover, page-2 body start, part labels, marks and margins)."
+        "Awaiting human review of the 96 original-diagram crops, 5 unsure items and 4 unresolved table references."
       ],
       "human_approval": {
         "required": true,
@@ -185,7 +64,91 @@
         "on": "",
         "note": ""
       },
-      "notes": "Owner supplied paper fix.docx and scheme fix.docx on 2026-11-05. The revised scheme front cover is installed at data/reference/CSC429/CSC429 SCHEME TEMPLATE.docx. Builder applies an empty paragraph before every QUESTION heading and 1.5 line spacing to all question-block paragraphs in both documents. Three diagram questions per seed: Von Neumann organization (history 5), CPU datapath (CPU 10) and direct-mapped cache (memory 10), rendered locally at 200 dpi with Pillow in the detailed box-and-arrow style. Text is measured with 24 px padding, >=40 px box gaps and arrow labels on white patches beside lines; tests/test_csc429_figures.py fails on label/box/line overlap, cramped spacing or text outside the canvas. Detailed diagram style restored; text readability remains checked. Seed 1 rebuilt: 6-page paper and 8-page scheme, 11 questions and 27 parts, 100 marks. QA has zero problems: DOCX XML valid, 11/11 question headings, 27/27 part labels, 3/3 diagram questions with captions and embedded images, crest and subject/date present, 27/27 scheme answers, no answer leakage, PDFs have cover, body starts on page 2, all marks present, no right overflow, no forbidden tokens. LLM cost $0.00."
+      "notes": "Register/OCR rerun after the restart: 23 files, 20 unique, 3 duplicate pairs. 6 text-layer + 14 OCR corpora; every unique paper has non-empty text (4,851-7,190 chars). 20/20 covers parsed high confidence; 0 low-confidence covers. Every unique page was rendered at 200 dpi: 20 papers, 125 pages. A line/bbox layout layer was built (4,751 lines, 226 caption lines) using text-layer boxes or Windows OCR line boxes. PDF analysis found every page is a scan; there are no vector figures, and embedded non-full-page images are incomplete 1-bit masks, so diagram assets are page-image crops, never extracted masks. Figure captions sit below figures and table captions above tables. Asset extraction produced 96 original crops (60 figures, 36 tables; 41 high, 52 medium, 3 low confidence), 20 contact sheets and 4 unresolved table references. The real-question draft contains 215 questions (195 Part A, 20 Part B), 636 subparts, all with marks; every paper sums to 100. 68 questions reference a figure/table, 67 are asset-linked. Five unsure items remain (4 unresolved table refs plus CSC429-2023-07-A6 ambiguous marks). Owner requirement met: every page captured, real questions extracted verbatim, original diagram crops reused, no recreation. LLM cost $0.00."
+    },
+    "2_scheme_slides": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": ""
+    },
+    "3_template": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": ""
+    },
+    "4_taxonomy_question_log": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": ""
+    },
+    "5_fingerprint_planner": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": ""
+    },
+    "6_generators": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": ""
+    },
+    "7_builders_qa": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": ""
     },
     "8_library_prebuild": {
       "status": "pending",

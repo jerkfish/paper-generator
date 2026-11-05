@@ -1,0 +1,168 @@
+CD/JUL 2024/CSC429 
+UNIVERSITI TEKNOLOGI MARA 
+FINAL EXAMINATION 
+COURSE 
+COURSE CODE 
+EXAMINATION 
+TIME 
+COMPUTER ORGANIZATION AND ARCHITECTURE 
+CSC429 
+JULY 2024 
+3 HOURS 
+INSTRUCTIONS TO CANDIDATES 
+1. 
+This question paper consists of two (2) parts : 
+PART A (10 Questions) 
+PART B (1 Question) 
+2. 
+Answer ALL questions in the Answer Booklet. Start each answer on a new page. 
+3. 
+Do not bring any material into the examination room unless permission is given by the 
+invigilator. 
+4. 
+Please check to make sure that this examination pack consists of: 
+i) 
+the Question Paper 
+ii) 
+an Answer Booklet - provided by the Faculty 
+5. 
+Answer ALL questions in English. 
+DO NOT TURN THIS PAGE UNTIL YOU ARE TOLD TO DO SO 
+This examination paper consists of 5 printed pages 
+© Hak Cipta Universiti Teknologi MARA 
+
+2 
+CD/JUL 2024/CSC429 
+PART A 
+QUESTION 1 
+The Difference Engine was a mechanical computer designed by Charles Babbage in the 19th 
+century. It was one of the earliest examples of a mechanical calculator, built to automatically 
+compute mathematical tables for naval navigation. 
+a) What device was the successor of the Difference Engine? 
+(1 mark) 
+b) Describe the difference in function between the Difference Engine and Mechanical 
+Calculating Machine. 
+(2 marks) 
+c) Briefly explain the available technology that existed in the computer generation of 
+Difference Engine. 
+(2 marks) 
+QUESTION 2 
+John von Neumann was credited with introducing the Von Neumann architecture, a 
+pioneering concept in computer design. Additionally, he contributed to the development of 
+the two's complement numbering system. 
+a) What is the name of the machine that John Von Neumann himself invented? 
+(1 mark) 
+b) Why was the two's complement numbering system introduced? 
+(2 marks) 
+c) Name TWO (2) memory contents that are allowable in the Von Neumann architecture. 
+(2 marks) 
+QUESTION 3 
+a) 
+Discuss TWO (2) reasons why the binary numbering system is used instead of a decimal 
+numbering system in computer architecture. 
+(4 marks) 
+b) 
+Estimate the number of vacuum tubes needed to represent the value of 79 using the 
+binary representation. Show the workflow. 
+(1 mark) 
+© Hak Cipta Universiti Teknologi MARA 
+
+3 
+CD/JUL 2024/CSC429 
+QUESTION 4 
+a) Solve 246s - 1Ai6 using the sign and magnitude method. The answer must be in byte 
+form. Show the workflow. 
+(2 marks) 
+b) Calculate -3Ei6 + 45s using 1's and 2's complement method. The answer must be in byte 
+form. Show the workflow. 
+(3 marks) 
+QUESTION 5 
+a) Convert 204.9375io to a floating-point number in IEEE single precision format in 
+hexadecimal value form. Show the workflow. 
+(5 marks) 
+b) Convert C248 AOOOH in IEEE single precision floating point number to decimal value 
+form. Show the workflow. 
+(5 marks) 
+QUESTION 6 
+a) Discuss TWO (2) types of bus timing. 
+(4 marks) 
+b) Describe THREE (3) Central Processing Unit (CPU) components. 
+(6 marks) 
+QUESTION 7 
+Given that the size of the data bus is 32 bits, the size of the address bus is 8 bits, and the 
+size of the control bus is 4 bits. 
+a) Determine the size of the word and provide relevant justification. 
+(2 marks) 
+b) Determine the size of the register and provide relevant justification. 
+(2 marks) 
+c) Discuss what will happen if system interconnection is blocked from the perspective of the 
+machine cycle. 
+(4 marks) 
+d) Elaborate the role of CPU interconnection. 
+(2 marks) 
+© Hak Cipta Universiti Teknologi MARA 
+
+4 
+CD/JUL 2024/CSC429 
+QUESTION 8 
+a) Elaborate THREE (3) types of replacement algorithm. 
+(6 marks) 
+b) List TWO (2) types of mapping that require a replacement algorithm. 
+(2 marks) 
+c) Discuss the reason why the replacement algorithm needs to be implemented. 
+(2 marks) 
+QUESTION 9 
+Figure 1 illustrates the icon of one of the interfaces to the external devices. 
+ffi /^ 
+> 
+Figure 1: Interface to the external devices 
+a) Identify the type of external device interface based on the icon in Figure 1. 
+(2 marks) 
+b) The external devices interface in (a) can have a "hot connection". Define hot connection. 
+(2 marks) 
+c) Discuss the THREE (3) input-output techniques available in a computer system and 
+elaborate on the Central Processing Unit's involvement in each technique. 
+(6 marks) 
+QUESTION 10 
+a) 
+List the FOUR (4) classifications of parallel processors and provide examples for each. 
+(8 marks) 
+b) Discuss ONE (1) advantage of using cluster computer architecture. 
+(2 marks) 
+© Hak Cipta Universiti Teknologi MARA 
+
+5 
+CD/JUL 2024/CSC429 
+PARTB 
+QUESTION 1 
+Question 1 is based on Figure 2 and Table 1. 
+y = A(A + 2B/C-D 2) 
+Figure 2 
+Write the appropriate programs using correct assembly language notations and comments to 
+compute the equation represented in Figure 1 using zero-, one-, and three-address 
+instructions. The instructions available for use are provided in Table 1. Register A, B, C, and 
+D cannot be modified, and registers x, y, and z can be used as temporary registers. However, 
+the final answer must be stored in Register y. 
+Table 1: Machine Instruction 
+Zero-address 
+PUSHp 
+POPp 
+ADD 
+SUB 
+MUL 
+DIV 
+One-address 
+LOADp 
+STORp 
+ADDp 
+SUBp 
+MULp 
+DIVp 
+Three-address 
+ADD (p,q,r) 
+SUB (p,q,r) 
+MUL (p.q.r) 
+DIV(p,q,r) 
+(20 marks) 
+END OF QUESTION PAPER 
+© Hak Cipta Universiti Teknologi MARA 
