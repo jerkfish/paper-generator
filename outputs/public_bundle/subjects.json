@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-04T11:37:11Z",
+  "generated": "2026-11-04T18:16:47Z",
   "subjects": [
     {
       "code": "CSC402",
@@ -8,12 +8,23 @@
       "route": "csc402",
       "available": true,
       "type": "B",
+      "papers": 0,
+      "library_manifest": null,
+      "routes": null
+    },
+    {
+      "code": "CSC413",
+      "title": "Introduction to Interactive Multimedia",
+      "status": "available",
+      "route": "csc413",
+      "available": true,
+      "type": "B",
       "papers": 20,
-      "library_manifest": "/library/CSC402/manifest.json",
+      "library_manifest": "/library/CSC413/manifest.json",
       "routes": {
-        "home": "/csc402",
-        "library": "/csc402/library",
-        "generate": "/csc402/generate"
+        "home": "/csc413",
+        "library": "/csc413/library",
+        "generate": "/csc413/generate"
       }
     },
     {
@@ -23,13 +34,9 @@
       "route": "csc662",
       "available": true,
       "type": "A",
-      "papers": 20,
-      "library_manifest": "/library/CSC662/manifest.json",
-      "routes": {
-        "home": "/csc662",
-        "library": "/csc662/library",
-        "generate": "/csc662/generate"
-      }
+      "papers": 0,
+      "library_manifest": null,
+      "routes": null
     },
     {
       "code": "MAT133",
@@ -38,21 +45,6 @@
       "route": "mat133",
       "available": true,
       "type": "B",
-      "papers": 20,
-      "library_manifest": "/library/MAT133/manifest.json",
-      "routes": {
-        "home": "/mat133",
-        "library": "/mat133/library",
-        "generate": "/mat133/generate"
-      }
-    },
-    {
-      "code": "CSC413",
-      "title": "Introduction to Interactive Multimedia",
-      "status": "coming_soon",
-      "route": "csc413",
-      "available": false,
-      "type": "C",
       "papers": 0,
       "library_manifest": null,
       "routes": null

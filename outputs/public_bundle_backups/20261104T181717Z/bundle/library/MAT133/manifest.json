@@ -1,0 +1,782 @@
+{
+  "subject": "MAT133",
+  "title": "Pre-Calculus",
+  "year": 2026,
+  "has_practice_mode": false,
+  "has_placeholders": false,
+  "count": 20,
+  "papers": [
+    {
+      "seed": 1,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 68,
+      "marks_value": 68,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 15,
+      "placeholders": 0,
+      "topic_marks": {
+        "absolute_value": 10,
+        "circles": 5,
+        "circular_measure": 4,
+        "complex_numbers": 8,
+        "functions": 9,
+        "inequalities": 5,
+        "parabolas": 5,
+        "polynomials": 5,
+        "systems_of_equations": 4,
+        "systems_of_inequalities": 5,
+        "triangle_geometry": 4,
+        "trigonometry": 4
+      },
+      "topic_mix": "ABS 10 FUN 9 CPX 8 CIR 5 INQ 5 PAR 5 POL 5 SIQ 5 CME 4 SYS 4 TRI 4 TRG 4",
+      "files": {
+        "paper_docx": "library/MAT133/papers/MAT133 Seed 01 2026.docx",
+        "paper_pdf": "library/MAT133/papers/MAT133 Seed 01 2026.pdf",
+        "scheme_docx": "library/MAT133/schemes/MAT133 Seed 01 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT133/schemes/MAT133 Seed 01 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT133/papers/MAT133%20Seed%2001%202026.docx?v=1792749112",
+        "paper_pdf": "/library/MAT133/papers/MAT133%20Seed%2001%202026.pdf?v=1792749112",
+        "scheme_docx": "/library/MAT133/schemes/MAT133%20Seed%2001%202026%20-%20Marking%20Scheme.docx?v=1792749113",
+        "scheme_pdf": "/library/MAT133/schemes/MAT133%20Seed%2001%202026%20-%20Marking%20Scheme.pdf?v=1792749113"
+      }
+    },
+    {
+      "seed": 2,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 67,
+      "marks_value": 67,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 15,
+      "placeholders": 0,
+      "topic_marks": {
+        "absolute_value": 10,
+        "circles": 5,
+        "circular_measure": 3,
+        "complex_numbers": 7,
+        "functions": 8,
+        "inequalities": 5,
+        "lines": 5,
+        "polynomials": 5,
+        "systems_of_equations": 5,
+        "systems_of_inequalities": 5,
+        "triangle_geometry": 4,
+        "trigonometry": 5
+      },
+      "topic_mix": "ABS 10 FUN 8 CPX 7 CIR 5 INQ 5 LIN 5 POL 5 SYS 5 SIQ 5 TRG 5 TRI 4 CME 3",
+      "files": {
+        "paper_docx": "library/MAT133/papers/MAT133 Seed 02 2026.docx",
+        "paper_pdf": "library/MAT133/papers/MAT133 Seed 02 2026.pdf",
+        "scheme_docx": "library/MAT133/schemes/MAT133 Seed 02 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT133/schemes/MAT133 Seed 02 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT133/papers/MAT133%20Seed%2002%202026.docx?v=1792749112",
+        "paper_pdf": "/library/MAT133/papers/MAT133%20Seed%2002%202026.pdf?v=1792749112",
+        "scheme_docx": "/library/MAT133/schemes/MAT133%20Seed%2002%202026%20-%20Marking%20Scheme.docx?v=1792749113",
+        "scheme_pdf": "/library/MAT133/schemes/MAT133%20Seed%2002%202026%20-%20Marking%20Scheme.pdf?v=1792749113"
+      }
+    },
+    {
+      "seed": 3,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 70,
+      "marks_value": 70,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 15,
+      "placeholders": 0,
+      "topic_marks": {
+        "absolute_value": 10,
+        "circles": 5,
+        "circular_measure": 4,
+        "complex_numbers": 10,
+        "functions": 9,
+        "inequalities": 3,
+        "parabolas": 5,
+        "polynomials": 5,
+        "systems_of_equations": 5,
+        "systems_of_inequalities": 5,
+        "triangle_geometry": 4,
+        "trigonometry": 5
+      },
+      "topic_mix": "ABS 10 CPX 10 FUN 9 CIR 5 PAR 5 POL 5 SYS 5 SIQ 5 TRG 5 CME 4 TRI 4 INQ 3",
+      "files": {
+        "paper_docx": "library/MAT133/papers/MAT133 Seed 03 2026.docx",
+        "paper_pdf": "library/MAT133/papers/MAT133 Seed 03 2026.pdf",
+        "scheme_docx": "library/MAT133/schemes/MAT133 Seed 03 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT133/schemes/MAT133 Seed 03 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT133/papers/MAT133%20Seed%2003%202026.docx?v=1792749112",
+        "paper_pdf": "/library/MAT133/papers/MAT133%20Seed%2003%202026.pdf?v=1792749112",
+        "scheme_docx": "/library/MAT133/schemes/MAT133%20Seed%2003%202026%20-%20Marking%20Scheme.docx?v=1792749113",
+        "scheme_pdf": "/library/MAT133/schemes/MAT133%20Seed%2003%202026%20-%20Marking%20Scheme.pdf?v=1792749113"
+      }
+    },
+    {
+      "seed": 4,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 68,
+      "marks_value": 68,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 15,
+      "placeholders": 0,
+      "topic_marks": {
+        "absolute_value": 9,
+        "circles": 5,
+        "circular_measure": 3,
+        "complex_numbers": 9,
+        "functions": 9,
+        "inequalities": 3,
+        "lines": 5,
+        "polynomials": 5,
+        "systems_of_equations": 10,
+        "triangle_geometry": 5,
+        "trigonometry": 5
+      },
+      "topic_mix": "SYS 10 ABS 9 CPX 9 FUN 9 CIR 5 LIN 5 POL 5 TRI 5 TRG 5 CME 3 INQ 3",
+      "files": {
+        "paper_docx": "library/MAT133/papers/MAT133 Seed 04 2026.docx",
+        "paper_pdf": "library/MAT133/papers/MAT133 Seed 04 2026.pdf",
+        "scheme_docx": "library/MAT133/schemes/MAT133 Seed 04 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT133/schemes/MAT133 Seed 04 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT133/papers/MAT133%20Seed%2004%202026.docx?v=1792749112",
+        "paper_pdf": "/library/MAT133/papers/MAT133%20Seed%2004%202026.pdf?v=1792749112",
+        "scheme_docx": "/library/MAT133/schemes/MAT133%20Seed%2004%202026%20-%20Marking%20Scheme.docx?v=1792749113",
+        "scheme_pdf": "/library/MAT133/schemes/MAT133%20Seed%2004%202026%20-%20Marking%20Scheme.pdf?v=1792749113"
+      }
+    },
+    {
+      "seed": 5,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 65,
+      "marks_value": 65,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 15,
+      "placeholders": 0,
+      "topic_marks": {
+        "absolute_value": 9,
+        "circular_measure": 4,
+        "complex_numbers": 9,
+        "exponential_logarithmic": 3,
+        "functions": 10,
+        "inequalities": 3,
+        "lines": 4,
+        "parabolas": 5,
+        "systems_of_equations": 4,
+        "systems_of_inequalities": 5,
+        "triangle_geometry": 4,
+        "trigonometry": 5
+      },
+      "topic_mix": "FUN 10 ABS 9 CPX 9 PAR 5 SIQ 5 TRG 5 CME 4 LIN 4 SYS 4 TRI 4 EXP 3 INQ 3",
+      "files": {
+        "paper_docx": "library/MAT133/papers/MAT133 Seed 05 2026.docx",
+        "paper_pdf": "library/MAT133/papers/MAT133 Seed 05 2026.pdf",
+        "scheme_docx": "library/MAT133/schemes/MAT133 Seed 05 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT133/schemes/MAT133 Seed 05 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT133/papers/MAT133%20Seed%2005%202026.docx?v=1792749112",
+        "paper_pdf": "/library/MAT133/papers/MAT133%20Seed%2005%202026.pdf?v=1792749112",
+        "scheme_docx": "/library/MAT133/schemes/MAT133%20Seed%2005%202026%20-%20Marking%20Scheme.docx?v=1792749113",
+        "scheme_pdf": "/library/MAT133/schemes/MAT133%20Seed%2005%202026%20-%20Marking%20Scheme.pdf?v=1792749113"
+      }
+    },
+    {
+      "seed": 6,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 68,
+      "marks_value": 68,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 15,
+      "placeholders": 0,
+      "topic_marks": {
+        "absolute_value": 10,
+        "circles": 5,
+        "circular_measure": 4,
+        "complex_numbers": 7,
+        "exponential_logarithmic": 5,
+        "functions": 9,
+        "inequalities": 4,
+        "lines": 4,
+        "systems_of_equations": 5,
+        "systems_of_inequalities": 5,
+        "triangle_geometry": 5,
+        "trigonometry": 5
+      },
+      "topic_mix": "ABS 10 FUN 9 CPX 7 CIR 5 EXP 5 SYS 5 SIQ 5 TRI 5 TRG 5 CME 4 INQ 4 LIN 4",
+      "files": {
+        "paper_docx": "library/MAT133/papers/MAT133 Seed 06 2026.docx",
+        "paper_pdf": "library/MAT133/papers/MAT133 Seed 06 2026.pdf",
+        "scheme_docx": "library/MAT133/schemes/MAT133 Seed 06 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT133/schemes/MAT133 Seed 06 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT133/papers/MAT133%20Seed%2006%202026.docx?v=1792749112",
+        "paper_pdf": "/library/MAT133/papers/MAT133%20Seed%2006%202026.pdf?v=1792749112",
+        "scheme_docx": "/library/MAT133/schemes/MAT133%20Seed%2006%202026%20-%20Marking%20Scheme.docx?v=1792749113",
+        "scheme_pdf": "/library/MAT133/schemes/MAT133%20Seed%2006%202026%20-%20Marking%20Scheme.pdf?v=1792749113"
+      }
+    },
+    {
+      "seed": 7,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 69,
+      "marks_value": 69,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 15,
+      "placeholders": 0,
+      "topic_marks": {
+        "absolute_value": 10,
+        "circular_measure": 4,
+        "complex_numbers": 10,
+        "exponential_logarithmic": 5,
+        "functions": 8,
+        "inequalities": 4,
+        "lines": 4,
+        "parabolas": 5,
+        "systems_of_equations": 5,
+        "systems_of_inequalities": 5,
+        "triangle_geometry": 4,
+        "trigonometry": 5
+      },
+      "topic_mix": "ABS 10 CPX 10 FUN 8 EXP 5 PAR 5 SYS 5 SIQ 5 TRG 5 CME 4 INQ 4 LIN 4 TRI 4",
+      "files": {
+        "paper_docx": "library/MAT133/papers/MAT133 Seed 07 2026.docx",
+        "paper_pdf": "library/MAT133/papers/MAT133 Seed 07 2026.pdf",
+        "scheme_docx": "library/MAT133/schemes/MAT133 Seed 07 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT133/schemes/MAT133 Seed 07 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT133/papers/MAT133%20Seed%2007%202026.docx?v=1792749112",
+        "paper_pdf": "/library/MAT133/papers/MAT133%20Seed%2007%202026.pdf?v=1792749112",
+        "scheme_docx": "/library/MAT133/schemes/MAT133%20Seed%2007%202026%20-%20Marking%20Scheme.docx?v=1792749113",
+        "scheme_pdf": "/library/MAT133/schemes/MAT133%20Seed%2007%202026%20-%20Marking%20Scheme.pdf?v=1792749113"
+      }
+    },
+    {
+      "seed": 8,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 66,
+      "marks_value": 66,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 15,
+      "placeholders": 0,
+      "topic_marks": {
+        "absolute_value": 10,
+        "circles": 5,
+        "circular_measure": 4,
+        "complex_numbers": 7,
+        "functions": 10,
+        "inequalities": 4,
+        "lines": 4,
+        "polynomials": 3,
+        "systems_of_equations": 10,
+        "triangle_geometry": 4,
+        "trigonometry": 5
+      },
+      "topic_mix": "ABS 10 FUN 10 SYS 10 CPX 7 CIR 5 TRG 5 CME 4 INQ 4 LIN 4 TRI 4 POL 3",
+      "files": {
+        "paper_docx": "library/MAT133/papers/MAT133 Seed 08 2026.docx",
+        "paper_pdf": "library/MAT133/papers/MAT133 Seed 08 2026.pdf",
+        "scheme_docx": "library/MAT133/schemes/MAT133 Seed 08 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT133/schemes/MAT133 Seed 08 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT133/papers/MAT133%20Seed%2008%202026.docx?v=1792749112",
+        "paper_pdf": "/library/MAT133/papers/MAT133%20Seed%2008%202026.pdf?v=1792749112",
+        "scheme_docx": "/library/MAT133/schemes/MAT133%20Seed%2008%202026%20-%20Marking%20Scheme.docx?v=1792749113",
+        "scheme_pdf": "/library/MAT133/schemes/MAT133%20Seed%2008%202026%20-%20Marking%20Scheme.pdf?v=1792749113"
+      }
+    },
+    {
+      "seed": 9,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 70,
+      "marks_value": 70,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 15,
+      "placeholders": 0,
+      "topic_marks": {
+        "absolute_value": 10,
+        "circular_measure": 4,
+        "complex_numbers": 10,
+        "functions": 9,
+        "inequalities": 3,
+        "lines": 5,
+        "parabolas": 5,
+        "polynomials": 5,
+        "systems_of_equations": 5,
+        "systems_of_inequalities": 5,
+        "triangle_geometry": 4,
+        "trigonometry": 5
+      },
+      "topic_mix": "ABS 10 CPX 10 FUN 9 LIN 5 PAR 5 POL 5 SYS 5 SIQ 5 TRG 5 CME 4 TRI 4 INQ 3",
+      "files": {
+        "paper_docx": "library/MAT133/papers/MAT133 Seed 09 2026.docx",
+        "paper_pdf": "library/MAT133/papers/MAT133 Seed 09 2026.pdf",
+        "scheme_docx": "library/MAT133/schemes/MAT133 Seed 09 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT133/schemes/MAT133 Seed 09 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT133/papers/MAT133%20Seed%2009%202026.docx?v=1792749112",
+        "paper_pdf": "/library/MAT133/papers/MAT133%20Seed%2009%202026.pdf?v=1792749112",
+        "scheme_docx": "/library/MAT133/schemes/MAT133%20Seed%2009%202026%20-%20Marking%20Scheme.docx?v=1792749113",
+        "scheme_pdf": "/library/MAT133/schemes/MAT133%20Seed%2009%202026%20-%20Marking%20Scheme.pdf?v=1792749113"
+      }
+    },
+    {
+      "seed": 10,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 71,
+      "marks_value": 71,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 15,
+      "placeholders": 0,
+      "topic_marks": {
+        "absolute_value": 9,
+        "circles": 10,
+        "circular_measure": 4,
+        "complex_numbers": 10,
+        "functions": 10,
+        "inequalities": 4,
+        "polynomials": 5,
+        "systems_of_equations": 9,
+        "triangle_geometry": 5,
+        "trigonometry": 5
+      },
+      "topic_mix": "CIR 10 CPX 10 FUN 10 ABS 9 SYS 9 POL 5 TRI 5 TRG 5 CME 4 INQ 4",
+      "files": {
+        "paper_docx": "library/MAT133/papers/MAT133 Seed 10 2026.docx",
+        "paper_pdf": "library/MAT133/papers/MAT133 Seed 10 2026.pdf",
+        "scheme_docx": "library/MAT133/schemes/MAT133 Seed 10 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT133/schemes/MAT133 Seed 10 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT133/papers/MAT133%20Seed%2010%202026.docx?v=1792749112",
+        "paper_pdf": "/library/MAT133/papers/MAT133%20Seed%2010%202026.pdf?v=1792749112",
+        "scheme_docx": "/library/MAT133/schemes/MAT133%20Seed%2010%202026%20-%20Marking%20Scheme.docx?v=1792749113",
+        "scheme_pdf": "/library/MAT133/schemes/MAT133%20Seed%2010%202026%20-%20Marking%20Scheme.pdf?v=1792749113"
+      }
+    },
+    {
+      "seed": 11,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 70,
+      "marks_value": 70,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 15,
+      "placeholders": 0,
+      "topic_marks": {
+        "absolute_value": 10,
+        "circles": 5,
+        "circular_measure": 4,
+        "complex_numbers": 10,
+        "functions": 9,
+        "inequalities": 4,
+        "lines": 4,
+        "polynomials": 5,
+        "systems_of_equations": 4,
+        "systems_of_inequalities": 5,
+        "triangle_geometry": 5,
+        "trigonometry": 5
+      },
+      "topic_mix": "ABS 10 CPX 10 FUN 9 CIR 5 POL 5 SIQ 5 TRI 5 TRG 5 CME 4 INQ 4 LIN 4 SYS 4",
+      "files": {
+        "paper_docx": "library/MAT133/papers/MAT133 Seed 11 2026.docx",
+        "paper_pdf": "library/MAT133/papers/MAT133 Seed 11 2026.pdf",
+        "scheme_docx": "library/MAT133/schemes/MAT133 Seed 11 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT133/schemes/MAT133 Seed 11 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT133/papers/MAT133%20Seed%2011%202026.docx?v=1792749112",
+        "paper_pdf": "/library/MAT133/papers/MAT133%20Seed%2011%202026.pdf?v=1792749112",
+        "scheme_docx": "/library/MAT133/schemes/MAT133%20Seed%2011%202026%20-%20Marking%20Scheme.docx?v=1792749113",
+        "scheme_pdf": "/library/MAT133/schemes/MAT133%20Seed%2011%202026%20-%20Marking%20Scheme.pdf?v=1792749113"
+      }
+    },
+    {
+      "seed": 12,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 70,
+      "marks_value": 70,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 15,
+      "placeholders": 0,
+      "topic_marks": {
+        "absolute_value": 10,
+        "circles": 4,
+        "circular_measure": 4,
+        "complex_numbers": 9,
+        "functions": 9,
+        "inequalities": 5,
+        "parabolas": 5,
+        "polynomials": 5,
+        "systems_of_equations": 10,
+        "triangle_geometry": 4,
+        "trigonometry": 5
+      },
+      "topic_mix": "ABS 10 SYS 10 CPX 9 FUN 9 INQ 5 PAR 5 POL 5 TRG 5 CIR 4 CME 4 TRI 4",
+      "files": {
+        "paper_docx": "library/MAT133/papers/MAT133 Seed 12 2026.docx",
+        "paper_pdf": "library/MAT133/papers/MAT133 Seed 12 2026.pdf",
+        "scheme_docx": "library/MAT133/schemes/MAT133 Seed 12 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT133/schemes/MAT133 Seed 12 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT133/papers/MAT133%20Seed%2012%202026.docx?v=1792749112",
+        "paper_pdf": "/library/MAT133/papers/MAT133%20Seed%2012%202026.pdf?v=1792749112",
+        "scheme_docx": "/library/MAT133/schemes/MAT133%20Seed%2012%202026%20-%20Marking%20Scheme.docx?v=1792749113",
+        "scheme_pdf": "/library/MAT133/schemes/MAT133%20Seed%2012%202026%20-%20Marking%20Scheme.pdf?v=1792749113"
+      }
+    },
+    {
+      "seed": 13,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 64,
+      "marks_value": 64,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 15,
+      "placeholders": 0,
+      "topic_marks": {
+        "absolute_value": 9,
+        "circles": 4,
+        "circular_measure": 3,
+        "complex_numbers": 7,
+        "exponential_logarithmic": 3,
+        "functions": 9,
+        "inequalities": 4,
+        "lines": 5,
+        "systems_of_equations": 5,
+        "systems_of_inequalities": 5,
+        "triangle_geometry": 5,
+        "trigonometry": 5
+      },
+      "topic_mix": "ABS 9 FUN 9 CPX 7 LIN 5 SYS 5 SIQ 5 TRI 5 TRG 5 CIR 4 INQ 4 CME 3 EXP 3",
+      "files": {
+        "paper_docx": "library/MAT133/papers/MAT133 Seed 13 2026.docx",
+        "paper_pdf": "library/MAT133/papers/MAT133 Seed 13 2026.pdf",
+        "scheme_docx": "library/MAT133/schemes/MAT133 Seed 13 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT133/schemes/MAT133 Seed 13 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT133/papers/MAT133%20Seed%2013%202026.docx?v=1792749112",
+        "paper_pdf": "/library/MAT133/papers/MAT133%20Seed%2013%202026.pdf?v=1792749112",
+        "scheme_docx": "/library/MAT133/schemes/MAT133%20Seed%2013%202026%20-%20Marking%20Scheme.docx?v=1792749113",
+        "scheme_pdf": "/library/MAT133/schemes/MAT133%20Seed%2013%202026%20-%20Marking%20Scheme.pdf?v=1792749113"
+      }
+    },
+    {
+      "seed": 14,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 72,
+      "marks_value": 72,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 15,
+      "placeholders": 0,
+      "topic_marks": {
+        "absolute_value": 10,
+        "circles": 5,
+        "circular_measure": 4,
+        "complex_numbers": 10,
+        "exponential_logarithmic": 5,
+        "functions": 10,
+        "inequalities": 5,
+        "parabolas": 5,
+        "systems_of_equations": 4,
+        "systems_of_inequalities": 5,
+        "triangle_geometry": 4,
+        "trigonometry": 5
+      },
+      "topic_mix": "ABS 10 CPX 10 FUN 10 CIR 5 EXP 5 INQ 5 PAR 5 SIQ 5 TRG 5 CME 4 SYS 4 TRI 4",
+      "files": {
+        "paper_docx": "library/MAT133/papers/MAT133 Seed 14 2026.docx",
+        "paper_pdf": "library/MAT133/papers/MAT133 Seed 14 2026.pdf",
+        "scheme_docx": "library/MAT133/schemes/MAT133 Seed 14 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT133/schemes/MAT133 Seed 14 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT133/papers/MAT133%20Seed%2014%202026.docx?v=1792749112",
+        "paper_pdf": "/library/MAT133/papers/MAT133%20Seed%2014%202026.pdf?v=1792749113",
+        "scheme_docx": "/library/MAT133/schemes/MAT133%20Seed%2014%202026%20-%20Marking%20Scheme.docx?v=1792749113",
+        "scheme_pdf": "/library/MAT133/schemes/MAT133%20Seed%2014%202026%20-%20Marking%20Scheme.pdf?v=1792749113"
+      }
+    },
+    {
+      "seed": 15,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 68,
+      "marks_value": 68,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 15,
+      "placeholders": 0,
+      "topic_marks": {
+        "absolute_value": 9,
+        "circles": 10,
+        "circular_measure": 4,
+        "complex_numbers": 7,
+        "exponential_logarithmic": 5,
+        "functions": 9,
+        "inequalities": 5,
+        "systems_of_equations": 9,
+        "triangle_geometry": 5,
+        "trigonometry": 5
+      },
+      "topic_mix": "CIR 10 ABS 9 FUN 9 SYS 9 CPX 7 EXP 5 INQ 5 TRI 5 TRG 5 CME 4",
+      "files": {
+        "paper_docx": "library/MAT133/papers/MAT133 Seed 15 2026.docx",
+        "paper_pdf": "library/MAT133/papers/MAT133 Seed 15 2026.pdf",
+        "scheme_docx": "library/MAT133/schemes/MAT133 Seed 15 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT133/schemes/MAT133 Seed 15 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT133/papers/MAT133%20Seed%2015%202026.docx?v=1792749113",
+        "paper_pdf": "/library/MAT133/papers/MAT133%20Seed%2015%202026.pdf?v=1792749113",
+        "scheme_docx": "/library/MAT133/schemes/MAT133%20Seed%2015%202026%20-%20Marking%20Scheme.docx?v=1792749113",
+        "scheme_pdf": "/library/MAT133/schemes/MAT133%20Seed%2015%202026%20-%20Marking%20Scheme.pdf?v=1792749113"
+      }
+    },
+    {
+      "seed": 16,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 69,
+      "marks_value": 69,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 15,
+      "placeholders": 0,
+      "topic_marks": {
+        "absolute_value": 10,
+        "circles": 5,
+        "circular_measure": 4,
+        "complex_numbers": 9,
+        "functions": 10,
+        "inequalities": 5,
+        "lines": 4,
+        "polynomials": 3,
+        "systems_of_equations": 5,
+        "systems_of_inequalities": 5,
+        "triangle_geometry": 4,
+        "trigonometry": 5
+      },
+      "topic_mix": "ABS 10 FUN 10 CPX 9 CIR 5 INQ 5 SYS 5 SIQ 5 TRG 5 CME 4 LIN 4 TRI 4 POL 3",
+      "files": {
+        "paper_docx": "library/MAT133/papers/MAT133 Seed 16 2026.docx",
+        "paper_pdf": "library/MAT133/papers/MAT133 Seed 16 2026.pdf",
+        "scheme_docx": "library/MAT133/schemes/MAT133 Seed 16 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT133/schemes/MAT133 Seed 16 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT133/papers/MAT133%20Seed%2016%202026.docx?v=1792749113",
+        "paper_pdf": "/library/MAT133/papers/MAT133%20Seed%2016%202026.pdf?v=1792749113",
+        "scheme_docx": "/library/MAT133/schemes/MAT133%20Seed%2016%202026%20-%20Marking%20Scheme.docx?v=1792749113",
+        "scheme_pdf": "/library/MAT133/schemes/MAT133%20Seed%2016%202026%20-%20Marking%20Scheme.pdf?v=1792749113"
+      }
+    },
+    {
+      "seed": 17,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 66,
+      "marks_value": 66,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 15,
+      "placeholders": 0,
+      "topic_marks": {
+        "absolute_value": 9,
+        "circles": 5,
+        "circular_measure": 3,
+        "complex_numbers": 7,
+        "functions": 9,
+        "inequalities": 5,
+        "parabolas": 5,
+        "polynomials": 5,
+        "systems_of_equations": 4,
+        "systems_of_inequalities": 5,
+        "triangle_geometry": 4,
+        "trigonometry": 5
+      },
+      "topic_mix": "ABS 9 FUN 9 CPX 7 CIR 5 INQ 5 PAR 5 POL 5 SIQ 5 TRG 5 SYS 4 TRI 4 CME 3",
+      "files": {
+        "paper_docx": "library/MAT133/papers/MAT133 Seed 17 2026.docx",
+        "paper_pdf": "library/MAT133/papers/MAT133 Seed 17 2026.pdf",
+        "scheme_docx": "library/MAT133/schemes/MAT133 Seed 17 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT133/schemes/MAT133 Seed 17 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT133/papers/MAT133%20Seed%2017%202026.docx?v=1792749113",
+        "paper_pdf": "/library/MAT133/papers/MAT133%20Seed%2017%202026.pdf?v=1792749113",
+        "scheme_docx": "/library/MAT133/schemes/MAT133%20Seed%2017%202026%20-%20Marking%20Scheme.docx?v=1792749113",
+        "scheme_pdf": "/library/MAT133/schemes/MAT133%20Seed%2017%202026%20-%20Marking%20Scheme.pdf?v=1792749113"
+      }
+    },
+    {
+      "seed": 18,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 69,
+      "marks_value": 69,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 15,
+      "placeholders": 0,
+      "topic_marks": {
+        "absolute_value": 9,
+        "circles": 9,
+        "circular_measure": 4,
+        "complex_numbers": 10,
+        "functions": 10,
+        "inequalities": 3,
+        "polynomials": 5,
+        "systems_of_equations": 5,
+        "systems_of_inequalities": 5,
+        "triangle_geometry": 4,
+        "trigonometry": 5
+      },
+      "topic_mix": "CPX 10 FUN 10 ABS 9 CIR 9 POL 5 SYS 5 SIQ 5 TRG 5 CME 4 TRI 4 INQ 3",
+      "files": {
+        "paper_docx": "library/MAT133/papers/MAT133 Seed 18 2026.docx",
+        "paper_pdf": "library/MAT133/papers/MAT133 Seed 18 2026.pdf",
+        "scheme_docx": "library/MAT133/schemes/MAT133 Seed 18 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT133/schemes/MAT133 Seed 18 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT133/papers/MAT133%20Seed%2018%202026.docx?v=1792749113",
+        "paper_pdf": "/library/MAT133/papers/MAT133%20Seed%2018%202026.pdf?v=1792749113",
+        "scheme_docx": "/library/MAT133/schemes/MAT133%20Seed%2018%202026%20-%20Marking%20Scheme.docx?v=1792749113",
+        "scheme_pdf": "/library/MAT133/schemes/MAT133%20Seed%2018%202026%20-%20Marking%20Scheme.pdf?v=1792749113"
+      }
+    },
+    {
+      "seed": 19,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 67,
+      "marks_value": 67,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 15,
+      "placeholders": 0,
+      "topic_marks": {
+        "absolute_value": 10,
+        "circular_measure": 4,
+        "complex_numbers": 8,
+        "functions": 9,
+        "inequalities": 5,
+        "lines": 4,
+        "parabolas": 5,
+        "polynomials": 5,
+        "systems_of_equations": 4,
+        "systems_of_inequalities": 5,
+        "triangle_geometry": 4,
+        "trigonometry": 4
+      },
+      "topic_mix": "ABS 10 FUN 9 CPX 8 INQ 5 PAR 5 POL 5 SIQ 5 CME 4 LIN 4 SYS 4 TRI 4 TRG 4",
+      "files": {
+        "paper_docx": "library/MAT133/papers/MAT133 Seed 19 2026.docx",
+        "paper_pdf": "library/MAT133/papers/MAT133 Seed 19 2026.pdf",
+        "scheme_docx": "library/MAT133/schemes/MAT133 Seed 19 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT133/schemes/MAT133 Seed 19 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT133/papers/MAT133%20Seed%2019%202026.docx?v=1792749113",
+        "paper_pdf": "/library/MAT133/papers/MAT133%20Seed%2019%202026.pdf?v=1792749113",
+        "scheme_docx": "/library/MAT133/schemes/MAT133%20Seed%2019%202026%20-%20Marking%20Scheme.docx?v=1792749113",
+        "scheme_pdf": "/library/MAT133/schemes/MAT133%20Seed%2019%202026%20-%20Marking%20Scheme.pdf?v=1792749113"
+      }
+    },
+    {
+      "seed": 20,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 70,
+      "marks_value": 70,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 15,
+      "placeholders": 0,
+      "topic_marks": {
+        "absolute_value": 10,
+        "circles": 5,
+        "circular_measure": 4,
+        "complex_numbers": 10,
+        "functions": 9,
+        "inequalities": 4,
+        "lines": 4,
+        "polynomials": 5,
+        "systems_of_equations": 5,
+        "systems_of_inequalities": 5,
+        "triangle_geometry": 4,
+        "trigonometry": 5
+      },
+      "topic_mix": "ABS 10 CPX 10 FUN 9 CIR 5 POL 5 SYS 5 SIQ 5 TRG 5 CME 4 INQ 4 LIN 4 TRI 4",
+      "files": {
+        "paper_docx": "library/MAT133/papers/MAT133 Seed 20 2026.docx",
+        "paper_pdf": "library/MAT133/papers/MAT133 Seed 20 2026.pdf",
+        "scheme_docx": "library/MAT133/schemes/MAT133 Seed 20 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT133/schemes/MAT133 Seed 20 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT133/papers/MAT133%20Seed%2020%202026.docx?v=1792749113",
+        "paper_pdf": "/library/MAT133/papers/MAT133%20Seed%2020%202026.pdf?v=1792749113",
+        "scheme_docx": "/library/MAT133/schemes/MAT133%20Seed%2020%202026%20-%20Marking%20Scheme.docx?v=1792749113",
+        "scheme_pdf": "/library/MAT133/schemes/MAT133%20Seed%2020%202026%20-%20Marking%20Scheme.pdf?v=1792749113"
+      }
+    }
+  ]
+}
