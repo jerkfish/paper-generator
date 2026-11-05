@@ -4,7 +4,7 @@
   "type": "C",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-05T15:18:07Z",
+  "updated": "2026-11-05T15:27:34Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -93,15 +93,36 @@
       "notes": "Waived by the owner: no scheme and no lecture slides were supplied; permissions.scheme.allowed=false and permissions.slides.allowed=false with owner basis. No scheme parse or deck map required."
     },
     "3_template": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "data/tracking/csc429/template_check.json",
         "data/reference/CSC429/CSC429 TEMPLATE.docx",
         "outputs/pilot/CSC429/seed_01/paper.pdf"
       ],
       "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-05",
+        "note": "Owner approved continue after reviewing the rendered cover and page-2 transition."
+      },
+      "notes": "subject.json.template_path now points at the owner-approved CSC429 TEMPLATE.docx. template_check.json reports xml_valid true, 2 sections, 1 footer, 1 image, non-empty cover text and no problems. The seed PDFs render the approved cover and page-2 transition. Stage 3 awaits the owner [HUMAN] gate."
+    },
+    "4_taxonomy_question_log": {
+      "status": "in_progress",
+      "evidence": [
+        "data/tracking/csc429/taxonomy.json",
+        "data/tracking/csc429/question_log.json",
+        "data/tracking/csc429/taxonomy_summary.json",
+        "src/subjects/csc429/taxonomy.py",
+        "tests/test_csc429_taxonomy.py",
+        "subjects/CSC429/subject.json"
+      ],
+      "llm_cost_usd": 0.0,
       "blockers": [
-        "Awaiting owner review of the rendered cover and page-2 transition in outputs/pilot/CSC429/seed_01/paper.pdf."
+        "Awaiting human review of the 8-topic taxonomy and the 215-question log, especially the 125 medium-confidence assignments and merged/split topic boundaries."
       ],
       "human_approval": {
         "required": true,
@@ -110,21 +131,7 @@
         "on": "",
         "note": ""
       },
-      "notes": "subject.json.template_path now points at the owner-approved CSC429 TEMPLATE.docx. template_check.json reports xml_valid true, 2 sections, 1 footer, 1 image, non-empty cover text and no problems. The seed PDFs render the approved cover and page-2 transition. Stage 3 awaits the owner [HUMAN] gate."
-    },
-    "4_taxonomy_question_log": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
+      "notes": "Deterministic taxonomy and question log built from the 215-question bank. 8 topics: data_representation (43 entries/405 marks), computer_architecture (37/300), io_system (32/320), memory_system (28/235), computer_generations (27/145), parallel_architecture (20/170), assembly_programming (20/370), instruction_set_addressing (8/55). Zero unclassified. All 20 papers reconcile to 100 marks (2,000 total). 90 high-confidence and 125 medium-confidence assignments; the 5 Stage-1 unsure items are carried into taxonomy.json and question_log.json. subject.json.fingerprint now records the corpus, part marks, topic marks and planner format. LLM cost $0.00."
     },
     "5_fingerprint_planner": {
       "status": "pending",
