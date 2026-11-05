@@ -4,7 +4,7 @@
   "type": "C",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-05T05:42:01Z",
+  "updated": "2026-11-05T06:50:58Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -66,32 +66,48 @@
       "notes": "scheme: owner waived (no scheme supplied). slides: owner waived (no slides supplied). No scheme parser or deck inventory created."
     },
     "3_template": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "data/reference/CSC429/CSC429 TEMPLATE.docx",
+        "data/reference/CSC429/CSC429 TEMPLATE.pdf",
+        "data/tracking/csc429/template_check.json",
+        "data/tracking/csc429/template_cover.png",
+        "docs/CSC429.md"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-05",
+        "note": "Owner updated and approved data/reference/CSC429/CSC429 TEMPLATE.docx."
       },
-      "notes": ""
+      "notes": "Owner-updated template used as the approved Stage-3 template. 55 paragraphs, 2 sections, 1 footer, 1 image; check clean; no problems. PDF preview is the cover page; page-2 transition will be checked in the generated paper."
     },
     "4_taxonomy_question_log": {
-      "status": "pending",
-      "evidence": [],
+      "status": "in_progress",
+      "evidence": [
+        "data/tracking/csc429/taxonomy.json",
+        "data/tracking/csc429/question_log.json",
+        "data/tracking/csc429/taxonomy_summary.json",
+        "data/tracking/csc429/assets/",
+        "src/subjects/csc429/taxonomy.py",
+        "tests/test_csc429_taxonomy.py",
+        "docs/CSC429.md"
+      ],
       "llm_cost_usd": 0.0,
-      "blockers": [],
+      "blockers": [
+        "Awaiting [HUMAN] review of the 20-paper taxonomy, 213-entry question log, marks mismatches and 200 dpi figure assets."
+      ],
       "human_approval": {
         "required": true,
         "approved": false,
         "by": "",
         "on": "",
-        "note": ""
+        "note": "Stage-4 taxonomy, question log and figure assets generated; awaiting owner review."
       },
-      "notes": ""
+      "notes": "20 papers; 213 entries; expected 2000 marks; parsed 2062; 9/20 reconciled; 27 unsure items. 125 source pages captured at 200 dpi (JPEG 90) with figure/table/image references in the question log. LLM cost $0.00."
     },
     "5_fingerprint_planner": {
       "status": "pending",

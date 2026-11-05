@@ -7,8 +7,68 @@
   "has_practice_mode": true,
   "has_placeholders": true,
   "header_text": "CSC429 COMPUTER ORGANIZATION AND ARCHITECTURE",
-  "template_path": "",
-  "fingerprint": {},
+  "template_path": "data/reference/CSC429/CSC429 TEMPLATE.docx",
+  "fingerprint": {
+    "source_papers": "data/papers/CSC429",
+    "paper_count": 20,
+    "unique_papers": 20,
+    "prepared_corpus": "data/tracking/csc429",
+    "taxonomy": "data/tracking/csc429/taxonomy.json",
+    "question_log": "data/tracking/csc429/question_log.json",
+    "taxonomy_summary": "data/tracking/csc429/taxonomy_summary.json",
+    "question_log_entries": 213,
+    "papers_with_reconciled_marks": 9,
+    "total_marks": 2000,
+    "part_marks": {
+      "A": [
+        80,
+        85
+      ],
+      "B": [
+        15,
+        20
+      ]
+    },
+    "part_questions": {
+      "A": [
+        5,
+        10
+      ],
+      "B": [
+        1
+      ]
+    },
+    "topic_order": [
+      "data_representation",
+      "instruction_set_assembly",
+      "interrupts_io",
+      "cpu_organization",
+      "memory_cache",
+      "computer_generations_history",
+      "parallel_architectures",
+      "buses_interconnection",
+      "other",
+      "storage_devices"
+    ],
+    "topic_marks": {
+      "data_representation": 552,
+      "instruction_set_assembly": 380,
+      "interrupts_io": 289,
+      "cpu_organization": 277,
+      "memory_cache": 218,
+      "computer_generations_history": 147,
+      "parallel_architectures": 129,
+      "buses_interconnection": 70,
+      "other": 0,
+      "storage_devices": 0
+    },
+    "figure_assets": {
+      "dir": "data/tracking/csc429/assets",
+      "dpi": 200,
+      "papers_with_assets": 20,
+      "images": 125
+    }
+  },
   "deck_map": {},
   "topic_deck_allowlist": {},
   "enabled_computed_generators": [],
