@@ -1,136 +1,196 @@
 {
   "schema_version": 1,
   "subject": "CSC413",
-  "type": "C",
+  "type": "B",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-04T06:27:42Z",
+  "updated": "2026-11-04T18:12:13Z",
   "stages": {
     "0_intake": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "subjects/CSC413/subject.json",
+        "subjects/CSC413/lifecycle_state.json",
+        "docs/CSC413.md",
+        "src/subjects/csc413/plugin.py",
+        "data/papers/CSC413",
+        "data/tracking/csc413",
+        "data/tracking/csc413/intake_inspection.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"Type B; Scheme: No Scheme will be supplied; Slides: No Slides will be supplied; Publication: true\"",
+        "on": "2026-11-04",
+        "note": "Reclassified to type B deterministic; supplied scheme and slides waived; publication permission recorded."
       },
-      "notes": ""
+      "notes": "16 owner-supplied PDFs inspected: 15 unique, 1 byte-identical duplicate pair; readable covers confirm INTRODUCTION TO INTERACTIVE MULTIMEDIA / CSC413. Owner reclassified the subject to type B deterministic and waived supplied scheme and lecture decks. Publication permission is recorded but stage 9 remains a hard stop. Registry stays coming_soon until the deterministic pipeline is built."
     },
     "1_preprocess": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "data/tracking/csc413/papers_summary.json",
+        "data/tracking/csc413/papers_register.json",
+        "data/tracking/csc413/cover_text.json",
+        "data/tracking/csc413/paper_text/index.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"continue\"",
+        "on": "2026-11-04",
+        "note": "Approved the 15 unique papers, the single duplicate pair and the high-confidence month/year register."
       },
-      "notes": ""
+      "notes": "16 working copies registered: 15 unique, 1 byte-identical duplicate pair. All 15 unique covers parsed to a month/year with high confidence (range 2014-2023); no low-confidence covers. OCR was used for scanned papers; every unique paper has a non-empty corpus text. No files were renamed and the supplied originals were not modified."
     },
     "2_scheme_slides": {
-      "status": "pending",
-      "evidence": [],
+      "status": "skipped",
+      "evidence": [
+        "subjects/CSC413/subject.json",
+        "docs/CSC413.md"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"Scheme : No Scheme will be supplied; Slides : No Slides will be supplied\"",
+        "on": "2026-11-04",
+        "note": "Scheme and slides waived; stage 2 skipped for type B."
       },
-      "notes": ""
+      "notes": "Owner waived the supplied marking scheme and lecture decks. CSC413 is type B deterministic; there is no scheme to parse and the theory pipeline is disabled. The generated marking scheme is project output."
     },
     "3_template": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "subjects/CSC413/subject.json",
+        "data/reference/CSC413/CSC413 TEMPLATE.docx",
+        "data/reference/CSC413/CSC413 TEMPLATE.pdf",
+        "data/tracking/csc413/template_check.json",
+        "data/tracking/csc413/template_cover.png",
+        "src/subjects/csc413/template_build.py"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"approved, continue\"",
+        "on": "2026-11-05",
+        "note": "Approved the CSC413 cover with the provisional NOVEMBER 2026 mock date."
       },
-      "notes": ""
+      "notes": "Candidate built from the clean MAT133 template (itself derived from the standard UTM cover). Title INTRODUCTION TO INTERACTIVE MULTIMEDIA is rendered on two 9 pt lines so the COURSE CODE/EXAMINATION/TIME values stay aligned. Header is CS/NOV 2026/CSC413, duration 3 HOURS, and the footer is CSC413. Structural check: XML valid, 2 sections, 1 image, 2 footers, no problems; rendered cover is 1 page. The November 2026 mock date was approved by the owner. The source MAT133 template was not modified. Page-2 body transition is deferred to the stage-7 builder."
     },
     "4_taxonomy_question_log": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "data/tracking/csc413/taxonomy.json",
+        "data/tracking/csc413/question_log.json",
+        "data/tracking/csc413/taxonomy_summary.json",
+        "src/subjects/csc413/taxonomy.py",
+        "tests/test_csc413_taxonomy.py"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"approved, continue\"",
+        "on": "2026-11-05",
+        "note": "Approved the taxonomy and question log with the recorded OCR/marks caveats."
       },
-      "notes": ""
+      "notes": "Parsed 15 unique papers into 249 question-level entries across a 12-topic interactive-multimedia taxonomy. Expected marks 1450; parsed 1436; 13/15 papers reconcile. The modern 2022 and 2023 papers are fully question-level (15/15/30/4 and matching marks). 13 papers have at least one objective part logged as an aggregate because old OCR/text lines do not reliably preserve individual items. 2019-06 parses 96/100 and 2016-12 parses 90/100; six individual questions have no parseable marks. Those caveats are recorded in taxonomy_summary.json and are the review items for this gate."
     },
     "5_fingerprint_planner": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "src/subjects/csc413/planner.py",
+        "data/tracking/csc413/planner_seed_01.json",
+        "data/tracking/csc413/taxonomy_summary.json",
+        "tests/test_csc413_planner.py"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"approved, continue\"",
+        "on": "2026-11-05",
+        "note": "Approved the 15/15/30/4 slot contract, Part D mark patterns and smoothed topic sequence."
       },
-      "notes": ""
+      "notes": "Deterministic modern planner derived from CSC413-2022-02 and CSC413-2023-02: PART A 15 TRUE/FALSE (15), PART B 15 matching (15), PART C 30 MCQs (30), PART D 4 structured questions with three subparts each (40). Total 100 marks, 64 questions, 72 slots. Part D uses the observed 2/3/5, 2/4/4, 3/3/4 and 3/3/4 mark patterns. Seeds 1-20 validate. Topic mix is a smoothed 60-slot sequence from the modern papers; Part D topics are sampled from the six topics observed in modern structured questions."
     },
     "6_generators": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "src/subjects/csc413/generators.py",
+        "data/tracking/csc413/generator_sample_seed_01.json",
+        "data/tracking/csc413/generator_validation.json",
+        "tests/test_csc413_generators.py"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"approved, continue\"",
+        "on": "2026-11-05",
+        "note": "Approved the sampled TRUE/FALSE, matching, MCQ and structured outputs."
       },
-      "notes": ""
+      "notes": "Four deterministic generators cover the plan: TRUE/FALSE, matching, MCQ and structured. All 20 seeds validate at 100 marks, 64 questions and 72 slots; matching uses 15 distinct terms and options; structured questions have three subparts totalling 10 marks. No placeholders or unanswered slots. Content banks cover all 12 taxonomy topics; Part B is one shared matching table; Part D uses six structured scenarios with marks assigned by the plan. LLM cost is $0 by design."
     },
     "7_builders_qa": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "src/subjects/csc413/build_docx.py",
+        "data/reference/CSC413/CSC413 TEMPLATE.docx",
+        "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx",
+        "data/tracking/csc413/build_sample/CSC413 Seed 01 2026.docx",
+        "data/tracking/csc413/build_sample/CSC413 Seed 01 2026.pdf",
+        "data/tracking/csc413/build_sample/CSC413 Seed 01 2026 - Marking Scheme.docx",
+        "data/tracking/csc413/build_sample/CSC413 Seed 01 2026 - Marking Scheme.pdf",
+        "data/tracking/csc413/build_sample/qa.json",
+        "data/tracking/csc413/build_sample/paper_page2.png",
+        "data/tracking/csc413/build_sample/paper_page5.png",
+        "data/tracking/csc413/build_sample/scheme_page1.png",
+        "data/tracking/csc413/build_sample/scheme_page4.png",
+        "tests/test_csc413_builder.py"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"approved, continue\"",
+        "on": "2026-11-05",
+        "note": "Approved the 5-page paper, 6-page scheme and shortened scheme-cover title."
       },
-      "notes": ""
+      "notes": "Seed-1 sample built from the approved CSC413 cover template and the standard UTM marking-scheme template. Paper is 5 pages: cover page 1, PART A/B on page 2, PART C on pages 3-4, PART D on page 5. Scheme is 6 pages: cover/notes, PART A key, PART B key, PART C key, and PART D worked answers. DOCX checks have no forbidden tokens or missing content; PDF checks have cover, page-2 body start and zero right overflow. The scheme cover uses the shortened title INTERACTIVE MULTIMEDIA to fit the standard scheme template; the paper cover keeps the full title."
     },
     "8_library_prebuild": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "subjects/CSC413/subject.json",
+        "data/reference/CSC413/CSC413 MARKING SCHEME TEMPLATE.docx",
+        "data/tracking/csc413/style_samples/summary.json",
+        "data/tracking/csc413/library_prebuild.json",
+        "outputs/web_cache/CSC413",
+        "src/subjects/csc413/build_docx.py"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "user instruction \"approved continue\"",
+        "on": "2026-11-05",
+        "note": "Approved the regenerated 20-seed Library built with the owner-supplied CSC413 marking-scheme template."
       },
-      "notes": ""
+      "notes": "20 seeds in outputs/web_cache/CSC413. Every seed: 100 marks, 64 questions, 72 slots, 72 accepted, 0 placeholders, no QA problems. Every paper is 5 pages; every scheme is 6 pages. Scheme template is data/reference/CSC413/CSC413 MARKING SCHEME TEMPLATE.docx (CSC413 only). Deterministic; LLM cost $0. Approved by the owner; nothing is published."
     },
     "9_publish": {
       "status": "pending",
@@ -144,7 +204,7 @@
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "Hard stop. Publication permission is recorded, but an explicit human instruction is still required before rebuilding the public bundle, uploading to R2 or deploying the Worker."
     },
     "10_close_out": {
       "status": "pending",
@@ -161,38 +221,7 @@
       "notes": ""
     }
   },
-  "unsure": [
-    {
-      "stage": "0_intake",
-      "item": "Confirm CSC413 title, subject type (C) and curriculum order with the subject owner.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "0_intake",
-      "item": "Record papers permission for CSC413.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "0_intake",
-      "item": "Record scheme permission for CSC413.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "0_intake",
-      "item": "Record lecture-slides permission for CSC413.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "9_publish",
-      "item": "Record publication permission for CSC413 before any upload or deploy.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    }
-  ],
+  "unsure": [],
   "llm_cost": {
     "currency": "USD",
     "total_usd": 0.0,

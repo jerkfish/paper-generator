@@ -1,0 +1,883 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSC413 Library</title>
+  <script src="/assets/htmx.min.js?v=1793774682" defer></script>
+  <script src="/assets/library.js?v=1793774682" defer></script>
+  
+  <link rel="stylesheet" href="/assets/style.css?v=1793774682">
+</head>
+<body>
+<h1>Mock Paper Generator</h1>
+<div class="nav">
+  <a href="/">Subjects</a>
+  
+    
+    <a href="/csc402">CSC402</a>
+    <!--  -->
+    
+  
+    
+    <a href="/csc413">CSC413</a>
+    <!--  -->
+    
+  
+    
+    <a href="/csc662">CSC662</a>
+    <!--  -->
+    
+  
+    
+    <a href="/mat133">MAT133</a>
+    <!--  -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  <a href="/gallery">Gallery</a>
+</div>
+<hr>
+
+
+<div class="notice">Public bundle: papers keep the original local-build cover;
+public schemes omit verbatim slide quotes. The Library contains PUBLIC_BUILD
+files only.</div>
+
+
+
+<p class="small"><a href="/">Subjects</a> &gt;
+  <a href="/csc413">CSC413</a> &gt; Library</p>
+<h2>CSC413 Library</h2>
+<p>20 prebuilt papers. Cached; no API key and no LLM call.
+  Downloads are paper and scheme in DOCX/PDF.</p>
+
+
+<form id="library-filter" action="/csc413/library" method="get">
+  <fieldset>
+    <legend>Filter</legend>
+    <label for="q">Text:</label>
+    <input type="text" id="q" name="q" size="24" value="">
+    <label for="computed">Total marks:</label>
+    <select id="computed" name="computed">
+      <option value="any">any</option>
+      
+      <option value="100" >100</option>
+      
+    </select>
+    <label for="topic">Topic:</label>
+    <select id="topic" name="topic">
+      <option value="any">any</option>
+      
+      <option value="animation" >animation</option>
+      
+      <option value="audio" >audio</option>
+      
+      <option value="authoring_interactivity" >authoring_interactivity</option>
+      
+      <option value="design_project" >design_project</option>
+      
+      <option value="graphics" >graphics</option>
+      
+      <option value="hardware_devices" >hardware_devices</option>
+      
+      <option value="legal_ethics" >legal_ethics</option>
+      
+      <option value="multimedia_fundamentals" >multimedia_fundamentals</option>
+      
+      <option value="text" >text</option>
+      
+      <option value="video" >video</option>
+      
+      <option value="virtual_reality" >virtual_reality</option>
+      
+      <option value="web_hypermedia" >web_hypermedia</option>
+      
+    </select>
+    
+    <input type="submit" value="Apply">
+    <a href="/csc413/library">Reset</a>
+  </fieldset>
+</form>
+
+
+<div id="library-results">
+
+  
+  <p class="small" id="library-count">Showing 20 of 20.</p>
+  <p class="small">Topic abbreviations: ANI animation, AUD audio, AUT authoring_interactivity, DES design_project, GRA graphics, HW hardware_devices, LEG legal_ethics, FUN multimedia_fundamentals, TXT text, VID video, VR virtual_reality, WEB web_hypermedia. Numbers are marks. Click a column title to sort ascending/descending.</p>
+  <div class="table-scroll">
+  <table id="library-table">
+    <thead>
+    <tr>
+      <th data-sort="seed" aria-sort="none"><button type="button" class="sort" data-sort="seed" data-type="number">Seed<span class="sort-mark"></span></button></th>
+      <th data-sort="mode" aria-sort="none"><button type="button" class="sort" data-sort="mode">Mode<span class="sort-mark"></span></button></th>
+      <th data-sort="computed" aria-sort="none"><button type="button" class="sort" data-sort="computed" data-type="number">Total<br>marks<span class="sort-mark"></span></button></th>
+      <th data-sort="topics" aria-sort="none"><button type="button" class="sort" data-sort="topics">Topic mix (marks)<span class="sort-mark"></span></button></th>
+      <th data-sort="placeholders" aria-sort="none"><button type="button" class="sort" data-sort="placeholders" data-type="number">Place-<br>holders<span class="sort-mark"></span></button></th>
+      <th data-sort="paper" aria-sort="none"><button type="button" class="sort" data-sort="paper">Paper<span class="sort-mark"></span></button></th>
+      <th data-sort="scheme" aria-sort="none"><button type="button" class="sort" data-sort="scheme">Scheme<span class="sort-mark"></span></button></th>
+      <th>Share</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    <tr data-seed="1"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="authoring_interactivity|virtual_reality|animation|multimedia_fundamentals|hardware_devices|video|design_project|graphics|audio|web_hypermedia|legal_ethics|text"
+        data-placeholders=""
+        data-paper="CSC413 Seed 01 2026.pdf"
+        data-scheme="CSC413 Seed 01 2026 - Marking Scheme.pdf"
+        data-text="1 realistic 2026 100 GRA 18 AUT 17 WEB 15 DES 11 FUN 10 ANI 7 AUD 6 HW 6 VID 5 TXT 3 LEG 1 VR 1 authoring_interactivity virtual_reality animation multimedia_fundamentals hardware_devices video design_project graphics audio web_hypermedia legal_ethics text">
+      <td class="nowrap">01</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">GRA 18 AUT 17 WEB 15 DES 11 FUN 10 ANI 7 AUD 6 HW 6 VID 5 TXT 3 LEG 1 VR 1</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/papers/CSC413%20Seed%2001%202026.docx?v=1793815124" title="CSC413 Seed 01 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/papers/CSC413%20Seed%2001%202026.pdf?v=1793815128" title="CSC413 Seed 01 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2001%202026%20-%20Marking%20Scheme.docx?v=1793815138" title="CSC413 Seed 01 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2001%202026%20-%20Marking%20Scheme.pdf?v=1793815143" title="CSC413 Seed 01 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC413" data-seed="1" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="2"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="web_hypermedia|authoring_interactivity|hardware_devices|multimedia_fundamentals|graphics|design_project|animation|audio|virtual_reality|video|legal_ethics|text"
+        data-placeholders=""
+        data-paper="CSC413 Seed 02 2026.pdf"
+        data-scheme="CSC413 Seed 02 2026 - Marking Scheme.pdf"
+        data-text="2 realistic 2026 100 GRA 18 ANI 17 AUT 17 WEB 15 FUN 10 AUD 6 HW 6 VID 5 TXT 3 DES 1 LEG 1 VR 1 web_hypermedia authoring_interactivity hardware_devices multimedia_fundamentals graphics design_project animation audio virtual_reality video legal_ethics text">
+      <td class="nowrap">02</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">GRA 18 ANI 17 AUT 17 WEB 15 FUN 10 AUD 6 HW 6 VID 5 TXT 3 DES 1 LEG 1 VR 1</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/papers/CSC413%20Seed%2002%202026.docx?v=1793815153" title="CSC413 Seed 02 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/papers/CSC413%20Seed%2002%202026.pdf?v=1793815158" title="CSC413 Seed 02 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2002%202026%20-%20Marking%20Scheme.docx?v=1793815168" title="CSC413 Seed 02 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2002%202026%20-%20Marking%20Scheme.pdf?v=1793815173" title="CSC413 Seed 02 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC413" data-seed="2" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="3"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="animation|graphics|hardware_devices|authoring_interactivity|text|multimedia_fundamentals|video|web_hypermedia|audio|virtual_reality|design_project|legal_ethics"
+        data-placeholders=""
+        data-paper="CSC413 Seed 03 2026.pdf"
+        data-scheme="CSC413 Seed 03 2026 - Marking Scheme.pdf"
+        data-text="3 realistic 2026 100 GRA 18 ANI 17 AUT 17 WEB 15 FUN 10 AUD 6 HW 6 VID 5 TXT 3 DES 1 LEG 1 VR 1 animation graphics hardware_devices authoring_interactivity text multimedia_fundamentals video web_hypermedia audio virtual_reality design_project legal_ethics">
+      <td class="nowrap">03</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">GRA 18 ANI 17 AUT 17 WEB 15 FUN 10 AUD 6 HW 6 VID 5 TXT 3 DES 1 LEG 1 VR 1</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/papers/CSC413%20Seed%2003%202026.docx?v=1793815183" title="CSC413 Seed 03 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/papers/CSC413%20Seed%2003%202026.pdf?v=1793815187" title="CSC413 Seed 03 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2003%202026%20-%20Marking%20Scheme.docx?v=1793815197" title="CSC413 Seed 03 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2003%202026%20-%20Marking%20Scheme.pdf?v=1793815201" title="CSC413 Seed 03 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC413" data-seed="3" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="4"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="authoring_interactivity|video|web_hypermedia|animation|hardware_devices|text|multimedia_fundamentals|audio|virtual_reality|legal_ethics|graphics|design_project"
+        data-placeholders=""
+        data-paper="CSC413 Seed 04 2026.pdf"
+        data-scheme="CSC413 Seed 04 2026 - Marking Scheme.pdf"
+        data-text="4 realistic 2026 100 GRA 18 ANI 17 AUT 17 DES 11 FUN 10 AUD 6 HW 6 VID 5 WEB 5 TXT 3 LEG 1 VR 1 authoring_interactivity video web_hypermedia animation hardware_devices text multimedia_fundamentals audio virtual_reality legal_ethics graphics design_project">
+      <td class="nowrap">04</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">GRA 18 ANI 17 AUT 17 DES 11 FUN 10 AUD 6 HW 6 VID 5 WEB 5 TXT 3 LEG 1 VR 1</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/papers/CSC413%20Seed%2004%202026.docx?v=1793815211" title="CSC413 Seed 04 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/papers/CSC413%20Seed%2004%202026.pdf?v=1793815215" title="CSC413 Seed 04 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2004%202026%20-%20Marking%20Scheme.docx?v=1793815225" title="CSC413 Seed 04 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2004%202026%20-%20Marking%20Scheme.pdf?v=1793815229" title="CSC413 Seed 04 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC413" data-seed="4" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="5"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="hardware_devices|audio|text|web_hypermedia|multimedia_fundamentals|authoring_interactivity|graphics|animation|video|legal_ethics|virtual_reality|design_project"
+        data-placeholders=""
+        data-paper="CSC413 Seed 05 2026.pdf"
+        data-scheme="CSC413 Seed 05 2026 - Marking Scheme.pdf"
+        data-text="5 realistic 2026 100 GRA 18 ANI 17 WEB 15 TXT 13 FUN 10 AUT 7 AUD 6 HW 6 VID 5 DES 1 LEG 1 VR 1 hardware_devices audio text web_hypermedia multimedia_fundamentals authoring_interactivity graphics animation video legal_ethics virtual_reality design_project">
+      <td class="nowrap">05</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">GRA 18 ANI 17 WEB 15 TXT 13 FUN 10 AUT 7 AUD 6 HW 6 VID 5 DES 1 LEG 1 VR 1</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/papers/CSC413%20Seed%2005%202026.docx?v=1793815239" title="CSC413 Seed 05 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/papers/CSC413%20Seed%2005%202026.pdf?v=1793815244" title="CSC413 Seed 05 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2005%202026%20-%20Marking%20Scheme.docx?v=1793815254" title="CSC413 Seed 05 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2005%202026%20-%20Marking%20Scheme.pdf?v=1793815259" title="CSC413 Seed 05 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC413" data-seed="5" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="6"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="animation|graphics|hardware_devices|video|legal_ethics|multimedia_fundamentals|audio|web_hypermedia|authoring_interactivity|virtual_reality|text|design_project"
+        data-placeholders=""
+        data-paper="CSC413 Seed 06 2026.pdf"
+        data-scheme="CSC413 Seed 06 2026 - Marking Scheme.pdf"
+        data-text="6 realistic 2026 100 ANI 17 AUT 17 TXT 13 DES 11 FUN 10 GRA 8 AUD 6 HW 6 VID 5 WEB 5 LEG 1 VR 1 animation graphics hardware_devices video legal_ethics multimedia_fundamentals audio web_hypermedia authoring_interactivity virtual_reality text design_project">
+      <td class="nowrap">06</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ANI 17 AUT 17 TXT 13 DES 11 FUN 10 GRA 8 AUD 6 HW 6 VID 5 WEB 5 LEG 1 VR 1</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/papers/CSC413%20Seed%2006%202026.docx?v=1793815269" title="CSC413 Seed 06 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/papers/CSC413%20Seed%2006%202026.pdf?v=1793815272" title="CSC413 Seed 06 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2006%202026%20-%20Marking%20Scheme.docx?v=1793815283" title="CSC413 Seed 06 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2006%202026%20-%20Marking%20Scheme.pdf?v=1793815287" title="CSC413 Seed 06 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC413" data-seed="6" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="7"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="graphics|video|hardware_devices|web_hypermedia|authoring_interactivity|multimedia_fundamentals|animation|virtual_reality|legal_ethics|text|audio|design_project"
+        data-placeholders=""
+        data-paper="CSC413 Seed 07 2026.pdf"
+        data-scheme="CSC413 Seed 07 2026 - Marking Scheme.pdf"
+        data-text="7 realistic 2026 100 GRA 18 ANI 17 AUT 17 WEB 15 FUN 10 AUD 6 HW 6 VID 5 TXT 3 DES 1 LEG 1 VR 1 graphics video hardware_devices web_hypermedia authoring_interactivity multimedia_fundamentals animation virtual_reality legal_ethics text audio design_project">
+      <td class="nowrap">07</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">GRA 18 ANI 17 AUT 17 WEB 15 FUN 10 AUD 6 HW 6 VID 5 TXT 3 DES 1 LEG 1 VR 1</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/papers/CSC413%20Seed%2007%202026.docx?v=1793815297" title="CSC413 Seed 07 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/papers/CSC413%20Seed%2007%202026.pdf?v=1793815301" title="CSC413 Seed 07 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2007%202026%20-%20Marking%20Scheme.docx?v=1793815311" title="CSC413 Seed 07 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2007%202026%20-%20Marking%20Scheme.pdf?v=1793815316" title="CSC413 Seed 07 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC413" data-seed="7" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="8"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="audio|multimedia_fundamentals|hardware_devices|animation|video|graphics|authoring_interactivity|web_hypermedia|legal_ethics|text|virtual_reality|design_project"
+        data-placeholders=""
+        data-paper="CSC413 Seed 08 2026.pdf"
+        data-scheme="CSC413 Seed 08 2026 - Marking Scheme.pdf"
+        data-text="8 realistic 2026 100 ANI 17 AUT 17 WEB 15 DES 11 FUN 10 GRA 8 AUD 6 HW 6 VID 5 TXT 3 LEG 1 VR 1 audio multimedia_fundamentals hardware_devices animation video graphics authoring_interactivity web_hypermedia legal_ethics text virtual_reality design_project">
+      <td class="nowrap">08</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ANI 17 AUT 17 WEB 15 DES 11 FUN 10 GRA 8 AUD 6 HW 6 VID 5 TXT 3 LEG 1 VR 1</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/papers/CSC413%20Seed%2008%202026.docx?v=1793815326" title="CSC413 Seed 08 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/papers/CSC413%20Seed%2008%202026.pdf?v=1793815330" title="CSC413 Seed 08 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2008%202026%20-%20Marking%20Scheme.docx?v=1793815340" title="CSC413 Seed 08 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2008%202026%20-%20Marking%20Scheme.pdf?v=1793815344" title="CSC413 Seed 08 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC413" data-seed="8" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="9"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="animation|authoring_interactivity|graphics|audio|multimedia_fundamentals|text|web_hypermedia|video|hardware_devices|design_project|legal_ethics|virtual_reality"
+        data-placeholders=""
+        data-paper="CSC413 Seed 09 2026.pdf"
+        data-scheme="CSC413 Seed 09 2026 - Marking Scheme.pdf"
+        data-text="9 realistic 2026 100 AUT 17 WEB 15 TXT 13 DES 11 FUN 10 GRA 8 ANI 7 AUD 6 HW 6 VID 5 LEG 1 VR 1 animation authoring_interactivity graphics audio multimedia_fundamentals text web_hypermedia video hardware_devices design_project legal_ethics virtual_reality">
+      <td class="nowrap">09</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">AUT 17 WEB 15 TXT 13 DES 11 FUN 10 GRA 8 ANI 7 AUD 6 HW 6 VID 5 LEG 1 VR 1</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/papers/CSC413%20Seed%2009%202026.docx?v=1793815354" title="CSC413 Seed 09 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/papers/CSC413%20Seed%2009%202026.pdf?v=1793815358" title="CSC413 Seed 09 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2009%202026%20-%20Marking%20Scheme.docx?v=1793815368" title="CSC413 Seed 09 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2009%202026%20-%20Marking%20Scheme.pdf?v=1793815373" title="CSC413 Seed 09 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC413" data-seed="9" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="10"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="authoring_interactivity|web_hypermedia|audio|hardware_devices|multimedia_fundamentals|video|design_project|text|graphics|animation|legal_ethics|virtual_reality"
+        data-placeholders=""
+        data-paper="CSC413 Seed 10 2026.pdf"
+        data-scheme="CSC413 Seed 10 2026 - Marking Scheme.pdf"
+        data-text="10 realistic 2026 100 ANI 17 WEB 15 TXT 13 DES 11 FUN 10 GRA 8 AUT 7 AUD 6 HW 6 VID 5 LEG 1 VR 1 authoring_interactivity web_hypermedia audio hardware_devices multimedia_fundamentals video design_project text graphics animation legal_ethics virtual_reality">
+      <td class="nowrap">10</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ANI 17 WEB 15 TXT 13 DES 11 FUN 10 GRA 8 AUT 7 AUD 6 HW 6 VID 5 LEG 1 VR 1</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/papers/CSC413%20Seed%2010%202026.docx?v=1793815383" title="CSC413 Seed 10 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/papers/CSC413%20Seed%2010%202026.pdf?v=1793815388" title="CSC413 Seed 10 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2010%202026%20-%20Marking%20Scheme.docx?v=1793815398" title="CSC413 Seed 10 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2010%202026%20-%20Marking%20Scheme.pdf?v=1793815403" title="CSC413 Seed 10 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC413" data-seed="10" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="11"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="animation|authoring_interactivity|video|multimedia_fundamentals|web_hypermedia|graphics|audio|text|hardware_devices|design_project|legal_ethics|virtual_reality"
+        data-placeholders=""
+        data-paper="CSC413 Seed 11 2026.pdf"
+        data-scheme="CSC413 Seed 11 2026 - Marking Scheme.pdf"
+        data-text="11 realistic 2026 100 ANI 17 AUT 17 TXT 13 DES 11 FUN 10 GRA 8 AUD 6 HW 6 VID 5 WEB 5 LEG 1 VR 1 animation authoring_interactivity video multimedia_fundamentals web_hypermedia graphics audio text hardware_devices design_project legal_ethics virtual_reality">
+      <td class="nowrap">11</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ANI 17 AUT 17 TXT 13 DES 11 FUN 10 GRA 8 AUD 6 HW 6 VID 5 WEB 5 LEG 1 VR 1</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/papers/CSC413%20Seed%2011%202026.docx?v=1793815423" title="CSC413 Seed 11 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/papers/CSC413%20Seed%2011%202026.pdf?v=1793815427" title="CSC413 Seed 11 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2011%202026%20-%20Marking%20Scheme.docx?v=1793815437" title="CSC413 Seed 11 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2011%202026%20-%20Marking%20Scheme.pdf?v=1793815442" title="CSC413 Seed 11 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC413" data-seed="11" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="12"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="graphics|video|animation|text|authoring_interactivity|audio|hardware_devices|multimedia_fundamentals|web_hypermedia|legal_ethics|virtual_reality|design_project"
+        data-placeholders=""
+        data-paper="CSC413 Seed 12 2026.pdf"
+        data-scheme="CSC413 Seed 12 2026 - Marking Scheme.pdf"
+        data-text="12 realistic 2026 100 GRA 18 AUT 17 WEB 15 DES 11 FUN 10 ANI 7 AUD 6 HW 6 VID 5 TXT 3 LEG 1 VR 1 graphics video animation text authoring_interactivity audio hardware_devices multimedia_fundamentals web_hypermedia legal_ethics virtual_reality design_project">
+      <td class="nowrap">12</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">GRA 18 AUT 17 WEB 15 DES 11 FUN 10 ANI 7 AUD 6 HW 6 VID 5 TXT 3 LEG 1 VR 1</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/papers/CSC413%20Seed%2012%202026.docx?v=1793815452" title="CSC413 Seed 12 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/papers/CSC413%20Seed%2012%202026.pdf?v=1793815456" title="CSC413 Seed 12 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2012%202026%20-%20Marking%20Scheme.docx?v=1793815467" title="CSC413 Seed 12 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2012%202026%20-%20Marking%20Scheme.pdf?v=1793815472" title="CSC413 Seed 12 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC413" data-seed="12" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="13"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="video|audio|authoring_interactivity|hardware_devices|multimedia_fundamentals|animation|graphics|web_hypermedia|text|virtual_reality|legal_ethics|design_project"
+        data-placeholders=""
+        data-paper="CSC413 Seed 13 2026.pdf"
+        data-scheme="CSC413 Seed 13 2026 - Marking Scheme.pdf"
+        data-text="13 realistic 2026 100 GRA 18 ANI 17 AUT 17 DES 11 FUN 10 AUD 6 HW 6 VID 5 WEB 5 TXT 3 LEG 1 VR 1 video audio authoring_interactivity hardware_devices multimedia_fundamentals animation graphics web_hypermedia text virtual_reality legal_ethics design_project">
+      <td class="nowrap">13</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">GRA 18 ANI 17 AUT 17 DES 11 FUN 10 AUD 6 HW 6 VID 5 WEB 5 TXT 3 LEG 1 VR 1</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/papers/CSC413%20Seed%2013%202026.docx?v=1793815482" title="CSC413 Seed 13 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/papers/CSC413%20Seed%2013%202026.pdf?v=1793815486" title="CSC413 Seed 13 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2013%202026%20-%20Marking%20Scheme.docx?v=1793815496" title="CSC413 Seed 13 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2013%202026%20-%20Marking%20Scheme.pdf?v=1793815501" title="CSC413 Seed 13 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC413" data-seed="13" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="14"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="authoring_interactivity|web_hypermedia|graphics|audio|video|hardware_devices|animation|multimedia_fundamentals|virtual_reality|text|design_project|legal_ethics"
+        data-placeholders=""
+        data-paper="CSC413 Seed 14 2026.pdf"
+        data-scheme="CSC413 Seed 14 2026 - Marking Scheme.pdf"
+        data-text="14 realistic 2026 100 ANI 17 AUT 17 WEB 15 DES 11 FUN 10 GRA 8 AUD 6 HW 6 VID 5 TXT 3 LEG 1 VR 1 authoring_interactivity web_hypermedia graphics audio video hardware_devices animation multimedia_fundamentals virtual_reality text design_project legal_ethics">
+      <td class="nowrap">14</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ANI 17 AUT 17 WEB 15 DES 11 FUN 10 GRA 8 AUD 6 HW 6 VID 5 TXT 3 LEG 1 VR 1</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/papers/CSC413%20Seed%2014%202026.docx?v=1793815511" title="CSC413 Seed 14 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/papers/CSC413%20Seed%2014%202026.pdf?v=1793815515" title="CSC413 Seed 14 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2014%202026%20-%20Marking%20Scheme.docx?v=1793815525" title="CSC413 Seed 14 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2014%202026%20-%20Marking%20Scheme.pdf?v=1793815530" title="CSC413 Seed 14 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC413" data-seed="14" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="15"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="multimedia_fundamentals|hardware_devices|web_hypermedia|video|audio|legal_ethics|authoring_interactivity|animation|graphics|text|design_project|virtual_reality"
+        data-placeholders=""
+        data-paper="CSC413 Seed 15 2026.pdf"
+        data-scheme="CSC413 Seed 15 2026 - Marking Scheme.pdf"
+        data-text="15 realistic 2026 100 ANI 17 AUT 17 WEB 15 TXT 13 FUN 10 GRA 8 AUD 6 HW 6 VID 5 DES 1 LEG 1 VR 1 multimedia_fundamentals hardware_devices web_hypermedia video audio legal_ethics authoring_interactivity animation graphics text design_project virtual_reality">
+      <td class="nowrap">15</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ANI 17 AUT 17 WEB 15 TXT 13 FUN 10 GRA 8 AUD 6 HW 6 VID 5 DES 1 LEG 1 VR 1</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/papers/CSC413%20Seed%2015%202026.docx?v=1793815540" title="CSC413 Seed 15 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/papers/CSC413%20Seed%2015%202026.pdf?v=1793815544" title="CSC413 Seed 15 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2015%202026%20-%20Marking%20Scheme.docx?v=1793815554" title="CSC413 Seed 15 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2015%202026%20-%20Marking%20Scheme.pdf?v=1793815559" title="CSC413 Seed 15 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC413" data-seed="15" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="16"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="authoring_interactivity|graphics|web_hypermedia|multimedia_fundamentals|hardware_devices|audio|video|design_project|animation|virtual_reality|text|legal_ethics"
+        data-placeholders=""
+        data-paper="CSC413 Seed 16 2026.pdf"
+        data-scheme="CSC413 Seed 16 2026 - Marking Scheme.pdf"
+        data-text="16 realistic 2026 100 AUT 17 WEB 15 TXT 13 DES 11 FUN 10 GRA 8 ANI 7 AUD 6 HW 6 VID 5 LEG 1 VR 1 authoring_interactivity graphics web_hypermedia multimedia_fundamentals hardware_devices audio video design_project animation virtual_reality text legal_ethics">
+      <td class="nowrap">16</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">AUT 17 WEB 15 TXT 13 DES 11 FUN 10 GRA 8 ANI 7 AUD 6 HW 6 VID 5 LEG 1 VR 1</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/papers/CSC413%20Seed%2016%202026.docx?v=1793815569" title="CSC413 Seed 16 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/papers/CSC413%20Seed%2016%202026.pdf?v=1793815573" title="CSC413 Seed 16 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2016%202026%20-%20Marking%20Scheme.docx?v=1793815583" title="CSC413 Seed 16 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2016%202026%20-%20Marking%20Scheme.pdf?v=1793815588" title="CSC413 Seed 16 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC413" data-seed="16" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="17"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="web_hypermedia|authoring_interactivity|text|video|virtual_reality|graphics|hardware_devices|multimedia_fundamentals|animation|audio|legal_ethics|design_project"
+        data-placeholders=""
+        data-paper="CSC413 Seed 17 2026.pdf"
+        data-scheme="CSC413 Seed 17 2026 - Marking Scheme.pdf"
+        data-text="17 realistic 2026 100 GRA 18 ANI 17 AUT 17 DES 11 FUN 10 AUD 6 HW 6 VID 5 WEB 5 TXT 3 LEG 1 VR 1 web_hypermedia authoring_interactivity text video virtual_reality graphics hardware_devices multimedia_fundamentals animation audio legal_ethics design_project">
+      <td class="nowrap">17</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">GRA 18 ANI 17 AUT 17 DES 11 FUN 10 AUD 6 HW 6 VID 5 WEB 5 TXT 3 LEG 1 VR 1</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/papers/CSC413%20Seed%2017%202026.docx?v=1793815599" title="CSC413 Seed 17 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/papers/CSC413%20Seed%2017%202026.pdf?v=1793815603" title="CSC413 Seed 17 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2017%202026%20-%20Marking%20Scheme.docx?v=1793815614" title="CSC413 Seed 17 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2017%202026%20-%20Marking%20Scheme.pdf?v=1793815619" title="CSC413 Seed 17 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC413" data-seed="17" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="18"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="graphics|video|authoring_interactivity|multimedia_fundamentals|audio|hardware_devices|text|animation|design_project|web_hypermedia|legal_ethics|virtual_reality"
+        data-placeholders=""
+        data-paper="CSC413 Seed 18 2026.pdf"
+        data-scheme="CSC413 Seed 18 2026 - Marking Scheme.pdf"
+        data-text="18 realistic 2026 100 GRA 18 ANI 17 AUT 17 WEB 15 FUN 10 AUD 6 HW 6 VID 5 TXT 3 DES 1 LEG 1 VR 1 graphics video authoring_interactivity multimedia_fundamentals audio hardware_devices text animation design_project web_hypermedia legal_ethics virtual_reality">
+      <td class="nowrap">18</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">GRA 18 ANI 17 AUT 17 WEB 15 FUN 10 AUD 6 HW 6 VID 5 TXT 3 DES 1 LEG 1 VR 1</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/papers/CSC413%20Seed%2018%202026.docx?v=1793815630" title="CSC413 Seed 18 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/papers/CSC413%20Seed%2018%202026.pdf?v=1793815634" title="CSC413 Seed 18 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2018%202026%20-%20Marking%20Scheme.docx?v=1793815644" title="CSC413 Seed 18 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2018%202026%20-%20Marking%20Scheme.pdf?v=1793815650" title="CSC413 Seed 18 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC413" data-seed="18" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="19"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="authoring_interactivity|animation|audio|graphics|video|text|hardware_devices|multimedia_fundamentals|web_hypermedia|virtual_reality|legal_ethics|design_project"
+        data-placeholders=""
+        data-paper="CSC413 Seed 19 2026.pdf"
+        data-scheme="CSC413 Seed 19 2026 - Marking Scheme.pdf"
+        data-text="19 realistic 2026 100 AUT 17 WEB 15 TXT 13 DES 11 FUN 10 GRA 8 ANI 7 AUD 6 HW 6 VID 5 LEG 1 VR 1 authoring_interactivity animation audio graphics video text hardware_devices multimedia_fundamentals web_hypermedia virtual_reality legal_ethics design_project">
+      <td class="nowrap">19</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">AUT 17 WEB 15 TXT 13 DES 11 FUN 10 GRA 8 ANI 7 AUD 6 HW 6 VID 5 LEG 1 VR 1</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/papers/CSC413%20Seed%2019%202026.docx?v=1793815661" title="CSC413 Seed 19 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/papers/CSC413%20Seed%2019%202026.pdf?v=1793815665" title="CSC413 Seed 19 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2019%202026%20-%20Marking%20Scheme.docx?v=1793815676" title="CSC413 Seed 19 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2019%202026%20-%20Marking%20Scheme.pdf?v=1793815681" title="CSC413 Seed 19 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC413" data-seed="19" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="20"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="graphics|video|multimedia_fundamentals|text|hardware_devices|animation|authoring_interactivity|web_hypermedia|legal_ethics|audio|virtual_reality|design_project"
+        data-placeholders=""
+        data-paper="CSC413 Seed 20 2026.pdf"
+        data-scheme="CSC413 Seed 20 2026 - Marking Scheme.pdf"
+        data-text="20 realistic 2026 100 GRA 18 ANI 17 TXT 13 DES 11 FUN 10 AUT 7 AUD 6 HW 6 VID 5 WEB 5 LEG 1 VR 1 graphics video multimedia_fundamentals text hardware_devices animation authoring_interactivity web_hypermedia legal_ethics audio virtual_reality design_project">
+      <td class="nowrap">20</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">GRA 18 ANI 17 TXT 13 DES 11 FUN 10 AUT 7 AUD 6 HW 6 VID 5 WEB 5 LEG 1 VR 1</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/papers/CSC413%20Seed%2020%202026.docx?v=1793815692" title="CSC413 Seed 20 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/papers/CSC413%20Seed%2020%202026.pdf?v=1793815696" title="CSC413 Seed 20 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2020%202026%20-%20Marking%20Scheme.docx?v=1793815707" title="CSC413 Seed 20 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC413/schemes/CSC413%20Seed%2020%202026%20-%20Marking%20Scheme.pdf?v=1793815712" title="CSC413 Seed 20 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC413" data-seed="20" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    </tbody>
+  </table>
+  </div>
+
+</div>
+
+
+<div class="footer">
+  <hr>
+  <p class="small">Study aid, not an official paper. Theory answers are
+  supported by lecture slides where a subject supplies them; deterministic
+  subjects use paper-derived generators. Not lecturer-marked.
+  <a href="/gallery#takedown">Takedown contact</a>.</p>
+  <p class="small">Contact:
+  <a href="mailto:auzair1990@gmail.com">auzair1990@gmail.com</a><br>
+  Git repository:
+  <a href="https://github.com/jerkfish/paper-generator">https://github.com/jerkfish/paper-generator</a></p>
+</div>
+</body>
+</html>

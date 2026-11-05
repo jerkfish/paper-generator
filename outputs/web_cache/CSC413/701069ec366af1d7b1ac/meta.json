@@ -1,0 +1,830 @@
+{
+  "subject": "CSC413",
+  "seed": 14,
+  "mode": "realistic",
+  "computed_marks": null,
+  "model": "csc413-deterministic",
+  "cost_usd": 0.0,
+  "accepted": 72,
+  "placeholders": 0,
+  "total_slots": 72,
+  "total_marks": 100,
+  "question_count": 64,
+  "has_practice_mode": false,
+  "has_placeholders": false,
+  "created": 1793815533.1127756,
+  "year": 2026,
+  "topic_marks": {
+    "authoring_interactivity": 17,
+    "web_hypermedia": 15,
+    "graphics": 8,
+    "audio": 6,
+    "video": 5,
+    "hardware_devices": 6,
+    "animation": 17,
+    "multimedia_fundamentals": 10,
+    "virtual_reality": 1,
+    "text": 3,
+    "design_project": 11,
+    "legal_ethics": 1
+  },
+  "files": {
+    "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC413\\701069ec366af1d7b1ac\\CSC413 Seed 14 2026.docx",
+    "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC413\\701069ec366af1d7b1ac\\CSC413 Seed 14 2026.pdf",
+    "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC413\\701069ec366af1d7b1ac\\CSC413 Seed 14 2026 - Marking Scheme.docx",
+    "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC413\\701069ec366af1d7b1ac\\CSC413 Seed 14 2026 - Marking Scheme.pdf"
+  },
+  "summary": {
+    "subject": "CSC413",
+    "seed": 14,
+    "mode": "realistic",
+    "accepted": 72,
+    "placeholders": 0,
+    "total_slots": 72,
+    "total_marks": 100,
+    "question_count": 64,
+    "has_practice_mode": false,
+    "has_placeholders": false,
+    "model": "csc413-deterministic",
+    "cost_usd": 0.0,
+    "cached": true,
+    "topic_marks": {
+      "authoring_interactivity": 17,
+      "web_hypermedia": 15,
+      "graphics": 8,
+      "audio": 6,
+      "video": 5,
+      "hardware_devices": 6,
+      "animation": 17,
+      "multimedia_fundamentals": 10,
+      "virtual_reality": 1,
+      "text": 3,
+      "design_project": 11,
+      "legal_ethics": 1
+    },
+    "pdf_available": true
+  },
+  "progress": [
+    {
+      "question": "A1",
+      "slot": "A1",
+      "status": "accepted",
+      "message": "authoring_interactivity",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A2",
+      "slot": "A2",
+      "status": "accepted",
+      "message": "web_hypermedia",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A3",
+      "slot": "A3",
+      "status": "accepted",
+      "message": "web_hypermedia",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A4",
+      "slot": "A4",
+      "status": "accepted",
+      "message": "graphics",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A5",
+      "slot": "A5",
+      "status": "accepted",
+      "message": "audio",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A6",
+      "slot": "A6",
+      "status": "accepted",
+      "message": "video",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A7",
+      "slot": "A7",
+      "status": "accepted",
+      "message": "hardware_devices",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A8",
+      "slot": "A8",
+      "status": "accepted",
+      "message": "web_hypermedia",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A9",
+      "slot": "A9",
+      "status": "accepted",
+      "message": "authoring_interactivity",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A10",
+      "slot": "A10",
+      "status": "accepted",
+      "message": "animation",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A11",
+      "slot": "A11",
+      "status": "accepted",
+      "message": "multimedia_fundamentals",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A12",
+      "slot": "A12",
+      "status": "accepted",
+      "message": "graphics",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A13",
+      "slot": "A13",
+      "status": "accepted",
+      "message": "hardware_devices",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A14",
+      "slot": "A14",
+      "status": "accepted",
+      "message": "audio",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A15",
+      "slot": "A15",
+      "status": "accepted",
+      "message": "audio",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B1",
+      "slot": "B1",
+      "status": "accepted",
+      "message": "graphics",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B2",
+      "slot": "B2",
+      "status": "accepted",
+      "message": "virtual_reality",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B3",
+      "slot": "B3",
+      "status": "accepted",
+      "message": "authoring_interactivity",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B4",
+      "slot": "B4",
+      "status": "accepted",
+      "message": "audio",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B5",
+      "slot": "B5",
+      "status": "accepted",
+      "message": "text",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B6",
+      "slot": "B6",
+      "status": "accepted",
+      "message": "authoring_interactivity",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B7",
+      "slot": "B7",
+      "status": "accepted",
+      "message": "design_project",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B8",
+      "slot": "B8",
+      "status": "accepted",
+      "message": "multimedia_fundamentals",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B9",
+      "slot": "B9",
+      "status": "accepted",
+      "message": "multimedia_fundamentals",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B10",
+      "slot": "B10",
+      "status": "accepted",
+      "message": "audio",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B11",
+      "slot": "B11",
+      "status": "accepted",
+      "message": "multimedia_fundamentals",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B12",
+      "slot": "B12",
+      "status": "accepted",
+      "message": "multimedia_fundamentals",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B13",
+      "slot": "B13",
+      "status": "accepted",
+      "message": "multimedia_fundamentals",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B14",
+      "slot": "B14",
+      "status": "accepted",
+      "message": "hardware_devices",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B15",
+      "slot": "B15",
+      "status": "accepted",
+      "message": "animation",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C1",
+      "slot": "C1",
+      "status": "accepted",
+      "message": "web_hypermedia",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C2",
+      "slot": "C2",
+      "status": "accepted",
+      "message": "graphics",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C3",
+      "slot": "C3",
+      "status": "accepted",
+      "message": "multimedia_fundamentals",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C4",
+      "slot": "C4",
+      "status": "accepted",
+      "message": "text",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C5",
+      "slot": "C5",
+      "status": "accepted",
+      "message": "animation",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C6",
+      "slot": "C6",
+      "status": "accepted",
+      "message": "legal_ethics",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C7",
+      "slot": "C7",
+      "status": "accepted",
+      "message": "animation",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C8",
+      "slot": "C8",
+      "status": "accepted",
+      "message": "animation",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C9",
+      "slot": "C9",
+      "status": "accepted",
+      "message": "graphics",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C10",
+      "slot": "C10",
+      "status": "accepted",
+      "message": "web_hypermedia",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C11",
+      "slot": "C11",
+      "status": "accepted",
+      "message": "multimedia_fundamentals",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C12",
+      "slot": "C12",
+      "status": "accepted",
+      "message": "text",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C13",
+      "slot": "C13",
+      "status": "accepted",
+      "message": "authoring_interactivity",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C14",
+      "slot": "C14",
+      "status": "accepted",
+      "message": "authoring_interactivity",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C15",
+      "slot": "C15",
+      "status": "accepted",
+      "message": "animation",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C16",
+      "slot": "C16",
+      "status": "accepted",
+      "message": "authoring_interactivity",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C17",
+      "slot": "C17",
+      "status": "accepted",
+      "message": "hardware_devices",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C18",
+      "slot": "C18",
+      "status": "accepted",
+      "message": "multimedia_fundamentals",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C19",
+      "slot": "C19",
+      "status": "accepted",
+      "message": "video",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C20",
+      "slot": "C20",
+      "status": "accepted",
+      "message": "animation",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C21",
+      "slot": "C21",
+      "status": "accepted",
+      "message": "graphics",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C22",
+      "slot": "C22",
+      "status": "accepted",
+      "message": "video",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C23",
+      "slot": "C23",
+      "status": "accepted",
+      "message": "graphics",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C24",
+      "slot": "C24",
+      "status": "accepted",
+      "message": "graphics",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C25",
+      "slot": "C25",
+      "status": "accepted",
+      "message": "audio",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C26",
+      "slot": "C26",
+      "status": "accepted",
+      "message": "hardware_devices",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C27",
+      "slot": "C27",
+      "status": "accepted",
+      "message": "video",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C28",
+      "slot": "C28",
+      "status": "accepted",
+      "message": "video",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C29",
+      "slot": "C29",
+      "status": "accepted",
+      "message": "hardware_devices",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "C30",
+      "slot": "C30",
+      "status": "accepted",
+      "message": "multimedia_fundamentals",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "D1",
+      "slot": "D1a",
+      "status": "accepted",
+      "message": "authoring_interactivity",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "D1",
+      "slot": "D1b",
+      "status": "accepted",
+      "message": "authoring_interactivity",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "D1",
+      "slot": "D1c",
+      "status": "accepted",
+      "message": "authoring_interactivity",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "D2",
+      "slot": "D2a",
+      "status": "accepted",
+      "message": "animation",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "D2",
+      "slot": "D2b",
+      "status": "accepted",
+      "message": "animation",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "D2",
+      "slot": "D2c",
+      "status": "accepted",
+      "message": "animation",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "D3",
+      "slot": "D3a",
+      "status": "accepted",
+      "message": "web_hypermedia",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "D3",
+      "slot": "D3b",
+      "status": "accepted",
+      "message": "web_hypermedia",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "D3",
+      "slot": "D3c",
+      "status": "accepted",
+      "message": "web_hypermedia",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "D4",
+      "slot": "D4a",
+      "status": "accepted",
+      "message": "design_project",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "D4",
+      "slot": "D4b",
+      "status": "accepted",
+      "message": "design_project",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "D4",
+      "slot": "D4c",
+      "status": "accepted",
+      "message": "design_project",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    }
+  ],
+  "validation": {
+    "subject": "CSC413",
+    "seed": 14,
+    "paper_docx": {
+      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC413\\701069ec366af1d7b1ac\\CSC413 Seed 14 2026.docx",
+      "xml_valid": true,
+      "forbidden_tokens": [],
+      "missing": [],
+      "problems": []
+    },
+    "scheme_docx": {
+      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC413\\701069ec366af1d7b1ac\\CSC413 Seed 14 2026 - Marking Scheme.docx",
+      "xml_valid": true,
+      "forbidden_tokens": [],
+      "missing": [],
+      "problems": []
+    },
+    "paper_pdf": {
+      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC413\\701069ec366af1d7b1ac\\CSC413 Seed 14 2026.pdf",
+      "pages": 5,
+      "page1_cover": true,
+      "body_starts_page2": true,
+      "right_overflow": [],
+      "problems": []
+    },
+    "scheme_pdf": {
+      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC413\\701069ec366af1d7b1ac\\CSC413 Seed 14 2026 - Marking Scheme.pdf",
+      "pages": 6,
+      "page1_cover": true,
+      "body_starts_page2": false,
+      "right_overflow": [],
+      "problems": []
+    },
+    "files": {
+      "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC413\\701069ec366af1d7b1ac\\CSC413 Seed 14 2026.docx",
+      "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC413\\701069ec366af1d7b1ac\\CSC413 Seed 14 2026.pdf",
+      "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC413\\701069ec366af1d7b1ac\\CSC413 Seed 14 2026 - Marking Scheme.docx",
+      "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC413\\701069ec366af1d7b1ac\\CSC413 Seed 14 2026 - Marking Scheme.pdf"
+    },
+    "problems": []
+  }
+}

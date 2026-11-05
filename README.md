@@ -1,7 +1,11 @@
 # Mock Paper Generator
 
-Local study tool for two subjects:
+Local study tool for four subjects:
 
+- **CSC402 Programming I** - deterministic, paper-derived programming papers.
+  No lecture decks, no LLM calls and no API key.
+- **CSC413 Introduction to Interactive Multimedia** - deterministic
+  TRUE/FALSE, matching, MCQ and structured questions derived from past papers.
 - **CSC662 Computer Security** - plans realistic or practice papers, drafts
   grounded theory questions from lecture decks, verifies marking points and
   exports Word/PDF papers and marking schemes.
@@ -32,7 +36,7 @@ There are two environments:
 | Worker | Deployed with CSC662 and MAT133 routes (version `597dd1ca`) |
 | Live mode | Scaffolded in `cloudflare/container-worker/`; not deployed |
 | Live-mode prerequisite | Cloudflare Workers Paid, **$5/month** (Containers has no free tier) |
-| Subjects | Local registry: CSC402, CSC662 and MAT133 available; 41 curriculum stubs coming soon. Public site: CSC662 and MAT133 only (CSC402 not published) |
+| Subjects | Local registry: CSC402, CSC413, CSC662 and MAT133 available; 40 curriculum stubs coming soon. Public site: CSC662 and MAT133 only (CSC402 and CSC413 not published) |
 | Contact | auzair1990@gmail.com |
 | Repository | https://github.com/jerkfish/paper-generator |
 
@@ -54,10 +58,12 @@ uv run uvicorn src.app.main:app --host 127.0.0.1 --port 8000
 
 | Route | Purpose |
 |---|---|
-| `/` | Local subject table: CSC402, CSC662 and MAT133 available; 41 curriculum stubs coming soon |
+| `/` | Local subject table: CSC402, CSC413, CSC662 and MAT133 available; 40 curriculum stubs coming soon |
+| `/csc402` | CSC402 deterministic hub and Library |
+| `/csc413` | CSC413 deterministic hub and Library |
 | `/csc662` | CSC662 hub: generate, Library, gallery |
 | `/csc662/library` | Filterable table of the 20 prebuilt CSC662 papers |
-| `/generate` | Shortcut to `/csc662/generate` |
+| `/generate` | Shortcut to `/csc402/generate` |
 | `/csc662/generate` | Generate a CSC662 paper as a background job (LLM) |
 | `/mat133` | MAT133 hub: deterministic generate and Library |
 | `/mat133/library` | Filterable table of the 20 prebuilt MAT133 papers |
@@ -109,18 +115,19 @@ The app discovers subjects by scanning `subjects/*/subject.json`:
 
 ```text
 subjects/CSC402/subject.json   status: available, order 1
+subjects/CSC413/subject.json   status: available, order 2
 subjects/CSC662/subject.json   status: available, order 38
 subjects/MAT133/subject.json   status: available, order 44
-subjects/CSC413/subject.json   status: coming_soon, order 2
 ...
 subjects/CST688/subject.json   status: coming_soon, order 43
 ```
 
 The registry follows the curriculum order in the `order` field, with available
-subjects first. There are 44 subjects: CSC402, CSC662 and MAT133 are
-available locally, plus 41 curriculum stubs. CSC402 is a type-B deterministic
-subject with a 20-seed private Library, but it is **not published**; the public
-site still contains only CSC662 and MAT133. Each record contains the code,
+subjects first. There are 44 subjects: CSC402, CSC413, CSC662 and MAT133 are
+available locally, plus 40 curriculum stubs. CSC402 and CSC413 are type-B
+deterministic subjects with 20-seed private Libraries, but they are **not
+published**; the public site still contains only CSC662 and MAT133. Each
+record contains the code,
 title, status, header text, template path, fingerprint metadata, capabilities,
 plugins, permissions, deck map, topic-deck allow-list and enabled computed
 generators. Stubs appear on the home page but have no papers or Library cache.
@@ -514,7 +521,7 @@ mockups are in `design/mockups/`.
 ## Tests
 
 ```bash
-uv run pytest -q        # 289 Python tests
+uv run pytest -q        # 305 Python tests
 cd cloudflare/worker
 bun test                # 6 Worker tests
 ```
