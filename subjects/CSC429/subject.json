@@ -2,11 +2,68 @@
   "code": "CSC429",
   "title": "Computer Organization and Architecture",
   "status": "coming_soon",
+  "type": "C",
   "order": 3,
+  "has_practice_mode": true,
+  "has_placeholders": true,
   "header_text": "CSC429 COMPUTER ORGANIZATION AND ARCHITECTURE",
   "template_path": "",
   "fingerprint": {},
   "deck_map": {},
   "topic_deck_allowlist": {},
-  "enabled_computed_generators": []
+  "enabled_computed_generators": [],
+  "capabilities": {
+    "subject_type": "C",
+    "generation": "hybrid",
+    "prebuild": "plugin",
+    "public_documents": "rebuild_scheme",
+    "needs_llm": true,
+    "uses_slides": true,
+    "uses_past_papers": true,
+    "deterministic": false,
+    "practice_mode": true,
+    "placeholders": true,
+    "public_scheme_requires_quote_marker": true,
+    "planner_style": "modern"
+  },
+  "permissions": {
+    "papers": {
+      "allowed": true,
+      "basis": "owner supplied 23 CSC429 PDFs on 2026-11-05 for local preprocessing",
+      "confirmed_by": "owner",
+      "confirmed_on": "2026-11-05",
+      "notes": "Working copies only; originals are read-only."
+    },
+    "scheme": {
+      "allowed": false,
+      "basis": "owner waived (no scheme supplied)",
+      "confirmed_by": "owner",
+      "confirmed_on": "2026-11-05",
+      "notes": "Owner waived a supplied scheme at stage 0; generated answers will be used in later stages."
+    },
+    "slides": {
+      "allowed": false,
+      "basis": "owner waived (no slides supplied)",
+      "confirmed_by": "owner",
+      "confirmed_on": "2026-11-05",
+      "notes": "Owner waived supplied lecture slides at stage 0."
+    },
+    "publication": {
+      "allowed": false,
+      "basis": "owner instruction: do not publish",
+      "confirmed_by": "owner",
+      "confirmed_on": "2026-11-05",
+      "notes": "Do not upload or deploy until explicit publication approval."
+    }
+  },
+  "plugins": {
+    "generator_labels": "src.subjects.csc429.plugin:generator_labels",
+    "topic_labels": "src.subjects.csc429.plugin:topic_labels",
+    "plan": "src.subjects.csc429.plugin:plan",
+    "plan_markdown": "src.subjects.csc429.plugin:plan_markdown",
+    "plan_inputs": "src.subjects.csc429.plugin:plan_inputs",
+    "library_seeds": "src.subjects.csc429.plugin:library_seeds",
+    "library_metadata": "src.subjects.csc429.plugin:library_metadata",
+    "prebuild": "src.subjects.csc429.plugin:build_seed"
+  }
 }

@@ -4,49 +4,66 @@
   "type": "C",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-04T06:27:42Z",
+  "updated": "2026-11-05T05:42:01Z",
   "stages": {
     "0_intake": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "subjects/CSC429/subject.json",
+        "subjects/CSC429/lifecycle_state.json",
+        "docs/CSC429.md",
+        "src/subjects/csc429/",
+        "data/papers/CSC429/",
+        "data/tracking/csc429/input_manifest.json",
+        "data/tracking/csc429/papers_summary.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-05",
+        "note": "Type C/order 3 confirmed; scheme and lecture slides waived; publication kept false; 23 supplied PDFs accepted as inputs."
       },
-      "notes": ""
+      "notes": "Stage-0 intake approved on 2026-11-05. 23 working copies (20 unique, 3 duplicate pairs) match the input manifest. Papers permission allowed; scheme and slides waived; publication remains false."
     },
     "1_preprocess": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "data/tracking/csc429/papers_register.json",
+        "data/tracking/csc429/papers_summary.json",
+        "data/tracking/csc429/cover_text.json",
+        "data/tracking/csc429/paper_text/index.json",
+        "data/tracking/csc429/stage1_register.log"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-05",
+        "note": "Stage-1 register, duplicate groups and OCR corpus approved."
       },
-      "notes": ""
+      "notes": "23 files; 20 unique; 3 duplicate pairs. 6 text-layer + 14 OCR corpora; every unique paper has text. 20/20 covers parsed high confidence; 0 low-confidence covers. LLM cost $0.00. Owner-approved 2026-11-05."
     },
     "2_scheme_slides": {
-      "status": "pending",
-      "evidence": [],
+      "status": "not_applicable",
+      "evidence": [
+        "subjects/CSC429/subject.json",
+        "docs/CSC429.md"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-05",
+        "note": "Owner waived scheme and lecture slides at stage 0; no scheme or slide material will be used."
       },
-      "notes": ""
+      "notes": "scheme: owner waived (no scheme supplied). slides: owner waived (no slides supplied). No scheme parser or deck inventory created."
     },
     "3_template": {
       "status": "pending",
@@ -161,38 +178,7 @@
       "notes": ""
     }
   },
-  "unsure": [
-    {
-      "stage": "0_intake",
-      "item": "Confirm CSC429 title, subject type (C) and curriculum order with the subject owner.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "0_intake",
-      "item": "Record papers permission for CSC429.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "0_intake",
-      "item": "Record scheme permission for CSC429.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "0_intake",
-      "item": "Record lecture-slides permission for CSC429.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "9_publish",
-      "item": "Record publication permission for CSC429 before any upload or deploy.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    }
-  ],
+  "unsure": [],
   "llm_cost": {
     "currency": "USD",
     "total_usd": 0.0,
