@@ -1,48 +1,83 @@
-"""Subject plugin scaffold for CSC429 (hybrid: deterministic + LLM theory).
+"""CSC429 plugin adapter (hybrid deterministic/LLM subject).
 
-This file is the only place subject-specific pipeline code belongs.  The
-shared app loads it through ``subjects/CSC429/subject.json``.  Stage 0/1 do
-not implement generation; the stubs below fail closed until later stages.
+The planner is deterministic.  The builder is implemented in stage 7; until
+then ``build_seed`` fails closed.  The app loads this module through
+``subjects/CSC429/subject.json``.
 """
 from __future__ import annotations
 
+import json
+
+from src import config
+
 
 def plan(mode: str, style: str, computed_marks: int | None, seed: int):
-    """Return ``(plan_object, summary_dict)`` for the planner."""
-    raise NotImplementedError(
-        "CSC429 planner is not implemented; complete stages 4-5 first")
+    """Return ``(slot_table, summary_dict)`` for the CSC429 planner."""
+    from src.subjects.csc429.planner import build_plan
+    summary = build_plan(
+        int(seed), style=style, mode=mode, computed_marks=computed_marks)
+    return summary["slots"], summary
 
 
 def plan_markdown(summary: dict) -> str:
-    """Render the planner summary used by the local UI."""
-    return "".join(f"- {key}: {value}\n" for key, value in summary.items())
+    from src.subjects.csc429.planner import to_markdown
+    return to_markdown(summary)
 
 
 def plan_inputs(seed: int) -> dict:
-    """Return paths to {plan, theory} for prebuild/bundle rebuilds."""
-    raise NotImplementedError("CSC429 plan inputs are not implemented")
+    """Return the deterministic planner path for one seed.
+
+    CSC429 has no separate theory file; the plan contains every slot.
+    """
+    path = config.TRACKING_DIR / "csc429" / f"planner_seed_{int(seed):02d}.json"
+    return {"plan": path, "theory": path}
 
 
 def library_seeds() -> list[int]:
-    """Return the accepted Library seed list (empty until stage 8)."""
+    """The private Library is prepared at stage 8."""
     return []
 
 
 def library_metadata(seed: int) -> dict:
-    """Return planner metadata for one Library seed."""
-    return {}
+    path = config.TRACKING_DIR / "csc429" / f"planner_seed_{int(seed):02d}.json"
+    if not path.is_file():
+        return {}
+    try:
+        return dict(json.loads(path.read_text(encoding="utf-8")))
+    except Exception:
+        return {}
 
 
 def build_seed(seed: int, **kwargs) -> dict:
-    """Build one deterministic paper and write meta.json in ``out_dir``."""
+    """Build one paper and write meta.json; implemented in stage 7."""
     raise NotImplementedError(
         "CSC429 deterministic builder is not implemented; complete stages "
-        "5-7 first")
+        "6-7 first")
 
 
 def generator_labels() -> dict:
-    return {}
+    return {
+        "csc429.computer_generations_history": "History/generations question",
+        "csc429.data_representation": "Data representation question",
+        "csc429.cpu_organization": "CPU organization question",
+        "csc429.memory_cache": "Memory/cache question",
+        "csc429.interrupts_io": "Interrupts/I-O question",
+        "csc429.buses_interconnection": "Bus/interconnection question",
+        "csc429.parallel_architectures": "Parallel architectures question",
+        "csc429.assembly": "Assembly program question",
+    }
 
 
 def topic_labels() -> dict:
-    return {}
+    return {
+        "computer_generations_history": "HIS",
+        "data_representation": "DAT",
+        "cpu_organization": "CPU",
+        "memory_cache": "MEM",
+        "interrupts_io": "I/O",
+        "buses_interconnection": "BUS",
+        "instruction_set_assembly": "ASM",
+        "parallel_architectures": "PAR",
+        "storage_devices": "STO",
+        "other": "OTH",
+    }

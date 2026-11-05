@@ -67,6 +67,109 @@
       "dpi": 200,
       "papers_with_assets": 20,
       "images": 125
+    },
+    "planner": {
+      "module": "src.subjects.csc429.planner",
+      "style": "modern",
+      "seed_range": [
+        1,
+        20
+      ],
+      "seeds_passed": 20,
+      "slot_marks": [
+        5,
+        5,
+        5,
+        5,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        20
+      ],
+      "part_marks": {
+        "A": 80,
+        "B": 20
+      },
+      "question_count": 11,
+      "slot_count": 11,
+      "topic_sequences": [
+        {
+          "id": "2024_01",
+          "source": "CSC429-2024-01",
+          "topics": [
+            "computer_generations_history",
+            "computer_generations_history",
+            "data_representation",
+            "data_representation",
+            "data_representation",
+            "buses_interconnection",
+            "cpu_organization",
+            "memory_cache",
+            "interrupts_io",
+            "parallel_architectures"
+          ]
+        },
+        {
+          "id": "2025_02",
+          "source": "CSC429-2025-02",
+          "topics": [
+            "computer_generations_history",
+            "cpu_organization",
+            "data_representation",
+            "data_representation",
+            "data_representation",
+            "cpu_organization",
+            "memory_cache",
+            "interrupts_io",
+            "interrupts_io",
+            "parallel_architectures"
+          ]
+        },
+        {
+          "id": "2023_02",
+          "source": "CSC429-2023-02",
+          "topics": [
+            "computer_generations_history",
+            "computer_generations_history",
+            "data_representation",
+            "data_representation",
+            "data_representation",
+            "cpu_organization",
+            "memory_cache",
+            "interrupts_io",
+            "interrupts_io",
+            "parallel_architectures"
+          ]
+        },
+        {
+          "id": "2024_07",
+          "source": "CSC429-2024-07",
+          "topics": [
+            "computer_generations_history",
+            "cpu_organization",
+            "data_representation",
+            "data_representation",
+            "data_representation",
+            "cpu_organization",
+            "buses_interconnection",
+            "memory_cache",
+            "interrupts_io",
+            "parallel_architectures"
+          ]
+        }
+      ],
+      "source_papers": [
+        "CSC429-2023-02",
+        "CSC429-2023-07",
+        "CSC429-2024-01",
+        "CSC429-2024-07",
+        "CSC429-2025-02",
+        "CSC429-2025-07",
+        "CSC429-2026-02"
+      ]
     }
   },
   "deck_map": {},

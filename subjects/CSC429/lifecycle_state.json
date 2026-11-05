@@ -4,7 +4,7 @@
   "type": "C",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-05T06:50:58Z",
+  "updated": "2026-11-05T06:59:38Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -86,7 +86,7 @@
       "notes": "Owner-updated template used as the approved Stage-3 template. 55 paragraphs, 2 sections, 1 footer, 1 image; check clean; no problems. PDF preview is the cover page; page-2 transition will be checked in the generated paper."
     },
     "4_taxonomy_question_log": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "data/tracking/csc429/taxonomy.json",
         "data/tracking/csc429/question_log.json",
@@ -97,31 +97,38 @@
         "docs/CSC429.md"
       ],
       "llm_cost_usd": 0.0,
-      "blockers": [
-        "Awaiting [HUMAN] review of the 20-paper taxonomy, 213-entry question log, marks mismatches and 200 dpi figure assets."
-      ],
+      "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": "Stage-4 taxonomy, question log and figure assets generated; awaiting owner review."
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-05",
+        "note": "Stage-4 taxonomy, question log, marks reconciliation and 200 dpi figure/table assets approved."
       },
-      "notes": "20 papers; 213 entries; expected 2000 marks; parsed 2062; 9/20 reconciled; 27 unsure items. 125 source pages captured at 200 dpi (JPEG 90) with figure/table/image references in the question log. LLM cost $0.00."
+      "notes": "20 papers; 213 entries; expected 2000 marks; parsed 2062; 9/20 reconciled; 27 unsure items were reviewed and accepted for planning. 125 source pages captured at 200 dpi (JPEG 90); 76 entries carry figure/table/image references. LLM cost $0.00."
     },
     "5_fingerprint_planner": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "src/subjects/csc429/planner.py",
+        "src/subjects/csc429/plugin.py",
+        "data/tracking/csc429/planner_seed_01.json",
+        "data/tracking/csc429/planner_validation.json",
+        "data/tracking/csc429/planner_seed_01.json",
+        "tests/test_csc429_planner.py",
+        "docs/CSC429.md",
+        "subjects/CSC429/subject.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-05",
+        "note": "Stage-5 slot pattern, seed-1 plan and 20-seed determinism validation approved."
       },
-      "notes": ""
+      "notes": "Modern format: Part A 10 structured questions at 5,5,5,5,10,10,10,10,10,10 (80 marks); Part B 1 assembly question (20 marks). Four observed topic sequences; seeds 1-20 passed. computed_marks=100. LLM cost $0.00."
     },
     "6_generators": {
       "status": "pending",
