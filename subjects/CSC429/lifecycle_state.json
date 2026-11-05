@@ -4,7 +4,7 @@
   "type": "C",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-05T06:59:38Z",
+  "updated": "2026-11-05T07:05:28Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -131,10 +131,21 @@
       "notes": "Modern format: Part A 10 structured questions at 5,5,5,5,10,10,10,10,10,10 (80 marks); Part B 1 assembly question (20 marks). Four observed topic sequences; seeds 1-20 passed. computed_marks=100. LLM cost $0.00."
     },
     "6_generators": {
-      "status": "pending",
-      "evidence": [],
+      "status": "in_progress",
+      "evidence": [
+        "src/subjects/csc429/generators.py",
+        "src/subjects/csc429/plugin.py",
+        "data/tracking/csc429/generator_seed_01.json",
+        "data/tracking/csc429/generator_seed_20.json",
+        "data/tracking/csc429/generator_validation.json",
+        "tests/test_csc429_generators.py",
+        "docs/CSC429.md",
+        "subjects/CSC429/subject.json"
+      ],
       "llm_cost_usd": 0.0,
-      "blockers": [],
+      "blockers": [
+        "Awaiting human review of generated questions, coverage and independently recomputed answers."
+      ],
       "human_approval": {
         "required": true,
         "approved": false,
@@ -142,7 +153,7 @@
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "Eight deterministic generators registered and labelled. 20/20 seeds valid; all 8 generator IDs covered; all six data-representation kinds and all five assembly templates used. Data answers recomputed with format/int/struct; zero-, one- and three-address programs simulated to the same value. Unsupported kinds fail closed. capabilities.generation=deterministic is part of this review. LLM cost $0.00."
     },
     "7_builders_qa": {
       "status": "pending",
