@@ -34,6 +34,10 @@ TEXT_REF_RE = re.compile(
 FURNITURE_RE = re.compile(
     r"CONF[I!1]DENTIAL|Hak\s*C[i1l]pta|DO\s*NOT\s*TURN|"
     r"^(?:CS|CD)[A-Z0-9/\s]*CSC429$|^This\s+examination\s+paper", re.I)
+PROMPT_RE = re.compile(
+    r"^(?:\(?[a-hA-H]\)|\(?(?:i{1,3}|iv|v|vi|vii)\)|"
+    r"Identify|Explain|Describe|Define|State|List|Calculate|Convert|"
+    r"Discuss|Compare|Name|Give|What|Why|How|Based on)\b", re.I)
 
 
 def _slug(value: str) -> str:
@@ -286,7 +290,8 @@ def _assets_for_page(paper: dict, page: dict, page_meta: dict,
         content_box = None
         caption_box = None
         if kind == "figure":
-            band = _ink_band(page_image, int(cy0 * scale) - 1, -1, height)
+            band = _ink_band(page_image, int(cy0 * scale) - 1, -1, height,
+                             inner_pt=14.0)
             if band is not None:
                 top_pt = max(content_top, band[0] / scale)
                 content_box = [content_left, top_pt,
@@ -307,10 +312,11 @@ def _assets_for_page(paper: dict, page: dict, page_meta: dict,
                 caption_box = [0.05 * width, cy0 - 4,
                                0.95 * width, cy1 + 8]
         else:
-            band = _ink_band(page_image, int(cy1 * scale) + 1, 1, height)
+            band = _ink_band(page_image, int(cy1 * scale) + 1, 1, height,
+                             inner_pt=16.0)
             if band is not None:
                 bottom_pt = min(content_bottom, band[1] / scale)
-                content_box = [content_left, max(content_top, cy0 - 4),
+                content_box = [content_left, min(content_bottom, cy1 + 6),
                                content_right, bottom_pt]
                 caption_box = [0.05 * width, cy0 - 6,
                                0.95 * width, min(content_bottom, cy1 + 6)]
@@ -329,6 +335,21 @@ def _assets_for_page(paper: dict, page: dict, page_meta: dict,
                                0.95 * width, cy1 + 6]
         if content_box is None or caption_box is None:
             continue
+        prompt_trim = None
+        if kind == "figure":
+            prompts = []
+            for line in lines:
+                lx0, ly0, lx1, ly1 = _bbox(line)
+                if ly1 < content_box[1] or ly0 > content_box[3]:
+                    continue
+                if PROMPT_RE.search(_text(line)):
+                    prompts.append(ly1)
+            if prompts:
+                trim = max(prompts) + 6
+                if trim < cy0 - 20:
+                    content_box[1] = max(content_box[1], trim)
+                    prompt_trim = trim
+                    flags.append("trimmed_prompt_text")
         band_lines = [
             line for line in lines
             if _bbox(line)[3] >= content_box[1]
@@ -348,31 +369,29 @@ def _assets_for_page(paper: dict, page: dict, page_meta: dict,
             if mark_top - 6 > content_box[1]:
                 content_box[3] = min(content_box[3], mark_top - 6)
                 flags.append("trimmed_question_marks")
-        right_prose = any(
-            len(_text(line)) > 20 and _bbox(line)[0] > 0.45 * width
-            for line in band_lines)
-        left_prose = any(
-            len(_text(line)) > 20 and _bbox(line)[2] < 0.55 * width
-            for line in band_lines)
-        caption_center = (cx0 + cx1) / 2
-        if right_prose and not left_prose:
-            content_box[2] = min(content_box[2], 0.50 * width)
-            flags.append("prose_column")
-        elif left_prose and not right_prose:
-            content_box[0] = max(content_box[0], 0.50 * width)
-            flags.append("prose_column")
-        elif right_prose and left_prose:
-            if caption_center < 0.5 * width:
+        if kind == "figure":
+            right_prose = any(
+                len(_text(line)) > 20 and _bbox(line)[0] > 0.45 * width
+                for line in band_lines)
+            left_prose = any(
+                len(_text(line)) > 20 and _bbox(line)[2] < 0.55 * width
+                for line in band_lines)
+            caption_center = (cx0 + cx1) / 2
+            if right_prose and not left_prose:
                 content_box[2] = min(content_box[2], 0.50 * width)
-            else:
+                flags.append("prose_column")
+            elif left_prose and not right_prose:
                 content_box[0] = max(content_box[0], 0.50 * width)
-            flags.append("prose_column")
-        bbox = [
-            min(content_box[0], caption_box[0]),
-            min(content_box[1], caption_box[1]),
-            max(content_box[2], caption_box[2]),
-            max(content_box[3], caption_box[3]),
-        ]
+                flags.append("prose_column")
+            elif right_prose and left_prose:
+                if caption_center < 0.5 * width:
+                    content_box[2] = min(content_box[2], 0.50 * width)
+                else:
+                    content_box[0] = max(content_box[0], 0.50 * width)
+                flags.append("prose_column")
+        # The delivered asset is the figure/table only.  Captions are kept
+        # as metadata and are deliberately never captured into the image.
+        bbox = list(content_box)
         bbox = [max(0.0, min(bbox[0], width)),
                 max(0.0, min(bbox[1], height)),
                 max(0.0, min(bbox[2], width)),
@@ -402,16 +421,7 @@ def _assets_for_page(paper: dict, page: dict, page_meta: dict,
         target = paper_dir / f"{asset_id}.png"
         try:
             content_image = _crop_image(page_meta, content_box)
-            caption_image = _crop_image(page_meta, caption_box)
-            width_px = max(content_image.width, caption_image.width)
-            height_px = content_image.height + 6 + caption_image.height
-            composed = Image.new("RGB", (width_px, height_px), "white")
-            composed.paste(content_image,
-                           ((width_px - content_image.width) // 2, 0))
-            composed.paste(caption_image,
-                           ((width_px - caption_image.width) // 2,
-                            content_image.height + 6))
-            crop_width, crop_height = _save_crop(composed, target)
+            crop_width, crop_height = _save_crop(content_image, target)
         except Exception as error:
             unresolved.append({
                 "paper_id": paper["paper_id"], "label": label,
@@ -433,9 +443,12 @@ def _assets_for_page(paper: dict, page: dict, page_meta: dict,
             "label": label,
             "caption": text,
             "page": page["page"],
+            "page_image": page_meta["image"],
+            "page_points": list(page_meta["page_points"]),
             "bbox_pdf": [round(value, 2) for value in bbox],
             "content_bbox": [round(value, 2) for value in content_box],
             "caption_bbox": [round(value, 2) for value in caption_box],
+            "prompt_trim": prompt_trim,
             "path": _rel(target),
             "width_px": crop_width,
             "height_px": crop_height,
@@ -541,7 +554,8 @@ def build_assets(force: bool = False) -> dict:
         "schema_version": 1,
         "subject": SUBJECT,
         "generated_by": "src.subjects.csc429.assets",
-        "crop": {"dpi": 200, "format": "png", "mode": "page_image_crop"},
+        "crop": {"dpi": 200, "format": "png",
+                 "mode": "page_image_crop_content_only"},
         "assets": all_assets,
         "unresolved": all_unresolved,
         "papers": papers,

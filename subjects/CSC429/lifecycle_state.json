@@ -4,7 +4,7 @@
   "type": "C",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-05T14:10:18Z",
+  "updated": "2026-11-05T15:18:07Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -29,7 +29,7 @@
       "notes": "Stage-0 intake approved on 2026-11-05. The Stage 1+ attempt was rejected because it invented descriptive questions instead of drawing real past-paper questions and their original diagrams. Stage 1 is being redone."
     },
     "1_preprocess": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "data/tracking/csc429/papers_register.json",
         "data/tracking/csc429/papers_summary.json",
@@ -46,16 +46,62 @@
         "src/subjects/csc429/assets.py",
         "src/subjects/csc429/questions.py",
         "src/subjects/csc429/stage1.py",
+        "src/subjects/csc429/seed_pilot.py",
         "src/ingest/ocr.py",
         "tests/test_csc429_capture.py",
         "tests/test_csc429_assets.py",
         "tests/test_csc429_questions.py",
         "tests/test_csc429_stage1.py",
-        "docs/CSC429.md"
+        "outputs/pilot/CSC429/seed_01/paper.pdf",
+        "outputs/pilot/CSC429/seed_02/paper.pdf",
+        "outputs/pilot/CSC429/seed_03/paper.pdf",
+        "docs/CSC429.md",
+        "src/subjects/csc429/tables.py",
+        "tests/test_csc429_tables.py",
+        "outputs/pilot/CSC429/seed_01/paper.docx",
+        "outputs/pilot/CSC429/seed_01/plan.json",
+        "outputs/pilot/CSC429/seed_02/paper.docx",
+        "outputs/pilot/CSC429/seed_02/plan.json",
+        "outputs/pilot/CSC429/seed_03/paper.docx",
+        "outputs/pilot/CSC429/seed_03/plan.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-05",
+        "note": "Owner approved Stage 1 on 2026-11-05 and supplied paper2.docx showing the native Word numbering update; the numbering was incorporated and the three seeds regenerated before close-out."
+      },
+      "notes": "Stage 1 complete and owner-approved. 23 supplied files, 20 unique papers, 125 pages at 200 dpi; 4,751 layout lines. 96 content-only page crops: 60 figures and 36 tables (55 high, 37 medium, 4 low); captions are metadata and are not captured. 4 unresolved table references. The real-question bank has 215 questions (195 Part A, 20 Part B), 636 subparts, all with marks; every paper sums to 100; 68 questions reference a figure/table, 67 are asset-linked. Five unsure items remain (the four unresolved references plus CSC429-2023-07-A6). Presentation: figures captured from original pages, tables recreated as native Word tables (text-layer papers for the pilot), text-dominant mixed figure/text regions recreated as native text, captions excluded. Subparts use native Word numbering matching paper2.docx: lowerLetter a), b), ... and lowerRoman i., ii., ... in List Paragraph at 1.5 spacing with 6 pt before and 4 pt after. Three seeds at outputs/pilot/CSC429: 11 real questions, 100 marks, 5 figure/table questions, 11 distinct source papers each; 1 table question each; mixed figure/text questions 2, 2, 0; pages 6, 6, 7; 33 unique questions. LLM cost $0.00."
+    },
+    "2_scheme_slides": {
+      "status": "done",
+      "evidence": [
+        "subjects/CSC429/subject.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-05",
+        "note": "Owner waived supplied scheme and lecture slides at Stage 0; permissions.scheme and permissions.slides record the waiver with basis."
+      },
+      "notes": "Waived by the owner: no scheme and no lecture slides were supplied; permissions.scheme.allowed=false and permissions.slides.allowed=false with owner basis. No scheme parse or deck map required."
+    },
+    "3_template": {
+      "status": "in_progress",
+      "evidence": [
+        "data/tracking/csc429/template_check.json",
+        "data/reference/CSC429/CSC429 TEMPLATE.docx",
+        "outputs/pilot/CSC429/seed_01/paper.pdf"
       ],
       "llm_cost_usd": 0.0,
       "blockers": [
-        "Awaiting human review of the 96 original-diagram crops, 5 unsure items and 4 unresolved table references."
+        "Awaiting owner review of the rendered cover and page-2 transition in outputs/pilot/CSC429/seed_01/paper.pdf."
       ],
       "human_approval": {
         "required": true,
@@ -64,35 +110,7 @@
         "on": "",
         "note": ""
       },
-      "notes": "Register/OCR rerun after the restart: 23 files, 20 unique, 3 duplicate pairs. 6 text-layer + 14 OCR corpora; every unique paper has non-empty text (4,851-7,190 chars). 20/20 covers parsed high confidence; 0 low-confidence covers. Every unique page was rendered at 200 dpi: 20 papers, 125 pages. A line/bbox layout layer was built (4,751 lines, 226 caption lines) using text-layer boxes or Windows OCR line boxes. PDF analysis found every page is a scan; there are no vector figures, and embedded non-full-page images are incomplete 1-bit masks, so diagram assets are page-image crops, never extracted masks. Figure captions sit below figures and table captions above tables. Asset extraction produced 96 original crops (60 figures, 36 tables; 41 high, 52 medium, 3 low confidence), 20 contact sheets and 4 unresolved table references. The real-question draft contains 215 questions (195 Part A, 20 Part B), 636 subparts, all with marks; every paper sums to 100. 68 questions reference a figure/table, 67 are asset-linked. Five unsure items remain (4 unresolved table refs plus CSC429-2023-07-A6 ambiguous marks). Owner requirement met: every page captured, real questions extracted verbatim, original diagram crops reused, no recreation. LLM cost $0.00."
-    },
-    "2_scheme_slides": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
-    },
-    "3_template": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
+      "notes": "subject.json.template_path now points at the owner-approved CSC429 TEMPLATE.docx. template_check.json reports xml_valid true, 2 sections, 1 footer, 1 image, non-empty cover text and no problems. The seed PDFs render the approved cover and page-2 transition. Stage 3 awaits the owner [HUMAN] gate."
     },
     "4_taxonomy_question_log": {
       "status": "pending",
@@ -193,7 +211,38 @@
       "notes": ""
     }
   },
-  "unsure": [],
+  "unsure": [
+    {
+      "paper_id": "CSC429-2014-12",
+      "question_id": "CSC429-2014-12-A1",
+      "code": "unresolved_reference",
+      "detail": "reference(s) without a matching asset: Table 1"
+    },
+    {
+      "paper_id": "CSC429-2016-12",
+      "question_id": "CSC429-2016-12-B1",
+      "code": "unresolved_reference",
+      "detail": "reference(s) without a matching asset: Table 4"
+    },
+    {
+      "paper_id": "CSC429-2017-07",
+      "question_id": "CSC429-2017-07-B1",
+      "code": "unresolved_reference",
+      "detail": "reference(s) without a matching asset: Table 1"
+    },
+    {
+      "paper_id": "CSC429-2023-02",
+      "question_id": "CSC429-2023-02-B1",
+      "code": "unresolved_reference",
+      "detail": "reference(s) without a matching asset: Table 1"
+    },
+    {
+      "paper_id": "CSC429-2023-07",
+      "question_id": "CSC429-2023-07-A6",
+      "code": "ambiguous_marks",
+      "detail": "mark 4 follows preamble text, not a subpart"
+    }
+  ],
   "llm_cost": {
     "currency": "USD",
     "total_usd": 0.0,

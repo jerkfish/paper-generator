@@ -13,7 +13,7 @@ def _write(path, payload):
     path.write_text(json.dumps(payload), encoding="utf-8")
 
 
-def test_caption_asset_is_a_page_crop_with_caption(tmp_path, monkeypatch):
+def test_caption_is_metadata_not_captured_in_the_crop(tmp_path, monkeypatch):
     tracking = tmp_path / "csc429"
     pages_dir = tracking / "pages"
     layout_dir = tracking / "layout"
@@ -60,7 +60,9 @@ def test_caption_asset_is_a_page_crop_with_caption(tmp_path, monkeypatch):
     assert record["confidence"] == "high"
     assert (tmp_path / record["path"]).is_file()
     assert record["bbox_pdf"][1] < 210
-    assert record["bbox_pdf"][3] > 325
+    # The caption is metadata only; the delivered crop ends above it.
+    assert record["bbox_pdf"][3] <= 318
+    assert record["caption"].startswith("Figure 1")
     assert (asset_dir / paper_id / "contact_sheet.png").is_file()
 
 
