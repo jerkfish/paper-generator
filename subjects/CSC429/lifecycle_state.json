@@ -4,7 +4,7 @@
   "type": "C",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-05T07:05:28Z",
+  "updated": "2026-11-05T08:11:42Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -131,7 +131,7 @@
       "notes": "Modern format: Part A 10 structured questions at 5,5,5,5,10,10,10,10,10,10 (80 marks); Part B 1 assembly question (20 marks). Four observed topic sequences; seeds 1-20 passed. computed_marks=100. LLM cost $0.00."
     },
     "6_generators": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "src/subjects/csc429/generators.py",
         "src/subjects/csc429/plugin.py",
@@ -143,8 +143,40 @@
         "subjects/CSC429/subject.json"
       ],
       "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-05",
+        "note": "Owner approved the eight generators, 20-seed coverage, deterministic answer verification and deterministic capability change."
+      },
+      "notes": "Eight deterministic generators registered and labelled. 20/20 seeds valid; all 8 generator IDs covered; all six data-representation kinds and all five assembly templates used. Stage-7 revision added three diagram variants (von_neumann for history 5, cpu_datapath for CPU 10, cache_mapping for memory 10), three per seed, revalidated 20/20. Data answers recomputed with format/int/struct; zero-, one- and three-address programs simulated to the same value. Unsupported kinds fail closed. capabilities.generation=deterministic approved. LLM cost $0.00."
+    },
+    "7_builders_qa": {
+      "status": "in_progress",
+      "evidence": [
+        "src/subjects/csc429/builder.py",
+        "src/subjects/csc429/figures.py",
+        "src/subjects/csc429/generators.py",
+        "src/subjects/csc429/plugin.py",
+        "data/reference/CSC429/CSC429 SCHEME TEMPLATE.docx",
+        "tests/test_csc429_builder.py",
+        "tests/test_csc429_figures.py",
+        "tests/test_csc429_generators.py",
+        "outputs/web_cache/CSC429/95cdd1cd76725ab5b3ce_rev2/paper.docx",
+        "outputs/web_cache/CSC429/95cdd1cd76725ab5b3ce_rev2/paper.pdf",
+        "outputs/web_cache/CSC429/95cdd1cd76725ab5b3ce_rev2/scheme.docx",
+        "outputs/web_cache/CSC429/95cdd1cd76725ab5b3ce_rev2/scheme.pdf",
+        "outputs/web_cache/CSC429/95cdd1cd76725ab5b3ce_rev2/meta.json",
+        "outputs/web_cache/CSC429/95cdd1cd76725ab5b3ce_rev2/qa.json",
+        "outputs/web_cache/CSC429/95cdd1cd76725ab5b3ce_rev2/figures/",
+        "outputs/web_cache/CSC429/95cdd1cd76725ab5b3ce_rev2/preview/",
+        "docs/CSC429.md"
+      ],
+      "llm_cost_usd": 0.0,
       "blockers": [
-        "Awaiting human review of generated questions, coverage and independently recomputed answers."
+        "Awaiting human visual approval of the rendered paper and scheme (cover, page-2 body start, part labels, marks and margins)."
       ],
       "human_approval": {
         "required": true,
@@ -153,21 +185,7 @@
         "on": "",
         "note": ""
       },
-      "notes": "Eight deterministic generators registered and labelled. 20/20 seeds valid; all 8 generator IDs covered; all six data-representation kinds and all five assembly templates used. Data answers recomputed with format/int/struct; zero-, one- and three-address programs simulated to the same value. Unsupported kinds fail closed. capabilities.generation=deterministic is part of this review. LLM cost $0.00."
-    },
-    "7_builders_qa": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
+      "notes": "Owner supplied paper fix.docx and scheme fix.docx on 2026-11-05. The revised scheme front cover is installed at data/reference/CSC429/CSC429 SCHEME TEMPLATE.docx. Builder applies an empty paragraph before every QUESTION heading and 1.5 line spacing to all question-block paragraphs in both documents. Three diagram questions per seed: Von Neumann organization (history 5), CPU datapath (CPU 10) and direct-mapped cache (memory 10), rendered locally at 200 dpi with Pillow in the detailed box-and-arrow style. Text is measured with 24 px padding, >=40 px box gaps and arrow labels on white patches beside lines; tests/test_csc429_figures.py fails on label/box/line overlap, cramped spacing or text outside the canvas. Detailed diagram style restored; text readability remains checked. Seed 1 rebuilt: 6-page paper and 8-page scheme, 11 questions and 27 parts, 100 marks. QA has zero problems: DOCX XML valid, 11/11 question headings, 27/27 part labels, 3/3 diagram questions with captions and embedded images, crest and subject/date present, 27/27 scheme answers, no answer leakage, PDFs have cover, body starts on page 2, all marks present, no right overflow, no forbidden tokens. LLM cost $0.00."
     },
     "8_library_prebuild": {
       "status": "pending",

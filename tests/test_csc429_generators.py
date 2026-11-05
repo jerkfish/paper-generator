@@ -29,6 +29,11 @@ def test_seed_1_structure_and_marks():
     assert part_b[0]["marks"] == 20
     assert part_b[0]["topic"] == "instruction_set_assembly"
     assert sum(p["marks"] for p in part_b[0]["parts"]) == 20
+    figures = [q for q in paper["questions"] if q.get("figure")]
+    assert len(figures) == 3
+    assert {q["figure"]["kind"] for q in figures} == {
+        "von_neumann", "cpu_datapath", "cache_mapping"}
+    assert all("{figure}" in q["stem"] for q in figures)
     assert not any(
         marker in str(paper).lower()
         for marker in ("todo", "tbd", "placeholder", "not implemented"))
@@ -36,13 +41,21 @@ def test_seed_1_structure_and_marks():
 
 def test_all_20_seeds_validate_and_cover_every_generator():
     coverage: set[str] = set()
+    figure_kinds: set[str] = set()
     for seed in range(1, 21):
         plan = build_plan(seed)
         paper = generators.generate_paper(plan)
         assert generators.validate_paper(paper, plan) == []
         assert paper == generators.generate_paper(plan)
         coverage.update(q["generator_id"] for q in paper["questions"])
+        figures = [q for q in paper["questions"] if q.get("figure")]
+        assert len(figures) == 3
+        figure_kinds.update(q["figure"]["kind"] for q in figures)
+        for question in figures:
+            assert "{figure}" in question["stem"]
+            assert question["figure"].get("caption")
     assert coverage == set(generators.GENERATOR_IDS)
+    assert figure_kinds == set(generators.FIGURE_KINDS)
 
 
 def test_data_representation_answers_are_recomputed():

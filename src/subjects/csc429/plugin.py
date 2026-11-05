@@ -1,7 +1,8 @@
-"""CSC429 plugin adapter (hybrid deterministic/LLM subject).
+"""CSC429 plugin adapter (deterministic subject).
 
-The planner is deterministic.  The builder is implemented in stage 7; until
-then ``build_seed`` fails closed.  The app loads this module through
+The planner, generators and builder are all deterministic.  ``build_seed``
+delegates to the stage-7 builder, which writes the paper and marking scheme
+into the Library cache.  The app loads this module through
 ``subjects/CSC429/subject.json``.
 """
 from __future__ import annotations
@@ -49,10 +50,9 @@ def library_metadata(seed: int) -> dict:
 
 
 def build_seed(seed: int, **kwargs) -> dict:
-    """Build one paper and write meta.json; implemented in stage 7."""
-    raise NotImplementedError(
-        "CSC429 deterministic builder is not implemented; complete stages "
-        "6-7 first")
+    """Build one paper/scheme and write meta.json."""
+    from src.subjects.csc429.builder import build_seed as _build_seed
+    return _build_seed(seed, **kwargs)
 
 
 def generator_labels() -> dict:

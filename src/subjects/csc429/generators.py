@@ -21,6 +21,7 @@ SUBJECT = "CSC429"
 TRACKING = config.TRACKING_DIR / "csc429"
 VALIDATION_PATH = TRACKING / "generator_validation.json"
 
+FIGURE_KINDS = ("von_neumann", "cpu_datapath", "cache_mapping")
 GENERATOR_IDS = (
     "csc429.computer_generations_history",
     "csc429.data_representation",
@@ -487,6 +488,136 @@ def _assembly_question(slot: dict, rng: random.Random) -> dict:
 # ---------------------------------------------------------------------------
 # Paper assembly
 # ---------------------------------------------------------------------------
+def _labelled(parts: list[dict]) -> list[dict]:
+    for index, part in enumerate(parts):
+        part.setdefault("label", chr(ord("a") + index))
+    return parts
+
+
+def _history_diagram_question(slot: dict) -> dict:
+    return {
+        "number": slot["slot"],
+        "part": slot["part"],
+        "kind": "structured",
+        "marks": int(slot["marks"]),
+        "topic": slot["topic"],
+        "generator_id": slot["generator_id"],
+        "stem": "Study {figure} and answer the following questions.",
+        "parts": _labelled([
+            {"marks": 2,
+             "text": "Name the computer organization shown in the figure "
+                     "and state its two key principles.",
+             "answer": "Von Neumann architecture. Instructions and data are "
+                       "stored in the same memory, and the CPU executes "
+                       "instructions sequentially unless a branch changes "
+                       "the control flow."},
+            {"marks": 3,
+             "text": "Explain the function of the control unit and the "
+                     "arithmetic logic unit in this organization.",
+             "answer": "The control unit fetches and decodes instructions "
+                       "and generates the control signals. The ALU performs "
+                       "arithmetic and logical operations and records status "
+                       "flags."},
+        ]),
+        "figure": {
+            "kind": "von_neumann",
+            "caption": "Stored-program computer organization.",
+            "width_cm": 14.0,
+        },
+    }
+
+
+def _cpu_diagram_question(slot: dict) -> dict:
+    return {
+        "number": slot["slot"],
+        "part": slot["part"],
+        "kind": "structured",
+        "marks": int(slot["marks"]),
+        "topic": slot["topic"],
+        "generator_id": slot["generator_id"],
+        "stem": "Study {figure} and answer the following questions.",
+        "parts": _labelled([
+            {"marks": 2,
+             "text": "Identify the register that holds the address of the "
+                     "next instruction and the register that holds the "
+                     "instruction currently being decoded.",
+             "answer": "PC holds the address of the next instruction; IR "
+                       "holds the instruction currently being decoded."},
+            {"marks": 3,
+             "text": "Explain the roles of MAR and MBR during a memory read.",
+             "answer": "The MAR holds the address to be accessed. The memory "
+                       "places the selected word in the MBR, which then "
+                       "supplies it to the CPU (for example, to the IR)."},
+            {"marks": 5,
+             "text": "Describe the fetch-decode-execute cycle using the "
+                     "components shown in the figure.",
+             "answer": "Fetch: PC -> MAR; memory read; MBR -> IR; PC is "
+                       "incremented. Decode: the CU interprets the opcode in "
+                       "IR and issues control signals. Execute: operands are "
+                       "read, the ALU performs the operation, the result and "
+                       "flags are written back, and the next instruction is "
+                       "fetched."},
+        ]),
+        "figure": {
+            "kind": "cpu_datapath",
+            "caption": "CPU, memory and system bus organization.",
+            "width_cm": 14.5,
+        },
+    }
+
+
+def _cache_diagram_question(slot: dict) -> dict:
+    return {
+        "number": slot["slot"],
+        "part": slot["part"],
+        "kind": "structured",
+        "marks": int(slot["marks"]),
+        "topic": slot["topic"],
+        "generator_id": slot["generator_id"],
+        "stem": "Study {figure} and answer the following questions.",
+        "parts": _labelled([
+            {"marks": 2,
+             "text": "The cache uses a 16-bit address split into a 4-bit "
+                     "tag, a 3-bit line number and a 9-bit offset. For "
+                     "address 0x1A2B, give the tag, line number and offset "
+                     "in binary.",
+             "answer": "0x1A2B = 0001 1010 0010 1011; tag = 0001, line = "
+                       "101, offset = 000101011."},
+            {"marks": 4,
+             "text": "Using the cache state shown in the figure, determine "
+                     "whether each address is a hit or a miss: (i) 0x1A2B, "
+                     "(ii) 0x2A2B. Explain your reasoning.",
+             "answer": "(i) Hit: tag 0001 and line 101; line 5 is valid with "
+                       "tag 0001. (ii) Miss: tag 0010 and line 101; line 5 "
+                       "is valid but its tag is 0001, so the tags do not "
+                       "match."},
+            {"marks": 4,
+             "text": "Explain why the cache compares tags and how temporal "
+                     "and spatial locality improve the hit rate.",
+             "answer": "The tag identifies which memory block occupies a "
+                       "line; comparing tags prevents returning data from a "
+                       "different block. Temporal locality means recently "
+                       "used data is likely reused, and spatial locality "
+                       "means nearby addresses are likely used, so keeping "
+                       "blocks in cache raises the hit rate."},
+        ]),
+        "figure": {
+            "kind": "cache_mapping",
+            "caption": "Direct-mapped cache organization and address fields.",
+            "width_cm": 14.5,
+            "data": {
+                "address_bits": 16,
+                "tag_bits": 4,
+                "line_bits": 3,
+                "offset_bits": 9,
+                "addresses": ["0x1A2B", "0x2A2B"],
+                "cache": {"line3": {"valid": 1, "tag": "0010"},
+                          "line5": {"valid": 1, "tag": "0001"}},
+            },
+        },
+    }
+
+
 def _take_descriptive(slot: dict, pools: dict, rng: random.Random) -> dict:
     key = (slot["topic"], int(slot["marks"]))
     pool = pools.get(key)
@@ -526,17 +657,27 @@ def generate_paper(plan: dict | None = None, seed: int = 1) -> dict:
     }
     data5 = ["base", "signed", "ieee"]
     data10 = ["bases", "signed", "ieee"]
+    history_diagram_used = False
     questions: list[dict] = []
     for slot in plan["slots"]:
         generator_id = slot["generator_id"]
+        marks = int(slot["marks"])
         if generator_id == "csc429.assembly":
             question = _assembly_question(slot, rng)
         elif generator_id == "csc429.data_representation":
-            kinds = data5 if int(slot["marks"]) == 5 else data10
+            kinds = data5 if marks == 5 else data10
             if not kinds:
                 raise ValueError("data-representation kind pool exhausted")
             kind = kinds.pop(rng.randrange(len(kinds)))
             question = _data_question(slot, rng, kind)
+        elif generator_id == "csc429.cpu_organization" and marks == 10:
+            question = _cpu_diagram_question(slot)
+        elif generator_id == "csc429.memory_cache" and marks == 10:
+            question = _cache_diagram_question(slot)
+        elif (generator_id == "csc429.computer_generations_history"
+              and marks == 5 and not history_diagram_used):
+            question = _history_diagram_question(slot)
+            history_diagram_used = True
         else:
             question = _take_descriptive(slot, pools, rng)
         questions.append(question)
@@ -570,6 +711,8 @@ def generate_paper(plan: dict | None = None, seed: int = 1) -> dict:
             "assembly_questions": sum(
                 1 for question in questions
                 if question.get("generator_id") == "csc429.assembly"),
+            "figure_questions": sum(
+                1 for question in questions if question.get("figure")),
         },
         "generator_ids": list(GENERATOR_IDS),
     }
@@ -665,6 +808,17 @@ def validate_paper(paper: dict, plan: dict | None = None) -> list[str]:
                 problems.append(f"{question['number']} has empty content")
         if question.get("generator_id") not in GENERATOR_IDS:
             problems.append(f"{question['number']} has unknown generator")
+    figure_questions = [q for q in questions if q.get("figure")]
+    if len(figure_questions) < 3:
+        problems.append("paper must contain at least three diagram questions")
+    for question in figure_questions:
+        figure = question["figure"]
+        if figure.get("kind") not in FIGURE_KINDS:
+            problems.append(f"{question['number']} has unknown figure kind")
+        if not figure.get("caption"):
+            problems.append(f"{question['number']} figure has no caption")
+        if "{figure}" not in question.get("stem", ""):
+            problems.append(f"{question['number']} stem has no figure token")
     assembly = part_b[0] if part_b else None
     if assembly is not None:
         if assembly.get("topic") != "instruction_set_assembly":
@@ -712,6 +866,7 @@ def validate_seeds(start: int = 1, end: int = 20,
     coverage: dict[str, int] = {generator_id: 0 for generator_id in GENERATOR_IDS}
     data_kinds: dict[str, int] = {}
     assembly_templates: dict[str, int] = {}
+    figure_kinds: dict[str, int] = {}
     for seed in range(int(start), int(end) + 1):
         plan = build_plan(seed)
         paper = generate_paper(plan)
@@ -729,6 +884,9 @@ def validate_seeds(start: int = 1, end: int = 20,
                 template = str(question.get("template_id", "?"))
                 assembly_templates[template] = (
                     assembly_templates.get(template, 0) + 1)
+            if question.get("figure"):
+                kind = str(question["figure"].get("kind", "?"))
+                figure_kinds[kind] = figure_kinds.get(kind, 0) + 1
         results.append({
             "seed": seed,
             "problems": problems,
@@ -756,6 +914,9 @@ def validate_seeds(start: int = 1, end: int = 20,
         "assembly_templates": assembly_templates,
         "missing_assembly_templates": sorted(
             expected_assembly - set(assembly_templates)),
+        "figure_kinds": figure_kinds,
+        "missing_figure_kinds": sorted(
+            set(FIGURE_KINDS) - set(figure_kinds)),
         "results": results,
     }
     target = Path(path) if path is not None else VALIDATION_PATH
