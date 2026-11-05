@@ -1,0 +1,236 @@
+CONFIDENTIAL
+cs/FEB 2026/CSC429
+UNIVERSITI TEKNOLOGI MARA
+FINAL EXAMINATION
+COURSE
+COURSE CODE
+EXAMINATION
+TIME
+COMPUTER ORGANIZATION AND ARCHITECTURE
+csc429
+FEBRUARY 2026
+3 HOURS
+INSTRUCTIONS TO CANDIDATES
+1. 
+This question paper consists of two (2) parts
+Answer ALL questions in the Answer Booklet. Start each answer on a new page.
+Do not bring any material into the examination room unless permission is given by the
+invigilator.
+Please check to make sure that this examination pack consists of :
+5
+Answer ALL questions in English
+PART A (10 Questions)
+PART B (1 Question)
+I
+This examination paper cons,srs of 6 pinted pages.
+@ Hak Clpta Universiti Teknologi MARA
+CONFIDENTIAL
+2.
+3.
+4.
+i) the Question Paper
+ii) an Answer Booklet - provided by the Faculty
+DO NOT TURN THIS PAGE UNTIL YOU ARE TOLD TO DO SO
+
+CONFIDENTIAL
+PART A
+2
+cs/FEB 2026/CSC429
+\i
+QUESTION 1
+a) Name the inventor of the integrated circuit.
+(1 mark)
+b) ln which computer generation was the integrated circuit first introduced?
+(1 mark)
+c) List THREE (3) main components of an integrated circuit.
+(3 marks)
+QUEST]ON 2
+a) Discuss the computer interface that is available during the third and fourth computer
+generations. 
+(4 marks)
+b) ln your opinion, what is the leading cause that changed the computer interface in the third
+to the fourth computer generations?
+(1 mark)
+QUESTION 3
+Question 3 is based on Figure 1. For a 16-bit computer system, assume that one character,
+including space, is equal to one byte and a word is equal to two bytes.
+CSC429 is awesome!
+Figure 1
+a) What is a block?
+(1 mark)
+b) What is the smallest addressable unit?
+('l mark)
+c) ldentify the number of:
+i) 
+byte.
+ii) 
+bit.
+iii) word.
+(3 marks)
+@ Hak Cipta Universiti Teknologi MARA
+CONFIDENTIAL
+
+CONFIDENTIAL
+cs/FEB 2026/CSC429
+OUESTION 4
+Solve the following equation of -56s + A3H using 1's and 2's complement method. Show your
+complete workflow.
+5 marks)
+QUESTION 5
+a) Convert -27.1562510 to a floating-point number in IEEE single precision format in
+hexadecimar varue form. show your comprete workflow. 
+(5 marks)
+b) Convert 4'l E18O00n in IEEE single-precision floating-point number to decimal value form.
+Show your workflow.
+(5 marks)
+QUESTION 6
+a) Discuss the whole operation of the machine cycle and its respective responsible
+computer components.
+(8 marks)
+b) Elaborate on what will happen in the machine cycle if the main memory is corrupted.
+(2 marks)
+QUESTION 7
+Question 7 is based on Figure 2.
+User program
+lnterrupt handler W
+lnterrupt handler X
+lnterrupt handler Z
+lnterrupt handler Y
+t
+--'-'i
+-----:
+O Hak Cipta Universiti Teknologi MARA
+Figure 2: Nested interrupts
+CONFIDENTIAL
+J
+
+4
+cs/FEB 2026/CSC429
+CONFIDENTIAL
+a)
+b)
+c)
+d)
+e)
+QUESTION 8
+Question I is based on Figure 3.
+Computer structure A
+Computer structure B
+Define intenupt. 
+(2 marks)
+ldentify the intemrpt that has the highest priority with relevant justification 
+(2 marks)
+ldentify the interrupt that has the lowest priority with relevant justification 
+(2 marks)
+Rank the sequence of the intem.rpt process completed ff the computer system applies the
+defined priority concept to handle multiple intemrpts. 
+(2 marks)
+Rank the sequence of the interrupt process completed if the co
+disable nested interrupt concept to handle multiple interrupts'
+mputer system aPPlies the
+(2 marks)
+Cache L2
+Cache L4
+Figure 3: Different computer architectures
+a) Explain which computer structure can store the data faster compared to the other. Provide
+relevant justification to support your answer.
+(2 marks)
+b) ldentify the fastest cache level and give an appropriate reason.
+(2 marks)
+c) Vvhat is the main benefit for the cache to use SRAM technology?
+(2 marks)
+d) Discuss TWO (2) methods to update cache and main memory contents to ensure data
+consistency. 
+(4 marks)
+Cache L3
+cache L2
+cache L1
+Main
+memory
+CPU
+Cache L1
+CPU
+cache L3
+Main
+memory
+O Hak Cipta Universiti Teknologi MARA
+CONFIDENTIAL
+
+CONFIDENT
+5
+QUESTION 9
+a) When is an l/O module installed?
+(2 marks)
+b) What will happen if the l/O module is not installed?
+(2 marks)
+c) Explain ONE (1) category of l/O module
+(2 marks)
+d) What does it mean by 'hot connection'?
+(1 mark)
+e) List THREE (3) common interfaces to external devices.
+(3 marks)
+QUESTION 1O
+a) Complete the taxonomy of parallel processor architecture illustrated in Figure 4.
+(6 marks)
+Figure 4: Taxonomy of Parallel Processor Architecture
+b) Discuss TWO (2) disadvantages of symmetric multiprocessor (SMP).
+(4 marks)
+Processor
+Organization
+Multiple lnstruction
+Multiple Data (MIMD)
+(a)
+Single instruction
+Multiple Data (SIMD)
+(e)
+Distributed
+l\ilemory
+Uniprocessor
+(b)
+(r)
+Symetric
+Multiprocessor
+c
+( )
+NUMA
+O Hak cipta Universiti Teknologi MARA
+CONFIDENTIAL
+(d)
+
+CONFIDENTIAL
+cs/FEB 2026/CSC429
+PART B
+QUESTION 1
+Question 1 is based on Figure 5 and Table 1
+z-A+c2/B*D-3A
+Figure 5
+Write an appropriate program using conect assembly language notations to compute the
+equation shown in Figure 5 using instructions for zero-address, one-address, and three-
+address. The available instructions are provided in Table 1. The registers labeled A, B, C, and
+D are fixed, while registers x, y, and z can be used temporarily. The final answer must be
+stored in register z.
+(20 marks)
+Table 1: lt/achine instruction
+Zero-address
+One-address
+Three-address
+PUSH p
+LOAD p
+ADD (p,q,r)
+POP p
+STOR p
+SUB (p,q,r)
+ADD
+ADD p
+MUL (p,q,r)
+SUB
+SUB p
+DIV (p,q,r)
+MUL
+MUL p
+DIV
+DIV p
+END OF QUESTION PAPER
+6
+@ Hak Cipta Universiti Teknologi MARA
+CONFIDENTIAL

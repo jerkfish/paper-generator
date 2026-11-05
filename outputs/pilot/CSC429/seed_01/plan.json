@@ -1,0 +1,630 @@
+{
+  "seed": 1,
+  "source": "real_past_paper_bank",
+  "diagram_policy": "figure_capture_table_recreate_mixed_text_recreate",
+  "slots": [
+    {
+      "slot": "A1",
+      "marks": 5,
+      "question_id": "CSC429-2018-01-A1",
+      "paper_id": "CSC429-2018-01",
+      "source_file": "CSC429 (8).pdf",
+      "topic": "",
+      "diagram": true,
+      "asset_ids": [
+        "CSC429-2018-01-F1"
+      ],
+      "figure_refs": [
+        "Figure 1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 2,
+          "y": 185.73,
+          "text": "Question 1 is based on the following snippet garnered from a computer science web page."
+        },
+        {
+          "type": "mixed",
+          "page": 2,
+          "y": 232.89,
+          "asset_id": "CSC429-2018-01-F1",
+          "lines": [
+            "Henry Edward \"Ed\" Roberts",
+            "(September 13, 1941 -April 1, 2010)",
+            "was an American engineer, entrepreneur and",
+            "medical doctor who invented the first",
+            "commercially successful personal computer in",
+            "1975. He is most often known as \"the father of",
+            "the personal computer\". The computer was",
+            "available as a kit for $439 or assembled for",
+            "$621 and had several additional add-ons such",
+            "as a memory board and interface boards. By",
+            "August 1975, over 5,000 Altair 8800 personal",
+            "computers were sold; starting the personal",
+            "computer revolution."
+          ]
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 485.93,
+          "text": "a) In which computer generation that a personal computer is introduced?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 524.09,
+          "text": "b) Discuss ONE (1) other major discovery that is found in this generation."
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 563.32,
+          "text": "c) Advances in laptop and hand-held devices are accelerating during this computer generation. How such technology is feasible as compared to previous computer generation?"
+        }
+      ]
+    },
+    {
+      "slot": "A2",
+      "marks": 5,
+      "question_id": "CSC429-2019-06-A1",
+      "paper_id": "CSC429-2019-06",
+      "source_file": "CSC429 (12).pdf",
+      "topic": "",
+      "diagram": true,
+      "asset_ids": [
+        "CSC429-2019-06-F1"
+      ],
+      "figure_refs": [
+        "Figure 1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 2,
+          "y": 210.57,
+          "text": "Question 1 is based on the following Figure 1."
+        },
+        {
+          "type": "figure",
+          "page": 2,
+          "y": 246.57,
+          "asset_id": "CSC429-2019-06-F1",
+          "path": "data/tracking/csc429/assets/CSC429-2019-06/CSC429-2019-06-F1.png",
+          "crop_box": [
+            35.87,
+            246.57,
+            298.92,
+            339.39
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2019-06\\page_002.jpg",
+          "page_points": [
+            597.84,
+            848.4
+          ],
+          "width_px": 731,
+          "height_px": 257
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 253.04,
+          "text": "The development of component X led to a drastic increase in speed and efficiency of computers. Component X is a single, complete electronic semiconductor circuits contained on pieces of silicon, and sometimes called as chips."
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 386.23,
+          "text": "a) What is the name of component X?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 424.38,
+          "text": "b) In which computer generation was component X introduced?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 462.53,
+          "text": "c) Who is the inventor of component X?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 500.69,
+          "text": "d) State ONE (1) input device and ONE (1) output device that was introduced in the same generation as component X."
+        }
+      ]
+    },
+    {
+      "slot": "A3",
+      "marks": 5,
+      "question_id": "CSC429-2017-07-A6",
+      "paper_id": "CSC429-2017-07",
+      "source_file": "CSC429 (7).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 353.11,
+          "text": "a) Define cache."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 391.26,
+          "text": "b) Differentiate between cache and main memory in term of the following characteristics:"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 404.22,
+          "text": "i) Price"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 416.82,
+          "text": "ii) Memory size"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 429.78,
+          "text": "iii) Access time"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 442.02,
+          "text": "iv) Distance from Central Processing Unit (CPU)"
+        }
+      ]
+    },
+    {
+      "slot": "A4",
+      "marks": 5,
+      "question_id": "CSC429-2018-12-A8",
+      "paper_id": "CSC429-2018-12",
+      "source_file": "CSC429 (11).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 554.68,
+          "text": "a) List THREE (3) interfaces to external device."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 593.2,
+          "text": "b) Discuss 'hot connection' of device."
+        }
+      ]
+    },
+    {
+      "slot": "A5",
+      "marks": 10,
+      "question_id": "CSC429-2015-06-A4",
+      "paper_id": "CSC429-2015-06",
+      "source_file": "CSC429 (3).pdf",
+      "topic": "",
+      "diagram": true,
+      "asset_ids": [
+        "CSC429-2015-06-F1-2"
+      ],
+      "figure_refs": [
+        "Figure 1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 141.12,
+          "text": "Computer consists of four main components as illustrated in Figure 1. Each component has its own function in ensuring that the computer system works well. Question 4 is based on"
+        },
+        {
+          "type": "figure",
+          "page": 3,
+          "y": 198.72,
+          "asset_id": "CSC429-2015-06-F1-2",
+          "path": "data/tracking/csc429/assets/CSC429-2015-06/CSC429-2015-06-F1-2.png",
+          "crop_box": [
+            35.86,
+            198.72,
+            561.74,
+            419.72
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2015-06\\page_003.jpg",
+          "page_points": [
+            597.6,
+            847.44
+          ],
+          "width_px": 1461,
+          "height_px": 613
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 461.16,
+          "text": "a) Explain THREE (3) types of system interconnection."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 499.32,
+          "text": "b) State TWO (2) sub-components of central processing unit and its function."
+        }
+      ]
+    },
+    {
+      "slot": "A6",
+      "marks": 10,
+      "question_id": "CSC429-2015-12-A4",
+      "paper_id": "CSC429-2015-12",
+      "source_file": "CSC429 (4).pdf",
+      "topic": "",
+      "diagram": true,
+      "asset_ids": [
+        "CSC429-2015-12-F1"
+      ],
+      "figure_refs": [
+        "Figure 1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 375.84,
+          "text": "Illustration in Figure 1 shows an interrupt that happen during the execution of a program. Question 4 is based on Figure 1."
+        },
+        {
+          "type": "mixed",
+          "page": 3,
+          "y": 424.08,
+          "asset_id": "CSC429-2015-12-F1",
+          "lines": [
+            "Update status",
+            "The program can't check for definition updates. Error found: Ox80072ee7. The server name or address",
+            "could not be resolved",
+            "Go online to view troubleshpoting tips",
+            "Start time",
+            "Time elapse& 00:00:01"
+          ]
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 577.44,
+          "text": "a) Define interrupt."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 615.6,
+          "text": "b) Why interrupt is important?"
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 654.48,
+          "text": "c) Explain TWO (2) types of interrupt."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 691.92,
+          "text": "d) Discuss ONE (1) option to handle multiple interrupts that happen simultaneously."
+        }
+      ]
+    },
+    {
+      "slot": "A7",
+      "marks": 10,
+      "question_id": "CSC429-2024-07-A10",
+      "paper_id": "CSC429-2024-07",
+      "source_file": "CSC429 (17).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 602.09,
+          "text": "a) List the FOUR (4) classifications of parallel processors and provide examples for each."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 652.97,
+          "text": "b) Discuss ONE (1) advantage of using cluster computer architecture."
+        }
+      ]
+    },
+    {
+      "slot": "A8",
+      "marks": 10,
+      "question_id": "CSC429-2018-06-A9",
+      "paper_id": "CSC429-2018-06",
+      "source_file": "CSC429 (10).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 269.6,
+          "text": "a) Explain the problem in polling 1/0 method."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 308.12,
+          "text": "b) Explain how buffering can help to improve the device overall performance?"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 346.63,
+          "text": "c) Discuss how DMA technique can help the 1/0 transfer performance instead of using polling method and interrupt 1/0 method?"
+        }
+      ]
+    },
+    {
+      "slot": "A9",
+      "marks": 10,
+      "question_id": "CSC429-2014-12-A7",
+      "paper_id": "CSC429-2014-12",
+      "source_file": "CSC429 (2).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 150.12,
+          "text": "Keyboard is the most common means for computer interaction."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 175.68,
+          "text": "a) Explain TWO (2) types of keyboard characters."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 213.84,
+          "text": "b) Describe THREE (3) categories of input and output module. Give an appropriate example for each category."
+        }
+      ]
+    },
+    {
+      "slot": "A10",
+      "marks": 10,
+      "question_id": "CSC429-2016-12-A7",
+      "paper_id": "CSC429-2016-12",
+      "source_file": "CSC429 (6).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 508.25,
+          "text": "a) Why input/output problem occurs?"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 546.4,
+          "text": "b) Describe THREE (3) categories for input/output module and provide an appropriate example each."
+        }
+      ]
+    },
+    {
+      "slot": "B1",
+      "marks": 20,
+      "question_id": "CSC429-2025-02-B1",
+      "paper_id": "CSC429-2025-02",
+      "source_file": "CSC429 (18).pdf",
+      "topic": "",
+      "diagram": true,
+      "asset_ids": [
+        "CSC429-2025-02-F2",
+        "CSC429-2025-02-T1"
+      ],
+      "figure_refs": [
+        "Figure 2",
+        "Table 1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 6,
+          "y": 157.62,
+          "text": "Question 1 is based on Figure 2 and Table 1."
+        },
+        {
+          "type": "figure",
+          "page": 6,
+          "y": 191.49,
+          "asset_id": "CSC429-2025-02-F2",
+          "path": "data/tracking/csc429/assets/CSC429-2025-02/CSC429-2025-02-F2.png",
+          "crop_box": [
+            36.19,
+            191.49,
+            566.93,
+            243.13
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2025-02\\page_006.jpg",
+          "page_points": [
+            603.12,
+            843.36
+          ],
+          "width_px": 1475,
+          "height_px": 143
+        },
+        {
+          "type": "text",
+          "page": 6,
+          "y": 285.29,
+          "text": "Write an appropriate program using correct assembly language notations to compute the equation shown in Figure 2 using instructions for one-address, two-address, and three- address. The available instructions are provided in Table 1. The register labeled A, B, C, and D are fixed, while registers x, y, and z can be used temporarily. The final answer must be stored in register y."
+        },
+        {
+          "type": "table",
+          "page": 6,
+          "y": 395.21,
+          "asset_id": "CSC429-2025-02-T1",
+          "table": {
+            "columns": 3,
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "One-address",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "Two-address",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "Three-address",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "LOADp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MOV (p,q)",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "ADD (p.q.r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "STORp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "ADD (p,q)",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "SUB (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "ADDp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "SUB (p,q)",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MUL (p.q.r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "SUBp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MUL (p,q)",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "DIV(p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "MULp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "DIV(p,q)",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "DIVp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  }
+                ]
+              }
+            ],
+            "non_empty_ratio": 0.857,
+            "source": "layout"
+          }
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "questions": 11,
+    "total_marks": 100,
+    "diagram_questions": 5,
+    "table_questions": 1,
+    "mixed_questions": 2,
+    "unique_source_papers": 11,
+    "pages": 6,
+    "pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\pilot\\CSC429\\seed_01\\paper.pdf"
+  }
+}

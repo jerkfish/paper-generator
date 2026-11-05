@@ -257,7 +257,8 @@ def write_corpus(rows: list[dict], papers_dir: Path,
 
 def register(subject: str, papers_dir: Path | None = None,
              tracking_dir: Path | None = None, apply_rename: bool = False,
-             corpus: bool = False, ocr: bool = True) -> dict:
+             corpus: bool = False, ocr: bool = True,
+             assets: bool = False) -> dict:
     code = subject.upper()
     papers_dir = require_working_copies(
         papers_dir or config.subject_papers_dir(code))
@@ -304,6 +305,21 @@ def register(subject: str, papers_dir: Path | None = None,
         (tracking_dir / "papers_summary.json").write_text(
             json.dumps(summary, indent=2, ensure_ascii=False),
             encoding="utf-8")
+    if assets:
+        from src.subjects import plugins
+        from src.subjects.registry import get_subject
+
+        record = get_subject(code)
+        capture = plugins.plugin_for(record, "stage1_assets")
+        if capture is None:
+            raise SystemExit(
+                f"{code}: no stage1_assets plugin in subject.json")
+        summary["assets"] = capture(
+            subject=code, papers_dir=papers_dir,
+            tracking_dir=tracking_dir, rows=rows, summary=summary, ocr=ocr)
+        (tracking_dir / "papers_summary.json").write_text(
+            json.dumps(summary, indent=2, ensure_ascii=False),
+            encoding="utf-8")
     return summary
 
 
@@ -319,7 +335,11 @@ def main() -> None:
     ap.add_argument("--apply-rename", action="store_true",
                     help="rename working copies by cover; off by default")
     ap.add_argument("--no-ocr", action="store_true")
+    ap.add_argument("--assets", action="store_true",
+                    help="run the subject's stage1_assets plugin after register")
     args = ap.parse_args()
+    if args.assets:
+        args.register = True
     papers = Path(args.papers) if args.papers else None
     tracking = Path(args.tracking) if args.tracking else None
     if not args.register and not args.corpus:
@@ -331,7 +351,8 @@ def main() -> None:
     summary = register(args.subject, papers_dir=papers,
                        tracking_dir=tracking,
                        apply_rename=args.apply_rename,
-                       corpus=args.corpus, ocr=not args.no_ocr)
+                       corpus=args.corpus, ocr=not args.no_ocr,
+                       assets=args.assets)
     print(json.dumps(summary, indent=2, ensure_ascii=False))
 
 

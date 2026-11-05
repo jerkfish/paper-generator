@@ -1,0 +1,381 @@
+{
+  "subject": "CSC429",
+  "generated_by": "src.subjects.csc429.planner",
+  "seeds": [
+    1,
+    20
+  ],
+  "passed": 20,
+  "failed": [],
+  "results": [
+    {
+      "seed": 1,
+      "passed": true,
+      "sequence_id": "2025_02",
+      "part_marks": {
+        "A": 80,
+        "B": 20
+      },
+      "topic_marks": {
+        "computer_generations_history": 5,
+        "cpu_organization": 15,
+        "data_representation": 20,
+        "memory_cache": 10,
+        "interrupts_io": 20,
+        "parallel_architectures": 10,
+        "instruction_set_assembly": 20
+      }
+    },
+    {
+      "seed": 2,
+      "passed": true,
+      "sequence_id": "2024_01",
+      "part_marks": {
+        "A": 80,
+        "B": 20
+      },
+      "topic_marks": {
+        "computer_generations_history": 10,
+        "data_representation": 20,
+        "buses_interconnection": 10,
+        "cpu_organization": 10,
+        "memory_cache": 10,
+        "interrupts_io": 10,
+        "parallel_architectures": 10,
+        "instruction_set_assembly": 20
+      }
+    },
+    {
+      "seed": 3,
+      "passed": true,
+      "sequence_id": "2025_02",
+      "part_marks": {
+        "A": 80,
+        "B": 20
+      },
+      "topic_marks": {
+        "computer_generations_history": 5,
+        "cpu_organization": 15,
+        "data_representation": 20,
+        "memory_cache": 10,
+        "interrupts_io": 20,
+        "parallel_architectures": 10,
+        "instruction_set_assembly": 20
+      }
+    },
+    {
+      "seed": 4,
+      "passed": true,
+      "sequence_id": "2025_02",
+      "part_marks": {
+        "A": 80,
+        "B": 20
+      },
+      "topic_marks": {
+        "computer_generations_history": 5,
+        "cpu_organization": 15,
+        "data_representation": 20,
+        "memory_cache": 10,
+        "interrupts_io": 20,
+        "parallel_architectures": 10,
+        "instruction_set_assembly": 20
+      }
+    },
+    {
+      "seed": 5,
+      "passed": true,
+      "sequence_id": "2023_02",
+      "part_marks": {
+        "A": 80,
+        "B": 20
+      },
+      "topic_marks": {
+        "computer_generations_history": 10,
+        "data_representation": 20,
+        "cpu_organization": 10,
+        "memory_cache": 10,
+        "interrupts_io": 20,
+        "parallel_architectures": 10,
+        "instruction_set_assembly": 20
+      }
+    },
+    {
+      "seed": 6,
+      "passed": true,
+      "sequence_id": "2024_01",
+      "part_marks": {
+        "A": 80,
+        "B": 20
+      },
+      "topic_marks": {
+        "computer_generations_history": 10,
+        "data_representation": 20,
+        "buses_interconnection": 10,
+        "cpu_organization": 10,
+        "memory_cache": 10,
+        "interrupts_io": 10,
+        "parallel_architectures": 10,
+        "instruction_set_assembly": 20
+      }
+    },
+    {
+      "seed": 7,
+      "passed": true,
+      "sequence_id": "2023_02",
+      "part_marks": {
+        "A": 80,
+        "B": 20
+      },
+      "topic_marks": {
+        "computer_generations_history": 10,
+        "data_representation": 20,
+        "cpu_organization": 10,
+        "memory_cache": 10,
+        "interrupts_io": 20,
+        "parallel_architectures": 10,
+        "instruction_set_assembly": 20
+      }
+    },
+    {
+      "seed": 8,
+      "passed": true,
+      "sequence_id": "2025_02",
+      "part_marks": {
+        "A": 80,
+        "B": 20
+      },
+      "topic_marks": {
+        "computer_generations_history": 5,
+        "cpu_organization": 15,
+        "data_representation": 20,
+        "memory_cache": 10,
+        "interrupts_io": 20,
+        "parallel_architectures": 10,
+        "instruction_set_assembly": 20
+      }
+    },
+    {
+      "seed": 9,
+      "passed": true,
+      "sequence_id": "2024_07",
+      "part_marks": {
+        "A": 80,
+        "B": 20
+      },
+      "topic_marks": {
+        "computer_generations_history": 5,
+        "cpu_organization": 15,
+        "data_representation": 20,
+        "buses_interconnection": 10,
+        "memory_cache": 10,
+        "interrupts_io": 10,
+        "parallel_architectures": 10,
+        "instruction_set_assembly": 20
+      }
+    },
+    {
+      "seed": 10,
+      "passed": true,
+      "sequence_id": "2024_01",
+      "part_marks": {
+        "A": 80,
+        "B": 20
+      },
+      "topic_marks": {
+        "computer_generations_history": 10,
+        "data_representation": 20,
+        "buses_interconnection": 10,
+        "cpu_organization": 10,
+        "memory_cache": 10,
+        "interrupts_io": 10,
+        "parallel_architectures": 10,
+        "instruction_set_assembly": 20
+      }
+    },
+    {
+      "seed": 11,
+      "passed": true,
+      "sequence_id": "2024_07",
+      "part_marks": {
+        "A": 80,
+        "B": 20
+      },
+      "topic_marks": {
+        "computer_generations_history": 5,
+        "cpu_organization": 15,
+        "data_representation": 20,
+        "buses_interconnection": 10,
+        "memory_cache": 10,
+        "interrupts_io": 10,
+        "parallel_architectures": 10,
+        "instruction_set_assembly": 20
+      }
+    },
+    {
+      "seed": 12,
+      "passed": true,
+      "sequence_id": "2024_07",
+      "part_marks": {
+        "A": 80,
+        "B": 20
+      },
+      "topic_marks": {
+        "computer_generations_history": 5,
+        "cpu_organization": 15,
+        "data_representation": 20,
+        "buses_interconnection": 10,
+        "memory_cache": 10,
+        "interrupts_io": 10,
+        "parallel_architectures": 10,
+        "instruction_set_assembly": 20
+      }
+    },
+    {
+      "seed": 13,
+      "passed": true,
+      "sequence_id": "2023_02",
+      "part_marks": {
+        "A": 80,
+        "B": 20
+      },
+      "topic_marks": {
+        "computer_generations_history": 10,
+        "data_representation": 20,
+        "cpu_organization": 10,
+        "memory_cache": 10,
+        "interrupts_io": 20,
+        "parallel_architectures": 10,
+        "instruction_set_assembly": 20
+      }
+    },
+    {
+      "seed": 14,
+      "passed": true,
+      "sequence_id": "2024_01",
+      "part_marks": {
+        "A": 80,
+        "B": 20
+      },
+      "topic_marks": {
+        "computer_generations_history": 10,
+        "data_representation": 20,
+        "buses_interconnection": 10,
+        "cpu_organization": 10,
+        "memory_cache": 10,
+        "interrupts_io": 10,
+        "parallel_architectures": 10,
+        "instruction_set_assembly": 20
+      }
+    },
+    {
+      "seed": 15,
+      "passed": true,
+      "sequence_id": "2025_02",
+      "part_marks": {
+        "A": 80,
+        "B": 20
+      },
+      "topic_marks": {
+        "computer_generations_history": 5,
+        "cpu_organization": 15,
+        "data_representation": 20,
+        "memory_cache": 10,
+        "interrupts_io": 20,
+        "parallel_architectures": 10,
+        "instruction_set_assembly": 20
+      }
+    },
+    {
+      "seed": 16,
+      "passed": true,
+      "sequence_id": "2023_02",
+      "part_marks": {
+        "A": 80,
+        "B": 20
+      },
+      "topic_marks": {
+        "computer_generations_history": 10,
+        "data_representation": 20,
+        "cpu_organization": 10,
+        "memory_cache": 10,
+        "interrupts_io": 20,
+        "parallel_architectures": 10,
+        "instruction_set_assembly": 20
+      }
+    },
+    {
+      "seed": 17,
+      "passed": true,
+      "sequence_id": "2024_07",
+      "part_marks": {
+        "A": 80,
+        "B": 20
+      },
+      "topic_marks": {
+        "computer_generations_history": 5,
+        "cpu_organization": 15,
+        "data_representation": 20,
+        "buses_interconnection": 10,
+        "memory_cache": 10,
+        "interrupts_io": 10,
+        "parallel_architectures": 10,
+        "instruction_set_assembly": 20
+      }
+    },
+    {
+      "seed": 18,
+      "passed": true,
+      "sequence_id": "2025_02",
+      "part_marks": {
+        "A": 80,
+        "B": 20
+      },
+      "topic_marks": {
+        "computer_generations_history": 5,
+        "cpu_organization": 15,
+        "data_representation": 20,
+        "memory_cache": 10,
+        "interrupts_io": 20,
+        "parallel_architectures": 10,
+        "instruction_set_assembly": 20
+      }
+    },
+    {
+      "seed": 19,
+      "passed": true,
+      "sequence_id": "2024_01",
+      "part_marks": {
+        "A": 80,
+        "B": 20
+      },
+      "topic_marks": {
+        "computer_generations_history": 10,
+        "data_representation": 20,
+        "buses_interconnection": 10,
+        "cpu_organization": 10,
+        "memory_cache": 10,
+        "interrupts_io": 10,
+        "parallel_architectures": 10,
+        "instruction_set_assembly": 20
+      }
+    },
+    {
+      "seed": 20,
+      "passed": true,
+      "sequence_id": "2025_02",
+      "part_marks": {
+        "A": 80,
+        "B": 20
+      },
+      "topic_marks": {
+        "computer_generations_history": 5,
+        "cpu_organization": 15,
+        "data_representation": 20,
+        "memory_cache": 10,
+        "interrupts_io": 20,
+        "parallel_architectures": 10,
+        "instruction_set_assembly": 20
+      }
+    }
+  ]
+}

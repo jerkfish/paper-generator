@@ -1,0 +1,188 @@
+{
+  "subject": "CSC429",
+  "planner_version": 1,
+  "generated_by": "src.subjects.csc429.planner",
+  "style": "modern",
+  "mode": "realistic",
+  "seed": 17,
+  "target_format": {
+    "A": {
+      "questions": 10,
+      "marks": 80
+    },
+    "B": {
+      "questions": 1,
+      "marks": 20
+    }
+  },
+  "source_papers": [
+    "CSC429-2023-02",
+    "CSC429-2023-07",
+    "CSC429-2024-01",
+    "CSC429-2024-07",
+    "CSC429-2025-02",
+    "CSC429-2025-07",
+    "CSC429-2026-02"
+  ],
+  "source_evidence": [
+    "data/tracking/csc429/taxonomy.json",
+    "data/tracking/csc429/question_log.json",
+    "data/tracking/csc429/taxonomy_summary.json"
+  ],
+  "sequence_id": "2024_07",
+  "sequence_source": "CSC429-2024-07",
+  "part_marks": {
+    "A": 80,
+    "B": 20
+  },
+  "topic_marks": {
+    "computer_generations_history": 5,
+    "cpu_organization": 15,
+    "data_representation": 20,
+    "buses_interconnection": 10,
+    "memory_cache": 10,
+    "interrupts_io": 10,
+    "parallel_architectures": 10,
+    "instruction_set_assembly": 20
+  },
+  "assigned_topic_marks": {
+    "computer_generations_history": 5,
+    "cpu_organization": 15,
+    "data_representation": 20,
+    "buses_interconnection": 10,
+    "memory_cache": 10,
+    "interrupts_io": 10,
+    "parallel_architectures": 10,
+    "instruction_set_assembly": 20
+  },
+  "total_marks": 100,
+  "computed_marks": 100,
+  "requested_computed_marks": null,
+  "question_count": 11,
+  "slot_count": 11,
+  "total_slots": 11,
+  "slots": [
+    {
+      "slot": "A1",
+      "part": "A",
+      "question": "A1",
+      "kind": "structured",
+      "marks": 5,
+      "topic": "computer_generations_history",
+      "task": "computer_generations_history",
+      "title": "Computer generations and history",
+      "generator_id": "csc429.computer_generations_history"
+    },
+    {
+      "slot": "A2",
+      "part": "A",
+      "question": "A2",
+      "kind": "structured",
+      "marks": 5,
+      "topic": "cpu_organization",
+      "task": "cpu_organization",
+      "title": "CPU organization and machine cycle",
+      "generator_id": "csc429.cpu_organization"
+    },
+    {
+      "slot": "A3",
+      "part": "A",
+      "question": "A3",
+      "kind": "structured",
+      "marks": 5,
+      "topic": "data_representation",
+      "task": "data_representation",
+      "title": "Data representation and number systems",
+      "generator_id": "csc429.data_representation"
+    },
+    {
+      "slot": "A4",
+      "part": "A",
+      "question": "A4",
+      "kind": "structured",
+      "marks": 5,
+      "topic": "data_representation",
+      "task": "data_representation",
+      "title": "Data representation and number systems",
+      "generator_id": "csc429.data_representation"
+    },
+    {
+      "slot": "A5",
+      "part": "A",
+      "question": "A5",
+      "kind": "structured",
+      "marks": 10,
+      "topic": "data_representation",
+      "task": "data_representation",
+      "title": "Data representation and number systems",
+      "generator_id": "csc429.data_representation"
+    },
+    {
+      "slot": "A6",
+      "part": "A",
+      "question": "A6",
+      "kind": "structured",
+      "marks": 10,
+      "topic": "cpu_organization",
+      "task": "cpu_organization",
+      "title": "CPU organization and machine cycle",
+      "generator_id": "csc429.cpu_organization"
+    },
+    {
+      "slot": "A7",
+      "part": "A",
+      "question": "A7",
+      "kind": "structured",
+      "marks": 10,
+      "topic": "buses_interconnection",
+      "task": "buses_interconnection",
+      "title": "Buses and system interconnection",
+      "generator_id": "csc429.buses_interconnection"
+    },
+    {
+      "slot": "A8",
+      "part": "A",
+      "question": "A8",
+      "kind": "structured",
+      "marks": 10,
+      "topic": "memory_cache",
+      "task": "memory_cache",
+      "title": "Memory hierarchy and cache",
+      "generator_id": "csc429.memory_cache"
+    },
+    {
+      "slot": "A9",
+      "part": "A",
+      "question": "A9",
+      "kind": "structured",
+      "marks": 10,
+      "topic": "interrupts_io",
+      "task": "interrupts_io",
+      "title": "Interrupts, I/O and DMA",
+      "generator_id": "csc429.interrupts_io"
+    },
+    {
+      "slot": "A10",
+      "part": "A",
+      "question": "A10",
+      "kind": "structured",
+      "marks": 10,
+      "topic": "parallel_architectures",
+      "task": "parallel_architectures",
+      "title": "Parallel architectures",
+      "generator_id": "csc429.parallel_architectures"
+    },
+    {
+      "slot": "B1",
+      "part": "B",
+      "question": "B1",
+      "kind": "assembly",
+      "marks": 20,
+      "topic": "instruction_set_assembly",
+      "task": "assembly",
+      "title": "Instruction set and assembly programming",
+      "generator_id": "csc429.assembly"
+    }
+  ],
+  "notes": "Modern 2023-2026 format: ten Part A structured questions using the observed 5,5,5,5,10,10,10,10,10,10 mark pattern and one 20-mark Part B assembly question. The seed selects one observed topic sequence."
+}

@@ -1,0 +1,278 @@
+CONFIDENTIAL
+UNIVERSITI TEKNOLOGI MARA
+FINAL EXAMINATION
+CS/DEC 2019/CSC429
+COURSE
+COMPUTER ORGANIZATION AND
+ARCHITECTURE
+COURSE CODE
+CSC429
+EXAMINATION
+DECEMBER 2019
+TIME
+3 HOURS
+INSTRUCTIONS TO CANDIDATES
+1.
+This question paper consists of two (2) parts:
+PART A (10 Questions)
+PART B (1 Question)
+2.
+Answer ALL questions in the Answer Booklet. Start each answer on a new page.
+3.
+Do not bring any material into the examination room unless permission is given by the
+invigilator.
+4.
+Please check to make sure that this examination pack consists of:
+i)
+the Question Paper
+ii)
+an Answer Booklet - provided by the Faculty
+5.
+Answer ALL questions in English.
+DO NOT TURN THIS PAGE UNTIL YOU ARE TOLD TO DO SO
+This examination paper consists of 6 printed pages
+© Hak Cipta Universiti Teknologi MARA
+CONFIDENTIAL
+
+CONFIDENTIAL
+PART A (85 MARKS)
+QUESTION 1
+Question 1 is based on the following Figure 1.
+U^jj,
+CS/DEC 2019/CSC429
+Inventor 'Y' was France's most
+celebrated
+mathematician
+and
+physicist. In 1642, inventor 'Y'
+invented
+and
+build
+the
+first
+working calculating machine as a
+means of helping his father to
+perform tedious tax accounting.
+Figure 1: Inventor 'Y' and his calculating machine.
+a)
+Who is inventor 'Y'?
+(1 mark)
+b)
+Name another calculating machine that was invented in the same generation as inventor
+Y's calculating machine.
+(1 mark)
+c)
+Which programming language is named after inventor 'Y'?
+(1 mark)
+d)
+State TWO (2) mathematical operationsthat can be performed byinventor Y's calculating
+machine.
+(2 marks)
+QUESTION 2
+a)
+The Von Neumann Architecture was first introduced inwhich computer generation?
+(1 mark)
+b)
+Draw the Von Neumann Architecture.
+(2 marks)
+c)
+Central Processing Unit (CPU) is one of the components of a Von Neumann Architecture
+whereas Control Unit and Arithmetic Logic Unit are the main components of a CPU. What
+is the main task of a CU?
+(2 marks)
+© Hak Cipta Universiti Teknologi MARA
+CONFIDENTIAL
+
+CONFIDENTIAL
+3
+CS/DEC 2019/CSC429
+QUESTION 3
+a)
+Calculate FIFAie - 664i6 using the following techniques. Showthe complete workflow.
+i)
+Sign and magnitude
+(5 marks)
+ii)
+2's complement
+(5 marks)
+QUESTION 4
+a) Convert the following values to the respective number bases. Show the complete work
+flow.
+i)
+1210.331s to hexadecimal
+(4 marks)
+ii)
+295.8125io to octal
+(4 marks)
+iii)
+BACAieto binary
+(2 marks)
+QUESTION 5
+a)
+Differentiate between bit, byte, word and block.
+(5 marks)
+b)
+Answer the following questions on IEEE single precision floating point numbers.
+i)
+Convert -151.625io to floating point number in IEEE single precision format in
+hexadecimal value form.
+(5 marks)
+ii)
+Convert 425B900i6 in IEEE single precision floating point number to decimal value
+form.
+(5 marks)
+©Hak Cipta Universiti Teknologi MARA
+CONFIDENTIAL
+
+CONFIDENTIAL
+CS/DEC 2019/CSC429
+QUESTION 6
+a)
+Assume that a portion of tags in the cache looks like Table 1. Identify the specific block
+address location for the following addresses:
+i)
+CC8933
+ii)
+AEEEB5
+iii)
+9BC287
+iv)
+CD8B78
+Table 1: Portion of Taqs in Cache
+Tag (binary)
+Line number (binary)
+Address with block
+00
+01
+10
+11
+1010 1101
+1110 1100 1101 10
+A1
+A2
+A3
+A4
+1010 1110
+1110 1110 1011 01
+B1
+B2
+B3
+B4
+1100 1100
+1000 1001 0011 00
+C1
+C2
+C3
+C4
+1100 1101
+1000 1011 0111 10
+D1
+D2
+D3
+D4
+1001 1010
+1100 0001 0011 00
+E1
+E2
+E3
+E4
+1001 1011
+1100 0010 1000 01
+F1
+F2
+F3
+F4
+b)
+What is the type of mapping function used inTable 1?
+QUESTION 7
+Describe the specificfunction ofdifferent types of registers.
+QUESTION 8
+a)
+State TWO (2) different types of bus.
+(2 marks)
+b)
+The size of a word is 32 bits and the size of the block is 256 bits. Determine of the
+following:
+i)
+The byte for word
+ii)
+The byte for block,
+iii)
+Size of the register,
+iv)
+Size of the data bus.
+(8 marks)
+(4 marks)
+(1 mark)
+(10 marks)
+© Hak Cipta Universiti Teknologi MARA
+CONFIDENTIAL
+
+CONFIDENTIAL
+QUESTION 9
+a)
+Define interrupt.
+b)
+Differentiate between interrupt and direct manipulation access.
+CS/DEC 2019/CSC429
+(1 mark)
+(4 marks)
+c)
+Given the following scenario.
+Dilan is surfing woolworth.com to buy groceries online. While he is comparing prices of
+products in woolworth.com and one other website, two messages popped up onto his
+screen. Figure 2 (a) and (b) illustrate the conveyed messages.
+Are you sure you want to
+cancel this request?
+There is a hardware event failure
+in this computer. Please reboot
+this computer now.
+(a)
+(b)
+Figure 2: The pop-up messages
+i)
+Identify the type of interrupt in Figure 2(a) and Figure 2(b) with proper justification.
+(4 marks)
+ii)
+While interruptroutinefor Interrupt Ais executing, it is interrupted by interrupt Bwhich
+has a higher priority than interrupt A. What will happen to interrupt routine A?
+(1 mark)
+QUESTION 10
+a)
+List THREE (3) characteristics of Symmetric Multiprocessor (SMP).
+(3 marks)
+b)
+Describe ONE (1) advantage of Symmetric Multiprocessor (SMP) interms of availability.
+(2 marks)
+© Hak Cipta Universiti Teknologi MARA
+CONFIDENTIAL
+
+CONFIDENTIAL
+CS/DEC 2019/CSC429
+PART B (15 MARKS)
+QUESTION 1
+Question 1 is based on Figure 3 and Table 2.
+y = (A/B2 - C2) / (B + C) - A
+Figure 3: Equation r
+Write theappropriate program using correct assembly language notation tocompute equation
+in Figure 3 using one-address and three-address instructions.
+The instructions are given in Table 2. Note that register A, B and C cannot be modified and
+register x, y andz can be used as temporary register. Final answer must be stored in register
+y
+Table 2: Mach ine instruction
+Onc-addrcss
+Three-address
+LOADm
+ADD (m, n, o)
+STORm
+SUB (m, n, o)
+ADDm
+MUL(m, n, o)
+SUBm
+DIV(m, n, o)
+MULm
+DIVm
+END OF QUESTION PAPER
+© Hak Cipta Universiti Teknologi MARA
+(15 marks)
+CONFIDENTIAL

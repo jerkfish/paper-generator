@@ -1,0 +1,605 @@
+{
+  "seed": 2,
+  "source": "real_past_paper_bank",
+  "diagram_policy": "figure_capture_table_recreate_mixed_text_recreate",
+  "slots": [
+    {
+      "slot": "A1",
+      "marks": 5,
+      "question_id": "CSC429-2018-06-A1",
+      "paper_id": "CSC429-2018-06",
+      "source_file": "CSC429 (10).pdf",
+      "topic": "",
+      "diagram": true,
+      "asset_ids": [
+        "CSC429-2018-06-F1"
+      ],
+      "figure_refs": [
+        "Figure 1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 2,
+          "y": 179.61,
+          "text": "Question 1 is based on the following image and statements in Figure 1."
+        },
+        {
+          "type": "figure",
+          "page": 2,
+          "y": 211.65,
+          "asset_id": "CSC429-2018-06-F1",
+          "path": "data/tracking/csc429/assets/CSC429-2018-06/CSC429-2018-06-F1.png",
+          "crop_box": [
+            36.39,
+            211.65,
+            303.24,
+            466.81
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2018-06\\page_002.jpg",
+          "page_points": [
+            606.48,
+            848.4
+          ],
+          "width_px": 741,
+          "height_px": 708
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 246.21,
+          "text": "Charles Babbage was an English mathematician, a philosopher and also an inventor. He was born on 1791 in London England. He was known for his contributions to invent machine X to solve four basic arithmetic functions. The machine X has improved its calculations design from Stepped Reckoner machine and early mechanical calculator. The machine X has introduced a number of computing concepts which are still in use today. Although this machine was not actually completed, it is the first machine that deserved to be called as a computer."
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 508.61,
+          "text": "a) What is the machine X name?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 546.4,
+          "text": "b) In which generation does the machine X introduced?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 584.56,
+          "text": "c) What is the function of machine X?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 622.71,
+          "text": "d) Name the machine that has been invented prior to machine X?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 660.51,
+          "text": "e) What is the title given to Charles Babbage due to his success to invent machine X?"
+        }
+      ]
+    },
+    {
+      "slot": "A2",
+      "marks": 5,
+      "question_id": "CSC429-2023-02-A2",
+      "paper_id": "CSC429-2023-02",
+      "source_file": "CSC429 (14).pdf",
+      "topic": "",
+      "diagram": true,
+      "asset_ids": [
+        "CSC429-2023-02-F1"
+      ],
+      "figure_refs": [
+        "Figure 1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 2,
+          "y": 318.9,
+          "text": "a) Identify the Von Neumann architecture input and output components based on the excerpts from the web."
+        },
+        {
+          "type": "mixed",
+          "page": 2,
+          "y": 371.7,
+          "asset_id": "CSC429-2023-02-F1",
+          "lines": [
+            "The Jacquard Loom is a mechanical loom invented by Joseph Marie Jacquard in",
+            "1801, which simplifies the process of manufacturing textiles with complex",
+            "patterns. The loom is controlled by punched cards with punched holes, each row",
+            "corresponding to one design row. Multiple rows of holes are punched on each",
+            "card, and the many cards that compose the textile design are strung together in",
+            "an orderly manner."
+          ]
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 520.01,
+          "text": "b) Identify ONE (1) similarity and ONE (1) dissimilarity between the mechanical calculating machine and Atanasoff Berry Computer."
+        }
+      ]
+    },
+    {
+      "slot": "A3",
+      "marks": 5,
+      "question_id": "CSC429-2023-07-A4",
+      "paper_id": "CSC429-2023-07",
+      "source_file": "CSC429 (15).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 2,
+          "y": 631.41,
+          "text": "a) Solve -4810 + 6810 using the sign and magnitude method. Show the complete workflow."
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 682.17,
+          "text": "b) Calculate -9610 -1510 using the I's and 2's complement method. Show the complete workflow."
+        }
+      ]
+    },
+    {
+      "slot": "A4",
+      "marks": 5,
+      "question_id": "CSC429-2025-02-A4",
+      "paper_id": "CSC429-2025-02",
+      "source_file": "CSC429 (18).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 135.06,
+          "text": "a) Calculate 408 - 40h using sign and magnitude. Show your complete workflow."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 183.29,
+          "text": "b) Calculate 39h - 23a using 1 's and 2's complement method. Show your complete workflow."
+        }
+      ]
+    },
+    {
+      "slot": "A5",
+      "marks": 10,
+      "question_id": "CSC429-2026-02-A8",
+      "paper_id": "CSC429-2026-02",
+      "source_file": "CSC429 (21).pdf",
+      "topic": "",
+      "diagram": true,
+      "asset_ids": [
+        "CSC429-2026-02-F3"
+      ],
+      "figure_refs": [
+        "Figure 3"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 338.84,
+          "text": "Question I is based on Figure 3. Computer structure A Main cache L2 Cache L3 CPU cache L1 memory"
+        },
+        {
+          "type": "figure",
+          "page": 4,
+          "y": 448.2,
+          "asset_id": "CSC429-2026-02-F3",
+          "path": "data/tracking/csc429/assets/CSC429-2026-02/CSC429-2026-02-F3.png",
+          "crop_box": [
+            34.56,
+            448.2,
+            541.44,
+            515.17
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2026-02\\page_004.jpg",
+          "page_points": [
+            576.0,
+            807.12
+          ],
+          "width_px": 1407,
+          "height_px": 186
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 553.23,
+          "text": "a) Explain which computer structure can store the data faster compared to the other. Provide relevant justification to support your answer."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 603.63,
+          "text": "b) ldentify the fastest cache level and give an appropriate reason."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 642.15,
+          "text": "c) Vvhat is the main benefit for the cache to use SRAM technology?"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 679.95,
+          "text": "d) Discuss TWO (2) methods to update cache and main memory contents to ensure data consistency."
+        }
+      ]
+    },
+    {
+      "slot": "A6",
+      "marks": 10,
+      "question_id": "CSC429-2019-12-A9",
+      "paper_id": "CSC429-2019-12",
+      "source_file": "CSC429 (13).pdf",
+      "topic": "",
+      "diagram": true,
+      "asset_ids": [
+        "CSC429-2019-12-F2"
+      ],
+      "figure_refs": [
+        "Figure 2"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 148.01,
+          "text": "a) Define interrupt."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 184.4,
+          "text": "b) Differentiate between interrupt and direct manipulation access."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 237.0,
+          "text": "c) Given the following scenario. Dilan is surfing woolworth.com to buy groceries online. While he is comparing prices of products in woolworth.com and one other website, two messages popped up onto his screen. Figure 2 (a) and (b) illustrate the conveyed messages."
+        },
+        {
+          "type": "mixed",
+          "page": 5,
+          "y": 322.25,
+          "asset_id": "CSC429-2019-12-F2",
+          "lines": [
+            "Are you sure you want to",
+            "There is a hardware event failure",
+            "in this computer. Please reboot",
+            "cancel this request?",
+            "this computer now."
+          ]
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 376.42,
+          "text": "(a)"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 376.42,
+          "text": "(b)"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 439.28,
+          "text": "i) Identify the type of interrupt in Figure 2(a) and Figure 2(b) with proper justification."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 477.18,
+          "text": "ii) While interruptroutinefor Interrupt Ais executing, it is interrupted by interrupt Bwhich has a higher priority than interrupt A. What will happen to interrupt routine A?"
+        }
+      ]
+    },
+    {
+      "slot": "A7",
+      "marks": 10,
+      "question_id": "CSC429-2015-06-A7",
+      "paper_id": "CSC429-2015-06",
+      "source_file": "CSC429 (3).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 455.04,
+          "text": "Keyboard is the most common means for computer interaction."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 480.6,
+          "text": "a) Explain TWO (2) types of characters that keyboard provides."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 518.4,
+          "text": "b) Describe THREE (3) categories of input and output module. Give an appropriate example for each category."
+        }
+      ]
+    },
+    {
+      "slot": "A8",
+      "marks": 10,
+      "question_id": "CSC429-2016-06-A7",
+      "paper_id": "CSC429-2016-06",
+      "source_file": "CSC429 (5).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 310.28,
+          "text": "Replacement algorithm is used to determine which entry in a cache to flush to main memory when it is desired to cache a new block of data."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 348.43,
+          "text": "a) Which mapping function does not need to have a replacement algorithm?"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 386.59,
+          "text": "b) Describe FOUR (4) types of replacement algorithm."
+        }
+      ]
+    },
+    {
+      "slot": "A9",
+      "marks": 10,
+      "question_id": "CSC429-2014-12-A4",
+      "paper_id": "CSC429-2014-12",
+      "source_file": "CSC429 (2).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 146.16,
+          "text": "Processor contains a number of registers used for temporary storage of data. Describe FIVE (5) types of registers."
+        }
+      ]
+    },
+    {
+      "slot": "A10",
+      "marks": 10,
+      "question_id": "CSC429-2015-12-A7",
+      "paper_id": "CSC429-2015-12",
+      "source_file": "CSC429 (4).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 608.04,
+          "text": "Describe FOUR (4) type of access methods based on hardware implementation of the storage device. Provide ONE (1) appropriate example for each access type."
+        }
+      ]
+    },
+    {
+      "slot": "B1",
+      "marks": 20,
+      "question_id": "CSC429-2024-07-B1",
+      "paper_id": "CSC429-2024-07",
+      "source_file": "CSC429 (17).pdf",
+      "topic": "",
+      "diagram": true,
+      "asset_ids": [
+        "CSC429-2024-07-F2",
+        "CSC429-2024-07-T1"
+      ],
+      "figure_refs": [
+        "Figure 2",
+        "Table 1",
+        "Figure 1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 167.46,
+          "text": "Question 1 is based on Figure 2 and Table 1."
+        },
+        {
+          "type": "figure",
+          "page": 5,
+          "y": 196.86,
+          "asset_id": "CSC429-2024-07-F2",
+          "path": "data/tracking/csc429/assets/CSC429-2024-07/CSC429-2024-07-F2.png",
+          "crop_box": [
+            35.81,
+            196.86,
+            561.07,
+            280.34
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2024-07\\page_005.jpg",
+          "page_points": [
+            596.88,
+            842.88
+          ],
+          "width_px": 1459,
+          "height_px": 231
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 309.05,
+          "text": "Write the appropriate programs using correct assembly language notations and comments to compute the equation represented in Figure 1 using zero-, one-, and three-address instructions. The instructions available for use are provided in Table 1. Register A, B, C, and D cannot be modified, and registers x, y, and z can be used as temporary registers. However, the final answer must be stored in Register y."
+        },
+        {
+          "type": "table",
+          "page": 5,
+          "y": 407.45,
+          "asset_id": "CSC429-2024-07-T1",
+          "table": {
+            "columns": 3,
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Zero-address",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "One-address",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "Three-address",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "PUSHp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "LOADp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "ADD (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "POPp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "STORp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "SUB (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "ADD",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "ADDp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MUL (p.q.r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "SUB",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "SUBp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "DIV(p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "MUL",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MULp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "DIV",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "DIVp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  }
+                ]
+              }
+            ],
+            "non_empty_ratio": 0.905,
+            "source": "layout"
+          }
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "questions": 11,
+    "total_marks": 100,
+    "diagram_questions": 5,
+    "table_questions": 1,
+    "mixed_questions": 2,
+    "unique_source_papers": 11,
+    "pages": 6,
+    "pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\pilot\\CSC429\\seed_02\\paper.pdf"
+  }
+}

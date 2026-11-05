@@ -1,0 +1,410 @@
+{
+  "subject": "CSC429",
+  "seed": 14,
+  "generated_by": "src.subjects.csc429.generators",
+  "planner": "src.subjects.csc429.planner",
+  "total_marks": 100,
+  "part_marks": {
+    "A": 80,
+    "B": 20
+  },
+  "topic_marks": {
+    "computer_generations_history": 10,
+    "data_representation": 20,
+    "buses_interconnection": 10,
+    "cpu_organization": 10,
+    "memory_cache": 10,
+    "interrupts_io": 10,
+    "parallel_architectures": 10,
+    "instruction_set_assembly": 20
+  },
+  "question_count": 11,
+  "slot_count": 11,
+  "questions": [
+    {
+      "number": "A1",
+      "part": "A",
+      "kind": "structured",
+      "marks": 5,
+      "topic": "computer_generations_history",
+      "generator_id": "csc429.computer_generations_history",
+      "stem": "Study {figure} and answer the following questions.",
+      "parts": [
+        {
+          "marks": 2,
+          "text": "Name the computer organization shown in the figure and state its two key principles.",
+          "answer": "Von Neumann architecture. Instructions and data are stored in the same memory, and the CPU executes instructions sequentially unless a branch changes the control flow.",
+          "label": "a"
+        },
+        {
+          "marks": 3,
+          "text": "Explain the function of the control unit and the arithmetic logic unit in this organization.",
+          "answer": "The control unit fetches and decodes instructions and generates the control signals. The ALU performs arithmetic and logical operations and records status flags.",
+          "label": "b"
+        }
+      ],
+      "figure": {
+        "kind": "von_neumann",
+        "caption": "Stored-program computer organization.",
+        "width_cm": 14.0
+      }
+    },
+    {
+      "number": "A2",
+      "part": "A",
+      "kind": "structured",
+      "marks": 5,
+      "topic": "computer_generations_history",
+      "generator_id": "csc429.computer_generations_history",
+      "stem": "Computer generations are distinguished by their main technology.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "State the main technology of the first and third generations.",
+          "answer": "First generation: vacuum tubes. Third generation: integrated circuits."
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "Explain ONE major limitation of first-generation computers.",
+          "answer": "They used thousands of vacuum tubes, so they were very large, generated a lot of heat, consumed high power and were unreliable."
+        }
+      ]
+    },
+    {
+      "number": "A3",
+      "part": "A",
+      "kind": "structured",
+      "marks": 5,
+      "topic": "data_representation",
+      "generator_id": "csc429.data_representation",
+      "stem": "Answer the following data-representation questions. Show your complete workflow.",
+      "parts": [
+        {
+          "marks": 5,
+          "text": "Convert 204.9375 to IEEE 754 single-precision format. Give the result in hexadecimal and show the sign, exponent and mantissa fields.",
+          "answer": "sign=0, exponent=10000110, mantissa=10011001111000000000000 -> 434CF000.",
+          "label": "a"
+        }
+      ],
+      "verification": {
+        "kind": "ieee",
+        "value": 204.9375,
+        "hex": "434CF000"
+      }
+    },
+    {
+      "number": "A4",
+      "part": "A",
+      "kind": "structured",
+      "marks": 5,
+      "topic": "data_representation",
+      "generator_id": "csc429.data_representation",
+      "stem": "Answer the following data-representation questions. Show your complete workflow.",
+      "parts": [
+        {
+          "marks": 2,
+          "text": "Represent -95 in 8-bit sign-magnitude form.",
+          "answer": "11011111 (sign bit 1, magnitude 95).",
+          "label": "a"
+        },
+        {
+          "marks": 3,
+          "text": "Represent -95 in 8-bit two's complement form.",
+          "answer": "10100001.",
+          "label": "b"
+        }
+      ],
+      "verification": {
+        "kind": "signed",
+        "value": -95,
+        "sign_magnitude": "11011111",
+        "twos": "10100001"
+      }
+    },
+    {
+      "number": "A5",
+      "part": "A",
+      "kind": "structured",
+      "marks": 10,
+      "topic": "data_representation",
+      "generator_id": "csc429.data_representation",
+      "stem": "Answer the following data-representation questions. Show your complete workflow.",
+      "parts": [
+        {
+          "marks": 5,
+          "text": "Calculate -16 - (-72) using 8-bit sign-magnitude. Show the complete workflow and the result in byte form.",
+          "answer": "-16 - (-72) = 56. Sign-magnitude result: 00111000.",
+          "label": "a"
+        },
+        {
+          "marks": 5,
+          "text": "Calculate -16 - (-72) using 8-bit two's complement. Show the complete workflow and the result in byte form.",
+          "answer": "-16 - (-72) = 56. Two's complement result: 00111000.",
+          "label": "b"
+        }
+      ],
+      "verification": {
+        "kind": "signed",
+        "left": -16,
+        "right": -72,
+        "result": 56
+      }
+    },
+    {
+      "number": "A6",
+      "part": "A",
+      "kind": "structured",
+      "marks": 10,
+      "topic": "buses_interconnection",
+      "generator_id": "csc429.buses_interconnection",
+      "stem": "Buses connect the CPU, memory and I/O devices.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "Define a bus.",
+          "answer": "A shared set of electrical lines carrying addresses, data and control signals between components."
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "text": "Compare synchronous and asynchronous bus timing.",
+          "answer": "Synchronous uses a common clock and fixed timing; asynchronous uses handshaking, so it is more flexible but has more overhead."
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "text": "Explain bus arbitration and why it is needed.",
+          "answer": "Arbitration decides which master gets the bus when several request it; it prevents conflicting simultaneous transfers."
+        }
+      ]
+    },
+    {
+      "number": "A7",
+      "part": "A",
+      "kind": "structured",
+      "marks": 10,
+      "topic": "cpu_organization",
+      "generator_id": "csc429.cpu_organization",
+      "stem": "Study {figure} and answer the following questions.",
+      "parts": [
+        {
+          "marks": 2,
+          "text": "Identify the register that holds the address of the next instruction and the register that holds the instruction currently being decoded.",
+          "answer": "PC holds the address of the next instruction; IR holds the instruction currently being decoded.",
+          "label": "a"
+        },
+        {
+          "marks": 3,
+          "text": "Explain the roles of MAR and MBR during a memory read.",
+          "answer": "The MAR holds the address to be accessed. The memory places the selected word in the MBR, which then supplies it to the CPU (for example, to the IR).",
+          "label": "b"
+        },
+        {
+          "marks": 5,
+          "text": "Describe the fetch-decode-execute cycle using the components shown in the figure.",
+          "answer": "Fetch: PC -> MAR; memory read; MBR -> IR; PC is incremented. Decode: the CU interprets the opcode in IR and issues control signals. Execute: operands are read, the ALU performs the operation, the result and flags are written back, and the next instruction is fetched.",
+          "label": "c"
+        }
+      ],
+      "figure": {
+        "kind": "cpu_datapath",
+        "caption": "CPU, memory and system bus organization.",
+        "width_cm": 14.5
+      }
+    },
+    {
+      "number": "A8",
+      "part": "A",
+      "kind": "structured",
+      "marks": 10,
+      "topic": "memory_cache",
+      "generator_id": "csc429.memory_cache",
+      "stem": "Study {figure} and answer the following questions.",
+      "parts": [
+        {
+          "marks": 2,
+          "text": "The cache uses a 16-bit address split into a 4-bit tag, a 3-bit line number and a 9-bit offset. For address 0x1A2B, give the tag, line number and offset in binary.",
+          "answer": "0x1A2B = 0001 1010 0010 1011; tag = 0001, line = 101, offset = 000101011.",
+          "label": "a"
+        },
+        {
+          "marks": 4,
+          "text": "Using the cache state shown in the figure, determine whether each address is a hit or a miss: (i) 0x1A2B, (ii) 0x2A2B. Explain your reasoning.",
+          "answer": "(i) Hit: tag 0001 and line 101; line 5 is valid with tag 0001. (ii) Miss: tag 0010 and line 101; line 5 is valid but its tag is 0001, so the tags do not match.",
+          "label": "b"
+        },
+        {
+          "marks": 4,
+          "text": "Explain why the cache compares tags and how temporal and spatial locality improve the hit rate.",
+          "answer": "The tag identifies which memory block occupies a line; comparing tags prevents returning data from a different block. Temporal locality means recently used data is likely reused, and spatial locality means nearby addresses are likely used, so keeping blocks in cache raises the hit rate.",
+          "label": "c"
+        }
+      ],
+      "figure": {
+        "kind": "cache_mapping",
+        "caption": "Direct-mapped cache organization and address fields.",
+        "width_cm": 14.5,
+        "data": {
+          "address_bits": 16,
+          "tag_bits": 4,
+          "line_bits": 3,
+          "offset_bits": 9,
+          "addresses": [
+            "0x1A2B",
+            "0x2A2B"
+          ],
+          "cache": {
+            "line3": {
+              "valid": 1,
+              "tag": "0010"
+            },
+            "line5": {
+              "valid": 1,
+              "tag": "0001"
+            }
+          }
+        }
+      }
+    },
+    {
+      "number": "A9",
+      "part": "A",
+      "kind": "structured",
+      "marks": 10,
+      "topic": "interrupts_io",
+      "generator_id": "csc429.interrupts_io",
+      "stem": "The CPU can use programmed I/O, interrupt-driven I/O or DMA.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "Describe programmed I/O.",
+          "answer": "The CPU repeatedly checks the device status and transfers data itself, so it wastes time polling."
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "Describe interrupt-driven I/O.",
+          "answer": "The device signals the CPU with an interrupt when it is ready; the CPU services the device in an ISR instead of polling."
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "text": "Explain how DMA improves I/O performance and state ONE advantage over interrupt-driven I/O.",
+          "answer": "A DMA controller transfers a block directly between the device and memory while the CPU continues other work; one interrupt is needed at completion, so there is less CPU overhead per transfer."
+        }
+      ]
+    },
+    {
+      "number": "A10",
+      "part": "A",
+      "kind": "structured",
+      "marks": 10,
+      "topic": "parallel_architectures",
+      "generator_id": "csc429.parallel_architectures",
+      "stem": "Multicore processors are common in modern computers.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "Define multicore processing.",
+          "answer": "A single processor package contains multiple independent cores that can execute instructions concurrently."
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "text": "Explain TWO benefits of multicore processing.",
+          "answer": "Higher throughput on parallel workloads and better performance per watt; it can also improve responsiveness by running tasks concurrently."
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "text": "Describe NUMA and ONE challenge in a distributed-memory system.",
+          "answer": "NUMA: memory access time depends on which node owns the data. Challenge: inter-node communication/synchronisation overhead and programming complexity."
+        }
+      ]
+    },
+    {
+      "number": "B1",
+      "part": "B",
+      "kind": "assembly",
+      "marks": 20,
+      "topic": "instruction_set_assembly",
+      "generator_id": "csc429.assembly",
+      "stem": "Write appropriate programs using zero-, one- and three-address instructions to compute Z = A + B * C - D. Registers A, B, C, D and E must not be modified; X, Y and Z are temporary registers; the final answer must be stored in Z. Available instructions: zero-address PUSH, POP, ADD, SUB, MUL, DIV; one-address LOAD, STORE, ADD, SUB, MUL, DIV; three-address ADD, SUB, MUL, DIV.",
+      "parts": [
+        {
+          "marks": 6,
+          "label": "a",
+          "text": "Write a zero-address program for the expression.",
+          "answer": "PUSH B\nPUSH C\nMUL\nPUSH A\nADD\nPUSH D\nSUB\nPOP Z"
+        },
+        {
+          "marks": 6,
+          "label": "b",
+          "text": "Write a one-address program for the expression.",
+          "answer": "LOAD B\nMUL C\nADD A\nSUB D\nSTORE Z"
+        },
+        {
+          "marks": 8,
+          "label": "c",
+          "text": "Write a three-address program for the expression.",
+          "answer": "MUL X, B, C\nADD X, A, X\nSUB Z, X, D"
+        }
+      ],
+      "expression": "A + B * C - D",
+      "programs": {
+        "zero": [
+          "PUSH B",
+          "PUSH C",
+          "MUL",
+          "PUSH A",
+          "ADD",
+          "PUSH D",
+          "SUB",
+          "POP Z"
+        ],
+        "one": [
+          "LOAD B",
+          "MUL C",
+          "ADD A",
+          "SUB D",
+          "STORE Z"
+        ],
+        "three": [
+          "MUL X, B, C",
+          "ADD X, A, X",
+          "SUB Z, X, D"
+        ]
+      },
+      "test_values": {
+        "A": 2,
+        "B": 3,
+        "C": 4,
+        "D": 5
+      },
+      "expected_value": 9,
+      "template_id": "sum_product_difference_2"
+    }
+  ],
+  "style_profile": {
+    "part_a_questions": 10,
+    "part_b_questions": 1,
+    "computed_data_questions": 3,
+    "assembly_questions": 1,
+    "figure_questions": 3
+  },
+  "generator_ids": [
+    "csc429.computer_generations_history",
+    "csc429.data_representation",
+    "csc429.cpu_organization",
+    "csc429.memory_cache",
+    "csc429.interrupts_io",
+    "csc429.buses_interconnection",
+    "csc429.parallel_architectures",
+    "csc429.assembly"
+  ]
+}
