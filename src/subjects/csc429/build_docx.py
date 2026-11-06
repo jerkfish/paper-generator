@@ -263,9 +263,22 @@ def _scheme_qa(plan: dict, docx_path: Path, pdf_path: Path | None) -> dict:
     except Exception as error:
         qa["problems"].append(f"invalid DOCX: {error}")
         return qa
-    qa["inline_shapes"] = len(docx.Document(str(docx_path)).inline_shapes)
+    document = docx.Document(str(docx_path))
+    qa["inline_shapes"] = len(document.inline_shapes)
     if qa["inline_shapes"] == 0:
         qa["missing"].append("scheme crest image")
+    qa["compatibility_mode"] = None
+    try:
+        with zipfile.ZipFile(docx_path) as archive:
+            settings = archive.read("word/settings.xml").decode("utf-8")
+        match = re.search(
+            r'name="compatibilityMode"[^>]*w:val="(\d+)"', settings)
+        if match:
+            qa["compatibility_mode"] = int(match.group(1))
+    except Exception:
+        pass
+    if qa["compatibility_mode"] != 15:
+        qa["missing"].append("Word 15 compatibility mode")
     for token in ("MARKING SCHEME", "CSC429", "PART A — MARKING GUIDE",
                   "PART B — MARKING GUIDE"):
         if token not in text:
@@ -433,8 +446,15 @@ def _patch_scheme_cover(doc, plan: dict) -> None:
     for paragraph in doc.paragraphs:
         text = paragraph.text.strip()
         if text.startswith("CONFIDENTIAL"):
-            _set_cover_text_preserving_crest(
-                paragraph, "CONFIDENTIAL	CS/NOV 2026/CSC429")
+            # Keep the template's run order: CONFIDENTIAL, tab, crest, label.
+            runs = paragraph.runs
+            for index, run in enumerate(runs):
+                if "CS/MOCK" in run.text:
+                    run.text = run.text.replace("CS/MOCK", "CS/NOV")
+                    for later in runs[index + 1:]:
+                        if later.text.strip() == "NOV":
+                            later.text = ""
+                            break
         elif text.startswith("This marking scheme accompanies"):
             _set_paragraph_text(
                 paragraph,
@@ -487,6 +507,17 @@ def _scheme_page_count(path: Path, pages: int) -> None:
     doc.save(str(path))
 
 
+def _set_word_15(doc) -> None:
+    """Open the scheme in current Word layout, not compatibility mode 12."""
+    settings = doc.settings.element
+    compat = settings.find(qn("w:compat"))
+    if compat is None:
+        return
+    for setting in compat.findall(qn("w:compatSetting")):
+        if setting.get(qn("w:name")) == "compatibilityMode":
+            setting.set(qn("w:val"), "15")
+
+
 def build_scheme(plan: dict, target: Path) -> Path:
     target.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix="csc429_scheme_") as tmp:
@@ -495,6 +526,7 @@ def build_scheme(plan: dict, target: Path) -> Path:
         doc = docx.Document(str(rewritten))
         _patch_scheme_cover(doc, plan)
         _scheme_body(doc, plan)
+        _set_word_15(doc)
         doc.save(str(target))
     return target
 

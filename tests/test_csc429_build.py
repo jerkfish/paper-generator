@@ -4,6 +4,9 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import docx
+from docx.oxml.ns import qn
+
 from src.subjects.csc429 import build_docx
 
 
@@ -23,6 +26,14 @@ def test_build_seed_writes_paper_and_scheme(tmp_path):
     assert qa["paper_docx"]["xml_valid"] is True
     assert qa["scheme_docx"]["xml_valid"] is True
     assert qa["scheme_docx"]["inline_shapes"] >= 1
+    assert qa["scheme_docx"]["compatibility_mode"] == 15
+    scheme = docx.Document(result["files"]["scheme_docx"])
+    cover_runs = scheme.paragraphs[0].runs
+    drawing_at = next(index for index, run in enumerate(cover_runs)
+                      if run._r.findall(qn("w:drawing")))
+    label_at = next(index for index, run in enumerate(cover_runs)
+                    if "CS/NOV" in run.text)
+    assert drawing_at < label_at
     assert qa["forbidden_hits"] == []
     meta = json.loads((tmp_path / "meta.json").read_text(encoding="utf-8"))
     assert meta["total_marks"] == 100
