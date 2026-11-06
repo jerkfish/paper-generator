@@ -43,6 +43,121 @@ def _text_layout(page: pymupdf.Page) -> list[dict]:
     return lines
 
 
+
+MARK_LINE_RE = re.compile(
+    r"^[\[(]?\s*['\"`]?\s*[0-9OIlSs]{1,2}\s*marks?\s*[\])]?\s*$", re.I)
+DANGLING_RE = re.compile(
+    r"\b(in|of|to|for|with|by|from|at|on)\s*$", re.I)
+
+
+def _repair_truncated_lines(lines: list[dict], page: dict,
+                            width_pt: float, height_pt: float) -> list[dict]:
+    """Recover a wrapped continuation that the full-page OCR missed.
+
+    A line ending in a connector word followed by a marks block is usually
+    split across two visual lines.  A high-resolution crop of that small band
+    recovers the missing tail (for example ``9(a).`` in CSC429-2014-06 Q9).
+    """
+    from PIL import Image
+
+    marks = [
+        line for line in lines
+        if MARK_LINE_RE.match(line["text"].strip())
+    ]
+    if not marks:
+        return lines
+    image_path = config.PROJECT_ROOT / page["image"]
+    if not image_path.is_file():
+        return lines
+    image = Image.open(image_path)
+    sx = image.width / width_pt
+    sy = image.height / height_pt
+    additions: list[dict] = []
+    for line in lines:
+        text = " ".join(line["text"].split())
+        if len(text.split()) < 8 or not DANGLING_RE.search(text):
+            continue
+        x0, y0, x1, y1 = [float(value) for value in line["bbox"]]
+        if x1 < 0.80 * width_pt:
+            continue
+        candidates = [
+            mark for mark in marks
+            if y1 + 8 < float(mark["bbox"][1]) < y1 + 45
+        ]
+        if not candidates:
+            continue
+        mark = min(candidates, key=lambda item: float(item["bbox"][1]))
+        bottom = min(height_pt, float(mark["bbox"][1]) + 10.0)
+        recovered_values: list[tuple[str, dict]] = []
+        for offset, right_fraction in (
+                (8.0, 0.94), (4.8, 0.94), (12.0, 0.94),
+                (4.8, 0.79), (8.0, 0.70), (6.0, 0.90)):
+            top = max(0.0, y1 - offset)
+            left = 0.10 * width_pt
+            right = right_fraction * width_pt
+            if bottom <= top:
+                continue
+            crop = image.crop((
+                max(0, int(left * sx)), max(0, int(top * sy)),
+                min(image.width, int(right * sx)),
+                min(image.height, int(bottom * sy)),
+            ))
+            if crop.width < 20 or crop.height < 8:
+                continue
+            factor = min(
+                6, max(1, int(4000 / max(1, crop.width, crop.height))))
+            crop = crop.resize((crop.width * factor, crop.height * factor))
+            import tempfile
+            from src.ingest.ocr import win_ocr_layout
+            try:
+                with tempfile.TemporaryDirectory(prefix="csc429_tail_") as tmp:
+                    target = Path(tmp) / "tail.png"
+                    crop.save(target)
+                    payload = win_ocr_layout(target)
+            except Exception:
+                continue
+            for recovered in payload.get("lines", []):
+                value = str(recovered.get("text", "")).strip()
+                value = re.sub(r"[_*]+", "", value)
+                value = re.sub(
+                    r"\(?\s*[0-9OIlSs]{1,2}\s*marks?\s*\)?", "", value,
+                    flags=re.I).strip()
+                if value and not MARK_LINE_RE.match(value):
+                    recovered_values.append((value, recovered))
+            if recovered_values:
+                break
+        scale_x = (right - left) / crop.width
+        scale_y = (bottom - top) / crop.height
+        existing = {item["text"].strip() for item in lines + additions}
+        for value, recovered in recovered_values:
+            if value in existing:
+                continue
+            words = recovered.get("words") or []
+            if not words:
+                continue
+            rx0 = left + min(word["x"] for word in words) * scale_x
+            ry0 = top + min(word["y"] for word in words) * scale_y
+            rx1 = left + max(
+                word["x"] + word["w"] for word in words) * scale_x
+            ry1 = top + max(
+                word["y"] + word["h"] for word in words) * scale_y
+            if (len(value) >= 20 and rx1 < 0.82 * width_pt):
+                continue
+            alpha = sum(1 for char in value if char.isalpha())
+            if len(value) <= 12:
+                if not re.search(r"[.,;:)]$", value):
+                    continue
+            elif alpha < 0.55 * len(value) or len(value.split()) < 2:
+                continue
+            additions.append({
+                "text": value,
+                "bbox": [round(rx0, 2), round(ry0, 2),
+                         round(rx1, 2), round(ry1, 2)],
+                "recovered": True,
+            })
+    return lines + additions
+
+
 def _ocr_layout(page: dict) -> list[dict]:
     image_path = config.PROJECT_ROOT / page["image"]
     payload = win_ocr_layout(image_path)
@@ -94,6 +209,9 @@ def build_layout(force: bool = False) -> dict:
                     lines = _text_layout(page)
                 else:
                     lines = _ocr_layout(page_manifest["pages"][index])
+                    lines = _repair_truncated_lines(
+                        lines, page_manifest["pages"][index],
+                        page.rect.width, page.rect.height)
                 captions = [
                     line for line in lines if CAPTION_RE.search(line["text"])]
                 pages.append({
@@ -122,6 +240,9 @@ def build_layout(force: bool = False) -> dict:
         "lines": sum(len(page["lines"])
                      for paper in papers for page in paper["pages"]),
         "caption_lines": sum(paper["caption_lines"] for paper in papers),
+        "recovered_lines": sum(
+            1 for paper in papers for page in paper["pages"]
+            for line in page["lines"] if line.get("recovered")),
         "layout_files": [
             str((LAYOUT / f"{paper['paper_id']}.json")
                 .relative_to(config.PROJECT_ROOT))

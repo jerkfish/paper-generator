@@ -57,13 +57,12 @@
     "planner_slots": 11,
     "planner_topic_quota": {
       "computer_generations": 1,
-      "computer_architecture": 2,
       "data_representation": 2,
-      "instruction_set_addressing": 1,
       "memory_system": 1,
       "io_system": 2,
       "parallel_architecture": 1,
-      "assembly_programming": 1
+      "computer_architecture": 2,
+      "instruction_set_addressing": 1
     },
     "generators": "src/subjects/csc429/generators.py",
     "generator_sample": "data/tracking/csc429/generator_sample_seed_01.json",
@@ -73,12 +72,18 @@
     "builder": "src/subjects/csc429/build_docx.py",
     "build_sample": "data/tracking/csc429/build_sample/qa.json",
     "sample_pages": {
-      "paper": 6,
-      "scheme": 5
+      "paper": 7,
+      "scheme": 10
     },
     "marking_scheme": {
-      "template": "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx",
+      "template": "data/reference/CSC429/CSC429 SCHEME TEMPLATE.docx",
+      "template_sha256": "67dba15396ec310dce9ab8b5a51f38dd6ce44cd8684cab4199b45ed4e0fc682d",
       "generated_answers": true,
+      "unofficial_model_answers": true,
+      "answer_cache": "data/tracking/csc429/model_answers.json",
+      "answer_model": "deepseek-flash",
+      "answer_calls": 15,
+      "answer_cost_usd": 0.014089,
       "real_bank_source_references": true,
       "invented_answers": false
     }

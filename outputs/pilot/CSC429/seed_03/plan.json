@@ -6,13 +6,13 @@
     {
       "slot": "A1",
       "marks": 5,
-      "question_id": "CSC429-2019-12-A1",
-      "paper_id": "CSC429-2019-12",
-      "source_file": "CSC429 (13).pdf",
+      "question_id": "CSC429-2017-07-A1",
+      "paper_id": "CSC429-2017-07",
+      "source_file": "CSC429 (7).pdf",
       "topic": "",
       "diagram": true,
       "asset_ids": [
-        "CSC429-2019-12-F1"
+        "CSC429-2017-07-F1"
       ],
       "figure_refs": [
         "Figure 1"
@@ -21,71 +21,188 @@
         {
           "type": "text",
           "page": 2,
-          "y": 181.57,
-          "text": "Question 1 is based on the following Figure 1."
+          "y": 183.6,
+          "text": "The X machine was the first automatic electronic digital computer that uses binary system. It has 30 arithmetic/logic unit that can add and subtract, a rotating drum memory that can held thirty binary numbers of fifty digits each and input/output components. Figure 1 shows the architecture of X machine."
         },
         {
           "type": "figure",
           "page": 2,
-          "y": 220.68,
-          "asset_id": "CSC429-2019-12-F1",
-          "path": "data/tracking/csc429/assets/CSC429-2019-12/CSC429-2019-12-F1.png",
+          "y": 245.52,
+          "asset_id": "CSC429-2017-07-F1",
+          "path": "data/tracking/csc429/assets/CSC429-2017-07/CSC429-2017-07-F1.png",
           "crop_box": [
-            36.86,
-            220.68,
-            307.2,
-            336.9
+            87.75,
+            245.52,
+            496.17,
+            508.12
           ],
-          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2019-12\\page_002.jpg",
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2017-07\\page_002.jpg",
           "page_points": [
-            614.4,
-            792.0
+            597.84,
+            848.4
           ],
-          "width_px": 751,
-          "height_px": 322
+          "width_px": 1702,
+          "height_px": 1094
         },
         {
           "type": "text",
           "page": 2,
-          "y": 227.99,
-          "text": "Inventor 'Y' was France's most celebrated mathematician and physicist. In 1642, inventor 'Y' invented and build the first working calculating machine as a means of helping his father to perform tedious tax accounting."
+          "y": 540.96,
+          "text": "a) What is X machine?"
         },
         {
           "type": "text",
           "page": 2,
-          "y": 374.83,
-          "text": "a) Who is inventor 'Y'?"
+          "y": 579.12,
+          "text": "b) Name the inventor of X machine."
         },
         {
           "type": "text",
           "page": 2,
-          "y": 412.16,
-          "text": "b) Name another calculating machine that was invented in the same generation as inventor Y's calculating machine."
-        },
-        {
-          "type": "text",
-          "page": 2,
-          "y": 463.08,
-          "text": "c) Which programming language is named after inventor 'Y'?"
-        },
-        {
-          "type": "text",
-          "page": 2,
-          "y": 499.51,
-          "text": "d) State TWO (2) mathematical operationsthat can be performed byinventor Y's calculating machine."
+          "y": 617.04,
+          "text": "c) Based on Figure 1, identify the input and output components for X machine."
         }
       ]
     },
     {
       "slot": "A2",
       "marks": 5,
-      "question_id": "CSC429-2014-06-A9",
-      "paper_id": "CSC429-2014-06",
-      "source_file": "CSC429 (1).pdf",
+      "question_id": "CSC429-2014-12-A5",
+      "paper_id": "CSC429-2014-12",
+      "source_file": "CSC429 (2).pdf",
       "topic": "",
       "diagram": true,
       "asset_ids": [
-        "CSC429-2014-06-F2"
+        "CSC429-2014-12-F1"
+      ],
+      "figure_refs": [
+        "Figure 1"
+      ],
+      "content": [
+        {
+          "type": "figure",
+          "page": 3,
+          "y": 272.4,
+          "asset_id": "CSC429-2014-12-F1",
+          "path": "data/tracking/csc429/assets/CSC429-2014-12/CSC429-2014-12-F1.png",
+          "crop_box": [
+            29.74,
+            272.4,
+            564.98,
+            453.64
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2014-12\\page_003.jpg",
+          "page_points": [
+            594.72,
+            848.16
+          ],
+          "width_px": 930,
+          "height_px": 755
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 484.08,
+          "text": "a) What is interrupt?"
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 522.24,
+          "text": "b) Discuss TWO (2) ways to handle multiple interrupt."
+        }
+      ]
+    },
+    {
+      "slot": "A3",
+      "marks": 5,
+      "question_id": "CSC429-2024-07-A1",
+      "paper_id": "CSC429-2024-07",
+      "source_file": "CSC429 (17).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 2,
+          "y": 180.18,
+          "text": "The Difference Engine was a mechanical computer designed by Charles Babbage in the 19th century. It was one of the earliest examples of a mechanical calculator, built to automatically compute mathematical tables for naval navigation."
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 231.29,
+          "text": "a) What device was the successor of the Difference Engine?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 269.22,
+          "text": "b) Describe the difference in function between the Difference Engine and Mechanical Calculating Machine."
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 320.1,
+          "text": "c) Briefly explain the available technology that existed in the computer generation of Difference Engine."
+        }
+      ]
+    },
+    {
+      "slot": "A4",
+      "marks": 5,
+      "question_id": "CSC429-2025-07-A1",
+      "paper_id": "CSC429-2025-07",
+      "source_file": "CSC429 (20).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 2,
+          "y": 147.48,
+          "text": "The advancement of technology through different computer generations has focused on improving performance, speed, and efficiency. From vacuum tubes in the first generation to modern Al-powered systems, each generation introduced faster processing, smaller components, and greater reliability."
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 207.79,
+          "text": "a) Name the inventor of the following devices:"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 216.81,
+          "text": "i) Mechanical Calculating Machine"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 229.41,
+          "text": "ii) Analytical Machine iiD IAS Machine"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 284.47,
+          "text": "b) Why are the machines of later computer generation designed for general purposes instead of the eadier computer generation that is more specific in function?"
+        }
+      ]
+    },
+    {
+      "slot": "A5",
+      "marks": 10,
+      "question_id": "CSC429-2018-01-A9",
+      "paper_id": "CSC429-2018-01",
+      "source_file": "CSC429 (8).pdf",
+      "topic": "",
+      "diagram": true,
+      "asset_ids": [
+        "CSC429-2018-01-F2"
       ],
       "figure_refs": [
         "Figure 2"
@@ -94,72 +211,131 @@
         {
           "type": "text",
           "page": 5,
-          "y": 409.32,
-          "text": "Given the following Figure 2."
+          "y": 330.0,
+          "text": "Question 9 is based on Figure 2."
         },
         {
           "type": "figure",
           "page": 5,
-          "y": 434.88,
-          "asset_id": "CSC429-2014-06-F2",
-          "path": "data/tracking/csc429/assets/CSC429-2014-06/CSC429-2014-06-F2.png",
+          "y": 362.16,
+          "asset_id": "CSC429-2018-01-F2",
+          "path": "data/tracking/csc429/assets/CSC429-2018-01/CSC429-2018-01-F2.png",
           "crop_box": [
-            35.68,
-            434.88,
-            559.04,
-            583.16
+            140.49,
+            362.16,
+            489.04,
+            449.79
           ],
-          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2014-06\\page_005.jpg",
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2018-01\\page_005.jpg",
           "page_points": [
-            594.72,
-            847.44
+            592.08,
+            849.12
           ],
-          "width_px": 1453,
-          "height_px": 411
+          "width_px": 1452,
+          "height_px": 365
         },
         {
           "type": "text",
           "page": 5,
-          "y": 626.4,
-          "text": "a) Label the addressing technique illustrated in Figure 2."
+          "y": 496.08,
+          "text": "a) Identify addressing mode in Figure 2."
         },
         {
           "type": "text",
           "page": 5,
-          "y": 664.2,
-          "text": "b) Explain how the addressing technique in 9(a) is used."
+          "y": 534.48,
+          "text": "b) Which register will be involved in Figure 2 addressing mode?"
         },
         {
           "type": "text",
           "page": 5,
-          "y": 699.84,
-          "text": "List ONE (1) advantage and ONE (1) disadvantage of the addressing technique in"
+          "y": 572.88,
+          "text": "c) If register in Figure 2 is replaced with memory, what is the new addressing mode?"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 612.24,
+          "text": "d) Addressing mode in (a) is using register and addressing mode in (c) is using memory. Discuss which addressing mode will be executed faster with appropriate justification."
         }
       ]
     },
     {
-      "slot": "A3",
-      "marks": 5,
-      "question_id": "CSC429-2015-06-A5",
-      "paper_id": "CSC429-2015-06",
-      "source_file": "CSC429 (3).pdf",
+      "slot": "A6",
+      "marks": 10,
+      "question_id": "CSC429-2019-12-A9",
+      "paper_id": "CSC429-2019-12",
+      "source_file": "CSC429 (13).pdf",
       "topic": "",
-      "diagram": false,
-      "asset_ids": [],
-      "figure_refs": [],
+      "diagram": true,
+      "asset_ids": [
+        "CSC429-2019-12-F2"
+      ],
+      "figure_refs": [
+        "Figure 2"
+      ],
       "content": [
         {
           "type": "text",
-          "page": 3,
-          "y": 576.0,
-          "text": "Draw the complete machine cycle and explicitly describe the function of each phase and the location of its occurrence."
+          "page": 5,
+          "y": 148.01,
+          "text": "a) Define interrupt."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 184.4,
+          "text": "b) Differentiate between interrupt and direct manipulation access."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 237.0,
+          "text": "c) Given the following scenario. Dilan is surfing woolworth.com to buy groceries online. While he is comparing prices of products in woolworth.com and one other website, two messages popped up onto his screen. Figure 2 (a) and (b) illustrate the conveyed messages."
+        },
+        {
+          "type": "mixed",
+          "page": 5,
+          "y": 322.25,
+          "asset_id": "CSC429-2019-12-F2",
+          "lines": [
+            "Are you sure you want to",
+            "There is a hardware event failure",
+            "in this computer. Please reboot",
+            "cancel this request?",
+            "this computer now."
+          ]
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 376.42,
+          "text": "(a)"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 376.42,
+          "text": "(b)"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 439.28,
+          "text": "i) Identify the type of interrupt in Figure 2(a) and Figure 2(b) with proper justification."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 477.18,
+          "text": "ii) While interruptroutinefor Interrupt Ais executing, it is interrupted by interrupt Bwhich has a higher priority than interrupt A. What will happen to interrupt routine A?"
         }
       ]
     },
     {
-      "slot": "A4",
-      "marks": 5,
-      "question_id": "CSC429-2016-06-A6",
+      "slot": "A7",
+      "marks": 10,
+      "question_id": "CSC429-2016-06-A8",
       "paper_id": "CSC429-2016-06",
       "source_file": "CSC429 (5).pdf",
       "topic": "",
@@ -170,182 +346,35 @@
         {
           "type": "text",
           "page": 5,
-          "y": 144.34,
-          "text": "a) What is mapping function?"
+          "y": 462.96,
+          "text": "a) Define interrupt."
         },
         {
           "type": "text",
           "page": 5,
-          "y": 182.49,
-          "text": "b) Differentiate between direct and associative mapping in cache."
+          "y": 501.12,
+          "text": "b) Explain explicitly the basic interrupt operation between CPU and 1/0 module."
         },
         {
           "type": "text",
           "page": 5,
-          "y": 221.01,
-          "text": "c) If a 28-bit address is used with word size = 4 bit and line = 10 bit, calculate the tag size of both direct and associative mapping."
-        }
-      ]
-    },
-    {
-      "slot": "A5",
-      "marks": 10,
-      "question_id": "CSC429-2023-07-A10",
-      "paper_id": "CSC429-2023-07",
-      "source_file": "CSC429 (15).pdf",
-      "topic": "",
-      "diagram": true,
-      "asset_ids": [
-        "CSC429-2023-07-F2"
-      ],
-      "figure_refs": [
-        "Figure 2"
-      ],
-      "content": [
-        {
-          "type": "text",
-          "page": 5,
-          "y": 149.75,
-          "text": "Question 10 is based on Figure 2. Figure 2 depicts a Non-uniform Memory Access (NUMA) architecture."
-        },
-        {
-          "type": "figure",
-          "page": 5,
-          "y": 194.39,
-          "asset_id": "CSC429-2023-07-F2",
-          "path": "data/tracking/csc429/assets/CSC429-2023-07/CSC429-2023-07-F2.png",
-          "crop_box": [
-            35.71,
-            194.39,
-            559.51,
-            438.78
-          ],
-          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2023-07\\page_005.jpg",
-          "page_points": [
-            595.22,
-            842.0
-          ],
-          "width_px": 1455,
-          "height_px": 678
+          "y": 539.04,
+          "text": "c) Discuss ONE (1) disadvantage of interrupt."
         },
         {
           "type": "text",
           "page": 5,
-          "y": 480.22,
-          "text": "a) Redraw a symmetric multiprocessor organization based on Figure 2."
-        },
-        {
-          "type": "text",
-          "page": 5,
-          "y": 518.38,
-          "text": "b) Give TWO (2) examples of tightly coupled Multiple Instruction, Multiple Data (MIMD) parallel processor architectures."
-        },
-        {
-          "type": "text",
-          "page": 5,
-          "y": 569.13,
-          "text": "c) Discuss TWO (2) disadvantages of tightly coupled Multiple Instruction, Multiple Data (MIMD) parallel processor architectures."
-        }
-      ]
-    },
-    {
-      "slot": "A6",
-      "marks": 10,
-      "question_id": "CSC429-2023-02-A8",
-      "paper_id": "CSC429-2023-02",
-      "source_file": "CSC429 (14).pdf",
-      "topic": "",
-      "diagram": true,
-      "asset_ids": [
-        "CSC429-2023-02-F2"
-      ],
-      "figure_refs": [
-        "Figure 2"
-      ],
-      "content": [
-        {
-          "type": "text",
-          "page": 4,
-          "y": 143.46,
-          "text": "Question 8 is based on Figure 2."
-        },
-        {
-          "type": "figure",
-          "page": 4,
-          "y": 162.57,
-          "asset_id": "CSC429-2023-02-F2",
-          "path": "data/tracking/csc429/assets/CSC429-2023-02/CSC429-2023-02-F2.png",
-          "crop_box": [
-            29.82,
-            162.57,
-            566.58,
-            442.58
-          ],
-          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2023-02\\page_004.jpg",
-          "page_points": [
-            596.4,
-            842.64
-          ],
-          "width_px": 729,
-          "height_px": 821
-        },
-        {
-          "type": "text",
-          "page": 4,
-          "y": 471.77,
-          "text": "a) Describe maskable interrupt."
-        },
-        {
-          "type": "text",
-          "page": 4,
-          "y": 509.7,
-          "text": "b) What is the sequence of the program execution if the defined priority is implemented in"
-        },
-        {
-          "type": "text",
-          "page": 4,
-          "y": 560.34,
-          "text": "c) What is the sequence of the program execution if the disable interrupt is implemented in"
-        },
-        {
-          "type": "text",
-          "page": 4,
-          "y": 611.22,
-          "text": "d) Which of the interruption method between defined priority or disable interrupt can finish Interrupt C earlier? Give your justification."
-        }
-      ]
-    },
-    {
-      "slot": "A7",
-      "marks": 10,
-      "question_id": "CSC429-2017-07-A7",
-      "paper_id": "CSC429-2017-07",
-      "source_file": "CSC429 (7).pdf",
-      "topic": "",
-      "diagram": false,
-      "asset_ids": [],
-      "figure_refs": [],
-      "content": [
-        {
-          "type": "text",
-          "page": 4,
-          "y": 518.69,
-          "text": "a) Why replacement algorithm for cache is needed?"
-        },
-        {
-          "type": "text",
-          "page": 4,
-          "y": 556.48,
-          "text": "b) Discuss all different types of available replacement."
+          "y": 577.44,
+          "text": "d) How interrupt driven 1/0 can overcome CPU waiting?"
         }
       ]
     },
     {
       "slot": "A8",
       "marks": 10,
-      "question_id": "CSC429-2026-02-A9",
-      "paper_id": "CSC429-2026-02",
-      "source_file": "CSC429 (21).pdf",
+      "question_id": "CSC429-2025-02-A10",
+      "paper_id": "CSC429-2025-02",
+      "source_file": "CSC429 (18).pdf",
       "topic": "",
       "diagram": false,
       "asset_ids": [],
@@ -354,39 +383,58 @@
         {
           "type": "text",
           "page": 5,
-          "y": 106.82,
-          "text": "a) When is an l/O module installed?"
+          "y": 134.58,
+          "text": "a) Draw Single Instruction, Single data (SISD) architecture with the following information: - CU is the control unit - PU is the processing unit - MU is the memory unit - IS is the instruction stream - DS is the data stream"
         },
         {
           "type": "text",
           "page": 5,
-          "y": 144.62,
-          "text": "b) What will happen if the l/O module is not installed?"
+          "y": 236.09,
+          "text": "b) Describe the parallel architecture."
         },
         {
           "type": "text",
           "page": 5,
-          "y": 180.81,
-          "text": "c) Explain ONE (1) category of l/O module"
+          "y": 274.01,
+          "text": "c) Explain ONE (1) benefit of parallel architecture."
         },
         {
           "type": "text",
           "page": 5,
-          "y": 220.58,
-          "text": "d) What does it mean by 'hot connection'?"
-        },
-        {
-          "type": "text",
-          "page": 5,
-          "y": 258.2,
-          "text": "e) List THREE (3) common interfaces to external devices."
+          "y": 312.41,
+          "text": "d) Differentiate between loosely-coupled and strongly-coupled Multiple Instruction, Multiple Data stream (MIMD) architecture with example."
         }
       ]
     },
     {
       "slot": "A9",
       "marks": 10,
-      "question_id": "CSC429-2019-06-A4",
+      "question_id": "CSC429-2023-02-A5",
+      "paper_id": "CSC429-2023-02",
+      "source_file": "CSC429 (14).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 244.5,
+          "text": "a) Convert 43.046875io to a floating point number in IEEE single precision format in hexadecimal value form."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 295.13,
+          "text": "b) Convert C478 OOOOh in IEEE single precision floating point number to decimal value form."
+        }
+      ]
+    },
+    {
+      "slot": "A10",
+      "marks": 10,
+      "question_id": "CSC429-2019-06-A5",
       "paper_id": "CSC429-2019-06",
       "source_file": "CSC429 (12).pdf",
       "topic": "",
@@ -397,114 +445,77 @@
         {
           "type": "text",
           "page": 3,
-          "y": 375.79,
-          "text": "a) Convert -176.812510 to floating point number in IEEE single precision format in hexadecimal value form."
+          "y": 519.36,
+          "text": "a) Registers are one of the main components of a CPU. Define the term registers, and list TWO (2) types of registers."
         },
         {
           "type": "text",
           "page": 3,
-          "y": 426.9,
-          "text": "b) Convert 3FOOC00016 in IEEE single precision floating point number to decimal value form."
-        }
-      ]
-    },
-    {
-      "slot": "A10",
-      "marks": 10,
-      "question_id": "CSC429-2018-12-A9",
-      "paper_id": "CSC429-2018-12",
-      "source_file": "CSC429 (11).pdf",
-      "topic": "",
-      "diagram": false,
-      "asset_ids": [],
-      "figure_refs": [],
-      "content": [
-        {
-          "type": "text",
-          "page": 5,
-          "y": 175.66,
-          "text": "Keyboard is the most common input/output device to communicate between computer and user."
+          "y": 570.48,
+          "text": "b) Briefly explain the Fetch and Decode operations of a Machine Cycle."
         },
         {
           "type": "text",
-          "page": 5,
-          "y": 216.33,
-          "text": "a) What is the input/output module category for keyboard?"
-        },
-        {
-          "type": "text",
-          "page": 5,
-          "y": 253.04,
-          "text": "b) State TWO (2) other devices that are in the similar input/output module category?"
-        },
-        {
-          "type": "text",
-          "page": 5,
-          "y": 293.72,
-          "text": "c) What is the basic unit of exchange for keyboard?"
-        },
-        {
-          "type": "text",
-          "page": 5,
-          "y": 332.95,
-          "text": "d) Discuss TWO (2) types of characters."
+          "page": 3,
+          "y": 608.64,
+          "text": "c) Buses are the most common type of system interconnection. Discuss ONE (1) difference between a dedicated bus and multiplexed bus."
         }
       ]
     },
     {
       "slot": "B1",
       "marks": 20,
-      "question_id": "CSC429-2025-07-B1",
-      "paper_id": "CSC429-2025-07",
-      "source_file": "CSC429 (20).pdf",
+      "question_id": "CSC429-2026-02-B1",
+      "paper_id": "CSC429-2026-02",
+      "source_file": "CSC429 (21).pdf",
       "topic": "",
       "diagram": true,
       "asset_ids": [
-        "CSC429-2025-07-F1",
-        "CSC429-2025-07-T1"
+        "CSC429-2026-02-F5",
+        "CSC429-2026-02-T1"
       ],
       "figure_refs": [
-        "Figure 1",
+        "Figure 5",
         "Table 1"
       ],
       "content": [
         {
           "type": "text",
-          "page": 5,
-          "y": 138.65,
-          "text": "Question 1 is based on Figure 1 and Table 1."
+          "page": 6,
+          "y": 137.58,
+          "text": "Question 1 is based on Figure 5 and Table 1"
         },
         {
           "type": "figure",
-          "page": 5,
-          "y": 171.0,
-          "asset_id": "CSC429-2025-07-F1",
-          "path": "data/tracking/csc429/assets/CSC429-2025-07/CSC429-2025-07-F1.png",
+          "page": 6,
+          "y": 170.13,
+          "asset_id": "CSC429-2026-02-F5",
+          "path": "data/tracking/csc429/assets/CSC429-2026-02/CSC429-2026-02-F5.png",
           "crop_box": [
-            33.72,
-            171.0,
-            528.24,
-            223.58
+            193.13,
+            170.13,
+            370.87,
+            210.43
           ],
-          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2025-07\\page_005.jpg",
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2026-02\\page_006.jpg",
           "page_points": [
-            561.96,
+            574.56,
             806.76
           ],
-          "width_px": 1374,
-          "height_px": 146
+          "width_px": 741,
+          "height_px": 167
         },
         {
           "type": "text",
-          "page": 5,
-          "y": 262.86,
-          "text": "write an appropriate program using correct assembly language notations to compute the equation snbwn in Figure 1 using instructions for zero-address, one-address, and three- address. The available instructioni are provided in Tabte 1. The register labeled A, B, C, and D are fixed, white registers x, y, and z can be used temporarily. The final answer must be stored in register z."
+          "page": 6,
+          "y": 236.76,
+          "text": "Write an appropriate program using conect assembly language notations to compute the equation shown in Figure 5 using instructions for zero-address, one-address, and three- address. The available instructions are provided in Table 1. The registers labeled A, B, C, and D are fixed, while registers x, y, and z can be used temporarily. The final answer must be stored in register z."
         },
         {
           "type": "table",
-          "page": 5,
-          "y": 388.73,
-          "asset_id": "CSC429-2025-07-T1",
+          "page": 6,
+          "y": 362.45,
+          "asset_id": "CSC429-2026-02-T1",
           "table": {
             "columns": 3,
             "rows": [
@@ -551,7 +562,7 @@
                     "colspan": 1
                   },
                   {
-                    "text": "suB (p,q,r)",
+                    "text": "SUB (p,q,r)",
                     "colspan": 1
                   }
                 ]
@@ -633,7 +644,7 @@
     "total_marks": 100,
     "diagram_questions": 5,
     "table_questions": 1,
-    "mixed_questions": 0,
+    "mixed_questions": 1,
     "unique_source_papers": 11,
     "pages": 7,
     "pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\pilot\\CSC429\\seed_03\\paper.pdf"

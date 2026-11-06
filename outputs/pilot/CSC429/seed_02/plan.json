@@ -6,85 +6,6 @@
     {
       "slot": "A1",
       "marks": 5,
-      "question_id": "CSC429-2018-06-A1",
-      "paper_id": "CSC429-2018-06",
-      "source_file": "CSC429 (10).pdf",
-      "topic": "",
-      "diagram": true,
-      "asset_ids": [
-        "CSC429-2018-06-F1"
-      ],
-      "figure_refs": [
-        "Figure 1"
-      ],
-      "content": [
-        {
-          "type": "text",
-          "page": 2,
-          "y": 179.61,
-          "text": "Question 1 is based on the following image and statements in Figure 1."
-        },
-        {
-          "type": "figure",
-          "page": 2,
-          "y": 211.65,
-          "asset_id": "CSC429-2018-06-F1",
-          "path": "data/tracking/csc429/assets/CSC429-2018-06/CSC429-2018-06-F1.png",
-          "crop_box": [
-            36.39,
-            211.65,
-            303.24,
-            466.81
-          ],
-          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2018-06\\page_002.jpg",
-          "page_points": [
-            606.48,
-            848.4
-          ],
-          "width_px": 741,
-          "height_px": 708
-        },
-        {
-          "type": "text",
-          "page": 2,
-          "y": 246.21,
-          "text": "Charles Babbage was an English mathematician, a philosopher and also an inventor. He was born on 1791 in London England. He was known for his contributions to invent machine X to solve four basic arithmetic functions. The machine X has improved its calculations design from Stepped Reckoner machine and early mechanical calculator. The machine X has introduced a number of computing concepts which are still in use today. Although this machine was not actually completed, it is the first machine that deserved to be called as a computer."
-        },
-        {
-          "type": "text",
-          "page": 2,
-          "y": 508.61,
-          "text": "a) What is the machine X name?"
-        },
-        {
-          "type": "text",
-          "page": 2,
-          "y": 546.4,
-          "text": "b) In which generation does the machine X introduced?"
-        },
-        {
-          "type": "text",
-          "page": 2,
-          "y": 584.56,
-          "text": "c) What is the function of machine X?"
-        },
-        {
-          "type": "text",
-          "page": 2,
-          "y": 622.71,
-          "text": "d) Name the machine that has been invented prior to machine X?"
-        },
-        {
-          "type": "text",
-          "page": 2,
-          "y": 660.51,
-          "text": "e) What is the title given to Charles Babbage due to his success to invent machine X?"
-        }
-      ]
-    },
-    {
-      "slot": "A2",
-      "marks": 5,
       "question_id": "CSC429-2023-02-A2",
       "paper_id": "CSC429-2023-02",
       "source_file": "CSC429 (14).pdf",
@@ -126,9 +47,107 @@
       ]
     },
     {
+      "slot": "A2",
+      "marks": 5,
+      "question_id": "CSC429-2019-12-A1",
+      "paper_id": "CSC429-2019-12",
+      "source_file": "CSC429 (13).pdf",
+      "topic": "",
+      "diagram": true,
+      "asset_ids": [
+        "CSC429-2019-12-F1"
+      ],
+      "figure_refs": [
+        "Figure 1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 2,
+          "y": 181.57,
+          "text": "Question 1 is based on the following Figure 1."
+        },
+        {
+          "type": "figure",
+          "page": 2,
+          "y": 220.56,
+          "asset_id": "CSC429-2019-12-F1",
+          "path": "data/tracking/csc429/assets/CSC429-2019-12/CSC429-2019-12-F1.png",
+          "crop_box": [
+            79.6,
+            220.56,
+            303.08,
+            329.16
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2019-12\\page_002.jpg",
+          "page_points": [
+            614.4,
+            792.0
+          ],
+          "width_px": 931,
+          "height_px": 452
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 227.99,
+          "text": "Inventor 'Y' was France's most celebrated mathematician and physicist. In 1642, inventor 'Y' invented and build the first working calculating machine as a means of helping his father to perform tedious tax accounting."
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 374.83,
+          "text": "a) Who is inventor 'Y'?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 412.16,
+          "text": "b) Name another calculating machine that was invented in the same generation as inventor Y's calculating machine."
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 463.08,
+          "text": "c) Which programming language is named after inventor 'Y'?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 499.51,
+          "text": "d) State TWO (2) mathematical operationsthat can be performed byinventor Y's calculating machine."
+        }
+      ]
+    },
+    {
       "slot": "A3",
       "marks": 5,
-      "question_id": "CSC429-2023-07-A4",
+      "question_id": "CSC429-2018-12-A8",
+      "paper_id": "CSC429-2018-12",
+      "source_file": "CSC429 (11).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 554.64,
+          "text": "a) List THREE (3) interfaces to external device."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 593.04,
+          "text": "b) Discuss 'hot connection' of device."
+        }
+      ]
+    },
+    {
+      "slot": "A4",
+      "marks": 5,
+      "question_id": "CSC429-2023-07-A2",
       "paper_id": "CSC429-2023-07",
       "source_file": "CSC429 (15).pdf",
       "topic": "",
@@ -139,119 +158,33 @@
         {
           "type": "text",
           "page": 2,
-          "y": 631.41,
-          "text": "a) Solve -4810 + 6810 using the sign and magnitude method. Show the complete workflow."
+          "y": 339.06,
+          "text": "John Von Neumann is a mathematician who is one of the pioneers in computer advancement, and his contributions are still relevant to the modern computer."
         },
         {
           "type": "text",
           "page": 2,
-          "y": 682.17,
-          "text": "b) Calculate -9610 -1510 using the I's and 2's complement method. Show the complete workflow."
-        }
-      ]
-    },
-    {
-      "slot": "A4",
-      "marks": 5,
-      "question_id": "CSC429-2025-02-A4",
-      "paper_id": "CSC429-2025-02",
-      "source_file": "CSC429 (18).pdf",
-      "topic": "",
-      "diagram": false,
-      "asset_ids": [],
-      "figure_refs": [],
-      "content": [
-        {
-          "type": "text",
-          "page": 3,
-          "y": 135.06,
-          "text": "a) Calculate 408 - 40h using sign and magnitude. Show your complete workflow."
+          "y": 376.97,
+          "text": "a) Draw the Von Neuman architecture and give relevant examples each."
         },
         {
           "type": "text",
-          "page": 3,
-          "y": 183.29,
-          "text": "b) Calculate 39h - 23a using 1 's and 2's complement method. Show your complete workflow."
+          "page": 2,
+          "y": 414.88,
+          "text": "b) What is the name of the actual device that John Von Neumann himself developed?"
         }
       ]
     },
     {
       "slot": "A5",
       "marks": 10,
-      "question_id": "CSC429-2026-02-A8",
-      "paper_id": "CSC429-2026-02",
-      "source_file": "CSC429 (21).pdf",
+      "question_id": "CSC429-2014-12-A8",
+      "paper_id": "CSC429-2014-12",
+      "source_file": "CSC429 (2).pdf",
       "topic": "",
       "diagram": true,
       "asset_ids": [
-        "CSC429-2026-02-F3"
-      ],
-      "figure_refs": [
-        "Figure 3"
-      ],
-      "content": [
-        {
-          "type": "text",
-          "page": 4,
-          "y": 338.84,
-          "text": "Question I is based on Figure 3. Computer structure A Main cache L2 Cache L3 CPU cache L1 memory"
-        },
-        {
-          "type": "figure",
-          "page": 4,
-          "y": 448.2,
-          "asset_id": "CSC429-2026-02-F3",
-          "path": "data/tracking/csc429/assets/CSC429-2026-02/CSC429-2026-02-F3.png",
-          "crop_box": [
-            34.56,
-            448.2,
-            541.44,
-            515.17
-          ],
-          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2026-02\\page_004.jpg",
-          "page_points": [
-            576.0,
-            807.12
-          ],
-          "width_px": 1407,
-          "height_px": 186
-        },
-        {
-          "type": "text",
-          "page": 4,
-          "y": 553.23,
-          "text": "a) Explain which computer structure can store the data faster compared to the other. Provide relevant justification to support your answer."
-        },
-        {
-          "type": "text",
-          "page": 4,
-          "y": 603.63,
-          "text": "b) ldentify the fastest cache level and give an appropriate reason."
-        },
-        {
-          "type": "text",
-          "page": 4,
-          "y": 642.15,
-          "text": "c) Vvhat is the main benefit for the cache to use SRAM technology?"
-        },
-        {
-          "type": "text",
-          "page": 4,
-          "y": 679.95,
-          "text": "d) Discuss TWO (2) methods to update cache and main memory contents to ensure data consistency."
-        }
-      ]
-    },
-    {
-      "slot": "A6",
-      "marks": 10,
-      "question_id": "CSC429-2019-12-A9",
-      "paper_id": "CSC429-2019-12",
-      "source_file": "CSC429 (13).pdf",
-      "topic": "",
-      "diagram": true,
-      "asset_ids": [
-        "CSC429-2019-12-F2"
+        "CSC429-2014-12-F2"
       ],
       "figure_refs": [
         "Figure 2"
@@ -259,129 +192,147 @@
       "content": [
         {
           "type": "text",
+          "page": 4,
+          "y": 303.12,
+          "text": "Input output technique can be segregated into programmed, interrupt-driven and direct memory access (DMA)."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 341.52,
+          "text": "a) What is DMA?"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 379.68,
+          "text": "b) How can the DMA technique improve the overall computer performance?"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 417.84,
+          "text": "c) Discuss TWO (2) major drawbacks of programmed and interrupt-driven input output technique that inspire hardware developer to introduce DMA."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 468.72,
+          "text": "d) Conventional access is depicted in Figure 2. Redraw Figure 2 to illustrate DMA architecture."
+        },
+        {
+          "type": "figure",
+          "page": 4,
+          "y": 512.44,
+          "asset_id": "CSC429-2014-12-F2",
+          "path": "data/tracking/csc429/assets/CSC429-2014-12/CSC429-2014-12-F2.png",
+          "crop_box": [
+            213.53,
+            512.44,
+            344.47,
+            693.4
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2014-12\\page_004.jpg",
+          "page_points": [
+            594.72,
+            848.16
+          ],
+          "width_px": 546,
+          "height_px": 754
+        }
+      ]
+    },
+    {
+      "slot": "A6",
+      "marks": 10,
+      "question_id": "CSC429-2026-02-A10",
+      "paper_id": "CSC429-2026-02",
+      "source_file": "CSC429 (21).pdf",
+      "topic": "",
+      "diagram": true,
+      "asset_ids": [
+        "CSC429-2026-02-F4"
+      ],
+      "figure_refs": [
+        "Figure 4"
+      ],
+      "content": [
+        {
+          "type": "text",
           "page": 5,
-          "y": 148.01,
-          "text": "a) Define interrupt."
+          "y": 335.42,
+          "text": "a) Complete the taxonomy of parallel processor architecture illustrated in Figure 4."
         },
         {
           "type": "text",
           "page": 5,
-          "y": 184.4,
-          "text": "b) Differentiate between interrupt and direct manipulation access."
+          "y": 412.07,
+          "text": "Processor Organization"
         },
         {
           "type": "text",
           "page": 5,
-          "y": 237.0,
-          "text": "c) Given the following scenario. Dilan is surfing woolworth.com to buy groceries online. While he is comparing prices of products in woolworth.com and one other website, two messages popped up onto his screen. Figure 2 (a) and (b) illustrate the conveyed messages."
-        },
-        {
-          "type": "mixed",
-          "page": 5,
-          "y": 322.25,
-          "asset_id": "CSC429-2019-12-F2",
-          "lines": [
-            "Are you sure you want to",
-            "There is a hardware event failure",
-            "in this computer. Please reboot",
-            "cancel this request?",
-            "this computer now."
-          ]
+          "y": 461.57,
+          "text": "Multiple lnstruction Single instruction"
         },
         {
           "type": "text",
           "page": 5,
-          "y": 376.42,
-          "text": "(a)"
+          "y": 466.61,
+          "text": "(d)"
         },
         {
           "type": "text",
           "page": 5,
-          "y": 376.42,
-          "text": "(b)"
+          "y": 468.77,
+          "text": "(a) Multiple Data (MIMD) Multiple Data (SIMD)"
+        },
+        {
+          "type": "figure",
+          "page": 5,
+          "y": 510.15,
+          "asset_id": "CSC429-2026-02-F4",
+          "path": "data/tracking/csc429/assets/CSC429-2026-02/CSC429-2026-02-F4.png",
+          "crop_box": [
+            68.11,
+            510.15,
+            520.85,
+            649.66
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2026-02\\page_005.jpg",
+          "page_points": [
+            574.56,
+            806.76
+          ],
+          "width_px": 1887,
+          "height_px": 1020
         },
         {
           "type": "text",
           "page": 5,
-          "y": 439.28,
-          "text": "i) Identify the type of interrupt in Figure 2(a) and Figure 2(b) with proper justification."
+          "y": 517.19,
+          "text": "(e)"
         },
         {
           "type": "text",
           "page": 5,
-          "y": 477.18,
-          "text": "ii) While interruptroutinefor Interrupt Ais executing, it is interrupted by interrupt Bwhich has a higher priority than interrupt A. What will happen to interrupt routine A?"
+          "y": 517.73,
+          "text": "(b) l\\ilemory"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 688.95,
+          "text": "b) Discuss TWO (2) disadvantages of symmetric multiprocessor (SMP)."
         }
       ]
     },
     {
       "slot": "A7",
       "marks": 10,
-      "question_id": "CSC429-2015-06-A7",
-      "paper_id": "CSC429-2015-06",
-      "source_file": "CSC429 (3).pdf",
-      "topic": "",
-      "diagram": false,
-      "asset_ids": [],
-      "figure_refs": [],
-      "content": [
-        {
-          "type": "text",
-          "page": 4,
-          "y": 455.04,
-          "text": "Keyboard is the most common means for computer interaction."
-        },
-        {
-          "type": "text",
-          "page": 4,
-          "y": 480.6,
-          "text": "a) Explain TWO (2) types of characters that keyboard provides."
-        },
-        {
-          "type": "text",
-          "page": 4,
-          "y": 518.4,
-          "text": "b) Describe THREE (3) categories of input and output module. Give an appropriate example for each category."
-        }
-      ]
-    },
-    {
-      "slot": "A8",
-      "marks": 10,
-      "question_id": "CSC429-2016-06-A7",
-      "paper_id": "CSC429-2016-06",
-      "source_file": "CSC429 (5).pdf",
-      "topic": "",
-      "diagram": false,
-      "asset_ids": [],
-      "figure_refs": [],
-      "content": [
-        {
-          "type": "text",
-          "page": 5,
-          "y": 310.28,
-          "text": "Replacement algorithm is used to determine which entry in a cache to flush to main memory when it is desired to cache a new block of data."
-        },
-        {
-          "type": "text",
-          "page": 5,
-          "y": 348.43,
-          "text": "a) Which mapping function does not need to have a replacement algorithm?"
-        },
-        {
-          "type": "text",
-          "page": 5,
-          "y": 386.59,
-          "text": "b) Describe FOUR (4) types of replacement algorithm."
-        }
-      ]
-    },
-    {
-      "slot": "A9",
-      "marks": 10,
-      "question_id": "CSC429-2014-12-A4",
-      "paper_id": "CSC429-2014-12",
-      "source_file": "CSC429 (2).pdf",
+      "question_id": "CSC429-2019-06-A4",
+      "paper_id": "CSC429-2019-06",
+      "source_file": "CSC429 (12).pdf",
       "topic": "",
       "diagram": false,
       "asset_ids": [],
@@ -390,13 +341,19 @@
         {
           "type": "text",
           "page": 3,
-          "y": 146.16,
-          "text": "Processor contains a number of registers used for temporary storage of data. Describe FIVE (5) types of registers."
+          "y": 376.08,
+          "text": "a) Convert -176.812510 to floating point number in IEEE single precision format in hexadecimal value form."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 427.2,
+          "text": "b) Convert 3FOOC00016 in IEEE single precision floating point number to decimal value form."
         }
       ]
     },
     {
-      "slot": "A10",
+      "slot": "A8",
       "marks": 10,
       "question_id": "CSC429-2015-12-A7",
       "paper_id": "CSC429-2015-12",
@@ -409,8 +366,76 @@
         {
           "type": "text",
           "page": 4,
-          "y": 608.04,
+          "y": 607.92,
           "text": "Describe FOUR (4) type of access methods based on hardware implementation of the storage device. Provide ONE (1) appropriate example for each access type."
+        }
+      ]
+    },
+    {
+      "slot": "A9",
+      "marks": 10,
+      "question_id": "CSC429-2025-07-A10",
+      "paper_id": "CSC429-2025-07",
+      "source_file": "CSC429 (20).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 444.51,
+          "text": "a) Draw Single lnstruction, Single data (SISD) architecture with the following information: - CU is the control unit - PU is the processing unit - MU is the memory unit - lS is the instruction stream - DS is the data stream"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 546.21,
+          "text": "b) List TWO (2) examples of shared memory Multiple lnstruction Multiple Data (MIMD)."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 597.33,
+          "text": "c) Discuss the difference between what happens if a virus attacks shared memory Multiple lnstruction Multiple Data (MIMD) and distributed memory Multiple lnstruction Multiple Data (MIMD)."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 661.59,
+          "text": "d) Explain ONE (1) benefit of using distributed memory Multiple lnstruction, Multiple Data stream (MIMD) architecture with example."
+        }
+      ]
+    },
+    {
+      "slot": "A10",
+      "marks": 10,
+      "question_id": "CSC429-2015-06-A8",
+      "paper_id": "CSC429-2015-06",
+      "source_file": "CSC429 (3).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 607.44,
+          "text": "a) Define interrupt."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 645.36,
+          "text": "b) Describe TWO (2) different types of interrupt."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 683.52,
+          "text": "c) Discuss ONE (1) advantage and ONE (1) disadvantage of interrupt"
         }
       ]
     },
@@ -441,22 +466,22 @@
         {
           "type": "figure",
           "page": 5,
-          "y": 196.86,
+          "y": 196.8,
           "asset_id": "CSC429-2024-07-F2",
           "path": "data/tracking/csc429/assets/CSC429-2024-07/CSC429-2024-07-F2.png",
           "crop_box": [
-            35.81,
-            196.86,
-            561.07,
-            280.34
+            156.85,
+            196.8,
+            419.87,
+            273.34
           ],
           "page_image": "data\\tracking\\csc429\\pages\\CSC429-2024-07\\page_005.jpg",
           "page_points": [
             596.88,
             842.88
           ],
-          "width_px": 1459,
-          "height_px": 231
+          "width_px": 1096,
+          "height_px": 318
         },
         {
           "type": "text",
@@ -597,9 +622,9 @@
     "total_marks": 100,
     "diagram_questions": 5,
     "table_questions": 1,
-    "mixed_questions": 2,
+    "mixed_questions": 1,
     "unique_source_papers": 11,
-    "pages": 6,
+    "pages": 7,
     "pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\pilot\\CSC429\\seed_02\\paper.pdf"
   }
 }

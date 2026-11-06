@@ -282,6 +282,7 @@ def _assets_for_page(paper: dict, page: dict, page_meta: dict,
         kind = _kind(label)
         cx0, cy0, cx1, cy1 = _bbox(caption)
         flags = []
+        tightened = False
         found = False
         method = "page_crop_band"
         with Image.open(config.PROJECT_ROOT / page_meta["image"]) as raw:
@@ -389,6 +390,40 @@ def _assets_for_page(paper: dict, page: dict, page_meta: dict,
                 else:
                     content_box[0] = max(content_box[0], 0.50 * width)
                 flags.append("prose_column")
+        # Tighten a figure crop to the ink actually present.  The scan band
+        # is full-width so labels at both sides are not lost, but delivering
+        # the full width makes a small icon or diagram unreadable in Word.
+        if kind == "figure":
+            try:
+                band_image = _crop_image(page_meta, content_box)
+                pixels = np.asarray(band_image.convert("L"))
+                ink = pixels < 180
+                columns = np.flatnonzero(ink.sum(axis=0) > 2)
+                rows = np.flatnonzero(ink.sum(axis=1) > 2)
+                if columns.size and rows.size:
+                    scale_x = band_image.width / max(
+                        0.1, content_box[2] - content_box[0])
+                    scale_y = band_image.height / max(
+                        0.1, content_box[3] - content_box[1])
+                    pad = 5.0
+                    tight = [
+                        content_box[0] + float(columns[0]) / scale_x - pad,
+                        content_box[1] + float(rows[0]) / scale_y - pad,
+                        content_box[0] + float(columns[-1] + 1) / scale_x + pad,
+                        content_box[1] + float(rows[-1] + 1) / scale_y + pad,
+                    ]
+                    tight = [
+                        max(content_box[0], tight[0]),
+                        max(content_box[1], tight[1]),
+                        min(content_box[2], tight[2]),
+                        min(content_box[3], tight[3]),
+                    ]
+                    if (tight[2] - tight[0] >= 60
+                            and tight[3] - tight[1] >= 15):
+                        content_box = tight
+                        tightened = True
+            except Exception:
+                pass
         # The delivered asset is the figure/table only.  Captions are kept
         # as metadata and are deliberately never captured into the image.
         bbox = list(content_box)
@@ -455,6 +490,7 @@ def _assets_for_page(paper: dict, page: dict, page_meta: dict,
             "dpi": 200,
             "sha256": _sha256(target),
             "method": method,
+            "tightened": tightened,
             "confidence": confidence,
             "review_flags": flags,
         })

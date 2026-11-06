@@ -1,7 +1,9 @@
 """CSC429 registry plugin adapter.
 
-The planner is deterministic and the builder builds from the real past-paper
-bank; no subject-specific imports leak into the shared app.
+The planner and question selection are deterministic and the builder draws
+from the real past-paper bank.  Real-bank scheme answers are unofficial model
+answers cached by question id; only an uncached question makes an LLM call.
+No subject-specific imports leak into the shared app.
 """
 from __future__ import annotations
 

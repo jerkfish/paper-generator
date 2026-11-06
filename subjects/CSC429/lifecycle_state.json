@@ -4,7 +4,7 @@
   "type": "C",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-05T16:12:43Z",
+  "updated": "2026-11-06T05:45:55Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -29,7 +29,7 @@
       "notes": "Stage-0 intake approved on 2026-11-05. The Stage 1+ attempt was rejected because it invented descriptive questions instead of drawing real past-paper questions and their original diagrams. Stage 1 is being redone."
     },
     "1_preprocess": {
-      "status": "done",
+      "status": "blocked",
       "evidence": [
         "data/tracking/csc429/papers_register.json",
         "data/tracking/csc429/papers_summary.json",
@@ -38,12 +38,13 @@
         "data/tracking/csc429/pages_manifest.json",
         "data/tracking/csc429/layout_manifest.json",
         "data/tracking/csc429/assets/manifest.json",
-        "data/tracking/csc429/assets/CSC429-2019-12/contact_sheet.png",
-        "data/tracking/csc429/question_bank_draft.json",
+        "data/tracking/csc429/stage1_corrections.json",
         "data/tracking/csc429/stage1_report.json",
+        "data/tracking/csc429/question_bank_draft.json",
         "src/subjects/csc429/capture.py",
         "src/subjects/csc429/layout.py",
         "src/subjects/csc429/assets.py",
+        "src/subjects/csc429/corrections.py",
         "src/subjects/csc429/questions.py",
         "src/subjects/csc429/stage1.py",
         "src/subjects/csc429/seed_pilot.py",
@@ -51,30 +52,26 @@
         "tests/test_csc429_capture.py",
         "tests/test_csc429_assets.py",
         "tests/test_csc429_questions.py",
+        "tests/test_csc429_tables.py",
         "tests/test_csc429_stage1.py",
+        "tests/test_csc429_stage1_regressions.py",
         "outputs/pilot/CSC429/seed_01/paper.pdf",
         "outputs/pilot/CSC429/seed_02/paper.pdf",
         "outputs/pilot/CSC429/seed_03/paper.pdf",
-        "docs/CSC429.md",
-        "src/subjects/csc429/tables.py",
-        "tests/test_csc429_tables.py",
-        "outputs/pilot/CSC429/seed_01/paper.docx",
-        "outputs/pilot/CSC429/seed_01/plan.json",
-        "outputs/pilot/CSC429/seed_02/paper.docx",
-        "outputs/pilot/CSC429/seed_02/plan.json",
-        "outputs/pilot/CSC429/seed_03/paper.docx",
-        "outputs/pilot/CSC429/seed_03/plan.json"
+        "docs/CSC429.md"
       ],
       "llm_cost_usd": 0.0,
-      "blockers": [],
+      "blockers": [
+        "Owner stopped the CSC429 lifecycle on 2026-11-06: too much noise; fixing one issue repeatedly broke another. The attempt will be restarted from zero."
+      ],
       "human_approval": {
         "required": true,
-        "approved": true,
-        "by": "owner",
-        "on": "2026-11-05",
-        "note": "Owner approved Stage 1 on 2026-11-05 and supplied paper2.docx showing the native Word numbering update; the numbering was incorporated and the three seeds regenerated before close-out."
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": "Lifecycle stopped by the owner; Stage 1 not approved."
       },
-      "notes": "Stage 1 complete and owner-approved. 23 supplied files, 20 unique papers, 125 pages at 200 dpi; 4,751 layout lines. 96 content-only page crops: 60 figures and 36 tables (55 high, 37 medium, 4 low); captions are metadata and are not captured. 4 unresolved table references. The real-question bank has 215 questions (195 Part A, 20 Part B), 636 subparts, all with marks; every paper sums to 100; 68 questions reference a figure/table, 67 are asset-linked. Five unsure items remain (the four unresolved references plus CSC429-2023-07-A6). Presentation: figures captured from original pages, tables recreated as native Word tables (text-layer papers for the pilot), text-dominant mixed figure/text regions recreated as native text, captions excluded. Subparts use native Word numbering matching paper2.docx: lowerLetter a), b), ... and lowerRoman i., ii., ... in List Paragraph at 1.5 spacing with 6 pt before and 4 pt after. Three seeds at outputs/pilot/CSC429: 11 real questions, 100 marks, 5 figure/table questions, 11 distinct source papers each; 1 table question each; mixed figure/text questions 2, 2, 0; pages 6, 6, 7; 33 unique questions. LLM cost $0.00."
+      "notes": "STOPPED 2026-11-06. The Stage-1 correction was not accepted. This attempt is archived at outputs/archive/csc429_attempt2_20261106/ and the subject will restart from zero."
     },
     "2_scheme_slides": {
       "status": "done",
@@ -111,7 +108,7 @@
       "notes": "subject.json.template_path now points at the owner-approved CSC429 TEMPLATE.docx. template_check.json reports xml_valid true, 2 sections, 1 footer, 1 image, non-empty cover text and no problems. The seed PDFs render the approved cover and page-2 transition. Stage 3 awaits the owner [HUMAN] gate."
     },
     "4_taxonomy_question_log": {
-      "status": "done",
+      "status": "pending",
       "evidence": [
         "data/tracking/csc429/taxonomy.json",
         "data/tracking/csc429/question_log.json",
@@ -124,15 +121,15 @@
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": true,
-        "by": "owner",
-        "on": "2026-11-05",
-        "note": "Owner approved continue after reviewing the 8-topic taxonomy and 215-question log."
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": "Reopened after the Stage-1 correction; taxonomy/log rebuilt but awaiting Stage-1 approval."
       },
-      "notes": "Deterministic taxonomy and question log built from the 215-question bank. 8 topics: data_representation (43 entries/405 marks), computer_architecture (37/300), io_system (32/320), memory_system (28/235), computer_generations (27/145), parallel_architecture (20/170), assembly_programming (20/370), instruction_set_addressing (8/55). Zero unclassified. All 20 papers reconcile to 100 marks (2,000 total). 90 high-confidence and 125 medium-confidence assignments; the 5 Stage-1 unsure items are carried into taxonomy.json and question_log.json. subject.json.fingerprint now records the corpus, part marks, topic marks and planner format. LLM cost $0.00."
+      "notes": "Rebuilt from the corrected 215-question bank: 8 topics, 2,000 marks, 20/20 papers reconciled, zero unclassified, 6 unsure items carried forward (four unresolved table references plus ambiguous marks in 2014-06-A10 and 2023-07-A4). Stage reopened; previous approval superseded by the Stage-1 fix."
     },
     "5_fingerprint_planner": {
-      "status": "done",
+      "status": "pending",
       "evidence": [
         "data/tracking/csc429/planner_seed_01.json",
         "data/tracking/csc429/planner_seed_02.json",
@@ -146,12 +143,12 @@
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": true,
-        "by": "owner",
-        "on": "2026-11-05",
-        "note": "Owner approved continue after reviewing the deterministic slot/topic sequence and mark allocation."
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": "Reopened after the Stage-1 correction; planner samples rebuilt but awaiting Stage-1 approval."
       },
-      "notes": "Deterministic planner built and sample plans written for seeds 1-3. Fixed 11-slot contract: A1-A4 at 5 marks, A5-A10 at 10 marks, B1 at 20 marks; Part A 80 + Part B 20 = 100. Topic quota derived from the Stage-4 Part A log, reserving one slot for every observed topic and giving the three extra slots to the largest topics: data 2, architecture 2, I/O 2, memory 1, generations 1, parallel 1, addressing 1, assembly 1. Every slot resolves to csc429.real_bank with verbatim variant policy and the figure/table/mixed presentation policy. Same seed reproduces the same plan. subject.json.fingerprint records the planner sample and quota. LLM cost $0.00."
+      "notes": "Deterministic 11-slot planner regenerated from the corrected taxonomy: A1-A4 5 marks, A5-A10 10 marks, B1 20 marks; Part A 80 + Part B 20 = 100. Topic quota unchanged: data 2, architecture 2, I/O 2, memory 1, generations 1, parallel 1, addressing 1, assembly 1. Stage reopened; previous approval superseded by the Stage-1 fix."
     },
     "6_generators": {
       "status": "done",
@@ -174,7 +171,7 @@
       "notes": "Three deterministic generators implemented: number-base conversion, signed arithmetic with sign-magnitude/1's/2's complement, and IEEE 754 single precision encode/decode. Planner data-representation slots resolve to csc429.generator; all other slots remain csc429.real_bank. 5-mark slots yield one worked question, 10-mark slots yield two 5-mark subparts. A 20-seed validation produced 40 generated slots, all three generators used, and zero answer errors; generator_sample_seed_01.json records seed 1. LLM cost $0.00."
     },
     "7_builders_qa": {
-      "status": "done",
+      "status": "pending",
       "evidence": [
         "data/tracking/csc429/build_sample/paper.docx",
         "data/tracking/csc429/build_sample/paper.pdf",
@@ -183,33 +180,32 @@
         "data/tracking/csc429/build_sample/qa.json",
         "data/tracking/csc429/build_sample/meta.json",
         "data/tracking/csc429/build_sample/plan.json",
+        "data/tracking/csc429/model_answers.json",
+        "data/reference/CSC429/CSC429 SCHEME TEMPLATE.docx",
         "src/subjects/csc429/build_docx.py",
+        "src/subjects/csc429/answers.py",
         "tests/test_csc429_build.py",
-        "outputs/web_cache/CSC429/95cdd1cd76725ab5b3ce/meta.json"
+        "tests/test_csc429_answers.py",
+        "docs/CSC429.md"
       ],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
+      "llm_cost_usd": 0.014089,
+      "blockers": [
+        "Stage 1 must be re-approved before Stage 7 can be accepted."
+      ],
       "human_approval": {
         "required": true,
-        "approved": true,
-        "by": "owner",
-        "on": "2026-11-06",
-        "note": "Owner approved the rest of Stage 7 after the scheme crest was fixed; only the missing crest was rejected."
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": "Rejected 2026-11-06; sample regenerated after the Stage-1 correction."
       },
-      "notes": "Stage-7 builder implemented and run for seed 1. The builder resolves the Stage-5 plan: data slots use the Stage-6 generators; other slots select real bank questions by topic/marks with source diversity. Paper and scheme use the approved CSC429 template and the standard UTM marking-scheme template. Seed 1: 11 slots, 100 marks, 2 generated + 9 real-bank, 6 paper pages and 5 scheme pages. QA: XML valid, cover/page-2 checks pass, no right overflow, no forbidden tokens, all question headings present, generated answers in the scheme, real questions carry source file/page. The registry plugin also builds the cache copy at outputs/web_cache/CSC429/95cdd1cd76725ab5b3ce. LLM cost $0.00."
+      "notes": "Sample regenerated from the corrected bank: 7 paper pages, 10 scheme pages; 11/11 slots accepted; 2 generated (A3/A10) and 9 real-bank (A1,A2,A4-A9,B1). The scheme uses the fixed CSC429 scheme standard and cleaned question text; figure/table regions are represented by native placeholders rather than raw OCR labels. All 9 real-bank slots have an unofficial answer; A4 was reviewer-corrected from indirect to direct addressing after checking Figure 2. Answer cache to date: 15 DeepSeek Flash calls, 7,054 prompt + 9,978 completion tokens, $0.014089 actual estimated cost; current rebuild $0. Stage 7 is paused behind the reopened Stage 1 gate."
     },
     "8_library_prebuild": {
-      "status": "in_progress",
-      "evidence": [
-        "data/tracking/csc429/library_validation.json",
-        "outputs/web_cache/CSC429/",
-        "src/subjects/csc429/plugin.py",
-        "src/subjects/csc429/build_docx.py"
-      ],
+      "status": "pending",
+      "evidence": [],
       "llm_cost_usd": 0.0,
-      "blockers": [
-        "Awaiting human acceptance of the 20-seed library set. subject.json.status remains coming_soon until acceptance/publish decisions."
-      ],
+      "blockers": [],
       "human_approval": {
         "required": true,
         "approved": false,
@@ -217,7 +213,7 @@
         "on": "",
         "note": ""
       },
-      "notes": "20 deterministic seeds built through the registry plugin into outputs/web_cache/CSC429/<config-hash>/. Every cache has meta.json, qa.json, paper/scheme DOCX and PDF. library_validation.json records 20/20 seeds, no QA problems, total marks 100, paper pages 5-7, scheme pages 5-6, crest in every scheme DOCX and PDF page 1. library_items returned 20 entries when tested with a temporary available status; subject.json.status remains coming_soon so nothing is exposed. One transient Word export failure for seed 2 was retried successfully. LLM cost $0.00."
+      "notes": "Not started. Rebuild the 20-seed library only after Stage 1 and Stage 7 are re-approved. Real-question answers are cached by question id on demand."
     },
     "9_publish": {
       "status": "pending",
@@ -250,6 +246,12 @@
   },
   "unsure": [
     {
+      "paper_id": "CSC429-2014-06",
+      "question_id": "CSC429-2014-06-A10",
+      "code": "ambiguous_marks",
+      "detail": "mark 4 follows preamble text, not a subpart"
+    },
+    {
       "paper_id": "CSC429-2014-12",
       "question_id": "CSC429-2014-12-A1",
       "code": "unresolved_reference",
@@ -275,14 +277,23 @@
     },
     {
       "paper_id": "CSC429-2023-07",
-      "question_id": "CSC429-2023-07-A6",
+      "question_id": "CSC429-2023-07-A4",
       "code": "ambiguous_marks",
-      "detail": "mark 4 follows preamble text, not a subpart"
+      "detail": "mark 2 follows preamble text, not a subpart"
+    },
+    {
+      "paper_id": "CSC429",
+      "question_id": "CSC429-MODEL-ANSWERS",
+      "code": "unofficial_model_answer",
+      "detail": "Seed-1 real-bank answers are AI-generated unofficial model answers; A4 is reviewer-corrected. Not an official UTM scheme.",
+      "stage": "7_builders_qa",
+      "item": "Real-bank scheme answers are unofficial and must be checked against the source paper.",
+      "blocking": false
     }
   ],
   "llm_cost": {
     "currency": "USD",
-    "total_usd": 0.0,
+    "total_usd": 0.014089,
     "by_stage": {
       "0_intake": 0.0,
       "1_preprocess": 0.0,
@@ -291,10 +302,14 @@
       "4_taxonomy_question_log": 0.0,
       "5_fingerprint_planner": 0.0,
       "6_generators": 0.0,
-      "7_builders_qa": 0.0,
+      "7_builders_qa": 0.014089,
       "8_library_prebuild": 0.0,
       "9_publish": 0.0,
       "10_close_out": 0.0
     }
-  }
+  },
+  "lifecycle_status": "stopped",
+  "stop_reason": "Owner stopped the CSC429 lifecycle on 2026-11-06: too much noise; fixing one issue repeatedly broke another. The attempt will be restarted from zero.",
+  "stopped_at": "2026-11-06T05:45:55Z",
+  "stopped_by": "owner"
 }

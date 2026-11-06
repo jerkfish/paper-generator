@@ -1,6 +1,6 @@
 """Capture every CSC429 source page and its embedded-image metadata.
 
-Stage 1 evidence: each unique paper is rendered at 200 dpi and its embedded
+Stage 1 evidence: each unique paper is rendered at 300 dpi and its embedded
 raster image boxes are recorded.  This is a provenance layer; question-level
 figure crops are built on top of it later.
 """
@@ -54,7 +54,7 @@ def _unique_records() -> list[dict]:
     return [row for row in records if not row.get("duplicate_of")]
 
 
-def capture_pages(dpi: int = 200, force: bool = False) -> dict:
+def capture_pages(dpi: int = 300, force: bool = False) -> dict:
     PAGES_DIR.mkdir(parents=True, exist_ok=True)
     papers = []
     used_ids: set[str] = set()
@@ -134,7 +134,7 @@ def capture_pages(dpi: int = 200, force: bool = False) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--dpi", type=int, default=200)
+    parser.add_argument("--dpi", type=int, default=300)
     parser.add_argument("--force", action="store_true")
     args = parser.parse_args()
     print(json.dumps(capture_pages(args.dpi, args.force), indent=2))

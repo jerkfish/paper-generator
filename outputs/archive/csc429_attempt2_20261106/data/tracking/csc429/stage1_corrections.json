@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "subject": "CSC429",
+  "notes": "Evidence-based Stage-1 corrections for OCR/asset edge cases. Each entry records the source page and crop so it can be audited or removed when the extractor handles the case automatically.",
+  "diagram_assets": [
+    {
+      "asset_id": "CSC429-2016-06-D1",
+      "paper_id": "CSC429-2016-06",
+      "question_id": "CSC429-2016-06-A10",
+      "label": "Diagram 1",
+      "page": 6,
+      "bbox_pdf": [50.0, 590.0, 540.0, 722.0],
+      "reason": "Uncaptioned taxonomy diagram. Full-page OCR flattened the diagram labels into the question text (the trailing 'v' is a 200-dpi misread of the diagram label 'iv'). The crop preserves the original diagram and removes the labels from the prose."
+    }
+  ]
+}

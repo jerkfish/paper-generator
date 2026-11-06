@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "subject": "CSC429",
+  "generated_at": "2026-11-06T05:20:09Z",
+  "cost_usd": 0.0,
+  "llm_calls": 0,
+  "inputs": {
+    "papers": 23,
+    "unique": 20,
+    "duplicates": 3,
+    "duplicate_groups": [
+      {
+        "canonical": "CSC429 (10).pdf",
+        "duplicates": [
+          "CSC429 (9).pdf"
+        ]
+      },
+      {
+        "canonical": "CSC429 (18).pdf",
+        "duplicates": [
+          "CSC429 (19).pdf"
+        ]
+      },
+      {
+        "canonical": "CSC429 (21).pdf",
+        "duplicates": [
+          "CSC429 (22).pdf"
+        ]
+      }
+    ],
+    "source_texts": {
+      "ocr": 14,
+      "text": 6
+    }
+  },
+  "pages": {
+    "unique_pages": 125,
+    "rendered": 125,
+    "dpi": 300
+  },
+  "text": {
+    "text_layer_papers": 6,
+    "ocr_papers": 14,
+    "layout_lines": 4696,
+    "caption_lines": 225
+  },
+  "assets": {
+    "total": 97,
+    "by_kind": {
+      "figure": 61,
+      "table": 36
+    },
+    "by_confidence": {
+      "high": 55,
+      "low": 6,
+      "medium": 36
+    },
+    "unresolved": 4,
+    "manifest": "data/tracking/csc429/assets/manifest.json"
+  },
+  "questions": {
+    "total": 215,
+    "by_part": {
+      "A": 195,
+      "B": 20
+    },
+    "with_marks": 215,
+    "without_marks": 0,
+    "with_assets": 68,
+    "bank": "data/tracking/csc429/question_bank_draft.json"
+  },
+  "unsure": [
+    {
+      "paper_id": "CSC429-2014-06",
+      "question_id": "CSC429-2014-06-A10",
+      "code": "ambiguous_marks",
+      "detail": "mark 4 follows preamble text, not a subpart"
+    },
+    {
+      "paper_id": "CSC429-2014-12",
+      "question_id": "CSC429-2014-12-A1",
+      "code": "unresolved_reference",
+      "detail": "reference(s) without a matching asset: Table 1"
+    },
+    {
+      "paper_id": "CSC429-2016-12",
+      "question_id": "CSC429-2016-12-B1",
+      "code": "unresolved_reference",
+      "detail": "reference(s) without a matching asset: Table 4"
+    },
+    {
+      "paper_id": "CSC429-2017-07",
+      "question_id": "CSC429-2017-07-B1",
+      "code": "unresolved_reference",
+      "detail": "reference(s) without a matching asset: Table 1"
+    },
+    {
+      "paper_id": "CSC429-2023-02",
+      "question_id": "CSC429-2023-02-B1",
+      "code": "unresolved_reference",
+      "detail": "reference(s) without a matching asset: Table 1"
+    },
+    {
+      "paper_id": "CSC429-2023-07",
+      "question_id": "CSC429-2023-07-A4",
+      "code": "ambiguous_marks",
+      "detail": "mark 2 follows preamble text, not a subpart"
+    }
+  ],
+  "unsure_count": 6,
+  "status": "ok"
+}

@@ -45,7 +45,8 @@ _PART_RE = re.compile(r"^PART\s*([AB])\b", re.I)
 
 # ``(5 marks)`` and OCR damage such as ``('l mark)`` or ``5 marks)``.
 _MARK_RE = re.compile(
-    r"^[\(\[]?\s*['\"`]?\s*([0-9OIlSs]{1,2})\s*marks?\s*[\)\]]?$",
+    r"^[\(\[]?\s*['\"`]?\s*([0-9OIlSs]{1,2})\s*"
+    r"(?:marks?|mad\(?s?\)?|mark\(?s?\)?)\s*[\)\]]?$",
     re.I,
 )
 
@@ -486,11 +487,15 @@ def _layout_entries(
                     "is_mark": _parse_mark(text) is not None,
                 }
             )
+    # OCR often places a label-only line 1-2pt below its text line.  Group
+    # lines by their vertical centre in an 8pt bucket before sorting left to
+    # right, otherwise ``a)`` becomes attached to the following subpart.
     entries.sort(
         key=lambda item: (
             item["page"],
-            item["y0"],
+            int(((item["y0"] + item["y1"]) / 2) // 8),
             item["x0"],
+            item["y0"],
             item["y1"],
             item["text"],
         )

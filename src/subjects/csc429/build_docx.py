@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import html
 import json
 import random
 import re
@@ -27,18 +28,24 @@ from docx.shared import Pt
 from src import config
 from src.app.filenames import utc_year
 from src.subjects import forbidden
-from src.subjects.csc429 import generators, planner
+from src.subjects.csc429 import answers, generators, planner
 from src.subjects.csc429 import seed_pilot as pilot
 from src.subjects.csc429.tables import table_question_assets
 
 SUBJECT = "CSC429"
+BUILDER_VERSION = 2
 TRACKING = config.TRACKING_DIR / "csc429"
 BANK_PATH = TRACKING / "question_bank_draft.json"
 LOG_PATH = TRACKING / "question_log.json"
 ASSETS_PATH = TRACKING / "assets" / "manifest.json"
 TEMPLATE = config.subject_reference_dir(SUBJECT) / "CSC429 TEMPLATE.docx"
-SCHEME_TEMPLATE = (config.REFERENCE_DIR / "standard" /
-                   "UTM_STANDARD_MARKING_SCHEME.docx")
+# The owner supplied a corrected scheme cover (course/code/examination/time
+# boxes) on 2026-11-06.  It is the CSC429 standard from that point on; the
+# shared UTM template remains the fallback for a subject without one.
+SCHEME_TEMPLATE = (config.subject_reference_dir(SUBJECT)
+                   / "CSC429 SCHEME TEMPLATE.docx")
+STANDARD_SCHEME_TEMPLATE = (config.REFERENCE_DIR / "standard" /
+                            "UTM_STANDARD_MARKING_SCHEME.docx")
 DEFAULT_OUT = TRACKING / "build_sample"
 
 
@@ -245,20 +252,26 @@ def _paper_qa(plan: dict, docx_path: Path, pdf_path: Path | None) -> dict:
     return qa
 
 
-def _scheme_qa(plan: dict, docx_path: Path, pdf_path: Path | None) -> dict:
+def _scheme_qa(plan: dict, docx_path: Path, pdf_path: Path | None,
+               *, require_model_answers: bool = True) -> dict:
     text = _docx_text(docx_path)
     qa = {
         "path": str(docx_path),
         "xml_valid": False,
         "inline_shapes": 0,
+        "cover_groups": 0,
+        "cover_drawings": 0,
+        "cover_labels": {},
+        "cover_box_ok": False,
         "forbidden_tokens": [],
         "missing": [],
         "problems": [],
         "pdf": {},
     }
+    document_xml = ""
     try:
         with zipfile.ZipFile(docx_path) as archive:
-            archive.read("word/document.xml")
+            document_xml = archive.read("word/document.xml").decode("utf-8")
         qa["xml_valid"] = True
     except Exception as error:
         qa["problems"].append(f"invalid DOCX: {error}")
@@ -267,6 +280,24 @@ def _scheme_qa(plan: dict, docx_path: Path, pdf_path: Path | None) -> dict:
     qa["inline_shapes"] = len(document.inline_shapes)
     if qa["inline_shapes"] == 0:
         qa["missing"].append("scheme crest image")
+    qa["cover_groups"] = document_xml.count("<wpg:wgp")
+    qa["cover_drawings"] = document_xml.count("<w:drawing")
+    cover_text = " ".join(
+        html.unescape(match)
+        for match in re.findall(r"<w:t\b[^>]*>(.*?)</w:t>", document_xml,
+                                re.S))
+    for label in ("COURSE", "COURSE CODE", "EXAMINATION", "TIME"):
+        qa["cover_labels"][label] = cover_text.count(label)
+    required_boxes = (
+        "COMPUTER ORGANIZATION AND ARCHITECTURE", "CSC429",
+        "NOVEMBER 2026 (MOCK)", "3 HOURS")
+    qa["cover_box_ok"] = (
+        qa["cover_groups"] >= 5
+        and all(qa["cover_labels"][label] >= 1
+                for label in ("COURSE", "COURSE CODE", "EXAMINATION", "TIME"))
+        and all(value in cover_text for value in required_boxes))
+    if not qa["cover_box_ok"]:
+        qa["missing"].append("course/code/examination/time cover boxes")
     qa["compatibility_mode"] = None
     try:
         with zipfile.ZipFile(docx_path) as archive:
@@ -283,6 +314,8 @@ def _scheme_qa(plan: dict, docx_path: Path, pdf_path: Path | None) -> dict:
                   "PART B — MARKING GUIDE"):
         if token not in text:
             qa["missing"].append(token)
+    if "**" in text:
+        qa["missing"].append("clean model-answer markup")
     for slot in plan["slots"]:
         if f"QUESTION {slot['slot']}" not in text:
             qa["missing"].append(f"QUESTION {slot['slot']}")
@@ -300,6 +333,13 @@ def _scheme_qa(plan: dict, docx_path: Path, pdf_path: Path | None) -> dict:
             source = str(slot.get("source_file", ""))
             if source and source not in text:
                 qa["missing"].append(f"{slot['slot']} source file")
+            model_answer = slot.get("model_answer") or {}
+            if require_model_answers and not model_answer.get("answer"):
+                qa["missing"].append(f"{slot['slot']} unofficial model answer")
+            if model_answer.get("answer") and (
+                    "Unofficial model answer" not in text):
+                qa["missing"].append(
+                    f"{slot['slot']} unofficial-answer label")
     if qa["missing"]:
         qa["problems"].append("missing content: " + ", ".join(qa["missing"][:8]))
     return qa
@@ -325,7 +365,7 @@ def _docx_text(path: Path) -> str:
 def _pdf_qa(path: Path, *, scheme: bool) -> dict:
     result = {"path": str(path), "pages": 0, "page1_cover": False,
               "page1_images": 0, "body_starts_page2": False,
-              "right_overflow": [], "problems": []}
+              "cover_fields": {}, "right_overflow": [], "problems": []}
     with pymupdf.open(str(path)) as pdf:
         result["pages"] = len(pdf)
         if not len(pdf):
@@ -339,7 +379,19 @@ def _pdf_qa(path: Path, *, scheme: bool) -> dict:
             and ("MARKING SCHEME" in cover if scheme
                  else "FINAL EXAMINATION" in cover
                  or "INSTRUCTIONS TO CANDIDATES" in cover))
-        if not scheme and len(pages) > 1:
+        flat_cover = " ".join(cover.split())
+        result["cover_fields"] = {
+            "COURSE": "COURSE" in flat_cover,
+            "COURSE CODE": "COURSE CODE" in flat_cover,
+            "EXAMINATION": "EXAMINATION" in flat_cover,
+            "TIME": "TIME" in flat_cover,
+            "course name": "COMPUTER ORGANIZATION AND ARCHITECTURE"
+            in flat_cover,
+            "course code": "CSC429" in flat_cover,
+            "month": "NOVEMBER 2026" in flat_cover,
+            "duration": "3 HOURS" in flat_cover,
+        }
+        if len(pages) > 1:
             result["body_starts_page2"] = "PART A" in pages[1]
         for index, page in enumerate(pdf):
             width = page.rect.width
@@ -365,6 +417,13 @@ def _pdf_qa(path: Path, *, scheme: bool) -> dict:
             result["problems"].append("scheme cover missing")
         if result["page1_images"] == 0:
             result["problems"].append("scheme crest image missing")
+        if not result["body_starts_page2"]:
+            result["problems"].append("marking guide does not start on page 2")
+        missing_fields = [key for key, present
+                          in result["cover_fields"].items() if not present]
+        if missing_fields:
+            result["problems"].append(
+                "scheme cover fields missing: " + ", ".join(missing_fields))
     if result["right_overflow"]:
         result["problems"].append(
             f"right overflow on {len(result['right_overflow'])} span(s)")
@@ -409,6 +468,46 @@ def _para(doc, text: str = "", *, size: float = 10, bold: bool = False,
     run.font.size = Pt(size)
 
 
+def _scheme_question_text(slot: dict) -> str:
+    """Return the cleaned question as it appears in the paper.
+
+    Raw bank text still contains OCR labels from inside figures/tables (for
+    example ``ffi /^`` or the four labels of Figure 2).  The paper uses the
+    resolved content blocks, which exclude those regions, so the marking
+    guide must use the same view.
+    """
+    parts = []
+    for block in slot.get("content") or []:
+        kind = block.get("type")
+        if kind == "text":
+            text = str(block.get("text", "")).strip()
+            if text:
+                parts.append(text)
+        elif kind == "figure":
+            asset_id = str(block.get("asset_id", ""))
+            match = re.search(r"-([FD])(\d+)$", asset_id)
+            label = (f"Diagram {match.group(2)}" if match
+                     and match.group(1) == "D"
+                     else f"Figure {match.group(2)}" if match else "Figure")
+            parts.append(f"[{label} reproduced in the question paper.]")
+        elif kind == "table":
+            asset_id = str(block.get("asset_id", ""))
+            match = re.search(r"-T(\d+)$", asset_id)
+            label = f"Table {match.group(1)}" if match else "Table"
+            parts.append(f"[{label} reproduced in the question paper.]")
+    return "\n".join(parts).strip() or str(slot.get("text", "")).strip()
+
+
+def _clean_model_markup(text: str) -> str:
+    """Remove Markdown emphasis that the model sometimes emits."""
+    value = str(text or "")
+    value = re.sub(r"\*\*(.+?)\*\*", r"\1", value, flags=re.S)
+    value = re.sub(r"__(.+?)__", r"\1", value, flags=re.S)
+    value = value.replace("`", "")
+    value = re.sub(r"(?m)^\s*#{1,6}\s*", "", value)
+    return value.strip()
+
+
 def _scheme_entry(doc, slot: dict) -> None:
     _para(doc, f"QUESTION {slot['slot']} ({slot['marks']} marks)",
           size=11, bold=True, before=10, after=3)
@@ -427,69 +526,108 @@ def _scheme_entry(doc, slot: dict) -> None:
             for point in slot.get("marking", []):
                 _para(doc, f"• {point}", size=9, italic=True, after=1)
         return
-    _para(doc, slot["text"], size=10, after=3)
+    _para(doc, _scheme_question_text(slot), size=10, after=3)
     pages = ", ".join(str(page) for page in slot.get("source_pages") or [])
     source = slot.get("source_file") or slot.get("paper_id")
     _para(doc, f"Source: {source}" + (f", page(s) {pages}" if pages else ""),
           size=9, italic=True, after=2)
-    _para(doc,
-          "Answer: The supplied source pack does not include a marking "
-          "scheme for this past-paper question. Use the source paper and its "
-          "mark allocation; no answer has been invented.",
-          size=9, italic=True, after=4)
+    model_answer = slot.get("model_answer") or {}
+    if not model_answer.get("answer"):
+        _para(doc,
+              "Unofficial model answer: not generated in this offline build. "
+              "Run the Stage-7 builder with LLM access to populate it.",
+              size=9, italic=True, after=4)
+        return
+    label = ("Unofficial model answer — AI-generated and reviewer-corrected; "
+             "not an official UTM marking scheme."
+             if model_answer.get("reviewed")
+             else "Unofficial model answer — generated by an AI model, not an "
+                  "official UTM marking scheme.")
+    _para(doc, label, size=9, bold=True, after=2)
+    for block in _clean_model_markup(model_answer["answer"]).split("\n\n"):
+        if block.strip():
+            _para(doc, block.strip(), size=10, after=3)
+    marking = model_answer.get("marking") or []
+    if marking:
+        _para(doc, "Unofficial marking guide:", size=9, bold=True, after=2)
+        for point in marking:
+            _para(doc, f"• {_clean_model_markup(point)}", size=9,
+                  italic=True, after=1)
+    confidence = model_answer.get("confidence") or "medium"
+    _para(doc, f"Model confidence: {confidence}.", size=8, italic=True,
+          after=1)
+    notes = _clean_model_markup(model_answer.get("notes") or "")
+    if notes:
+        _para(doc, f"Model note: {notes}", size=8, italic=True, after=4)
+    else:
+        _para(doc, "", size=8, after=2)
 
 
 def _patch_scheme_cover(doc, plan: dict) -> None:
     generated = sum(1 for slot in plan["slots"]
                     if slot["kind"] == "generated_question")
     real = len(plan["slots"]) - generated
+    answered = sum(1 for slot in plan["slots"]
+                   if slot.get("model_answer", {}).get("answer"))
     for paragraph in doc.paragraphs:
         text = paragraph.text.strip()
         if text.startswith("CONFIDENTIAL"):
             # Keep the template's run order: CONFIDENTIAL, tab, crest, label.
             runs = paragraph.runs
-            for index, run in enumerate(runs):
-                if "CS/MOCK" in run.text:
-                    run.text = run.text.replace("CS/MOCK", "CS/NOV")
-                    for later in runs[index + 1:]:
-                        if later.text.strip() == "NOV":
-                            later.text = ""
-                            break
+            drawing_at = next(
+                (index for index, run in enumerate(runs)
+                 if run._r.findall(qn("w:drawing"))), None)
+            if drawing_at is None:
+                for run in runs:
+                    if "CS/MOCK" in run.text:
+                        run.text = run.text.replace("CS/MOCK", "CS/NOV")
+            else:
+                for run in runs[drawing_at + 1:]:
+                    run._r.getparent().remove(run._r)
+                for _ in range(4):
+                    tab = paragraph.add_run("	")
+                    tab.font.name = "Arial"
+                    tab.font.size = Pt(9.5)
+                    tab.bold = True
+                label = paragraph.add_run("CS/NOV 2026/CSC429")
+                label.font.name = "Arial"
+                label.font.size = Pt(9.5)
+                label.bold = True
         elif text.startswith("This marking scheme accompanies"):
             _set_paragraph_text(
                 paragraph,
                 "This marking scheme accompanies the CSC429 mock paper "
                 "(November 2026).")
-        elif text.startswith("Computed answers show working"):
+        elif text.startswith(("Computed answers show working",
+                              "Generated answers show working")):
             _set_paragraph_text(
                 paragraph,
-                "Generated answers show working. Real past-paper questions "
-                "are reproduced with their source reference; no answer is "
-                "invented where the original scheme is unavailable.")
-        elif text.startswith("Supported theory marking points"):
+                "Generated answers show working. Real-bank questions carry a "
+                "labelled unofficial AI model answer, not an official scheme.")
+        elif text.startswith(("Supported theory marking points",
+                              "Generated marking points state")):
             _set_paragraph_text(
                 paragraph,
-                "Generated marking points state the expected answer and the "
-                "allocation of marks. Real-bank questions retain their source "
-                "paper and page reference.")
+                "Marking points show the answer and mark allocation. Check "
+                "model-generated real-bank points against the source paper.")
         elif text.startswith("Part A ="):
             _set_paragraph_text(
                 paragraph,
                 "Part A = 4 x 5 + 6 x 10; Part B = 1 x 20; total = 100 marks.")
-        elif text.startswith("Computed:"):
+        elif text.startswith(("Computed:", "Generated slots:")):
             _set_paragraph_text(
                 paragraph,
                 f"Generated slots: {generated}. Real-bank slots: {real}. "
-                "Placeholders: 0.")
+                f"Unofficial model answers: {answered}/{real}.")
         elif text.startswith("Questions and answers are"):
             _set_paragraph_text(
                 paragraph,
-                "Questions and answers are for local study use only.")
-        elif text.startswith("Near-copy rejection"):
+                "For local study use only; model answers are unofficial.")
+        elif text.startswith(("Near-copy rejection", "Structure derived from")):
             _set_paragraph_text(
                 paragraph,
-                "Structure derived from 20 unique CSC429 past papers; every "
-                "real question remains traceable to its source page.")
+                "Structure from 20 unique CSC429 past papers; every real "
+                "question remains traceable to its source page.")
         elif text.startswith("This marking scheme consists of"):
             _set_paragraph_text(
                 paragraph,
@@ -520,10 +658,21 @@ def _set_word_15(doc) -> None:
 
 def build_scheme(plan: dict, target: Path) -> Path:
     target.parent.mkdir(parents=True, exist_ok=True)
+    source = (SCHEME_TEMPLATE if SCHEME_TEMPLATE.exists()
+              else STANDARD_SCHEME_TEMPLATE)
+    if not source.exists():
+        raise RuntimeError(f"scheme template not found: {source}")
     with tempfile.TemporaryDirectory(prefix="csc429_scheme_") as tmp:
-        rewritten = Path(tmp) / "scheme_template.docx"
-        _rewrite_scheme_text(SCHEME_TEMPLATE, rewritten)
-        doc = docx.Document(str(rewritten))
+        prepared = Path(tmp) / "scheme_template.docx"
+        if source == STANDARD_SCHEME_TEMPLATE:
+            _rewrite_scheme_text(source, prepared)
+        else:
+            shutil.copy2(source, prepared)
+        doc = docx.Document(str(prepared))
+        # The owner's corrected standard may be a filled scheme.  Keep its
+        # cover and the course/code/examination/time boxes, discard its old
+        # body, then append this seed's guide.
+        pilot._clear_after_section_break(doc)
         _patch_scheme_cover(doc, plan)
         _scheme_body(doc, plan)
         _set_word_15(doc)
@@ -547,7 +696,9 @@ def build_paper(plan: dict, target: Path) -> Path:
 
 
 def build_seed(seed: int, out_dir: Path | None = None,
-               export: bool = True, force: bool = False, **kwargs) -> dict:
+               export: bool = True, force: bool = False,
+               allow_llm: bool = True, strict_answers: bool | None = None,
+               **kwargs) -> dict:
     out = Path(out_dir) if out_dir is not None else DEFAULT_OUT
     meta_path = out / "meta.json"
     if not force and meta_path.exists():
@@ -555,7 +706,8 @@ def build_seed(seed: int, out_dir: Path | None = None,
             meta = json.loads(meta_path.read_text(encoding="utf-8"))
             files = [Path(value) for value in (meta.get("files") or {}).values()
                      if value]
-            if files and all(path.exists() for path in files):
+            if (meta.get("builder_version") == BUILDER_VERSION
+                    and files and all(path.exists() for path in files)):
                 qa = json.loads((out / "qa.json").read_text(encoding="utf-8"))
                 return {**qa, "seed": seed, "cached": True, "path": str(out),
                         "files": meta.get("files", {})}
@@ -568,7 +720,12 @@ def build_seed(seed: int, out_dir: Path | None = None,
     assets = pilot._asset_index(_load(ASSETS_PATH))
     layouts = pilot._layout_index()
     resolved, warnings = _resolved_slots(seed, plan, bank, log, assets, layouts)
+    if strict_answers is None:
+        strict_answers = allow_llm
+    answer_report = answers.ensure_answers(
+        resolved, allow_llm=allow_llm, strict=bool(strict_answers))
     plan["slots"] = resolved
+    plan["answer_report"] = answer_report
     plan_path = out / "plan.json"
     plan_path.write_text(json.dumps(plan, indent=2, ensure_ascii=False),
                          encoding="utf-8")
@@ -581,9 +738,22 @@ def build_seed(seed: int, out_dir: Path | None = None,
     qa = {
         "subject": SUBJECT,
         "seed": seed,
+        "builder_version": BUILDER_VERSION,
         "warnings": warnings,
+        "answers": {
+            "requested": answer_report["requested"],
+            "cache_hits": answer_report["cache_hits"],
+            "generated": answer_report["generated"],
+            "failed": answer_report["failed"],
+            "model": answer_report["model"],
+            "cost_usd": answer_report["cost_usd"],
+            "usage": answer_report["usage"],
+            "cache_usage": answer_report.get("cache_usage", {}),
+        },
         "paper_docx": _paper_qa(plan, paper_docx, None),
-        "scheme_docx": _scheme_qa(plan, scheme_docx, None),
+        "scheme_docx": _scheme_qa(
+            plan, scheme_docx, None,
+            require_model_answers=bool(allow_llm or strict_answers)),
         "paper_pdf": {},
         "scheme_pdf": {},
     }
@@ -638,24 +808,35 @@ def build_seed(seed: int, out_dir: Path | None = None,
         raise RuntimeError(
             f"CSC429 seed {seed} validation failed: "
             + "; ".join(qa["problems"][:5]))
-    progress = [{
-        "question": slot["slot"],
-        "slot": slot["slot"],
-        "status": "accepted",
-        "message": slot["topic"],
-        "cost_usd": 0,
-        "calls": 0,
-        "accepted": 1,
-        "placeholders": 0,
-    } for slot in plan["slots"]]
+    progress = []
+    for slot in plan["slots"]:
+        answer_usage = (slot.get("model_answer") or {}).get("usage") or {}
+        progress.append({
+            "question": slot["slot"],
+            "slot": slot["slot"],
+            "status": "accepted",
+            "message": slot["topic"],
+            "cost_usd": float(answer_usage.get("cost_usd") or 0.0),
+            "calls": int(answer_usage.get("calls") or 0),
+            "accepted": 1,
+            "placeholders": 0,
+        })
     created = time.time()
+    model_name = "csc429-deterministic"
+    if any(slot.get("model_answer", {}).get("answer")
+           for slot in plan["slots"]):
+        model_name += f"+{answer_report['model']}"
     meta = {
         "subject": SUBJECT,
         "seed": seed,
+        "builder_version": BUILDER_VERSION,
         "mode": "realistic",
         "computed_marks": None,
-        "model": "csc429-deterministic",
-        "cost_usd": 0.0,
+        "model": model_name,
+        "answers_model": answer_report["model"],
+        "cost_usd": answer_report["cost_usd"],
+        "answer_cache_cost_usd": answer_report.get(
+            "cache_usage", {}).get("cost_usd", 0.0),
         "accepted": len(progress),
         "placeholders": 0,
         "total_slots": len(progress),
@@ -668,6 +849,7 @@ def build_seed(seed: int, out_dir: Path | None = None,
         "topic_marks": plan["topic_marks"],
         "files": files,
         "warnings": warnings,
+        "answers": qa["answers"],
         "summary": {
             "subject": SUBJECT,
             "seed": seed,
@@ -679,8 +861,9 @@ def build_seed(seed: int, out_dir: Path | None = None,
             "question_count": len(progress),
             "has_practice_mode": False,
             "has_placeholders": False,
-            "model": "csc429-deterministic",
-            "cost_usd": 0.0,
+            "model": model_name,
+            "answers_model": answer_report["model"],
+            "cost_usd": answer_report["cost_usd"],
             "cached": True,
             "topic_marks": plan["topic_marks"],
             "pdf_available": bool(export),
@@ -690,6 +873,8 @@ def build_seed(seed: int, out_dir: Path | None = None,
             "real_bank_slots": sum(
                 1 for slot in plan["slots"]
                 if slot["kind"] == "real_bank_question"),
+            "unofficial_answers": answer_report["cache_hits"]
+            + answer_report["generated"],
             "warnings": warnings,
         },
         "progress": progress,

@@ -169,6 +169,11 @@ def run_pipeline(subject: str, papers_dir: Path | None = None,
         questions.build_question_bank(tracking_dir=tracking)
     except ImportError:
         pass
+    try:
+        from src.subjects.csc429 import corrections
+        corrections.apply_corrections(tracking)
+    except ImportError:
+        pass
     report = build_report()
     return {
         "status": report["status"],

@@ -444,6 +444,7 @@ def _update_subject_fingerprint(summary: dict, part_structure: dict,
     if not SUBJECT_PATH.exists():
         return
     subject = json.loads(SUBJECT_PATH.read_text(encoding="utf-8"))
+    previous = subject.get("fingerprint") or {}
     bank = json.loads(BANK_PATH.read_text(encoding="utf-8"))
     paper_ids = sorted(bank.get("papers", []), key=lambda row: row["paper_id"])
     years = []
@@ -478,6 +479,16 @@ def _update_subject_fingerprint(summary: dict, part_structure: dict,
         },
         "generation_model": "deterministic_real_question_bank",
     }
+    # Planner/generator/builder stages add their own evidence keys after the
+    # taxonomy.  Preserve them when this stage is re-run.
+    for key in (
+        "planner", "planner_sample", "planner_slots", "planner_topic_quota",
+        "generators", "generator_sample", "generator_validation",
+        "generator_count", "generator_slots_20_seeds", "builder",
+        "build_sample", "sample_pages", "marking_scheme",
+    ):
+        if key in previous:
+            subject["fingerprint"][key] = previous[key]
     SUBJECT_PATH.write_text(json.dumps(subject, indent=2) + "\n",
                             encoding="utf-8")
 
