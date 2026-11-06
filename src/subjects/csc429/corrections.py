@@ -169,6 +169,7 @@ def apply_corrections(tracking: Path | None = None) -> dict:
             "sha256": _sha256(target),
             "method": "stage1_correction_crop",
             "tightened": True,
+            "display_width_cm": 12.0,
             "confidence": "high",
             "review_flags": ["uncaptioned_diagram_correction"],
             "correction_reason": correction.get("reason", ""),

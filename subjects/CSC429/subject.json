@@ -85,8 +85,11 @@
       "answer_calls": 15,
       "answer_cost_usd": 0.014089,
       "real_bank_source_references": true,
-      "invented_answers": false
-    }
+      "invented_answers": false,
+      "scheme_question_body": false,
+      "marks_right_aligned": true
+    },
+    "figure_width_policy": "small pictures 8cm; diagrams 12cm; wide diagrams 16.2cm; height cap 12cm; native captions"
   },
   "deck_map": {},
   "topic_deck_allowlist": {},

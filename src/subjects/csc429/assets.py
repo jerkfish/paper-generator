@@ -40,6 +40,23 @@ PROMPT_RE = re.compile(
     r"Discuss|Compare|Name|Give|What|Why|How|Based on)\b", re.I)
 
 
+
+def _display_width(kind: str, width_px: int, height_px: int,
+                   flags: list[str]) -> float | None:
+    """Choose a readable insertion width from the crop's aspect and size."""
+    if kind != "figure" or width_px <= 0 or height_px <= 0:
+        return None
+    aspect = width_px / height_px
+    area = width_px * height_px
+    if aspect >= 4.5:
+        return 16.2
+    if "prose_column" in flags and aspect < 2.5:
+        return 8.0
+    if area < 300_000:
+        return 8.0
+    return 12.0
+
+
 def _slug(value: str) -> str:
     return re.sub(r"[^A-Za-z0-9]+", "-", value).strip("-") or "asset"
 
@@ -491,6 +508,8 @@ def _assets_for_page(paper: dict, page: dict, page_meta: dict,
             "sha256": _sha256(target),
             "method": method,
             "tightened": tightened,
+            "display_width_cm": _display_width(
+                kind, crop_width, crop_height, flags),
             "confidence": confidence,
             "review_flags": flags,
         })

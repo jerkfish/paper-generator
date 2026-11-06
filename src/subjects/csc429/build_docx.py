@@ -21,7 +21,7 @@ from pathlib import Path
 
 import docx
 import pymupdf
-from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_TAB_ALIGNMENT
 from docx.oxml.ns import qn
 from docx.shared import Pt
 
@@ -508,17 +508,36 @@ def _clean_model_markup(text: str) -> str:
     return value.strip()
 
 
+def _scheme_heading(doc, slot: str, marks: int) -> None:
+    paragraph = doc.add_paragraph()
+    paragraph.paragraph_format.line_spacing = 1.5
+    paragraph.paragraph_format.space_before = Pt(10)
+    paragraph.paragraph_format.space_after = Pt(3)
+    paragraph.paragraph_format.keep_with_next = True
+    section = doc.sections[-1]
+    text_width = (section.page_width - section.left_margin
+                  - section.right_margin)
+    paragraph.paragraph_format.tab_stops.add_tab_stop(
+        text_width, WD_TAB_ALIGNMENT.RIGHT)
+    run = paragraph.add_run(f"QUESTION {slot}")
+    run.bold = True
+    run.font.name = "Arial"
+    run.font.size = Pt(11)
+    paragraph.add_run("	")
+    run = paragraph.add_run(f"({marks} marks)")
+    run.bold = True
+    run.font.name = "Arial"
+    run.font.size = Pt(11)
+
+
 def _scheme_entry(doc, slot: dict) -> None:
-    _para(doc, f"QUESTION {slot['slot']} ({slot['marks']} marks)",
-          size=11, bold=True, before=10, after=3)
+    _scheme_heading(doc, slot["slot"], slot["marks"])
     _para(doc, f"Topic: {slot['topic_label']}", size=9, italic=True, after=3)
     if slot["kind"] == "generated_question":
-        _para(doc, slot["text"], size=10, after=3)
         if slot["subparts"]:
             for subpart in slot["subparts"]:
-                _para(doc, f"{subpart['label']}) {subpart['text']}",
-                      size=10, bold=True, after=2)
-                _para(doc, f"Answer: {subpart['answer']}", size=10, after=2)
+                _para(doc, f"{subpart['label']}) Answer: {subpart['answer']}",
+                      size=10, after=2)
                 for point in subpart.get("marking", []):
                     _para(doc, f"• {point}", size=9, italic=True, after=1)
         else:
@@ -526,7 +545,6 @@ def _scheme_entry(doc, slot: dict) -> None:
             for point in slot.get("marking", []):
                 _para(doc, f"• {point}", size=9, italic=True, after=1)
         return
-    _para(doc, _scheme_question_text(slot), size=10, after=3)
     pages = ", ".join(str(page) for page in slot.get("source_pages") or [])
     source = slot.get("source_file") or slot.get("paper_id")
     _para(doc, f"Source: {source}" + (f", page(s) {pages}" if pages else ""),
