@@ -1,0 +1,152 @@
+{
+  "subject": "CSC429",
+  "experiment": "pure_extraction_v1",
+  "assets": [
+    {
+      "slot": "A1",
+      "paper": "CSC429 (13).PDF",
+      "paper_label": "CSC429-2019-12",
+      "page": 2,
+      "kind": "picture",
+      "label": "Figure 1",
+      "bbox_pdf": [
+        78.0,
+        218.0,
+        305.0,
+        332.0
+      ],
+      "caption": "Figure 1: Inventor 'Y' and his calculating machine.",
+      "path": "outputs/experiments/csc429_pure_20261106/assets/A1_Figure_1.png",
+      "sha256": "12eb3399710921cd0603be648e876044afabcb60f3fe0363e4f00235637f10ed",
+      "width_px": 946,
+      "height_px": 475,
+      "ocr_text": ""
+    },
+    {
+      "slot": "A2",
+      "paper": "CSC429 (12).PDF",
+      "paper_label": "CSC429-2019-06",
+      "page": 2,
+      "kind": "picture",
+      "label": "Figure 1",
+      "bbox_pdf": [
+        90.0,
+        245.0,
+        210.0,
+        340.0
+      ],
+      "caption": "Figure 1: Component X",
+      "path": "outputs/experiments/csc429_pure_20261106/assets/A2_Figure_1.png",
+      "sha256": "3f2c006d0f6f1761426c1ea6b5f8a5b889533dda1109b1d2ed9d61e66824f3d5",
+      "width_px": 500,
+      "height_px": 396,
+      "ocr_text": ""
+    },
+    {
+      "slot": "A5",
+      "paper": "CSC429 (22).pdf",
+      "paper_label": "CSC429-2026-02",
+      "page": 3,
+      "kind": "diagram",
+      "label": "Figure 2",
+      "bbox_pdf": [
+        100.0,
+        510.0,
+        500.0,
+        706.0
+      ],
+      "caption": "Figure 2: Nested interrupts",
+      "path": "outputs/experiments/csc429_pure_20261106/assets/A5_Figure_2.png",
+      "sha256": "530ccedc8944a27444b48de3a9194da9c194adaf37d827e40ea985538ec534d9",
+      "width_px": 1667,
+      "height_px": 816,
+      "ocr_text": "User program Interrupt handler W Interrupt handler X Interrupt handler Y Interrupt handler Z"
+    },
+    {
+      "slot": "A7",
+      "paper": "CSC429 (14).pdf",
+      "paper_label": "CSC429-2023-02",
+      "page": 5,
+      "kind": "diagram",
+      "label": "Figure 3",
+      "bbox_pdf": [
+        150.0,
+        405.0,
+        455.0,
+        460.0
+      ],
+      "caption": "Figure 3: Single Instruction, Single Data Stream (SISD)",
+      "path": "outputs/experiments/csc429_pure_20261106/assets/A7_Figure_3.png",
+      "sha256": "b31a38f4adc36a36e2929be220b88f96fc4c1b018ffa314a62c78b8e7a5108ff",
+      "width_px": 1270,
+      "height_px": 229,
+      "ocr_text": ""
+    },
+    {
+      "slot": "A8",
+      "paper": "CSC429 (15).pdf",
+      "paper_label": "CSC429-2023-07",
+      "page": 5,
+      "kind": "diagram",
+      "label": "Figure 2",
+      "bbox_pdf": [
+        120.0,
+        190.0,
+        465.0,
+        435.0
+      ],
+      "caption": "Figure 2: Non-uniform Memory Access (NUMA)",
+      "path": "outputs/experiments/csc429_pure_20261106/assets/A8_Figure_2.png",
+      "sha256": "0b4fd87a9fe4ce892a97b67a5f9a72ec7f1e9362e0da2c39945307474b48b72f",
+      "width_px": 1438,
+      "height_px": 1021,
+      "ocr_text": "1-1 Memory I Processor Main M�oory N Processor Main Mernory 2 interconnect"
+    },
+    {
+      "slot": "A10",
+      "paper": "CSC429 (17).pdf",
+      "paper_label": "CSC429-2024-07",
+      "page": 4,
+      "kind": "picture",
+      "label": "Figure 1",
+      "bbox_pdf": [
+        190.0,
+        322.0,
+        380.0,
+        392.0
+      ],
+      "caption": "Figure 1: Interface to the external devices",
+      "path": "outputs/experiments/csc429_pure_20261106/assets/A10_Figure_1.png",
+      "sha256": "aba6e4f504af81e2e996f2528884dfc28f17b2c67d2ffd52c323a396cc67544c",
+      "width_px": 792,
+      "height_px": 292,
+      "ocr_text": ""
+    },
+    {
+      "slot": "B1",
+      "paper": "CSC429 (22).pdf",
+      "paper_label": "CSC429-2026-02",
+      "page": 6,
+      "kind": "formula",
+      "label": "Figure 5",
+      "bbox_pdf": [
+        190.0,
+        165.0,
+        375.0,
+        212.0
+      ],
+      "caption": "Figure 5",
+      "path": "outputs/experiments/csc429_pure_20261106/assets/B1_Figure_5.png",
+      "sha256": "11a576beab2a6661db7be9ff3b117a63d89cfa0cf516102197e236ec42585bfd",
+      "width_px": 771,
+      "height_px": 196,
+      "ocr_text": "z=A+ C2/B*D-3A"
+    }
+  ],
+  "counts": {
+    "assets": 7,
+    "pictures": 3,
+    "diagrams": 3,
+    "formulas": 1
+  }
+}

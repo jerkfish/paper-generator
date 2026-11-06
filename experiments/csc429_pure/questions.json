@@ -1,0 +1,450 @@
+{
+  "subject": "CSC429",
+  "experiment": "pure_extraction_v1",
+  "paper": "CSC429 (12).PDF",
+  "note": "One test seed. Every question is taken verbatim from the supplied papers. Assets are cropped from the source page; captions are native text, not baked into the crop.",
+  "questions": [
+    {
+      "slot": "A1",
+      "marks": 5,
+      "paper": "CSC429 (13).PDF",
+      "paper_label": "CSC429-2019-12",
+      "page": 2,
+      "source_question": "QUESTION 1",
+      "text": "Question 1 is based on the following Figure 1.\n\nInventor 'Y' was France's most celebrated mathematician and physicist. In 1642, inventor 'Y' invented and built the first working calculating machine as a means of helping his father to perform tedious tax accounting.",
+      "assets": [
+        {
+          "kind": "picture",
+          "label": "Figure 1",
+          "page": 2,
+          "bbox": [
+            78.0,
+            218.0,
+            305.0,
+            332.0
+          ],
+          "caption": "Figure 1: Inventor 'Y' and his calculating machine.",
+          "max_width_cm": 8.0
+        }
+      ],
+      "subparts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "text": "Who is inventor 'Y'?"
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "text": "Name another calculating machine that was invented in the same generation as inventor Y's calculating machine."
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "text": "Which programming language is named after inventor 'Y'?"
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "text": "State TWO (2) mathematical operations that can be performed by inventor Y's calculating machine."
+        }
+      ]
+    },
+    {
+      "slot": "A2",
+      "marks": 5,
+      "paper": "CSC429 (12).PDF",
+      "paper_label": "CSC429-2019-06",
+      "page": 2,
+      "source_question": "QUESTION 1",
+      "text": "Question 1 is based on the following Figure 1.\n\nThe development of component X led to a drastic increase in speed and efficiency of computers. Component X is a single, complete electronic semiconductor circuit contained on pieces of silicon, and sometimes called as chips.",
+      "assets": [
+        {
+          "kind": "picture",
+          "label": "Figure 1",
+          "page": 2,
+          "bbox": [
+            90.0,
+            245.0,
+            210.0,
+            340.0
+          ],
+          "caption": "Figure 1: Component X",
+          "max_width_cm": 7.0
+        }
+      ],
+      "subparts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "text": "What is the name of component X?"
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "text": "In which computer generation was component X introduced?"
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "text": "Who is the inventor of component X?"
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "text": "State ONE (1) input device and ONE (1) output device that was introduced in the same generation as component X."
+        }
+      ],
+      "page_break_before": true
+    },
+    {
+      "slot": "A3",
+      "marks": 5,
+      "paper": "CSC429 (19).pdf",
+      "paper_label": "CSC429-2025-02",
+      "page": 2,
+      "source_question": "QUESTION 3",
+      "text": "",
+      "figure_text": "0101011100111000111100101100111000011001",
+      "figure_label": "Figure 1",
+      "subparts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "Calculate the byte content shown in Figure 1."
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "Calculate 2D.5h + ED.2h in binary. Show your complete workflow."
+        }
+      ],
+      "note": "Subpart a) is a native 40-bit string; it is not an image."
+    },
+    {
+      "slot": "A4",
+      "marks": 5,
+      "paper": "CSC429 (15).pdf",
+      "paper_label": "CSC429-2023-07",
+      "page": 2,
+      "source_question": "QUESTION 4",
+      "text": "",
+      "subparts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "Solve -48₁₀ + 68₁₀ using the sign and magnitude method. Show the complete workflow."
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "Calculate -96₁₀ - 15₁₀ using the 1's and 2's complement method. Show the complete workflow."
+        }
+      ],
+      "note": "Formulas are native text."
+    },
+    {
+      "slot": "A5",
+      "marks": 10,
+      "paper": "CSC429 (22).pdf",
+      "paper_label": "CSC429-2026-02",
+      "page": 3,
+      "source_question": "QUESTION 7",
+      "text": "Question 7 is based on Figure 2.",
+      "assets": [
+        {
+          "kind": "diagram",
+          "label": "Figure 2",
+          "page": 3,
+          "bbox": [
+            100.0,
+            510.0,
+            500.0,
+            706.0
+          ],
+          "caption": "Figure 2: Nested interrupts",
+          "max_width_cm": 12.0
+        }
+      ],
+      "subparts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "Define interrupt."
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "text": "Identify the interrupt that has the highest priority with relevant justification."
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "text": "Identify the interrupt that has the lowest priority with relevant justification."
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "text": "Rank the sequence of the interrupt process completed if the computer system applies the defined priority concept to handle multiple interrupts."
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "text": "Rank the sequence of the interrupt process completed if the computer system applies the disable nested interrupt concept to handle multiple interrupts."
+        }
+      ]
+    },
+    {
+      "slot": "A6",
+      "marks": 10,
+      "paper": "CSC429 (17).pdf",
+      "paper_label": "CSC429-2024-07",
+      "page": 3,
+      "source_question": "QUESTION 7",
+      "text": "Given that the size of the data bus is 32 bits, the size of the address bus is 8 bits, and the size of the control bus is 4 bits.",
+      "subparts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "Determine the size of the word and provide relevant justification."
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "text": "Determine the size of the register and provide relevant justification."
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "text": "Discuss what will happen if system interconnection is blocked from the perspective of the machine cycle."
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "text": "Elaborate the role of CPU interconnection."
+        }
+      ]
+    },
+    {
+      "slot": "A7",
+      "marks": 10,
+      "paper": "CSC429 (14).pdf",
+      "paper_label": "CSC429-2023-02",
+      "page": 5,
+      "source_question": "QUESTION 10",
+      "text": "Given the architecture of Single Instruction, Single Data Stream (SISD) in Figure 3, with CU representing Control Unit, PU representing the Processing Unit, and MU representing the Memory Unit.",
+      "assets": [
+        {
+          "kind": "diagram",
+          "label": "Figure 3",
+          "page": 5,
+          "bbox": [
+            150.0,
+            405.0,
+            455.0,
+            460.0
+          ],
+          "caption": "Figure 3: Single Instruction, Single Data Stream (SISD)",
+          "max_width_cm": 16.2
+        }
+      ],
+      "subparts": [
+        {
+          "label": "a",
+          "marks": 6,
+          "text": "Draw the following multiple processor organization with appropriate labels. Clearly show the Instruction Stream (IS) and Data Stream (DS). i) MIMD with shared memory. ii) MIMD with distributed memory."
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "text": "Give ONE (1) example for each multiple-processor organization in (a)."
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "text": "Discuss ONE (1) advantage of using MIMD with distributed memory."
+        }
+      ]
+    },
+    {
+      "slot": "A8",
+      "marks": 10,
+      "paper": "CSC429 (15).pdf",
+      "paper_label": "CSC429-2023-07",
+      "page": 5,
+      "source_question": "QUESTION 10",
+      "text": "Question 10 is based on Figure 2. Figure 2 depicts a Non-uniform Memory Access (NUMA) architecture.",
+      "assets": [
+        {
+          "kind": "diagram",
+          "label": "Figure 2",
+          "page": 5,
+          "bbox": [
+            120.0,
+            190.0,
+            465.0,
+            435.0
+          ],
+          "caption": "Figure 2: Non-uniform Memory Access (NUMA)",
+          "max_width_cm": 10.0
+        }
+      ],
+      "subparts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "Redraw a symmetric multiprocessor organization based on Figure 2."
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "text": "Give TWO (2) examples of tightly coupled Multiple Instruction, Multiple Data (MIMD) parallel processor architectures."
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "text": "Discuss TWO (2) disadvantages of tightly coupled Multiple Instruction, Multiple Data (MIMD) parallel processor architectures."
+        }
+      ],
+      "page_break_before": true
+    },
+    {
+      "slot": "A9",
+      "marks": 10,
+      "paper": "CSC429 (19).pdf",
+      "paper_label": "CSC429-2025-02",
+      "page": 4,
+      "source_question": "QUESTION 9",
+      "text": "",
+      "subparts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "text": "Differentiate the involvement of CPU in the interrupt-driven I/O technique and Direct Memory Access (DMA)."
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "text": "Define interrupt."
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "text": "Discuss what happens during a context switch."
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "text": "Elaborate on the benefit of a context switch."
+        }
+      ]
+    },
+    {
+      "slot": "A10",
+      "marks": 10,
+      "paper": "CSC429 (17).pdf",
+      "paper_label": "CSC429-2024-07",
+      "page": 4,
+      "source_question": "QUESTION 9",
+      "text": "Figure 1 illustrates the icon of one of the interfaces to the external devices.",
+      "assets": [
+        {
+          "kind": "picture",
+          "label": "Figure 1",
+          "page": 4,
+          "bbox": [
+            190.0,
+            322.0,
+            380.0,
+            392.0
+          ],
+          "caption": "Figure 1: Interface to the external devices",
+          "max_width_cm": 7.0
+        }
+      ],
+      "subparts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "Identify the type of external device interface based on the icon in Figure 1."
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "text": "The external devices interface in (a) can have a \"hot connection\". Define hot connection."
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "text": "Discuss the THREE (3) input-output techniques available in a computer system and elaborate on the Central Processing Unit's involvement in each technique."
+        }
+      ]
+    },
+    {
+      "slot": "B1",
+      "marks": 20,
+      "paper": "CSC429 (22).pdf",
+      "paper_label": "CSC429-2026-02",
+      "page": 6,
+      "source_question": "QUESTION 1",
+      "text": "Question 1 is based on Figure 5 and Table 1. Write an appropriate program using correct assembly language notations to compute the equation shown in Figure 5 using instructions for zero-address, one-address, and three-address. The available instructions are provided in Table 1. The registers labeled A, B, C, and D are fixed, while registers x, y, and z can be used temporarily. The final answer must be stored in register z.",
+      "assets": [
+        {
+          "kind": "formula",
+          "label": "Figure 5",
+          "page": 6,
+          "bbox": [
+            190.0,
+            165.0,
+            375.0,
+            212.0
+          ],
+          "caption": "Figure 5",
+          "max_width_cm": 10.0
+        }
+      ],
+      "tables": [
+        {
+          "caption": "Table 1: Machine instruction",
+          "columns": [
+            "Zero-address",
+            "One-address",
+            "Three-address"
+          ],
+          "rows": [
+            [
+              "PUSH p",
+              "LOAD p",
+              "ADD (p,q,r)"
+            ],
+            [
+              "POP p",
+              "STOR p",
+              "SUB (p,q,r)"
+            ],
+            [
+              "ADD",
+              "ADD p",
+              "MUL (p,q,r)"
+            ],
+            [
+              "SUB",
+              "SUB p",
+              "DIV (p,q,r)"
+            ],
+            [
+              "MUL",
+              "MUL p",
+              ""
+            ],
+            [
+              "DIV",
+              "DIV p",
+              ""
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}
