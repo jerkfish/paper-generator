@@ -181,3 +181,5 @@ def chat_json(system: str, user: str, model: str | None = None,
     """Backward-compatible wrapper returning only the parsed object."""
     return chat_json_result(system, user, model=model,
                             temperature=temperature).data
+
+

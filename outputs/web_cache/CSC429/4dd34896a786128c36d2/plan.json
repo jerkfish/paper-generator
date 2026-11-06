@@ -1,0 +1,1120 @@
+{
+  "subject": "CSC429",
+  "planner_version": 1,
+  "generated_by": "src.subjects.csc429.planner",
+  "style": "modern",
+  "seed": 7,
+  "target_format": {
+    "A": {
+      "questions": 10,
+      "marks": 80,
+      "slot_marks": [
+        5,
+        5,
+        5,
+        5,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ]
+    },
+    "B": {
+      "questions": 1,
+      "marks": 20
+    }
+  },
+  "source_evidence": [
+    "data/tracking/csc429/taxonomy.json",
+    "data/tracking/csc429/question_log.json",
+    "data/tracking/csc429/taxonomy_summary.json"
+  ],
+  "topic_quota": {
+    "computer_generations": 1,
+    "data_representation": 2,
+    "memory_system": 1,
+    "io_system": 2,
+    "parallel_architecture": 1,
+    "computer_architecture": 2,
+    "instruction_set_addressing": 1
+  },
+  "part_marks": {
+    "A": 80,
+    "B": 20
+  },
+  "topic_marks": {
+    "parallel_architecture": 5,
+    "instruction_set_addressing": 5,
+    "computer_generations": 5,
+    "data_representation": 15,
+    "computer_architecture": 20,
+    "io_system": 20,
+    "memory_system": 10,
+    "assembly_programming": 20
+  },
+  "total_marks": 100,
+  "question_count": 11,
+  "slot_count": 11,
+  "slots": [
+    {
+      "slot": "A1",
+      "part": "A",
+      "question": "A1",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "parallel_architecture",
+      "topic_label": "Parallel and multiprocessor architecture",
+      "task": "short_answer",
+      "title": "Five-mark question 1",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2017-07-A10",
+      "paper_id": "CSC429-2017-07",
+      "source_file": "CSC429 (7).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 297.68,
+          "text": "a) List TWO (2) advantages of SMP organization."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 336.19,
+          "text": "b) Define cluster organization."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 374.35,
+          "text": "c) Give ONE (1) benefit of cluster organization."
+        }
+      ],
+      "text": "a) List TWO (2) advantages of SMP organization.\nb) Define cluster organization.\nc) Give ONE (1) benefit of cluster organization.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) List TWO (2) advantages of SMP organization.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            71.99,
+            297.68,
+            318.18,
+            308.84
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Define cluster organization.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            71.99,
+            336.19,
+            223.52,
+            346.99
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) Give ONE (1) benefit of cluster organization.",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            71.99,
+            374.35,
+            306.3,
+            385.51
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A2",
+      "part": "A",
+      "question": "A2",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "instruction_set_addressing",
+      "topic_label": "Instruction formats and addressing modes",
+      "task": "short_answer",
+      "title": "Five-mark question 2",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2014-06-A9",
+      "paper_id": "CSC429-2014-06",
+      "source_file": "CSC429 (1).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [
+        "CSC429-2014-06-F2"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 409.32,
+          "text": "Given the following Figure 2."
+        },
+        {
+          "type": "figure",
+          "page": 5,
+          "y": 434.88,
+          "asset_id": "CSC429-2014-06-F2",
+          "path": "data/tracking/csc429/assets/CSC429-2014-06/CSC429-2014-06-F2.png",
+          "crop_box": [
+            35.68,
+            434.88,
+            559.04,
+            583.16
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2014-06\\page_005.jpg",
+          "page_points": [
+            594.72,
+            847.44
+          ],
+          "width_px": 1453,
+          "height_px": 411
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 626.4,
+          "text": "a) Label the addressing technique illustrated in Figure 2."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 664.2,
+          "text": "b) Explain how the addressing technique in 9(a) is used."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 699.84,
+          "text": "List ONE (1) advantage and ONE (1) disadvantage of the addressing technique in"
+        }
+      ],
+      "text": "Given the following Figure 2.\nInstruction\nOpcode\nAddress A\nMemory\nOperand\nFigure 2\nLabel the addressing technique illustrated in Figure 2.\na)\nExplain how the addressing technique in 9(a) is used.\nb)\nList ONE (1) advantage and ONE (1) disadvantage of the addressing technique in",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a)\nExplain how the addressing technique in 9(a) is used.",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            72.0,
+            626.4,
+            81.0,
+            636.48
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b)\nList ONE (1) advantage and ONE (1) disadvantage of the addressing technique in",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            72.36,
+            664.2,
+            81.0,
+            675.0
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A3",
+      "part": "A",
+      "question": "A3",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "computer_generations",
+      "topic_label": "Computer generations and history",
+      "task": "short_answer",
+      "title": "Five-mark question 3",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2025-07-A2",
+      "paper_id": "CSC429-2025-07",
+      "source_file": "CSC429 (20).pdf",
+      "source_pages": [
+        2
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 2,
+          "y": 376.61,
+          "text": "The integrated circuit is an important milestone that marks the achievement in the history of computer development."
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 410.12,
+          "text": "a) ln which computer generation that the integrated circuil was first introduced?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 447.92,
+          "text": "b) State the name of the inventor of the integrated circuit."
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 485.54,
+          "text": "c) What are the THREE (3) main components of integrated circuits?"
+        }
+      ],
+      "text": "The integrated circuit is an important milestone that marks the achievement in the history of\ncomputer development.\na) ln which computer generation that the integrated circuil was first introduced?\nb) State the name of the inventor of the integrated circuit.\nc) What are the THREE (3) main components of integrated circuits?",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) ln which computer generation that the integrated circuil was first introduced?",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            57.6,
+            410.12,
+            446.9,
+            430.82
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) State the name of the inventor of the integrated circuit.",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            57.24,
+            447.92,
+            340.29,
+            468.52
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) What are the THREE (3) main components of integrated circuits?",
+          "marks": 3,
+          "marks_source": "explicit",
+          "bbox": [
+            56.88,
+            485.54,
+            392.38,
+            506.83
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A4",
+      "part": "A",
+      "question": "A4",
+      "kind": "generated_question",
+      "marks": 5,
+      "topic": "data_representation",
+      "topic_label": "Data representation and number systems",
+      "task": "short_answer",
+      "title": "Five-mark question 4",
+      "resolver": "csc429.generator",
+      "variant_policy": "controlled_numeric",
+      "generator_pool": [
+        "csc429.number_base_conversion",
+        "csc429.signed_arithmetic",
+        "csc429.ieee754_single"
+      ],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-GEN-07-A4",
+      "paper_id": "CSC429-GEN-07",
+      "source_file": "",
+      "source_pages": [],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 1,
+          "y": 0,
+          "text": "Convert -6.75 to IEEE 754 single-precision format. Give the answer in hexadecimal and show the sign, exponent and mantissa fields."
+        }
+      ],
+      "text": "Convert -6.75 to IEEE 754 single-precision format. Give the answer in hexadecimal and show the sign, exponent and mantissa fields.",
+      "subparts": [],
+      "answer": "-6.7510 = 0xC0D80000 (sign=1, exponent=10000001, fraction=10110000000000000000000)",
+      "marking": [
+        "1 mark for the sign bit.",
+        "1 mark for the biased exponent.",
+        "1 mark for the 23-bit fraction.",
+        "1 mark for the correct 32-bit grouping.",
+        "1 mark for the final hexadecimal value."
+      ],
+      "generator_id": "csc429.ieee754_single",
+      "metadata": {
+        "value": -6.75,
+        "hex": "C0D80000",
+        "binary": "11000000110110000000000000000000",
+        "sign": 1,
+        "exponent": 129,
+        "fraction": 5767168,
+        "exponent_bits": "10000001",
+        "fraction_bits": "10110000000000000000000"
+      }
+    },
+    {
+      "slot": "A5",
+      "part": "A",
+      "question": "A5",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "computer_architecture",
+      "topic_label": "Computer architecture and CPU organisation",
+      "task": "short_answer",
+      "title": "Ten-mark question 5",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2019-12-A7",
+      "paper_id": "CSC429-2019-12",
+      "source_file": "CSC429 (13).pdf",
+      "source_pages": [
+        4
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 476.71,
+          "text": "Describe the specificfunction ofdifferent types of registers."
+        }
+      ],
+      "text": "Describe the specificfunction ofdifferent types of registers.",
+      "subparts": [
+        {
+          "label": "main",
+          "text": "Describe the specificfunction ofdifferent types of registers.",
+          "marks": 10,
+          "marks_source": "explicit",
+          "bbox": [
+            84.65,
+            476.71,
+            372.99,
+            493.65
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A6",
+      "part": "A",
+      "question": "A6",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "io_system",
+      "topic_label": "Input/output and interrupts",
+      "task": "short_answer",
+      "title": "Ten-mark question 6",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2018-12-A9",
+      "paper_id": "CSC429-2018-12",
+      "source_file": "CSC429 (11).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 175.66,
+          "text": "Keyboard is the most common input/output device to communicate between computer and user."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 216.33,
+          "text": "a) What is the input/output module category for keyboard?"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 253.04,
+          "text": "b) State TWO (2) other devices that are in the similar input/output module category?"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 293.72,
+          "text": "c) What is the basic unit of exchange for keyboard?"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 332.95,
+          "text": "d) Discuss TWO (2) types of characters."
+        }
+      ],
+      "text": "Keyboard is the most common input/output device to communicate between computer and\nuser.\na) What is the input/output module category for keyboard?\nb) State TWO (2) other devices that are in the similar input/output module category?\nc) What is the basic unit of exchange for keyboard?\nd) Discuss TWO (2) types of characters.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) What is the input/output module category for keyboard?",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            102.94,
+            216.33,
+            393.4,
+            230.37
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) State TWO (2) other devices that are in the similar input/output module category?",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            103.3,
+            253.04,
+            520.1,
+            268.52
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) What is the basic unit of exchange for keyboard?",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            103.66,
+            293.72,
+            361.37,
+            307.04
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "d",
+          "text": "d) Discuss TWO (2) types of characters.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            103.66,
+            332.95,
+            305.94,
+            345.55
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A7",
+      "part": "A",
+      "question": "A7",
+      "kind": "generated_question",
+      "marks": 10,
+      "topic": "data_representation",
+      "topic_label": "Data representation and number systems",
+      "task": "short_answer",
+      "title": "Ten-mark question 7",
+      "resolver": "csc429.generator",
+      "variant_policy": "controlled_numeric",
+      "generator_pool": [
+        "csc429.number_base_conversion",
+        "csc429.signed_arithmetic",
+        "csc429.ieee754_single"
+      ],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-GEN-07-A7",
+      "paper_id": "CSC429-GEN-07",
+      "source_file": "",
+      "source_pages": [],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 1,
+          "y": 0,
+          "text": "Answer both parts. Show your complete workflow."
+        },
+        {
+          "type": "text",
+          "page": 1,
+          "y": 1,
+          "text": "a) Convert -11.375 to IEEE 754 single precision. Give the answer in hexadecimal."
+        },
+        {
+          "type": "text",
+          "page": 1,
+          "y": 2,
+          "text": "b) Convert the IEEE 754 single-precision value 0x40500000 to decimal."
+        }
+      ],
+      "text": "Answer both parts. Show your complete workflow.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Convert -11.375 to IEEE 754 single precision. Give the answer in hexadecimal.",
+          "marks": 5,
+          "answer": "-11.37510 = 0xC1360000 (sign=1, exponent=10000010, fraction=01101100000000000000000)",
+          "marking": [
+            "1 mark for sign, exponent and mantissa.",
+            "1 mark for the biased exponent.",
+            "1 mark for the 23-bit fraction.",
+            "1 mark for the 32-bit binary grouping.",
+            "1 mark for the hexadecimal result."
+          ]
+        },
+        {
+          "label": "b",
+          "text": "Convert the IEEE 754 single-precision value 0x40500000 to decimal.",
+          "marks": 5,
+          "answer": "0x40500000 = 3.2510",
+          "marking": [
+            "1 mark for the sign bit.",
+            "1 mark for the exponent field.",
+            "1 mark for the fraction field.",
+            "1 mark for applying the bias and significand.",
+            "1 mark for the final decimal value."
+          ]
+        }
+      ],
+      "answer": "a) -11.37510 = 0xC1360000 (sign=1, exponent=10000010, fraction=01101100000000000000000); b) 0x40500000 = 3.2510",
+      "marking": [
+        "Part a: 5 marks.",
+        "Part b: 5 marks."
+      ],
+      "generator_id": "csc429.ieee754_single",
+      "metadata": {
+        "encode": {
+          "value": -11.375,
+          "hex": "C1360000",
+          "binary": "11000001001101100000000000000000",
+          "sign": 1,
+          "exponent": 130,
+          "fraction": 3538944,
+          "exponent_bits": "10000010",
+          "fraction_bits": "01101100000000000000000"
+        },
+        "decode": {
+          "value": 3.25,
+          "hex": "40500000",
+          "binary": "01000000010100000000000000000000",
+          "sign": 0,
+          "exponent": 128,
+          "fraction": 5242880,
+          "exponent_bits": "10000000",
+          "fraction_bits": "10100000000000000000000"
+        }
+      }
+    },
+    {
+      "slot": "A8",
+      "part": "A",
+      "question": "A8",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "io_system",
+      "topic_label": "Input/output and interrupts",
+      "task": "short_answer",
+      "title": "Ten-mark question 8",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2015-06-A8",
+      "paper_id": "CSC429-2015-06",
+      "source_file": "CSC429 (3).pdf",
+      "source_pages": [
+        4
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 607.32,
+          "text": "a) Define interrupt."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 645.48,
+          "text": "b) Describe TWO (2) different types of interrupt."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 683.64,
+          "text": "c) Discuss ONE (1) advantage and ONE (1) disadvantage of interrupt"
+        }
+      ],
+      "text": "a) Define interrupt.\nb) Describe TWO (2) different types of interrupt.\nc) Discuss ONE (1) advantage and ONE (1) disadvantage of interrupt",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Define interrupt.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            65.88,
+            607.32,
+            161.28,
+            618.84
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Describe TWO (2) different types of interrupt.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            65.88,
+            645.48,
+            303.84,
+            658.44
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) Discuss ONE (1) advantage and ONE (1) disadvantage of interrupt",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            65.16,
+            683.64,
+            411.12,
+            697.32
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A9",
+      "part": "A",
+      "question": "A9",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "computer_architecture",
+      "topic_label": "Computer architecture and CPU organisation",
+      "task": "short_answer",
+      "title": "Ten-mark question 9",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2023-02-A6",
+      "paper_id": "CSC429-2023-02",
+      "source_file": "CSC429 (14).pdf",
+      "source_pages": [
+        3
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 371.21,
+          "text": "Describe the function of each register in the computer system."
+        }
+      ],
+      "text": "Describe the function of each register in the computer system.",
+      "subparts": [
+        {
+          "label": "main",
+          "text": "Describe the function of each register in the computer system.",
+          "marks": 10,
+          "marks_source": "explicit",
+          "bbox": [
+            79.92,
+            371.21,
+            385.57,
+            386.33
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A10",
+      "part": "A",
+      "question": "A10",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "memory_system",
+      "topic_label": "Memory hierarchy and cache",
+      "task": "short_answer",
+      "title": "Ten-mark question 10",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2019-06-A7",
+      "paper_id": "CSC429-2019-06",
+      "source_file": "CSC429 (12).pdf",
+      "source_pages": [
+        4,
+        5
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 482.69,
+          "text": "Question 7 is based on the following scenarios. While cleaning his house, Ahmad found an old cassette tape of a popular 80's band. He played the tape and listened to several songs according to the listed tracks. \u0007 Hafiz was tasked to research on the history of Malay culture by his professor. He went to the National Archive to search for information and manage to access one the resources which was stored in a floppy disk. Sara is planning to buy a new computer. She aims to get one with good processing speed. While researching for computer specifications, she found out that larger cache space has a direct effect towards processing performance. Hana loves playing role-playing games (RPG) and is planning to buy a newly released game that requires a high-speed RAM. But, she is devastated when she found out that her game console does not support the minimum RAM requirement of the game."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 663.03,
+          "text": "a) Based on the above scenarios, identify the access method for each storage devices/memory mentioned in (i), (ii), (iii) and (iv)."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 714.5,
+          "text": "b) Describe SRAM and DRAM."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 143.98,
+          "text": "c) Which level of cache is the fastest in a three-level cache architecture? Which type of RAM is used to implement the cache?"
+        }
+      ],
+      "text": "Question 7 is based on the following scenarios.\nWhile cleaning his house, Ahmad found an old cassette tape of a popular 80's band. He\nplayed the tape and listened to several songs according to the listed tracks.\nHafiz was tasked to research on the history of Malay culture by his professor. He went\n\u0007\nto the National Archive to search for information and manage to access one the\nresources which was stored in a floppy disk.\nSara is planning to buy a new computer. She aims to get one with good processing\nspeed. While researching for computer specifications, she found out that larger cache\nspace has a direct effect towards processing performance.\nHana loves playing role-playing games (RPG) and is planning to buy a newly released\ngame that requires a high-speed RAM. But, she is devastated when she found out that\nher game console does not support the minimum RAM requirement of the game.\na)\nBased on the above scenarios, identify the access method for each storage\ndevices/memory mentioned in (i), (ii), (iii) and (iv).\nb)\nDescribe SRAM and DRAM.\nc) Which level of cache is the fastest in a three-level cache architecture? Which type of\nRAM is used to implement the cache?",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a)\nBased on the above scenarios, identify the access method for each storage\ndevices/memory mentioned in (i), (ii), (iii) and (iv).",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            89.26,
+            663.03,
+            98.26,
+            673.82
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b)\nDescribe SRAM and DRAM.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            88.9,
+            714.5,
+            97.54,
+            724.94
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) Which level of cache is the fastest in a three-level cache architecture? Which type of\nRAM is used to implement the cache?",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            98.26,
+            143.98,
+            551.41,
+            155.14
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "B1",
+      "part": "B",
+      "question": "B1",
+      "kind": "real_bank_question",
+      "marks": 20,
+      "topic": "assembly_programming",
+      "topic_label": "Assembly-language programming",
+      "task": "assembly_program",
+      "title": "Twenty-mark assembly-programming question",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2025-02-B1",
+      "paper_id": "CSC429-2025-02",
+      "source_file": "CSC429 (18).pdf",
+      "source_pages": [
+        6
+      ],
+      "asset_ids": [
+        "CSC429-2025-02-F2",
+        "CSC429-2025-02-T1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 6,
+          "y": 157.62,
+          "text": "Question 1 is based on Figure 2 and Table 1."
+        },
+        {
+          "type": "figure",
+          "page": 6,
+          "y": 191.49,
+          "asset_id": "CSC429-2025-02-F2",
+          "path": "data/tracking/csc429/assets/CSC429-2025-02/CSC429-2025-02-F2.png",
+          "crop_box": [
+            36.19,
+            191.49,
+            566.93,
+            243.13
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2025-02\\page_006.jpg",
+          "page_points": [
+            603.12,
+            843.36
+          ],
+          "width_px": 1475,
+          "height_px": 143
+        },
+        {
+          "type": "text",
+          "page": 6,
+          "y": 285.29,
+          "text": "Write an appropriate program using correct assembly language notations to compute the equation shown in Figure 2 using instructions for one-address, two-address, and three- address. The available instructions are provided in Table 1. The register labeled A, B, C, and D are fixed, while registers x, y, and z can be used temporarily. The final answer must be stored in register y."
+        },
+        {
+          "type": "table",
+          "page": 6,
+          "y": 395.21,
+          "asset_id": "CSC429-2025-02-T1",
+          "table": {
+            "columns": 3,
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "One-address",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "Two-address",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "Three-address",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "LOADp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MOV (p,q)",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "ADD (p.q.r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "STORp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "ADD (p,q)",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "SUB (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "ADDp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "SUB (p,q)",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MUL (p.q.r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "SUBp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MUL (p,q)",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "DIV(p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "MULp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "DIV(p,q)",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "DIVp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  }
+                ]
+              }
+            ],
+            "non_empty_ratio": 0.857,
+            "source": "layout"
+          }
+        }
+      ],
+      "text": "Question 1 is based on Figure 2 and Table 1.\ny = A -\n2C\n* D\nB + A2\nFigure 2\nWrite an appropriate program using correct assembly language notations to compute the\nequation shown in Figure 2 using instructions for one-address, two-address, and three-\naddress. The available instructions are provided in Table 1. The register labeled A, B, C, and\nD are fixed, while registers x, y, and z can be used temporarily. The final answer must be\nstored in register y.\nTable 1 : Machine instruction\nThree-address\nOne-address\nTwo-address\nLOADp\nMOV (p,q)\nADD (p.q.r)\nSTORp\nADD (p,q)\nSUB (p,q,r)\nADDp\nSUB (p,q)\nMUL (p.q.r)\nSUBp\nMUL (p,q)\nDIV(p,q,r)\nMULp\nDIV(p,q)\nDIVp",
+      "subparts": [
+        {
+          "label": "main",
+          "text": "Question 1 is based on Figure 2 and Table 1.\ny = A -\n2C\n* D\nB + A2\nFigure 2\nWrite an appropriate program using correct assembly language notations to compute the\nequation shown in Figure 2 using instructions for one-address, two-address, and three-\naddress. The available instructions are provided in Table 1. The register labeled A, B, C, and\nD are fixed, while registers x, y, and z can be used temporarily. The final answer must be\nstored in register y.\nTable 1 : Machine instruction\nThree-address\nOne-address\nTwo-address\nLOADp\nMOV (p,q)\nADD (p.q.r)\nSTORp\nADD (p,q)\nSUB (p,q,r)\nADDp\nSUB (p,q)\nMUL (p.q.r)\nSUBp\nMUL (p,q)\nDIV(p,q,r)\nMULp\nDIV(p,q)\nDIVp",
+          "marks": 20,
+          "marks_source": "explicit",
+          "bbox": [
+            80.64,
+            157.62,
+            301.81,
+            172.73
+          ],
+          "figure_refs": [
+            "Figure 2",
+            "Table 1"
+          ],
+          "asset_ids": [
+            "CSC429-2025-02-F2",
+            "CSC429-2025-02-T1"
+          ]
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    }
+  ],
+  "notes": "Real past-paper questions only. Topic quotas are the largest-remainder allocation of the observed Part A topic mix; each quota is split between 5- and 10-mark slots using the topic's observed 5/10-mark availability. Every slot resolves to the real bank."
+}

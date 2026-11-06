@@ -1,0 +1,630 @@
+{
+  "seed": 2,
+  "source": "real_past_paper_bank",
+  "diagram_policy": "figure_capture_table_recreate_mixed_text_recreate",
+  "slots": [
+    {
+      "slot": "A1",
+      "marks": 5,
+      "question_id": "CSC429-2023-02-A2",
+      "paper_id": "CSC429-2023-02",
+      "source_file": "CSC429 (14).pdf",
+      "topic": "",
+      "diagram": true,
+      "asset_ids": [
+        "CSC429-2023-02-F1"
+      ],
+      "figure_refs": [
+        "Figure 1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 2,
+          "y": 318.9,
+          "text": "a) Identify the Von Neumann architecture input and output components based on the excerpts from the web."
+        },
+        {
+          "type": "mixed",
+          "page": 2,
+          "y": 371.7,
+          "asset_id": "CSC429-2023-02-F1",
+          "lines": [
+            "The Jacquard Loom is a mechanical loom invented by Joseph Marie Jacquard in",
+            "1801, which simplifies the process of manufacturing textiles with complex",
+            "patterns. The loom is controlled by punched cards with punched holes, each row",
+            "corresponding to one design row. Multiple rows of holes are punched on each",
+            "card, and the many cards that compose the textile design are strung together in",
+            "an orderly manner."
+          ]
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 520.01,
+          "text": "b) Identify ONE (1) similarity and ONE (1) dissimilarity between the mechanical calculating machine and Atanasoff Berry Computer."
+        }
+      ]
+    },
+    {
+      "slot": "A2",
+      "marks": 5,
+      "question_id": "CSC429-2019-12-A1",
+      "paper_id": "CSC429-2019-12",
+      "source_file": "CSC429 (13).pdf",
+      "topic": "",
+      "diagram": true,
+      "asset_ids": [
+        "CSC429-2019-12-F1"
+      ],
+      "figure_refs": [
+        "Figure 1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 2,
+          "y": 181.57,
+          "text": "Question 1 is based on the following Figure 1."
+        },
+        {
+          "type": "figure",
+          "page": 2,
+          "y": 220.56,
+          "asset_id": "CSC429-2019-12-F1",
+          "path": "data/tracking/csc429/assets/CSC429-2019-12/CSC429-2019-12-F1.png",
+          "crop_box": [
+            79.6,
+            220.56,
+            303.08,
+            329.16
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2019-12\\page_002.jpg",
+          "page_points": [
+            614.4,
+            792.0
+          ],
+          "width_px": 931,
+          "height_px": 452
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 227.99,
+          "text": "Inventor 'Y' was France's most celebrated mathematician and physicist. In 1642, inventor 'Y' invented and build the first working calculating machine as a means of helping his father to perform tedious tax accounting."
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 374.83,
+          "text": "a) Who is inventor 'Y'?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 412.16,
+          "text": "b) Name another calculating machine that was invented in the same generation as inventor Y's calculating machine."
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 463.08,
+          "text": "c) Which programming language is named after inventor 'Y'?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 499.51,
+          "text": "d) State TWO (2) mathematical operationsthat can be performed byinventor Y's calculating machine."
+        }
+      ]
+    },
+    {
+      "slot": "A3",
+      "marks": 5,
+      "question_id": "CSC429-2018-12-A8",
+      "paper_id": "CSC429-2018-12",
+      "source_file": "CSC429 (11).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 554.64,
+          "text": "a) List THREE (3) interfaces to external device."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 593.04,
+          "text": "b) Discuss 'hot connection' of device."
+        }
+      ]
+    },
+    {
+      "slot": "A4",
+      "marks": 5,
+      "question_id": "CSC429-2023-07-A2",
+      "paper_id": "CSC429-2023-07",
+      "source_file": "CSC429 (15).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 2,
+          "y": 339.06,
+          "text": "John Von Neumann is a mathematician who is one of the pioneers in computer advancement, and his contributions are still relevant to the modern computer."
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 376.97,
+          "text": "a) Draw the Von Neuman architecture and give relevant examples each."
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 414.88,
+          "text": "b) What is the name of the actual device that John Von Neumann himself developed?"
+        }
+      ]
+    },
+    {
+      "slot": "A5",
+      "marks": 10,
+      "question_id": "CSC429-2014-12-A8",
+      "paper_id": "CSC429-2014-12",
+      "source_file": "CSC429 (2).pdf",
+      "topic": "",
+      "diagram": true,
+      "asset_ids": [
+        "CSC429-2014-12-F2"
+      ],
+      "figure_refs": [
+        "Figure 2"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 303.12,
+          "text": "Input output technique can be segregated into programmed, interrupt-driven and direct memory access (DMA)."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 341.52,
+          "text": "a) What is DMA?"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 379.68,
+          "text": "b) How can the DMA technique improve the overall computer performance?"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 417.84,
+          "text": "c) Discuss TWO (2) major drawbacks of programmed and interrupt-driven input output technique that inspire hardware developer to introduce DMA."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 468.72,
+          "text": "d) Conventional access is depicted in Figure 2. Redraw Figure 2 to illustrate DMA architecture."
+        },
+        {
+          "type": "figure",
+          "page": 4,
+          "y": 512.44,
+          "asset_id": "CSC429-2014-12-F2",
+          "path": "data/tracking/csc429/assets/CSC429-2014-12/CSC429-2014-12-F2.png",
+          "crop_box": [
+            213.53,
+            512.44,
+            344.47,
+            693.4
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2014-12\\page_004.jpg",
+          "page_points": [
+            594.72,
+            848.16
+          ],
+          "width_px": 546,
+          "height_px": 754
+        }
+      ]
+    },
+    {
+      "slot": "A6",
+      "marks": 10,
+      "question_id": "CSC429-2026-02-A10",
+      "paper_id": "CSC429-2026-02",
+      "source_file": "CSC429 (21).pdf",
+      "topic": "",
+      "diagram": true,
+      "asset_ids": [
+        "CSC429-2026-02-F4"
+      ],
+      "figure_refs": [
+        "Figure 4"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 335.42,
+          "text": "a) Complete the taxonomy of parallel processor architecture illustrated in Figure 4."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 412.07,
+          "text": "Processor Organization"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 461.57,
+          "text": "Multiple lnstruction Single instruction"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 466.61,
+          "text": "(d)"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 468.77,
+          "text": "(a) Multiple Data (MIMD) Multiple Data (SIMD)"
+        },
+        {
+          "type": "figure",
+          "page": 5,
+          "y": 510.15,
+          "asset_id": "CSC429-2026-02-F4",
+          "path": "data/tracking/csc429/assets/CSC429-2026-02/CSC429-2026-02-F4.png",
+          "crop_box": [
+            68.11,
+            510.15,
+            520.85,
+            649.66
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2026-02\\page_005.jpg",
+          "page_points": [
+            574.56,
+            806.76
+          ],
+          "width_px": 1887,
+          "height_px": 1020
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 517.19,
+          "text": "(e)"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 517.73,
+          "text": "(b) l\\ilemory"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 688.95,
+          "text": "b) Discuss TWO (2) disadvantages of symmetric multiprocessor (SMP)."
+        }
+      ]
+    },
+    {
+      "slot": "A7",
+      "marks": 10,
+      "question_id": "CSC429-2019-06-A4",
+      "paper_id": "CSC429-2019-06",
+      "source_file": "CSC429 (12).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 376.08,
+          "text": "a) Convert -176.812510 to floating point number in IEEE single precision format in hexadecimal value form."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 427.2,
+          "text": "b) Convert 3FOOC00016 in IEEE single precision floating point number to decimal value form."
+        }
+      ]
+    },
+    {
+      "slot": "A8",
+      "marks": 10,
+      "question_id": "CSC429-2015-12-A7",
+      "paper_id": "CSC429-2015-12",
+      "source_file": "CSC429 (4).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 607.92,
+          "text": "Describe FOUR (4) type of access methods based on hardware implementation of the storage device. Provide ONE (1) appropriate example for each access type."
+        }
+      ]
+    },
+    {
+      "slot": "A9",
+      "marks": 10,
+      "question_id": "CSC429-2025-07-A10",
+      "paper_id": "CSC429-2025-07",
+      "source_file": "CSC429 (20).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 444.51,
+          "text": "a) Draw Single lnstruction, Single data (SISD) architecture with the following information: - CU is the control unit - PU is the processing unit - MU is the memory unit - lS is the instruction stream - DS is the data stream"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 546.21,
+          "text": "b) List TWO (2) examples of shared memory Multiple lnstruction Multiple Data (MIMD)."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 597.33,
+          "text": "c) Discuss the difference between what happens if a virus attacks shared memory Multiple lnstruction Multiple Data (MIMD) and distributed memory Multiple lnstruction Multiple Data (MIMD)."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 661.59,
+          "text": "d) Explain ONE (1) benefit of using distributed memory Multiple lnstruction, Multiple Data stream (MIMD) architecture with example."
+        }
+      ]
+    },
+    {
+      "slot": "A10",
+      "marks": 10,
+      "question_id": "CSC429-2015-06-A8",
+      "paper_id": "CSC429-2015-06",
+      "source_file": "CSC429 (3).pdf",
+      "topic": "",
+      "diagram": false,
+      "asset_ids": [],
+      "figure_refs": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 607.44,
+          "text": "a) Define interrupt."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 645.36,
+          "text": "b) Describe TWO (2) different types of interrupt."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 683.52,
+          "text": "c) Discuss ONE (1) advantage and ONE (1) disadvantage of interrupt"
+        }
+      ]
+    },
+    {
+      "slot": "B1",
+      "marks": 20,
+      "question_id": "CSC429-2024-07-B1",
+      "paper_id": "CSC429-2024-07",
+      "source_file": "CSC429 (17).pdf",
+      "topic": "",
+      "diagram": true,
+      "asset_ids": [
+        "CSC429-2024-07-F2",
+        "CSC429-2024-07-T1"
+      ],
+      "figure_refs": [
+        "Figure 2",
+        "Table 1",
+        "Figure 1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 167.46,
+          "text": "Question 1 is based on Figure 2 and Table 1."
+        },
+        {
+          "type": "figure",
+          "page": 5,
+          "y": 196.8,
+          "asset_id": "CSC429-2024-07-F2",
+          "path": "data/tracking/csc429/assets/CSC429-2024-07/CSC429-2024-07-F2.png",
+          "crop_box": [
+            156.85,
+            196.8,
+            419.87,
+            273.34
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2024-07\\page_005.jpg",
+          "page_points": [
+            596.88,
+            842.88
+          ],
+          "width_px": 1096,
+          "height_px": 318
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 309.05,
+          "text": "Write the appropriate programs using correct assembly language notations and comments to compute the equation represented in Figure 1 using zero-, one-, and three-address instructions. The instructions available for use are provided in Table 1. Register A, B, C, and D cannot be modified, and registers x, y, and z can be used as temporary registers. However, the final answer must be stored in Register y."
+        },
+        {
+          "type": "table",
+          "page": 5,
+          "y": 407.45,
+          "asset_id": "CSC429-2024-07-T1",
+          "table": {
+            "columns": 3,
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Zero-address",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "One-address",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "Three-address",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "PUSHp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "LOADp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "ADD (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "POPp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "STORp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "SUB (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "ADD",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "ADDp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MUL (p.q.r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "SUB",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "SUBp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "DIV(p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "MUL",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MULp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "DIV",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "DIVp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  }
+                ]
+              }
+            ],
+            "non_empty_ratio": 0.905,
+            "source": "layout"
+          }
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "questions": 11,
+    "total_marks": 100,
+    "diagram_questions": 5,
+    "table_questions": 1,
+    "mixed_questions": 1,
+    "unique_source_papers": 11,
+    "pages": 7,
+    "pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\pilot\\CSC429\\seed_02\\paper.pdf"
+  }
+}

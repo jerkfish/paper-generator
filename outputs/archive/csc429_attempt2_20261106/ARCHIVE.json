@@ -1,0 +1,19 @@
+{
+  "subject": "CSC429",
+  "attempt": 2,
+  "stopped_at": "2026-11-06T05:45:55Z",
+  "reason": "Owner stopped the CSC429 lifecycle on 2026-11-06: too much noise; fixing one issue repeatedly broke another. The attempt will be restarted from zero.",
+  "archive": "outputs/archive/csc429_attempt2_20261106",
+  "copied_files": [
+    "subjects/CSC429/lifecycle_state.json",
+    "subjects/CSC429/subject.json",
+    "docs/CSC429.md",
+    "data/tracking/csc429/stage1_report.json",
+    "data/tracking/csc429/stage1_corrections.json",
+    "data/tracking/csc429/model_answers.json",
+    "data/tracking/csc429/build_sample/qa.json",
+    "data/tracking/csc429/build_sample/meta.json",
+    "data/tracking/csc429/build_sample/plan.json"
+  ],
+  "not_copied": "Bulk pages/assets/tracking data remain in data/tracking/csc429 for audit; the lifecycle is stopped."
+}

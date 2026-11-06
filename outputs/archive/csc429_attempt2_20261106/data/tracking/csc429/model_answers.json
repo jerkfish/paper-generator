@@ -1,0 +1,402 @@
+{
+  "subject": "CSC429",
+  "schema_version": 1,
+  "prompt_version": 1,
+  "model": "deepseek-flash",
+  "entries": {
+    "CSC429-2016-06-A10": {
+      "question_id": "CSC429-2016-06-A10",
+      "paper_id": "CSC429-2016-06",
+      "fingerprint": "a97bc31a58261c76e174ef5e94dc7ea791b1e5280873398a58c21bf9fa643ddf",
+      "prompt_version": 1,
+      "model": "deepseek-flash",
+      "generated_at": "2026-11-06T05:09:24.652767+00:00",
+      "unofficial": true,
+      "answer": "The question asks for completion of a taxonomy of parallel processor architecture with appropriate examples. The standard taxonomy (Flynn's classification) divides parallel processors by the number of instruction streams and data streams: SISD, SIMD, MISD and MIMD. A completed taxonomy with examples is: SISD — a single uniprocessor (single control unit, single ALU, one instruction stream operating on one data stream), e.g. a conventional single-core PC processor. SIMD — one instruction stream operating on many data streams, e.g. an array processor or a GPU/vector processor where the same operation is applied to a vector of data. MISD — multiple instruction streams on a single data stream; no practical commercial example (sometimes cited as a systolic array or fault-tolerant replicated system), so it is largely theoretical. MIMD — multiple instruction streams on multiple data streams, e.g. a multicore processor or a cluster of workstations, where each processor executes its own program on its own data. If the figure instead uses the structural taxonomy (single processor vs. multiprocessor, and shared-memory/multiprocessor vs. distributed/multicomputer), the corresponding completion is: single processor (uniprocessor) as the non-parallel case; multiprocessor with shared memory (e.g. SMP multicore) and multicomputer with distributed memory (e.g. cluster/network of workstations) as the parallel cases. In either form, each leaf of the taxonomy must be labelled with a correct category name and a matching example.",
+      "marking": [
+        "1 mark: correct top-level division of the taxonomy (e.g. by instruction/data streams, or single vs. multiple processors)",
+        "2 marks: correct naming of the parallel categories (e.g. SIMD and MIMD, or shared-memory multiprocessor and distributed-memory multicomputer)",
+        "2 marks: an appropriate, correct example given for each category filled in"
+      ],
+      "confidence": "medium",
+      "notes": "The diagram is reproduced in the question paper. This text-only answer generator was not given the image, so the answer gives both the standard Flynn taxonomy and the structural taxonomy; match the completion to the branches actually shown.",
+      "marks": 5,
+      "usage": {
+        "model": "deepseek-flash",
+        "prompt_tokens": 337,
+        "completion_tokens": 507,
+        "total_tokens": 844,
+        "calls": 1,
+        "cost_usd": 0.000709,
+        "input_price_per_1m": 0.3,
+        "output_price_per_1m": 1.2
+      }
+    },
+    "CSC429-2017-07-A1": {
+      "question_id": "CSC429-2017-07-A1",
+      "paper_id": "CSC429-2017-07",
+      "fingerprint": "e7ea451d884d91374e21ca99ef65cbd2f35d7a145e46f1f93e96c9708b611bf9",
+      "prompt_version": 1,
+      "model": "deepseek-flash",
+      "generated_at": "2026-11-06T05:09:28.011381+00:00",
+      "unofficial": true,
+      "answer": "(a) What is X machine? [1 mark]\nX is the Atanasoff–Berry Computer (ABC), the first automatic electronic digital computer to use the binary (base-2) system. It was a special-purpose machine for solving systems of linear equations, using electronic arithmetic/logic units (about 30 add/subtract units), a rotating drum memory holding thirty 50-bit binary numbers, and punched-card input/output.\n\n(b) Name the inventor of X machine. [2 marks]\nThe inventor was John Vincent Atanasoff, who designed and built it (1937–1942) at Iowa State College with his graduate assistant Clifford Berry. (Credit to Atanasoff; Berry as co-builder.)\n\n(c) Based on Figure 1, identify the input and output components for X machine. [2 marks]\nInput component: the punched-card mechanism (card reader/mechanism) — punched cards are read in to enter data and program settings. Output component: the punched-card mechanism also serves as output (punched cards) together with the readout/display circuitry; in the ABC results were written out via the card punch/output mechanism. From the figure, the input/output components are the punched-card reader and the punched-card output (card punch) mechanism.",
+      "marking": [
+        "1 mark: (a) correctly identifies X as the Atanasoff–Berry Computer (ABC) / first automatic electronic digital binary computer.",
+        "2 marks: (b) names John Vincent Atanasoff as inventor (1 mark); 1 mark for additional correct detail such as Clifford Berry as co-builder or Iowa State College.",
+        "2 marks: (c) identifies the punched-card mechanism as input (1 mark) and the punched-card/output mechanism as output (1 mark)."
+      ],
+      "confidence": "medium",
+      "notes": "The OCR of Figure 1 is garbled; the input/output identification relies on the visible 'card mechanism' text and standard ABC history rather than a clean reading of the figure. 'X machine' is taken to be the Atanasoff–Berry Computer based on the binary system, 30 add/subtract units and 30×50-bit drum memory described.",
+      "marks": 5,
+      "usage": {
+        "model": "deepseek-flash",
+        "prompt_tokens": 560,
+        "completion_tokens": 457,
+        "total_tokens": 1017,
+        "calls": 1,
+        "cost_usd": 0.000716,
+        "input_price_per_1m": 0.3,
+        "output_price_per_1m": 1.2
+      }
+    },
+    "CSC429-2014-06-A9": {
+      "question_id": "CSC429-2014-06-A9",
+      "paper_id": "CSC429-2014-06",
+      "fingerprint": "cdf9d17fbdfe142f1bc5ea9442bb9f1f8b4dfc02c78c810b07327e124a40e399",
+      "prompt_version": 1,
+      "model": "deepseek-flash",
+      "generated_at": "2026-11-06T05:09:32.561479+00:00",
+      "unofficial": true,
+      "answer": "(a) The technique is direct addressing (also called absolute addressing). The instruction's address field A contains the effective address of the operand; the memory word at address A holds the operand itself (Address A -> Memory[A] = Operand).\n\n(b) The CPU places Address A on the address bus and performs one memory read. The memory returns the operand from location A; the operand is loaded into the accumulator/register and the instruction executes. There is no second pointer fetch.\n\n(c) Advantage: direct addressing is simple and needs only one memory access for the operand, so it is faster than indirect addressing and needs no extra pointer word. Disadvantage: the address field is fixed and limited in width, so it can address only a restricted range of memory and is less flexible for pointers, relocation or large address spaces.",
+      "marking": [
+        "1 mark: correctly labels the technique as direct (absolute) addressing.",
+        "1 mark: states that the address field A is the effective address of the operand.",
+        "1 mark: explains the single memory access that fetches the operand from memory[A].",
+        "1 mark: gives ONE valid advantage (simple; one memory access; no pointer word).",
+        "1 mark: gives ONE valid disadvantage (limited address range; less flexible)."
+      ],
+      "confidence": "high",
+      "notes": "Reviewed against Figure 2: the diagram has one Memory box holding the Operand, so the address field identifies the operand directly; it is not indirect addressing.",
+      "marks": 5,
+      "usage": {
+        "model": "deepseek-flash",
+        "prompt_tokens": 467,
+        "completion_tokens": 564,
+        "total_tokens": 1031,
+        "calls": 1,
+        "cost_usd": 0.000817,
+        "input_price_per_1m": 0.3,
+        "output_price_per_1m": 1.2
+      },
+      "reviewed": true,
+      "review_note": "Reviewer corrected the generated answer from indirect to direct addressing after checking Figure 2."
+    },
+    "CSC429-2024-07-A9": {
+      "question_id": "CSC429-2024-07-A9",
+      "paper_id": "CSC429-2024-07",
+      "fingerprint": "e3dd5ec45e1bef9312d2e785d3f2bfe2eea03e08fc03bd1b08846e32b2b2c419",
+      "prompt_version": 1,
+      "model": "deepseek-flash",
+      "generated_at": "2026-11-06T03:13:37.432901+00:00",
+      "unofficial": true,
+      "answer": "(a) The icon in Figure 1 is the USB (Universal Serial Bus) trident/arrow logo, so the interface is a USB interface — a serial, plug-and-play external device interface used to connect peripherals such as keyboards, mice, printers and storage devices to the computer.\n\n(b) A hot connection (hot plugging / hot swapping) means a device can be connected to or disconnected from the running system while the power is on, without switching off or rebooting the computer. The interface and operating system detect the device automatically, configure it (plug-and-play) and load the required driver, so the connection is made safely 'live'.\n\n(c) The three I/O techniques are:\n1. Programmed I/O (polled I/O): The CPU issues the I/O command and then repeatedly checks (polls) the device status register until the device is ready, then transfers the data itself. CPU involvement is very high — the CPU is fully occupied waiting and moving data, wasting cycles (busy-waiting).\n2. Interrupt-driven I/O: The CPU starts the device and continues with other work. When the device is ready it raises an interrupt; the CPU suspends its current program, saves context, runs the interrupt service routine to transfer the data, then resumes. CPU involvement is reduced — the CPU is only involved when the interrupt occurs, though it still performs the data transfer.\n3. Direct Memory Access (DMA): The CPU programs a DMA controller with the source/destination and count, then the DMA controller transfers data directly between the device and memory without CPU involvement. The CPU is interrupted only once, when the whole block transfer is complete, so CPU involvement is minimal and it can do other work during the transfer.",
+      "marking": [
+        "1 mark: identifies the interface as USB (Universal Serial Bus)",
+        "1 mark: brief description of USB as a serial/plug-and-play external device interface",
+        "1 mark: defines hot connection as connecting/disconnecting a device while the system is powered on",
+        "1 mark: notes automatic detection/plug-and-play and no reboot required",
+        "1 mark: names programmed I/O and explains CPU polls/busy-waits and transfers data itself",
+        "1 mark: names interrupt-driven I/O and explains device interrupts CPU, CPU runs ISR to transfer data",
+        "1 mark: names DMA and explains DMA controller transfers data directly to/from memory",
+        "1 mark: explains CPU involvement is minimal in DMA (interrupted only at completion)",
+        "1 mark: compares/elaborates CPU involvement across the three techniques (high → reduced → minimal)",
+        "1 mark: overall clarity and correct terminology (status register, interrupt service routine, DMA controller)"
+      ],
+      "confidence": "high",
+      "notes": "Figure 1 is only available as extracted text; the answer assumes the icon is the standard USB trident logo, which is the usual interpretation for this question. If the actual icon differs, part (a) and the hot-connection link in (b) should be re-checked against the figure.",
+      "marks": 10,
+      "usage": {
+        "model": "deepseek-flash",
+        "prompt_tokens": 516,
+        "completion_tokens": 636,
+        "total_tokens": 1152,
+        "calls": 1,
+        "cost_usd": 0.000918,
+        "input_price_per_1m": 0.3,
+        "output_price_per_1m": 1.2
+      }
+    },
+    "CSC429-2018-01-A7": {
+      "question_id": "CSC429-2018-01-A7",
+      "paper_id": "CSC429-2018-01",
+      "fingerprint": "5c94d0c290446129b9565dac37e0890161c4ea155796282ccd597f3cc48a0401",
+      "prompt_version": 1,
+      "model": "deepseek-flash",
+      "generated_at": "2026-11-06T03:13:42.350628+00:00",
+      "unofficial": true,
+      "answer": "(a) Ranking by price, cheapest to most expensive (per bit): tape back-up → hard drive → cache → register. Rationale: price per bit rises as memory becomes faster and closer to the CPU. Tape backup is the cheapest, slowest, highest-capacity offline medium; the hard drive (magnetic disk) is next, cheaper per bit than semiconductor memory; cache (SRAM, small and fast, on/near the CPU) is more expensive per bit than main memory/disk; registers are the fastest, smallest storage inside the CPU and hence the most expensive per bit.\n\n(b) One benefit of cache memory: it reduces the average time to access memory (average memory access time), because frequently used instructions and data are held in fast SRAM close to the CPU. This exploits locality of reference (temporal and spatial), so most accesses hit in cache and avoid the much slower main memory, improving overall system performance/throughput and reducing the processor's memory stall time.\n\n(c) Write through vs write back: In write through, every write by the CPU is written to both the cache block and the corresponding location in main memory simultaneously, so main memory is always kept up to date (consistent). It is simple but generates more main-memory traffic and is slower per write. In write back, the write is made only to the cache block; the modified block is marked dirty and is written back to main memory only when that block is replaced (evicted). This reduces main-memory writes and is faster/more efficient, but main memory can be temporarily out of date and the cache needs a dirty bit plus replacement-time write-back logic.",
+      "marking": [
+        "1 mark: correct cheapest item (tape back-up) placed first",
+        "1 mark: hard drive placed second",
+        "1 mark: cache placed third",
+        "1 mark: register placed last (most expensive)",
+        "1 mark: states cache reduces average memory access time / speeds up memory access",
+        "1 mark: links benefit to locality of reference or avoiding slow main memory (explanation)",
+        "1 mark: write through writes to both cache and main memory on every write (memory always consistent)",
+        "1 mark: write back writes only to cache and updates main memory later on block replacement (dirty bit)",
+        "1 mark: correct comparison of traffic/performance (write through more memory traffic/slower; write back less traffic/faster)",
+        "1 mark: correct comparison of consistency/complexity (write through simpler/consistent; write back needs dirty bit and can be temporarily inconsistent)"
+      ],
+      "confidence": "high",
+      "notes": "Assumes 'price' means price per bit, the standard interpretation for memory-hierarchy ranking. The question text lists subparts as (a),(b),(c) but the slot label says A6; treated as one 10-mark question with 4+2+4 marks.",
+      "marks": 10,
+      "usage": {
+        "model": "deepseek-flash",
+        "prompt_tokens": 453,
+        "completion_tokens": 593,
+        "total_tokens": 1046,
+        "calls": 1,
+        "cost_usd": 0.000847,
+        "input_price_per_1m": 0.3,
+        "output_price_per_1m": 1.2
+      }
+    },
+    "CSC429-2026-02-A6": {
+      "question_id": "CSC429-2026-02-A6",
+      "paper_id": "CSC429-2026-02",
+      "fingerprint": "5778e44a8dce9e4f5a887e2c38eed2f87c2ecac1ff463e6983320f7c4efef0c8",
+      "prompt_version": 1,
+      "model": "deepseek-flash",
+      "generated_at": "2026-11-06T03:13:48.189476+00:00",
+      "unofficial": true,
+      "answer": "(a) The machine cycle is the sequence of steps the CPU repeats to fetch, decode, execute and (where needed) store results for each instruction. It is driven by the control unit and synchronised by the system clock. The stages and responsible components are:\n\n1. Fetch: The program counter (PC) holds the address of the next instruction. The control unit copies this address to the memory address register (MAR) and asserts a memory-read signal on the control bus. Main memory returns the instruction word on the data bus into the memory data register (MDR), which is then transferred to the instruction register (IR). The PC is incremented to point to the next instruction. Responsible components: PC, MAR, MDR, main memory, control unit, buses.\n\n2. Decode: The control unit examines the opcode in the IR and generates the appropriate control signals (using its decoder/sequencer). It determines the operation, the operands and the addressing mode. Responsible components: instruction decoder and control unit.\n\n3. Execute: The arithmetic logic unit (ALU) performs the required arithmetic or logic operation on operands taken from registers or from memory (via MAR/MDR). The status/flag register records conditions such as zero, carry, sign and overflow. For a memory operand, the effective address is computed and a memory read or write is issued. Responsible components: ALU, general-purpose registers, flag register, control unit, MAR/MDR and memory for memory operands.\n\n4. Store/write-back: The result is written back to a register or to main memory (via MDR and MAR with a memory-write signal), and the flags are updated. The cycle then repeats from fetch, unless a halt or interrupt occurs.\n\nIn short, the control unit coordinates the cycle, the PC/IR/MAR/MDR and buses move addresses and data, the ALU and registers perform and hold the computation, and main memory supplies instructions and operands.\n\n(b) If main memory is corrupted, the fetch stage may read an invalid or altered instruction word into the IR, so the decoder produces wrong control signals and the CPU executes incorrect or undefined operations. Corrupted operands or data also give wrong results, and a corrupted address or parity/ECC error can cause a memory fault or exception. The control unit may then enter an error-handling routine, halt the machine, or (if no error detection is present) silently produce incorrect output. In short, the machine cycle cannot be trusted: fetch, decode and execute all operate on bad data, leading to wrong results, exceptions or a system crash.",
+      "marking": [
+        "1 mark: identifies the four stages of the machine cycle (fetch, decode, execute, store/write-back) and that it repeats under control of the control unit and clock",
+        "2 marks: describes the fetch stage and names the responsible components (PC, MAR, MDR, IR, memory, buses, control unit)",
+        "2 marks: describes the decode stage and names the control unit/instruction decoder",
+        "2 marks: describes the execute stage and names the ALU, registers and flag/status register, including memory read/write for memory operands",
+        "1 mark: describes the store/write-back stage and the repeat of the cycle",
+        "1 mark: explains that corrupted memory causes wrong instructions/operands to be fetched, leading to incorrect execution, exceptions or a crash",
+        "1 mark: links the corruption to the responsible components (IR/decoder/control unit) and the consequence for the cycle"
+      ],
+      "confidence": "high",
+      "notes": "The question text is complete; no figure or table is required. Marks are allocated as 8 for part (a) and 2 for part (b), totalling 10.",
+      "marks": 10,
+      "usage": {
+        "model": "deepseek-flash",
+        "prompt_tokens": 399,
+        "completion_tokens": 783,
+        "total_tokens": 1182,
+        "calls": 1,
+        "cost_usd": 0.001059,
+        "input_price_per_1m": 0.3,
+        "output_price_per_1m": 1.2
+      }
+    },
+    "CSC429-2014-12-A8": {
+      "question_id": "CSC429-2014-12-A8",
+      "paper_id": "CSC429-2014-12",
+      "fingerprint": "1dcf311577bb808bb78c5477971d5d8bbebf48ec3170ca215bf1ca89fc6e604c",
+      "prompt_version": 1,
+      "model": "deepseek-flash",
+      "generated_at": "2026-11-06T03:13:55.177153+00:00",
+      "unofficial": true,
+      "answer": "(a) DMA (Direct Memory Access) is an I/O technique in which a dedicated DMA controller transfers blocks of data directly between an I/O device (via its device controller) and primary memory without the CPU executing a load/store instruction for each data word. The CPU programs the DMA controller with the starting memory address, the device address, the transfer count and the direction (read or write); the DMA controller then performs the block transfer and interrupts the CPU only when the whole block is complete.\n\n(b) DMA improves overall computer performance because the CPU is freed from supervising each individual word transfer. While the DMA controller moves data over the memory bus, the CPU can continue executing other instructions (or be idle), so the large overhead of per-word programmed or interrupt-driven transfers is removed. This increases effective CPU utilisation and system throughput, especially for high-volume I/O such as disk or network block transfers, and reduces the number of interrupts the CPU must service.\n\n(c) Two major drawbacks of programmed and interrupt-driven I/O that motivated DMA:\n1. CPU overhead per word: In programmed I/O the CPU repeatedly polls the device status and then executes an explicit load/store for every data word; in interrupt-driven I/O the CPU takes an interrupt and runs a service routine for every word (or small unit). This consumes many CPU cycles per word, so the CPU is tied up in I/O supervision and cannot do useful computation.\n2. Poor throughput for block transfers: Because each word requires CPU intervention (polling loop or interrupt entry/exit), the achievable data rate is limited by CPU speed and interrupt latency, not by the device. For large blocks the CPU spends most of its time on I/O overhead, making these techniques inefficient for high-speed devices and bulk data movement.\n\n(d) Redrawn DMA architecture (replacing Figure 2):\n\n        +----------------+        System bus        +----------------+\n        |      CPU       |<----------------------->|  DMA Controller |\n        +----------------+                         +----------------+\n                ^                                         ^\n                |                                         |\n                |                                         |\n        +----------------+                         +----------------+\n        | Primary Memory |<----------------------->| Device         |\n        +----------------+                         | Controller     |\n                                                   +----------------+\n                                                          |\n                                                   +----------------+\n                                                   |     Device     |\n                                                   +----------------+\n\nIn the DMA architecture the DMA controller is an additional bus master placed between the device controller and primary memory (and connected to the CPU/system bus). Data flows directly between the device controller and primary memory under DMA control, while the CPU is connected to the same bus and can be granted or denied bus access by the DMA controller (cycle stealing or burst mode). The CPU no longer sits in the data path for each word; it only initialises the DMA controller and receives a completion interrupt.",
+      "marking": [
+        "1 mark: DMA is a direct transfer between I/O device/controller and memory without CPU per-word involvement.",
+        "1 mark: DMA controller is programmed by CPU with address/count/direction and interrupts CPU on completion.",
+        "1 mark: CPU is freed from supervising each word transfer and can do other work during the block transfer.",
+        "1 mark: Increased CPU utilisation/throughput and reduced interrupt overhead, especially for block/high-speed I/O.",
+        "2 marks: First drawback clearly explained (CPU overhead per word in programmed/interrupt-driven I/O — polling or interrupt service per word).",
+        "2 marks: Second drawback clearly explained (limited throughput / CPU tied up for block transfers / interrupt latency limits data rate).",
+        "1 mark: DMA controller shown as an additional unit connected to the system bus between device controller and memory.",
+        "1 mark: Data path shown directly between device controller and primary memory under DMA control, with CPU outside the per-word data path (CPU connected to bus and only initialises/receives interrupt)."
+      ],
+      "confidence": "high",
+      "notes": "Figure 2 extracted text lists Primary Memory, CPU, Controller and Device; the redrawn diagram assumes a standard single-system-bus DMA arrangement with a DMA controller added as a bus master. The exact bus topology in the original figure should be checked against the paper figure if available.",
+      "marks": 10,
+      "usage": {
+        "model": "deepseek-flash",
+        "prompt_tokens": 537,
+        "completion_tokens": 893,
+        "total_tokens": 1430,
+        "calls": 1,
+        "cost_usd": 0.001233,
+        "input_price_per_1m": 0.3,
+        "output_price_per_1m": 1.2
+      }
+    },
+    "CSC429-2023-07-A7": {
+      "question_id": "CSC429-2023-07-A7",
+      "paper_id": "CSC429-2023-07",
+      "fingerprint": "0e6178e619cfe7d25b62b96e2c4724e689c817dbc7d6da1e7fb626a179b289f7",
+      "prompt_version": 1,
+      "model": "deepseek-flash",
+      "generated_at": "2026-11-06T03:14:00.251113+00:00",
+      "unofficial": true,
+      "answer": "(a) Two bus types available in a computer system: (1) the **data bus**, which carries the actual data/operands between the CPU, memory and I/O; and (2) the **address bus**, which carries the memory or I/O port address that selects the source/destination. (Other acceptable answers: control bus, system bus, internal/CPU bus, expansion bus such as PCI.)\n\n(b) System interconnection vs CPU interconnection — two differentiating characteristics:\n1. **Scope/function:** System interconnection (the system bus) links the major components of the whole computer — CPU, main memory and I/O controllers — so it carries addresses, data and control signals between them. CPU interconnection is internal to the processor and links the CPU's own functional units (registers, ALU, control unit, cache), so it carries micro-architecture-level signals.\n2. **Speed/width and location:** CPU interconnection is short, on-chip, and much faster/wider (higher bandwidth, matched to the processor clock), whereas system interconnection is longer (across the motherboard), shared by several devices, and slower/narrower, often requiring arbitration and buffering.\n\n(c) Data transfer timing — the two main types:\n- **Synchronous timing:** all bus events are referenced to a common clock. The address and data are placed on the bus at defined clock edges, and the transfer completes in a fixed, predetermined number of clock cycles. It is simple and fast for devices of similar speed, but the bus must run at the speed of the slowest device, so slow devices waste bus cycles.\n- **Asynchronous timing:** there is no common clock; instead a **handshake** (e.g. request/acknowledge, or strobe/acknowledge) coordinates the transfer. The master issues a request/strobe and the slave returns an acknowledge when ready, so each device works at its own speed. It is flexible and accommodates mixed-speed devices but needs extra control lines and handshake overhead, making it slower per transfer.\n(Some texts also mention a **semi-synchronous** compromise, which uses a clock but allows a wait/handshake for slow devices.)",
+      "marking": [
+        "1 mark: correctly naming the data bus (with its function)",
+        "1 mark: correctly naming the address bus or another valid bus type (control/system bus) with its function",
+        "1 mark: first valid difference between system and CPU interconnection (scope/function)",
+        "1 mark: explanation/elaboration of that first difference",
+        "1 mark: second valid difference (speed/width/location)",
+        "1 mark: explanation/elaboration of that second difference",
+        "2 marks: synchronous timing explained (common clock, fixed cycles) with a merit/limitation",
+        "2 marks: asynchronous timing explained (handshake, no common clock) with a merit/limitation"
+      ],
+      "confidence": "high",
+      "notes": "Question text has an OCR/line-break artefact ('system interconnection and CPU interconnection'); interpreted as comparing system-bus interconnection with CPU-internal interconnection. Part (c) answered with the two standard timing schemes (synchronous and asynchronous); semi-synchronous noted as an acceptable extra. This is an unofficial model answer, not an official marking scheme.",
+      "marks": 10,
+      "usage": {
+        "model": "deepseek-flash",
+        "prompt_tokens": 423,
+        "completion_tokens": 681,
+        "total_tokens": 1104,
+        "calls": 1,
+        "cost_usd": 0.000944,
+        "input_price_per_1m": 0.3,
+        "output_price_per_1m": 1.2
+      }
+    },
+    "CSC429-2025-07-B1": {
+      "question_id": "CSC429-2025-07-B1",
+      "paper_id": "CSC429-2025-07",
+      "fingerprint": "76eb73d463fddb203d12d5c8caf7fa302a0254f4c3660cbfbfc29d588987a675",
+      "prompt_version": 1,
+      "model": "deepseek-flash",
+      "generated_at": "2026-11-06T03:14:05.769207+00:00",
+      "unofficial": true,
+      "answer": "**Interpretation of Figure 1.** The OCR text of Figure 1 is garbled; the only sensible reading consistent with the instruction set and the stated fixed registers A, B, C, D is the arithmetic expression z = A² − (B × C) + (D ÷ 5). Assumption: 'jl_' is a mis-OCR of a division sign and 'D+5' is D/5; the superscript 2 on A is the square. The temporary registers x and y are used to hold intermediate results, and the final result is placed in z.\n\n**Three-address program.** Each instruction is of the form OP(p,q,r) meaning p ← q OP r. Square A using a multiply of A by itself, form B×C, subtract, then add D/5:\nMUL (x, A, A)      ; x = A*A = A^2\nMUL (y, B, C)      ; y = B*C\nSUB (x, x, y)      ; x = A^2 - B*C\nDIV (y, D, 5)      ; y = D/5\nADD (z, x, y)      ; z = (A^2 - B*C) + D/5\n\n**One-address program.** Each instruction uses the accumulator implicitly; LOAD p loads p into the accumulator, OP p combines the accumulator with p, STOR p stores the accumulator to p:\nLOAD A\nMUL A          ; ACC = A^2\nSTOR x         ; x = A^2\nLOAD B\nMUL C          ; ACC = B*C\nSTOR y         ; y = B*C\nLOAD x\nSUB y          ; ACC = A^2 - B*C\nSTOR x         ; x = A^2 - B*C\nLOAD D\nDIV 5          ; ACC = D/5\nADD x          ; ACC = (A^2 - B*C) + D/5\nSTOR z         ; z = final answer\n\n**Zero-address program.** A stack machine: PUSH p pushes p, POP p pops into p, and ADD/SUB/MUL/DIV pop two operands and push the result (second-popped OP top-of-stack):\nPUSH A\nPUSH A\nMUL            ; stack: A^2\nPUSH B\nPUSH C\nMUL            ; stack: A^2, B*C\nSUB            ; stack: A^2 - B*C\nPUSH D\nPUSH 5\nDIV            ; stack: (A^2 - B*C), D/5\nADD            ; stack: (A^2 - B*C) + D/5\nPOP z          ; z = final answer\n\n**Result.** In all three programs the final value of z equals A² − (B × C) + (D ÷ 5), with x and y used only as temporaries.",
+      "marking": [
+        "4 marks: correct interpretation of Figure 1 as z = A^2 - B*C + D/5 (square of A, product B*C, division D/5)",
+        "5 marks: correct three-address program using MUL/SUB/DIV/ADD with (p,q,r) notation and final result in z",
+        "5 marks: correct one-address program using LOAD/STOR/ADD/SUB/MUL/DIV with accumulator and final STOR z",
+        "5 marks: correct zero-address program using PUSH/POP/ADD/SUB/MUL/DIV with stack discipline and final POP z",
+        "1 mark: correct use of temporaries x and y and final answer stored in z in all three versions"
+      ],
+      "confidence": "medium",
+      "notes": "Figure 1 is only available as garbled OCR text ('z=A2-B*C+jl_ D+5'); the expression is assumed to be z = A^2 - B*C + D/5. If the actual figure shows a different operator (e.g. multiplication by 5 or a different grouping), the programs must be adjusted accordingly. Table 1 is taken as extracted; the three-address SUB is shown as 'suB' in the OCR.",
+      "marks": 20,
+      "usage": {
+        "model": "deepseek-flash",
+        "prompt_tokens": 617,
+        "completion_tokens": 903,
+        "total_tokens": 1520,
+        "calls": 1,
+        "cost_usd": 0.001269,
+        "input_price_per_1m": 0.3,
+        "output_price_per_1m": 1.2
+      }
+    },
+    "CSC429-2025-07-A6": {
+      "question_id": "CSC429-2025-07-A6",
+      "paper_id": "CSC429-2025-07",
+      "fingerprint": "c08d14bb0aa6add6d7ffb231d06e0d5b2dfdfc2ecd12cd3f60d6210dc4e97baa",
+      "prompt_version": 1,
+      "model": "deepseek-flash",
+      "generated_at": "2026-11-06T05:09:39.142107+00:00",
+      "unofficial": true,
+      "answer": "(a) The CPU is the part of the computer that fetches, decodes and executes instructions, and it is organised into several cooperating components. The **Control Unit (CU)** directs and coordinates the operation of the whole CPU and the rest of the computer: it fetches each instruction, decodes it to determine the operation and operands, and generates the control signals (read/write, register-transfer, ALU-operation, clock/enable signals) that make the other units carry out the instruction in the correct sequence. The **Arithmetic Logic Unit (ALU)** performs the actual data processing: arithmetic operations (add, subtract, increment, etc.) and logical operations (AND, OR, NOT, XOR, shift, compare), and it sets condition/status flags (zero, carry, sign, overflow) that later control decisions can test. The **registers** are small, very fast storage inside the CPU that hold the data and addresses currently in use: the Program Counter (PC) holds the address of the next instruction, the Instruction Register (IR) holds the instruction being executed, the Memory Address Register (MAR) holds the address being accessed, the Memory Data/Buffer Register (MDR/MBR) holds data moving to or from memory, the Accumulator (ACC) and general-purpose registers hold operands and intermediate results, and the Status/Flag register records ALU conditions. The **internal buses** (data, address and control paths inside the CPU) interconnect these units so that data and control information can be transferred between registers, the ALU and the CU. The **clock/timing and decoding circuitry** (often treated as part of the CU) synchronises the steps of the machine cycle. In summary, the CU controls, the ALU computes, the registers store, and the internal buses transfer, so that the fetch-decode-execute cycle can proceed correctly.\n\n(b) The bus system (address, data and control buses) carries addresses to memory/I-O, data to and from memory/I-O, and control signals such as read/write and clock/timing. If it is faulty, the machine cycle breaks down at the step that depends on it. During **fetch**, the PC value placed on the address bus may be corrupted or not reach memory, so the wrong instruction (or no instruction) is returned on the data bus and loaded into the IR; the PC may also fail to increment correctly. During **decode**, the CU may receive a corrupted instruction and therefore generate wrong or no control signals. During **execute**, operands cannot be reliably read from memory or written back, and control signals (read/write, memory-select) may not arrive, so the ALU operates on wrong data or the result is not stored. The overall effect is that the CPU cannot reliably fetch, decode or execute instructions: it may hang, produce incorrect results, or repeatedly fetch garbage, and the program cannot run correctly.",
+      "marking": [
+        "1 mark: Control Unit function (fetch/decode/coordinate, generate control signals)",
+        "1 mark: ALU function (arithmetic and logical operations, flags)",
+        "1 mark: Registers named and their roles (PC, IR, MAR, MDR, ACC/general-purpose, status)",
+        "1 mark: Internal buses / data and control transfer between CPU units",
+        "1 mark: Clock/timing and instruction decoding role",
+        "1 mark: Clear overall statement of how components cooperate in the fetch-decode-execute cycle",
+        "1 mark: Accurate technical terminology used throughout (e.g. MAR, MDR, IR, PC, control signals)",
+        "1 mark: Coherent, well-structured discussion covering all main components",
+        "1 mark: (b) Explains effect on fetch (address/data on bus corrupted, wrong instruction loaded)",
+        "1 mark: (b) Explains effect on decode/execute and overall consequence (wrong control signals, wrong operands/results, CPU hangs or misbehaves)"
+      ],
+      "confidence": "high",
+      "notes": "Question text has a stray apostrophe in (a); treated as a typo. No figure or table is required. Mark split follows the stated 8 + 2 marks.",
+      "marks": 10,
+      "usage": {
+        "model": "deepseek-flash",
+        "prompt_tokens": 392,
+        "completion_tokens": 858,
+        "total_tokens": 1250,
+        "calls": 1,
+        "cost_usd": 0.001147,
+        "input_price_per_1m": 0.3,
+        "output_price_per_1m": 1.2
+      }
+    },
+    "CSC429-2023-07-A6": {
+      "question_id": "CSC429-2023-07-A6",
+      "paper_id": "CSC429-2023-07",
+      "fingerprint": "7a7356df0d1f5a0178efd0fa6365eecaf14569c7b06f0663296e06c84c43564e",
+      "prompt_version": 1,
+      "model": "deepseek-flash",
+      "generated_at": "2026-11-06T05:09:43.129530+00:00",
+      "unofficial": true,
+      "answer": "(a) The phases in the machine cycle are: (1) **Fetch** — the next instruction is fetched from main memory into the CPU; (2) **Decode** — the instruction is decoded to determine the operation and operands; (3) **Execute** — the operation is carried out by the ALU/control unit; (4) **Store (Write-back)** — the result is written back to a register or to main memory. (Some texts split fetch into fetch and increment-PC, or add an interrupt/acknowledge phase; the four-phase fetch–decode–execute–store cycle is the standard answer.)\n\n(b) The CPU components and their functions in the machine cycle are: the **Program Counter (PC)** holds the address of the next instruction to be fetched and is incremented during fetch; the **Memory Address Register (MAR)** receives the address of the memory location to be accessed and passes it to the address bus; the **Memory Data Register (MDR)** buffers the instruction or data read from (or written to) main memory; the **Instruction Register (IR)** holds the instruction currently being decoded/executed; the **Control Unit (CU)** decodes the instruction and generates the timing and control signals that sequence the fetch, decode, execute and store phases; the **Arithmetic Logic Unit (ALU)** performs arithmetic and logical operations during execute; and the **general-purpose registers/accumulator** hold operands and results. The **internal buses** carry data and control signals between these units.\n\n(c) If access to main memory is blocked, the fetch phase cannot complete: the PC's address cannot be read, so no instruction reaches the IR and the decode/execute/store phases cannot proceed. The CPU stalls (waits, inserting wait states) or, if a memory fault/interrupt is signalled, traps to an error/interrupt handler. In effect the machine cycle halts at fetch and the program cannot make progress until memory access is restored.",
+      "marking": [
+        "1 mark: Fetch phase correctly named",
+        "1 mark: Decode phase correctly named",
+        "1 mark: Execute phase correctly named",
+        "1 mark: Store/write-back phase correctly named (4 marks total for (a))",
+        "1 mark: PC and MAR roles in fetch (address of next instruction / memory address)",
+        "1 mark: MDR and IR roles (buffering data / holding current instruction)",
+        "1 mark: Control Unit decodes and generates control/timing signals",
+        "1 mark: ALU performs operations and registers hold operands/results (4 marks total for (b))",
+        "1 mark: fetch cannot complete / CPU stalls or waits",
+        "1 mark: cycle cannot proceed to decode/execute/store, or interrupt/error trap (2 marks total for (c))"
+      ],
+      "confidence": "high",
+      "notes": "Question text is complete; no figure required. Some textbooks use a five-phase cycle (fetch, decode, execute, memory, write-back) or include an interrupt-acknowledge phase; the four-phase answer is accepted as standard.",
+      "marks": 10,
+      "usage": {
+        "model": "deepseek-flash",
+        "prompt_tokens": 415,
+        "completion_tokens": 639,
+        "total_tokens": 1054,
+        "calls": 1,
+        "cost_usd": 0.000891,
+        "input_price_per_1m": 0.3,
+        "output_price_per_1m": 1.2
+      }
+    },
+    "CSC429-2026-02-B1": {
+      "question_id": "CSC429-2026-02-B1",
+      "paper_id": "CSC429-2026-02",
+      "fingerprint": "04de57f570736c8f1bc7f3830a275a3c6b9c6dd148fdb5ee71994cec50d519b3",
+      "prompt_version": 1,
+      "model": "deepseek-flash",
+      "generated_at": "2026-11-06T05:09:49.033499+00:00",
+      "unofficial": true,
+      "answer": "**Assumption on the equation (OCR correction):** Figure 5 reads `z-A+c2/B*D-3A`. The extracted text is garbled; the standard form of this classic question is taken to be **z = A + (C × 2) / (B × D) − 3A**, i.e. `z = A + C*2/B*D - 3A`. If the figure actually shows a different arrangement (e.g. `C^2` or `C*2`), the same instruction sequences apply with the operands reordered; the structure of the answer is unchanged. Registers A, B, C, D are fixed; x, y, z are scratch; result must end in z.\n\n**Zero-address (stack) program.** All operands are pushed onto the stack; operations pop their operands and push the result. Evaluate left-to-right with the usual precedence (× and / before + and −):\n\n```\nPUSH A          ; stack: A\nPUSH C\nPUSH 2\nMUL             ; C*2\nPUSH B\nPUSH D\nMUL             ; B*D\nDIV             ; (C*2)/(B*D)\nADD             ; A + (C*2)/(B*D)\nPUSH 3\nPUSH A\nMUL             ; 3A\nSUB             ; A + (C*2)/(B*D) - 3A\nPOP z           ; store final answer in z\n```\n\n**One-address program.** One operand is implicit in the accumulator; the named operand is the memory/register operand. Using x and y as temporaries:\n\n```\nLOAD C\nMUL 2           ; ACC = C*2\nSTOR x          ; x = C*2\nLOAD B\nMUL D           ; ACC = B*D\nSTOR y          ; y = B*D\nLOAD x\nDIV y           ; ACC = (C*2)/(B*D)\nADD A           ; ACC = A + (C*2)/(B*D)\nSTOR x          ; save partial result in x\nLOAD 3\nMUL A           ; ACC = 3A\nSTOR y          ; y = 3A\nLOAD x\nSUB y           ; ACC = A + (C*2)/(B*D) - 3A\nSTOR z          ; final answer in z\n```\n\n**Three-address program.** Each instruction is `OP (dest, src1, src2)`; temporaries x and y hold intermediate results:\n\n```\nMUL (x, C, 2)       ; x = C*2\nMUL (y, B, D)       ; y = B*D\nDIV (x, x, y)       ; x = (C*2)/(B*D)\nADD (x, A, x)       ; x = A + (C*2)/(B*D)\nMUL (y, 3, A)       ; y = 3A\nSUB (z, x, y)       ; z = A + (C*2)/(B*D) - 3A\n```\n\nIn all three versions the final value is placed in register z, and the fixed registers A, B, C, D are never overwritten (only x and y are used as scratch).",
+      "marking": [
+        "4 marks: correct zero-address program — correct PUSH/POP ordering, correct use of MUL/DIV/ADD/SUB, result POPped into z",
+        "4 marks: correct one-address program — correct LOAD/STOR/MUL/DIV/ADD/SUB with accumulator, temporaries x and y used correctly, result STORed to z",
+        "4 marks: correct three-address program — correct three-operand MUL/DIV/ADD/SUB form, temporaries used, result written to z",
+        "4 marks: correct evaluation order/precedence (× and ÷ before + and −), correct handling of the 3A term, and no corruption of fixed registers A, B, C, D",
+        "4 marks: overall correctness and consistency across the three programs (same computed expression, final answer in z in every case)"
+      ],
+      "confidence": "medium",
+      "notes": "The equation in Figure 5 is OCR-garbled ('z-A+c2/B*D-3A'); I conservatively interpreted it as z = A + C*2/(B*D) − 3A, the standard form of this question. If the figure shows C² or a different grouping, the operand order changes but the instruction structure and marking allocation remain valid. The exact register/operand syntax of the three-address form is taken from Table 1 as OP(p,q,r).",
+      "marks": 20,
+      "usage": {
+        "model": "deepseek-flash",
+        "prompt_tokens": 611,
+        "completion_tokens": 1033,
+        "total_tokens": 1644,
+        "calls": 1,
+        "cost_usd": 0.001423,
+        "input_price_per_1m": 0.3,
+        "output_price_per_1m": 1.2
+      }
+    }
+  },
+  "usage": {
+    "model": "deepseek-flash",
+    "calls": 15,
+    "prompt_tokens": 7054,
+    "completion_tokens": 9978,
+    "total_tokens": 17032,
+    "cost_usd": 0.014089
+  }
+}

@@ -1,0 +1,1263 @@
+{
+  "subject": "CSC429",
+  "planner_version": 1,
+  "generated_by": "src.subjects.csc429.planner",
+  "style": "modern",
+  "seed": 8,
+  "target_format": {
+    "A": {
+      "questions": 10,
+      "marks": 80,
+      "slot_marks": [
+        5,
+        5,
+        5,
+        5,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ]
+    },
+    "B": {
+      "questions": 1,
+      "marks": 20
+    }
+  },
+  "source_evidence": [
+    "data/tracking/csc429/taxonomy.json",
+    "data/tracking/csc429/question_log.json",
+    "data/tracking/csc429/taxonomy_summary.json"
+  ],
+  "topic_quota": {
+    "computer_generations": 1,
+    "data_representation": 2,
+    "memory_system": 1,
+    "io_system": 2,
+    "parallel_architecture": 1,
+    "computer_architecture": 2,
+    "instruction_set_addressing": 1
+  },
+  "part_marks": {
+    "A": 80,
+    "B": 20
+  },
+  "topic_marks": {
+    "computer_generations": 5,
+    "data_representation": 15,
+    "parallel_architecture": 5,
+    "instruction_set_addressing": 5,
+    "io_system": 20,
+    "computer_architecture": 20,
+    "memory_system": 10,
+    "assembly_programming": 20
+  },
+  "total_marks": 100,
+  "question_count": 11,
+  "slot_count": 11,
+  "slots": [
+    {
+      "slot": "A1",
+      "part": "A",
+      "question": "A1",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "computer_generations",
+      "topic_label": "Computer generations and history",
+      "task": "short_answer",
+      "title": "Five-mark question 1",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2019-12-A1",
+      "paper_id": "CSC429-2019-12",
+      "source_file": "CSC429 (13).pdf",
+      "source_pages": [
+        2
+      ],
+      "asset_ids": [
+        "CSC429-2019-12-F1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 2,
+          "y": 181.57,
+          "text": "Question 1 is based on the following Figure 1."
+        },
+        {
+          "type": "figure",
+          "page": 2,
+          "y": 220.68,
+          "asset_id": "CSC429-2019-12-F1",
+          "path": "data/tracking/csc429/assets/CSC429-2019-12/CSC429-2019-12-F1.png",
+          "crop_box": [
+            36.86,
+            220.68,
+            307.2,
+            336.9
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2019-12\\page_002.jpg",
+          "page_points": [
+            614.4,
+            792.0
+          ],
+          "width_px": 751,
+          "height_px": 322
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 227.99,
+          "text": "Inventor 'Y' was France's most celebrated mathematician and physicist. In 1642, inventor 'Y' invented and build the first working calculating machine as a means of helping his father to perform tedious tax accounting."
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 374.83,
+          "text": "a) Who is inventor 'Y'?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 412.16,
+          "text": "b) Name another calculating machine that was invented in the same generation as inventor Y's calculating machine."
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 463.08,
+          "text": "c) Which programming language is named after inventor 'Y'?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 499.51,
+          "text": "d) State TWO (2) mathematical operationsthat can be performed byinventor Y's calculating machine."
+        }
+      ],
+      "text": "Question 1 is based on the following Figure 1.\nInventor 'Y' was France's most\ncelebrated\nmathematician\nand\nphysicist. In 1642, inventor 'Y'\ninvented\nand\nbuild\nthe\nfirst\nworking calculating machine as a\nU^jj,\nmeans of helping his father to\nperform tedious tax accounting.\nFigure 1: Inventor 'Y' and his calculating machine.\na)\nWho is inventor 'Y'?\nb)\nName another calculating machine that was invented in the same generation as inventor\nY's calculating machine.\nc)\nWhich programming language is named after inventor 'Y'?\nd)\nState TWO (2) mathematical operationsthat can be performed byinventor Y's calculating\nmachine.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a)\nWho is inventor 'Y'?",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            84.61,
+            374.83,
+            92.61,
+            388.57
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b)\nName another calculating machine that was invented in the same generation as inventor\nY's calculating machine.",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            84.73,
+            412.16,
+            94.72,
+            428.17
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c)\nWhich programming language is named after inventor 'Y'?",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            84.13,
+            463.08,
+            92.71,
+            477.82
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "d",
+          "text": "d)\nState TWO (2) mathematical operationsthat can be performed byinventor Y's calculating\nmachine.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            83.63,
+            499.51,
+            94.21,
+            516.45
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A2",
+      "part": "A",
+      "question": "A2",
+      "kind": "generated_question",
+      "marks": 5,
+      "topic": "data_representation",
+      "topic_label": "Data representation and number systems",
+      "task": "short_answer",
+      "title": "Five-mark question 2",
+      "resolver": "csc429.generator",
+      "variant_policy": "controlled_numeric",
+      "generator_pool": [
+        "csc429.number_base_conversion",
+        "csc429.signed_arithmetic",
+        "csc429.ieee754_single"
+      ],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-GEN-08-A2",
+      "paper_id": "CSC429-GEN-08",
+      "source_file": "",
+      "source_pages": [],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 1,
+          "y": 0,
+          "text": "Calculate -31 - (-12) using the sign-and-magnitude method. Assume an 8-bit byte. Show your complete workflow."
+        }
+      ],
+      "text": "Calculate -31 - (-12) using the sign-and-magnitude method. Assume an 8-bit byte. Show your complete workflow.",
+      "subparts": [],
+      "answer": "left -31 -> 1 0011111; right -12 -> 1 0001100; -31 - (-12) = -19 -> sign-magnitude 1 0010011",
+      "marking": [
+        "1 mark for converting both operands to sign-magnitude.",
+        "1 mark for applying the sign rule for subtraction.",
+        "1 mark for the correct magnitude operation.",
+        "1 mark for the correct sign bit.",
+        "1 mark for the final decimal and byte representation."
+      ],
+      "generator_id": "csc429.signed_arithmetic",
+      "metadata": {
+        "left": -31,
+        "right": -12,
+        "result": -19,
+        "sign_magnitude": "1 0010011",
+        "ones": "11101100",
+        "twos": "11101101"
+      }
+    },
+    {
+      "slot": "A3",
+      "part": "A",
+      "question": "A3",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "parallel_architecture",
+      "topic_label": "Parallel and multiprocessor architecture",
+      "task": "short_answer",
+      "title": "Five-mark question 3",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2018-01-A10",
+      "paper_id": "CSC429-2018-01",
+      "source_file": "CSC429 (8).pdf",
+      "source_pages": [
+        6
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 6,
+          "y": 147.58,
+          "text": "a) How classification of parallel processor is constructed?"
+        },
+        {
+          "type": "text",
+          "page": 6,
+          "y": 186.45,
+          "text": "b) Give ONE (1) example for each parallel processor architecture."
+        }
+      ],
+      "text": "a) How classification of parallel processor is constructed?\nb) Give ONE (1) example for each parallel processor architecture.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) How classification of parallel processor is constructed?",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            70.91,
+            147.58,
+            356.69,
+            158.74
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Give ONE (1) example for each parallel processor architecture.",
+          "marks": 3,
+          "marks_source": "explicit",
+          "bbox": [
+            70.91,
+            186.45,
+            396.64,
+            197.97
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A4",
+      "part": "A",
+      "question": "A4",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "instruction_set_addressing",
+      "topic_label": "Instruction formats and addressing modes",
+      "task": "short_answer",
+      "title": "Five-mark question 4",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2014-06-A9",
+      "paper_id": "CSC429-2014-06",
+      "source_file": "CSC429 (1).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [
+        "CSC429-2014-06-F2"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 409.32,
+          "text": "Given the following Figure 2."
+        },
+        {
+          "type": "figure",
+          "page": 5,
+          "y": 434.88,
+          "asset_id": "CSC429-2014-06-F2",
+          "path": "data/tracking/csc429/assets/CSC429-2014-06/CSC429-2014-06-F2.png",
+          "crop_box": [
+            35.68,
+            434.88,
+            559.04,
+            583.16
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2014-06\\page_005.jpg",
+          "page_points": [
+            594.72,
+            847.44
+          ],
+          "width_px": 1453,
+          "height_px": 411
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 626.4,
+          "text": "a) Label the addressing technique illustrated in Figure 2."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 664.2,
+          "text": "b) Explain how the addressing technique in 9(a) is used."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 699.84,
+          "text": "List ONE (1) advantage and ONE (1) disadvantage of the addressing technique in"
+        }
+      ],
+      "text": "Given the following Figure 2.\nInstruction\nOpcode\nAddress A\nMemory\nOperand\nFigure 2\nLabel the addressing technique illustrated in Figure 2.\na)\nExplain how the addressing technique in 9(a) is used.\nb)\nList ONE (1) advantage and ONE (1) disadvantage of the addressing technique in",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a)\nExplain how the addressing technique in 9(a) is used.",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            72.0,
+            626.4,
+            81.0,
+            636.48
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b)\nList ONE (1) advantage and ONE (1) disadvantage of the addressing technique in",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            72.36,
+            664.2,
+            81.0,
+            675.0
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A5",
+      "part": "A",
+      "question": "A5",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "io_system",
+      "topic_label": "Input/output and interrupts",
+      "task": "short_answer",
+      "title": "Ten-mark question 5",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2018-06-A8",
+      "paper_id": "CSC429-2018-06",
+      "source_file": "CSC429 (10).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 154.42,
+          "text": "a) Describe THREE (3) types of interfaces to external devices."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 192.93,
+          "text": "b) Explain TWO (2) types of interrupt."
+        }
+      ],
+      "text": "a) Describe THREE (3) types of interfaces to external devices.\nb) Explain TWO (2) types of interrupt.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Describe THREE (3) types of interfaces to external devices.",
+          "marks": 6,
+          "marks_source": "explicit",
+          "bbox": [
+            76.3,
+            154.42,
+            381.88,
+            165.94
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Explain TWO (2) types of interrupt.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            77.02,
+            192.93,
+            260.59,
+            204.81
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A6",
+      "part": "A",
+      "question": "A6",
+      "kind": "generated_question",
+      "marks": 10,
+      "topic": "data_representation",
+      "topic_label": "Data representation and number systems",
+      "task": "short_answer",
+      "title": "Ten-mark question 6",
+      "resolver": "csc429.generator",
+      "variant_policy": "controlled_numeric",
+      "generator_pool": [
+        "csc429.number_base_conversion",
+        "csc429.signed_arithmetic",
+        "csc429.ieee754_single"
+      ],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-GEN-08-A6",
+      "paper_id": "CSC429-GEN-08",
+      "source_file": "",
+      "source_pages": [],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 1,
+          "y": 0,
+          "text": "Answer both parts. Show your complete workflow."
+        },
+        {
+          "type": "text",
+          "page": 1,
+          "y": 1,
+          "text": "a) Convert -6.75 to IEEE 754 single precision. Give the answer in hexadecimal."
+        },
+        {
+          "type": "text",
+          "page": 1,
+          "y": 2,
+          "text": "b) Convert the IEEE 754 single-precision value 0x42C90000 to decimal."
+        }
+      ],
+      "text": "Answer both parts. Show your complete workflow.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Convert -6.75 to IEEE 754 single precision. Give the answer in hexadecimal.",
+          "marks": 5,
+          "answer": "-6.7510 = 0xC0D80000 (sign=1, exponent=10000001, fraction=10110000000000000000000)",
+          "marking": [
+            "1 mark for sign, exponent and mantissa.",
+            "1 mark for the biased exponent.",
+            "1 mark for the 23-bit fraction.",
+            "1 mark for the 32-bit binary grouping.",
+            "1 mark for the hexadecimal result."
+          ]
+        },
+        {
+          "label": "b",
+          "text": "Convert the IEEE 754 single-precision value 0x42C90000 to decimal.",
+          "marks": 5,
+          "answer": "0x42C90000 = 100.510",
+          "marking": [
+            "1 mark for the sign bit.",
+            "1 mark for the exponent field.",
+            "1 mark for the fraction field.",
+            "1 mark for applying the bias and significand.",
+            "1 mark for the final decimal value."
+          ]
+        }
+      ],
+      "answer": "a) -6.7510 = 0xC0D80000 (sign=1, exponent=10000001, fraction=10110000000000000000000); b) 0x42C90000 = 100.510",
+      "marking": [
+        "Part a: 5 marks.",
+        "Part b: 5 marks."
+      ],
+      "generator_id": "csc429.ieee754_single",
+      "metadata": {
+        "encode": {
+          "value": -6.75,
+          "hex": "C0D80000",
+          "binary": "11000000110110000000000000000000",
+          "sign": 1,
+          "exponent": 129,
+          "fraction": 5767168,
+          "exponent_bits": "10000001",
+          "fraction_bits": "10110000000000000000000"
+        },
+        "decode": {
+          "value": 100.5,
+          "hex": "42C90000",
+          "binary": "01000010110010010000000000000000",
+          "sign": 0,
+          "exponent": 133,
+          "fraction": 4784128,
+          "exponent_bits": "10000101",
+          "fraction_bits": "10010010000000000000000"
+        }
+      }
+    },
+    {
+      "slot": "A7",
+      "part": "A",
+      "question": "A7",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "io_system",
+      "topic_label": "Input/output and interrupts",
+      "task": "short_answer",
+      "title": "Ten-mark question 7",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2026-02-A9",
+      "paper_id": "CSC429-2026-02",
+      "source_file": "CSC429 (21).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 106.82,
+          "text": "a) When is an l/O module installed?"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 144.62,
+          "text": "b) What will happen if the l/O module is not installed?"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 180.81,
+          "text": "c) Explain ONE (1) category of l/O module"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 220.58,
+          "text": "d) What does it mean by 'hot connection'?"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 258.2,
+          "text": "e) List THREE (3) common interfaces to external devices."
+        }
+      ],
+      "text": "a) When is an l/O module installed?\nb) What will happen if the l/O module is not installed?\nc) Explain ONE (1) category of l/O module\nd) What does it mean by 'hot connection'?\ne) List THREE (3) common interfaces to external devices.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) When is an l/O module installed?",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            65.16,
+            106.82,
+            245.23,
+            129.49
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) What will happen if the l/O module is not installed?",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            65.52,
+            144.62,
+            331.27,
+            167.29
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) Explain ONE (1) category of l/O module",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            65.16,
+            180.81,
+            278.51,
+            205.54
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "d",
+          "text": "d) What does it mean by 'hot connection'?",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            65.16,
+            220.58,
+            274.98,
+            243.25
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "e",
+          "text": "e) List THREE (3) common interfaces to external devices.",
+          "marks": 3,
+          "marks_source": "explicit",
+          "bbox": [
+            65.16,
+            258.2,
+            351.35,
+            281.56
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A8",
+      "part": "A",
+      "question": "A8",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "computer_architecture",
+      "topic_label": "Computer architecture and CPU organisation",
+      "task": "short_answer",
+      "title": "Ten-mark question 8",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2016-12-A3",
+      "paper_id": "CSC429-2016-12",
+      "source_file": "CSC429 (6).pdf",
+      "source_pages": [
+        3
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 363.55,
+          "text": "a) Differentiate between organization and architecture."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 401.7,
+          "text": "b) Explain the function of THREE (3) Central Processing Unit (CPU) components."
+        }
+      ],
+      "text": "a) Differentiate between organization and architecture.\nb) Explain the function of THREE (3) Central Processing Unit (CPU) components.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Differentiate between organization and architecture.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            71.63,
+            363.55,
+            343.01,
+            374.71
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Explain the function of THREE (3) Central Processing Unit (CPU) components.",
+          "marks": 6,
+          "marks_source": "explicit",
+          "bbox": [
+            71.63,
+            401.7,
+            475.47,
+            413.22
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A9",
+      "part": "A",
+      "question": "A9",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "memory_system",
+      "topic_label": "Memory hierarchy and cache",
+      "task": "short_answer",
+      "title": "Ten-mark question 9",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2023-02-A7",
+      "paper_id": "CSC429-2023-02",
+      "source_file": "CSC429 (14).pdf",
+      "source_pages": [
+        3
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 447.05,
+          "text": "a) Differentiate SRAM and DRAM from the perspective of the following characteristics,"
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 459.53,
+          "text": "i) The way the bits are stored."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 472.25,
+          "text": "ii) Speed."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 484.97,
+          "text": "iii) Location it is being used."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 522.89,
+          "text": "b) Why does DRAM need refreshing?"
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 561.05,
+          "text": "c) Comparing DRAM and SRAM, which memory would be placed higher in the memory hierarchy? Give your justification to support your answer."
+        }
+      ],
+      "text": "a) Differentiate SRAM and DRAM from the perspective of the following characteristics,\ni)\nThe way the bits are stored.\nii)\nSpeed.\niii)\nLocation it is being used.\nb) Why does DRAM need refreshing?\nc) Comparing DRAM and SRAM, which memory would be placed higher in the memory\nhierarchy? Give your justification to support your answer.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Differentiate SRAM and DRAM from the perspective of the following characteristics,",
+          "marks": null,
+          "marks_source": "missing",
+          "bbox": [
+            79.68,
+            447.05,
+            508.96,
+            462.17
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "i",
+          "text": "i)\nThe way the bits are stored.",
+          "marks": null,
+          "marks_source": "grouped",
+          "bbox": [
+            97.44,
+            459.53,
+            106.18,
+            474.65
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "ii",
+          "text": "ii)\nSpeed.",
+          "marks": null,
+          "marks_source": "grouped",
+          "bbox": [
+            97.44,
+            472.25,
+            108.3,
+            487.37
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "iii",
+          "text": "iii)\nLocation it is being used.",
+          "marks": 6,
+          "marks_source": "grouped",
+          "bbox": [
+            97.44,
+            484.97,
+            110.61,
+            500.09
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Why does DRAM need refreshing?",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            79.92,
+            522.89,
+            271.65,
+            538.01
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) Comparing DRAM and SRAM, which memory would be placed higher in the memory\nhierarchy? Give your justification to support your answer.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            79.68,
+            561.05,
+            535.93,
+            576.17
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A10",
+      "part": "A",
+      "question": "A10",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "computer_architecture",
+      "topic_label": "Computer architecture and CPU organisation",
+      "task": "short_answer",
+      "title": "Ten-mark question 10",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2015-06-A4",
+      "paper_id": "CSC429-2015-06",
+      "source_file": "CSC429 (3).pdf",
+      "source_pages": [
+        3
+      ],
+      "asset_ids": [
+        "CSC429-2015-06-F1-2"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 141.12,
+          "text": "Computer consists of four main components as illustrated in Figure 1. Each component has its own function in ensuring that the computer system works well. Question 4 is based on"
+        },
+        {
+          "type": "figure",
+          "page": 3,
+          "y": 198.72,
+          "asset_id": "CSC429-2015-06-F1-2",
+          "path": "data/tracking/csc429/assets/CSC429-2015-06/CSC429-2015-06-F1-2.png",
+          "crop_box": [
+            35.86,
+            198.72,
+            561.74,
+            419.72
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2015-06\\page_003.jpg",
+          "page_points": [
+            597.6,
+            847.44
+          ],
+          "width_px": 1461,
+          "height_px": 613
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 461.16,
+          "text": "a) Explain THREE (3) types of system interconnection."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 499.32,
+          "text": "b) State TWO (2) sub-components of central processing unit and its function."
+        }
+      ],
+      "text": "Computer consists of four main components as illustrated in Figure 1. Each component has\nits own function in ensuring that the computer system works well. Question 4 is based on\nFigure 1.\nPeripherals\nCentral\nMain\nProcessing\nMemory\nUnit\nComputer\nSystems\nInterconnection\nInput\nOutput\nCommunication\nlines\nFigure 1 : Components of computer\na) Explain THREE (3) types of system interconnection.\nb) State TWO (2) sub-components of central processing unit and its function.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Explain THREE (3) types of system interconnection.",
+          "marks": 6,
+          "marks_source": "explicit",
+          "bbox": [
+            69.48,
+            461.16,
+            340.56,
+            472.68
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) State TWO (2) sub-components of central processing unit and its function.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            69.48,
+            499.32,
+            448.92,
+            511.2
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "B1",
+      "part": "B",
+      "question": "B1",
+      "kind": "real_bank_question",
+      "marks": 20,
+      "topic": "assembly_programming",
+      "topic_label": "Assembly-language programming",
+      "task": "assembly_program",
+      "title": "Twenty-mark assembly-programming question",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2024-07-B1",
+      "paper_id": "CSC429-2024-07",
+      "source_file": "CSC429 (17).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [
+        "CSC429-2024-07-F2",
+        "CSC429-2024-07-T1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 167.46,
+          "text": "Question 1 is based on Figure 2 and Table 1."
+        },
+        {
+          "type": "figure",
+          "page": 5,
+          "y": 196.86,
+          "asset_id": "CSC429-2024-07-F2",
+          "path": "data/tracking/csc429/assets/CSC429-2024-07/CSC429-2024-07-F2.png",
+          "crop_box": [
+            35.81,
+            196.86,
+            561.07,
+            280.34
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2024-07\\page_005.jpg",
+          "page_points": [
+            596.88,
+            842.88
+          ],
+          "width_px": 1459,
+          "height_px": 231
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 309.05,
+          "text": "Write the appropriate programs using correct assembly language notations and comments to compute the equation represented in Figure 1 using zero-, one-, and three-address instructions. The instructions available for use are provided in Table 1. Register A, B, C, and D cannot be modified, and registers x, y, and z can be used as temporary registers. However, the final answer must be stored in Register y."
+        },
+        {
+          "type": "table",
+          "page": 5,
+          "y": 407.45,
+          "asset_id": "CSC429-2024-07-T1",
+          "table": {
+            "columns": 3,
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Zero-address",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "One-address",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "Three-address",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "PUSHp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "LOADp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "ADD (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "POPp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "STORp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "SUB (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "ADD",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "ADDp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MUL (p.q.r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "SUB",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "SUBp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "DIV(p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "MUL",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MULp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "DIV",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "DIVp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  }
+                ]
+              }
+            ],
+            "non_empty_ratio": 0.905,
+            "source": "layout"
+          }
+        }
+      ],
+      "text": "Question 1 is based on Figure 2 and Table 1.\ny = A(A + 2B/C-D 2)\nFigure 2\nWrite the appropriate programs using correct assembly language notations and comments to\ncompute the equation represented in Figure 1 using zero-, one-, and three-address\ninstructions. The instructions available for use are provided in Table 1. Register A, B, C, and\nD cannot be modified, and registers x, y, and z can be used as temporary registers. However,\nthe final answer must be stored in Register y.\nTable 1: Machine Instruction\nOne-address\nThree-address\nZero-address\nPUSHp\nLOADp\nADD (p,q,r)\nPOPp\nSTORp\nSUB (p,q,r)\nADD\nADDp\nMUL (p.q.r)\nSUB\nSUBp\nDIV(p,q,r)\nMUL\nMULp\nDIV\nDIVp",
+      "subparts": [
+        {
+          "label": "main",
+          "text": "Question 1 is based on Figure 2 and Table 1.\ny = A(A + 2B/C-D 2)\nFigure 2\nWrite the appropriate programs using correct assembly language notations and comments to\ncompute the equation represented in Figure 1 using zero-, one-, and three-address\ninstructions. The instructions available for use are provided in Table 1. Register A, B, C, and\nD cannot be modified, and registers x, y, and z can be used as temporary registers. However,\nthe final answer must be stored in Register y.\nTable 1: Machine Instruction\nOne-address\nThree-address\nZero-address\nPUSHp\nLOADp\nADD (p,q,r)\nPOPp\nSTORp\nSUB (p,q,r)\nADD\nADDp\nMUL (p.q.r)\nSUB\nSUBp\nDIV(p,q,r)\nMUL\nMULp\nDIV\nDIVp",
+          "marks": 20,
+          "marks_source": "explicit",
+          "bbox": [
+            61.2,
+            167.46,
+            282.13,
+            182.57
+          ],
+          "figure_refs": [
+            "Figure 2",
+            "Table 1",
+            "Figure 1"
+          ],
+          "asset_ids": [
+            "CSC429-2024-07-F2",
+            "CSC429-2024-07-T1",
+            "CSC429-2024-07-F1"
+          ]
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    }
+  ],
+  "notes": "Real past-paper questions only. Topic quotas are the largest-remainder allocation of the observed Part A topic mix; each quota is split between 5- and 10-mark slots using the topic's observed 5/10-mark availability. Every slot resolves to the real bank."
+}

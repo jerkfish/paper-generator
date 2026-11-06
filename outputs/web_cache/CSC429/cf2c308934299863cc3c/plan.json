@@ -1,0 +1,1245 @@
+{
+  "subject": "CSC429",
+  "planner_version": 1,
+  "generated_by": "src.subjects.csc429.planner",
+  "style": "modern",
+  "seed": 5,
+  "target_format": {
+    "A": {
+      "questions": 10,
+      "marks": 80,
+      "slot_marks": [
+        5,
+        5,
+        5,
+        5,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ]
+    },
+    "B": {
+      "questions": 1,
+      "marks": 20
+    }
+  },
+  "source_evidence": [
+    "data/tracking/csc429/taxonomy.json",
+    "data/tracking/csc429/question_log.json",
+    "data/tracking/csc429/taxonomy_summary.json"
+  ],
+  "topic_quota": {
+    "computer_generations": 1,
+    "data_representation": 2,
+    "memory_system": 1,
+    "io_system": 2,
+    "parallel_architecture": 1,
+    "computer_architecture": 2,
+    "instruction_set_addressing": 1
+  },
+  "part_marks": {
+    "A": 80,
+    "B": 20
+  },
+  "topic_marks": {
+    "computer_generations": 5,
+    "instruction_set_addressing": 5,
+    "parallel_architecture": 5,
+    "data_representation": 15,
+    "io_system": 20,
+    "computer_architecture": 20,
+    "memory_system": 10,
+    "assembly_programming": 20
+  },
+  "total_marks": 100,
+  "question_count": 11,
+  "slot_count": 11,
+  "slots": [
+    {
+      "slot": "A1",
+      "part": "A",
+      "question": "A1",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "computer_generations",
+      "topic_label": "Computer generations and history",
+      "task": "short_answer",
+      "title": "Five-mark question 1",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2018-06-A1",
+      "paper_id": "CSC429-2018-06",
+      "source_file": "CSC429 (10).pdf",
+      "source_pages": [
+        2
+      ],
+      "asset_ids": [
+        "CSC429-2018-06-F1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 2,
+          "y": 179.61,
+          "text": "Question 1 is based on the following image and statements in Figure 1."
+        },
+        {
+          "type": "figure",
+          "page": 2,
+          "y": 211.65,
+          "asset_id": "CSC429-2018-06-F1",
+          "path": "data/tracking/csc429/assets/CSC429-2018-06/CSC429-2018-06-F1.png",
+          "crop_box": [
+            36.39,
+            211.65,
+            303.24,
+            466.81
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2018-06\\page_002.jpg",
+          "page_points": [
+            606.48,
+            848.4
+          ],
+          "width_px": 741,
+          "height_px": 708
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 246.21,
+          "text": "Charles Babbage was an English mathematician, a philosopher and also an inventor. He was born on 1791 in London England. He was known for his contributions to invent machine X to solve four basic arithmetic functions. The machine X has improved its calculations design from Stepped Reckoner machine and early mechanical calculator. The machine X has introduced a number of computing concepts which are still in use today. Although this machine was not actually completed, it is the first machine that deserved to be called as a computer."
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 508.61,
+          "text": "a) What is the machine X name?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 546.4,
+          "text": "b) In which generation does the machine X introduced?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 584.56,
+          "text": "c) What is the function of machine X?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 622.71,
+          "text": "d) Name the machine that has been invented prior to machine X?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 660.51,
+          "text": "e) What is the title given to Charles Babbage due to his success to invent machine X?"
+        }
+      ],
+      "text": "Question 1 is based on the following image and statements in Figure 1.\nCharles Babbage was an English\nmathematician, a philosopher and also an\ninventor. He was born on 1791 in London\nEngland. He was known for his\ncontributions to invent machine X to solve\nfour basic arithmetic functions. The\nmachine X has improved its calculations\ndesign from Stepped Reckoner machine\nand early mechanical calculator. The\nmachine X has introduced a number of\ncomputing concepts which are still in use\ntoday. Although this machine was not\nactually completed, it is the first machine\nthat deserved to be called as a computer.\nFigure 1 : A snippet from biography web page\na) What is the machine X name?\nb) In which generation does the machine X introduced?\nc) What is the function of machine X?\nd) Name the machine that has been invented prior to machine X?\ne) What is the title given to Charles Babbage due to his success to invent machine X?",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) What is the machine X name?",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            70.55,
+            508.61,
+            236.47,
+            518.69
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) In which generation does the machine X introduced?",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            70.19,
+            546.4,
+            346.61,
+            557.2
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) What is the function of machine X?",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            69.83,
+            584.56,
+            259.51,
+            595.0
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "d",
+          "text": "d) Name the machine that has been invented prior to machine X?",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            69.47,
+            622.71,
+            395.56,
+            634.23
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "e",
+          "text": "e) What is the title given to Charles Babbage due to his success to invent machine X?",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            69.47,
+            660.51,
+            495.26,
+            672.38
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A2",
+      "part": "A",
+      "question": "A2",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "instruction_set_addressing",
+      "topic_label": "Instruction formats and addressing modes",
+      "task": "short_answer",
+      "title": "Five-mark question 2",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2014-06-A9",
+      "paper_id": "CSC429-2014-06",
+      "source_file": "CSC429 (1).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [
+        "CSC429-2014-06-F2"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 409.32,
+          "text": "Given the following Figure 2."
+        },
+        {
+          "type": "figure",
+          "page": 5,
+          "y": 434.88,
+          "asset_id": "CSC429-2014-06-F2",
+          "path": "data/tracking/csc429/assets/CSC429-2014-06/CSC429-2014-06-F2.png",
+          "crop_box": [
+            35.68,
+            434.88,
+            559.04,
+            583.16
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2014-06\\page_005.jpg",
+          "page_points": [
+            594.72,
+            847.44
+          ],
+          "width_px": 1453,
+          "height_px": 411
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 626.4,
+          "text": "a) Label the addressing technique illustrated in Figure 2."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 664.2,
+          "text": "b) Explain how the addressing technique in 9(a) is used."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 699.84,
+          "text": "List ONE (1) advantage and ONE (1) disadvantage of the addressing technique in"
+        }
+      ],
+      "text": "Given the following Figure 2.\nInstruction\nOpcode\nAddress A\nMemory\nOperand\nFigure 2\nLabel the addressing technique illustrated in Figure 2.\na)\nExplain how the addressing technique in 9(a) is used.\nb)\nList ONE (1) advantage and ONE (1) disadvantage of the addressing technique in",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a)\nExplain how the addressing technique in 9(a) is used.",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            72.0,
+            626.4,
+            81.0,
+            636.48
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b)\nList ONE (1) advantage and ONE (1) disadvantage of the addressing technique in",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            72.36,
+            664.2,
+            81.0,
+            675.0
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A3",
+      "part": "A",
+      "question": "A3",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "parallel_architecture",
+      "topic_label": "Parallel and multiprocessor architecture",
+      "task": "short_answer",
+      "title": "Five-mark question 3",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2019-12-A10",
+      "paper_id": "CSC429-2019-12",
+      "source_file": "CSC429 (13).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 578.27,
+          "text": "a) List THREE (3) characteristics of Symmetric Multiprocessor (SMP)."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 615.44,
+          "text": "b) Describe ONE (1) advantage of Symmetric Multiprocessor (SMP) interms of availability."
+        }
+      ],
+      "text": "a)\nList THREE (3) characteristics of Symmetric Multiprocessor (SMP).\nb)\nDescribe ONE (1) advantage of Symmetric Multiprocessor (SMP) interms of availability.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a)\nList THREE (3) characteristics of Symmetric Multiprocessor (SMP).",
+          "marks": 3,
+          "marks_source": "explicit",
+          "bbox": [
+            83.39,
+            578.27,
+            92.52,
+            593.94
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b)\nDescribe ONE (1) advantage of Symmetric Multiprocessor (SMP) interms of availability.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            83.77,
+            615.44,
+            93.76,
+            631.45
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A4",
+      "part": "A",
+      "question": "A4",
+      "kind": "generated_question",
+      "marks": 5,
+      "topic": "data_representation",
+      "topic_label": "Data representation and number systems",
+      "task": "short_answer",
+      "title": "Five-mark question 4",
+      "resolver": "csc429.generator",
+      "variant_policy": "controlled_numeric",
+      "generator_pool": [
+        "csc429.number_base_conversion",
+        "csc429.signed_arithmetic",
+        "csc429.ieee754_single"
+      ],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-GEN-05-A4",
+      "paper_id": "CSC429-GEN-05",
+      "source_file": "",
+      "source_pages": [],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 1,
+          "y": 0,
+          "text": "Convert 378510 to binary. Show your complete workflow."
+        }
+      ],
+      "text": "Convert 378510 to binary. Show your complete workflow.",
+      "subparts": [],
+      "answer": "378510 = 1110110010012",
+      "marking": [
+        "1 mark for identifying the target base.",
+        "1 mark for a correct repeated-division or place-value method.",
+        "1 mark for the correct digit sequence.",
+        "1 mark for the correct base subscript.",
+        "1 mark for a complete, consistent workflow."
+      ],
+      "generator_id": "csc429.number_base_conversion",
+      "metadata": {
+        "base": 2,
+        "converted": "111011001001",
+        "dec_value": 3785,
+        "hex_value": null
+      }
+    },
+    {
+      "slot": "A5",
+      "part": "A",
+      "question": "A5",
+      "kind": "generated_question",
+      "marks": 10,
+      "topic": "data_representation",
+      "topic_label": "Data representation and number systems",
+      "task": "short_answer",
+      "title": "Ten-mark question 5",
+      "resolver": "csc429.generator",
+      "variant_policy": "controlled_numeric",
+      "generator_pool": [
+        "csc429.number_base_conversion",
+        "csc429.signed_arithmetic",
+        "csc429.ieee754_single"
+      ],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-GEN-05-A5",
+      "paper_id": "CSC429-GEN-05",
+      "source_file": "",
+      "source_pages": [],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 1,
+          "y": 0,
+          "text": "Answer both parts for the same expression. Assume an 8-bit byte.\nExpression: -60 - (-12)"
+        },
+        {
+          "type": "text",
+          "page": 1,
+          "y": 1,
+          "text": "a) Calculate -60 - (-12) using sign and magnitude."
+        },
+        {
+          "type": "text",
+          "page": 1,
+          "y": 2,
+          "text": "b) Calculate -60 - (-12) using 1's and 2's complement."
+        }
+      ],
+      "text": "Answer both parts for the same expression. Assume an 8-bit byte.\nExpression: -60 - (-12)",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Calculate -60 - (-12) using sign and magnitude.",
+          "marks": 5,
+          "answer": "left -60 -> 1 0111100; right -12 -> 1 0001100; -60 - (-12) = -48 -> sign-magnitude 1 0110000",
+          "marking": [
+            "1 mark for operand representations.",
+            "1 mark for sign handling.",
+            "1 mark for magnitude arithmetic.",
+            "1 mark for the result sign bit.",
+            "1 mark for the final byte."
+          ]
+        },
+        {
+          "label": "b",
+          "text": "Calculate -60 - (-12) using 1's and 2's complement.",
+          "marks": 5,
+          "answer": "left -60 -> 1's 11000011, 2's 11000100; right -12 -> 1's 11110011, 2's 11110100; -60 - (-12) = -48 -> 1's 11001111, 2's 11010000",
+          "marking": [
+            "1 mark for the positive operand in binary.",
+            "1 mark for the 1's complement of the negative operand.",
+            "1 mark for adding 1 to form the 2's complement.",
+            "1 mark for the correct 8-bit result.",
+            "1 mark for converting the result back to decimal."
+          ]
+        }
+      ],
+      "answer": "left -60 -> SM 1 0111100, 2's 11000100; right -12 -> SM 1 0001100, 2's 11110100; -60 - (-12) = -48 -> SM 1 0110000, 1's 11001111, 2's 11010000",
+      "marking": [
+        "Part a: 5 marks.",
+        "Part b: 5 marks."
+      ],
+      "generator_id": "csc429.signed_arithmetic",
+      "metadata": {
+        "left": -60,
+        "right": -12,
+        "result": -48,
+        "sign_magnitude": "1 0110000",
+        "ones": "11001111",
+        "twos": "11010000"
+      }
+    },
+    {
+      "slot": "A6",
+      "part": "A",
+      "question": "A6",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "io_system",
+      "topic_label": "Input/output and interrupts",
+      "task": "short_answer",
+      "title": "Ten-mark question 6",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2023-02-A8",
+      "paper_id": "CSC429-2023-02",
+      "source_file": "CSC429 (14).pdf",
+      "source_pages": [
+        4
+      ],
+      "asset_ids": [
+        "CSC429-2023-02-F2"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 143.46,
+          "text": "Question 8 is based on Figure 2."
+        },
+        {
+          "type": "figure",
+          "page": 4,
+          "y": 162.57,
+          "asset_id": "CSC429-2023-02-F2",
+          "path": "data/tracking/csc429/assets/CSC429-2023-02/CSC429-2023-02-F2.png",
+          "crop_box": [
+            29.82,
+            162.57,
+            566.58,
+            442.58
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2023-02\\page_004.jpg",
+          "page_points": [
+            596.4,
+            842.64
+          ],
+          "width_px": 729,
+          "height_px": 821
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 471.77,
+          "text": "a) Describe maskable interrupt."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 509.7,
+          "text": "b) What is the sequence of the program execution if the defined priority is implemented in"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 560.34,
+          "text": "c) What is the sequence of the program execution if the disable interrupt is implemented in"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 611.22,
+          "text": "d) Which of the interruption method between defined priority or disable interrupt can finish Interrupt C earlier? Give your justification."
+        }
+      ],
+      "text": "Question 8 is based on Figure 2.\ninterrupt\nInterrupt\nHandler B\nH a n d l e r C\nInterrupt\nHandler A\nInterrupt\nInterrupt\nHandler D Handler E\nFigure 2: Multiple interrupts diagram\na) Describe maskable interrupt.\nb) What is the sequence of the program execution if the defined priority is implemented in\nFigure 2?\nc) What is the sequence of the program execution if the disable interrupt is implemented in\nFigure 2?\nd) Which of the interruption method between defined priority or disable interrupt can finish\nInterrupt C earlier? Give your justification.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Describe maskable interrupt.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            81.36,
+            471.77,
+            242.77,
+            486.89
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) What is the sequence of the program execution if the defined priority is implemented in\nFigure 2?",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            81.36,
+            509.7,
+            537.54,
+            524.81
+          ],
+          "figure_refs": [
+            "Figure 2"
+          ],
+          "asset_ids": [
+            "CSC429-2023-02-F2",
+            "CSC429-2023-02-F2-2",
+            "CSC429-2023-02-F2-3"
+          ]
+        },
+        {
+          "label": "c",
+          "text": "c) What is the sequence of the program execution if the disable interrupt is implemented in\nFigure 2?",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            81.36,
+            560.34,
+            537.54,
+            575.45
+          ],
+          "figure_refs": [
+            "Figure 2"
+          ],
+          "asset_ids": [
+            "CSC429-2023-02-F2",
+            "CSC429-2023-02-F2-2",
+            "CSC429-2023-02-F2-3"
+          ]
+        },
+        {
+          "label": "d",
+          "text": "d) Which of the interruption method between defined priority or disable interrupt can finish\nInterrupt C earlier? Give your justification.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            81.36,
+            611.22,
+            538.02,
+            626.33
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A7",
+      "part": "A",
+      "question": "A7",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "computer_architecture",
+      "topic_label": "Computer architecture and CPU organisation",
+      "task": "short_answer",
+      "title": "Ten-mark question 7",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2018-12-A6",
+      "paper_id": "CSC429-2018-12",
+      "source_file": "CSC429 (11).pdf",
+      "source_pages": [
+        4
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 179.97,
+          "text": "Describe the specific function of each registers in the CPU."
+        }
+      ],
+      "text": "Describe the specific function of each registers in the CPU.",
+      "subparts": [
+        {
+          "label": "main",
+          "text": "Describe the specific function of each registers in the CPU.",
+          "marks": 10,
+          "marks_source": "explicit",
+          "bbox": [
+            97.54,
+            179.97,
+            386.56,
+            190.77
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A8",
+      "part": "A",
+      "question": "A8",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "computer_architecture",
+      "topic_label": "Computer architecture and CPU organisation",
+      "task": "short_answer",
+      "title": "Ten-mark question 8",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2025-07-A6",
+      "paper_id": "CSC429-2025-07",
+      "source_file": "CSC429 (20).pdf",
+      "source_pages": [
+        3
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 338.48,
+          "text": "a) Discuss the function of each Central Processing Unit (CPU) component'"
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 376.27,
+          "text": "b) Elaborate on what will happen in the machine cycle if the bus system is faulty"
+        }
+      ],
+      "text": "a) Discuss the function of each Central Processing Unit (CPU) component'\nb) Elaborate on what will happen in the machine cycle if the bus system is faulty",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Discuss the function of each Central Processing Unit (CPU) component'",
+          "marks": 8,
+          "marks_source": "explicit",
+          "bbox": [
+            57.96,
+            338.48,
+            426.24,
+            359.08
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Elaborate on what will happen in the machine cycle if the bus system is faulty",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            58.32,
+            376.27,
+            451.34,
+            396.88
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A9",
+      "part": "A",
+      "question": "A9",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "io_system",
+      "topic_label": "Input/output and interrupts",
+      "task": "short_answer",
+      "title": "Ten-mark question 9",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2017-07-A9",
+      "paper_id": "CSC429-2017-07",
+      "source_file": "CSC429 (7).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 143.98,
+          "text": "a) Differentiate between interrupt-driven 1/0 and programmed 1/0."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 182.13,
+          "text": "b) Discuss ONE (1) benefit of programmed 1/0."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 220.65,
+          "text": "c) Discuss TWO (2) disadvantages of multiple interrupts."
+        }
+      ],
+      "text": "a) Differentiate between interrupt-driven 1/0 and programmed 1/0.\nb) Discuss ONE (1) benefit of programmed 1/0.\nc) Discuss TWO (2) disadvantages of multiple interrupts.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Differentiate between interrupt-driven 1/0 and programmed 1/0.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            73.07,
+            143.98,
+            398.08,
+            155.5
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Discuss ONE (1) benefit of programmed 1/0.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            73.07,
+            182.13,
+            307.74,
+            193.65
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) Discuss TWO (2) disadvantages of multiple interrupts.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            72.71,
+            220.65,
+            354.17,
+            232.17
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "A10",
+      "part": "A",
+      "question": "A10",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "memory_system",
+      "topic_label": "Memory hierarchy and cache",
+      "task": "short_answer",
+      "title": "Ten-mark question 10",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2026-02-A8",
+      "paper_id": "CSC429-2026-02",
+      "source_file": "CSC429 (21).pdf",
+      "source_pages": [
+        4
+      ],
+      "asset_ids": [
+        "CSC429-2026-02-F3"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 338.84,
+          "text": "Question I is based on Figure 3. Computer structure A Main cache L2 Cache L3 CPU cache L1 memory"
+        },
+        {
+          "type": "figure",
+          "page": 4,
+          "y": 448.2,
+          "asset_id": "CSC429-2026-02-F3",
+          "path": "data/tracking/csc429/assets/CSC429-2026-02/CSC429-2026-02-F3.png",
+          "crop_box": [
+            34.56,
+            448.2,
+            541.44,
+            515.17
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2026-02\\page_004.jpg",
+          "page_points": [
+            576.0,
+            807.12
+          ],
+          "width_px": 1407,
+          "height_px": 186
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 553.23,
+          "text": "a) Explain which computer structure can store the data faster compared to the other. Provide relevant justification to support your answer."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 603.63,
+          "text": "b) ldentify the fastest cache level and give an appropriate reason."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 642.15,
+          "text": "c) Vvhat is the main benefit for the cache to use SRAM technology?"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 679.95,
+          "text": "d) Discuss TWO (2) methods to update cache and main memory contents to ensure data consistency."
+        }
+      ],
+      "text": "Question I is based on Figure 3.\nComputer structure A\nMain\nCache L3\ncache L2\ncache L1\nmemory\nCPU\nComputer structure B\nMain\ncache L3\nCache L4\nCache L2\nCache L1\nCPU\nmemory\nFigure 3: Different computer architectures\na) Explain which computer structure can store the data faster compared to the other. Provide\nrelevant justification to support your answer.\nb) ldentify the fastest cache level and give an appropriate reason.\nc) Vvhat is the main benefit for the cache to use SRAM technology?\nd) Discuss TWO (2) methods to update cache and main memory contents to ensure data\nconsistency.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Explain which computer structure can store the data faster compared to the other. Provide\nrelevant justification to support your answer.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            69.12,
+            553.23,
+            516.92,
+            577.27
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) ldentify the fastest cache level and give an appropriate reason.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            69.84,
+            603.63,
+            395.02,
+            627.67
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) Vvhat is the main benefit for the cache to use SRAM technology?",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            70.2,
+            642.15,
+            404.91,
+            666.19
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "d",
+          "text": "d) Discuss TWO (2) methods to update cache and main memory contents to ensure data\nconsistency.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            70.2,
+            679.95,
+            518.67,
+            703.99
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    },
+    {
+      "slot": "B1",
+      "part": "B",
+      "question": "B1",
+      "kind": "real_bank_question",
+      "marks": 20,
+      "topic": "assembly_programming",
+      "topic_label": "Assembly-language programming",
+      "task": "assembly_program",
+      "title": "Twenty-mark assembly-programming question",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2025-02-B1",
+      "paper_id": "CSC429-2025-02",
+      "source_file": "CSC429 (18).pdf",
+      "source_pages": [
+        6
+      ],
+      "asset_ids": [
+        "CSC429-2025-02-F2",
+        "CSC429-2025-02-T1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 6,
+          "y": 157.62,
+          "text": "Question 1 is based on Figure 2 and Table 1."
+        },
+        {
+          "type": "figure",
+          "page": 6,
+          "y": 191.49,
+          "asset_id": "CSC429-2025-02-F2",
+          "path": "data/tracking/csc429/assets/CSC429-2025-02/CSC429-2025-02-F2.png",
+          "crop_box": [
+            36.19,
+            191.49,
+            566.93,
+            243.13
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2025-02\\page_006.jpg",
+          "page_points": [
+            603.12,
+            843.36
+          ],
+          "width_px": 1475,
+          "height_px": 143
+        },
+        {
+          "type": "text",
+          "page": 6,
+          "y": 285.29,
+          "text": "Write an appropriate program using correct assembly language notations to compute the equation shown in Figure 2 using instructions for one-address, two-address, and three- address. The available instructions are provided in Table 1. The register labeled A, B, C, and D are fixed, while registers x, y, and z can be used temporarily. The final answer must be stored in register y."
+        },
+        {
+          "type": "table",
+          "page": 6,
+          "y": 395.21,
+          "asset_id": "CSC429-2025-02-T1",
+          "table": {
+            "columns": 3,
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "One-address",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "Two-address",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "Three-address",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "LOADp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MOV (p,q)",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "ADD (p.q.r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "STORp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "ADD (p,q)",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "SUB (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "ADDp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "SUB (p,q)",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MUL (p.q.r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "SUBp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MUL (p,q)",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "DIV(p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "MULp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "DIV(p,q)",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "DIVp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  }
+                ]
+              }
+            ],
+            "non_empty_ratio": 0.857,
+            "source": "layout"
+          }
+        }
+      ],
+      "text": "Question 1 is based on Figure 2 and Table 1.\ny = A -\n2C\n* D\nB + A2\nFigure 2\nWrite an appropriate program using correct assembly language notations to compute the\nequation shown in Figure 2 using instructions for one-address, two-address, and three-\naddress. The available instructions are provided in Table 1. The register labeled A, B, C, and\nD are fixed, while registers x, y, and z can be used temporarily. The final answer must be\nstored in register y.\nTable 1 : Machine instruction\nThree-address\nOne-address\nTwo-address\nLOADp\nMOV (p,q)\nADD (p.q.r)\nSTORp\nADD (p,q)\nSUB (p,q,r)\nADDp\nSUB (p,q)\nMUL (p.q.r)\nSUBp\nMUL (p,q)\nDIV(p,q,r)\nMULp\nDIV(p,q)\nDIVp",
+      "subparts": [
+        {
+          "label": "main",
+          "text": "Question 1 is based on Figure 2 and Table 1.\ny = A -\n2C\n* D\nB + A2\nFigure 2\nWrite an appropriate program using correct assembly language notations to compute the\nequation shown in Figure 2 using instructions for one-address, two-address, and three-\naddress. The available instructions are provided in Table 1. The register labeled A, B, C, and\nD are fixed, while registers x, y, and z can be used temporarily. The final answer must be\nstored in register y.\nTable 1 : Machine instruction\nThree-address\nOne-address\nTwo-address\nLOADp\nMOV (p,q)\nADD (p.q.r)\nSTORp\nADD (p,q)\nSUB (p,q,r)\nADDp\nSUB (p,q)\nMUL (p.q.r)\nSUBp\nMUL (p,q)\nDIV(p,q,r)\nMULp\nDIV(p,q)\nDIVp",
+          "marks": 20,
+          "marks_source": "explicit",
+          "bbox": [
+            80.64,
+            157.62,
+            301.81,
+            172.73
+          ],
+          "figure_refs": [
+            "Figure 2",
+            "Table 1"
+          ],
+          "asset_ids": [
+            "CSC429-2025-02-F2",
+            "CSC429-2025-02-T1"
+          ]
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": ""
+    }
+  ],
+  "notes": "Real past-paper questions only. Topic quotas are the largest-remainder allocation of the observed Part A topic mix; each quota is split between 5- and 10-mark slots using the topic's observed 5/10-mark availability. Every slot resolves to the real bank."
+}

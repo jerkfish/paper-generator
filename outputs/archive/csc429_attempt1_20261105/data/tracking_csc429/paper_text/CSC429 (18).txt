@@ -1,0 +1,211 @@
+CONFIDENTIAL 
+CD/FEB 2025/CSC429 
+UNIVERSITI TEKNOLOGI MARA 
+FINAL EXAMINATION 
+COURSE 
+COURSE CODE 
+EXAMINATION 
+TIME 
+COMPUTER ORGANIZATION AND ARCHITECTURE 
+CSC429 
+FEBRUARY 2025 
+3 HOURS 
+INSTRUCTIONS TO CANDIDATES 
+1. 
+This question paper consists of two (2) parts : 
+PART A (10 Questions) 
+PART B (1 Question) 
+2. 
+Answer ALL questions in the Answer Booklet. Start each answer on a new page. 
+3. 
+Do not bring any material into the examination room unless permission is given by the 
+invigilator. 
+4. 
+Please check to make sure that this examination pack consists of: 
+i) 
+the Question Paper 
+ii) 
+an Answer Booklet - provided by the Faculty 
+5. 
+Answer ALL questions in English. 
+DO NOT TURN THIS PAGE UNTIL YOU ARE TOLD TO DO SO 
+This examination paper consists of 6 printed pages 
+© Hak Cipta Universiti Teknologi MARA 
+CONFIDENTIAL 
+
+CONFIDENTIAL 
+2 
+CD/FEB 2025/CSC429 
+PART A 
+QUESTION 1 
+The evolution of computers and technological advancements have led to powerful variations 
+that can process data faster, perform complex calculations, support artificial intelligence, 
+enable global communication, manage vast databases, simulate real-world scenarios, and 
+offer automation, all while being smaller, more energy-efficient, and widely accessible. 
+a) Name the primary technology in the zero, first, and second computer generations. 
+(3 marks) 
+b) List TWO (2) fundamental components of integrated circuits. 
+(2 marks) 
+QUESTION 2 
+The availability of personal computers (PCs) impacted daily life, business, and society. 
+Computing became affordable and accessible to individuals and small businesses, allowing 
+modern communication and information sharing. It boosts work productivity by automating 
+tasks and better data processing. 
+a) In which computer generation that the PC was first introduced? 
+(1 mark) 
+b) State the name of the first commercially available computer. 
+(1 mark) 
+c) What kind of interface was available when the PC was first introduced? 
+(1 mark) 
+d) Discuss the key factor that makes the personal computer portable. 
+(2 marks) 
+QUESTION 3 
+a) Calculate the byte content shown in Figure 1. 
+(2 marks) 
+0101011100111000111100101100111000011001 
+Figure 1 
+b) Calculate 2D.5h + ED.2h in binary. Show your complete workflow. 
+(3 marks) 
+© Hak Cipta Universiti Teknologi MARA 
+CONFIDENTIAL 
+
+CONFIDENTIAL 
+3 
+CD/FEB 2025/CSC429 
+QUESTION 4 
+a) Calculate 408 - 40h using sign and magnitude. Show your complete workflow. 
+(2 marks) 
+b) Calculate 39h - 23a using 1 's and 2's complement method. Show your complete workflow. 
+(3 marks) 
+QUESTION 5 
+a) Convert -81.21875 to a floating point number in IEEE single precision format in 
+hexadecimal value form. Show your complete workflow. 
+(5 marks) 
+b) Convert 43A37C00h in IEEE single precision floating point number to decimal value form. 
+Show your workflow. 
+(5 marks) 
+QUESTION 6 
+a) Identify the correct concept of computer organization or architecture in the following 
+scenario. 
+(4 marks) 
+Scenario 
+Deals with the logical aspects of the 
+system, including instruction sets, 
+data formats, and addressing modes. 
+Defines the functionality, capabilities, 
+and programming model. 
+Concerned with how the computer 
+will execute the tasks and implement 
+the functions. 
+Involves the hardware layout, circuits, 
+control signals, memory access, and 
+timing. 
+Concept 
+b) Describe THREE (3) CPU registers involved in data processing, such as arithmetic 
+operations. 
+(6 marks) 
+© Hak Cipta Universiti Teknologi MARA 
+CONFIDENTIAL 
+
+CONFIDENTIAL 
+4 
+CD/FEB 2025/CSC429 
+QUESTION 7 
+a) What is a cache? 
+(2 marks) 
+b) Elaborate on what will happen if there is no cache in the computer system, 
+(2 marks) 
+c) Comparing L1 and L2 cache, discuss which cache would have faster speed with relevant 
+justification. 
+(2 marks) 
+d) Discuss TWO (2) policies to write data to the cache to ensure consistency between the 
+cache and the main memory (RAM). 
+(4 marks) 
+QUESTION 8 
+a) Compare TWO (2) system bus timing approach with appropriate examples. 
+(6 marks) 
+b) Discuss ONE (1) reason why an I/O module is needed. 
+(2 marks) 
+c) List TWO (2) interfaces to external devices 
+(2 marks) 
+QUESTION 9 
+a) 
+Differentiate the involvement of CPU in the interrupt-driven I/O technique and Direct 
+Manipulation Access 
+(4 marks) 
+b) 
+Define interrupt. 
+(2 marks) 
+c) 
+Discuss what happens during a context switch. 
+(2 marks) 
+d) 
+Elaborate on the benefit of a context switch. 
+(2 marks) 
+© Hak Cipta Univereiti Teknologi MARA 
+CONFIDENTIAL 
+
+CONFIDENTIAL 
+5 
+CD/FEB 2025/CSC429 
+QUESTION 10 
+a) 
+Draw Single Instruction, Single data (SISD) architecture with the following information: 
+- CU is the control unit 
+- PU is the processing unit 
+- MU is the memory unit 
+- IS is the instruction stream 
+- DS is the data stream 
+(2 marks) 
+b) 
+Describe the parallel architecture. 
+(2 marks) 
+c) 
+Explain ONE (1) benefit of parallel architecture. 
+(2 marks) 
+d) 
+Differentiate between loosely-coupled and strongly-coupled Multiple Instruction, Multiple 
+Data stream (MIMD) architecture with example. 
+(4 marks) 
+© Hak Cipta Universiti Teknologi MARA 
+CONFIDENTIAL 
+
+CONFIDENTIAL 
+6 
+CD/FEB 2025/CSC429 
+PARTB 
+QUESTION 1 
+Question 1 is based on Figure 2 and Table 1. 
+y = A - 
+2C 
+* D 
+B + A2 
+Figure 2 
+Write an appropriate program using correct assembly language notations to compute the 
+equation shown in Figure 2 using instructions for one-address, two-address, and three-
+address. The available instructions are provided in Table 1. The register labeled A, B, C, and 
+D are fixed, while registers x, y, and z can be used temporarily. The final answer must be 
+stored in register y. 
+Table 1 : Machine instruction 
+One-address 
+LOADp 
+STORp 
+ADDp 
+SUBp 
+MULp 
+DIVp 
+Two-address 
+MOV (p,q) 
+ADD (p,q) 
+SUB (p,q) 
+MUL (p,q) 
+DIV(p,q) 
+Three-address 
+ADD (p.q.r) 
+SUB (p,q,r) 
+MUL (p.q.r) 
+DIV(p,q,r) 
+(20 marks) 
+END OF QUESTION PAPER 
+© Hak Cipta Universiti Teknologi MARA 
+CONFIDENTIAL 

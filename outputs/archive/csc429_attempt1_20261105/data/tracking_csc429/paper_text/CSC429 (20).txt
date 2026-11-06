@@ -1,0 +1,195 @@
+cD/JUL 2025/CSC429
+UNIVERSITI TEKNOLOGI MARA
+FINAL EXAMINATION
+INSTRUCTION S TO CANDIDATES
+1 . This question paper consists of two (2) parts : PART A (10 Ouestions)
+PART B (1 Question)
+2. Answer ALL questions in the Answer Booklet. Start each answer on a new page'
+3. Do not bring any material into the examination room unless permission is given by the invigilator
+4. Please check to make sure that this examination pack consists of :
+i) the Ouestion Paper
+ii) an Answer Booklet - provided by the Faculty
+5. Answer ALL questions in English.
+DO NOT TURN THIS PAGE UNTIL YOU ARE TOLD TO DO SO
+GOURSE
+COURSE CODE
+EXAMINATION
+TIME
+COMPUTER ORGANIZATION AND ARCHITECTURE
+csc429
+JULY 2025
+3 HOURS
+This examination paper consists of 5 printed pages
+O Hak Cipta unive6iU Teknologi MARA
+CONFIDENTIAL
+CONFIDENTIAL
+
+CONFIDENTIAL
+cD/JUL 2025/CSC429
+PART A
+QUESTION 1
+The advancement of technology through different computer generations has focused on
+improving performance, speed, and efficiency. From vacuum tubes in the first generation to
+modern Al-powered systems, each generation introduced faster processing, smaller
+components, and greater reliability.
+QUESTION 2
+The integrated circuit is an important milestone that marks the achievement in the history of
+computer development.
+a) ln which computer generation that the integrated circuil was first introduced?
+(1 mark)
+b) State the name of the inventor of the integrated circuit.
+(1 mark)
+c) What are the THREE (3) main components of integrated circuits?
+(3 marks)
+QUESTION 3
+a) \Mat is a bit?
+(1 mark)
+b) Given a system of vacuum tubes where each tube represents a single bit with two states:
+ON=1 and OFF=O. ldentify the number of vacuum tubes needed to store the value of gro.
+Show your workflow to justify your answer.
+i) 
+Binary system.
+ii) 
+Octal system.
+(4 marks)
+2
+@ Hak Cipta UniveEiti Teknologi MARA
+CONFIDENTIAL
+a) Name the inventor of the following devices:
+i) 
+Mechanical Calculating Machine
+ii) 
+Analytical Machine
+iiD 
+IAS Machine
+(3 marks)
+b) Why are the machines of later computer generation designed for general purposes instead
+of the eadier computer generation that is more specific in function?
+(2 marks)
+
+CONF!DENTIAL
+cD/JUL 2025/CSC429
+QUESTION 4
+Calculate -9Brr - 37a using 1's and 2's complement method. Show your complete workflow.
+(5 marks)
+3
+QUESTION 5
+a) convert 46.0703'125n to a floating-point number in IEEE single precision format in
+hexadecimar varue form. show your comprete workflow' 
+(5 marks)
+b) Convert 8F080000rr in IEEE single precision floating point number to decimal value form.
+Show your workflow.
+(5 marks)
+OUESTION 6
+(8 marks)
+b) Elaborate on what will happen in the machine cycle if the bus system is faulty
+(2 marks)
+QUESTION 7
+a) ldentify the correct access method based on the following scenario
+(5 marks)
+b) Rank the following memory types based on the most to the least storage capacity'
+Main memory, Tape, Ll Cache, Hard drive, ReBister, L3 Cache
+(3 marks)
+c) Discuss the term volatile from the perspective of computer memory.
+(2 marks)
+CONFIDENTIAL
+Access method
+Scenario
+files.
+Readi
+I
+c file from a folder.
+Accessi
+a
+line.
+Streami
+files line
+e file.
+an index in a la
+Accessin
+AS ecific file block usi
+cific frame or a timestam
+toas
+Jum
+tn
+a) Discuss the function of each Central Processing Unit (CPU) component'
+in the video.
+@ Hak Cipta Universiti Teknologi MARA
+
+CONFIDENTIAL
+cD/JUL 2025/CSC429
+OUESTION 8
+a) Explain how the bits are stored in the SRAM and DFiAM.
+(2 marks)
+b) Why is SRAM technology faster than DRAM technology?
+(4 marks)
+c) Compare SRAM and DRAM in terms of cost and power consumption.
+(4 marks)
+QUESTION 9
+a) Why must the CPU be faster than all the other inpuuoutput devices?
+(2 marks)
+b) How do the l/O controllers facilitate communication between the CPU and l/O devices?
+(2 marks)
+c) Discuss TWO (2) types of l/O modules.
+(4 marks)
+d) When would an l/O controller of a specific device be installed?
+(2 marks)
+OUESTION 1O
+a) Draw Single lnstruction, Single data (SISD) architecture with the following information:
+- CU is the control unit
+- PU is the processing unit
+- MU is the memory unit
+- lS is the instruction stream
+- DS is the data stream
+(2 marks)
+b) List TWO (2) examples of shared memory Multiple lnstruction Multiple Data (MIMD).
+(2 marks)
+c) Discuss the difference between what happens if a virus attacks shared memory Multiple
+lnstruction Multiple Data (MIMD) and distributed memory Multiple lnstruction Multiple
+Data (MIMD).
+(4 marks)
+d) Explain ONE (1) benefit of using distributed memory Multiple lnstruction, Multiple Data
+stream (MIMD) architecture with example.
+(2 marks)
+4
+O Hak Cipta Universiti Toknologi I,ARA
+CONFIDENTIAL
+
+CONFIDENTIAL
+PART B
+QUESTION I
+Question 1 is based on Figure 1 and Table 1.
+5
+cD/JUL 2025/CSC429
+write an appropriate program using correct assembly language notations to compute the
+equation snbwn in Figure 1 using instructions for zero-address, one-address, and three-
+address. The available instructioni are provided in Tabte 1. The register labeled A, B, C, and
+D are fixed, white registers x, y, and z can be used temporarily. The final answer must be
+stored in register z. 
+(20 marks)
+z=A2-B*C+jl_
+D+5
+Figure 1
+Table 1: Machine instruction
+Zero-address
+One-address
+Three-address
+PUSH p
+LOAD p
+ADD (p,q,r)
+POP p
+STOR p
+suB (p,q,r)
+ADD
+ADD p
+MUL (p,q,r)
+SUB
+SUB p
+DIV (p,q,r)
+MUL
+MUL p
+DIV
+DIV p
+END OF QUESTION PAPER
+@ Hak Cipta Unive.siti Teknologi MARA
+CONFIDENTIAL

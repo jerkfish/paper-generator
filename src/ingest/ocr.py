@@ -69,6 +69,80 @@ def page_images(pdf_path: Path, pages: Iterable[int] | None = None,
     return out
 
 
+WIN_OCR_LAYOUT_PS1 = r"""
+param([string]$ImagePath)
+$ErrorActionPreference = "Stop"
+Add-Type -AssemblyName System.Runtime.WindowsRuntime | Out-Null
+[Windows.Storage.StorageFile,Windows.Storage,ContentType=WindowsRuntime] | Out-Null
+[Windows.Storage.Streams.IRandomAccessStream,Windows.Storage.Streams,ContentType=WindowsRuntime] | Out-Null
+[Windows.Media.Ocr.OcrEngine,Windows.Foundation,ContentType=WindowsRuntime] | Out-Null
+[Windows.Media.Ocr.OcrResult,Windows.Foundation,ContentType=WindowsRuntime] | Out-Null
+[Windows.Graphics.Imaging.BitmapDecoder,Windows.Graphics.Imaging,ContentType=WindowsRuntime] | Out-Null
+[Windows.Graphics.Imaging.SoftwareBitmap,Windows.Graphics.Imaging,ContentType=WindowsRuntime] | Out-Null
+[Windows.Globalization.Language,Windows.Globalization,ContentType=WindowsRuntime] | Out-Null
+$asTaskGeneric = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where-Object { $_.Name -eq 'AsTask' -and $_.GetParameters().Count -eq 1 -and $_.GetParameters()[0].ParameterType.Name -eq 'IAsyncOperation`1' })[0]
+function Await($WinRtTask, $ResultType) {
+    $asTask = $asTaskGeneric.MakeGenericMethod($ResultType)
+    $netTask = $asTask.Invoke($null, @($WinRtTask))
+    $netTask.Wait(-1) | Out-Null
+    $netTask.Result
+}
+$engine = [Windows.Media.Ocr.OcrEngine]::TryCreateFromUserProfileLanguages()
+if ($null -eq $engine) {
+    $lang = New-Object Windows.Globalization.Language "en-US"
+    $engine = [Windows.Media.Ocr.OcrEngine]::TryCreateFromLanguage($lang)
+}
+if ($null -eq $engine) { throw "No Windows OCR engine available" }
+$file = Await ([Windows.Storage.StorageFile]::GetFileFromPathAsync($ImagePath)) ([Windows.Storage.StorageFile])
+$stream = Await ($file.OpenAsync([Windows.Storage.FileAccessMode]::Read)) ([Windows.Storage.Streams.IRandomAccessStream])
+$decoder = Await ([Windows.Graphics.Imaging.BitmapDecoder]::CreateAsync($stream)) ([Windows.Graphics.Imaging.BitmapDecoder])
+$bitmap = Await ($decoder.GetSoftwareBitmapAsync()) ([Windows.Graphics.Imaging.SoftwareBitmap])
+$result = Await ($engine.RecognizeAsync($bitmap)) ([Windows.Media.Ocr.OcrResult])
+$lines = @()
+foreach ($line in $result.Lines) {
+    $words = @()
+    foreach ($word in $line.Words) {
+        $r = $word.BoundingRect
+        $words += [pscustomobject]@{text=$word.Text; x=$r.X; y=$r.Y; w=$r.Width; h=$r.Height}
+    }
+    $lines += [pscustomobject]@{text=$line.Text; words=$words}
+}
+[pscustomobject]@{text=$result.Text; lines=$lines} | ConvertTo-Json -Depth 6 -Compress
+"""
+
+
+def win_ocr_layout(image_path: Path) -> dict:
+    """Run Windows OCR and return line/word bounding boxes in image pixels."""
+    import json
+
+    fd, script_name = tempfile.mkstemp(prefix="win_ocr_layout_", suffix=".ps1")
+    os.close(fd)
+    script = Path(script_name)
+    try:
+        script.write_text(WIN_OCR_LAYOUT_PS1, encoding="utf-8")
+        proc = subprocess.run(
+            ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass",
+             "-File", str(script), str(Path(image_path).resolve())],
+            capture_output=True, text=True, encoding="utf-8",
+            errors="replace", timeout=120,
+        )
+        if proc.returncode != 0:
+            raise RuntimeError(
+                f"Windows OCR layout failed: "
+                f"{proc.stderr.strip() or proc.stdout.strip()}")
+        payload = proc.stdout.strip().lstrip("﻿")
+        return (json.loads(payload, strict=False) if payload
+                else {"text": "", "lines": []})
+    finally:
+        for _ in range(5):
+            try:
+                script.unlink(missing_ok=True)
+                break
+            except PermissionError:
+                import time
+                time.sleep(0.1)
+
+
 def win_ocr(image_path: Path) -> str:
     """Run Windows.Media.Ocr on one image."""
     fd, script_name = tempfile.mkstemp(prefix="win_ocr_", suffix=".ps1")

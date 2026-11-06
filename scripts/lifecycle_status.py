@@ -43,6 +43,8 @@ def report(root: Path, code: str) -> dict:
     data["registry_status"] = subject.status
     state = load_state(root, code)
     if state is not None:
+        data["lifecycle_status"] = state.get("lifecycle_status")
+        data["stop_reason"] = state.get("stop_reason", "")
         if str(state.get("type", "")).upper() != subject.subject_type:
             data["blockers"].append(
                 "lifecycle type does not match subject.json type")
@@ -77,7 +79,12 @@ def _print(data: dict) -> None:
           f"registry={data.get('registry_status', '?')}")
     if not data.get("initialized"):
         print("lifecycle_state.json: MISSING")
-    if data.get("next_stage") is None:
+    if data.get("lifecycle_status") == "stopped":
+        print("Lifecycle: STOPPED")
+        if data.get("stop_reason"):
+            print(f"Stop reason: {data['stop_reason']}")
+        print("Next stage: none (lifecycle stopped)")
+    elif data.get("next_stage") is None:
         print("Next stage: none — lifecycle complete")
     else:
         title = STAGE_BY_KEY[data["next_stage"]]["title"]

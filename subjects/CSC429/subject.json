@@ -2,11 +2,152 @@
   "code": "CSC429",
   "title": "Computer Organization and Architecture",
   "status": "coming_soon",
+  "type": "C",
   "order": 3,
+  "has_practice_mode": false,
+  "has_placeholders": false,
   "header_text": "CSC429 COMPUTER ORGANIZATION AND ARCHITECTURE",
-  "template_path": "",
-  "fingerprint": {},
+  "template_path": "data/reference/CSC429/CSC429 TEMPLATE.docx",
+  "fingerprint": {
+    "source_papers": "data/papers/CSC429",
+    "paper_count": 23,
+    "unique_papers": 20,
+    "year_min": 2013,
+    "year_max": 2026,
+    "prepared_corpus": "data/tracking/csc429",
+    "taxonomy": "data/tracking/csc429/taxonomy.json",
+    "question_log": "data/tracking/csc429/question_log.json",
+    "taxonomy_summary": "data/tracking/csc429/taxonomy_summary.json",
+    "question_log_entries": 215,
+    "papers_with_reconciled_marks": 20,
+    "part_marks": {
+      "A": [
+        80,
+        85
+      ],
+      "B": [
+        15,
+        20
+      ]
+    },
+    "topic_count": 8,
+    "topic_marks": {
+      "computer_generations": 145,
+      "computer_architecture": 300,
+      "data_representation": 405,
+      "instruction_set_addressing": 55,
+      "memory_system": 235,
+      "io_system": 320,
+      "parallel_architecture": 170,
+      "assembly_programming": 370
+    },
+    "planner_format": {
+      "A": {
+        "questions": 10,
+        "marks": 80
+      },
+      "B": {
+        "questions": 1,
+        "marks": 20
+      }
+    },
+    "generation_model": "deterministic_real_question_bank",
+    "planner": "src/subjects/csc429/planner.py",
+    "planner_sample": "data/tracking/csc429/planner_seed_01.json",
+    "planner_slots": 11,
+    "planner_topic_quota": {
+      "computer_generations": 1,
+      "data_representation": 2,
+      "memory_system": 1,
+      "io_system": 2,
+      "parallel_architecture": 1,
+      "computer_architecture": 2,
+      "instruction_set_addressing": 1
+    },
+    "generators": "src/subjects/csc429/generators.py",
+    "generator_sample": "data/tracking/csc429/generator_sample_seed_01.json",
+    "generator_validation": "data/tracking/csc429/generator_validation.json",
+    "generator_count": 3,
+    "generator_slots_20_seeds": 40,
+    "builder": "src/subjects/csc429/build_docx.py",
+    "build_sample": "data/tracking/csc429/build_sample/qa.json",
+    "sample_pages": {
+      "paper": 7,
+      "scheme": 10
+    },
+    "marking_scheme": {
+      "template": "data/reference/CSC429/CSC429 SCHEME TEMPLATE.docx",
+      "template_sha256": "67dba15396ec310dce9ab8b5a51f38dd6ce44cd8684cab4199b45ed4e0fc682d",
+      "generated_answers": true,
+      "unofficial_model_answers": true,
+      "answer_cache": "data/tracking/csc429/model_answers.json",
+      "answer_model": "deepseek-flash",
+      "answer_calls": 15,
+      "answer_cost_usd": 0.014089,
+      "real_bank_source_references": true,
+      "invented_answers": false
+    }
+  },
   "deck_map": {},
   "topic_deck_allowlist": {},
-  "enabled_computed_generators": []
+  "enabled_computed_generators": [
+    "csc429.number_base_conversion",
+    "csc429.signed_arithmetic",
+    "csc429.ieee754_single"
+  ],
+  "capabilities": {
+    "subject_type": "C",
+    "generation": "deterministic",
+    "prebuild": "plugin",
+    "public_documents": "copy_cached",
+    "needs_llm": false,
+    "uses_slides": false,
+    "uses_past_papers": true,
+    "deterministic": true,
+    "practice_mode": false,
+    "placeholders": false,
+    "public_scheme_requires_quote_marker": false,
+    "planner_style": "modern"
+  },
+  "permissions": {
+    "papers": {
+      "allowed": true,
+      "basis": "owner supplied 23 CSC429 PDFs on 2026-11-05 for local preprocessing",
+      "confirmed_by": "owner",
+      "confirmed_on": "2026-11-05",
+      "notes": "Working copies only; originals are read-only."
+    },
+    "scheme": {
+      "allowed": false,
+      "basis": "owner waived (no scheme supplied)",
+      "confirmed_by": "owner",
+      "confirmed_on": "2026-11-05",
+      "notes": "Owner waived a supplied scheme at stage 0."
+    },
+    "slides": {
+      "allowed": false,
+      "basis": "owner waived (no slides supplied)",
+      "confirmed_by": "owner",
+      "confirmed_on": "2026-11-05",
+      "notes": "Owner waived supplied lecture slides at stage 0."
+    },
+    "publication": {
+      "allowed": false,
+      "basis": "owner instruction: do not publish",
+      "confirmed_by": "owner",
+      "confirmed_on": "2026-11-05",
+      "notes": "Do not upload or deploy until explicit publication approval."
+    }
+  },
+  "plugins": {
+    "stage1_assets": "src.subjects.csc429.stage1:run_pipeline",
+    "generator_labels": "src.subjects.csc429.plugin:generator_labels",
+    "topic_labels": "src.subjects.csc429.plugin:topic_labels",
+    "plan": "src.subjects.csc429.plugin:plan",
+    "plan_markdown": "src.subjects.csc429.plugin:plan_markdown",
+    "plan_inputs": "src.subjects.csc429.plugin:plan_inputs",
+    "library_seeds": "src.subjects.csc429.plugin:library_seeds",
+    "library_metadata": "src.subjects.csc429.plugin:library_metadata",
+    "prebuild": "src.subjects.csc429.plugin:build_seed"
+  }
 }

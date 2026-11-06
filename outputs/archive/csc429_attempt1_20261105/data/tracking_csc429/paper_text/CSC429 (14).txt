@@ -1,0 +1,215 @@
+CONFIDENTIAL 
+CD/FEB 2023/CSC429 
+UNIVERSITI TEKNOLOGI MARA 
+FINAL EXAMINATION 
+COURSE 
+COURSE CODE 
+EXAMINATION 
+TIME 
+COMPUTER ORGANIZATION AND ARCHITECTURE 
+CSC429 
+FEBRUARY 2023 
+3 HOURS 
+INSTRUCTIONS TO CANDIDATES 
+1. 
+This question paper consists of two (2) parts: 
+PART A (10 Questions) 
+PART B (1 Question) 
+2. 
+Answer ALL questions in the Answer Booklet. Start each answer on a new page. 
+3. 
+Do not bring any material into the examination room unless permission is given by the 
+invigilator. 
+4. 
+Please check to make sure that this examination pack consists of: 
+i) 
+the Question Paper 
+ii) 
+an Answer Booklet - provided by the Faculty 
+5. 
+Answer ALL questions in English. 
+DO NOT TURN THIS PAGE UNTIL YOU ARE TOLD TO DO SO 
+This examination paper consists of 6 printed pages 
+© Hak Cipta Universiti Teknologi MARA 
+CONFIDENTIAL 
+
+CONFIDENTIAL 
+2 
+CD/FEB 2023/CSC429 
+PART A 
+QUESTION 1 
+List the name of the inventor of the following devices: 
+a) Mechanical Calculating Machine 
+b) Difference Machine 
+c) Analytical Machine 
+d) IAS Machine 
+e) Integrated circuit 
+(5 marks) 
+QUESTION 2 
+a) Identify the Von Neumann architecture input and output components based on the 
+excerpts from the web. 
+The Jacquard Loom is a mechanical loom invented by Joseph Marie Jacquard in 
+1801, which simplifies the process of manufacturing textiles with complex 
+patterns. The loom is controlled by punched cards with punched holes, each row 
+corresponding to one design row. Multiple rows of holes are punched on each 
+card, and the many cards that compose the textile design are strung together in 
+an orderly manner. 
+— 
+Figure 1: Excerpt from https://en.wikipedia.org/wiki/Loom 
+(2 marks) 
+b) Identify ONE (1) similarity and ONE (1) dissimilarity between the mechanical calculating 
+machine and Atanasoff Berry Computer. 
+(3 marks) 
+QUESTION 3 
+Solve the following equations in binary number bases. Show your workflow. 
+a) 1.0000 10012-0.0011 OOH2 
+b) O.FA3i6-0.651s 
+(5 marks) 
+© Hak Cipta Universiti Teknologi MARA 
+CONFIDENTIAL 
+
+CONFIDENTIAL 
+3 
+CD/FEB 2023/CSC429 
+QUESTION 4 
+What is the decimal value of the sum of the binary numbers 1101 1100 and 0010 0111 if they 
+are represented in sign and magnitude? Assume that the basic unit is the byte. Show your 
+workflow. 
+(5 marks) 
+QUESTION 5 
+a) Convert 43.046875io to a floating point number in IEEE single precision format in 
+hexadecimal value form. 
+(5 marks) 
+b) Convert C478 OOOOh in IEEE single precision floating point number to decimal value form. 
+(5 marks) 
+QUESTION 6 
+Describe the function of each register in the computer system. 
+(10 marks) 
+QUESTION 7 
+a) Differentiate SRAM and DRAM from the perspective of the following characteristics, 
+i) 
+The way the bits are stored. 
+ii) 
+Speed. 
+iii) 
+Location it is being used. 
+(6 marks) 
+b) Why does DRAM need refreshing? 
+(2 marks) 
+c) Comparing DRAM and SRAM, which memory would be placed higher in the memory 
+hierarchy? Give your justification to support your answer. 
+(2 marks) 
+© Hak Cipta Universiti Teknologi MARA 
+CONFIDENTIAL 
+
+CONFIDENTIAL 
+4 
+CD/FEB 2023/CSC429 
+QUESTION 8 
+Question 8 is based on Figure 2. 
+interrupt 
+Interrupt 
+Interrupt 
+Handler B 
+H a n d l e r C 
+Handler A 
+Interrupt 
+Interrupt 
+Handler D Handler E 
+Figure 2: Multiple interrupts diagram 
+a) Describe maskable interrupt. 
+(2 marks) 
+b) What is the sequence of the program execution if the defined priority is implemented in 
+Figure 2? 
+(4 marks) 
+c) What is the sequence of the program execution if the disable interrupt is implemented in 
+Figure 2? 
+(2 marks) 
+d) Which of the interruption method between defined priority or disable interrupt can finish 
+Interrupt C earlier? Give your justification. 
+(2 marks) 
+© Hak Cipta Universiti Teknologi MARA 
+CONFIDENTIAL 
+
+CONFIDENTIAL 
+5 
+CD/FEB 2023/CSC429 
+QUESTION 9 
+a) Discuss the THREE (3) input-output techniques available in the computer system. 
+(6 marks) 
+b) Universal Serial Bus (USB) has a "hot connection" to the devices. Briefly explain what is 
+meant by "hot connection." 
+(2 marks) 
+c) Why is there a need for the I/O module to be the mediator between the CPU and devices? 
+(2 marks) 
+QUESTION 10 
+a) Given the architecture of Single Instruction, Single Data Stream (SISD) is in Figure 3, with 
+CU representing Control Unit, PU representing the Processing Unit, and MU representing 
+the Memory Unit. Draw the following multiple processor organization with an appropriate 
+label. Clearly show the Instruction Stream (IS) and Data Stream (DS). 
+i) 
+Multiple Instructions Multiple Data streams (MIMD) with shared memory, 
+ii) 
+Multiple Instructions Multiple Data streams (MIMD) with distributed memory. 
+(6 marks) 
+CU 
+IS 
+"s. 
+y 
+PU 
+^ 
+v 
+DS 
+S 
+MU 
+Figure 3: Single Instruction, Single Data Stream (SISD) 
+b) Give ONE (1) example for the following multiple-processor organization. 
+i) 
+Multiple Instructions Multiple Data streams (MIMD) with shared memory, 
+ii) 
+Multiple Instructions Multiple Data streams (MIMD) with distributed memory. 
+(2 marks) 
+c) Discuss ONE (1) advantage of using Multiple Instructions Multiple Data stream (MIMD) 
+with distributed memory. 
+(2 marks) 
+© Hak Cipta Universiti Teknologi MARA 
+CONFIDENTIAL 
+
+CONFIDENTIAL 
+6 
+CD/FEB 2023/CSC429 
+PARTB 
+QUESTION 1 
+Question 1 is based on Figure 4 and Table 3. 
+z = A + B 2 - C ( D - C / B ) 
+Figure 4 
+Write the appropriate programs using correct assembly language notations and comments to 
+compute the equation represented in Figure 4 using zero-, one-, and two-address instructions. 
+The instructions available for use are provided in Table 1. Note that Register A, B, C, and D 
+cannot be modified, and Register x, y, and z can be used as temporary registers. However, 
+the final answer must be stored in Register z. 
+(20 marks) 
+Table 3: Machine Instruction 
+Zero-address 
+PUSHx 
+POPx 
+ADD 
+SUB 
+MUL 
+DIV 
+One-address 
+LOADx 
+STORx 
+ADDx 
+SUBx 
+MULx 
+DIVx 
+T\vr.-address 
+MOVE (x,y) 
+ADD (x,y) 
+SUB (x,y) 
+MUL (x,y) 
+DIV(x,y) 
+END OF QUESTION PAPER 
+© Hak Cipta Universiti Teknologi MARA 
+CONFIDENTIAL 

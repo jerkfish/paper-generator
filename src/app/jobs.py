@@ -511,7 +511,7 @@ class JobManager:
                 "has_practice_mode", job.has_practice_mode))
             job.has_placeholders = bool(meta.get(
                 "has_placeholders", job.has_placeholders))
-            job.cost_usd = 0.0
+            job.cost_usd = float(meta.get("cost_usd", 0.0) or 0.0)
             job.model = str(meta.get("model") or f"{job.subject}-deterministic")
             job.year = int(meta.get("year") or utc_year())
             job.status = "done"
