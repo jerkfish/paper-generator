@@ -1,0 +1,313 @@
+{
+  "subject": "CSC429",
+  "seed": 16,
+  "builder_version": 2,
+  "mode": "realistic",
+  "computed_marks": null,
+  "model": "csc429-deterministic+deepseek-flash",
+  "answers_model": "deepseek-flash",
+  "cost_usd": 0.005513,
+  "answer_cache_cost_usd": 0.118439,
+  "accepted": 11,
+  "placeholders": 0,
+  "total_slots": 11,
+  "total_marks": 100,
+  "question_count": 11,
+  "has_practice_mode": false,
+  "has_placeholders": false,
+  "created": 1794032264.6921053,
+  "year": 2026,
+  "topic_marks": {
+    "computer_generations": 5,
+    "parallel_architecture": 5,
+    "instruction_set_addressing": 5,
+    "data_representation": 15,
+    "memory_system": 10,
+    "computer_architecture": 20,
+    "io_system": 20,
+    "assembly_programming": 20
+  },
+  "files": {
+    "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d8f10091ede06b142e0e\\paper.docx",
+    "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d8f10091ede06b142e0e\\paper.pdf",
+    "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d8f10091ede06b142e0e\\scheme.docx",
+    "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d8f10091ede06b142e0e\\scheme.pdf"
+  },
+  "warnings": [],
+  "answers": {
+    "requested": 9,
+    "cache_hits": 3,
+    "generated": 6,
+    "failed": 0,
+    "model": "deepseek-flash",
+    "cost_usd": 0.005513,
+    "usage": {
+      "model": "deepseek-flash",
+      "prompt_tokens": 2697,
+      "completion_tokens": 3920,
+      "total_tokens": 6617,
+      "calls": 6,
+      "cost_usd": 0.005513,
+      "input_price_per_1m": 0.3,
+      "output_price_per_1m": 1.2
+    },
+    "cache_usage": {
+      "model": "deepseek-flash",
+      "calls": 131,
+      "prompt_tokens": 59542,
+      "completion_tokens": 83812,
+      "total_tokens": 143354,
+      "cost_usd": 0.118439
+    }
+  },
+  "summary": {
+    "subject": "CSC429",
+    "seed": 16,
+    "mode": "realistic",
+    "accepted": 11,
+    "placeholders": 0,
+    "total_slots": 11,
+    "total_marks": 100,
+    "question_count": 11,
+    "has_practice_mode": false,
+    "has_placeholders": false,
+    "model": "csc429-deterministic+deepseek-flash",
+    "answers_model": "deepseek-flash",
+    "cost_usd": 0.005513,
+    "cached": true,
+    "topic_marks": {
+      "computer_generations": 5,
+      "parallel_architecture": 5,
+      "instruction_set_addressing": 5,
+      "data_representation": 15,
+      "memory_system": 10,
+      "computer_architecture": 20,
+      "io_system": 20,
+      "assembly_programming": 20
+    },
+    "pdf_available": true,
+    "generated_slots": 2,
+    "real_bank_slots": 9,
+    "unofficial_answers": 9,
+    "warnings": []
+  },
+  "progress": [
+    {
+      "question": "A1",
+      "slot": "A1",
+      "status": "accepted",
+      "message": "computer_generations",
+      "cost_usd": 0.000767,
+      "calls": 1,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A2",
+      "slot": "A2",
+      "status": "accepted",
+      "message": "parallel_architecture",
+      "cost_usd": 0.000898,
+      "calls": 1,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A3",
+      "slot": "A3",
+      "status": "accepted",
+      "message": "instruction_set_addressing",
+      "cost_usd": 0.000723,
+      "calls": 1,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A4",
+      "slot": "A4",
+      "status": "accepted",
+      "message": "data_representation",
+      "cost_usd": 0.0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A5",
+      "slot": "A5",
+      "status": "accepted",
+      "message": "memory_system",
+      "cost_usd": 0.000808,
+      "calls": 1,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A6",
+      "slot": "A6",
+      "status": "accepted",
+      "message": "computer_architecture",
+      "cost_usd": 0.001002,
+      "calls": 1,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A7",
+      "slot": "A7",
+      "status": "accepted",
+      "message": "io_system",
+      "cost_usd": 0.001095,
+      "calls": 1,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A8",
+      "slot": "A8",
+      "status": "accepted",
+      "message": "computer_architecture",
+      "cost_usd": 0.000951,
+      "calls": 1,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A9",
+      "slot": "A9",
+      "status": "accepted",
+      "message": "io_system",
+      "cost_usd": 0.000974,
+      "calls": 1,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "A10",
+      "slot": "A10",
+      "status": "accepted",
+      "message": "data_representation",
+      "cost_usd": 0.0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "B1",
+      "slot": "B1",
+      "status": "accepted",
+      "message": "assembly_programming",
+      "cost_usd": 0.001763,
+      "calls": 1,
+      "accepted": 1,
+      "placeholders": 0
+    }
+  ],
+  "validation": {
+    "subject": "CSC429",
+    "seed": 16,
+    "builder_version": 2,
+    "warnings": [],
+    "answers": {
+      "requested": 9,
+      "cache_hits": 3,
+      "generated": 6,
+      "failed": 0,
+      "model": "deepseek-flash",
+      "cost_usd": 0.005513,
+      "usage": {
+        "model": "deepseek-flash",
+        "prompt_tokens": 2697,
+        "completion_tokens": 3920,
+        "total_tokens": 6617,
+        "calls": 6,
+        "cost_usd": 0.005513,
+        "input_price_per_1m": 0.3,
+        "output_price_per_1m": 1.2
+      },
+      "cache_usage": {
+        "model": "deepseek-flash",
+        "calls": 131,
+        "prompt_tokens": 59542,
+        "completion_tokens": 83812,
+        "total_tokens": 143354,
+        "cost_usd": 0.118439
+      }
+    },
+    "paper_docx": {
+      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d8f10091ede06b142e0e\\paper.docx",
+      "xml_valid": true,
+      "forbidden_tokens": [],
+      "missing": [],
+      "problems": [],
+      "pdf": {}
+    },
+    "scheme_docx": {
+      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d8f10091ede06b142e0e\\scheme.docx",
+      "xml_valid": true,
+      "inline_shapes": 1,
+      "cover_groups": 5,
+      "cover_drawings": 6,
+      "cover_labels": {
+        "COURSE": 4,
+        "COURSE CODE": 2,
+        "EXAMINATION": 2,
+        "TIME": 2
+      },
+      "cover_box_ok": true,
+      "forbidden_tokens": [],
+      "missing": [],
+      "problems": [],
+      "pdf": {},
+      "compatibility_mode": 15
+    },
+    "paper_pdf": {
+      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d8f10091ede06b142e0e\\paper.pdf",
+      "pages": 6,
+      "page1_cover": true,
+      "page1_images": 3,
+      "body_starts_page2": true,
+      "cover_fields": {
+        "COURSE": true,
+        "COURSE CODE": true,
+        "EXAMINATION": true,
+        "TIME": false,
+        "course name": true,
+        "course code": true,
+        "month": true,
+        "duration": true
+      },
+      "right_overflow": [],
+      "problems": [],
+      "forbidden_tokens": []
+    },
+    "scheme_pdf": {
+      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d8f10091ede06b142e0e\\scheme.pdf",
+      "pages": 10,
+      "page1_cover": true,
+      "page1_images": 3,
+      "body_starts_page2": true,
+      "cover_fields": {
+        "COURSE": true,
+        "COURSE CODE": true,
+        "EXAMINATION": true,
+        "TIME": true,
+        "course name": true,
+        "course code": true,
+        "month": true,
+        "duration": true
+      },
+      "right_overflow": [],
+      "problems": [],
+      "forbidden_tokens": []
+    },
+    "forbidden_hits": [],
+    "problems": [],
+    "files": {
+      "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d8f10091ede06b142e0e\\paper.docx",
+      "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d8f10091ede06b142e0e\\paper.pdf",
+      "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d8f10091ede06b142e0e\\scheme.docx",
+      "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d8f10091ede06b142e0e\\scheme.pdf"
+    }
+  }
+}

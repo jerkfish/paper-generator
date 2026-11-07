@@ -1,0 +1,1504 @@
+{
+  "subject": "CSC429",
+  "planner_version": 1,
+  "generated_by": "src.subjects.csc429.planner",
+  "style": "modern",
+  "seed": 2,
+  "target_format": {
+    "A": {
+      "questions": 10,
+      "marks": 80,
+      "slot_marks": [
+        5,
+        5,
+        5,
+        5,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ]
+    },
+    "B": {
+      "questions": 1,
+      "marks": 20
+    }
+  },
+  "source_evidence": [
+    "data/tracking/csc429/taxonomy.json",
+    "data/tracking/csc429/question_log.json",
+    "data/tracking/csc429/taxonomy_summary.json"
+  ],
+  "topic_quota": {
+    "computer_generations": 1,
+    "data_representation": 2,
+    "memory_system": 1,
+    "io_system": 2,
+    "parallel_architecture": 1,
+    "computer_architecture": 2,
+    "instruction_set_addressing": 1
+  },
+  "part_marks": {
+    "A": 80,
+    "B": 20
+  },
+  "topic_marks": {
+    "instruction_set_addressing": 5,
+    "data_representation": 15,
+    "parallel_architecture": 5,
+    "computer_generations": 5,
+    "io_system": 20,
+    "computer_architecture": 20,
+    "memory_system": 10,
+    "assembly_programming": 20
+  },
+  "total_marks": 100,
+  "question_count": 11,
+  "slot_count": 11,
+  "slots": [
+    {
+      "slot": "A1",
+      "part": "A",
+      "question": "A1",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "instruction_set_addressing",
+      "topic_label": "Instruction formats and addressing modes",
+      "task": "short_answer",
+      "title": "Five-mark question 1",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2014-06-A9",
+      "paper_id": "CSC429-2014-06",
+      "source_file": "CSC429 (1).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [
+        "CSC429-2014-06-F2"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 409.68,
+          "text": "Given the following Figure 2."
+        },
+        {
+          "type": "figure",
+          "page": 5,
+          "y": 434.88,
+          "asset_id": "CSC429-2014-06-F2",
+          "path": "data/tracking/csc429/assets/CSC429-2014-06/CSC429-2014-06-F2.png",
+          "crop_box": [
+            112.51,
+            434.88,
+            485.33,
+            574.11
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2014-06\\page_005.jpg",
+          "page_points": [
+            594.72,
+            847.44
+          ],
+          "width_px": 1554,
+          "height_px": 580,
+          "caption": "Figure 2",
+          "display_width_cm": 12.0
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 626.4,
+          "text": "a) Label the addressing technique illustrated in Figure 2."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 664.32,
+          "text": "b) Explain how the addressing technique in 9(a) is used."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 702.48,
+          "text": "c) List ONE (1) advantage and ONE (1) disadvantage of the addressing technique in 9(a)."
+        }
+      ],
+      "text": "Given the following Figure 2.\nInstruction\nOpcode\nAddress A\nMemory\nOperand\nFigure 2\na)\nLabel the addressing technique illustrated in Figure 2.\nb)\nExplain how the addressing technique in 9(a) is used.\nc)\nList ONE (1) advantage and ONE (1) disadvantage of the addressing technique in\n9(a).",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a)\nLabel the addressing technique illustrated in Figure 2.",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            72.24,
+            626.4,
+            81.12,
+            636.48
+          ],
+          "figure_refs": [
+            "Figure 2"
+          ],
+          "asset_ids": [
+            "CSC429-2014-06-F2"
+          ]
+        },
+        {
+          "label": "b",
+          "text": "b)\nExplain how the addressing technique in 9(a) is used.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            72.72,
+            664.32,
+            81.36,
+            674.88
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c)\nList ONE (1) advantage and ONE (1) disadvantage of the addressing technique in\n9(a).",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            72.72,
+            702.48,
+            80.88,
+            713.04
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a) The addressing technique illustrated in Figure 2 is **direct addressing** (also called absolute addressing). The instruction's address field A contains the actual/effective memory address of the operand, so the operand is fetched directly from memory location A.\n\n(b) In direct addressing the instruction is held in the format [Opcode | Address A]. The CPU decodes the opcode, takes the address field A as the effective address (EA = A), and accesses main memory at that address to read the operand. The operand is then used by the operation (e.g. loaded into a register or used by an ALU instruction). No additional address calculation or pointer dereference is required: the address in the instruction points straight at the operand in memory.\n\n(c) Advantage: it is simple and fast — only one memory reference is needed to fetch the operand (no extra indirection), and no address computation is required. Disadvantage: the address field must be large enough to hold a full memory address, which limits the range of addressable memory (and the operand address is fixed at assembly time, giving limited flexibility).",
+        "marking": [
+          "1 mark: correctly labels the technique as direct addressing (accept absolute addressing).",
+          "2 marks: explains that the address field A is the effective address (EA = A) and that the operand is fetched directly from memory at that address (1 mark for EA = A, 1 mark for direct memory fetch/use of operand).",
+          "2 marks: 1 mark for a valid advantage (e.g. simple/only one memory access/no address calculation) and 1 mark for a valid disadvantage (e.g. limited addressable range/large address field needed/fixed address)."
+        ],
+        "confidence": "high",
+        "notes": "Figure 2 is inferred from the extracted text: an instruction with Opcode and Address A, with Address A pointing to a memory operand. This is the standard direct-addressing diagram; if the figure shows an extra indirection (address pointing to a pointer), the answer would instead be indirect addressing.",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T05:59:08.404129+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 467,
+          "completion_tokens": 428,
+          "total_tokens": 895,
+          "calls": 1,
+          "cost_usd": 0.000654,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A2",
+      "part": "A",
+      "question": "A2",
+      "kind": "generated_question",
+      "marks": 5,
+      "topic": "data_representation",
+      "topic_label": "Data representation and number systems",
+      "task": "short_answer",
+      "title": "Five-mark question 2",
+      "resolver": "csc429.generator",
+      "variant_policy": "controlled_numeric",
+      "generator_pool": [
+        "csc429.number_base_conversion",
+        "csc429.signed_arithmetic",
+        "csc429.ieee754_single"
+      ],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-GEN-02-A2",
+      "paper_id": "CSC429-GEN-02",
+      "source_file": "",
+      "source_pages": [],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 1,
+          "y": 0,
+          "text": "Calculate -10 - 74 using the sign-and-magnitude method. Assume an 8-bit byte. Show your complete workflow."
+        }
+      ],
+      "text": "Calculate -10 - 74 using the sign-and-magnitude method. Assume an 8-bit byte. Show your complete workflow.",
+      "subparts": [],
+      "answer": "left -10 -> 1 0001010; right 74 -> 0 1001010; -10 - 74 = -84 -> sign-magnitude 1 1010100",
+      "marking": [
+        "1 mark for converting both operands to sign-magnitude.",
+        "1 mark for applying the sign rule for subtraction.",
+        "1 mark for the correct magnitude operation.",
+        "1 mark for the correct sign bit.",
+        "1 mark for the final decimal and byte representation."
+      ],
+      "generator_id": "csc429.signed_arithmetic",
+      "metadata": {
+        "left": -10,
+        "right": 74,
+        "result": -84,
+        "sign_magnitude": "1 1010100",
+        "ones": "10101011",
+        "twos": "10101100"
+      }
+    },
+    {
+      "slot": "A3",
+      "part": "A",
+      "question": "A3",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "parallel_architecture",
+      "topic_label": "Parallel and multiprocessor architecture",
+      "task": "short_answer",
+      "title": "Five-mark question 3",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2016-12-A10",
+      "paper_id": "CSC429-2016-12",
+      "source_file": "CSC429 (6).pdf",
+      "source_pages": [
+        7
+      ],
+      "asset_ids": [
+        "CSC429-2016-12-F3"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 7,
+          "y": 158.88,
+          "text": "Given the following Non Uniform Memory Access (NUMA) diagram."
+        },
+        {
+          "type": "figure",
+          "page": 7,
+          "y": 199.2,
+          "asset_id": "CSC429-2016-12-F3",
+          "path": "data/tracking/csc429/assets/CSC429-2016-12/CSC429-2016-12-F3.png",
+          "crop_box": [
+            121.55,
+            199.2,
+            468.85,
+            458.2
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2016-12\\page_007.jpg",
+          "page_points": [
+            600.72,
+            848.4
+          ],
+          "width_px": 1447,
+          "height_px": 1079,
+          "caption": "Figure 3: NUMA Architecture",
+          "display_width_cm": 12.0
+        },
+        {
+          "type": "text",
+          "page": 7,
+          "y": 508.8,
+          "text": "a) State ONE (1) advantage of Symmetric Mufti-Processor (SMP) that is applied in NUMA architecture."
+        },
+        {
+          "type": "text",
+          "page": 7,
+          "y": 559.68,
+          "text": "b) Describe ONE (1) disadvantage of cluster architecture."
+        },
+        {
+          "type": "text",
+          "page": 7,
+          "y": 598.08,
+          "text": "c) Draw a possible architecture for cluster architecture based on Figure 3."
+        }
+      ],
+      "text": "Given the following Non Uniform Memory Access (NUMA) diagram.\ntern\n2-1\nMain\nFigure 3: NUMA Architecture\na) State ONE (1) advantage of Symmetric Mufti-Processor (SMP) that is applied in NUMA\narchitecture.\nb) Describe ONE (1) disadvantage of cluster architecture.\nc) Draw a possible architecture for cluster architecture based on Figure 3.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) State ONE (1) advantage of Symmetric Mufti-Processor (SMP) that is applied in NUMA\narchitecture.",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            71.04,
+            508.8,
+            525.84,
+            519.84
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Describe ONE (1) disadvantage of cluster architecture.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            71.28,
+            559.68,
+            356.64,
+            570.72
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) Draw a possible architecture for cluster architecture based on Figure 3.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            71.04,
+            598.08,
+            436.56,
+            608.88
+          ],
+          "figure_refs": [
+            "Figure 3"
+          ],
+          "asset_ids": [
+            "CSC429-2016-12-F3"
+          ]
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a) One advantage of SMP applied in NUMA: all processors share a single global physical address space (single-system image / shared memory programming model), so any processor can access any memory location and programs can be written as ordinary shared-memory code, while NUMA adds a local/remote memory hierarchy to improve scalability. (Equivalently: simple shared-memory programming and coherent global memory across processors.)\n\n(b) One disadvantage of cluster architecture: it is a loosely coupled system with no shared global memory, so inter-node communication must be done by message passing over a network. This gives high communication latency and lower bandwidth than shared-memory access, and requires complex distributed software (message passing, distributed consistency, load balancing), so programming is harder and performance can degrade when nodes exchange large amounts of data.\n\n(c) A possible cluster architecture based on Figure 3: take the NUMA node of Figure 3 (processors + local main memories connected by an interconnection network) as one complete computer/node, then connect several such nodes through a high-speed network (LAN/switch) with a cluster middleware layer. Diagram description: [Node 1: CPU + local memory] --- [Node 2: CPU + local memory] --- ... --- [Node n: CPU + local memory], each node being an independent computer (optionally SMP/NUMA internally), all joined by a high-speed interconnection network/switch; each node runs its own OS and they cooperate via message passing. (In the exam, draw several boxes each containing the Figure 3 NUMA structure, linked by a network cloud/switch.)",
+        "marking": [
+          "1 mark: (a) correct SMP advantage applied to NUMA, e.g. single shared global address space / shared-memory programming model across all processors.",
+          "1 mark: (b) identifying that clusters are loosely coupled with no shared memory, requiring message passing over a network.",
+          "1 mark: (b) explaining the consequence, e.g. high communication latency / harder distributed programming / performance loss on heavy inter-node traffic.",
+          "1 mark: (c) drawing multiple independent computers (nodes), each based on the Figure 3 NUMA structure (processors + local memory).",
+          "1 mark: (c) connecting the nodes with a high-speed network/interconnection (switch/LAN) and showing them as a cooperating cluster."
+        ],
+        "confidence": "medium",
+        "notes": "The extracted figure text ('tern', '2-1', 'Main') is incomplete; the answer assumes Figure 3 shows a NUMA node of processors with local main memories joined by an interconnection network. Part (c) is described in words because the actual diagram cannot be reproduced; the student should draw the described structure. 'Mufti-Processor' is read as 'Multi-Processor'.",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T05:59:13.914686+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 486,
+          "completion_tokens": 579,
+          "total_tokens": 1065,
+          "calls": 1,
+          "cost_usd": 0.000841,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A4",
+      "part": "A",
+      "question": "A4",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "computer_generations",
+      "topic_label": "Computer generations and history",
+      "task": "short_answer",
+      "title": "Five-mark question 4",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2017-07-A2",
+      "paper_id": "CSC429-2017-07",
+      "source_file": "CSC429 (7).pdf",
+      "source_pages": [
+        3
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 145.2,
+          "text": "Question 2 is based on the following statement. \"The introduction of graphical user interface (GUI) and mouse technology remark the beginning of a new computer generation. In this generation, there are many great developments in the field of computer networks leading to the birth of internet concept\"."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 222.24,
+          "text": "a) Name the computer generation described."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 260.64,
+          "text": "b) What are the TWO (2) main technologies available in this computer generation?"
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 298.8,
+          "text": "c) List TWO (2) main features of this computer generation."
+        }
+      ],
+      "text": "Question 2 is based on the following statement.\n\"The introduction of graphical user interface (GUI) and mouse technology remark the\nbeginning of a new computer generation. In this generation, there are many great\ndevelopments in the field of computer networks leading to the birth of internet concept\".\na) Name the computer generation described.\nb) What are the TWO (2) main technologies available in this computer generation?\nc) List TWO (2) main features of this computer generation.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Name the computer generation described.",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            70.32,
+            222.24,
+            294.24,
+            233.04
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) What are the TWO (2) main technologies available in this computer generation?",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            70.32,
+            260.64,
+            478.32,
+            271.68
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) List TWO (2) main features of this computer generation.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            70.08,
+            298.8,
+            360.0,
+            310.08
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a) The generation described is the **Fourth Generation** of computers (approximately 1971–present), characterised by microprocessors, GUIs, the mouse, and the growth of computer networks leading to the Internet.\n\n(b) The two main technologies available in this generation are: (1) **Microprocessors / VLSI (Very Large Scale Integration) integrated circuits** — the CPU on a single chip, enabling personal computers; and (2) **Graphical User Interface (GUI) with mouse/pointing-device technology** (supported by networking technology such as LANs and the Internet).\n\n(c) Two main features of this generation are: (1) **Use of microprocessors/VLSI chips** giving small, cheap, reliable and portable personal computers; and (2) **GUI-based, user-friendly interaction using mouse and icons**, together with **networking/Internet connectivity** enabling resource sharing and communication.",
+        "marking": [
+          "1 mark: (a) correctly names the Fourth Generation.",
+          "2 marks: (b) one mark each for microprocessor/VLSI technology and GUI/mouse (or networking) technology.",
+          "2 marks: (c) one mark each for any two valid features (e.g., microprocessors/VLSI, GUI/user-friendly interface, networking/Internet, personal computers, portability, low cost)."
+        ],
+        "confidence": "high",
+        "notes": "The statement's wording ('remark the beginning') is treated as 'mark the beginning'. Some textbooks place networking/Internet mainly in the fourth generation and others emphasise it in the fifth; the answer follows the statement's own framing. Accept networking/Internet as a valid technology or feature in (b)/(c).",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T05:59:17.386385+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 464,
+          "completion_tokens": 357,
+          "total_tokens": 821,
+          "calls": 1,
+          "cost_usd": 0.000568,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A5",
+      "part": "A",
+      "question": "A5",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "io_system",
+      "topic_label": "Input/output and interrupts",
+      "task": "short_answer",
+      "title": "Ten-mark question 5",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2018-12-A5",
+      "paper_id": "CSC429-2018-12",
+      "source_file": "CSC429 (11).pdf",
+      "source_pages": [
+        3
+      ],
+      "asset_ids": [
+        "CSC429-2018-12-F1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 446.88,
+          "text": "Question 5 is based on the following scenario. \"Nurathia Farhana browses the UiTM4fly.com website to book for a return flight from KLIA to LAX. While comparing for a better price, two messages popped up in her screen. Figure 1 (a) and (b) illustrate the conveyed messages."
+        },
+        {
+          "type": "figure",
+          "page": 3,
+          "y": 526.08,
+          "asset_id": "CSC429-2018-12-F1",
+          "path": "data/tracking/csc429/assets/CSC429-2018-12/CSC429-2018-12-F1.png",
+          "crop_box": [
+            30.04,
+            526.08,
+            570.68,
+            602.19
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2018-12\\page_003.jpg",
+          "page_points": [
+            600.72,
+            848.4
+          ],
+          "width_px": 913,
+          "height_px": 317,
+          "caption": "Figure 1: The pop-up messages",
+          "display_width_cm": 8.0
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 586.56,
+          "text": "(b)"
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 587.52,
+          "text": "(a)"
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 637.44,
+          "text": "a) Which message is the non-maskable interrupt? Justify your answer by giving appropriate reason."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 688.8,
+          "text": "b) Differentiate between maskable and non-maskable interrupt?"
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 726.24,
+          "text": "c) Outline the common way to handle multiple interrupts as happened in the given scenario."
+        }
+      ],
+      "text": "Question 5 is based on the following scenario.\n\"Nurathia Farhana browses the UiTM4fly.com website to book for a return flight from KLIA\nto LAX. While comparing for a better price, two messages popped up in her screen. Figure\n1 (a) and (b) illustrate the conveyed messages.\nDo you want to be upgraded\nA hardware failure has been\nto business class now?\nfound. Please restart your\ncomputer now.\n(b)\n(a)\nFigure 1: The pop-up messages\na) Which message is the non-maskable interrupt? Justify your answer by giving appropriate\nreason.\nb) Differentiate between maskable and non-maskable interrupt?\nc) Outline the common way to handle multiple interrupts as happened in the given scenario.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Which message is the non-maskable interrupt? Justify your answer by giving appropriate\nreason.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            102.96,
+            637.44,
+            558.24,
+            649.44
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Differentiate between maskable and non-maskable interrupt?",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            103.2,
+            688.8,
+            420.72,
+            700.56
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) Outline the common way to handle multiple interrupts as happened in the given scenario.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            102.96,
+            726.24,
+            557.04,
+            738.72
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a) The non-maskable interrupt (NMI) is message (b): \"A hardware failure has been found. Please restart your computer now.\" Justification: an NMI is reserved for catastrophic events such as a hardware failure, power failure or memory error; it cannot be disabled or ignored by the processor (it is not maskable), so the system must respond immediately, typically by halting or restarting. Message (a), the business-class upgrade offer, is an ordinary, deferrable event generated by the web/booking application; it can be ignored or postponed by the user and is therefore a maskable interrupt.\n\n(b) A maskable interrupt can be temporarily disabled (masked) by the processor, for example by clearing the interrupt-enable flag or by an interrupt mask register, so its servicing can be delayed until the CPU is ready; it is used for normal I/O and software events. A non-maskable interrupt cannot be disabled by the processor; it is always recognised and is used for urgent fault conditions such as hardware failure, so that critical events are never lost.\n\n(c) The common way to handle multiple interrupts is by assigning priorities and using an interrupt controller with a priority scheme. When several interrupts arrive, the CPU compares their priorities: a higher-priority interrupt can preempt (interrupt) the servicing of a lower-priority one, while a lower-priority request waits until the current handler finishes. In the scenario, the hardware-failure NMI (b) has the highest priority and is serviced immediately, preempting the normal booking/upgrade interrupt (a); the upgrade message is held pending and handled after the critical condition is dealt with. This is typically implemented by the interrupt controller asserting the highest-priority request and the CPU saving the current context before branching to the appropriate interrupt service routine.",
+        "marking": [
+          "1 mark: identifying message (b) as the non-maskable interrupt",
+          "1 mark: stating that an NMI cannot be masked/disabled by the processor",
+          "1 mark: linking message (b) to a critical hardware-failure condition requiring immediate action",
+          "1 mark: explaining that message (a) is a normal/deferrable maskable interrupt",
+          "1 mark: defining maskable interrupt as one that can be disabled/delayed",
+          "1 mark: defining non-maskable interrupt as one that cannot be disabled and is for urgent events",
+          "1 mark: stating that multiple interrupts are handled by priority assignment",
+          "1 mark: explaining that a higher-priority interrupt can preempt a lower-priority one",
+          "1 mark: applying priority to the scenario (hardware-failure NMI serviced first, upgrade interrupt deferred)",
+          "1 mark: mentioning the interrupt controller / saving context / ISR as the handling mechanism"
+        ],
+        "confidence": "high",
+        "notes": "Figure 1 is represented only by its extracted text; the labels (a) and (b) are assumed to correspond to the upgrade message and the hardware-failure message respectively, as shown in the question text. The answer is an unofficial model answer, not an official marking scheme.",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T05:59:22.754485+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 557,
+          "completion_tokens": 662,
+          "total_tokens": 1219,
+          "calls": 1,
+          "cost_usd": 0.000962,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A6",
+      "part": "A",
+      "question": "A6",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "computer_architecture",
+      "topic_label": "Computer architecture and CPU organisation",
+      "task": "short_answer",
+      "title": "Ten-mark question 6",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2025-07-A6",
+      "paper_id": "CSC429-2025-07",
+      "source_file": "CSC429 (20).pdf",
+      "source_pages": [
+        3
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 338.48,
+          "text": "a) Discuss the function of each Central Processing Unit (CPU) component'"
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 376.27,
+          "text": "b) Elaborate on what will happen in the machine cycle if the bus system is faulty"
+        }
+      ],
+      "text": "a) Discuss the function of each Central Processing Unit (CPU) component'\nb) Elaborate on what will happen in the machine cycle if the bus system is faulty",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Discuss the function of each Central Processing Unit (CPU) component'",
+          "marks": 8,
+          "marks_source": "explicit",
+          "bbox": [
+            57.96,
+            338.48,
+            426.24,
+            359.08
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Elaborate on what will happen in the machine cycle if the bus system is faulty",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            58.32,
+            376.27,
+            451.34,
+            396.88
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a) The CPU is the part of the computer that fetches, decodes and executes instructions, and it is conventionally described in terms of the following components:\n\n• Control Unit (CU): directs and coordinates the operation of the whole CPU and the rest of the computer. It decodes each instruction held in the Instruction Register, generates the timing and control signals that select the required functional units, and sequences the machine cycle (fetch, decode, execute, and where relevant memory read/write or interrupt handling). It does not itself process data; it tells the other units what to do and when.\n\n• Arithmetic Logic Unit (ALU): performs the actual data processing — arithmetic operations (add, subtract, multiply, divide, increment/decrement) and logical operations (AND, OR, NOT, XOR, shift, compare). It takes its operands from registers, produces a result that is written back to a register, and sets condition/status flags (zero, carry, sign, overflow) in the status register.\n\n• Registers: small, very fast storage inside the CPU that hold the data and addresses currently in use. Typical registers include the Program Counter (PC), which holds the address of the next instruction; the Instruction Register (IR), which holds the instruction being executed; the Memory Address Register (MAR), which holds the address to be accessed; the Memory Data/Buffer Register (MDR/MBR), which holds data read from or to be written to memory; the Accumulator (AC) or general-purpose registers for operands and results; and the Status/Flag register. Registers remove the need to go to memory for every intermediate value and so speed up execution.\n\n• Internal buses / data paths: the internal connections (and the system bus interface) that carry data, addresses and control signals between the CU, ALU, registers and memory, allowing operands and results to move between components.\n\n• Clock: generates the regular pulses that synchronise the steps of the machine cycle; the CU uses it to time each micro-operation.\n\n(b) The bus system (address bus, data bus and control bus) is the only path over which the CPU can exchange information with memory and I/O. If it is faulty, the machine cycle breaks down at the fetch stage: the PC supplies the address, but a faulty address bus means the wrong location (or no location) is selected; a faulty data bus means the instruction word arriving in the IR is corrupted or absent; and a faulty control bus means the memory-read/write or timing signals are not delivered, so memory does not respond. The CU therefore cannot obtain a valid instruction to decode, so decoding and execution cannot proceed correctly — the CPU may hang, fetch garbage and execute invalid operations, or repeatedly fail/retry the fetch. In short, the machine cycle cannot complete normally because every stage depends on the bus to move instructions, operands and results between the CPU and memory.",
+        "marking": [
+          "1 mark: identifies the Control Unit and states that it coordinates/sequences operations and decodes instructions and issues control signals",
+          "1 mark: identifies the ALU and states that it performs arithmetic and logical operations",
+          "1 mark: identifies registers and gives their function (fast internal storage for data/addresses/instructions)",
+          "1 mark: names at least two specific registers (e.g. PC, IR, MAR, MDR, accumulator) with correct roles",
+          "1 mark: identifies internal buses/data paths and their role in moving data/addresses/control signals between components",
+          "1 mark: identifies the clock and its role in synchronising/timing the machine cycle",
+          "1 mark: explains that the components work together under CU control to fetch, decode and execute instructions (overall CPU function)",
+          "1 mark: accurate, well-organised discussion covering all main components (quality/coverage)",
+          "1 mark: (b) explains that a faulty bus prevents correct fetching of instructions/operands (address, data or control signals corrupted or not delivered)",
+          "1 mark: (b) explains the consequence — the machine cycle cannot complete/decode/execute correctly, so the CPU hangs, executes garbage or fails"
+        ],
+        "confidence": "high",
+        "notes": "Question text has a stray apostrophe in (a); treated as a typo. The mark split (8 + 2) is taken from the subpart labels. Answer assumes the standard von Neumann CPU component set (CU, ALU, registers, internal buses, clock); if the course lists a different fixed set of components, map the points accordingly.",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T05:59:31.156435+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 392,
+          "completion_tokens": 940,
+          "total_tokens": 1332,
+          "calls": 1,
+          "cost_usd": 0.001246,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A7",
+      "part": "A",
+      "question": "A7",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "io_system",
+      "topic_label": "Input/output and interrupts",
+      "task": "short_answer",
+      "title": "Ten-mark question 7",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2018-06-A9",
+      "paper_id": "CSC429-2018-06",
+      "source_file": "CSC429 (10).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 270.0,
+          "text": "a) Explain the problem in polling 1/0 method."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 308.4,
+          "text": "b) Explain how buffering can help to improve the device overall performance?"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 346.8,
+          "text": "c) Discuss how DMA technique can help the 1/0 transfer performance instead of using polling method and interrupt 1/0 method?"
+        }
+      ],
+      "text": "a) Explain the problem in polling 1/0 method.\nb) Explain how buffering can help to improve the device overall performance?\nc) Discuss how DMA technique can help the 1/0 transfer performance instead of using polling\nmethod and interrupt 1/0 method?",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Explain the problem in polling 1/0 method.",
+          "marks": 3,
+          "marks_source": "explicit",
+          "bbox": [
+            76.56,
+            270.0,
+            294.72,
+            281.52
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Explain how buffering can help to improve the device overall performance?",
+          "marks": 3,
+          "marks_source": "explicit",
+          "bbox": [
+            76.32,
+            308.4,
+            455.76,
+            320.88
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) Discuss how DMA technique can help the 1/0 transfer performance instead of using polling\nmethod and interrupt 1/0 method?",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            75.84,
+            346.8,
+            522.24,
+            359.76
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a) Problem with polling I/O [3 marks]\nPolling (programmed I/O) requires the CPU to repeatedly read a device's status register in a busy-wait loop until the device is ready, then transfer the data itself. The main problems are: (i) the CPU wastes many instruction cycles checking status instead of doing useful work, so system throughput falls; (ii) the CPU is tied to the speed of the slow device — a slow device holds the CPU in the loop for a long time; (iii) polling must be repeated for every device, so with several devices the overhead multiplies and the CPU cannot easily serve other work; (iv) it is inefficient when transfers are infrequent or unpredictable, because the CPU may poll long before data arrives. In short, polling consumes CPU time that could otherwise be used for computation.\n\n(b) How buffering improves overall device performance [3 marks]\nBuffering uses a temporary memory area (buffer) between the CPU and the device to absorb speed and timing differences. Benefits: (i) it decouples the fast CPU from a slow peripheral, so the CPU can hand over data and continue without waiting for the device to finish; (ii) it smooths bursts — data produced faster than it can be consumed (or vice versa) is stored and drained at the device's rate, avoiding lost data and idle time; (iii) it allows block transfers, so the device and CPU can operate more independently and overlap computation with I/O, raising effective throughput and reducing the number of interrupts/status checks per byte. Overall, buffering hides device latency and mismatched transfer rates, improving utilisation and response time.\n\n(c) How DMA improves I/O transfer performance versus polling and interrupt I/O [4 marks]\nDMA (Direct Memory Access) uses a dedicated DMA controller to move blocks of data directly between memory and the device without the CPU copying each byte. The CPU programs the controller (source, destination, count) and is then free to execute other instructions while the DMA controller performs the transfer, stealing memory cycles only as needed. Compared with polling, the CPU no longer busy-waits on status, eliminating wasted cycles. Compared with interrupt-driven I/O, DMA avoids one interrupt per byte/word: only one interrupt is raised at the end of the whole block, greatly reducing interrupt overhead and context-switch cost. This gives high throughput for large block transfers (disk, network, graphics), better CPU utilisation through overlap of I/O and computation, and fewer status/interrupt handling operations. The trade-off is added hardware (the DMA controller) and some memory-cycle contention, but for bulk transfers DMA is markedly faster and more efficient than either polling or per-character interrupt I/O.",
+        "marking": [
+          "1 mark: states polling requires the CPU to repeatedly check the device status in a busy-wait loop",
+          "1 mark: explains CPU time/cycles are wasted waiting, reducing throughput and tying the CPU to the slow device",
+          "1 mark: notes inefficiency with multiple devices or infrequent/unpredictable transfers (overhead multiplies)",
+          "1 mark: defines buffering as a temporary memory area between CPU and device",
+          "1 mark: explains decoupling of fast CPU and slow device / absorbing speed mismatch",
+          "1 mark: explains smoothing of bursts and/or block transfer enabling overlap, raising throughput and reducing interrupts",
+          "1 mark: explains DMA controller transfers blocks directly between memory and device without CPU copying each byte",
+          "1 mark: explains CPU is freed to do other work / overlap of I/O with computation",
+          "1 mark: contrasts with polling (no busy-wait) and interrupt I/O (one interrupt per block instead of per byte)",
+          "1 mark: notes high throughput for large block transfers and trade-off (extra hardware/memory-cycle contention)"
+        ],
+        "confidence": "high",
+        "notes": "OCR '1/0' read as 'I/O'. Question total is 10 marks; marking allocates 3+3+4.",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T05:59:38.982882+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 442,
+          "completion_tokens": 821,
+          "total_tokens": 1263,
+          "calls": 1,
+          "cost_usd": 0.001118,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A8",
+      "part": "A",
+      "question": "A8",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "memory_system",
+      "topic_label": "Memory hierarchy and cache",
+      "task": "short_answer",
+      "title": "Ten-mark question 8",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2016-06-A7",
+      "paper_id": "CSC429-2016-06",
+      "source_file": "CSC429 (5).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 310.32,
+          "text": "Replacement algorithm is used to determine which entry in a cache to flush to main memory when it is desired to cache a new block of data."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 348.48,
+          "text": "a) Which mapping function does not need to have a replacement algorithm?"
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 386.64,
+          "text": "b) Describe FOUR (4) types of replacement algorithm."
+        }
+      ],
+      "text": "Replacement algorithm is used to determine which entry in a cache to flush to main\nmemory when it is desired to cache a new block of data.\na) Which mapping function does not need to have a replacement algorithm?\nb) Describe FOUR (4) types of replacement algorithm.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Which mapping function does not need to have a replacement algorithm?",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            72.0,
+            348.48,
+            446.4,
+            360.0
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Describe FOUR (4) types of replacement algorithm.",
+          "marks": 8,
+          "marks_source": "explicit",
+          "bbox": [
+            72.0,
+            386.64,
+            339.36,
+            397.92
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a) Direct mapping does not need a replacement algorithm. In direct mapping each main-memory block maps to exactly one fixed cache line (line = block address mod number of lines), so when a new block must be cached there is only one possible line it can occupy. That line is simply overwritten (its valid bit set and tag updated); no choice between candidate lines arises, hence no replacement policy is required. (By contrast, fully associative and set-associative caches have several candidate lines per block and therefore need a replacement algorithm.)\n\n(b) Four types of replacement algorithm:\n\n1. Random replacement: a line is chosen at random from the candidate set (or from the whole cache in a fully associative cache) and evicted. It is very simple and cheap to implement in hardware, requires no bookkeeping of usage, and avoids pathological worst cases, but it takes no account of locality so hit rate is generally poorer than usage-based schemes.\n\n2. FIFO (First-In, First-Out): lines are evicted in the order they were loaded, maintained by a circular pointer/queue per set. It is simple and cheap, but it ignores how recently or how often a line has been used, so it may evict a heavily used block that was loaded early (a form of Belady-type anomaly).\n\n3. LRU (Least Recently Used): the line that has gone longest without being referenced is evicted, exploiting temporal locality. It gives good hit rates but requires tracking of access order (e.g. counters or a stack), which is costly in hardware and becomes impractical for large associativity, so approximations are often used.\n\n4. LFU (Least Frequently Used): the line with the smallest reference count is evicted, using a counter per line. It favours frequently used blocks, but counters must be maintained and periodically reset, and blocks that were heavily used in the past but are no longer needed can linger (poor adaptation to phase changes).\n\n(Other acceptable schemes, e.g. NRU/clock approximations, may be credited as alternatives.)",
+        "marking": [
+          "2 marks: (a) correctly identifies direct mapping as needing no replacement algorithm",
+          "2 marks: (b) first replacement algorithm correctly named and described",
+          "2 marks: (b) second replacement algorithm correctly named and described",
+          "2 marks: (b) third replacement algorithm correctly named and described",
+          "2 marks: (b) fourth replacement algorithm correctly named and described"
+        ],
+        "confidence": "high",
+        "notes": "Question stem says 'flush to main memory'; in a write-back cache eviction may require a write-back, but this does not affect the answer. Any four valid replacement algorithms (e.g. Random, FIFO, LRU, LFU, NRU/clock) are acceptable for part (b).",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T05:59:44.756509+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 404,
+          "completion_tokens": 588,
+          "total_tokens": 992,
+          "calls": 1,
+          "cost_usd": 0.000827,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A9",
+      "part": "A",
+      "question": "A9",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "computer_architecture",
+      "topic_label": "Computer architecture and CPU organisation",
+      "task": "short_answer",
+      "title": "Ten-mark question 9",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2023-07-A6",
+      "paper_id": "CSC429-2023-07",
+      "source_file": "CSC429 (15).pdf",
+      "source_pages": [
+        3
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 289.86,
+          "text": "a) List the phases in the machine cycle,"
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 328.5,
+          "text": "b) Discuss the function of the different CPU components in the machine cycle."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 366.41,
+          "text": "c) What will happen in the machine cycle if access to the main memory is blocked?"
+        }
+      ],
+      "text": "a)\nList the phases in the machine cycle,\nb)\nDiscuss the function of the different CPU components in the machine cycle.\nc)\nWhat will happen in the machine cycle if access to the main memory is blocked?",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a)\nList the phases in the machine cycle,",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            73.89,
+            289.86,
+            82.53,
+            300.42
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b)\nDiscuss the function of the different CPU components in the machine cycle.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            73.89,
+            328.5,
+            82.53,
+            339.06
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c)\nWhat will happen in the machine cycle if access to the main memory is blocked?",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            73.89,
+            366.41,
+            81.57,
+            376.73
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a) The phases in the machine cycle are: (1) **Fetch** — the next instruction is fetched from main memory into the CPU; (2) **Decode** — the instruction is decoded to determine the operation and operands; (3) **Execute** — the operation is carried out by the ALU/control unit; (4) **Store (Write-back)** — the result is written back to a register or to main memory. (Some texts split fetch into fetch and increment-PC, or add an interrupt/acknowledge phase; the four-phase fetch–decode–execute–store cycle is the standard answer.)\n\n(b) The CPU components and their functions in the machine cycle are: the **Program Counter (PC)** holds the address of the next instruction to be fetched and is incremented during fetch; the **Memory Address Register (MAR)** receives the address of the memory location to be accessed and passes it to the address bus; the **Memory Data Register (MDR)** buffers the instruction or data read from (or written to) main memory; the **Instruction Register (IR)** holds the instruction currently being decoded/executed; the **Control Unit (CU)** decodes the instruction and generates the timing and control signals that sequence the fetch, decode, execute and store phases; the **Arithmetic Logic Unit (ALU)** performs arithmetic and logical operations during execute; and the **general-purpose registers/accumulator** hold operands and results. The **internal buses** carry data and control signals between these units.\n\n(c) If access to main memory is blocked, the fetch phase cannot complete: the PC's address cannot be read, so no instruction reaches the IR and the decode/execute/store phases cannot proceed. The CPU stalls (waits, inserting wait states) or, if a memory fault/interrupt is signalled, traps to an error/interrupt handler. In effect the machine cycle halts at fetch and the program cannot make progress until memory access is restored.",
+        "marking": [
+          "1 mark: Fetch phase correctly named",
+          "1 mark: Decode phase correctly named",
+          "1 mark: Execute phase correctly named",
+          "1 mark: Store/write-back phase correctly named (4 marks total for (a))",
+          "1 mark: PC and MAR roles in fetch (address of next instruction / memory address)",
+          "1 mark: MDR and IR roles (buffering data / holding current instruction)",
+          "1 mark: Control Unit decodes and generates control/timing signals",
+          "1 mark: ALU performs operations and registers hold operands/results (4 marks total for (b))",
+          "1 mark: fetch cannot complete / CPU stalls or waits",
+          "1 mark: cycle cannot proceed to decode/execute/store, or interrupt/error trap (2 marks total for (c))"
+        ],
+        "confidence": "high",
+        "notes": "Question text is complete; no figure required. Some textbooks use a five-phase cycle (fetch, decode, execute, memory, write-back) or include an interrupt-acknowledge phase; the four-phase answer is accepted as standard.",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-06T05:09:43.129530+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 415,
+          "completion_tokens": 639,
+          "total_tokens": 1054,
+          "calls": 1,
+          "cost_usd": 0.000891,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A10",
+      "part": "A",
+      "question": "A10",
+      "kind": "generated_question",
+      "marks": 10,
+      "topic": "data_representation",
+      "topic_label": "Data representation and number systems",
+      "task": "short_answer",
+      "title": "Ten-mark question 10",
+      "resolver": "csc429.generator",
+      "variant_policy": "controlled_numeric",
+      "generator_pool": [
+        "csc429.number_base_conversion",
+        "csc429.signed_arithmetic",
+        "csc429.ieee754_single"
+      ],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-GEN-02-A10",
+      "paper_id": "CSC429-GEN-02",
+      "source_file": "",
+      "source_pages": [],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 1,
+          "y": 0,
+          "text": "Answer both parts. Show your complete workflow.\na) Convert 314510 to hexadecimal.\nb) Convert ED116 to decimal."
+        },
+        {
+          "type": "text",
+          "page": 1,
+          "y": 1,
+          "text": "a) Convert 314510 to hexadecimal."
+        },
+        {
+          "type": "text",
+          "page": 1,
+          "y": 2,
+          "text": "b) Convert ED116 to decimal."
+        }
+      ],
+      "text": "Answer both parts. Show your complete workflow.\na) Convert 314510 to hexadecimal.\nb) Convert ED116 to decimal.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Convert 314510 to hexadecimal.",
+          "marks": 5,
+          "answer": "314510 = C4916",
+          "marking": [
+            "1 mark for repeated division by 16.",
+            "1 mark for correct remainders.",
+            "1 mark for reading remainders in reverse order.",
+            "1 mark for the correct hexadecimal digits.",
+            "1 mark for the base subscript."
+          ]
+        },
+        {
+          "label": "b",
+          "text": "Convert ED116 to decimal.",
+          "marks": 5,
+          "answer": "ED116 = 379310",
+          "marking": [
+            "1 mark for place values 16^2, 16^1 and 16^0.",
+            "1 mark for correct digit values.",
+            "1 mark for correct products.",
+            "1 mark for correct addition.",
+            "1 mark for the final decimal value."
+          ]
+        }
+      ],
+      "answer": "a) 314510 = C4916; b) ED116 = 379310",
+      "marking": [
+        "Part a: 5 marks.",
+        "Part b: 5 marks."
+      ],
+      "generator_id": "csc429.number_base_conversion",
+      "metadata": {
+        "base": null,
+        "converted": null,
+        "dec_value": 3145,
+        "hex_value": 3793
+      }
+    },
+    {
+      "slot": "B1",
+      "part": "B",
+      "question": "B1",
+      "kind": "real_bank_question",
+      "marks": 20,
+      "topic": "assembly_programming",
+      "topic_label": "Assembly-language programming",
+      "task": "assembly_program",
+      "title": "Twenty-mark assembly-programming question",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2024-07-B1",
+      "paper_id": "CSC429-2024-07",
+      "source_file": "CSC429 (17).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [
+        "CSC429-2024-07-F2",
+        "CSC429-2024-07-T1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 167.46,
+          "text": "Question 1 is based on Figure 2 and Table 1."
+        },
+        {
+          "type": "figure",
+          "page": 5,
+          "y": 196.8,
+          "asset_id": "CSC429-2024-07-F2",
+          "path": "data/tracking/csc429/assets/CSC429-2024-07/CSC429-2024-07-F2.png",
+          "crop_box": [
+            156.85,
+            196.8,
+            419.87,
+            273.34
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2024-07\\page_005.jpg",
+          "page_points": [
+            596.88,
+            842.88
+          ],
+          "width_px": 1096,
+          "height_px": 318,
+          "caption": "Figure 2",
+          "display_width_cm": 12.0
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 309.05,
+          "text": "Write the appropriate programs using correct assembly language notations and comments to compute the equation represented in Figure 1 using zero-, one-, and three-address instructions. The instructions available for use are provided in Table 1. Register A, B, C, and D cannot be modified, and registers x, y, and z can be used as temporary registers. However, the final answer must be stored in Register y."
+        },
+        {
+          "type": "table",
+          "page": 5,
+          "y": 407.45,
+          "asset_id": "CSC429-2024-07-T1",
+          "table": {
+            "columns": 3,
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Zero-address",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "One-address",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "Three-address",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "PUSHp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "LOADp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "ADD (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "POPp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "STORp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "SUB (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "ADD",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "ADDp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MUL (p.q.r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "SUB",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "SUBp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "DIV(p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "MUL",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MULp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "DIV",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "DIVp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  }
+                ]
+              }
+            ],
+            "non_empty_ratio": 0.905,
+            "source": "layout"
+          },
+          "caption": "Table 1: Machine Instruction"
+        }
+      ],
+      "text": "Question 1 is based on Figure 2 and Table 1.\ny = A(A + 2B/C-D 2)\nFigure 2\nWrite the appropriate programs using correct assembly language notations and comments to\ncompute the equation represented in Figure 1 using zero-, one-, and three-address\ninstructions. The instructions available for use are provided in Table 1. Register A, B, C, and\nD cannot be modified, and registers x, y, and z can be used as temporary registers. However,\nthe final answer must be stored in Register y.\nTable 1: Machine Instruction\nZero-address\nOne-address\nThree-address\nPUSHp\nLOADp\nADD (p,q,r)\nPOPp\nSTORp\nSUB (p,q,r)\nADD\nADDp\nMUL (p.q.r)\nSUB\nSUBp\nDIV(p,q,r)\nMUL\nMULp\nDIV\nDIVp",
+      "subparts": [
+        {
+          "label": "main",
+          "text": "Question 1 is based on Figure 2 and Table 1.\ny = A(A + 2B/C-D 2)\nFigure 2\nWrite the appropriate programs using correct assembly language notations and comments to\ncompute the equation represented in Figure 1 using zero-, one-, and three-address\ninstructions. The instructions available for use are provided in Table 1. Register A, B, C, and\nD cannot be modified, and registers x, y, and z can be used as temporary registers. However,\nthe final answer must be stored in Register y.\nTable 1: Machine Instruction\nZero-address\nOne-address\nThree-address\nPUSHp\nLOADp\nADD (p,q,r)\nPOPp\nSTORp\nSUB (p,q,r)\nADD\nADDp\nMUL (p.q.r)\nSUB\nSUBp\nDIV(p,q,r)\nMUL\nMULp\nDIV\nDIVp",
+          "marks": 20,
+          "marks_source": "explicit",
+          "bbox": [
+            61.2,
+            167.46,
+            282.13,
+            182.57
+          ],
+          "figure_refs": [
+            "Figure 2",
+            "Table 1",
+            "Figure 1"
+          ],
+          "asset_ids": [
+            "CSC429-2024-07-F2",
+            "CSC429-2024-07-T1",
+            "CSC429-2024-07-F1"
+          ]
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "**Assumption on the equation (OCR correction):** Figure 2 reads `y = A(A + 2B/C-D 2)`. The only consistent reading with the available instructions (no exponentiation) is **y = A × (A + 2B/C − D²)**, i.e. the trailing `2` is a superscript square on D. This is assumed throughout; if the figure shows a different expression, the operand order changes but the method is identical.\n\n**Sub-expression plan (common to all three programs):** compute T1 = 2B/C, T2 = D×D, T3 = A + T1 − T2, then y = A × T3. A, B, C, D are read-only; x, y, z are temporaries; final result in y.\n\n**Zero-address program (stack machine):**\n```\n        PUSH A          ; stack: A\n        PUSH B          ; stack: A, B\n        PUSH B          ; stack: A, B, B\n        ADD             ; stack: A, 2B        (B+B)\n        PUSH C          ; stack: A, 2B, C\n        DIV             ; stack: A, 2B/C\n        ADD             ; stack: A + 2B/C\n        PUSH D          ; stack: (A+2B/C), D\n        PUSH D          ; stack: (A+2B/C), D, D\n        MUL             ; stack: (A+2B/C), D*D\n        SUB             ; stack: A + 2B/C - D*D\n        PUSH A          ; stack: (A+2B/C-D*D), A\n        MUL             ; stack: A*(A+2B/C-D*D)\n        POP y           ; store final answer in y\n```\n\n**One-address program (accumulator machine):**\n```\n        LOAD B          ; ACC = B\n        ADD B           ; ACC = 2B\n        DIV C           ; ACC = 2B/C\n        ADD A           ; ACC = A + 2B/C\n        STOR x          ; x = A + 2B/C   (save partial result)\n        LOAD D          ; ACC = D\n        MUL D           ; ACC = D*D\n        STOR z          ; z = D*D\n        LOAD x          ; ACC = A + 2B/C\n        SUB z           ; ACC = A + 2B/C - D*D\n        MUL A           ; ACC = A*(A + 2B/C - D*D)\n        STOR y          ; y = final answer\n```\n\n**Three-address program (register/operand form ADD(p,q,r) meaning p = q op r):**\n```\n        ADD (x, B, B)       ; x = 2B\n        DIV (x, x, C)       ; x = 2B/C\n        ADD (x, A, x)       ; x = A + 2B/C\n        MUL (z, D, D)       ; z = D*D\n        SUB (x, x, z)       ; x = A + 2B/C - D*D\n        MUL (y, A, x)       ; y = A*(A + 2B/C - D*D)  final answer in y\n```\n\n**Comment on correctness:** In every version the read-only registers A, B, C, D are only ever read as source operands, the temporaries x and z hold intermediate values, and the final result is written to y, satisfying the stated constraints.",
+        "marking": [
+          "4 marks: zero-address program — correct use of PUSH/POP with stack semantics, correct operand order for DIV and SUB, and final POP into y",
+          "4 marks: one-address program — correct LOAD/STOR/ADD/SUB/MUL/DIV sequence, correct use of temporaries x and z, final STOR y",
+          "4 marks: three-address program — correct ADD/DIV/MUL/SUB with (p,q,r) destination-first convention, correct final MUL into y",
+          "4 marks: correct evaluation of the expression (2B/C, D*D, A + 2B/C − D*D, then multiply by A) in all three programs",
+          "2 marks: comments and correct assembly notation throughout, with A, B, C, D unmodified and final answer in y",
+          "2 marks: overall clarity, consistent register/temporary usage and no redundant or missing operations"
+        ],
+        "confidence": "medium",
+        "notes": "The equation in Figure 2 is OCR-ambiguous ('D 2'); assumed to be D squared since no exponent instruction exists. The three-address table shows 'MUL (p.q.r)' — read as MUL(p,q,r). The (p,q,r) convention is assumed to be destination-first (p = q op r); if the lecturer uses source-first ordering, swap the operand positions accordingly. Figure 2 itself was not available beyond the extracted text.",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T05:59:51.938920+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 610,
+          "completion_tokens": 1119,
+          "total_tokens": 1729,
+          "calls": 1,
+          "cost_usd": 0.001526,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    }
+  ],
+  "notes": "Real past-paper questions only. Topic quotas are the largest-remainder allocation of the observed Part A topic mix; each quota is split between 5- and 10-mark slots using the topic's observed 5/10-mark availability. Every slot resolves to the real bank.",
+  "answer_report": {
+    "model": "deepseek-flash",
+    "prompt_version": 1,
+    "requested": 9,
+    "cache_hits": 1,
+    "generated": 8,
+    "failed": 0,
+    "errors": [],
+    "usage": {
+      "model": "deepseek-flash",
+      "prompt_tokens": 3822,
+      "completion_tokens": 5494,
+      "total_tokens": 9316,
+      "calls": 8,
+      "cost_usd": 0.007739,
+      "input_price_per_1m": 0.3,
+      "output_price_per_1m": 1.2
+    },
+    "cache_usage": {
+      "model": "deepseek-flash",
+      "calls": 26,
+      "prompt_tokens": 12546,
+      "completion_tokens": 17492,
+      "total_tokens": 30038,
+      "cost_usd": 0.024756
+    },
+    "cost_usd": 0.007739
+  }
+}

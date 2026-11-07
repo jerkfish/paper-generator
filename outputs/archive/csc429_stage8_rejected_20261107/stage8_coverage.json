@@ -1,0 +1,1244 @@
+{
+  "schema_version": 1,
+  "subject": "CSC429",
+  "stage": 8,
+  "report": "20-seed library prebuild coverage",
+  "generated_at": "2026-11-07T06:25:34.110028+00:00",
+  "builder_version": 2,
+  "checks": {
+    "library_items_count": 20,
+    "seeds_1_to_20": true,
+    "all_seeds_distinct_question_sets": true,
+    "all_11_of_11_slots_accepted": true,
+    "all_total_marks_100": true,
+    "all_files_exist": true,
+    "all_qa_problems_empty": true,
+    "all_warnings_empty": true,
+    "library_items_all_loadable": true
+  },
+  "aggregates": {
+    "seed_count": 20,
+    "paper_pages_min": 5,
+    "paper_pages_max": 8,
+    "scheme_pages_min": 8,
+    "scheme_pages_max": 10,
+    "real_bank_slots": 180,
+    "generated_slots": 40,
+    "unique_real_questions": 82,
+    "bank_questions": 215,
+    "bank_coverage_percent": 38.1,
+    "reused_real_questions": 45,
+    "max_real_question_reuse": 20,
+    "most_reused_real_questions": [
+      [
+        "CSC429-2014-06-A9",
+        20
+      ],
+      [
+        "CSC429-2025-02-B1",
+        7
+      ],
+      [
+        "CSC429-2018-06-A8",
+        5
+      ],
+      [
+        "CSC429-2024-07-B1",
+        5
+      ],
+      [
+        "CSC429-2016-06-A10",
+        5
+      ],
+      [
+        "CSC429-2018-01-A10",
+        4
+      ],
+      [
+        "CSC429-2023-07-A6",
+        4
+      ],
+      [
+        "CSC429-2018-06-A7",
+        4
+      ],
+      [
+        "CSC429-2017-07-A10",
+        4
+      ],
+      [
+        "CSC429-2015-06-A4",
+        4
+      ]
+    ],
+    "generator_slots": {
+      "csc429.ieee754_single": 13,
+      "csc429.number_base_conversion": 11,
+      "csc429.signed_arithmetic": 16
+    },
+    "answer_calls_generated": 142,
+    "stage_llm_cost_usd": 0.128226,
+    "answer_cache_after": {
+      "model": "deepseek-flash",
+      "calls": 160,
+      "prompt_tokens": 72343,
+      "completion_tokens": 102947,
+      "total_tokens": 175290,
+      "cost_usd": 0.145242
+    },
+    "answer_cache_before": {
+      "calls": 18,
+      "cost_usd": 0.017014
+    },
+    "answer_cache_delta_calls": 142,
+    "answer_cache_delta_cost_usd": 0.128228
+  },
+  "notes": [
+    "All 20 seeds are deterministic real-bank/generator builds; no seed has a placeholder.",
+    "The 20 seeds use 82 distinct real-bank questions across 180 real-bank slots; 40 slots are generated arithmetic.",
+    "CSC429-2014-06-A9 is selected in all 20 seeds because it is the only 5-mark instruction_set_addressing candidate whose assets pass the readiness gate; four other candidates depend on fill-in tables that Stage 1 does not recreate from OCR.",
+    "Seed 1 is the Stage-7 approved sample and is 8 paper pages; the other seeds use fewer figure-heavy questions and are 5-6 paper pages."
+  ],
+  "seeds": [
+    {
+      "seed": 1,
+      "cache_dir": "outputs/web_cache/CSC429/95cdd1cd76725ab5b3ce",
+      "created_year": 2026,
+      "paper_pages": 8,
+      "scheme_pages": 9,
+      "accepted": 11,
+      "placeholders": 0,
+      "total_marks": 100,
+      "generated_slots": 2,
+      "real_bank_slots": 9,
+      "answers": {
+        "requested": 9,
+        "cache_hits": 9,
+        "generated": 0,
+        "cost_usd": 0.0
+      },
+      "warnings": [],
+      "qa": {
+        "paper_xml_valid": true,
+        "scheme_xml_valid": true,
+        "paper_problems": [],
+        "scheme_problems": [],
+        "paper_pdf_problems": [],
+        "scheme_pdf_problems": [],
+        "paper_right_overflow": [],
+        "scheme_right_overflow": []
+      },
+      "files_exist": true,
+      "files": {
+        "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\95cdd1cd76725ab5b3ce\\paper.docx",
+        "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\95cdd1cd76725ab5b3ce\\paper.pdf",
+        "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\95cdd1cd76725ab5b3ce\\scheme.docx",
+        "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\95cdd1cd76725ab5b3ce\\scheme.pdf"
+      },
+      "sha256": {
+        "paper_docx": "d6cd9b0cf3d46b364efaaa02174783f946eda053dca74212baa91abad54b6b48",
+        "paper_pdf": "c47065db343e56af12e02ecea0add48455b8b3bbae7be9f5b84d2407029f13ce",
+        "scheme_docx": "c7b6f0f406b111b1b25032ff6f47bc01db1c628023f1a7c1862e784785edb368",
+        "scheme_pdf": "1e22b938ab163532f66181be456e59971569a6e0ab2a26681e21747226f2c255"
+      },
+      "real_question_ids": [
+        "CSC429-2016-06-A10",
+        "CSC429-2016-12-A1",
+        "CSC429-2014-06-A9",
+        "CSC429-2024-01-A9",
+        "CSC429-2018-01-A7",
+        "CSC429-2026-02-A6",
+        "CSC429-2014-12-A8",
+        "CSC429-2023-07-A7",
+        "CSC429-2025-02-B1"
+      ],
+      "generator_ids": [
+        "csc429.signed_arithmetic",
+        "csc429.ieee754_single"
+      ]
+    },
+    {
+      "seed": 2,
+      "cache_dir": "outputs/web_cache/CSC429/e257cf9c537969ecd46d",
+      "created_year": 2026,
+      "paper_pages": 6,
+      "scheme_pages": 9,
+      "accepted": 11,
+      "placeholders": 0,
+      "total_marks": 100,
+      "generated_slots": 2,
+      "real_bank_slots": 9,
+      "answers": {
+        "requested": 9,
+        "cache_hits": 1,
+        "generated": 8,
+        "cost_usd": 0.007739
+      },
+      "warnings": [],
+      "qa": {
+        "paper_xml_valid": true,
+        "scheme_xml_valid": true,
+        "paper_problems": [],
+        "scheme_problems": [],
+        "paper_pdf_problems": [],
+        "scheme_pdf_problems": [],
+        "paper_right_overflow": [],
+        "scheme_right_overflow": []
+      },
+      "files_exist": true,
+      "files": {
+        "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\e257cf9c537969ecd46d\\paper.docx",
+        "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\e257cf9c537969ecd46d\\paper.pdf",
+        "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\e257cf9c537969ecd46d\\scheme.docx",
+        "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\e257cf9c537969ecd46d\\scheme.pdf"
+      },
+      "sha256": {
+        "paper_docx": "8e8d9bdaefc2ee7ca050abed199d4757c12baf0a59fbb45b33979b271d36efaf",
+        "paper_pdf": "13715de64eaf9c1563b7dd02dbf9aa31d160bc7f83b8a794ac45fa8ca3df1df0",
+        "scheme_docx": "2355cc110c5013e52da06e45bd083afe9653a472f13bc38cb68f2e736cff6391",
+        "scheme_pdf": "cf88b21cd45e86c274cff1ac6401a44c69af54b6f2104a32dd4693cb0778cc58"
+      },
+      "real_question_ids": [
+        "CSC429-2014-06-A9",
+        "CSC429-2016-12-A10",
+        "CSC429-2017-07-A2",
+        "CSC429-2018-12-A5",
+        "CSC429-2025-07-A6",
+        "CSC429-2018-06-A9",
+        "CSC429-2016-06-A7",
+        "CSC429-2023-07-A6",
+        "CSC429-2024-07-B1"
+      ],
+      "generator_ids": [
+        "csc429.signed_arithmetic",
+        "csc429.number_base_conversion"
+      ]
+    },
+    {
+      "seed": 3,
+      "cache_dir": "outputs/web_cache/CSC429/1582c49256bc74eb2347",
+      "created_year": 2026,
+      "paper_pages": 5,
+      "scheme_pages": 10,
+      "accepted": 11,
+      "placeholders": 0,
+      "total_marks": 100,
+      "generated_slots": 2,
+      "real_bank_slots": 9,
+      "answers": {
+        "requested": 9,
+        "cache_hits": 1,
+        "generated": 8,
+        "cost_usd": 0.007054
+      },
+      "warnings": [],
+      "qa": {
+        "paper_xml_valid": true,
+        "scheme_xml_valid": true,
+        "paper_problems": [],
+        "scheme_problems": [],
+        "paper_pdf_problems": [],
+        "scheme_pdf_problems": [],
+        "paper_right_overflow": [],
+        "scheme_right_overflow": []
+      },
+      "files_exist": true,
+      "files": {
+        "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\1582c49256bc74eb2347\\paper.docx",
+        "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\1582c49256bc74eb2347\\paper.pdf",
+        "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\1582c49256bc74eb2347\\scheme.docx",
+        "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\1582c49256bc74eb2347\\scheme.pdf"
+      },
+      "sha256": {
+        "paper_docx": "c79ec16b76e469c168f2ccdfccaae1515a6426da9ab57e4171f66ffc1db8702f",
+        "paper_pdf": "e933e2a7560ccec52807a2f700590a5452c7784873c300d6921cc78542e4708e",
+        "scheme_docx": "98e80d1b089ce449c5f3b29d017ff4850edb57ff88e4e45ec02f43b74dfc8c23",
+        "scheme_pdf": "78ef07fa6e8ad67afa506002fc0bf3d710c4794c47439417b5b01789eae47b1c"
+      },
+      "real_question_ids": [
+        "CSC429-2018-01-A10",
+        "CSC429-2024-01-A2",
+        "CSC429-2014-06-A9",
+        "CSC429-2017-07-A3",
+        "CSC429-2023-07-A6",
+        "CSC429-2025-07-A7",
+        "CSC429-2015-06-A7",
+        "CSC429-2018-06-A8",
+        "CSC429-2024-07-B1"
+      ],
+      "generator_ids": [
+        "csc429.number_base_conversion",
+        "csc429.signed_arithmetic"
+      ]
+    },
+    {
+      "seed": 4,
+      "cache_dir": "outputs/web_cache/CSC429/fbc4c8d4e2557205e216",
+      "created_year": 2026,
+      "paper_pages": 5,
+      "scheme_pages": 9,
+      "accepted": 11,
+      "placeholders": 0,
+      "total_marks": 100,
+      "generated_slots": 2,
+      "real_bank_slots": 9,
+      "answers": {
+        "requested": 9,
+        "cache_hits": 2,
+        "generated": 7,
+        "cost_usd": 0.005866
+      },
+      "warnings": [],
+      "qa": {
+        "paper_xml_valid": true,
+        "scheme_xml_valid": true,
+        "paper_problems": [],
+        "scheme_problems": [],
+        "paper_pdf_problems": [],
+        "scheme_pdf_problems": [],
+        "paper_right_overflow": [],
+        "scheme_right_overflow": []
+      },
+      "files_exist": true,
+      "files": {
+        "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\fbc4c8d4e2557205e216\\paper.docx",
+        "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\fbc4c8d4e2557205e216\\paper.pdf",
+        "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\fbc4c8d4e2557205e216\\scheme.docx",
+        "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\fbc4c8d4e2557205e216\\scheme.pdf"
+      },
+      "sha256": {
+        "paper_docx": "51d8c654e9240faebdec86e4d99d9286a4e3869cb76c63d71b04ab26b89acb94",
+        "paper_pdf": "161b177f0f3f6cac435e432d5271403ee1961b94f864cb14428b1e203c660e32",
+        "scheme_docx": "7b00d9588dbcc29db361f356f522575e57bed78242376be197bc0a1e2a058256",
+        "scheme_pdf": "5ea80b4c546091fdfb0c5eced5ef756b9228446d39f10ed0519852a5efa3fa15"
+      },
+      "real_question_ids": [
+        "CSC429-2015-06-A1",
+        "CSC429-2018-06-A10",
+        "CSC429-2014-06-A9",
+        "CSC429-2018-01-A3",
+        "CSC429-2014-12-A4",
+        "CSC429-2019-06-A8",
+        "CSC429-2016-12-A7",
+        "CSC429-2016-06-A7",
+        "CSC429-2024-07-B1"
+      ],
+      "generator_ids": [
+        "csc429.ieee754_single",
+        "csc429.signed_arithmetic"
+      ]
+    },
+    {
+      "seed": 5,
+      "cache_dir": "outputs/web_cache/CSC429/cf2c308934299863cc3c",
+      "created_year": 2026,
+      "paper_pages": 5,
+      "scheme_pages": 9,
+      "accepted": 11,
+      "placeholders": 0,
+      "total_marks": 100,
+      "generated_slots": 2,
+      "real_bank_slots": 9,
+      "answers": {
+        "requested": 9,
+        "cache_hits": 2,
+        "generated": 7,
+        "cost_usd": 0.006548
+      },
+      "warnings": [],
+      "qa": {
+        "paper_xml_valid": true,
+        "scheme_xml_valid": true,
+        "paper_problems": [],
+        "scheme_problems": [],
+        "paper_pdf_problems": [],
+        "scheme_pdf_problems": [],
+        "paper_right_overflow": [],
+        "scheme_right_overflow": []
+      },
+      "files_exist": true,
+      "files": {
+        "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\cf2c308934299863cc3c\\paper.docx",
+        "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\cf2c308934299863cc3c\\paper.pdf",
+        "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\cf2c308934299863cc3c\\scheme.docx",
+        "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\cf2c308934299863cc3c\\scheme.pdf"
+      },
+      "sha256": {
+        "paper_docx": "d7bbc72a38e37d786b87a89bdd17aa4f68e7735df38bf6bc8529003a31a74d64",
+        "paper_pdf": "1b9d87edddbae0b155a82a3e50f39286170796e7bae60bf703ffa67523d1d7c5",
+        "scheme_docx": "010b626e92564e9eae4d643ded852c20cfdcaaace700471c1f932e9d6d7a657f",
+        "scheme_pdf": "5d9dcbf621f40a773c35915a5d4419686f242c28dd908e81562f79d9b9b88be3"
+      },
+      "real_question_ids": [
+        "CSC429-2018-01-A2",
+        "CSC429-2014-06-A9",
+        "CSC429-2019-12-A10",
+        "CSC429-2019-06-A8",
+        "CSC429-2016-12-A4",
+        "CSC429-2023-07-A6",
+        "CSC429-2018-06-A8",
+        "CSC429-2026-02-A8",
+        "CSC429-2025-02-B1"
+      ],
+      "generator_ids": [
+        "csc429.number_base_conversion",
+        "csc429.signed_arithmetic"
+      ]
+    },
+    {
+      "seed": 6,
+      "cache_dir": "outputs/web_cache/CSC429/53c05168b50cde56a15f",
+      "created_year": 2026,
+      "paper_pages": 5,
+      "scheme_pages": 9,
+      "accepted": 11,
+      "placeholders": 0,
+      "total_marks": 100,
+      "generated_slots": 2,
+      "real_bank_slots": 9,
+      "answers": {
+        "requested": 9,
+        "cache_hits": 0,
+        "generated": 9,
+        "cost_usd": 0.008657
+      },
+      "warnings": [],
+      "qa": {
+        "paper_xml_valid": true,
+        "scheme_xml_valid": true,
+        "paper_problems": [],
+        "scheme_problems": [],
+        "paper_pdf_problems": [],
+        "scheme_pdf_problems": [],
+        "paper_right_overflow": [],
+        "scheme_right_overflow": []
+      },
+      "files_exist": true,
+      "files": {
+        "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\53c05168b50cde56a15f\\paper.docx",
+        "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\53c05168b50cde56a15f\\paper.pdf",
+        "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\53c05168b50cde56a15f\\scheme.docx",
+        "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\53c05168b50cde56a15f\\scheme.pdf"
+      },
+      "sha256": {
+        "paper_docx": "93cb075843dcee3e834e59da4ed65ef40674bf715453671f0a98ad3376e01211",
+        "paper_pdf": "55e3d9c014dfb9b60f55acba18bf16c6d1ef149e1004c4192bc2060e9db7192d",
+        "scheme_docx": "fba57938b7ee59bd5e2fc055393f614d8642f5fd59561f7b351c59648770f361",
+        "scheme_pdf": "de867d41a3cda03ba8f3e2c511f1bf1bfe02776f40391129aed4a49c4b4682e6"
+      },
+      "real_question_ids": [
+        "CSC429-2017-07-A10",
+        "CSC429-2014-06-A9",
+        "CSC429-2015-12-A1",
+        "CSC429-2016-12-A7",
+        "CSC429-2026-02-A9",
+        "CSC429-2018-01-A4",
+        "CSC429-2025-07-A7",
+        "CSC429-2015-06-A4",
+        "CSC429-2023-02-B1"
+      ],
+      "generator_ids": [
+        "csc429.ieee754_single",
+        "csc429.signed_arithmetic"
+      ]
+    },
+    {
+      "seed": 7,
+      "cache_dir": "outputs/web_cache/CSC429/4dd34896a786128c36d2",
+      "created_year": 2026,
+      "paper_pages": 5,
+      "scheme_pages": 9,
+      "accepted": 11,
+      "placeholders": 0,
+      "total_marks": 100,
+      "generated_slots": 2,
+      "real_bank_slots": 9,
+      "answers": {
+        "requested": 9,
+        "cache_hits": 2,
+        "generated": 7,
+        "cost_usd": 0.006627
+      },
+      "warnings": [],
+      "qa": {
+        "paper_xml_valid": true,
+        "scheme_xml_valid": true,
+        "paper_problems": [],
+        "scheme_problems": [],
+        "paper_pdf_problems": [],
+        "scheme_pdf_problems": [],
+        "paper_right_overflow": [],
+        "scheme_right_overflow": []
+      },
+      "files_exist": true,
+      "files": {
+        "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\4dd34896a786128c36d2\\paper.docx",
+        "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\4dd34896a786128c36d2\\paper.pdf",
+        "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\4dd34896a786128c36d2\\scheme.docx",
+        "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\4dd34896a786128c36d2\\scheme.pdf"
+      },
+      "sha256": {
+        "paper_docx": "78359ea71a0e6e12f3b99c4fe5088aad76a132bdd9e6b36c18b8c8a1bbcb471a",
+        "paper_pdf": "ebbe4fc4dd9dcfa5531290503e635be63f150720504ac7744c0c28b7b0a9ab37",
+        "scheme_docx": "b6f34cdb423a2b1f36d090f8b4d79aa6108d2ad6e9de3172d1d0ad049e1346a9",
+        "scheme_pdf": "ef3652f75adbc9d3b4edc6eec47be45ebab00dfa9b2ac8476aea860e55d167ba"
+      },
+      "real_question_ids": [
+        "CSC429-2017-07-A10",
+        "CSC429-2014-06-A9",
+        "CSC429-2025-07-A1",
+        "CSC429-2019-12-A7",
+        "CSC429-2018-12-A9",
+        "CSC429-2015-06-A8",
+        "CSC429-2023-02-A6",
+        "CSC429-2019-06-A7",
+        "CSC429-2025-02-B1"
+      ],
+      "generator_ids": [
+        "csc429.ieee754_single",
+        "csc429.ieee754_single"
+      ]
+    },
+    {
+      "seed": 8,
+      "cache_dir": "outputs/web_cache/CSC429/29c6a30912c2634a6571",
+      "created_year": 2026,
+      "paper_pages": 5,
+      "scheme_pages": 9,
+      "accepted": 11,
+      "placeholders": 0,
+      "total_marks": 100,
+      "generated_slots": 2,
+      "real_bank_slots": 9,
+      "answers": {
+        "requested": 9,
+        "cache_hits": 1,
+        "generated": 8,
+        "cost_usd": 0.006603
+      },
+      "warnings": [],
+      "qa": {
+        "paper_xml_valid": true,
+        "scheme_xml_valid": true,
+        "paper_problems": [],
+        "scheme_problems": [],
+        "paper_pdf_problems": [],
+        "scheme_pdf_problems": [],
+        "paper_right_overflow": [],
+        "scheme_right_overflow": []
+      },
+      "files_exist": true,
+      "files": {
+        "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\29c6a30912c2634a6571\\paper.docx",
+        "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\29c6a30912c2634a6571\\paper.pdf",
+        "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\29c6a30912c2634a6571\\scheme.docx",
+        "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\29c6a30912c2634a6571\\scheme.pdf"
+      },
+      "sha256": {
+        "paper_docx": "4217639d56e4267a9fe3f9d221339f9077c4ec0f9cd4b55f1bf2bfa504433d66",
+        "paper_pdf": "6ccead5308f9d0527378540d0c10862d99e747590955f1585a1f58dcab02792a",
+        "scheme_docx": "340ac502fd15360c16820557561b18c70cd2953ed0293ce4887d2409fd26ae82",
+        "scheme_pdf": "09d0d60eccee5368ae303cee28acbba525b1293a70134a17fa8404591f647796"
+      },
+      "real_question_ids": [
+        "CSC429-2019-06-A1",
+        "CSC429-2018-01-A10",
+        "CSC429-2014-06-A9",
+        "CSC429-2018-06-A8",
+        "CSC429-2026-02-A9",
+        "CSC429-2017-07-A3",
+        "CSC429-2023-07-A8",
+        "CSC429-2024-07-A7",
+        "CSC429-2023-02-B1"
+      ],
+      "generator_ids": [
+        "csc429.signed_arithmetic",
+        "csc429.ieee754_single"
+      ]
+    },
+    {
+      "seed": 9,
+      "cache_dir": "outputs/web_cache/CSC429/d3a2332df29b0f4bafbd",
+      "created_year": 2026,
+      "paper_pages": 5,
+      "scheme_pages": 10,
+      "accepted": 11,
+      "placeholders": 0,
+      "total_marks": 100,
+      "generated_slots": 2,
+      "real_bank_slots": 9,
+      "answers": {
+        "requested": 9,
+        "cache_hits": 3,
+        "generated": 6,
+        "cost_usd": 0.004924
+      },
+      "warnings": [],
+      "qa": {
+        "paper_xml_valid": true,
+        "scheme_xml_valid": true,
+        "paper_problems": [],
+        "scheme_problems": [],
+        "paper_pdf_problems": [],
+        "scheme_pdf_problems": [],
+        "paper_right_overflow": [],
+        "scheme_right_overflow": []
+      },
+      "files_exist": true,
+      "files": {
+        "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d3a2332df29b0f4bafbd\\paper.docx",
+        "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d3a2332df29b0f4bafbd\\paper.pdf",
+        "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d3a2332df29b0f4bafbd\\scheme.docx",
+        "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d3a2332df29b0f4bafbd\\scheme.pdf"
+      },
+      "sha256": {
+        "paper_docx": "3943dccb72edab3203324726efc2800cea2fbb8c8afb4fe568ac86fd5f51cd6b",
+        "paper_pdf": "3243a27466c3dc89add1f9d1508af5cbe08a9782c66a26c340508bd44d91e81c",
+        "scheme_docx": "ecc1e261677fea365ce613a2b06c60c061e9d8b89cc11c06ab9d4a11473520dc",
+        "scheme_pdf": "a7df14361073ed10f829ef5bcc0a990415e553461e1d971f50058c9b83a12015"
+      },
+      "real_question_ids": [
+        "CSC429-2015-12-A2",
+        "CSC429-2014-06-A9",
+        "CSC429-2016-06-A10",
+        "CSC429-2024-01-A9",
+        "CSC429-2025-07-A6",
+        "CSC429-2017-07-A7",
+        "CSC429-2025-02-A8",
+        "CSC429-2015-06-A4",
+        "CSC429-2026-02-B1"
+      ],
+      "generator_ids": [
+        "csc429.number_base_conversion",
+        "csc429.signed_arithmetic"
+      ]
+    },
+    {
+      "seed": 10,
+      "cache_dir": "outputs/web_cache/CSC429/e5c826bced8f8884caed",
+      "created_year": 2026,
+      "paper_pages": 6,
+      "scheme_pages": 9,
+      "accepted": 11,
+      "placeholders": 0,
+      "total_marks": 100,
+      "generated_slots": 2,
+      "real_bank_slots": 9,
+      "answers": {
+        "requested": 9,
+        "cache_hits": 0,
+        "generated": 9,
+        "cost_usd": 0.008804
+      },
+      "warnings": [],
+      "qa": {
+        "paper_xml_valid": true,
+        "scheme_xml_valid": true,
+        "paper_problems": [],
+        "scheme_problems": [],
+        "paper_pdf_problems": [],
+        "scheme_pdf_problems": [],
+        "paper_right_overflow": [],
+        "scheme_right_overflow": []
+      },
+      "files_exist": true,
+      "files": {
+        "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\e5c826bced8f8884caed\\paper.docx",
+        "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\e5c826bced8f8884caed\\paper.pdf",
+        "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\e5c826bced8f8884caed\\scheme.docx",
+        "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\e5c826bced8f8884caed\\scheme.pdf"
+      },
+      "sha256": {
+        "paper_docx": "2a14db6ff9eb7463e426f8e806689b5ebf77187c38e5e04334b96e9b1a19bb94",
+        "paper_pdf": "9af3fc84e05ca55ddeca98e5134e7ec71281e3992c4fdcb6e47449bb9301a1dc",
+        "scheme_docx": "4a1d42c5048bd28ef117587e848b9d85a05ae7c36b83495d21957d0ab99fd93e",
+        "scheme_pdf": "228e02b28dd871ca749054375d376324b0373a779530da85b2f6c43b00e0cecb"
+      },
+      "real_question_ids": [
+        "CSC429-2018-06-A10",
+        "CSC429-2014-06-A9",
+        "CSC429-2026-02-A1",
+        "CSC429-2015-12-A7",
+        "CSC429-2023-02-A8",
+        "CSC429-2015-06-A4",
+        "CSC429-2018-01-A4",
+        "CSC429-2019-06-A8",
+        "CSC429-2025-07-B1"
+      ],
+      "generator_ids": [
+        "csc429.number_base_conversion",
+        "csc429.signed_arithmetic"
+      ]
+    },
+    {
+      "seed": 11,
+      "cache_dir": "outputs/web_cache/CSC429/af7505c3adb8656df459",
+      "created_year": 2026,
+      "paper_pages": 6,
+      "scheme_pages": 9,
+      "accepted": 11,
+      "placeholders": 0,
+      "total_marks": 100,
+      "generated_slots": 2,
+      "real_bank_slots": 9,
+      "answers": {
+        "requested": 9,
+        "cache_hits": 1,
+        "generated": 8,
+        "cost_usd": 0.006974
+      },
+      "warnings": [],
+      "qa": {
+        "paper_xml_valid": true,
+        "scheme_xml_valid": true,
+        "paper_problems": [],
+        "scheme_problems": [],
+        "paper_pdf_problems": [],
+        "scheme_pdf_problems": [],
+        "paper_right_overflow": [],
+        "scheme_right_overflow": []
+      },
+      "files_exist": true,
+      "files": {
+        "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\af7505c3adb8656df459\\paper.docx",
+        "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\af7505c3adb8656df459\\paper.pdf",
+        "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\af7505c3adb8656df459\\scheme.docx",
+        "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\af7505c3adb8656df459\\scheme.pdf"
+      },
+      "sha256": {
+        "paper_docx": "05054a96367ef91542ee0cacfb35b7b4819c132c6b80ba0d22126ffa91dcaaec",
+        "paper_pdf": "42a87b8fae58d30bd519e139bdb1fb442dfeba5a42180192208455da7cba16d5",
+        "scheme_docx": "72f88a4140f49f1d491c3107467883908d760a070f5739ae768ff02cccd5cd05",
+        "scheme_pdf": "a89951beb643856275a89351ad4e7600f20787034cafc07b618269f72e9fabaa"
+      },
+      "real_question_ids": [
+        "CSC429-2018-06-A2",
+        "CSC429-2014-06-A9",
+        "CSC429-2018-01-A10",
+        "CSC429-2016-06-A7",
+        "CSC429-2015-06-A4",
+        "CSC429-2016-12-A3",
+        "CSC429-2019-12-A9",
+        "CSC429-2026-02-A9",
+        "CSC429-2025-07-B1"
+      ],
+      "generator_ids": [
+        "csc429.ieee754_single",
+        "csc429.signed_arithmetic"
+      ]
+    },
+    {
+      "seed": 12,
+      "cache_dir": "outputs/web_cache/CSC429/74801c46973fa772634b",
+      "created_year": 2026,
+      "paper_pages": 5,
+      "scheme_pages": 9,
+      "accepted": 11,
+      "placeholders": 0,
+      "total_marks": 100,
+      "generated_slots": 2,
+      "real_bank_slots": 9,
+      "answers": {
+        "requested": 9,
+        "cache_hits": 1,
+        "generated": 8,
+        "cost_usd": 0.007251
+      },
+      "warnings": [],
+      "qa": {
+        "paper_xml_valid": true,
+        "scheme_xml_valid": true,
+        "paper_problems": [],
+        "scheme_problems": [],
+        "paper_pdf_problems": [],
+        "scheme_pdf_problems": [],
+        "paper_right_overflow": [],
+        "scheme_right_overflow": []
+      },
+      "files_exist": true,
+      "files": {
+        "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\74801c46973fa772634b\\paper.docx",
+        "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\74801c46973fa772634b\\paper.pdf",
+        "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\74801c46973fa772634b\\scheme.docx",
+        "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\74801c46973fa772634b\\scheme.pdf"
+      },
+      "sha256": {
+        "paper_docx": "cf393bdd7792de908a2d093a4456ff4fd6bb8fc702c063d3c67fd19e79068953",
+        "paper_pdf": "a23efbd19058e894adda817077fbe3b31873b1d38b7630cc2ef2c5e39437afc0",
+        "scheme_docx": "4ab7d491e757bc282d2f47bdf1da869f0c53abd25da50c7c6ebad59625691fd3",
+        "scheme_pdf": "2ac887a9b8be00b2a8ff55d305e024d8dc1cddd2cb20035939455c7f47e6a420"
+      },
+      "real_question_ids": [
+        "CSC429-2025-07-A1",
+        "CSC429-2014-06-A9",
+        "CSC429-2017-07-A10",
+        "CSC429-2014-12-A7",
+        "CSC429-2018-06-A7",
+        "CSC429-2024-07-A6",
+        "CSC429-2026-02-A7",
+        "CSC429-2023-07-A6",
+        "CSC429-2025-02-B1"
+      ],
+      "generator_ids": [
+        "csc429.ieee754_single",
+        "csc429.number_base_conversion"
+      ]
+    },
+    {
+      "seed": 13,
+      "cache_dir": "outputs/web_cache/CSC429/6f2d73e2887cec8c87df",
+      "created_year": 2026,
+      "paper_pages": 5,
+      "scheme_pages": 8,
+      "accepted": 11,
+      "placeholders": 0,
+      "total_marks": 100,
+      "generated_slots": 2,
+      "real_bank_slots": 9,
+      "answers": {
+        "requested": 9,
+        "cache_hits": 3,
+        "generated": 6,
+        "cost_usd": 0.005184
+      },
+      "warnings": [],
+      "qa": {
+        "paper_xml_valid": true,
+        "scheme_xml_valid": true,
+        "paper_problems": [],
+        "scheme_problems": [],
+        "paper_pdf_problems": [],
+        "scheme_pdf_problems": [],
+        "paper_right_overflow": [],
+        "scheme_right_overflow": []
+      },
+      "files_exist": true,
+      "files": {
+        "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\6f2d73e2887cec8c87df\\paper.docx",
+        "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\6f2d73e2887cec8c87df\\paper.pdf",
+        "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\6f2d73e2887cec8c87df\\scheme.docx",
+        "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\6f2d73e2887cec8c87df\\scheme.pdf"
+      },
+      "sha256": {
+        "paper_docx": "209234da5d3250d14164236aa334af4f64de17a47907a2d3620593257d85f4ac",
+        "paper_pdf": "44894897359116955d3cda55277df6d031bb07e559bfad203ccd9a286d172e84",
+        "scheme_docx": "3e779df303a4b9bef594b2aa2ac905c3a5a0aa2e1fc438f09f619dd06556cf89",
+        "scheme_pdf": "bba6e09e0b003685699416f30c11ea73a02b534c6f78b26e7b8218517ff182b8"
+      },
+      "real_question_ids": [
+        "CSC429-2018-01-A10",
+        "CSC429-2016-06-A2",
+        "CSC429-2014-06-A9",
+        "CSC429-2018-12-A5",
+        "CSC429-2016-12-A3",
+        "CSC429-2019-06-A8",
+        "CSC429-2024-01-A6",
+        "CSC429-2024-07-A8",
+        "CSC429-2025-02-B1"
+      ],
+      "generator_ids": [
+        "csc429.ieee754_single",
+        "csc429.signed_arithmetic"
+      ]
+    },
+    {
+      "seed": 14,
+      "cache_dir": "outputs/web_cache/CSC429/52b9cd68b9dcefcd4f6a",
+      "created_year": 2026,
+      "paper_pages": 5,
+      "scheme_pages": 8,
+      "accepted": 11,
+      "placeholders": 0,
+      "total_marks": 100,
+      "generated_slots": 2,
+      "real_bank_slots": 9,
+      "answers": {
+        "requested": 9,
+        "cache_hits": 1,
+        "generated": 8,
+        "cost_usd": 0.00693
+      },
+      "warnings": [],
+      "qa": {
+        "paper_xml_valid": true,
+        "scheme_xml_valid": true,
+        "paper_problems": [],
+        "scheme_problems": [],
+        "paper_pdf_problems": [],
+        "scheme_pdf_problems": [],
+        "paper_right_overflow": [],
+        "scheme_right_overflow": []
+      },
+      "files_exist": true,
+      "files": {
+        "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\52b9cd68b9dcefcd4f6a\\paper.docx",
+        "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\52b9cd68b9dcefcd4f6a\\paper.pdf",
+        "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\52b9cd68b9dcefcd4f6a\\scheme.docx",
+        "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\52b9cd68b9dcefcd4f6a\\scheme.pdf"
+      },
+      "sha256": {
+        "paper_docx": "60a02a5379f5f4fd8d17696bd0cdc6e2255c9702ab2d84cc66dd551602940c9b",
+        "paper_pdf": "44cfd9800e3cc135627be53d7d07324f8f977ba819c47b03ad80619815f8ad8e",
+        "scheme_docx": "1daec1ba8bf0fd102ff62455e698b0a37c4f5312b5fb14550ab2bbf856033725",
+        "scheme_pdf": "ff0daf075e4ddc0d3b89b141ed6a063a84dc597999cf49cdd95ac1237840b7d5"
+      },
+      "real_question_ids": [
+        "CSC429-2014-06-A9",
+        "CSC429-2016-06-A10",
+        "CSC429-2024-01-A1",
+        "CSC429-2024-07-A6",
+        "CSC429-2016-12-A4",
+        "CSC429-2017-07-A9",
+        "CSC429-2018-12-A5",
+        "CSC429-2025-07-A8",
+        "CSC429-2025-02-B1"
+      ],
+      "generator_ids": [
+        "csc429.ieee754_single",
+        "csc429.number_base_conversion"
+      ]
+    },
+    {
+      "seed": 15,
+      "cache_dir": "outputs/web_cache/CSC429/382c325ec69b859b6487",
+      "created_year": 2026,
+      "paper_pages": 5,
+      "scheme_pages": 9,
+      "accepted": 11,
+      "placeholders": 0,
+      "total_marks": 100,
+      "generated_slots": 2,
+      "real_bank_slots": 9,
+      "answers": {
+        "requested": 9,
+        "cache_hits": 1,
+        "generated": 8,
+        "cost_usd": 0.006749
+      },
+      "warnings": [],
+      "qa": {
+        "paper_xml_valid": true,
+        "scheme_xml_valid": true,
+        "paper_problems": [],
+        "scheme_problems": [],
+        "paper_pdf_problems": [],
+        "scheme_pdf_problems": [],
+        "paper_right_overflow": [],
+        "scheme_right_overflow": []
+      },
+      "files_exist": true,
+      "files": {
+        "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\382c325ec69b859b6487\\paper.docx",
+        "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\382c325ec69b859b6487\\paper.pdf",
+        "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\382c325ec69b859b6487\\scheme.docx",
+        "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\382c325ec69b859b6487\\scheme.pdf"
+      },
+      "sha256": {
+        "paper_docx": "9efac2e4fbd11531629ae6c96ca793da4f19f45cfe8785d4e0ccc2675417ef75",
+        "paper_pdf": "2c6768b21848c4732b25f44fcdc3d2fc3a90c745e66fa2a6eda4e7435f2401b9",
+        "scheme_docx": "e094fc7591234241bcb3918b135d86068f4af20a8fbc6479ac324125004ceae0",
+        "scheme_pdf": "2b9406337c4d88f6dac450df5cdf43dc658280dcbde918696e01780b62d06ebb"
+      },
+      "real_question_ids": [
+        "CSC429-2019-06-A10",
+        "CSC429-2019-12-A1",
+        "CSC429-2014-06-A9",
+        "CSC429-2025-02-A9",
+        "CSC429-2017-07-A8",
+        "CSC429-2018-12-A6",
+        "CSC429-2018-06-A7",
+        "CSC429-2025-07-A6",
+        "CSC429-2024-07-B1"
+      ],
+      "generator_ids": [
+        "csc429.ieee754_single",
+        "csc429.number_base_conversion"
+      ]
+    },
+    {
+      "seed": 16,
+      "cache_dir": "outputs/web_cache/CSC429/d8f10091ede06b142e0e",
+      "created_year": 2026,
+      "paper_pages": 6,
+      "scheme_pages": 10,
+      "accepted": 11,
+      "placeholders": 0,
+      "total_marks": 100,
+      "generated_slots": 2,
+      "real_bank_slots": 9,
+      "answers": {
+        "requested": 9,
+        "cache_hits": 3,
+        "generated": 6,
+        "cost_usd": 0.005513
+      },
+      "warnings": [],
+      "qa": {
+        "paper_xml_valid": true,
+        "scheme_xml_valid": true,
+        "paper_problems": [],
+        "scheme_problems": [],
+        "paper_pdf_problems": [],
+        "scheme_pdf_problems": [],
+        "paper_right_overflow": [],
+        "scheme_right_overflow": []
+      },
+      "files_exist": true,
+      "files": {
+        "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d8f10091ede06b142e0e\\paper.docx",
+        "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d8f10091ede06b142e0e\\paper.pdf",
+        "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d8f10091ede06b142e0e\\scheme.docx",
+        "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d8f10091ede06b142e0e\\scheme.pdf"
+      },
+      "sha256": {
+        "paper_docx": "b617cad60a708b36b1da608a2cf2d79e6a54e3d7026367b3d991a0b4bcb129cc",
+        "paper_pdf": "ec6ca2d54e457a8a3753007c26b21661c3cc06b32ab2c3fd1afa8cb079781cb5",
+        "scheme_docx": "ae3db35397871aa6fe3826dfe819f519dbbdb1f0484dc0791cbee2e1c90f0e21",
+        "scheme_pdf": "71fc7d51caf760cdfdb6b2ae3a621a1f65786413e24d99bf9b63c7ba52ac9299"
+      },
+      "real_question_ids": [
+        "CSC429-2016-12-A1",
+        "CSC429-2016-06-A10",
+        "CSC429-2014-06-A9",
+        "CSC429-2015-12-A7",
+        "CSC429-2024-01-A7",
+        "CSC429-2018-01-A8",
+        "CSC429-2019-06-A5",
+        "CSC429-2018-06-A8",
+        "CSC429-2023-02-B1"
+      ],
+      "generator_ids": [
+        "csc429.ieee754_single",
+        "csc429.ieee754_single"
+      ]
+    },
+    {
+      "seed": 17,
+      "cache_dir": "outputs/web_cache/CSC429/75be6178931ce998511b",
+      "created_year": 2026,
+      "paper_pages": 6,
+      "scheme_pages": 8,
+      "accepted": 11,
+      "placeholders": 0,
+      "total_marks": 100,
+      "generated_slots": 2,
+      "real_bank_slots": 9,
+      "answers": {
+        "requested": 9,
+        "cache_hits": 2,
+        "generated": 7,
+        "cost_usd": 0.006253
+      },
+      "warnings": [],
+      "qa": {
+        "paper_xml_valid": true,
+        "scheme_xml_valid": true,
+        "paper_problems": [],
+        "scheme_problems": [],
+        "paper_pdf_problems": [],
+        "scheme_pdf_problems": [],
+        "paper_right_overflow": [],
+        "scheme_right_overflow": []
+      },
+      "files_exist": true,
+      "files": {
+        "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\75be6178931ce998511b\\paper.docx",
+        "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\75be6178931ce998511b\\paper.pdf",
+        "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\75be6178931ce998511b\\scheme.docx",
+        "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\75be6178931ce998511b\\scheme.pdf"
+      },
+      "sha256": {
+        "paper_docx": "21c5c88f2bb0bc037d458e7602c654556f6b98efd5abf4bbbd7b1dba336b7a1a",
+        "paper_pdf": "c7277196b5930f1c4e7349eb7991fdc1152f572e7b483dccc10be8eddb9df81b",
+        "scheme_docx": "76ce52d65192bbef876d74135a3b1fbb0cd719657aa1577e2791b33ac8bad238",
+        "scheme_pdf": "0e804f3ca2d759b0ae21ed4b259247e84b034411b3fbd5c08344a94693bceff4"
+      },
+      "real_question_ids": [
+        "CSC429-2017-07-A2",
+        "CSC429-2014-06-A9",
+        "CSC429-2016-06-A10",
+        "CSC429-2015-06-A7",
+        "CSC429-2023-02-A8",
+        "CSC429-2019-12-A7",
+        "CSC429-2018-06-A7",
+        "CSC429-2024-01-A7",
+        "CSC429-2025-02-B1"
+      ],
+      "generator_ids": [
+        "csc429.signed_arithmetic",
+        "csc429.number_base_conversion"
+      ]
+    },
+    {
+      "seed": 18,
+      "cache_dir": "outputs/web_cache/CSC429/de1adbabb59e78356375",
+      "created_year": 2026,
+      "paper_pages": 5,
+      "scheme_pages": 10,
+      "accepted": 11,
+      "placeholders": 0,
+      "total_marks": 100,
+      "generated_slots": 2,
+      "real_bank_slots": 9,
+      "answers": {
+        "requested": 9,
+        "cache_hits": 1,
+        "generated": 8,
+        "cost_usd": 0.007281
+      },
+      "warnings": [],
+      "qa": {
+        "paper_xml_valid": true,
+        "scheme_xml_valid": true,
+        "paper_problems": [],
+        "scheme_problems": [],
+        "paper_pdf_problems": [],
+        "scheme_pdf_problems": [],
+        "paper_right_overflow": [],
+        "scheme_right_overflow": []
+      },
+      "files_exist": true,
+      "files": {
+        "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\de1adbabb59e78356375\\paper.docx",
+        "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\de1adbabb59e78356375\\paper.pdf",
+        "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\de1adbabb59e78356375\\scheme.docx",
+        "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\de1adbabb59e78356375\\scheme.pdf"
+      },
+      "sha256": {
+        "paper_docx": "2d1a1e5f028c830024d66e783259cd36cb95d440e76bdd6a18bd656f8762285a",
+        "paper_pdf": "1dd0255325c39b6b151e0c0d4376dfebe2a131c9e46fae1445c2ef5900b8d00e",
+        "scheme_docx": "ac6a0fcda678cf181a98f3d6aac3b3683c61e68ec0ab5cc57a5e8cfb98515a0c",
+        "scheme_pdf": "092048b15a44ec8f58edd2b81949a119ec6244068d6a8e1d7b25967f17f24ef5"
+      },
+      "real_question_ids": [
+        "CSC429-2017-07-A10",
+        "CSC429-2025-02-A2",
+        "CSC429-2014-06-A9",
+        "CSC429-2023-07-A7",
+        "CSC429-2018-06-A7",
+        "CSC429-2019-12-A9",
+        "CSC429-2014-12-A7",
+        "CSC429-2016-12-A3",
+        "CSC429-2026-02-B1"
+      ],
+      "generator_ids": [
+        "csc429.signed_arithmetic",
+        "csc429.signed_arithmetic"
+      ]
+    },
+    {
+      "seed": 19,
+      "cache_dir": "outputs/web_cache/CSC429/d00448ee4ac234d63322",
+      "created_year": 2026,
+      "paper_pages": 5,
+      "scheme_pages": 10,
+      "accepted": 11,
+      "placeholders": 0,
+      "total_marks": 100,
+      "generated_slots": 2,
+      "real_bank_slots": 9,
+      "answers": {
+        "requested": 9,
+        "cache_hits": 1,
+        "generated": 8,
+        "cost_usd": 0.007669
+      },
+      "warnings": [],
+      "qa": {
+        "paper_xml_valid": true,
+        "scheme_xml_valid": true,
+        "paper_problems": [],
+        "scheme_problems": [],
+        "paper_pdf_problems": [],
+        "scheme_pdf_problems": [],
+        "paper_right_overflow": [],
+        "scheme_right_overflow": []
+      },
+      "files_exist": true,
+      "files": {
+        "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d00448ee4ac234d63322\\paper.docx",
+        "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d00448ee4ac234d63322\\paper.pdf",
+        "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d00448ee4ac234d63322\\scheme.docx",
+        "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\d00448ee4ac234d63322\\scheme.pdf"
+      },
+      "sha256": {
+        "paper_docx": "e74a9ac8a3a1baeada01bf4d7e2f1502eebce3dc61a5985f9e7a7941d8510e5a",
+        "paper_pdf": "ee63e13b23a9ed5e17ad13ad9140de572de9dfae0cdf5aae5dc1a70dc2fd37f8",
+        "scheme_docx": "375c266528ec20856056b4f4a106b4f160667b3e9ab09c9282e8d11b1c0348b7",
+        "scheme_pdf": "c92b6b719f92ee4bf40519ea7c242479acd242ef0d80a0b458c16d5176db811f"
+      },
+      "real_question_ids": [
+        "CSC429-2014-06-A9",
+        "CSC429-2018-12-A10",
+        "CSC429-2018-01-A2",
+        "CSC429-2016-12-A4",
+        "CSC429-2019-06-A7",
+        "CSC429-2025-02-A9",
+        "CSC429-2026-02-A6",
+        "CSC429-2015-12-A4",
+        "CSC429-2024-07-B1"
+      ],
+      "generator_ids": [
+        "csc429.signed_arithmetic",
+        "csc429.signed_arithmetic"
+      ]
+    },
+    {
+      "seed": 20,
+      "cache_dir": "outputs/web_cache/CSC429/0a5e9d1ba8b748c5ab9f",
+      "created_year": 2026,
+      "paper_pages": 5,
+      "scheme_pages": 10,
+      "accepted": 11,
+      "placeholders": 0,
+      "total_marks": 100,
+      "generated_slots": 2,
+      "real_bank_slots": 9,
+      "answers": {
+        "requested": 9,
+        "cache_hits": 3,
+        "generated": 6,
+        "cost_usd": 0.0056
+      },
+      "warnings": [],
+      "qa": {
+        "paper_xml_valid": true,
+        "scheme_xml_valid": true,
+        "paper_problems": [],
+        "scheme_problems": [],
+        "paper_pdf_problems": [],
+        "scheme_pdf_problems": [],
+        "paper_right_overflow": [],
+        "scheme_right_overflow": []
+      },
+      "files_exist": true,
+      "files": {
+        "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\0a5e9d1ba8b748c5ab9f\\paper.docx",
+        "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\0a5e9d1ba8b748c5ab9f\\paper.pdf",
+        "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\0a5e9d1ba8b748c5ab9f\\scheme.docx",
+        "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\0a5e9d1ba8b748c5ab9f\\scheme.pdf"
+      },
+      "sha256": {
+        "paper_docx": "622d1a14dbb7b892ff74cd57e95bb8e9c9db743af3e6c3d3fe5a41e683dd2562",
+        "paper_pdf": "f24b4fa22d11105596a457d2bbd6612c501d6c2f251454136a63567f25c12f0c",
+        "scheme_docx": "21f238b2884931cffd9f2ac8ab3001d4198b9daa428551c65a5055512129cb1f",
+        "scheme_pdf": "75cfdba9d8a60d94c156a64d7f08876638e2dcec17e6e5f65e87b85ebc63528a"
+      },
+      "real_question_ids": [
+        "CSC429-2024-07-A1",
+        "CSC429-2019-12-A10",
+        "CSC429-2014-06-A9",
+        "CSC429-2016-12-A8",
+        "CSC429-2025-02-A9",
+        "CSC429-2018-01-A3",
+        "CSC429-2014-12-A4",
+        "CSC429-2018-06-A8",
+        "CSC429-2025-07-B1"
+      ],
+      "generator_ids": [
+        "csc429.number_base_conversion",
+        "csc429.number_base_conversion"
+      ]
+    }
+  ]
+}
