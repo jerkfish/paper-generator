@@ -55,3 +55,31 @@ def test_a5_and_a8_figures_are_tightened_around_their_labels():
     assert a8["tightened"] is True
     assert a5["bbox_pdf"][2] - a5["bbox_pdf"][0] < 0.45 * 597.84
     assert a8["bbox_pdf"][2] - a8["bbox_pdf"][0] < 0.35 * 594.72
+
+
+def test_owner_verified_unsure_items_are_resolved():
+    bank = _bank()
+    by_id = {row["question_id"]: row for row in bank["questions"]}
+    assert bank.get("unsure") == []
+    assert len(bank.get("resolved_unsure") or []) == 6
+
+    marks = {
+        qid: [(part["label"], part["marks"])
+              for part in by_id[qid]["subparts"]]
+        for qid in ("CSC429-2014-06-A10", "CSC429-2023-07-A4")
+    }
+    assert marks["CSC429-2014-06-A10"] == [("a", 4), ("b", 4), ("c", 2)]
+    assert marks["CSC429-2023-07-A4"] == [("a", 2), ("b", 3)]
+
+    assert by_id["CSC429-2016-12-B1"]["figure_refs"] == ["Figure 4", "Table 3"]
+    assert by_id["CSC429-2017-07-B1"]["figure_refs"] == ["Figure 2", "Table 2"]
+    assert by_id["CSC429-2023-02-B1"]["figure_refs"] == ["Figure 4", "Table 3"]
+
+    table = by_id["CSC429-2014-12-A1"]
+    assert table["asset_ids"] == ["CSC429-2014-12-T1"]
+    asset = next(
+        row for row in _assets()["assets"]
+        if row["asset_id"] == "CSC429-2014-12-T1")
+    assert asset["kind"] == "table"
+    assert len(asset["table_data"]["rows"]) == 6
+    assert asset["table_data"]["rows"][0]["cells"][0]["text"] == "Scenario"

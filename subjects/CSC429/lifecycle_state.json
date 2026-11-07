@@ -4,7 +4,7 @@
   "type": "C",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-06T14:38:14Z",
+  "updated": "2026-11-07T05:51:32Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -66,7 +66,7 @@
         "on": "2026-11-06",
         "note": "Reopened with the pure-extraction experiment principles. The owner delegated stages 1-6; only Stage 7 is a human gate."
       },
-      "notes": "Stage 1 reopened and completed with the pure-extraction experiment principles. 20 unique papers / 125 pages at 300 dpi; 4,696 layout lines; 97 content-only page crops (61 figures, 36 tables). Figure crops now carry a per-asset display_width_cm (8 cm for small pictures, 12 cm for most diagrams, 16.2 cm for very wide diagrams) and native captions remain metadata for the paper builder. A1 uses the uncaptioned taxonomy diagram correction; A4 has c) and 9(a).; 215 questions, 633 subparts, 68 asset-linked questions, 6 unsure items. LLM cost $0.00."
+      "notes": "Stage 1 complete with the pure-extraction experiment principles. 20 unique papers / 125 pages at 300 dpi; 4,696 layout lines; 98 content-only page crops (61 figures, 37 tables). Figure crops carry per-asset display widths (8 cm small pictures, 12 cm most diagrams, 16.2 cm very wide, 12 cm height cap) and native captions. Owner verification resolved all six unsure items: 2014-06-A10 a=4/b=4/c=2; 2023-07-A4 a=2/b=3; 2016-12-B1 Table 4 was a clerical error for Table 3; 2017-07-B1 Table 1 -> Table 2; 2023-02-B1 Table 1 -> Table 3; 2014-12-A1 Table 1 supplied by the owner and recreated natively. 215 questions, 633 subparts, 69 asset-linked questions, 0 unresolved, 0 unsure. LLM cost $0.00."
     },
     "2_scheme_slides": {
       "status": "done",
@@ -121,7 +121,7 @@
         "on": "2026-11-06",
         "note": "Reopened with the pure-extraction experiment principles. The owner delegated stages 1-6; only Stage 7 is a human gate."
       },
-      "notes": "Rebuilt from the corrected 215-question bank: 8 topics, 2,000 marks, 20/20 papers reconciled, zero unclassified, 6 unsure items. Stage 4 is complete under the owner delegation for stages 1-6."
+      "notes": "Rebuilt after all six unsure items were owner-verified: 8 topics, 215 questions, 2,000 marks, 20/20 papers reconciled, zero unclassified, zero unsure. Stage 4 complete under the owner delegation."
     },
     "5_fingerprint_planner": {
       "status": "done",
@@ -184,7 +184,7 @@
         "tests/test_csc429_answers.py",
         "docs/CSC429.md"
       ],
-      "llm_cost_usd": 0.014089,
+      "llm_cost_usd": 0.017014,
       "blockers": [],
       "human_approval": {
         "required": true,
@@ -193,7 +193,7 @@
         "on": "",
         "note": "Stage 7 is the only human gate; sample regenerated with the experiment presentation rules."
       },
-      "notes": "Sample rebuilt with the experiment principles: per-question figure widths (small pictures 8 cm, most diagrams 12 cm, very wide diagrams 16.2 cm, height capped at 12 cm); native captions under figures and tables; `(N marks)` right-tabbed to the text margin; scheme no longer prints the question body. A8 starts on a fresh page to keep its large figure with the question. Seed 1: 7 paper pages, 10 scheme pages; 11/11 slots accepted; 2 generated (A3/A10), 9 real-bank. Answer cache unchanged at 15 DeepSeek Flash calls, $0.014089. Stage 7 awaits owner approval."
+      "notes": "Stage 7 sample rebuilt with the experiment presentation rules: per-question figure widths (8/12/16.2 cm, 12 cm height cap), native figure/table captions, `(N marks)` right-tabbed to the text margin, and a scheme without question bodies. Seed 1: 8 paper pages, 9 scheme pages; 11/11 slots accepted; 2 generated (A3/A10), 9 real-bank. Three new answers were generated after the owner-verified text corrections. Answer cache: 18 DeepSeek Flash calls, 8,724 prompt + 11,998 completion tokens, $0.017014. QA problems: none. Stage 7 awaits owner approval."
     },
     "8_library_prebuild": {
       "status": "pending",
@@ -238,56 +238,10 @@
       "notes": ""
     }
   },
-  "unsure": [
-    {
-      "paper_id": "CSC429-2014-06",
-      "question_id": "CSC429-2014-06-A10",
-      "code": "ambiguous_marks",
-      "detail": "mark 4 follows preamble text, not a subpart"
-    },
-    {
-      "paper_id": "CSC429-2014-12",
-      "question_id": "CSC429-2014-12-A1",
-      "code": "unresolved_reference",
-      "detail": "reference(s) without a matching asset: Table 1"
-    },
-    {
-      "paper_id": "CSC429-2016-12",
-      "question_id": "CSC429-2016-12-B1",
-      "code": "unresolved_reference",
-      "detail": "reference(s) without a matching asset: Table 4"
-    },
-    {
-      "paper_id": "CSC429-2017-07",
-      "question_id": "CSC429-2017-07-B1",
-      "code": "unresolved_reference",
-      "detail": "reference(s) without a matching asset: Table 1"
-    },
-    {
-      "paper_id": "CSC429-2023-02",
-      "question_id": "CSC429-2023-02-B1",
-      "code": "unresolved_reference",
-      "detail": "reference(s) without a matching asset: Table 1"
-    },
-    {
-      "paper_id": "CSC429-2023-07",
-      "question_id": "CSC429-2023-07-A4",
-      "code": "ambiguous_marks",
-      "detail": "mark 2 follows preamble text, not a subpart"
-    },
-    {
-      "paper_id": "CSC429",
-      "question_id": "CSC429-MODEL-ANSWERS",
-      "code": "unofficial_model_answer",
-      "detail": "Seed-1 real-bank answers are AI-generated unofficial model answers; A4 is reviewer-corrected. Not an official UTM scheme.",
-      "stage": "7_builders_qa",
-      "item": "Real-bank scheme answers are unofficial and must be checked against the source paper.",
-      "blocking": false
-    }
-  ],
+  "unsure": [],
   "llm_cost": {
     "currency": "USD",
-    "total_usd": 0.014089,
+    "total_usd": 0.017014,
     "by_stage": {
       "0_intake": 0.0,
       "1_preprocess": 0.0,
@@ -296,10 +250,61 @@
       "4_taxonomy_question_log": 0.0,
       "5_fingerprint_planner": 0.0,
       "6_generators": 0.0,
-      "7_builders_qa": 0.014089,
+      "7_builders_qa": 0.017014,
       "8_library_prebuild": 0.0,
       "9_publish": 0.0,
       "10_close_out": 0.0
     }
-  }
+  },
+  "resolved_unsure": [
+    {
+      "paper_id": "CSC429-2014-06",
+      "question_id": "CSC429-2014-06-A10",
+      "code": "ambiguous_marks",
+      "detail": "mark 4 follows preamble text, not a subpart",
+      "resolution": "owner_verified",
+      "resolved_on": "2026-11-07"
+    },
+    {
+      "paper_id": "CSC429-2014-12",
+      "question_id": "CSC429-2014-12-A1",
+      "code": "unresolved_reference",
+      "detail": "reference(s) without a matching asset: Table 1",
+      "resolution": "owner_verified",
+      "resolved_on": "2026-11-07"
+    },
+    {
+      "paper_id": "CSC429-2016-12",
+      "question_id": "CSC429-2016-12-B1",
+      "code": "unresolved_reference",
+      "detail": "reference(s) without a matching asset: Table 4",
+      "resolution": "owner_verified",
+      "resolved_on": "2026-11-07"
+    },
+    {
+      "paper_id": "CSC429-2017-07",
+      "question_id": "CSC429-2017-07-B1",
+      "code": "unresolved_reference",
+      "detail": "reference(s) without a matching asset: Table 1",
+      "resolution": "owner_verified",
+      "resolved_on": "2026-11-07"
+    },
+    {
+      "paper_id": "CSC429-2023-02",
+      "question_id": "CSC429-2023-02-B1",
+      "code": "unresolved_reference",
+      "detail": "reference(s) without a matching asset: Table 1",
+      "resolution": "owner_verified",
+      "resolved_on": "2026-11-07"
+    },
+    {
+      "paper_id": "CSC429-2023-07",
+      "question_id": "CSC429-2023-07-A4",
+      "code": "ambiguous_marks",
+      "detail": "mark 2 follows preamble text, not a subpart",
+      "resolution": "owner_verified",
+      "resolved_on": "2026-11-07"
+    }
+  ],
+  "answer_policy_note": "Real-bank scheme answers are unofficial reference answers, not an official UTM marking scheme; A4 is reviewer-corrected."
 }

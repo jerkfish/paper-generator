@@ -72,8 +72,8 @@
     "builder": "src/subjects/csc429/build_docx.py",
     "build_sample": "data/tracking/csc429/build_sample/qa.json",
     "sample_pages": {
-      "paper": 7,
-      "scheme": 10
+      "paper": 8,
+      "scheme": 9
     },
     "marking_scheme": {
       "template": "data/reference/CSC429/CSC429 SCHEME TEMPLATE.docx",
@@ -82,14 +82,18 @@
       "unofficial_model_answers": true,
       "answer_cache": "data/tracking/csc429/model_answers.json",
       "answer_model": "deepseek-flash",
-      "answer_calls": 15,
-      "answer_cost_usd": 0.014089,
+      "answer_calls": 18,
+      "answer_cost_usd": 0.017014,
       "real_bank_source_references": true,
       "invented_answers": false,
       "scheme_question_body": false,
       "marks_right_aligned": true
     },
-    "figure_width_policy": "small pictures 8cm; diagrams 12cm; wide diagrams 16.2cm; height cap 12cm; native captions"
+    "assets_total": 98,
+    "figure_assets": 61,
+    "table_assets": 37,
+    "asset_linked_questions": 69,
+    "unsure_items": 0
   },
   "deck_map": {},
   "topic_deck_allowlist": {},

@@ -346,6 +346,8 @@ def _table_ready(question: dict, assets: dict[str, dict],
     if not selected_tables:
         return False
     for asset in selected_tables:
+        if asset.get("table_data"):
+            continue
         page = _layout_page(layouts, asset)
         if not page:
             return False
@@ -915,9 +917,11 @@ def _add_table(document, table: dict, *, caption: str = "") -> None:
     _set_table_borders(word_table)
     word_table.alignment = WD_TABLE_ALIGNMENT.CENTER
     word_table.autofit = True
-    width = Cm(16.2 / columns)
-    for column in word_table.columns:
-        column.width = width
+    widths = table.get("column_widths_cm") or []
+    for index, column in enumerate(word_table.columns):
+        width_cm = (float(widths[index]) if index < len(widths)
+                    else 16.2 / columns)
+        column.width = Cm(width_cm)
     for row_index, row in enumerate(rows):
         cells = row.get("cells", [])
         covered: set[int] = set()
