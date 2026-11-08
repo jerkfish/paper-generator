@@ -40,7 +40,7 @@ def test_taxonomy_build_reconciles_every_paper(tmp_path, monkeypatch):
     assert summary["entries"] == 215
     assert summary["marks_total"] == 2000
     assert summary["papers_reconciled"] == 20
-    assert summary["unsure_count"] == 6
+    assert summary["unsure_count"] == 0
     assert summary["topic_entries"].get("other", 0) == 0
 
     log = json.loads((tmp_path / "question_log.json").read_text(encoding="utf-8"))

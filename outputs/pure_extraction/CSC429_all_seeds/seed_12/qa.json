@@ -1,0 +1,104 @@
+{
+  "subject": "CSC429",
+  "seed": 12,
+  "paper": {
+    "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\pure_extraction\\CSC429_all_seeds\\seed_12\\paper.pdf",
+    "pages": 6,
+    "page1_images": 3,
+    "images_total": 7,
+    "right_overflow": [],
+    "bottom_overflow": [],
+    "part_a": true,
+    "part_b": true
+  },
+  "scheme": {
+    "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\pure_extraction\\CSC429_all_seeds\\seed_12\\scheme.pdf",
+    "pages": 11,
+    "page1_images": 3,
+    "images_total": 3,
+    "right_overflow": [],
+    "bottom_overflow": [],
+    "part_a": true,
+    "part_b": true
+  },
+  "problems": [],
+  "warnings": [],
+  "forbidden_hits": [],
+  "expected_images": 4,
+  "word_version": "16.0",
+  "mapping": {
+    "CSC429-2016-12-A10": {
+      "question_id": "CSC429-2016-12-A10",
+      "labels": {
+        "Figure 3": "Figure 1"
+      },
+      "assets": [
+        "CSC429-2016-12-F3"
+      ]
+    },
+    "CSC429-2019-12-A1": {
+      "question_id": "CSC429-2019-12-A1",
+      "labels": {
+        "Figure 1": "Figure 2"
+      },
+      "assets": [
+        "CSC429-2019-12-F1"
+      ]
+    },
+    "CSC429-2025-07-A4": {
+      "question_id": "CSC429-2025-07-A4",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2016-06-A6": {
+      "question_id": "CSC429-2016-06-A6",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2017-07-A9": {
+      "question_id": "CSC429-2017-07-A9",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2023-07-A10": {
+      "question_id": "CSC429-2023-07-A10",
+      "labels": {
+        "Figure 2": "Figure 3"
+      },
+      "assets": [
+        "CSC429-2023-07-F2"
+      ]
+    },
+    "CSC429-2025-02-A10": {
+      "question_id": "CSC429-2025-02-A10",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2017-07-A4": {
+      "question_id": "CSC429-2017-07-A4",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2017-07-A8": {
+      "question_id": "CSC429-2017-07-A8",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2024-01-A7": {
+      "question_id": "CSC429-2024-01-A7",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2023-07-B1": {
+      "question_id": "CSC429-2023-07-B1",
+      "labels": {
+        "Figure 3": "Figure 4",
+        "Table 1": "Table 1"
+      },
+      "assets": [
+        "CSC429-2023-07-F3",
+        "CSC429-2023-07-T1"
+      ]
+    }
+  }
+}

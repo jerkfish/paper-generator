@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "subject": "CSC429",
+  "stage": "P9",
+  "status": "complete",
+  "generated_at": "2026-11-08T09:15:50.863610+00:00",
+  "gate1": "approved",
+  "gate2": "approved",
+  "seeds": 20,
+  "questions_approved": 172,
+  "needs_fix": 26,
+  "rejected": 17,
+  "assets": 96,
+  "format": "QUESTION 1..11 + native Word lists",
+  "cost_usd": 0.139464,
+  "cap_usd": 5.0,
+  "tests": "341 passed, 12 skipped (legacy Type C retired)",
+  "qa_failures": 0,
+  "publication": false,
+  "library_manifest": "outputs/web_cache/CSC429/manifest.json",
+  "notes": [
+    "No publication, R2 upload or Worker deployment.",
+    "26 needs_fix and 17 rejected questions remain outside the pool.",
+    "5 numeric answers flagged for human checking.",
+    "All 20 seeds use approved questions only and original source assets."
+  ],
+  "public_bundle": {
+    "built": true,
+    "path": "outputs/public_bundle",
+    "validation_problems": 0,
+    "uploaded": false,
+    "deployed": false,
+    "publication_permission_after_build": true
+  }
+}

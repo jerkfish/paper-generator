@@ -346,6 +346,8 @@ def _table_ready(question: dict, assets: dict[str, dict],
     if not selected_tables:
         return False
     for asset in selected_tables:
+        if asset.get("table_data"):
+            continue
         page = _layout_page(layouts, asset)
         if not page:
             return False
@@ -634,6 +636,7 @@ def _asset_block(asset: dict, question: dict,
             "y": float(_box(asset)[1]),
             "asset_id": asset["asset_id"],
             "table": table,
+            "caption": asset.get("caption", ""),
         }
     if mixed:
         lines = _mixed_lines(asset, page)
@@ -645,6 +648,7 @@ def _asset_block(asset: dict, question: dict,
             "y": min(float(line["bbox"][1]) for line in lines),
             "asset_id": asset["asset_id"],
             "lines": [line["text"] for line in lines],
+            "caption": asset.get("caption", ""),
         }
     box = _figure_box(asset, page, question)
     if box is None:
@@ -660,6 +664,8 @@ def _asset_block(asset: dict, question: dict,
         "page_points": asset.get("page_points", []),
         "width_px": asset.get("width_px", 0),
         "height_px": asset.get("height_px", 0),
+        "caption": asset.get("caption", ""),
+        "display_width_cm": asset.get("display_width_cm"),
     }
 
 
@@ -891,7 +897,18 @@ def _set_table_borders(table) -> None:
     tbl_pr.append(borders)
 
 
-def _add_table(document, table: dict) -> None:
+def _add_table(document, table: dict, *, caption: str = "") -> None:
+    if caption:
+        cap = document.add_paragraph()
+        cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        cap.paragraph_format.line_spacing = 1.0
+        cap.paragraph_format.space_before = Pt(4)
+        cap.paragraph_format.space_after = Pt(2)
+        cap.paragraph_format.keep_with_next = True
+        run = cap.add_run(_safe_text(caption))
+        run.font.name = "Arial"
+        run.font.size = Pt(9)
+        run.italic = True
     rows = table.get("rows", [])
     columns = max(1, int(table.get("columns", 1)))
     if not rows:
@@ -900,9 +917,11 @@ def _add_table(document, table: dict) -> None:
     _set_table_borders(word_table)
     word_table.alignment = WD_TABLE_ALIGNMENT.CENTER
     word_table.autofit = True
-    width = Cm(16.2 / columns)
-    for column in word_table.columns:
-        column.width = width
+    widths = table.get("column_widths_cm") or []
+    for index, column in enumerate(word_table.columns):
+        width_cm = (float(widths[index]) if index < len(widths)
+                    else 16.2 / columns)
+        column.width = Cm(width_cm)
     for row_index, row in enumerate(rows):
         cells = row.get("cells", [])
         covered: set[int] = set()
@@ -962,17 +981,29 @@ def _add_figure(document, block: dict, out_dir: Path) -> None:
     with Image.open(path) as image:
         width_px = float(image.width)
         height_px = float(image.height)
-    width_cm = 16.2
+    width_cm = float(block.get("display_width_cm") or 16.2)
     if width_px > 0 and height_px > 0:
-        max_height_cm = 18.0
+        max_height_cm = 12.0
         if width_cm * height_px / width_px > max_height_cm:
             width_cm = max_height_cm * width_px / height_px
     picture = document.add_paragraph()
     picture.alignment = WD_ALIGN_PARAGRAPH.CENTER
     picture.paragraph_format.line_spacing = 1.5
     picture.paragraph_format.space_before = Pt(4)
-    picture.paragraph_format.space_after = Pt(4)
+    picture.paragraph_format.space_after = Pt(2)
+    picture.paragraph_format.keep_with_next = True
     picture.add_run().add_picture(str(path), width=Cm(width_cm))
+    caption = _safe_text(block.get("caption", "")).strip()
+    if caption:
+        cap = document.add_paragraph()
+        cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        cap.paragraph_format.line_spacing = 1.0
+        cap.paragraph_format.space_before = Pt(1)
+        cap.paragraph_format.space_after = Pt(6)
+        run = cap.add_run(caption)
+        run.font.name = "Arial"
+        run.font.size = Pt(9)
+        run.italic = True
 
 
 def _add_mixed(document, block: dict) -> None:
@@ -997,6 +1028,16 @@ def _add_mixed(document, block: dict) -> None:
     spacer = document.add_paragraph()
     spacer.paragraph_format.space_after = Pt(2)
     spacer.paragraph_format.line_spacing = 1.0
+    caption = _safe_text(block.get("caption", "")).strip()
+    if caption:
+        cap = document.add_paragraph()
+        cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        cap.paragraph_format.line_spacing = 1.0
+        cap.paragraph_format.space_after = Pt(6)
+        run = cap.add_run(caption)
+        run.font.name = "Arial"
+        run.font.size = Pt(9)
+        run.italic = True
 
 
 def _add_text(document, block: dict, *, first: bool,
@@ -1023,6 +1064,19 @@ def _add_text(document, block: dict, *, first: bool,
 
 
 def _add_question(document, slot: dict, out_dir: Path) -> None:
+    content = slot.get("content") or []
+    large_figure = False
+    for block in content:
+        if block.get("type") != "figure":
+            continue
+        width_px = float(block.get("width_px") or 0)
+        height_px = float(block.get("height_px") or 0)
+        width_cm = float(block.get("display_width_cm") or 16.2)
+        if width_px > 0 and height_px > 0:
+            height_cm = width_cm * height_px / width_px
+            if height_cm > 9.0:
+                large_figure = True
+                break
     blank = document.add_paragraph()
     blank.paragraph_format.line_spacing = 1.5
     blank.paragraph_format.space_before = Pt(10)
@@ -1032,14 +1086,18 @@ def _add_question(document, slot: dict, out_dir: Path) -> None:
     heading.paragraph_format.space_before = Pt(10)
     heading.paragraph_format.space_after = Pt(2)
     heading.paragraph_format.keep_with_next = True
+    if large_figure:
+        heading.paragraph_format.page_break_before = True
+    section = document.sections[-1]
+    text_width = (section.page_width - section.left_margin
+                  - section.right_margin)
     heading.paragraph_format.tab_stops.add_tab_stop(
-        Cm(16.2), WD_TAB_ALIGNMENT.RIGHT)
+        text_width, WD_TAB_ALIGNMENT.RIGHT)
     run = heading.add_run(f"QUESTION {slot['slot']}")
     run.bold = True
     heading.add_run("\t")
     run = heading.add_run(f"({slot['marks']} marks)")
     run.bold = True
-    content = slot.get("content") or []
     if not content:
         content = [{"type": "text", "text": slot.get("text", "")}]
     numbering = _QuestionNumbering(document)
@@ -1052,7 +1110,7 @@ def _add_question(document, slot: dict, out_dir: Path) -> None:
         elif block["type"] == "mixed":
             _add_mixed(document, block)
         elif block["type"] == "table":
-            _add_table(document, block["table"])
+            _add_table(document, block["table"], caption=block.get("caption", ""))
 
 
 def build_docx(plan: dict, target: Path) -> None:

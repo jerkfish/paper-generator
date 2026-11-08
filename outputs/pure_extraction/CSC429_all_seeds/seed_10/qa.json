@@ -1,0 +1,100 @@
+{
+  "subject": "CSC429",
+  "seed": 10,
+  "paper": {
+    "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\pure_extraction\\CSC429_all_seeds\\seed_10\\paper.pdf",
+    "pages": 5,
+    "page1_images": 3,
+    "images_total": 6,
+    "right_overflow": [],
+    "bottom_overflow": [],
+    "part_a": true,
+    "part_b": true
+  },
+  "scheme": {
+    "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\pure_extraction\\CSC429_all_seeds\\seed_10\\scheme.pdf",
+    "pages": 10,
+    "page1_images": 3,
+    "images_total": 3,
+    "right_overflow": [],
+    "bottom_overflow": [],
+    "part_a": true,
+    "part_b": true
+  },
+  "problems": [],
+  "warnings": [],
+  "forbidden_hits": [],
+  "expected_images": 3,
+  "word_version": "16.0",
+  "mapping": {
+    "CSC429-2014-12-A2": {
+      "question_id": "CSC429-2014-12-A2",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2015-12-A2": {
+      "question_id": "CSC429-2015-12-A2",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2023-02-A3": {
+      "question_id": "CSC429-2023-02-A3",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2017-07-A1": {
+      "question_id": "CSC429-2017-07-A1",
+      "labels": {
+        "Figure 1": "Figure 1"
+      },
+      "assets": [
+        "CSC429-2017-07-F1"
+      ]
+    },
+    "CSC429-2016-12-A8": {
+      "question_id": "CSC429-2016-12-A8",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2015-12-A10": {
+      "question_id": "CSC429-2015-12-A10",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2026-02-A9": {
+      "question_id": "CSC429-2026-02-A9",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2019-12-A8": {
+      "question_id": "CSC429-2019-12-A8",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2018-01-A8": {
+      "question_id": "CSC429-2018-01-A8",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2018-01-A9": {
+      "question_id": "CSC429-2018-01-A9",
+      "labels": {
+        "Figure 2": "Figure 2"
+      },
+      "assets": [
+        "CSC429-2018-01-F2"
+      ]
+    },
+    "CSC429-2026-02-B1": {
+      "question_id": "CSC429-2026-02-B1",
+      "labels": {
+        "Figure 5": "Figure 3",
+        "Table 1": "Table 1"
+      },
+      "assets": [
+        "CSC429-2026-02-F5",
+        "CSC429-2026-02-T1"
+      ]
+    }
+  }
+}

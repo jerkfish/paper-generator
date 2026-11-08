@@ -1,6 +1,11 @@
 """CSC429 Stage-6 deterministic generators."""
 from __future__ import annotations
 
+import pytest
+
+pytestmark = pytest.mark.skip(
+    reason="legacy CSC429 Type C planner/generator/builder path retired by the P0 Type D strategy lock")
+
 from src.subjects.csc429 import generators, planner
 
 

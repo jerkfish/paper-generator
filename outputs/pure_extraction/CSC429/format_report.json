@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "subject": "CSC429",
+  "format": "native_word_multilevel_list",
+  "status": "applied",
+  "seeds": [
+    {
+      "seed": 1,
+      "paper_pages": 5,
+      "scheme_pages": 9,
+      "numbered_paragraphs": 29,
+      "numbering_defs": 29,
+      "qa": [],
+      "word_version": "16.0"
+    },
+    {
+      "seed": 2,
+      "paper_pages": 5,
+      "scheme_pages": 9,
+      "numbered_paragraphs": 20,
+      "numbering_defs": 25,
+      "qa": [],
+      "word_version": "16.0"
+    },
+    {
+      "seed": 3,
+      "paper_pages": 5,
+      "scheme_pages": 11,
+      "numbered_paragraphs": 33,
+      "numbering_defs": 29,
+      "qa": [],
+      "word_version": "16.0"
+    }
+  ],
+  "notes": [
+    "a)/b)/c) and i./ii. are Word list numbering, not literal text.",
+    "Question text is cleaned of OCR text inside asset and caption bboxes before numbering."
+  ]
+}

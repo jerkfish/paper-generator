@@ -3,7 +3,7 @@
   "seed": 1,
   "mode": "realistic",
   "computed_marks": null,
-  "model": "csc429-deterministic",
+  "model": "csc429-pure-extraction+deepseek-flash",
   "cost_usd": 0.0,
   "accepted": 11,
   "placeholders": 0,
@@ -12,17 +12,17 @@
   "question_count": 11,
   "has_practice_mode": false,
   "has_placeholders": false,
-  "created": 1793894534.6269748,
+  "created": 1794129282.6078486,
   "year": 2026,
   "topic_marks": {
-    "parallel_architecture": 5,
-    "computer_generations": 5,
-    "data_representation": 15,
+    "assembly_programming": 30,
+    "computer_architecture": 15,
+    "computer_generations": 15,
+    "data_representation": 5,
     "instruction_set_addressing": 5,
-    "io_system": 20,
+    "io_system": 10,
     "memory_system": 10,
-    "computer_architecture": 20,
-    "assembly_programming": 20
+    "parallel_architecture": 10
   },
   "files": {
     "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\95cdd1cd76725ab5b3ce\\paper.docx",
@@ -31,6 +31,36 @@
     "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\95cdd1cd76725ab5b3ce\\scheme.pdf"
   },
   "warnings": [],
+  "format_status": "native_word_numbering_applied",
+  "source_papers": [
+    "CSC429-2013-12",
+    "CSC429-2014-06",
+    "CSC429-2015-06",
+    "CSC429-2018-01",
+    "CSC429-2019-06",
+    "CSC429-2023-02",
+    "CSC429-2025-02",
+    "CSC429-2025-07"
+  ],
+  "questions": [
+    "CSC429-2019-06-A2",
+    "CSC429-2025-07-A2",
+    "CSC429-2025-07-A3",
+    "CSC429-2014-06-A9",
+    "CSC429-2023-02-A9",
+    "CSC429-2023-02-A7",
+    "CSC429-2015-06-A10",
+    "CSC429-2025-02-A6",
+    "CSC429-2018-01-A3",
+    "CSC429-2013-12-A1",
+    "CSC429-2013-12-B1"
+  ],
+  "qa": {
+    "problems": [],
+    "paper_pages": 5,
+    "scheme_pages": 10,
+    "word_version": "16.0"
+  },
   "summary": {
     "subject": "CSC429",
     "seed": 1,
@@ -42,31 +72,33 @@
     "question_count": 11,
     "has_practice_mode": false,
     "has_placeholders": false,
-    "model": "csc429-deterministic",
+    "model": "csc429-pure-extraction+deepseek-flash",
     "cost_usd": 0.0,
     "cached": true,
     "topic_marks": {
-      "parallel_architecture": 5,
-      "computer_generations": 5,
-      "data_representation": 15,
+      "assembly_programming": 30,
+      "computer_architecture": 15,
+      "computer_generations": 15,
+      "data_representation": 5,
       "instruction_set_addressing": 5,
-      "io_system": 20,
+      "io_system": 10,
       "memory_system": 10,
-      "computer_architecture": 20,
-      "assembly_programming": 20
+      "parallel_architecture": 10
     },
     "pdf_available": true,
-    "generated_slots": 2,
-    "real_bank_slots": 9,
-    "warnings": []
+    "generated_slots": 0,
+    "real_bank_slots": 11,
+    "unofficial_answers": 11,
+    "warnings": [],
+    "format_status": "native_word_numbering_applied"
   },
   "progress": [
     {
       "question": "A1",
       "slot": "A1",
-      "status": "accepted",
-      "message": "parallel_architecture",
-      "cost_usd": 0,
+      "status": "approved",
+      "message": "computer_architecture",
+      "cost_usd": 0.0,
       "calls": 0,
       "accepted": 1,
       "placeholders": 0
@@ -74,9 +106,9 @@
     {
       "question": "A2",
       "slot": "A2",
-      "status": "accepted",
+      "status": "approved",
       "message": "computer_generations",
-      "cost_usd": 0,
+      "cost_usd": 0.0,
       "calls": 0,
       "accepted": 1,
       "placeholders": 0
@@ -84,9 +116,9 @@
     {
       "question": "A3",
       "slot": "A3",
-      "status": "accepted",
+      "status": "approved",
       "message": "data_representation",
-      "cost_usd": 0,
+      "cost_usd": 0.0,
       "calls": 0,
       "accepted": 1,
       "placeholders": 0
@@ -94,9 +126,9 @@
     {
       "question": "A4",
       "slot": "A4",
-      "status": "accepted",
+      "status": "approved",
       "message": "instruction_set_addressing",
-      "cost_usd": 0,
+      "cost_usd": 0.0,
       "calls": 0,
       "accepted": 1,
       "placeholders": 0
@@ -104,9 +136,9 @@
     {
       "question": "A5",
       "slot": "A5",
-      "status": "accepted",
+      "status": "approved",
       "message": "io_system",
-      "cost_usd": 0,
+      "cost_usd": 0.0,
       "calls": 0,
       "accepted": 1,
       "placeholders": 0
@@ -114,9 +146,9 @@
     {
       "question": "A6",
       "slot": "A6",
-      "status": "accepted",
+      "status": "approved",
       "message": "memory_system",
-      "cost_usd": 0,
+      "cost_usd": 0.0,
       "calls": 0,
       "accepted": 1,
       "placeholders": 0
@@ -124,9 +156,9 @@
     {
       "question": "A7",
       "slot": "A7",
-      "status": "accepted",
-      "message": "computer_architecture",
-      "cost_usd": 0,
+      "status": "approved",
+      "message": "parallel_architecture",
+      "cost_usd": 0.0,
       "calls": 0,
       "accepted": 1,
       "placeholders": 0
@@ -134,9 +166,9 @@
     {
       "question": "A8",
       "slot": "A8",
-      "status": "accepted",
-      "message": "io_system",
-      "cost_usd": 0,
+      "status": "approved",
+      "message": "assembly_programming",
+      "cost_usd": 0.0,
       "calls": 0,
       "accepted": 1,
       "placeholders": 0
@@ -144,9 +176,9 @@
     {
       "question": "A9",
       "slot": "A9",
-      "status": "accepted",
+      "status": "approved",
       "message": "computer_architecture",
-      "cost_usd": 0,
+      "cost_usd": 0.0,
       "calls": 0,
       "accepted": 1,
       "placeholders": 0
@@ -154,9 +186,9 @@
     {
       "question": "A10",
       "slot": "A10",
-      "status": "accepted",
-      "message": "data_representation",
-      "cost_usd": 0,
+      "status": "approved",
+      "message": "computer_generations",
+      "cost_usd": 0.0,
       "calls": 0,
       "accepted": 1,
       "placeholders": 0
@@ -164,62 +196,12 @@
     {
       "question": "B1",
       "slot": "B1",
-      "status": "accepted",
+      "status": "approved",
       "message": "assembly_programming",
-      "cost_usd": 0,
+      "cost_usd": 0.0,
       "calls": 0,
       "accepted": 1,
       "placeholders": 0
     }
-  ],
-  "validation": {
-    "subject": "CSC429",
-    "seed": 1,
-    "warnings": [],
-    "paper_docx": {
-      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\95cdd1cd76725ab5b3ce\\paper.docx",
-      "xml_valid": true,
-      "forbidden_tokens": [],
-      "missing": [],
-      "problems": [],
-      "pdf": {}
-    },
-    "scheme_docx": {
-      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\95cdd1cd76725ab5b3ce\\scheme.docx",
-      "xml_valid": true,
-      "inline_shapes": 1,
-      "forbidden_tokens": [],
-      "missing": [],
-      "problems": [],
-      "pdf": {}
-    },
-    "paper_pdf": {
-      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\95cdd1cd76725ab5b3ce\\paper.pdf",
-      "pages": 6,
-      "page1_cover": true,
-      "page1_images": 3,
-      "body_starts_page2": true,
-      "right_overflow": [],
-      "problems": [],
-      "forbidden_tokens": []
-    },
-    "scheme_pdf": {
-      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\95cdd1cd76725ab5b3ce\\scheme.pdf",
-      "pages": 5,
-      "page1_cover": true,
-      "page1_images": 1,
-      "body_starts_page2": false,
-      "right_overflow": [],
-      "problems": [],
-      "forbidden_tokens": []
-    },
-    "forbidden_hits": [],
-    "problems": [],
-    "files": {
-      "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\95cdd1cd76725ab5b3ce\\paper.docx",
-      "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\95cdd1cd76725ab5b3ce\\paper.pdf",
-      "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\95cdd1cd76725ab5b3ce\\scheme.docx",
-      "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\95cdd1cd76725ab5b3ce\\scheme.pdf"
-    }
-  }
+  ]
 }

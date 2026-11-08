@@ -13,6 +13,7 @@ Type summary (see ``docs/SUBJECT_PLAYBOOK.md``):
   A - lecture slides + LLM theory pipeline
   B - deterministic computed papers (no LLM)
   C - hybrid: deterministic generators plus LLM theory where appropriate
+  D - asset-first assembly from approved real questions and source assets
 """
 from __future__ import annotations
 
@@ -23,7 +24,7 @@ from pathlib import Path
 from src import config
 
 VALID_STATUSES = {"available", "coming_soon"}
-VALID_TYPES = {"A", "B", "C"}
+VALID_TYPES = {"A", "B", "C", "D"}
 
 PUBLIC_CAPABILITY_KEYS = (
     "subject_type", "generation", "prebuild", "public_documents",
@@ -126,8 +127,9 @@ def _infer_type(data: dict, deck_map: dict,
 
 
 def _default_capabilities(subject_type: str) -> dict:
-    deterministic = subject_type == "B"
+    deterministic = subject_type in {"B", "D"}
     uses_slides = subject_type in {"A", "C"}
+    asset_first = subject_type == "D"
     return {
         "subject_type": subject_type,
         "generation": ("deterministic" if deterministic else
@@ -143,6 +145,7 @@ def _default_capabilities(subject_type: str) -> dict:
         "practice_mode": not deterministic,
         "placeholders": not deterministic,
         "public_scheme_requires_quote_marker": not deterministic,
+        "asset_first": asset_first,
     }
 
 

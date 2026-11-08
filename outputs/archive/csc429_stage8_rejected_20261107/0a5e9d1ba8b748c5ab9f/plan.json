@@ -1,0 +1,1358 @@
+{
+  "subject": "CSC429",
+  "planner_version": 1,
+  "generated_by": "src.subjects.csc429.planner",
+  "style": "modern",
+  "seed": 20,
+  "target_format": {
+    "A": {
+      "questions": 10,
+      "marks": 80,
+      "slot_marks": [
+        5,
+        5,
+        5,
+        5,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ]
+    },
+    "B": {
+      "questions": 1,
+      "marks": 20
+    }
+  },
+  "source_evidence": [
+    "data/tracking/csc429/taxonomy.json",
+    "data/tracking/csc429/question_log.json",
+    "data/tracking/csc429/taxonomy_summary.json"
+  ],
+  "topic_quota": {
+    "computer_generations": 1,
+    "data_representation": 2,
+    "memory_system": 1,
+    "io_system": 2,
+    "parallel_architecture": 1,
+    "computer_architecture": 2,
+    "instruction_set_addressing": 1
+  },
+  "part_marks": {
+    "A": 80,
+    "B": 20
+  },
+  "topic_marks": {
+    "data_representation": 15,
+    "computer_generations": 5,
+    "parallel_architecture": 5,
+    "instruction_set_addressing": 5,
+    "memory_system": 10,
+    "io_system": 20,
+    "computer_architecture": 20,
+    "assembly_programming": 20
+  },
+  "total_marks": 100,
+  "question_count": 11,
+  "slot_count": 11,
+  "slots": [
+    {
+      "slot": "A1",
+      "part": "A",
+      "question": "A1",
+      "kind": "generated_question",
+      "marks": 5,
+      "topic": "data_representation",
+      "topic_label": "Data representation and number systems",
+      "task": "short_answer",
+      "title": "Five-mark question 1",
+      "resolver": "csc429.generator",
+      "variant_policy": "controlled_numeric",
+      "generator_pool": [
+        "csc429.number_base_conversion",
+        "csc429.signed_arithmetic",
+        "csc429.ieee754_single"
+      ],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-GEN-20-A1",
+      "paper_id": "CSC429-GEN-20",
+      "source_file": "",
+      "source_pages": [],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 1,
+          "y": 0,
+          "text": "Convert 286610 to octal. Show your complete workflow."
+        }
+      ],
+      "text": "Convert 286610 to octal. Show your complete workflow.",
+      "subparts": [],
+      "answer": "286610 = 54628",
+      "marking": [
+        "1 mark for identifying the target base.",
+        "1 mark for a correct repeated-division or place-value method.",
+        "1 mark for the correct digit sequence.",
+        "1 mark for the correct base subscript.",
+        "1 mark for a complete, consistent workflow."
+      ],
+      "generator_id": "csc429.number_base_conversion",
+      "metadata": {
+        "base": 8,
+        "converted": "5462",
+        "dec_value": 2866,
+        "hex_value": null
+      }
+    },
+    {
+      "slot": "A2",
+      "part": "A",
+      "question": "A2",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "computer_generations",
+      "topic_label": "Computer generations and history",
+      "task": "short_answer",
+      "title": "Five-mark question 2",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2024-07-A1",
+      "paper_id": "CSC429-2024-07",
+      "source_file": "CSC429 (17).pdf",
+      "source_pages": [
+        2
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 2,
+          "y": 180.18,
+          "text": "The Difference Engine was a mechanical computer designed by Charles Babbage in the 19th century. It was one of the earliest examples of a mechanical calculator, built to automatically compute mathematical tables for naval navigation."
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 231.29,
+          "text": "a) What device was the successor of the Difference Engine?"
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 269.22,
+          "text": "b) Describe the difference in function between the Difference Engine and Mechanical Calculating Machine."
+        },
+        {
+          "type": "text",
+          "page": 2,
+          "y": 320.1,
+          "text": "c) Briefly explain the available technology that existed in the computer generation of Difference Engine."
+        }
+      ],
+      "text": "The Difference Engine was a mechanical computer designed by Charles Babbage in the 19th\ncentury. It was one of the earliest examples of a mechanical calculator, built to automatically\ncompute mathematical tables for naval navigation.\na) What device was the successor of the Difference Engine?\nb) Describe the difference in function between the Difference Engine and Mechanical\nCalculating Machine.\nc) Briefly explain the available technology that existed in the computer generation of\nDifference Engine.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) What device was the successor of the Difference Engine?",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            86.88,
+            231.29,
+            387.09,
+            246.41
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Describe the difference in function between the Difference Engine and Mechanical\nCalculating Machine.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            87.36,
+            269.22,
+            532.99,
+            284.33
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) Briefly explain the available technology that existed in the computer generation of\nDifference Engine.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            87.12,
+            320.1,
+            533.06,
+            335.21
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a) The successor of the Difference Engine was the Analytical Engine, also designed by Charles Babbage. It was a general-purpose programmable mechanical computer, whereas the Difference Engine was a special-purpose calculator.\n\n(b) The Difference Engine was a special-purpose mechanical calculator designed to automatically compute and print mathematical tables (e.g., for naval navigation) using the method of finite differences; it performed only addition and subtraction of polynomial terms and had no general programmability. The Mechanical Calculating Machine (as the term is used in the history of computing, often referring to later mechanical calculators such as the arithmometer or Babbage's earlier designs) was a more general-purpose mechanical device for performing the four basic arithmetic operations (addition, subtraction, multiplication, division) on numbers entered by an operator; it did not automatically compute tables but was a general calculating tool. In short, the Difference Engine was a dedicated table-producing machine, while the Mechanical Calculating Machine was a general-purpose arithmetic calculator.\n\n(c) The Difference Engine belongs to the pre-electronic mechanical era (often called the \"mechanical\" or \"first generation\" in a broad historical sense, though the term \"first generation\" usually refers to vacuum-tube computers). The available technology was mechanical: gears, levers, cams, and rods driven by a hand crank. There were no electronic components; power was human or steam, and data were represented by the positions of mechanical parts. Manufacturing precision was a limiting factor, and Babbage's designs were never fully completed in his lifetime.",
+        "marking": [
+          "1 mark: (a) Correctly identifies the Analytical Engine as the successor.",
+          "1 mark: (b) States that the Difference Engine was special-purpose (automatic table computation using finite differences).",
+          "1 mark: (b) States that the Mechanical Calculating Machine was general-purpose (four arithmetic operations) or contrasts programmability/function.",
+          "1 mark: (c) Identifies the technology as mechanical (gears, levers, cams, hand crank).",
+          "1 mark: (c) Explains that there were no electronic components (pre-electronic era) or notes the limitations of mechanical technology."
+        ],
+        "confidence": "medium",
+        "notes": "The term 'Mechanical Calculating Machine' is not a standard proper name; it is interpreted as a general mechanical calculator (e.g., arithmometer or Babbage's earlier designs) to contrast with the special-purpose Difference Engine. The 'computer generation' of the Difference Engine is taken as the mechanical era (pre-electronic), not the conventional first generation (vacuum tubes).",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T06:21:32.521087+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 468,
+          "completion_tokens": 546,
+          "total_tokens": 1014,
+          "calls": 1,
+          "cost_usd": 0.000796,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A3",
+      "part": "A",
+      "question": "A3",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "parallel_architecture",
+      "topic_label": "Parallel and multiprocessor architecture",
+      "task": "short_answer",
+      "title": "Five-mark question 3",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2019-12-A10",
+      "paper_id": "CSC429-2019-12",
+      "source_file": "CSC429 (13).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 578.27,
+          "text": "a) List THREE (3) characteristics of Symmetric Multiprocessor (SMP)."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 615.44,
+          "text": "b) Describe ONE (1) advantage of Symmetric Multiprocessor (SMP) interms of availability."
+        }
+      ],
+      "text": "a)\nList THREE (3) characteristics of Symmetric Multiprocessor (SMP).\nb)\nDescribe ONE (1) advantage of Symmetric Multiprocessor (SMP) interms of availability.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a)\nList THREE (3) characteristics of Symmetric Multiprocessor (SMP).",
+          "marks": 3,
+          "marks_source": "explicit",
+          "bbox": [
+            83.39,
+            578.27,
+            92.52,
+            593.94
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b)\nDescribe ONE (1) advantage of Symmetric Multiprocessor (SMP) interms of availability.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            83.77,
+            615.44,
+            93.76,
+            631.45
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a) Three characteristics of a Symmetric Multiprocessor (SMP):\n\n1. **Two or more identical processors sharing a single main memory.** All CPUs are of the same type and have equal access to a common, globally shared physical memory (typically via a shared bus or interconnection network), so any processor can access any memory location.\n\n2. **Symmetric access and equal status — no master/slave relationship.** Every processor runs the same operating-system kernel and can execute any task, including kernel/OS code; all processors are peers and share the same I/O devices and system resources.\n\n3. **Tightly coupled, single-system image with hardware-supported coherence.** The processors cooperate through shared memory under one OS instance, presenting a single system image to users; cache coherence and synchronisation (e.g. locking) are maintained in hardware/OS so shared data stays consistent.\n\n(Other acceptable characteristics: shared single OS, common bus/interconnection, load balancing of processes across CPUs, scalability by adding processors.)\n\n(b) Advantage of SMP in terms of availability:\n\nBecause all processors are peers with no single master, the system can **continue operating (gracefully degrade) if one processor fails**. The remaining processors keep running the OS and the workload, so the failure of a single CPU does not bring the whole system down — the system remains available, merely with reduced processing capacity. This redundancy of processing resources gives higher availability/fault tolerance than a single-processor system, where a CPU failure halts the entire machine.",
+        "marking": [
+          "1 mark: states that SMP has two or more identical/symmetric processors sharing a single main memory",
+          "1 mark: states that all processors have equal status/access with no master-slave relationship (same OS, any processor can run any task)",
+          "1 mark: states tight coupling / single-system image with shared resources and hardware-supported coherence or synchronisation",
+          "1 mark: identifies that failure of one processor does not stop the system (no single point of failure / graceful degradation)",
+          "1 mark: explains that remaining processors continue running the OS/workload, so the system stays available with reduced capacity"
+        ],
+        "confidence": "high",
+        "notes": "Unofficial model answer, not an official marking scheme. The question text has a minor OCR/spacing error ('interms'); interpreted as 'in terms of'. Any three valid SMP characteristics earn the 3 marks in part (a).",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T06:03:32.328161+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 411,
+          "completion_tokens": 508,
+          "total_tokens": 919,
+          "calls": 1,
+          "cost_usd": 0.000733,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A4",
+      "part": "A",
+      "question": "A4",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "instruction_set_addressing",
+      "topic_label": "Instruction formats and addressing modes",
+      "task": "short_answer",
+      "title": "Five-mark question 4",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2014-06-A9",
+      "paper_id": "CSC429-2014-06",
+      "source_file": "CSC429 (1).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [
+        "CSC429-2014-06-F2"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 409.68,
+          "text": "Given the following Figure 2."
+        },
+        {
+          "type": "figure",
+          "page": 5,
+          "y": 434.88,
+          "asset_id": "CSC429-2014-06-F2",
+          "path": "data/tracking/csc429/assets/CSC429-2014-06/CSC429-2014-06-F2.png",
+          "crop_box": [
+            112.51,
+            434.88,
+            485.33,
+            574.11
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2014-06\\page_005.jpg",
+          "page_points": [
+            594.72,
+            847.44
+          ],
+          "width_px": 1554,
+          "height_px": 580,
+          "caption": "Figure 2",
+          "display_width_cm": 12.0
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 626.4,
+          "text": "a) Label the addressing technique illustrated in Figure 2."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 664.32,
+          "text": "b) Explain how the addressing technique in 9(a) is used."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 702.48,
+          "text": "c) List ONE (1) advantage and ONE (1) disadvantage of the addressing technique in 9(a)."
+        }
+      ],
+      "text": "Given the following Figure 2.\nInstruction\nOpcode\nAddress A\nMemory\nOperand\nFigure 2\na)\nLabel the addressing technique illustrated in Figure 2.\nb)\nExplain how the addressing technique in 9(a) is used.\nc)\nList ONE (1) advantage and ONE (1) disadvantage of the addressing technique in\n9(a).",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a)\nLabel the addressing technique illustrated in Figure 2.",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            72.24,
+            626.4,
+            81.12,
+            636.48
+          ],
+          "figure_refs": [
+            "Figure 2"
+          ],
+          "asset_ids": [
+            "CSC429-2014-06-F2"
+          ]
+        },
+        {
+          "label": "b",
+          "text": "b)\nExplain how the addressing technique in 9(a) is used.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            72.72,
+            664.32,
+            81.36,
+            674.88
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c)\nList ONE (1) advantage and ONE (1) disadvantage of the addressing technique in\n9(a).",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            72.72,
+            702.48,
+            80.88,
+            713.04
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a) The technique is **direct addressing** (also called absolute addressing). The instruction's address field A holds the actual/effective address of the operand, so the operand is fetched directly from memory location A — the address field contains the address itself, not a pointer to it.\n\n(b) How it is used: The CPU decodes the instruction and takes the address field A as the effective address (EA = A). It then issues a memory read to location A, and the contents of that location (the operand) are loaded into the CPU (e.g. into a register or the accumulator) for use by the instruction. For a store, the result is written back to location A. No further address calculation or extra memory access for address resolution is needed — one memory reference fetches the operand. Example: `LOAD 500` fetches the operand stored at memory address 500.\n\n(c) Advantage: It is simple and fast — no extra address computation and only one memory access to obtain the operand (the address is available immediately from the instruction). Disadvantage: The address field must be large enough to hold a full memory address, limiting the range of addresses (and instruction size), and it offers limited flexibility — it cannot easily support relocation, arrays/pointers or a large address space without long instructions.",
+        "marking": [
+          "1 mark: Correctly names the technique as direct (absolute) addressing.",
+          "1 mark: States EA = A, i.e. the address field holds the actual operand address.",
+          "1 mark: Explains the fetch/use — CPU reads memory at address A to obtain the operand (one memory reference, no extra address calculation).",
+          "1 mark: Gives ONE valid advantage (e.g. simple/fast, single memory access, no address computation).",
+          "1 mark: Gives ONE valid disadvantage (e.g. limited address range/large address field, inflexible, no relocation/pointer support)."
+        ],
+        "confidence": "high",
+        "notes": "Figure 2 is inferred from the extracted text (Instruction: Opcode | Address A, then Memory: Operand) to depict direct addressing; if the figure actually shows an arrow from the address field to a memory location containing a further address, the answer would instead be indirect addressing. Assumed the standard direct-addressing interpretation consistent with the shown layout.",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T06:21:37.213048+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 467,
+          "completion_tokens": 485,
+          "total_tokens": 952,
+          "calls": 1,
+          "cost_usd": 0.000722,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A5",
+      "part": "A",
+      "question": "A5",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "memory_system",
+      "topic_label": "Memory hierarchy and cache",
+      "task": "short_answer",
+      "title": "Ten-mark question 5",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2016-12-A8",
+      "paper_id": "CSC429-2016-12",
+      "source_file": "CSC429 (6).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 636.0,
+          "text": "a) Discuss THREE (3) main key factors for memory selection."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 673.92,
+          "text": "b) List TWO (2) examples for internal cabling memory and TWO (2) examples of system memory."
+        }
+      ],
+      "text": "a) Discuss THREE (3) main key factors for memory selection.\nb) List TWO (2) examples for internal cabling memory and TWO (2) examples of system\nmemory.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Discuss THREE (3) main key factors for memory selection.",
+          "marks": 6,
+          "marks_source": "explicit",
+          "bbox": [
+            71.52,
+            636.0,
+            377.76,
+            647.04
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) List TWO (2) examples for internal cabling memory and TWO (2) examples of system\nmemory.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            71.52,
+            673.92,
+            526.08,
+            685.2
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a) Three main key factors for memory selection [6 marks]\n\n1. Cost per bit: Memory is selected so that the cost per bit falls as one moves down the hierarchy. Fast semiconductor memory (SRAM, registers, cache) has a high cost per bit, while slower, denser memory (DRAM main memory, magnetic disk, optical/tape secondary storage) has a much lower cost per bit. A designer balances total cost against required capacity and speed.\n\n2. Capacity: The required storage size (in bytes/words) is a key selection factor. Larger capacity is needed for main memory and secondary storage, and capacity interacts with addressing (address bus width) and with cost. Insufficient capacity causes excessive swapping/paging and poor performance.\n\n3. Access time / speed (performance): Memory must match the speed of the processor and the level of the hierarchy it serves. Access time, memory cycle time and transfer rate determine whether the memory can keep the CPU supplied; faster memory (cache/SRAM) is chosen close to the CPU, slower but cheaper memory further away. Other acceptable factors include volatility, erasability/reprogrammability, physical size/form factor, power consumption and reliability, but the three above are the main ones.\n\n(b) Examples [4 marks]\n\nInternal cabling memory (memory used with/inside cabling or as removable/internal connection media):\n- USB flash drive (pen drive)\n- Memory card (SD card / microSD / CompactFlash)\n(Also acceptable: external/portable hard disk, external SSD, ROM cartridge.)\n\nSystem memory (main memory directly addressable by the CPU):\n- RAM (DRAM/SDRAM/DDR main memory)\n- ROM (BIOS/firmware ROM, PROM/EPROM/EEPROM)\n(Also acceptable: cache memory, SIMM/DIMM modules.)",
+        "marking": [
+          "1 mark: identifies cost per bit as a factor",
+          "1 mark: explains cost per bit across the memory hierarchy",
+          "1 mark: identifies capacity as a factor",
+          "1 mark: explains capacity and its effect (cost/addressing/performance)",
+          "1 mark: identifies access time/speed (or another valid factor such as volatility) as a factor",
+          "1 mark: explains access time/speed and its role in the hierarchy",
+          "1 mark: one correct internal cabling memory example (e.g. USB flash drive)",
+          "1 mark: second correct internal cabling memory example (e.g. memory card)",
+          "1 mark: one correct system memory example (e.g. RAM)",
+          "1 mark: second correct system memory example (e.g. ROM)"
+        ],
+        "confidence": "medium",
+        "notes": "The phrase 'internal cabling memory' is unusual/possibly an OCR or translation artefact; it is interpreted as removable/internal connection memory media (USB flash drives, memory cards). If the lecturer intended a different category, the examples should be adjusted. Part (a) accepts alternative valid factors (volatility, reliability, power) provided they are discussed.",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T06:21:43.052326+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 398,
+          "completion_tokens": 640,
+          "total_tokens": 1038,
+          "calls": 1,
+          "cost_usd": 0.000887,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A6",
+      "part": "A",
+      "question": "A6",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "io_system",
+      "topic_label": "Input/output and interrupts",
+      "task": "short_answer",
+      "title": "Ten-mark question 6",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2025-02-A9",
+      "paper_id": "CSC429-2025-02",
+      "source_file": "CSC429 (18).pdf",
+      "source_pages": [
+        4
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 501.53,
+          "text": "a) Differentiate the involvement of CPU in the interrupt-driven I/O technique and Direct Manipulation Access"
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 552.41,
+          "text": "b) Define interrupt."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 590.33,
+          "text": "c) Discuss what happens during a context switch."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 628.97,
+          "text": "d) Elaborate on the benefit of a context switch."
+        }
+      ],
+      "text": "a)\nDifferentiate the involvement of CPU in the interrupt-driven I/O technique and Direct\nManipulation Access\nb)\nDefine interrupt.\nc)\nDiscuss what happens during a context switch.\nd)\nElaborate on the benefit of a context switch.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a)\nDifferentiate the involvement of CPU in the interrupt-driven I/O technique and Direct\nManipulation Access",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            81.12,
+            501.53,
+            93.22,
+            516.65
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b)\nDefine interrupt.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            81.12,
+            552.41,
+            93.22,
+            567.53
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c)\nDiscuss what happens during a context switch.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            81.36,
+            590.33,
+            92.92,
+            605.45
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "d",
+          "text": "d)\nElaborate on the benefit of a context switch.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            81.36,
+            628.97,
+            93.58,
+            644.09
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a) Differentiate CPU involvement in interrupt-driven I/O versus DMA (Direct Memory Access — the question's 'Direct Manipulation Access' is taken to mean DMA). In interrupt-driven I/O the CPU is heavily involved: it issues the I/O command, then either busy-waits or continues other work, but every unit of data transferred requires the device to raise an interrupt, so the CPU must stop, save state, run the interrupt service routine, transfer/process the data word, and resume. The CPU therefore handles each data item and pays interrupt overhead per transfer, making it inefficient for large blocks. In DMA the CPU involvement is minimal: it sets up the DMA controller (source/destination addresses, transfer count, direction), then the DMA controller transfers the whole block directly between device and memory, stealing memory cycles (cycle stealing) without CPU intervention. The CPU is interrupted only once, at the end of the entire block transfer, to be told completion. Thus interrupt-driven I/O = CPU involved per byte/word with frequent interrupts; DMA = CPU involved only at setup and completion, with bulk transfer done by the DMA controller.\n\n(b) Definition of interrupt: An interrupt is a signal (hardware or software) sent to the processor that temporarily suspends the currently executing program, causes the CPU to save its state and transfer control to a special routine (the interrupt service routine / handler) that services the interrupting event, after which the CPU restores state and resumes the interrupted program. It allows the CPU to respond promptly to asynchronous events (I/O completion, errors, timers) without polling.\n\n(c) What happens during a context switch: The OS saves the complete execution context (CPU registers, program counter, stack pointer, status/flag register, and memory-management information) of the currently running process into its Process Control Block (PCB). It then selects the next process to run (via the scheduler), loads that process's saved context from its PCB back into the CPU registers, and resumes execution at the restored program counter. During the switch the CPU is doing OS overhead work and no useful user-process work is done; the switch is typically triggered by an interrupt, trap, or system call.\n\n(d) Benefit of a context switch: It enables multitasking/multiprogramming — the CPU can be shared among several processes so that when one process blocks (e.g., waiting for I/O) or its time slice expires, another ready process runs, keeping the CPU busy and improving utilisation and throughput. It also provides responsiveness (interactive systems), fair sharing of CPU time, and supports protection/isolation by cleanly separating process states. The cost is overhead (saved/restored state and cache/TLB effects), so the benefit is improved concurrency and CPU utilisation despite that overhead.",
+        "marking": [
+          "1 mark: interrupt-driven I/O — CPU issues command and is interrupted for each data item/word, servicing each transfer in the ISR (per-transfer CPU involvement).",
+          "1 mark: interrupt-driven I/O — frequent interrupts and high CPU overhead, inefficient for large blocks.",
+          "1 mark: DMA — CPU only sets up the DMA controller (addresses, count, direction) and is interrupted once at completion; bulk transfer done by DMA controller directly to/from memory.",
+          "1 mark: DMA — cycle stealing / minimal CPU involvement, efficient for large block transfers; clear contrast with interrupt-driven I/O.",
+          "2 marks: interrupt defined as a signal that suspends the current program, saves state, transfers control to an ISR/handler, then resumes (1 mark for signal/suspension, 1 mark for ISR handling and resume).",
+          "2 marks: context switch — saving current process context (registers, PC, status) to its PCB (1 mark) and restoring/loading the next process's context from its PCB to resume it (1 mark).",
+          "2 marks: benefit — enables multitasking/multiprogramming and keeps CPU busy when a process blocks or its time slice expires, improving utilisation/throughput/responsiveness (2 marks; 1 mark for a partial statement such as 'allows multiple processes to share the CPU')."
+        ],
+        "confidence": "high",
+        "notes": "The question writes 'Direct Manipulation Access'; this is conservatively read as Direct Memory Access (DMA), the standard term in this topic. No figure or table is required. This is an unofficial model answer, not an official marking scheme.",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T06:21:51.488046+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 435,
+          "completion_tokens": 916,
+          "total_tokens": 1351,
+          "calls": 1,
+          "cost_usd": 0.00123,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A7",
+      "part": "A",
+      "question": "A7",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "computer_architecture",
+      "topic_label": "Computer architecture and CPU organisation",
+      "task": "short_answer",
+      "title": "Ten-mark question 7",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2018-01-A3",
+      "paper_id": "CSC429-2018-01",
+      "source_file": "CSC429 (8).pdf",
+      "source_pages": [
+        3
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 332.64,
+          "text": "a) Draw a complete machine cycle by giving the exact location of each phase."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 372.72,
+          "text": "b) Briefly, describe each phase in the machine cycle."
+        }
+      ],
+      "text": "a) Draw a complete machine cycle by giving the exact location of each phase.\nb) Briefly, describe each phase in the machine cycle.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Draw a complete machine cycle by giving the exact location of each phase.",
+          "marks": 6,
+          "marks_source": "explicit",
+          "bbox": [
+            69.6,
+            332.64,
+            453.6,
+            343.68
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Briefly, describe each phase in the machine cycle.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            69.6,
+            372.72,
+            330.96,
+            383.76
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a) Complete machine cycle with the exact location of each phase [6 marks]\n\nThe machine cycle is the sequence of operations the CPU performs to fetch and execute one instruction. It is conventionally drawn as a cycle of phases located between the CPU and main memory, with the control unit (CU) and ALU inside the CPU and the instruction/data held in memory. A complete labelled diagram should show:\n\n- A CPU box containing the Control Unit (CU), ALU and registers (PC, MAR, MBR/MDR, IR, ACC).\n- A Main Memory box connected to the CPU by the address bus, data bus and control bus.\n- The cycle drawn as a loop with the phases in order:\n  1. Instruction Fetch (IF) — located at the start of the cycle, between memory and the CPU: MAR <- PC; address placed on address bus; memory read; MBR <- M[MAR]; IR <- MBR; PC <- PC + 1.\n  2. Instruction Decode (ID) — located inside the Control Unit: the opcode in IR is decoded to determine the operation and operands.\n  3. Operand Fetch / Effective Address Calculation — located between the CPU and memory (or registers): any required operand is read from memory or a register into the ALU/registers.\n  4. Execute (EX) — located inside the ALU: the operation is performed (arithmetic/logic) or the control unit issues control signals for I/O or branch.\n  5. Memory Access (MEM) — located between CPU and memory, only if the instruction reads/writes memory (load/store).\n  6. Write Back (WB) — located at the end of the cycle, writing the result back to a register or to memory.\n\nThe loop then returns to Instruction Fetch for the next instruction. (A common simpler four-phase drawing is Fetch -> Decode -> Execute -> Store/Write-back, with the fetch phase located at the memory-CPU interface and execute inside the ALU.)\n\n(b) Description of each phase [4 marks]\n\n1. Instruction Fetch (IF): The Program Counter (PC) holds the address of the next instruction. This address is copied to the Memory Address Register (MAR) and sent on the address bus; the control unit issues a memory-read signal; the instruction is returned on the data bus into the Memory Buffer Register (MBR) and then into the Instruction Register (IR). The PC is incremented to point to the next instruction.\n\n2. Instruction Decode (ID): The control unit examines the opcode field of the IR and determines which operation is required, which operands/addressing mode are involved, and generates the corresponding control signals for the rest of the cycle.\n\n3. Operand Fetch / Execute (EX): Any operands needed are fetched from registers or memory (effective address calculation for indexed/indirect addressing). The ALU then performs the specified arithmetic or logic operation, or the control unit performs a branch/IO action.\n\n4. Write Back / Store (WB): The result produced by the ALU is written back into a register (e.g. accumulator) or stored into memory via the MBR and data bus. The cycle then repeats from the fetch phase for the next instruction.",
+        "marking": [
+          "1 mark: correct overall cycle drawn as a loop with phases in correct order (Fetch, Decode, Execute, Write-back/Store)",
+          "1 mark: CPU internals correctly located (CU, ALU, registers PC/MAR/MBR/IR) and memory shown separately",
+          "1 mark: buses (address, data, control) shown connecting CPU and memory",
+          "1 mark: exact location of Fetch phase shown at memory-CPU interface with PC/MAR/MBR/IR",
+          "1 mark: exact location of Decode phase shown inside the control unit",
+          "1 mark: exact location of Execute phase shown inside the ALU and Write-back at the end of the cycle",
+          "1 mark: accurate description of the Instruction Fetch phase (PC -> MAR -> memory -> MBR -> IR, PC increment)",
+          "1 mark: accurate description of the Instruction Decode phase (opcode decoded, control signals generated)",
+          "1 mark: accurate description of the Execute phase (ALU operation / operand fetch / effective address)",
+          "1 mark: accurate description of the Write-back/Store phase (result to register or memory)"
+        ],
+        "confidence": "high",
+        "notes": "The question asks for a drawing; the extracted text contains no figure, so the answer describes the diagram that should be drawn. Either a 4-phase (Fetch-Decode-Execute-Store) or a 6-phase (IF-ID-OF-EX-MEM-WB) cycle is acceptable; the marking guide credits the standard 4-phase version. Marks are allocated 6 for part (a) and 4 for part (b) as stated.",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T06:21:59.624502+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 379,
+          "completion_tokens": 1024,
+          "total_tokens": 1403,
+          "calls": 1,
+          "cost_usd": 0.001342,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A8",
+      "part": "A",
+      "question": "A8",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "computer_architecture",
+      "topic_label": "Computer architecture and CPU organisation",
+      "task": "short_answer",
+      "title": "Ten-mark question 8",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2014-12-A4",
+      "paper_id": "CSC429-2014-12",
+      "source_file": "CSC429 (2).pdf",
+      "source_pages": [
+        3
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 145.92,
+          "text": "Processor contains a number of registers used for temporary storage of data. Describe FIVE (5) types of registers."
+        }
+      ],
+      "text": "Processor contains a number of registers used for temporary storage of data. Describe FIVE\n(5) types of registers.",
+      "subparts": [
+        {
+          "label": "main",
+          "text": "Processor contains a number of registers used for temporary storage of data. Describe FIVE\n(5) types of registers.",
+          "marks": 10,
+          "marks_source": "explicit",
+          "bbox": [
+            69.84,
+            145.92,
+            523.44,
+            157.68
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "Registers are small, high-speed storage locations inside the CPU used for temporary data and control information. Five common types are: (1) Program Counter (PC): holds the address of the next instruction to be fetched; it is automatically incremented after each fetch (or loaded on a branch/jump). (2) Instruction Register (IR): holds the instruction currently being decoded and executed; its contents are fed to the control unit. (3) Memory Address Register (MAR): holds the address of the memory location to be accessed (read or write); it connects to the address bus. (4) Memory Data Register (MDR) / Memory Buffer Register (MBR): holds the data word being transferred to or from memory; it connects to the data bus. (5) Accumulator (AC): a general-purpose arithmetic register that holds one operand and the result of arithmetic/logic operations in a simple CPU. Other acceptable registers include the Stack Pointer (SP), Status/Flag register (PSW), and general-purpose registers (GPRs).",
+        "marking": [
+          "1 mark: Program Counter (PC) – holds address of next instruction; incremented after fetch.",
+          "1 mark: Instruction Register (IR) – holds current instruction for decoding/execution.",
+          "1 mark: Memory Address Register (MAR) – holds address of memory location to be accessed.",
+          "1 mark: Memory Data Register (MDR/MBR) – holds data read from or written to memory.",
+          "1 mark: Accumulator (AC) – holds operand/result of arithmetic and logic operations.",
+          "5 marks: one mark for each correctly named register with a correct function (any five from the list, including acceptable alternatives such as SP, PSW, GPRs)."
+        ],
+        "confidence": "high",
+        "notes": "Question asks for FIVE types; the model answer lists five core registers and notes acceptable alternatives. No figure or table is required. The marking guide allocates 10 marks: 5 marks for naming five registers and 5 marks for correct functional descriptions.",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T06:22:03.829479+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 332,
+          "completion_tokens": 436,
+          "total_tokens": 768,
+          "calls": 1,
+          "cost_usd": 0.000623,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A9",
+      "part": "A",
+      "question": "A9",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "io_system",
+      "topic_label": "Input/output and interrupts",
+      "task": "short_answer",
+      "title": "Ten-mark question 9",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2018-06-A8",
+      "paper_id": "CSC429-2018-06",
+      "source_file": "CSC429 (10).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 154.8,
+          "text": "a) Describe THREE (3) types of interfaces to external devices."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 193.2,
+          "text": "b) Explain TWO (2) types of interrupt."
+        }
+      ],
+      "text": "a) Describe THREE (3) types of interfaces to external devices.\nb) Explain TWO (2) types of interrupt.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Describe THREE (3) types of interfaces to external devices.",
+          "marks": 6,
+          "marks_source": "explicit",
+          "bbox": [
+            76.32,
+            154.8,
+            382.08,
+            166.08
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Explain TWO (2) types of interrupt.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            77.28,
+            193.2,
+            260.88,
+            204.96
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a) Three types of interfaces to external devices [6 marks]\n\n1. Programmed I/O (polling) interface: The processor directly controls the device through an I/O module and repeatedly checks (polls) the device's status register to see whether it is ready to transfer data. Data are moved between the CPU and the device via the I/O module under direct program control. It is simple and needs no special interrupt hardware, but it wastes CPU time because the processor must busy-wait for slow devices.\n\n2. Interrupt-driven I/O interface: The I/O module signals the processor with an interrupt request when a device is ready or has completed a transfer. The processor suspends its current program, runs an interrupt service routine (ISR) to transfer the data or service the device, then resumes. This frees the CPU from polling, though each transfer still involves CPU intervention and interrupt overhead.\n\n3. Direct Memory Access (DMA) interface: A DMA controller transfers blocks of data directly between the device and main memory without the CPU handling each word. The CPU programs the DMA controller (start address, count, direction) and is interrupted only once, when the whole block transfer is complete. This gives high throughput for fast devices such as disks and network cards.\n\n(Other acceptable interfaces: memory-mapped I/O vs. isolated/port-mapped I/O, serial vs. parallel interfaces, or synchronous vs. asynchronous interfaces, provided each is described.)\n\n(b) Two types of interrupt [4 marks]\n\n1. Maskable interrupt: An interrupt that can be disabled (masked) by the processor, e.g. by clearing an interrupt-enable bit or setting a mask register. It is normally used for ordinary I/O devices whose service can be delayed; the CPU ignores it while masked and services it later when unmasked.\n\n2. Non-maskable interrupt (NMI): An interrupt that cannot be disabled by the normal masking mechanism. It is reserved for high-priority or catastrophic events such as power failure, memory parity error or hardware fault, and is always recognised by the CPU so that urgent action can be taken.\n\n(Alternative acceptable pairing: hardware interrupt vs. software/trap interrupt, or internal (exception) vs. external interrupt, if each is explained.)",
+        "marking": [
+          "1 mark: naming the first interface type (e.g. programmed I/O/polling)",
+          "1 mark: describing how the first interface operates and its CPU involvement/limitation",
+          "1 mark: naming the second interface type (e.g. interrupt-driven I/O)",
+          "1 mark: describing how the second interface operates (interrupt request, ISR, resume)",
+          "1 mark: naming the third interface type (e.g. DMA)",
+          "1 mark: describing how the third interface operates (direct memory transfer, single completion interrupt)",
+          "1 mark: naming/defining the first interrupt type (e.g. maskable)",
+          "1 mark: explaining its behaviour (can be disabled/masked, used for ordinary I/O)",
+          "1 mark: naming/defining the second interrupt type (e.g. non-maskable)",
+          "1 mark: explaining its behaviour (cannot be masked, used for urgent/fatal events)"
+        ],
+        "confidence": "high",
+        "notes": "Question text is complete; no figure or table is required. Alternative valid interface/interrupt pairings are accepted as indicated in the answer, since the paper does not prescribe specific types.",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T06:17:15.328813+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 372,
+          "completion_tokens": 719,
+          "total_tokens": 1091,
+          "calls": 1,
+          "cost_usd": 0.000974,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A10",
+      "part": "A",
+      "question": "A10",
+      "kind": "generated_question",
+      "marks": 10,
+      "topic": "data_representation",
+      "topic_label": "Data representation and number systems",
+      "task": "short_answer",
+      "title": "Ten-mark question 10",
+      "resolver": "csc429.generator",
+      "variant_policy": "controlled_numeric",
+      "generator_pool": [
+        "csc429.number_base_conversion",
+        "csc429.signed_arithmetic",
+        "csc429.ieee754_single"
+      ],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-GEN-20-A10",
+      "paper_id": "CSC429-GEN-20",
+      "source_file": "",
+      "source_pages": [],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 1,
+          "y": 0,
+          "text": "Answer both parts. Show your complete workflow.\na) Convert 156510 to hexadecimal.\nb) Convert BDC16 to decimal."
+        },
+        {
+          "type": "text",
+          "page": 1,
+          "y": 1,
+          "text": "a) Convert 156510 to hexadecimal."
+        },
+        {
+          "type": "text",
+          "page": 1,
+          "y": 2,
+          "text": "b) Convert BDC16 to decimal."
+        }
+      ],
+      "text": "Answer both parts. Show your complete workflow.\na) Convert 156510 to hexadecimal.\nb) Convert BDC16 to decimal.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Convert 156510 to hexadecimal.",
+          "marks": 5,
+          "answer": "156510 = 61D16",
+          "marking": [
+            "1 mark for repeated division by 16.",
+            "1 mark for correct remainders.",
+            "1 mark for reading remainders in reverse order.",
+            "1 mark for the correct hexadecimal digits.",
+            "1 mark for the base subscript."
+          ]
+        },
+        {
+          "label": "b",
+          "text": "Convert BDC16 to decimal.",
+          "marks": 5,
+          "answer": "BDC16 = 303610",
+          "marking": [
+            "1 mark for place values 16^2, 16^1 and 16^0.",
+            "1 mark for correct digit values.",
+            "1 mark for correct products.",
+            "1 mark for correct addition.",
+            "1 mark for the final decimal value."
+          ]
+        }
+      ],
+      "answer": "a) 156510 = 61D16; b) BDC16 = 303610",
+      "marking": [
+        "Part a: 5 marks.",
+        "Part b: 5 marks."
+      ],
+      "generator_id": "csc429.number_base_conversion",
+      "metadata": {
+        "base": null,
+        "converted": null,
+        "dec_value": 1565,
+        "hex_value": 3036
+      }
+    },
+    {
+      "slot": "B1",
+      "part": "B",
+      "question": "B1",
+      "kind": "real_bank_question",
+      "marks": 20,
+      "topic": "assembly_programming",
+      "topic_label": "Assembly-language programming",
+      "task": "assembly_program",
+      "title": "Twenty-mark assembly-programming question",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2025-07-B1",
+      "paper_id": "CSC429-2025-07",
+      "source_file": "CSC429 (20).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [
+        "CSC429-2025-07-F1",
+        "CSC429-2025-07-T1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 138.65,
+          "text": "Question 1 is based on Figure 1 and Table 1."
+        },
+        {
+          "type": "figure",
+          "page": 5,
+          "y": 170.85,
+          "asset_id": "CSC429-2025-07-F1",
+          "path": "data/tracking/csc429/assets/CSC429-2025-07/CSC429-2025-07-F1.png",
+          "crop_box": [
+            206.76,
+            170.85,
+            363.36,
+            223.58
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2025-07\\page_005.jpg",
+          "page_points": [
+            561.96,
+            806.76
+          ],
+          "width_px": 653,
+          "height_px": 219,
+          "caption": "Figure 1",
+          "display_width_cm": 8.0
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 262.86,
+          "text": "write an appropriate program using correct assembly language notations to compute the equation snbwn in Figure 1 using instructions for zero-address, one-address, and three- address. The available instructioni are provided in Tabte 1. The register labeled A, B, C, and D are fixed, white registers x, y, and z can be used temporarily. The final answer must be stored in register z."
+        },
+        {
+          "type": "table",
+          "page": 5,
+          "y": 388.73,
+          "asset_id": "CSC429-2025-07-T1",
+          "table": {
+            "columns": 3,
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "Zero-address",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "One-address",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "Three-address",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "PUSH p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "LOAD p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "ADD (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "POP p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "STOR p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "suB (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "ADD",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "ADD p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MUL (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "SUB",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "SUB p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "DIV (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "MUL",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MUL p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "DIV",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "DIV p",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  }
+                ]
+              }
+            ],
+            "non_empty_ratio": 0.905,
+            "source": "layout"
+          },
+          "caption": "Table 1: Machine instruction"
+        }
+      ],
+      "text": "Question 1 is based on Figure 1 and Table 1.\nz=A2-B*C+jl_\nD+5\nFigure 1\nwrite an appropriate program using correct assembly language notations to compute the\nequation snbwn in Figure 1 using instructions for zero-address, one-address, and three-\naddress. The available instructioni are provided in Tabte 1. The register labeled A, B, C, and\nD are fixed, white registers x, y, and z can be used temporarily. The final answer must be\nstored in register z.\nTable 1: Machine instruction\nThree-address\nZero-address\nOne-address\nPUSH p\nLOAD p\nADD (p,q,r)\nPOP p\nSTOR p\nsuB (p,q,r)\nMUL (p,q,r)\nADD\nADD p\nSUB\nSUB p\nDIV (p,q,r)\nMUL\nMUL p\nDIV\nDIV p",
+      "subparts": [
+        {
+          "label": "main",
+          "text": "Question 1 is based on Figure 1 and Table 1.\nz=A2-B*C+jl_\nD+5\nFigure 1\nwrite an appropriate program using correct assembly language notations to compute the\nequation snbwn in Figure 1 using instructions for zero-address, one-address, and three-\naddress. The available instructioni are provided in Tabte 1. The register labeled A, B, C, and\nD are fixed, white registers x, y, and z can be used temporarily. The final answer must be\nstored in register z.\nTable 1: Machine instruction\nThree-address\nZero-address\nOne-address\nPUSH p\nLOAD p\nADD (p,q,r)\nPOP p\nSTOR p\nsuB (p,q,r)\nMUL (p,q,r)\nADD\nADD p\nSUB\nSUB p\nDIV (p,q,r)\nMUL\nMUL p\nDIV\nDIV p",
+          "marks": 20,
+          "marks_source": "explicit",
+          "bbox": [
+            57.24,
+            138.65,
+            276.73,
+            155.21
+          ],
+          "figure_refs": [
+            "Figure 1",
+            "Table 1"
+          ],
+          "asset_ids": [
+            "CSC429-2025-07-F1",
+            "CSC429-2025-07-T1"
+          ]
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "**Assumption on the equation (OCR correction):** Figure 1's extracted text reads `z=A2-B*C+jl_ D+5`, which is garbled. The most conservative reading consistent with the instruction set (which has ADD, SUB, MUL, DIV but no square-root or exponent instruction) is **z = (A² − B·C) / (D + 5)**. The `jl_` is taken as a division bar `/`, `A2` as A² (computed as A·A), and `D+5` as the denominator. All three programs below compute this expression and leave the result in z. (If the intended equation differs, the same structure applies; see notes.)\n\n**Three-address program** (each instruction names two sources and one destination; A, B, C, D are fixed registers, x, y, z are temporaries):\n```\nMUL (A, A, x)      ; x = A * A\nMUL (B, C, y)      ; y = B * C\nSUB (x, y, x)      ; x = A^2 - B*C   (numerator)\nADD (D, 5, y)      ; y = D + 5       (denominator)\nDIV (x, y, z)      ; z = (A^2 - B*C) / (D + 5)\n```\nThe three-address form is the most compact: one instruction per operation, no explicit data movement, because operands and result are all named in the instruction.\n\n**One-address program** (an implicit accumulator; LOAD/STOR move between memory/registers and the accumulator, ADD p etc. do ACC ← ACC op p):\n```\nLOAD A             ; ACC = A\nMUL A              ; ACC = A * A\nSTOR x             ; x = A^2\nLOAD B             ; ACC = B\nMUL C              ; ACC = B * C\nSTOR y             ; y = B*C\nLOAD x             ; ACC = A^2\nSUB y              ; ACC = A^2 - B*C\nSTOR x             ; x = numerator\nLOAD D             ; ACC = D\nADD 5              ; ACC = D + 5\nSTOR y             ; y = denominator\nLOAD x             ; ACC = numerator\nDIV y              ; ACC = numerator / denominator\nSTOR z             ; z = final answer\n```\nThe one-address form needs explicit LOAD/STOR because only one operand (the accumulator) is implicit; intermediate results must be spilled to x and y.\n\n**Zero-address program** (a stack machine; PUSH p pushes operand p, POP p pops the top into p, and ADD/SUB/MUL/DIV pop two operands and push the result):\n```\nPUSH A             ; stack: A\nPUSH A             ; stack: A, A\nMUL                ; stack: A*A\nPUSH B             ; stack: A*A, B\nPUSH C             ; stack: A*A, B, C\nMUL                ; stack: A*A, B*C\nSUB                ; stack: A*A - B*C\nPUSH D             ; stack: num, D\nPUSH 5             ; stack: num, D, 5\nADD                ; stack: num, D+5\nDIV                ; stack: num / (D+5)\nPOP z              ; z = final answer\n```\nThe zero-address form uses the stack for all operands and results; note the operand order (push numerator first, then denominator) so that DIV computes numerator ÷ denominator.\n\n**Summary:** all three programs compute z = (A² − B·C)/(D + 5) and store the final result in z; they differ only in how operands are addressed (explicitly named, via an accumulator, or via a stack).",
+        "marking": [
+          "2 marks: correct interpretation/statement of the equation to be computed (A² − B·C)/(D + 5), including A² as A·A and D+5 as denominator",
+          "6 marks: correct three-address program — 1 mark each for computing A·A, B·C, the subtraction (numerator), D+5 (denominator), the division, and storing the result in z",
+          "6 marks: correct one-address program — 1 mark each for correct use of LOAD/STOR to form A², B·C, numerator, denominator, division, and final STOR z (accumulator semantics correct)",
+          "6 marks: correct zero-address program — 1 mark each for correct PUSH sequence for A², correct PUSH/MUL for B·C, correct SUB for numerator, correct PUSH/ADD for D+5, correct DIV with operands in the right order, and POP z for the final result"
+        ],
+        "confidence": "medium",
+        "notes": "The equation in Figure 1 is OCR-garbled ('z=A2-B*C+jl_ D+5'). I conservatively read it as z = (A² − B·C)/(D + 5), since the instruction set has no exponent or square-root operation and A² must be computed as A·A. If the actual figure shows a different expression (e.g. a different denominator or an added term), the same three program structures apply but the exact instruction sequences and mark allocation per step would change. The register names A, B, C, D are treated as fixed registers and x, y, z as temporaries, with z holding the final answer, per the question. This is an unofficial model answer, not a marking scheme.",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T06:10:21.813822+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 617,
+          "completion_tokens": 1230,
+          "total_tokens": 1847,
+          "calls": 1,
+          "cost_usd": 0.001661,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    }
+  ],
+  "notes": "Real past-paper questions only. Topic quotas are the largest-remainder allocation of the observed Part A topic mix; each quota is split between 5- and 10-mark slots using the topic's observed 5/10-mark availability. Every slot resolves to the real bank.",
+  "answer_report": {
+    "model": "deepseek-flash",
+    "prompt_version": 1,
+    "requested": 9,
+    "cache_hits": 3,
+    "generated": 6,
+    "failed": 0,
+    "errors": [],
+    "usage": {
+      "model": "deepseek-flash",
+      "prompt_tokens": 2479,
+      "completion_tokens": 4047,
+      "total_tokens": 6526,
+      "calls": 6,
+      "cost_usd": 0.0056,
+      "input_price_per_1m": 0.3,
+      "output_price_per_1m": 1.2
+    },
+    "cache_usage": {
+      "model": "deepseek-flash",
+      "calls": 160,
+      "prompt_tokens": 72343,
+      "completion_tokens": 102947,
+      "total_tokens": 175290,
+      "cost_usd": 0.145242
+    },
+    "cost_usd": 0.0056
+  }
+}

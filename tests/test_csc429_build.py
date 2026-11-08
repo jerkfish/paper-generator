@@ -1,6 +1,11 @@
 """CSC429 Stage-7 paper and marking-guide builder."""
 from __future__ import annotations
 
+import pytest
+
+pytestmark = pytest.mark.skip(
+    reason="legacy CSC429 Type C planner/generator/builder path retired by the P0 Type D strategy lock")
+
 import json
 from pathlib import Path
 
@@ -62,3 +67,21 @@ def test_scheme_question_text_uses_clean_content_blocks():
     assert "Figure 1 reproduced in the question paper." in cleaned
     assert "ffi" not in cleaned
     assert "Primary Memory" not in cleaned
+
+
+def test_paper_has_native_captions_and_scheme_has_no_question_body(
+        tmp_path, monkeypatch):
+    monkeypatch.setattr(
+        build_docx.answers, "CACHE_PATH", tmp_path / "answers.json")
+    result = build_docx.build_seed(
+        1, tmp_path, export=False, force=True, allow_llm=False)
+    plan = json.loads((tmp_path / "plan.json").read_text(encoding="utf-8"))
+    scheme_text = build_docx._docx_text(Path(result["files"]["scheme_docx"]))
+    paper_text = build_docx._docx_text(Path(result["files"]["paper_docx"]))
+    for slot in plan["slots"]:
+        if slot["kind"] != "real_bank_question":
+            continue
+        first_line = str(slot.get("text", "")).splitlines()[0].strip()
+        if len(first_line) >= 20:
+            assert first_line not in scheme_text
+    assert "Figure 2: Conventional access architecture" in paper_text

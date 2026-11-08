@@ -1,0 +1,546 @@
+{
+  "schema_version": 1,
+  "subject": "CSC429",
+  "stage": "P7",
+  "status": "complete",
+  "generated_at": "2026-11-08T09:14:21.482492+00:00",
+  "seeds": [
+    {
+      "seed": 1,
+      "paper_pages": 5,
+      "scheme_pages": 10,
+      "source_papers": [
+        "CSC429-2013-12",
+        "CSC429-2014-06",
+        "CSC429-2015-06",
+        "CSC429-2018-01",
+        "CSC429-2019-06",
+        "CSC429-2023-02",
+        "CSC429-2025-02",
+        "CSC429-2025-07"
+      ],
+      "reused_questions": [
+        "CSC429-2025-07-A3",
+        "CSC429-2014-06-A9",
+        "CSC429-2023-02-A7",
+        "CSC429-2015-06-A10",
+        "CSC429-2025-02-A6",
+        "CSC429-2013-12-A1",
+        "CSC429-2013-12-B1"
+      ],
+      "qa": "pass",
+      "problems": [],
+      "word_version": "16.0"
+    },
+    {
+      "seed": 2,
+      "paper_pages": 5,
+      "scheme_pages": 10,
+      "source_papers": [
+        "CSC429-2015-06",
+        "CSC429-2018-12",
+        "CSC429-2019-06",
+        "CSC429-2023-02",
+        "CSC429-2023-07",
+        "CSC429-2024-01",
+        "CSC429-2026-02"
+      ],
+      "reused_questions": [
+        "CSC429-2026-02-A1",
+        "CSC429-2023-02-A4",
+        "CSC429-2026-02-A2",
+        "CSC429-2019-06-A7",
+        "CSC429-2023-07-A10",
+        "CSC429-2024-01-A7",
+        "CSC429-2018-12-A1",
+        "CSC429-2023-07-B1"
+      ],
+      "qa": "pass",
+      "problems": [],
+      "word_version": "16.0"
+    },
+    {
+      "seed": 3,
+      "paper_pages": 5,
+      "scheme_pages": 11,
+      "source_papers": [
+        "CSC429-2015-12",
+        "CSC429-2016-06",
+        "CSC429-2016-12",
+        "CSC429-2017-07",
+        "CSC429-2018-01",
+        "CSC429-2023-07",
+        "CSC429-2024-01",
+        "CSC429-2024-07",
+        "CSC429-2025-02"
+      ],
+      "reused_questions": [
+        "CSC429-2023-07-A2",
+        "CSC429-2024-07-A8",
+        "CSC429-2015-12-A10",
+        "CSC429-2018-01-A9",
+        "CSC429-2025-02-B1"
+      ],
+      "qa": "pass",
+      "problems": [],
+      "word_version": "16.0"
+    },
+    {
+      "seed": 4,
+      "paper_pages": 6,
+      "scheme_pages": 11,
+      "source_papers": [
+        "CSC429-2015-12",
+        "CSC429-2018-01",
+        "CSC429-2018-12",
+        "CSC429-2019-06",
+        "CSC429-2023-02",
+        "CSC429-2024-07",
+        "CSC429-2025-02",
+        "CSC429-2025-07"
+      ],
+      "reused_questions": [
+        "CSC429-2018-01-A1",
+        "CSC429-2025-07-A10",
+        "CSC429-2023-02-A10",
+        "CSC429-2023-02-A6",
+        "CSC429-2015-12-A7",
+        "CSC429-2025-07-B1"
+      ],
+      "qa": "pass",
+      "problems": [],
+      "word_version": "16.0"
+    },
+    {
+      "seed": 5,
+      "paper_pages": 4,
+      "scheme_pages": 11,
+      "source_papers": [
+        "CSC429-2015-06",
+        "CSC429-2016-06",
+        "CSC429-2017-07",
+        "CSC429-2018-01",
+        "CSC429-2019-06",
+        "CSC429-2023-02",
+        "CSC429-2024-07",
+        "CSC429-2026-02"
+      ],
+      "reused_questions": [
+        "CSC429-2015-06-A5",
+        "CSC429-2018-01-A2",
+        "CSC429-2017-07-A7",
+        "CSC429-2024-07-A10",
+        "CSC429-2016-06-A7",
+        "CSC429-2026-02-B1"
+      ],
+      "qa": "pass",
+      "problems": [],
+      "word_version": "16.0"
+    },
+    {
+      "seed": 6,
+      "paper_pages": 5,
+      "scheme_pages": 10,
+      "source_papers": [
+        "CSC429-2013-12",
+        "CSC429-2014-12",
+        "CSC429-2018-06",
+        "CSC429-2018-12",
+        "CSC429-2019-06",
+        "CSC429-2024-01",
+        "CSC429-2024-07",
+        "CSC429-2025-02"
+      ],
+      "reused_questions": [
+        "CSC429-2018-12-A2",
+        "CSC429-2024-01-A10",
+        "CSC429-2014-12-A10",
+        "CSC429-2025-02-A7",
+        "CSC429-2013-12-B1"
+      ],
+      "qa": "pass",
+      "problems": [],
+      "word_version": "16.0"
+    },
+    {
+      "seed": 7,
+      "paper_pages": 6,
+      "scheme_pages": 10,
+      "source_papers": [
+        "CSC429-2014-06",
+        "CSC429-2018-06",
+        "CSC429-2023-07",
+        "CSC429-2024-01",
+        "CSC429-2024-07",
+        "CSC429-2025-07",
+        "CSC429-2026-02"
+      ],
+      "reused_questions": [
+        "CSC429-2018-06-A1",
+        "CSC429-2025-07-A8",
+        "CSC429-2026-02-A10",
+        "CSC429-2023-07-A7",
+        "CSC429-2025-07-A7",
+        "CSC429-2023-07-B1"
+      ],
+      "qa": "pass",
+      "problems": [],
+      "word_version": "16.0"
+    },
+    {
+      "seed": 8,
+      "paper_pages": 4,
+      "scheme_pages": 11,
+      "source_papers": [
+        "CSC429-2014-06",
+        "CSC429-2015-12",
+        "CSC429-2016-12",
+        "CSC429-2019-12",
+        "CSC429-2023-07",
+        "CSC429-2024-07",
+        "CSC429-2025-02"
+      ],
+      "reused_questions": [
+        "CSC429-2023-07-A8",
+        "CSC429-2024-07-A10",
+        "CSC429-2019-12-A7",
+        "CSC429-2016-12-A8",
+        "CSC429-2025-02-B1"
+      ],
+      "qa": "pass",
+      "problems": [],
+      "word_version": "16.0"
+    },
+    {
+      "seed": 9,
+      "paper_pages": 5,
+      "scheme_pages": 10,
+      "source_papers": [
+        "CSC429-2014-06",
+        "CSC429-2014-12",
+        "CSC429-2015-06",
+        "CSC429-2018-01",
+        "CSC429-2025-02",
+        "CSC429-2025-07",
+        "CSC429-2026-02"
+      ],
+      "reused_questions": [
+        "CSC429-2025-07-A1",
+        "CSC429-2026-02-A4",
+        "CSC429-2018-01-A7",
+        "CSC429-2026-02-A10",
+        "CSC429-2014-12-A4",
+        "CSC429-2025-02-A6",
+        "CSC429-2025-07-B1"
+      ],
+      "qa": "pass",
+      "problems": [],
+      "word_version": "16.0"
+    },
+    {
+      "seed": 10,
+      "paper_pages": 5,
+      "scheme_pages": 10,
+      "source_papers": [
+        "CSC429-2014-12",
+        "CSC429-2015-12",
+        "CSC429-2016-12",
+        "CSC429-2017-07",
+        "CSC429-2018-01",
+        "CSC429-2019-12",
+        "CSC429-2023-02",
+        "CSC429-2026-02"
+      ],
+      "reused_questions": [
+        "CSC429-2014-12-A2",
+        "CSC429-2023-02-A3",
+        "CSC429-2016-12-A8",
+        "CSC429-2015-12-A10",
+        "CSC429-2026-02-A9",
+        "CSC429-2018-01-A9",
+        "CSC429-2026-02-B1"
+      ],
+      "qa": "pass",
+      "problems": [],
+      "word_version": "16.0"
+    },
+    {
+      "seed": 11,
+      "paper_pages": 4,
+      "scheme_pages": 9,
+      "source_papers": [
+        "CSC429-2013-12",
+        "CSC429-2014-12",
+        "CSC429-2016-12",
+        "CSC429-2018-06",
+        "CSC429-2019-12",
+        "CSC429-2023-02",
+        "CSC429-2023-07",
+        "CSC429-2025-07"
+      ],
+      "reused_questions": [
+        "CSC429-2019-12-A2",
+        "CSC429-2014-12-A6",
+        "CSC429-2014-12-A10",
+        "CSC429-2016-12-A3",
+        "CSC429-2023-02-A6",
+        "CSC429-2013-12-B1"
+      ],
+      "qa": "pass",
+      "problems": [],
+      "word_version": "16.0"
+    },
+    {
+      "seed": 12,
+      "paper_pages": 6,
+      "scheme_pages": 11,
+      "source_papers": [
+        "CSC429-2016-06",
+        "CSC429-2016-12",
+        "CSC429-2017-07",
+        "CSC429-2019-12",
+        "CSC429-2023-07",
+        "CSC429-2024-01",
+        "CSC429-2025-02",
+        "CSC429-2025-07"
+      ],
+      "reused_questions": [
+        "CSC429-2023-07-A10",
+        "CSC429-2025-02-A10",
+        "CSC429-2024-01-A7",
+        "CSC429-2023-07-B1"
+      ],
+      "qa": "pass",
+      "problems": [],
+      "word_version": "16.0"
+    },
+    {
+      "seed": 13,
+      "paper_pages": 5,
+      "scheme_pages": 11,
+      "source_papers": [
+        "CSC429-2013-12",
+        "CSC429-2017-07",
+        "CSC429-2018-01",
+        "CSC429-2018-12",
+        "CSC429-2023-02",
+        "CSC429-2023-07",
+        "CSC429-2024-07",
+        "CSC429-2025-02",
+        "CSC429-2025-07"
+      ],
+      "reused_questions": [
+        "CSC429-2023-02-A10",
+        "CSC429-2013-12-A1",
+        "CSC429-2025-02-B1"
+      ],
+      "qa": "pass",
+      "problems": [],
+      "word_version": "16.0"
+    },
+    {
+      "seed": 14,
+      "paper_pages": 5,
+      "scheme_pages": 11,
+      "source_papers": [
+        "CSC429-2015-12",
+        "CSC429-2016-06",
+        "CSC429-2016-12",
+        "CSC429-2018-01",
+        "CSC429-2018-06",
+        "CSC429-2018-12",
+        "CSC429-2019-12",
+        "CSC429-2023-07",
+        "CSC429-2024-07",
+        "CSC429-2025-07"
+      ],
+      "reused_questions": [
+        "CSC429-2016-06-A2",
+        "CSC429-2018-01-A7",
+        "CSC429-2019-12-A7",
+        "CSC429-2018-12-A1",
+        "CSC429-2025-07-B1"
+      ],
+      "qa": "pass",
+      "problems": [],
+      "word_version": "16.0"
+    },
+    {
+      "seed": 15,
+      "paper_pages": 6,
+      "scheme_pages": 11,
+      "source_papers": [
+        "CSC429-2015-12",
+        "CSC429-2018-01",
+        "CSC429-2019-06",
+        "CSC429-2023-07",
+        "CSC429-2025-02",
+        "CSC429-2025-07",
+        "CSC429-2026-02"
+      ],
+      "reused_questions": [
+        "CSC429-2025-07-A1",
+        "CSC429-2025-07-A3",
+        "CSC429-2025-07-A7",
+        "CSC429-2026-02-A9",
+        "CSC429-2023-07-A8",
+        "CSC429-2026-02-B1"
+      ],
+      "qa": "pass",
+      "problems": [],
+      "word_version": "16.0"
+    },
+    {
+      "seed": 16,
+      "paper_pages": 4,
+      "scheme_pages": 9,
+      "source_papers": [
+        "CSC429-2013-12",
+        "CSC429-2014-12",
+        "CSC429-2015-12",
+        "CSC429-2017-07",
+        "CSC429-2018-12",
+        "CSC429-2023-02",
+        "CSC429-2023-07",
+        "CSC429-2025-02",
+        "CSC429-2025-07",
+        "CSC429-2026-02"
+      ],
+      "reused_questions": [
+        "CSC429-2026-02-A1",
+        "CSC429-2014-12-A6",
+        "CSC429-2025-07-A8",
+        "CSC429-2015-12-A7",
+        "CSC429-2023-02-A7",
+        "CSC429-2013-12-B1"
+      ],
+      "qa": "pass",
+      "problems": [],
+      "word_version": "16.0"
+    },
+    {
+      "seed": 17,
+      "paper_pages": 7,
+      "scheme_pages": 10,
+      "source_papers": [
+        "CSC429-2014-12",
+        "CSC429-2016-06",
+        "CSC429-2016-12",
+        "CSC429-2018-06",
+        "CSC429-2019-06",
+        "CSC429-2019-12",
+        "CSC429-2023-07",
+        "CSC429-2024-01",
+        "CSC429-2025-02",
+        "CSC429-2026-02"
+      ],
+      "reused_questions": [
+        "CSC429-2019-12-A2",
+        "CSC429-2018-06-A1",
+        "CSC429-2026-02-A4",
+        "CSC429-2016-06-A7",
+        "CSC429-2016-12-A3",
+        "CSC429-2019-06-A7",
+        "CSC429-2023-07-B1"
+      ],
+      "qa": "pass",
+      "problems": [],
+      "word_version": "16.0"
+    },
+    {
+      "seed": 18,
+      "paper_pages": 6,
+      "scheme_pages": 11,
+      "source_papers": [
+        "CSC429-2014-06",
+        "CSC429-2014-12",
+        "CSC429-2017-07",
+        "CSC429-2018-01",
+        "CSC429-2018-06",
+        "CSC429-2018-12",
+        "CSC429-2019-06",
+        "CSC429-2024-01",
+        "CSC429-2025-02"
+      ],
+      "reused_questions": [
+        "CSC429-2014-12-A2",
+        "CSC429-2018-01-A1",
+        "CSC429-2018-12-A2",
+        "CSC429-2024-01-A10",
+        "CSC429-2025-02-A10",
+        "CSC429-2017-07-A7",
+        "CSC429-2025-02-B1"
+      ],
+      "qa": "pass",
+      "problems": [],
+      "word_version": "16.0"
+    },
+    {
+      "seed": 19,
+      "paper_pages": 5,
+      "scheme_pages": 11,
+      "source_papers": [
+        "CSC429-2014-06",
+        "CSC429-2014-12",
+        "CSC429-2015-06",
+        "CSC429-2016-06",
+        "CSC429-2016-12",
+        "CSC429-2019-12",
+        "CSC429-2023-02",
+        "CSC429-2023-07",
+        "CSC429-2025-07"
+      ],
+      "reused_questions": [
+        "CSC429-2023-07-A2",
+        "CSC429-2016-06-A2",
+        "CSC429-2023-02-A3",
+        "CSC429-2014-06-A9",
+        "CSC429-2025-07-A10",
+        "CSC429-2015-06-A10",
+        "CSC429-2014-12-A4",
+        "CSC429-2025-07-B1"
+      ],
+      "qa": "pass",
+      "problems": [],
+      "word_version": "16.0"
+    },
+    {
+      "seed": 20,
+      "paper_pages": 4,
+      "scheme_pages": 11,
+      "source_papers": [
+        "CSC429-2014-06",
+        "CSC429-2015-06",
+        "CSC429-2018-01",
+        "CSC429-2018-06",
+        "CSC429-2023-02",
+        "CSC429-2023-07",
+        "CSC429-2024-07",
+        "CSC429-2025-02",
+        "CSC429-2026-02"
+      ],
+      "reused_questions": [
+        "CSC429-2015-06-A5",
+        "CSC429-2018-01-A2",
+        "CSC429-2023-02-A4",
+        "CSC429-2026-02-A2",
+        "CSC429-2025-02-A7",
+        "CSC429-2024-07-A10",
+        "CSC429-2023-07-A7",
+        "CSC429-2024-07-A8",
+        "CSC429-2026-02-B1"
+      ],
+      "qa": "pass",
+      "problems": [],
+      "word_version": "16.0"
+    }
+  ],
+  "checks": {
+    "seeds": 20,
+    "qa_failures": 0,
+    "max_reuse": 4,
+    "distinct_questions": 153,
+    "reuse_cap": 4,
+    "publication": false
+  }
+}

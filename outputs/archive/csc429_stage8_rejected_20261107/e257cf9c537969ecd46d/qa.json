@@ -1,0 +1,107 @@
+{
+  "subject": "CSC429",
+  "seed": 2,
+  "builder_version": 2,
+  "warnings": [],
+  "answers": {
+    "requested": 9,
+    "cache_hits": 1,
+    "generated": 8,
+    "failed": 0,
+    "model": "deepseek-flash",
+    "cost_usd": 0.007739,
+    "usage": {
+      "model": "deepseek-flash",
+      "prompt_tokens": 3822,
+      "completion_tokens": 5494,
+      "total_tokens": 9316,
+      "calls": 8,
+      "cost_usd": 0.007739,
+      "input_price_per_1m": 0.3,
+      "output_price_per_1m": 1.2
+    },
+    "cache_usage": {
+      "model": "deepseek-flash",
+      "calls": 26,
+      "prompt_tokens": 12546,
+      "completion_tokens": 17492,
+      "total_tokens": 30038,
+      "cost_usd": 0.024756
+    }
+  },
+  "paper_docx": {
+    "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\e257cf9c537969ecd46d\\paper.docx",
+    "xml_valid": true,
+    "forbidden_tokens": [],
+    "missing": [],
+    "problems": [],
+    "pdf": {}
+  },
+  "scheme_docx": {
+    "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\e257cf9c537969ecd46d\\scheme.docx",
+    "xml_valid": true,
+    "inline_shapes": 1,
+    "cover_groups": 5,
+    "cover_drawings": 6,
+    "cover_labels": {
+      "COURSE": 4,
+      "COURSE CODE": 2,
+      "EXAMINATION": 2,
+      "TIME": 2
+    },
+    "cover_box_ok": true,
+    "forbidden_tokens": [],
+    "missing": [],
+    "problems": [],
+    "pdf": {},
+    "compatibility_mode": 15
+  },
+  "paper_pdf": {
+    "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\e257cf9c537969ecd46d\\paper.pdf",
+    "pages": 6,
+    "page1_cover": true,
+    "page1_images": 3,
+    "body_starts_page2": true,
+    "cover_fields": {
+      "COURSE": true,
+      "COURSE CODE": true,
+      "EXAMINATION": true,
+      "TIME": false,
+      "course name": true,
+      "course code": true,
+      "month": true,
+      "duration": true
+    },
+    "right_overflow": [],
+    "problems": [],
+    "forbidden_tokens": []
+  },
+  "scheme_pdf": {
+    "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\e257cf9c537969ecd46d\\scheme.pdf",
+    "pages": 9,
+    "page1_cover": true,
+    "page1_images": 3,
+    "body_starts_page2": true,
+    "cover_fields": {
+      "COURSE": true,
+      "COURSE CODE": true,
+      "EXAMINATION": true,
+      "TIME": true,
+      "course name": true,
+      "course code": true,
+      "month": true,
+      "duration": true
+    },
+    "right_overflow": [],
+    "problems": [],
+    "forbidden_tokens": []
+  },
+  "forbidden_hits": [],
+  "problems": [],
+  "files": {
+    "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\e257cf9c537969ecd46d\\paper.docx",
+    "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\e257cf9c537969ecd46d\\paper.pdf",
+    "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\e257cf9c537969ecd46d\\scheme.docx",
+    "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\CSC429\\e257cf9c537969ecd46d\\scheme.pdf"
+  }
+}

@@ -40,6 +40,23 @@ PROMPT_RE = re.compile(
     r"Discuss|Compare|Name|Give|What|Why|How|Based on)\b", re.I)
 
 
+
+def _display_width(kind: str, width_px: int, height_px: int,
+                   flags: list[str]) -> float | None:
+    """Choose a readable insertion width from the crop's aspect and size."""
+    if kind != "figure" or width_px <= 0 or height_px <= 0:
+        return None
+    aspect = width_px / height_px
+    area = width_px * height_px
+    if aspect >= 4.5:
+        return 16.2
+    if "prose_column" in flags and aspect < 2.5:
+        return 8.0
+    if area < 300_000:
+        return 8.0
+    return 12.0
+
+
 def _slug(value: str) -> str:
     return re.sub(r"[^A-Za-z0-9]+", "-", value).strip("-") or "asset"
 
@@ -154,7 +171,7 @@ def _crop_image(page: dict, bbox: list[float]) -> Image.Image:
 
 def _save_crop(image: Image.Image, target: Path) -> tuple[int, int]:
     target.parent.mkdir(parents=True, exist_ok=True)
-    image.save(target, "PNG", dpi=(200, 200))
+    image.save(target, "PNG", dpi=(300, 300))
     return image.width, image.height
 
 
@@ -487,10 +504,12 @@ def _assets_for_page(paper: dict, page: dict, page_meta: dict,
             "path": _rel(target),
             "width_px": crop_width,
             "height_px": crop_height,
-            "dpi": 200,
+            "dpi": 300,
             "sha256": _sha256(target),
             "method": method,
             "tightened": tightened,
+            "display_width_cm": _display_width(
+                kind, crop_width, crop_height, flags),
             "confidence": confidence,
             "review_flags": flags,
         })
@@ -590,7 +609,7 @@ def build_assets(force: bool = False) -> dict:
         "schema_version": 1,
         "subject": SUBJECT,
         "generated_by": "src.subjects.csc429.assets",
-        "crop": {"dpi": 200, "format": "png",
+        "crop": {"dpi": 300, "format": "png",
                  "mode": "page_image_crop_content_only"},
         "assets": all_assets,
         "unresolved": all_unresolved,

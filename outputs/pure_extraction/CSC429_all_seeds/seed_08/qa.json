@@ -1,0 +1,92 @@
+{
+  "subject": "CSC429",
+  "seed": 8,
+  "paper": {
+    "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\pure_extraction\\CSC429_all_seeds\\seed_08\\paper.pdf",
+    "pages": 4,
+    "page1_images": 3,
+    "images_total": 4,
+    "right_overflow": [],
+    "bottom_overflow": [],
+    "part_a": true,
+    "part_b": true
+  },
+  "scheme": {
+    "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\pure_extraction\\CSC429_all_seeds\\seed_08\\scheme.pdf",
+    "pages": 11,
+    "page1_images": 3,
+    "images_total": 3,
+    "right_overflow": [],
+    "bottom_overflow": [],
+    "part_a": true,
+    "part_b": true
+  },
+  "problems": [],
+  "warnings": [],
+  "forbidden_hits": [],
+  "expected_images": 1,
+  "word_version": "16.0",
+  "mapping": {
+    "CSC429-2015-12-A5": {
+      "question_id": "CSC429-2015-12-A5",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2014-06-A1": {
+      "question_id": "CSC429-2014-06-A1",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2025-02-A4": {
+      "question_id": "CSC429-2025-02-A4",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2016-12-A2": {
+      "question_id": "CSC429-2016-12-A2",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2023-07-A8": {
+      "question_id": "CSC429-2023-07-A8",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2024-07-A10": {
+      "question_id": "CSC429-2024-07-A10",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2019-12-A7": {
+      "question_id": "CSC429-2019-12-A7",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2019-12-A3": {
+      "question_id": "CSC429-2019-12-A3",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2024-07-A6": {
+      "question_id": "CSC429-2024-07-A6",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2016-12-A8": {
+      "question_id": "CSC429-2016-12-A8",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2025-02-B1": {
+      "question_id": "CSC429-2025-02-B1",
+      "labels": {
+        "Figure 2": "Figure 1",
+        "Table 1": "Table 1"
+      },
+      "assets": [
+        "CSC429-2025-02-F2",
+        "CSC429-2025-02-T1"
+      ]
+    }
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-04T18:16:47Z",
+  "generated": "2026-11-08T10:57:48Z",
   "subjects": [
     {
       "code": "CSC402",
@@ -12,8 +12,15 @@
       "code": "CSC413",
       "title": "Introduction to Interactive Multimedia",
       "status": "available",
+      "papers": 0,
+      "manifest": null
+    },
+    {
+      "code": "CSC429",
+      "title": "Computer Organization and Architecture",
+      "status": "available",
       "papers": 20,
-      "manifest": "/library/CSC413/manifest.json"
+      "manifest": "/library/CSC429/manifest.json"
     },
     {
       "code": "CSC662",
@@ -26,13 +33,6 @@
       "code": "MAT133",
       "title": "Pre-Calculus",
       "status": "available",
-      "papers": 0,
-      "manifest": null
-    },
-    {
-      "code": "CSC429",
-      "title": "Computer Organization and Architecture",
-      "status": "coming_soon",
       "papers": 0,
       "manifest": null
     },

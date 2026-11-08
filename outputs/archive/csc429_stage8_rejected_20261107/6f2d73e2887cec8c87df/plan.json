@@ -1,0 +1,1511 @@
+{
+  "subject": "CSC429",
+  "planner_version": 1,
+  "generated_by": "src.subjects.csc429.planner",
+  "style": "modern",
+  "seed": 13,
+  "target_format": {
+    "A": {
+      "questions": 10,
+      "marks": 80,
+      "slot_marks": [
+        5,
+        5,
+        5,
+        5,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ]
+    },
+    "B": {
+      "questions": 1,
+      "marks": 20
+    }
+  },
+  "source_evidence": [
+    "data/tracking/csc429/taxonomy.json",
+    "data/tracking/csc429/question_log.json",
+    "data/tracking/csc429/taxonomy_summary.json"
+  ],
+  "topic_quota": {
+    "computer_generations": 1,
+    "data_representation": 2,
+    "memory_system": 1,
+    "io_system": 2,
+    "parallel_architecture": 1,
+    "computer_architecture": 2,
+    "instruction_set_addressing": 1
+  },
+  "part_marks": {
+    "A": 80,
+    "B": 20
+  },
+  "topic_marks": {
+    "parallel_architecture": 5,
+    "computer_generations": 5,
+    "instruction_set_addressing": 5,
+    "data_representation": 15,
+    "io_system": 20,
+    "computer_architecture": 20,
+    "memory_system": 10,
+    "assembly_programming": 20
+  },
+  "total_marks": 100,
+  "question_count": 11,
+  "slot_count": 11,
+  "slots": [
+    {
+      "slot": "A1",
+      "part": "A",
+      "question": "A1",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "parallel_architecture",
+      "topic_label": "Parallel and multiprocessor architecture",
+      "task": "short_answer",
+      "title": "Five-mark question 1",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2018-01-A10",
+      "paper_id": "CSC429-2018-01",
+      "source_file": "CSC429 (8).pdf",
+      "source_pages": [
+        6
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 6,
+          "y": 147.84,
+          "text": "a) How classification of parallel processor is constructed?"
+        },
+        {
+          "type": "text",
+          "page": 6,
+          "y": 186.72,
+          "text": "b) Give ONE (1) example for each parallel processor architecture."
+        }
+      ],
+      "text": "a) How classification of parallel processor is constructed?\nb) Give ONE (1) example for each parallel processor architecture.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) How classification of parallel processor is constructed?",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            71.28,
+            147.84,
+            356.64,
+            159.12
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Give ONE (1) example for each parallel processor architecture.",
+          "marks": 3,
+          "marks_source": "explicit",
+          "bbox": [
+            71.04,
+            186.72,
+            396.48,
+            198.0
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a) Classification of parallel processors is constructed according to the relationship between the instruction stream and the data stream, as proposed in Flynn's taxonomy. A parallel processor is described by whether it issues one or many instruction streams and whether it operates on one or many data streams, giving four categories: SISD (single instruction, single data), SIMD (single instruction, multiple data), MISD (multiple instruction, single data) and MIMD (multiple instruction, multiple data). This construction classifies architectures by their parallelism at the instruction and data level.\n\n(b) One example for each parallel processor architecture: SISD — a conventional single-core von Neumann processor (e.g., a classic uniprocessor PC); SIMD — a vector processor or GPU (e.g., Intel SSE/AVX vector unit, or a GPU executing the same instruction on many data elements); MISD — a systolic array or a fault-tolerant system with replicated processors operating on the same data stream (e.g., a pipeline of processors where each stage receives the same data in sequence); MIMD — a multicore processor or a cluster of workstations (e.g., Intel Core i7 multicore, or a distributed-memory multiprocessor).",
+        "marking": [
+          "1 mark: State that classification is based on instruction stream and data stream (Flynn's taxonomy).",
+          "1 mark: Name the four categories (SISD, SIMD, MISD, MIMD) correctly.",
+          "1 mark: Give a correct example for SISD.",
+          "1 mark: Give a correct example for SIMD.",
+          "1 mark: Give a correct example for MIMD (MISD example may be accepted if correct; full 3 marks require three distinct correct examples)."
+        ],
+        "confidence": "high",
+        "notes": "Assumes the question refers to Flynn's taxonomy, which is the standard classification for parallel processors in computer organization. Examples are illustrative; any valid example for each category is acceptable.",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T06:13:21.264708+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 373,
+          "completion_tokens": 425,
+          "total_tokens": 798,
+          "calls": 1,
+          "cost_usd": 0.000622,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A2",
+      "part": "A",
+      "question": "A2",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "computer_generations",
+      "topic_label": "Computer generations and history",
+      "task": "short_answer",
+      "title": "Five-mark question 2",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2016-06-A2",
+      "paper_id": "CSC429-2016-06",
+      "source_file": "CSC429 (5).pdf",
+      "source_pages": [
+        3
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 144.24,
+          "text": "Artificial intelligence (A1) is the computer ability to exhibit human intelligent behaviors such as smart home applications, robots, intelligent tutoring systems and others."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 182.4,
+          "text": "a) In which generation is A1 introduced?"
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 220.8,
+          "text": "b) What is the programming language used for this technology?"
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 259.2,
+          "text": "c) What is the advantage of embedding A1 in our everyday life?"
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 297.12,
+          "text": "d) A1 can also posed as a threat to community. Discuss ONE (1) possible scenario when A1 can harm people."
+        }
+      ],
+      "text": "Artificial intelligence (A1) is the computer ability to exhibit human intelligent behaviors such\nas smart home applications, robots, intelligent tutoring systems and others.\na) In which generation is A1 introduced?\nb) What is the programming language used for this technology?\nc) What is the advantage of embedding A1 in our everyday life?\nd) A1 can also posed as a threat to community. Discuss ONE (1) possible scenario when A1\ncan harm people.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) In which generation is A1 introduced?",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            72.0,
+            182.4,
+            270.48,
+            193.44
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) What is the programming language used for this technology?",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            71.76,
+            220.8,
+            386.16,
+            232.08
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) What is the advantage of embedding A1 in our everyday life?",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            71.76,
+            259.2,
+            383.52,
+            270.48
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "d",
+          "text": "d) A1 can also posed as a threat to community. Discuss ONE (1) possible scenario when A1\ncan harm people.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            71.28,
+            297.12,
+            522.0,
+            308.4
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a) AI is introduced in the **fifth generation** of computers (the present/future generation), which is associated with artificial intelligence, parallel processing and natural-language interfaces.\n\n(b) The programming language used for this technology is **Prolog** (a logic programming language widely used for AI), with **LISP** also accepted as a classical AI language.\n\n(c) The advantage of embedding AI in everyday life is that it **automates routine and complex tasks**, making systems smarter, faster and more convenient — for example smart homes adjust lighting/heating automatically, intelligent tutoring systems personalise learning, and robots perform dangerous or repetitive work — thereby saving time, improving efficiency and raising quality of life.\n\n(d) One scenario where AI can harm people: an **autonomous vehicle or robot** whose AI misclassifies a pedestrian or obstacle (e.g. fails to recognise a person at night) could cause a fatal accident; similarly, a poorly trained AI in a medical diagnosis or smart-home device could give a wrong decision that injures users. This shows AI can harm people when its training data is biased/incomplete or when it acts without adequate human oversight.",
+        "marking": [
+          "1 mark: (a) Fifth generation (AI generation) correctly named.",
+          "1 mark: (b) Prolog (or LISP) named as the AI programming language.",
+          "1 mark: (c) Any valid advantage of embedding AI in everyday life, e.g. automation of tasks, improved efficiency/convenience, personalisation, safety in dangerous work.",
+          "1 mark: (d) A clear, plausible scenario in which AI harms people (e.g. autonomous vehicle accident, robot injury, faulty AI medical decision).",
+          "1 mark: (d) Explanation of how/why the harm occurs (e.g. misclassification, biased/incomplete training data, lack of human oversight)."
+        ],
+        "confidence": "medium",
+        "notes": "OCR errors corrected: 'A1' read as 'AI'. The paper does not specify a single language; Prolog is the standard fifth-generation/AI answer, with LISP as an acceptable alternative. Part (d) is marked out of 2 as indicated.",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T06:13:25.920911+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 494,
+          "completion_tokens": 466,
+          "total_tokens": 960,
+          "calls": 1,
+          "cost_usd": 0.000707,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A3",
+      "part": "A",
+      "question": "A3",
+      "kind": "real_bank_question",
+      "marks": 5,
+      "topic": "instruction_set_addressing",
+      "topic_label": "Instruction formats and addressing modes",
+      "task": "short_answer",
+      "title": "Five-mark question 3",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2014-06-A9",
+      "paper_id": "CSC429-2014-06",
+      "source_file": "CSC429 (1).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [
+        "CSC429-2014-06-F2"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 409.68,
+          "text": "Given the following Figure 2."
+        },
+        {
+          "type": "figure",
+          "page": 5,
+          "y": 434.88,
+          "asset_id": "CSC429-2014-06-F2",
+          "path": "data/tracking/csc429/assets/CSC429-2014-06/CSC429-2014-06-F2.png",
+          "crop_box": [
+            112.51,
+            434.88,
+            485.33,
+            574.11
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2014-06\\page_005.jpg",
+          "page_points": [
+            594.72,
+            847.44
+          ],
+          "width_px": 1554,
+          "height_px": 580,
+          "caption": "Figure 2",
+          "display_width_cm": 12.0
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 626.4,
+          "text": "a) Label the addressing technique illustrated in Figure 2."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 664.32,
+          "text": "b) Explain how the addressing technique in 9(a) is used."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 702.48,
+          "text": "c) List ONE (1) advantage and ONE (1) disadvantage of the addressing technique in 9(a)."
+        }
+      ],
+      "text": "Given the following Figure 2.\nInstruction\nOpcode\nAddress A\nMemory\nOperand\nFigure 2\na)\nLabel the addressing technique illustrated in Figure 2.\nb)\nExplain how the addressing technique in 9(a) is used.\nc)\nList ONE (1) advantage and ONE (1) disadvantage of the addressing technique in\n9(a).",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a)\nLabel the addressing technique illustrated in Figure 2.",
+          "marks": 1,
+          "marks_source": "explicit",
+          "bbox": [
+            72.24,
+            626.4,
+            81.12,
+            636.48
+          ],
+          "figure_refs": [
+            "Figure 2"
+          ],
+          "asset_ids": [
+            "CSC429-2014-06-F2"
+          ]
+        },
+        {
+          "label": "b",
+          "text": "b)\nExplain how the addressing technique in 9(a) is used.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            72.72,
+            664.32,
+            81.36,
+            674.88
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c)\nList ONE (1) advantage and ONE (1) disadvantage of the addressing technique in\n9(a).",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            72.72,
+            702.48,
+            80.88,
+            713.04
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a) The technique is **direct addressing** (also called absolute addressing). The instruction's address field A contains the actual/effective address of the operand, so the operand is fetched directly from memory location A — there is no intermediate address calculation or pointer dereference.\n\n(b) How it is used: The instruction is fetched and its opcode decoded; the CPU takes the address field A as the effective address (EA = A) and places it on the address bus. The memory is read at location A, and the operand retrieved is passed to the ALU/register for execution of the instruction. For example, with `LOAD A`, the contents of memory word A are loaded into the accumulator. The address A is fixed at assembly/compile time, so the operand's location must be known when the program is written.\n\n(c) Advantage: No address calculation is required — the effective address is obtained immediately from the instruction, so operand fetch is fast and simple (only one memory access for the operand). Disadvantage: The address field must be large enough to hold a full memory address, making the instruction long; also the address is fixed, so the technique offers limited flexibility (no relocation/indirection, restricted addressable range).",
+        "marking": [
+          "1 mark: Correctly names the technique as direct addressing (absolute addressing).",
+          "1 mark: States that the address field A is the effective address of the operand (EA = A).",
+          "1 mark: Explains the fetch/execute step — address A placed on address bus, memory read at A, operand used by the instruction (e.g. LOAD A).",
+          "1 mark: Gives one valid advantage (e.g. no address calculation, fast/simple operand fetch, only one memory reference).",
+          "1 mark: Gives one valid disadvantage (e.g. long instruction/limited address range, fixed address so no flexibility/relocation)."
+        ],
+        "confidence": "high",
+        "notes": "Figure 2 is inferred from the extracted text (Instruction: Opcode | Address A, then Memory: Operand), which matches direct addressing. If the figure actually shows an arrow from Address A to a memory word containing a further address, the answer would instead be indirect addressing; the text as given supports direct addressing.",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T06:12:13.065136+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 467,
+          "completion_tokens": 473,
+          "total_tokens": 940,
+          "calls": 1,
+          "cost_usd": 0.000708,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A4",
+      "part": "A",
+      "question": "A4",
+      "kind": "generated_question",
+      "marks": 5,
+      "topic": "data_representation",
+      "topic_label": "Data representation and number systems",
+      "task": "short_answer",
+      "title": "Five-mark question 4",
+      "resolver": "csc429.generator",
+      "variant_policy": "controlled_numeric",
+      "generator_pool": [
+        "csc429.number_base_conversion",
+        "csc429.signed_arithmetic",
+        "csc429.ieee754_single"
+      ],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-GEN-13-A4",
+      "paper_id": "CSC429-GEN-13",
+      "source_file": "",
+      "source_pages": [],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 1,
+          "y": 0,
+          "text": "Convert 3.25 to IEEE 754 single-precision format. Give the answer in hexadecimal and show the sign, exponent and mantissa fields."
+        }
+      ],
+      "text": "Convert 3.25 to IEEE 754 single-precision format. Give the answer in hexadecimal and show the sign, exponent and mantissa fields.",
+      "subparts": [],
+      "answer": "3.2510 = 0x40500000 (sign=0, exponent=10000000, fraction=10100000000000000000000)",
+      "marking": [
+        "1 mark for the sign bit.",
+        "1 mark for the biased exponent.",
+        "1 mark for the 23-bit fraction.",
+        "1 mark for the correct 32-bit grouping.",
+        "1 mark for the final hexadecimal value."
+      ],
+      "generator_id": "csc429.ieee754_single",
+      "metadata": {
+        "value": 3.25,
+        "hex": "40500000",
+        "binary": "01000000010100000000000000000000",
+        "sign": 0,
+        "exponent": 128,
+        "fraction": 5242880,
+        "exponent_bits": "10000000",
+        "fraction_bits": "10100000000000000000000"
+      }
+    },
+    {
+      "slot": "A5",
+      "part": "A",
+      "question": "A5",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "io_system",
+      "topic_label": "Input/output and interrupts",
+      "task": "short_answer",
+      "title": "Ten-mark question 5",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2018-12-A5",
+      "paper_id": "CSC429-2018-12",
+      "source_file": "CSC429 (11).pdf",
+      "source_pages": [
+        3
+      ],
+      "asset_ids": [
+        "CSC429-2018-12-F1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 446.88,
+          "text": "Question 5 is based on the following scenario. \"Nurathia Farhana browses the UiTM4fly.com website to book for a return flight from KLIA to LAX. While comparing for a better price, two messages popped up in her screen. Figure 1 (a) and (b) illustrate the conveyed messages."
+        },
+        {
+          "type": "figure",
+          "page": 3,
+          "y": 526.08,
+          "asset_id": "CSC429-2018-12-F1",
+          "path": "data/tracking/csc429/assets/CSC429-2018-12/CSC429-2018-12-F1.png",
+          "crop_box": [
+            30.04,
+            526.08,
+            570.68,
+            602.19
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2018-12\\page_003.jpg",
+          "page_points": [
+            600.72,
+            848.4
+          ],
+          "width_px": 913,
+          "height_px": 317,
+          "caption": "Figure 1: The pop-up messages",
+          "display_width_cm": 8.0
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 586.56,
+          "text": "(b)"
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 587.52,
+          "text": "(a)"
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 637.44,
+          "text": "a) Which message is the non-maskable interrupt? Justify your answer by giving appropriate reason."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 688.8,
+          "text": "b) Differentiate between maskable and non-maskable interrupt?"
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 726.24,
+          "text": "c) Outline the common way to handle multiple interrupts as happened in the given scenario."
+        }
+      ],
+      "text": "Question 5 is based on the following scenario.\n\"Nurathia Farhana browses the UiTM4fly.com website to book for a return flight from KLIA\nto LAX. While comparing for a better price, two messages popped up in her screen. Figure\n1 (a) and (b) illustrate the conveyed messages.\nDo you want to be upgraded\nA hardware failure has been\nto business class now?\nfound. Please restart your\ncomputer now.\n(b)\n(a)\nFigure 1: The pop-up messages\na) Which message is the non-maskable interrupt? Justify your answer by giving appropriate\nreason.\nb) Differentiate between maskable and non-maskable interrupt?\nc) Outline the common way to handle multiple interrupts as happened in the given scenario.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Which message is the non-maskable interrupt? Justify your answer by giving appropriate\nreason.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            102.96,
+            637.44,
+            558.24,
+            649.44
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Differentiate between maskable and non-maskable interrupt?",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            103.2,
+            688.8,
+            420.72,
+            700.56
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) Outline the common way to handle multiple interrupts as happened in the given scenario.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            102.96,
+            726.24,
+            557.04,
+            738.72
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a) The non-maskable interrupt (NMI) is message (b): \"A hardware failure has been found. Please restart your computer now.\" Justification: an NMI is reserved for catastrophic events such as a hardware failure, power failure or memory error; it cannot be disabled or ignored by the processor (it is not maskable), so the system must respond immediately, typically by halting or restarting. Message (a), the business-class upgrade offer, is an ordinary, deferrable event generated by the web/booking application; it can be ignored or postponed by the user and is therefore a maskable interrupt.\n\n(b) A maskable interrupt can be temporarily disabled (masked) by the processor, for example by clearing the interrupt-enable flag or by an interrupt mask register, so its servicing can be delayed until the CPU is ready; it is used for normal I/O and software events. A non-maskable interrupt cannot be disabled by the processor; it is always recognised and is used for urgent fault conditions such as hardware failure, so that critical events are never lost.\n\n(c) The common way to handle multiple interrupts is by assigning priorities and using an interrupt controller with a priority scheme. When several interrupts arrive, the CPU compares their priorities: a higher-priority interrupt can preempt (interrupt) the servicing of a lower-priority one, while a lower-priority request waits until the current handler finishes. In the scenario, the hardware-failure NMI (b) has the highest priority and is serviced immediately, preempting the normal booking/upgrade interrupt (a); the upgrade message is held pending and handled after the critical condition is dealt with. This is typically implemented by the interrupt controller asserting the highest-priority request and the CPU saving the current context before branching to the appropriate interrupt service routine.",
+        "marking": [
+          "1 mark: identifying message (b) as the non-maskable interrupt",
+          "1 mark: stating that an NMI cannot be masked/disabled by the processor",
+          "1 mark: linking message (b) to a critical hardware-failure condition requiring immediate action",
+          "1 mark: explaining that message (a) is a normal/deferrable maskable interrupt",
+          "1 mark: defining maskable interrupt as one that can be disabled/delayed",
+          "1 mark: defining non-maskable interrupt as one that cannot be disabled and is for urgent events",
+          "1 mark: stating that multiple interrupts are handled by priority assignment",
+          "1 mark: explaining that a higher-priority interrupt can preempt a lower-priority one",
+          "1 mark: applying priority to the scenario (hardware-failure NMI serviced first, upgrade interrupt deferred)",
+          "1 mark: mentioning the interrupt controller / saving context / ISR as the handling mechanism"
+        ],
+        "confidence": "high",
+        "notes": "Figure 1 is represented only by its extracted text; the labels (a) and (b) are assumed to correspond to the upgrade message and the hardware-failure message respectively, as shown in the question text. The answer is an unofficial model answer, not an official marking scheme.",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T05:59:22.754485+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 557,
+          "completion_tokens": 662,
+          "total_tokens": 1219,
+          "calls": 1,
+          "cost_usd": 0.000962,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A6",
+      "part": "A",
+      "question": "A6",
+      "kind": "generated_question",
+      "marks": 10,
+      "topic": "data_representation",
+      "topic_label": "Data representation and number systems",
+      "task": "short_answer",
+      "title": "Ten-mark question 6",
+      "resolver": "csc429.generator",
+      "variant_policy": "controlled_numeric",
+      "generator_pool": [
+        "csc429.number_base_conversion",
+        "csc429.signed_arithmetic",
+        "csc429.ieee754_single"
+      ],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-GEN-13-A6",
+      "paper_id": "CSC429-GEN-13",
+      "source_file": "",
+      "source_pages": [],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 1,
+          "y": 0,
+          "text": "Answer both parts for the same expression. Assume an 8-bit byte.\nExpression: 63 - (-41)"
+        },
+        {
+          "type": "text",
+          "page": 1,
+          "y": 1,
+          "text": "a) Calculate 63 - (-41) using sign and magnitude."
+        },
+        {
+          "type": "text",
+          "page": 1,
+          "y": 2,
+          "text": "b) Calculate 63 - (-41) using 1's and 2's complement."
+        }
+      ],
+      "text": "Answer both parts for the same expression. Assume an 8-bit byte.\nExpression: 63 - (-41)",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "Calculate 63 - (-41) using sign and magnitude.",
+          "marks": 5,
+          "answer": "left 63 -> 0 0111111; right -41 -> 1 0101001; 63 - (-41) = 104 -> sign-magnitude 0 1101000",
+          "marking": [
+            "1 mark for operand representations.",
+            "1 mark for sign handling.",
+            "1 mark for magnitude arithmetic.",
+            "1 mark for the result sign bit.",
+            "1 mark for the final byte."
+          ]
+        },
+        {
+          "label": "b",
+          "text": "Calculate 63 - (-41) using 1's and 2's complement.",
+          "marks": 5,
+          "answer": "left 63 -> 1's 00111111, 2's 00111111; right -41 -> 1's 11010110, 2's 11010111; 63 - (-41) = 104 -> 1's 01101000, 2's 01101000",
+          "marking": [
+            "1 mark for the positive operand in binary.",
+            "1 mark for the 1's complement of the negative operand.",
+            "1 mark for adding 1 to form the 2's complement.",
+            "1 mark for the correct 8-bit result.",
+            "1 mark for converting the result back to decimal."
+          ]
+        }
+      ],
+      "answer": "left 63 -> SM 0 0111111, 2's 00111111; right -41 -> SM 1 0101001, 2's 11010111; 63 - (-41) = 104 -> SM 0 1101000, 1's 01101000, 2's 01101000",
+      "marking": [
+        "Part a: 5 marks.",
+        "Part b: 5 marks."
+      ],
+      "generator_id": "csc429.signed_arithmetic",
+      "metadata": {
+        "left": 63,
+        "right": -41,
+        "result": 104,
+        "sign_magnitude": "0 1101000",
+        "ones": "01101000",
+        "twos": "01101000"
+      }
+    },
+    {
+      "slot": "A7",
+      "part": "A",
+      "question": "A7",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "computer_architecture",
+      "topic_label": "Computer architecture and CPU organisation",
+      "task": "short_answer",
+      "title": "Ten-mark question 7",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2016-12-A3",
+      "paper_id": "CSC429-2016-12",
+      "source_file": "CSC429 (6).pdf",
+      "source_pages": [
+        3
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 363.6,
+          "text": "a) Differentiate between organization and architecture."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 401.76,
+          "text": "b) Explain the function of THREE (3) Central Processing Unit (CPU) components."
+        }
+      ],
+      "text": "a) Differentiate between organization and architecture.\nb) Explain the function of THREE (3) Central Processing Unit (CPU) components.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Differentiate between organization and architecture.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            71.52,
+            363.6,
+            342.72,
+            374.64
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Explain the function of THREE (3) Central Processing Unit (CPU) components.",
+          "marks": 6,
+          "marks_source": "explicit",
+          "bbox": [
+            71.76,
+            401.76,
+            475.68,
+            413.04
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a) Computer architecture refers to those attributes of a system that are visible to a programmer — the conceptual design and functional behaviour of the machine. It includes the instruction set, the number and types of data representations (e.g. word length), addressing modes, registers visible to the programmer, and I/O mechanisms. Architecture answers the question 'what does the machine do?' and is largely independent of the underlying hardware implementation. Computer organization, by contrast, refers to the operational units and their interconnections that realize the architectural specification — the physical/logical implementation. It includes the control signals, the memory technology used, the bus structure, the clock rate, the microarchitecture of the datapath, and the interfacing of peripherals. Organization answers 'how is it implemented?' and can differ between machines that share the same architecture (e.g. two processors with the same instruction set but different cache sizes, pipeline depths or clock speeds). In short, architecture is the programmer-visible functional view, while organization is the implementation view; many different organizations can realize one architecture.\n\n(b) Three CPU components and their functions:\n1. Control Unit (CU): fetches and decodes instructions and generates the timing and control signals that direct all other units (ALU, registers, memory, I/O) to carry out each instruction. It sequences the fetch–decode–execute cycle and coordinates data movement.\n2. Arithmetic Logic Unit (ALU): performs the arithmetic operations (add, subtract, multiply, etc.) and logical operations (AND, OR, NOT, XOR, shifts, comparisons) on data held in registers; it also sets condition/status flags (zero, carry, sign, overflow) used for branching.\n3. Registers (e.g. Program Counter, Instruction Register, Accumulator/general-purpose registers): small, very fast storage inside the CPU. The Program Counter holds the address of the next instruction, the Instruction Register holds the instruction currently being executed, and general-purpose/accumulator registers hold operands and intermediate results. They provide the fastest storage for the working data of the CPU.\n(Other acceptable components: cache, bus interface, clock, MAR/MBR.)",
+        "marking": [
+          "1 mark: correct definition of architecture as programmer-visible attributes (instruction set, data types, addressing modes, registers)",
+          "1 mark: correct definition of organization as implementation/operational units and their interconnection (control signals, memory technology, bus, clock)",
+          "1 mark: clear contrast — architecture = 'what it does', organization = 'how it is implemented'",
+          "1 mark: valid example/illustration (e.g. same architecture realized by different organizations)",
+          "1 mark: first CPU component correctly named",
+          "1 mark: correct function of first component",
+          "1 mark: second CPU component correctly named",
+          "1 mark: correct function of second component",
+          "1 mark: third CPU component correctly named",
+          "1 mark: correct function of third component"
+        ],
+        "confidence": "high",
+        "notes": "No figure or table required; question is fully answerable from text. Marks split as given: (a) 4 marks, (b) 6 marks (2 marks per component).",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T06:13:31.250433+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 377,
+          "completion_tokens": 654,
+          "total_tokens": 1031,
+          "calls": 1,
+          "cost_usd": 0.000898,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A8",
+      "part": "A",
+      "question": "A8",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "io_system",
+      "topic_label": "Input/output and interrupts",
+      "task": "short_answer",
+      "title": "Ten-mark question 8",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2019-06-A8",
+      "paper_id": "CSC429-2019-06",
+      "source_file": "CSC429 (12).pdf",
+      "source_pages": [
+        5
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 5,
+          "y": 234.24,
+          "text": "a) Discuss TWO (2) functions of an input/output module."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 272.64,
+          "text": "b) External input/output devices can be broadly categorized into three categories. List TWO (2) of the categories and provide an appropriate example of devices for each categories."
+        },
+        {
+          "type": "text",
+          "page": 5,
+          "y": 336.24,
+          "text": "c) Name ONE (1) input/output technique that requires active CPU intervention and ONE (1) technique that does not require CPU intervention."
+        }
+      ],
+      "text": "a)\nDiscuss TWO (2) functions of an input/output module.\nb)\nExternal input/output devices can be broadly categorized into three categories. List\nTWO (2) of the categories and provide an appropriate example of devices for each\ncategories.\nc)\nName ONE (1) input/output technique that requires active CPU intervention and ONE\n(1) technique that does not require CPU intervention.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a)\nDiscuss TWO (2) functions of an input/output module.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            98.16,
+            234.24,
+            106.8,
+            244.8
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b)\nExternal input/output devices can be broadly categorized into three categories. List\nTWO (2) of the categories and provide an appropriate example of devices for each\ncategories.",
+          "marks": 4,
+          "marks_source": "explicit",
+          "bbox": [
+            97.92,
+            272.64,
+            106.56,
+            283.2
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c)\nName ONE (1) input/output technique that requires active CPU intervention and ONE\n(1) technique that does not require CPU intervention.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            97.2,
+            336.24,
+            105.36,
+            346.8
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a) Two functions of an I/O module (4 marks):\n\nFunction 1 — Processor/device communication and control (interface/translation): The I/O module acts as the intermediary between the CPU and external devices. It receives control commands from the CPU (e.g. read, write, status request) and translates them into signals the device understands, and conversely converts device signals/data into a form the CPU can use. It also reports device status (ready, busy, error) back to the processor, so the CPU does not need to know device-specific details.\n\nFunction 2 — Data buffering and data transfer (synchronization): The I/O module temporarily holds data in buffers/registers to compensate for the speed mismatch between the fast CPU/system bus and the much slower peripheral. It handles the actual transfer of data between the device and the CPU or memory (e.g. via DMA), and performs error detection (e.g. parity) on the transferred data. This frees the CPU from managing timing differences and lets it continue other work while the module completes the transfer.\n\n(b) Two categories of external I/O devices with examples (4 marks):\n\nCategory 1 — Human-readable (human–machine interface) devices: devices that communicate directly with a human user. Example: keyboard, mouse, monitor/display, printer.\n\nCategory 2 — Machine-readable devices: devices that communicate with other machines/equipment rather than a person. Example: disk drive, magnetic tape drive, sensor/actuator, network interface card.\n\n(The third standard category, for completeness, is communication devices, e.g. modem/NIC.)\n\n(c) I/O techniques (2 marks):\n\nRequires active CPU intervention: Programmed I/O (polling) — the CPU repeatedly checks the device status and moves data itself. (Interrupt-driven I/O also involves CPU servicing each transfer.)\n\nDoes not require active CPU intervention: Direct Memory Access (DMA) — the DMA controller transfers data directly between device and memory, interrupting the CPU only when the whole block is complete.",
+        "marking": [
+          "1 mark: correct identification of a first function of an I/O module (e.g. processor/device communication and control)",
+          "1 mark: discussion/explanation of that first function",
+          "1 mark: correct identification of a second function (e.g. data buffering/synchronization or error detection)",
+          "1 mark: discussion/explanation of that second function",
+          "1 mark: correct naming of a first device category (e.g. human-readable)",
+          "1 mark: appropriate example for that category (e.g. keyboard/monitor)",
+          "1 mark: correct naming of a second device category (e.g. machine-readable) with an appropriate example (e.g. disk drive/sensor)",
+          "1 mark: correct naming of an I/O technique requiring active CPU intervention (e.g. programmed I/O/polling)",
+          "1 mark: correct naming of an I/O technique not requiring active CPU intervention (e.g. DMA)"
+        ],
+        "confidence": "high",
+        "notes": "Question text has minor OCR/grammar issues ('each categories'); interpreted as 'each category'. Part (c) asks only to name techniques, so brief naming suffices; the parenthetical explanations are added for clarity. The third device category (communication devices) is mentioned only as supplementary information and is not required for marks.",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T06:13:36.881823+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 486,
+          "completion_tokens": 713,
+          "total_tokens": 1199,
+          "calls": 1,
+          "cost_usd": 0.001001,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A9",
+      "part": "A",
+      "question": "A9",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "computer_architecture",
+      "topic_label": "Computer architecture and CPU organisation",
+      "task": "short_answer",
+      "title": "Ten-mark question 9",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2024-01-A6",
+      "paper_id": "CSC429-2024-01",
+      "source_file": "CSC429 (16).pdf",
+      "source_pages": [
+        3
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 3,
+          "y": 422.16,
+          "text": "a) Compare system interconnection and CPU interconnection in terms of:"
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 435.84,
+          "text": "i) function"
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 448.32,
+          "text": "ii) physical appearance."
+        },
+        {
+          "type": "text",
+          "page": 3,
+          "y": 485.76,
+          "text": "b) Describe the function of the THREE (3) different bus types in a computer system."
+        }
+      ],
+      "text": "a) Compare system interconnection and CPU interconnection in terms of:\ni) function\nii) physical appearance.\nb) Describe the function of the THREE (3) different bus types in a computer system.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Compare system interconnection and CPU interconnection in terms of:",
+          "marks": null,
+          "marks_source": "missing",
+          "bbox": [
+            79.92,
+            422.16,
+            440.16,
+            433.68
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "i",
+          "text": "i) function",
+          "marks": null,
+          "marks_source": "grouped",
+          "bbox": [
+            97.68,
+            435.84,
+            152.88,
+            446.16
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "ii",
+          "text": "ii) physical appearance.",
+          "marks": 4,
+          "marks_source": "grouped",
+          "bbox": [
+            97.68,
+            448.32,
+            218.16,
+            458.88
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) Describe the function of the THREE (3) different bus types in a computer system.",
+          "marks": 6,
+          "marks_source": "explicit",
+          "bbox": [
+            79.92,
+            485.76,
+            491.04,
+            496.8
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a)(i) Function — System interconnection: the system bus (front-side/memory-I/O bus) is the shared set of communication pathways that links the CPU, main memory and I/O controllers so that data, addresses and control signals can be exchanged between all major system components; it is the general-purpose backbone of the whole computer. CPU interconnection: the CPU-internal (or CPU-local) interconnection links the components inside the processor — the control unit, ALU, registers and cache — and carries the internal data/address/control traffic needed to fetch, decode and execute instructions. In short, system interconnection connects the processor to the rest of the machine, whereas CPU interconnection connects the functional units within the processor.\n\n(a)(ii) Physical appearance — System interconnection: appears as a set of parallel conducting tracks (bus lines) on the motherboard, with expansion slots/connectors into which memory modules and I/O adapter cards plug; it is relatively long, exposed on the board and shared by many devices. CPU interconnection: appears as very short, dense on-chip wiring (metal interconnect layers) inside the CPU chip, or a compact local bus on the processor package; it is not exposed to the user and is much shorter and faster than the system bus.\n\n(b) The three bus types are the data bus, the address bus and the control bus. Data bus: a bidirectional set of lines that carries the actual data (and instructions) between the CPU, memory and I/O; its width determines how many bits can be transferred at once and hence affects performance. Address bus: a unidirectional set of lines that carries the address of the memory location or I/O port being accessed, from the CPU outwards; its width determines the maximum addressable memory (e.g. n lines → 2^n locations). Control bus: a set of lines carrying timing and command signals (e.g. read/write, memory/IO select, interrupt request/acknowledge, clock, bus grant/request) that coordinate and synchronise the transfer of data and addresses between the components.",
+        "marking": [
+          "1 mark: correct function of system interconnection (links CPU, memory and I/O; system-wide backbone)",
+          "1 mark: correct function of CPU interconnection (links internal CPU units such as ALU, registers, control unit, cache)",
+          "1 mark: correct physical appearance of system interconnection (motherboard tracks/expansion slots, longer, shared, exposed)",
+          "1 mark: correct physical appearance of CPU interconnection (short on-chip interconnect/local bus, compact, not user-visible)",
+          "1 mark: data bus — carries data/instructions between CPU, memory and I/O (bidirectional)",
+          "1 mark: data bus — width determines number of bits transferred at once / affects performance",
+          "1 mark: address bus — carries address of memory location or I/O port (unidirectional, CPU outwards)",
+          "1 mark: address bus — width determines maximum addressable memory (2^n)",
+          "1 mark: control bus — carries command/timing signals (read/write, memory/IO select, interrupt, clock)",
+          "1 mark: control bus — synchronises/coordinates transfers between components"
+        ],
+        "confidence": "high",
+        "notes": "Question text is clear; no OCR correction needed. The comparison assumes the standard CSC429 treatment of system bus vs CPU-internal interconnection; if the course uses 'CPU interconnection' to mean a dedicated processor-to-cache/processor-to-processor local bus, the same functional/physical distinction still applies.",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T06:13:43.103276+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 407,
+          "completion_tokens": 719,
+          "total_tokens": 1126,
+          "calls": 1,
+          "cost_usd": 0.000985,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "A10",
+      "part": "A",
+      "question": "A10",
+      "kind": "real_bank_question",
+      "marks": 10,
+      "topic": "memory_system",
+      "topic_label": "Memory hierarchy and cache",
+      "task": "short_answer",
+      "title": "Ten-mark question 10",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2024-07-A8",
+      "paper_id": "CSC429-2024-07",
+      "source_file": "CSC429 (17).pdf",
+      "source_pages": [
+        4
+      ],
+      "asset_ids": [],
+      "content": [
+        {
+          "type": "text",
+          "page": 4,
+          "y": 129.06,
+          "text": "a) Elaborate THREE (3) types of replacement algorithm."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 167.21,
+          "text": "b) List TWO (2) types of mapping that require a replacement algorithm."
+        },
+        {
+          "type": "text",
+          "page": 4,
+          "y": 205.62,
+          "text": "c) Discuss the reason why the replacement algorithm needs to be implemented."
+        }
+      ],
+      "text": "a) Elaborate THREE (3) types of replacement algorithm.\nb) List TWO (2) types of mapping that require a replacement algorithm.\nc) Discuss the reason why the replacement algorithm needs to be implemented.",
+      "subparts": [
+        {
+          "label": "a",
+          "text": "a) Elaborate THREE (3) types of replacement algorithm.",
+          "marks": 6,
+          "marks_source": "explicit",
+          "bbox": [
+            86.4,
+            129.06,
+            365.41,
+            144.26
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "b",
+          "text": "b) List TWO (2) types of mapping that require a replacement algorithm.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            86.64,
+            167.21,
+            437.18,
+            182.42
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        },
+        {
+          "label": "c",
+          "text": "c) Discuss the reason why the replacement algorithm needs to be implemented.",
+          "marks": 2,
+          "marks_source": "explicit",
+          "bbox": [
+            86.4,
+            205.62,
+            481.09,
+            220.73
+          ],
+          "figure_refs": [],
+          "asset_ids": []
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "(a) Three types of replacement algorithm [6 marks]\n\n1. Random replacement: When a cache line must be evicted, a line is chosen at random (often via a simple pseudo-random counter). It requires almost no bookkeeping hardware, so it is cheap and fast, but it ignores locality and may evict a line that is about to be reused, giving poorer hit ratios than LRU-style schemes.\n\n2. First-In-First-Out (FIFO): Lines are evicted in the order they were brought into the set — the oldest line is replaced first, maintained by a circular pointer/queue per set. It is simple to implement, but it does not track usage, so a frequently used old line can still be evicted (no account of temporal locality), and it can suffer Belady's anomaly in principle.\n\n3. Least Recently Used (LRU): The line that has gone longest without being referenced is evicted, exploiting temporal locality. It gives good hit ratios but needs per-line usage information (e.g. counters or a reference/age bit stack), so it is costly in hardware and difficult to implement exactly for high associativity; approximations such as pseudo-LRU or the clock/second-chance algorithm are often used instead.\n\n(Other acceptable answers: Least Frequently Used (LFU) — evict the line with fewest references; Optimal/OPT (Belady's) — evict the line used furthest in the future, used only as a theoretical benchmark since it needs future knowledge.)\n\n(b) Two types of mapping requiring a replacement algorithm [2 marks]\n\nFully associative mapping and set-associative mapping. (Direct mapping needs no replacement algorithm because each block has exactly one possible cache line.)\n\n(c) Reason the replacement algorithm must be implemented [2 marks]\n\nIn associative and set-associative caches a new block can be placed in any line of a set (or of the whole cache), so when that set is full a choice must be made about which existing line to evict. The replacement algorithm makes this choice; a good policy (e.g. LRU) evicts the least useful line and so raises the hit ratio and reduces average memory access time, while a poor policy causes useful blocks to be discarded and increases misses.",
+        "marking": [
+          "1 mark: correct identification/description of Random replacement",
+          "1 mark: correct identification/description of FIFO replacement",
+          "1 mark: correct identification/description of LRU replacement",
+          "3 marks: elaboration of each of the three algorithms (1 mark each for explaining how the victim is chosen and its advantage/disadvantage)",
+          "1 mark: fully associative mapping listed",
+          "1 mark: set-associative mapping listed",
+          "1 mark: explains that in associative/set-associative mapping a block can go into more than one line, so a victim must be chosen when the set is full",
+          "1 mark: links a good replacement policy to improved hit ratio / reduced average memory access time (or the cost of a poor policy)"
+        ],
+        "confidence": "high",
+        "notes": "Question text is clear; no OCR correction needed. Part (a) accepts any three standard algorithms (Random, FIFO, LRU, LFU, Optimal); the model answer uses the three most common. Mark allocation assumes 2 marks per algorithm in (a) (1 identification + 1 elaboration).",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T06:13:49.542831+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 416,
+          "completion_tokens": 705,
+          "total_tokens": 1121,
+          "calls": 1,
+          "cost_usd": 0.000971,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    },
+    {
+      "slot": "B1",
+      "part": "B",
+      "question": "B1",
+      "kind": "real_bank_question",
+      "marks": 20,
+      "topic": "assembly_programming",
+      "topic_label": "Assembly-language programming",
+      "task": "assembly_program",
+      "title": "Twenty-mark assembly-programming question",
+      "resolver": "csc429.real_bank",
+      "variant_policy": "verbatim",
+      "generator_pool": [],
+      "asset_policy": "figure_capture_table_recreate_mixed_text_recreate",
+      "question_id": "CSC429-2025-02-B1",
+      "paper_id": "CSC429-2025-02",
+      "source_file": "CSC429 (18).pdf",
+      "source_pages": [
+        6
+      ],
+      "asset_ids": [
+        "CSC429-2025-02-F2",
+        "CSC429-2025-02-T1"
+      ],
+      "content": [
+        {
+          "type": "text",
+          "page": 6,
+          "y": 157.62,
+          "text": "Question 1 is based on Figure 2 and Table 1."
+        },
+        {
+          "type": "figure",
+          "page": 6,
+          "y": 191.52,
+          "asset_id": "CSC429-2025-02-F2",
+          "path": "data/tracking/csc429/assets/CSC429-2025-02/CSC429-2025-02-F2.png",
+          "crop_box": [
+            234.9,
+            191.52,
+            385.26,
+            243.13
+          ],
+          "page_image": "data\\tracking\\csc429\\pages\\CSC429-2025-02\\page_006.jpg",
+          "page_points": [
+            603.12,
+            843.36
+          ],
+          "width_px": 627,
+          "height_px": 215,
+          "caption": "Figure 2",
+          "display_width_cm": 8.0
+        },
+        {
+          "type": "text",
+          "page": 6,
+          "y": 285.29,
+          "text": "Write an appropriate program using correct assembly language notations to compute the equation shown in Figure 2 using instructions for one-address, two-address, and three- address. The available instructions are provided in Table 1. The register labeled A, B, C, and D are fixed, while registers x, y, and z can be used temporarily. The final answer must be stored in register y."
+        },
+        {
+          "type": "table",
+          "page": 6,
+          "y": 395.21,
+          "asset_id": "CSC429-2025-02-T1",
+          "table": {
+            "columns": 3,
+            "rows": [
+              {
+                "cells": [
+                  {
+                    "text": "One-address",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "Two-address",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "Three-address",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "LOADp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MOV (p,q)",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "ADD (p.q.r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "STORp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "ADD (p,q)",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "SUB (p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "ADDp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "SUB (p,q)",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MUL (p.q.r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "SUBp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "MUL (p,q)",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "DIV(p,q,r)",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "MULp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "DIV(p,q)",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  }
+                ]
+              },
+              {
+                "cells": [
+                  {
+                    "text": "DIVp",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  },
+                  {
+                    "text": "",
+                    "colspan": 1
+                  }
+                ]
+              }
+            ],
+            "non_empty_ratio": 0.857,
+            "source": "layout"
+          },
+          "caption": "Table 1 : Machine instruction"
+        }
+      ],
+      "text": "Question 1 is based on Figure 2 and Table 1.\ny = A -\n2C\n* D\nB + A2\nFigure 2\nWrite an appropriate program using correct assembly language notations to compute the\nequation shown in Figure 2 using instructions for one-address, two-address, and three-\naddress. The available instructions are provided in Table 1. The register labeled A, B, C, and\nD are fixed, while registers x, y, and z can be used temporarily. The final answer must be\nstored in register y.\nTable 1 : Machine instruction\nOne-address\nTwo-address\nThree-address\nLOADp\nMOV (p,q)\nADD (p.q.r)\nSTORp\nADD (p,q)\nSUB (p,q,r)\nADDp\nSUB (p,q)\nMUL (p.q.r)\nSUBp\nMUL (p,q)\nDIV(p,q,r)\nMULp\nDIV(p,q)\nDIVp",
+      "subparts": [
+        {
+          "label": "main",
+          "text": "Question 1 is based on Figure 2 and Table 1.\ny = A -\n2C\n* D\nB + A2\nFigure 2\nWrite an appropriate program using correct assembly language notations to compute the\nequation shown in Figure 2 using instructions for one-address, two-address, and three-\naddress. The available instructions are provided in Table 1. The register labeled A, B, C, and\nD are fixed, while registers x, y, and z can be used temporarily. The final answer must be\nstored in register y.\nTable 1 : Machine instruction\nOne-address\nTwo-address\nThree-address\nLOADp\nMOV (p,q)\nADD (p.q.r)\nSTORp\nADD (p,q)\nSUB (p,q,r)\nADDp\nSUB (p,q)\nMUL (p.q.r)\nSUBp\nMUL (p,q)\nDIV(p,q,r)\nMULp\nDIV(p,q)\nDIVp",
+          "marks": 20,
+          "marks_source": "explicit",
+          "bbox": [
+            80.64,
+            157.62,
+            301.81,
+            172.73
+          ],
+          "figure_refs": [
+            "Figure 2",
+            "Table 1"
+          ],
+          "asset_ids": [
+            "CSC429-2025-02-F2",
+            "CSC429-2025-02-T1"
+          ]
+        }
+      ],
+      "answer": "",
+      "marking": [],
+      "generator_id": "",
+      "model_answer": {
+        "answer": "Assumption: Figure 2 is interpreted as y = A - ((2C * D) / (B + A^2)). The expression is evaluated as: temp1 = 2*C; temp2 = temp1*D; temp3 = A*A; temp4 = B + temp3; temp5 = temp2 / temp4; y = A - temp5. Registers A, B, C, D are fixed; x, y, z are temporary. Final result must be in y.\n\nOne-address program (accumulator-based):\nLOAD A        ; ACC = A\nMUL A         ; ACC = A^2\nADD B         ; ACC = A^2 + B\nSTOR z        ; z = A^2 + B\nLOAD C        ; ACC = C\nMUL D         ; ACC = C*D\nADD C         ; ACC = 2*C*D  (since C*D + C*D = 2*C*D)\nDIV z         ; ACC = (2*C*D)/(A^2+B)\nSTOR x        ; x = (2*C*D)/(A^2+B)\nLOAD A        ; ACC = A\nSUB x         ; ACC = A - x\nSTOR y        ; y = final answer\n\nTwo-address program (operand1 = operand1 op operand2):\nMOV x, C      ; x = C\nADD x, C      ; x = 2C\nMUL x, D      ; x = 2C*D\nMOV z, A      ; z = A\nMUL z, A      ; z = A^2\nADD z, B      ; z = B + A^2\nDIV x, z      ; x = (2C*D)/(B + A^2)\nMOV y, A      ; y = A\nSUB y, x      ; y = A - x\n\nThree-address program (dest = src1 op src2):\nMUL x, C, D   ; x = C*D\nADD x, x, x   ; x = 2*C*D\nMUL z, A, A   ; z = A^2\nADD z, B, z   ; z = B + A^2\nDIV x, x, z   ; x = (2*C*D)/(B + A^2)\nSUB y, A, x   ; y = A - x",
+        "marking": [
+          "1 mark: correct interpretation of Figure 2 as y = A - ((2C*D)/(B + A^2)) and correct order of operations.",
+          "6 marks: one-address program – 1 mark for correct use of LOAD/STOR, 1 mark for computing A^2+B, 1 mark for computing 2C*D, 1 mark for division, 1 mark for final subtraction, 1 mark for storing final answer in y.",
+          "6 marks: two-address program – 1 mark for MOV to initialise, 1 mark for computing 2C, 1 mark for 2C*D, 1 mark for A^2+B, 1 mark for division, 1 mark for final subtraction into y.",
+          "6 marks: three-address program – 1 mark for MUL x,C,D, 1 mark for doubling to 2C*D, 1 mark for MUL z,A,A, 1 mark for ADD z,B,z, 1 mark for DIV x,x,z, 1 mark for SUB y,A,x.",
+          "1 mark: correct assembly notation (mnemonics and operand order) consistent with Table 1 for all three programs."
+        ],
+        "confidence": "medium",
+        "notes": "Figure 2 is not fully legible from the extracted text; the expression is assumed to be y = A - (2C*D)/(B + A^2). If the figure shows a different grouping (e.g., denominator B + A^2 or (B+A)^2), the programs must be adjusted accordingly. Table 1 uses inconsistent punctuation (e.g., ADD (p.q.r)); operand order is taken as dest, src1, src2 for three-address and dest, src for two-address. One-address instructions are assumed to use an implicit accumulator.",
+        "model": "deepseek-flash",
+        "generated_at": "2026-11-07T05:45:39.512068+00:00",
+        "usage": {
+          "model": "deepseek-flash",
+          "prompt_tokens": 634,
+          "completion_tokens": 935,
+          "total_tokens": 1569,
+          "calls": 1,
+          "cost_usd": 0.001312,
+          "input_price_per_1m": 0.3,
+          "output_price_per_1m": 1.2
+        },
+        "reviewed": null,
+        "review_note": null,
+        "unofficial": true
+      }
+    }
+  ],
+  "notes": "Real past-paper questions only. Topic quotas are the largest-remainder allocation of the observed Part A topic mix; each quota is split between 5- and 10-mark slots using the topic's observed 5/10-mark availability. Every slot resolves to the real bank.",
+  "answer_report": {
+    "model": "deepseek-flash",
+    "prompt_version": 1,
+    "requested": 9,
+    "cache_hits": 3,
+    "generated": 6,
+    "failed": 0,
+    "errors": [],
+    "usage": {
+      "model": "deepseek-flash",
+      "prompt_tokens": 2553,
+      "completion_tokens": 3682,
+      "total_tokens": 6235,
+      "calls": 6,
+      "cost_usd": 0.005184,
+      "input_price_per_1m": 0.3,
+      "output_price_per_1m": 1.2
+    },
+    "cache_usage": {
+      "model": "deepseek-flash",
+      "calls": 109,
+      "prompt_tokens": 49822,
+      "completion_tokens": 70249,
+      "total_tokens": 120071,
+      "cost_usd": 0.099248
+    },
+    "cost_usd": 0.005184
+  }
+}

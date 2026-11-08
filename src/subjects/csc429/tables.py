@@ -93,6 +93,8 @@ def extract_table(asset: dict[str, Any], page: dict[str, Any]) -> dict[str, Any]
     The result is deliberately conservative: a table needs at least two rows
     and two columns, and at least 45% of its cells must contain text.
     """
+    if asset.get("table_data"):
+        return dict(asset["table_data"])
     box = asset.get("content_bbox") or asset.get("bbox_pdf")
     if not box:
         return None

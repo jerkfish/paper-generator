@@ -1,21 +1,19 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "subject": "CSC429",
-  "type": "C",
-  "template_path": "",
-  "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-06T05:45:55Z",
+  "type": "D",
+  "strategy": "pure_extraction",
+  "created": "2026-11-07T08:08:55.939319+00:00",
+  "updated": "2026-11-08T10:30:00Z",
   "stages": {
     "0_intake": {
       "status": "done",
       "evidence": [
         "subjects/CSC429/subject.json",
-        "subjects/CSC429/lifecycle_state.json",
-        "docs/CSC429.md",
-        "src/subjects/csc429/",
-        "data/papers/CSC429/",
-        "data/tracking/csc429/papers_register.json",
-        "data/tracking/csc429/papers_summary.json"
+        "data/tracking/csc429/rejected_registry.json",
+        "data/tracking/csc429/p0_reset_report.json",
+        "data/tracking/csc429/templates/paper_template.docx",
+        "data/tracking/csc429/templates/scheme_template.docx"
       ],
       "llm_cost_usd": 0.0,
       "blockers": [],
@@ -23,60 +21,26 @@
         "required": true,
         "approved": true,
         "by": "owner",
-        "on": "2026-11-05",
-        "note": "Type C/order 3 confirmed; scheme and lecture slides waived; publication kept false; 23 supplied PDFs accepted as inputs."
+        "on": "2026-11-07",
+        "note": "Owner supplied the P0 reset and strategy lock: Type D, pure extraction, generators disabled."
       },
-      "notes": "Stage-0 intake approved on 2026-11-05. The Stage 1+ attempt was rejected because it invented descriptive questions instead of drawing real past-paper questions and their original diagrams. Stage 1 is being redone."
+      "notes": "P0 reset. Type D, strategy pure_extraction, generators disabled, parametric variants disabled. Inputs confirmed: 23 PDFs, 20 unique. Templates copied from the accepted pure-extraction experiment."
     },
     "1_preprocess": {
-      "status": "blocked",
-      "evidence": [
-        "data/tracking/csc429/papers_register.json",
-        "data/tracking/csc429/papers_summary.json",
-        "data/tracking/csc429/cover_text.json",
-        "data/tracking/csc429/paper_text/index.json",
-        "data/tracking/csc429/pages_manifest.json",
-        "data/tracking/csc429/layout_manifest.json",
-        "data/tracking/csc429/assets/manifest.json",
-        "data/tracking/csc429/stage1_corrections.json",
-        "data/tracking/csc429/stage1_report.json",
-        "data/tracking/csc429/question_bank_draft.json",
-        "src/subjects/csc429/capture.py",
-        "src/subjects/csc429/layout.py",
-        "src/subjects/csc429/assets.py",
-        "src/subjects/csc429/corrections.py",
-        "src/subjects/csc429/questions.py",
-        "src/subjects/csc429/stage1.py",
-        "src/subjects/csc429/seed_pilot.py",
-        "src/ingest/ocr.py",
-        "tests/test_csc429_capture.py",
-        "tests/test_csc429_assets.py",
-        "tests/test_csc429_questions.py",
-        "tests/test_csc429_tables.py",
-        "tests/test_csc429_stage1.py",
-        "tests/test_csc429_stage1_regressions.py",
-        "outputs/pilot/CSC429/seed_01/paper.pdf",
-        "outputs/pilot/CSC429/seed_02/paper.pdf",
-        "outputs/pilot/CSC429/seed_03/paper.pdf",
-        "docs/CSC429.md"
-      ],
-      "llm_cost_usd": 0.0,
-      "blockers": [
-        "Owner stopped the CSC429 lifecycle on 2026-11-06: too much noise; fixing one issue repeatedly broke another. The attempt will be restarted from zero."
-      ],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": "Lifecycle stopped by the owner; Stage 1 not approved."
-      },
-      "notes": "STOPPED 2026-11-06. The Stage-1 correction was not accepted. This attempt is archived at outputs/archive/csc429_attempt2_20261106/ and the subject will restart from zero."
-    },
-    "2_scheme_slides": {
       "status": "done",
       "evidence": [
-        "subjects/CSC429/subject.json"
+        "data/tracking/csc429/bank/index.json",
+        "data/tracking/csc429/bank/questions_index.json",
+        "data/tracking/csc429/bank/assets_index.json",
+        "data/tracking/csc429/bank/unsure.json",
+        "data/tracking/csc429/bank/gate1_report.json",
+        "data/tracking/csc429/bank/review/index.html",
+        "data/tracking/csc429/bank/compare_report.json",
+        "data/tracking/csc429/rejected_registry.json",
+        "data/tracking/csc429/usage.json",
+        "data/tracking/csc429/p0_reset_report.json",
+        "data/tracking/csc429/bank/gate1_report.md",
+        "data/tracking/csc429/bank/review_index.json"
       ],
       "llm_cost_usd": 0.0,
       "blockers": [],
@@ -84,17 +48,31 @@
         "required": true,
         "approved": true,
         "by": "owner",
-        "on": "2026-11-05",
-        "note": "Owner waived supplied scheme and lecture slides at Stage 0; permissions.scheme and permissions.slides record the waiver with basis."
+        "on": "2026-11-08",
+        "note": "GATE 1 review decisions imported: 172 approved, 26 needs_fix, 17 rejected."
       },
-      "notes": "Waived by the owner: no scheme and no lecture slides were supplied; permissions.scheme.allowed=false and permissions.slides.allowed=false with owner basis. No scheme parse or deck map required."
+      "notes": "P1 extract complete: 20 papers, 215 questions, 633 sub-parts, 96 source-crop assets, 67 questions with assets. P2 compare: 15 native tables accepted, 21 table crops, 60 pictures/figures/diagrams/formulas original-only. P3 review: 20 local HTML sheets. GATE 1 awaiting owner review."
+    },
+    "2_scheme_slides": {
+      "status": "not_applicable",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-07",
+        "note": "Type D uses approved templates and unofficial answers; supplied scheme/slides are not the source of truth."
+      },
+      "notes": "Not applicable under the owner-directed Type D strategy."
     },
     "3_template": {
       "status": "done",
       "evidence": [
-        "data/tracking/csc429/template_check.json",
-        "data/reference/CSC429/CSC429 TEMPLATE.docx",
-        "outputs/pilot/CSC429/seed_01/paper.pdf"
+        "data/tracking/csc429/templates/paper_template.docx",
+        "data/tracking/csc429/templates/scheme_template.docx",
+        "data/tracking/csc429/p0_reset_report.json"
       ],
       "llm_cost_usd": 0.0,
       "blockers": [],
@@ -102,62 +80,17 @@
         "required": true,
         "approved": true,
         "by": "owner",
-        "on": "2026-11-05",
-        "note": "Owner approved continue after reviewing the rendered cover and page-2 transition."
+        "on": "2026-11-07",
+        "note": "Owner directed use of the accepted experiment templates, crest and cover box offsets."
       },
-      "notes": "subject.json.template_path now points at the owner-approved CSC429 TEMPLATE.docx. template_check.json reports xml_valid true, 2 sections, 1 footer, 1 image, non-empty cover text and no problems. The seed PDFs render the approved cover and page-2 transition. Stage 3 awaits the owner [HUMAN] gate."
+      "notes": "Paper template d24f9810..., scheme template edbe3dfb...; copied into the new working tree."
     },
     "4_taxonomy_question_log": {
-      "status": "pending",
-      "evidence": [
-        "data/tracking/csc429/taxonomy.json",
-        "data/tracking/csc429/question_log.json",
-        "data/tracking/csc429/taxonomy_summary.json",
-        "src/subjects/csc429/taxonomy.py",
-        "tests/test_csc429_taxonomy.py",
-        "subjects/CSC429/subject.json"
-      ],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": "Reopened after the Stage-1 correction; taxonomy/log rebuilt but awaiting Stage-1 approval."
-      },
-      "notes": "Rebuilt from the corrected 215-question bank: 8 topics, 2,000 marks, 20/20 papers reconciled, zero unclassified, 6 unsure items carried forward (four unresolved table references plus ambiguous marks in 2014-06-A10 and 2023-07-A4). Stage reopened; previous approval superseded by the Stage-1 fix."
-    },
-    "5_fingerprint_planner": {
-      "status": "pending",
-      "evidence": [
-        "data/tracking/csc429/planner_seed_01.json",
-        "data/tracking/csc429/planner_seed_02.json",
-        "data/tracking/csc429/planner_seed_03.json",
-        "src/subjects/csc429/planner.py",
-        "src/subjects/csc429/plugin.py",
-        "tests/test_csc429_planner.py",
-        "subjects/CSC429/subject.json"
-      ],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": "Reopened after the Stage-1 correction; planner samples rebuilt but awaiting Stage-1 approval."
-      },
-      "notes": "Deterministic 11-slot planner regenerated from the corrected taxonomy: A1-A4 5 marks, A5-A10 10 marks, B1 20 marks; Part A 80 + Part B 20 = 100. Topic quota unchanged: data 2, architecture 2, I/O 2, memory 1, generations 1, parallel 1, addressing 1, assembly 1. Stage reopened; previous approval superseded by the Stage-1 fix."
-    },
-    "6_generators": {
       "status": "done",
       "evidence": [
-        "data/tracking/csc429/generator_sample_seed_01.json",
-        "data/tracking/csc429/generator_validation.json",
-        "src/subjects/csc429/generators.py",
-        "tests/test_csc429_generators.py",
-        "subjects/CSC429/subject.json"
+        "data/tracking/csc429/bank/questions_index.json",
+        "data/tracking/csc429/bank/index.json",
+        "data/tracking/csc429/bank/gate1_report.json"
       ],
       "llm_cost_usd": 0.0,
       "blockers": [],
@@ -165,135 +98,162 @@
         "required": true,
         "approved": true,
         "by": "owner",
-        "on": "2026-11-05",
-        "note": "Owner approved continue after sampling the generated arithmetic, IEEE 754 and number-base questions."
+        "on": "2026-11-08",
+        "note": "Gate 1 decisions imported; 26 needs_fix and 17 rejected are excluded from the pool."
       },
-      "notes": "Three deterministic generators implemented: number-base conversion, signed arithmetic with sign-magnitude/1's/2's complement, and IEEE 754 single precision encode/decode. Planner data-representation slots resolve to csc429.generator; all other slots remain csc429.real_bank. 5-mark slots yield one worked question, 10-mark slots yield two 5-mark subparts. A 20-seed validation produced 40 generated slots, all three generators used, and zero answer errors; generator_sample_seed_01.json records seed 1. LLM cost $0.00."
+      "notes": "Question bank written; only owner-approved questions may enter the P4 pool."
+    },
+    "5_fingerprint_planner": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/csc429/bank/pool.json",
+        "data/tracking/csc429/bank/feasibility.json",
+        "data/tracking/csc429/bank/plans/index.json",
+        "data/tracking/csc429/bank/plans/seed_01.json",
+        "data/tracking/csc429/bank/plans/seed_02.json",
+        "data/tracking/csc429/bank/plans/seed_03.json",
+        "data/tracking/csc429/bank/plans/seed_04.json",
+        "data/tracking/csc429/bank/plans/seed_05.json",
+        "data/tracking/csc429/bank/plans/seed_06.json",
+        "data/tracking/csc429/bank/plans/seed_07.json",
+        "data/tracking/csc429/bank/plans/seed_08.json",
+        "data/tracking/csc429/bank/plans/seed_09.json",
+        "data/tracking/csc429/bank/plans/seed_10.json",
+        "data/tracking/csc429/bank/plans/seed_11.json",
+        "data/tracking/csc429/bank/plans/seed_12.json",
+        "data/tracking/csc429/bank/plans/seed_13.json",
+        "data/tracking/csc429/bank/plans/seed_14.json",
+        "data/tracking/csc429/bank/plans/seed_15.json",
+        "data/tracking/csc429/bank/plans/seed_16.json",
+        "data/tracking/csc429/bank/plans/seed_17.json",
+        "data/tracking/csc429/bank/plans/seed_18.json",
+        "data/tracking/csc429/bank/plans/seed_19.json",
+        "data/tracking/csc429/bank/plans/seed_20.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-08",
+        "note": "Gate 1 approved pool; deterministic P4 plan generated with no reuse in adjacent seeds."
+      },
+      "notes": "P4: 172 approved questions; 5 fully distinct seeds; 20 seeds at reuse cap K=4; no question in adjacent seeds."
+    },
+    "6_generators": {
+      "status": "not_applicable",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-07",
+        "note": "Owner locked generators_enabled to [] and parametric_variants to false."
+      },
+      "notes": "All generators and parametric variants are disabled for Type D."
     },
     "7_builders_qa": {
-      "status": "pending",
+      "status": "done",
       "evidence": [
-        "data/tracking/csc429/build_sample/paper.docx",
-        "data/tracking/csc429/build_sample/paper.pdf",
-        "data/tracking/csc429/build_sample/scheme.docx",
-        "data/tracking/csc429/build_sample/scheme.pdf",
-        "data/tracking/csc429/build_sample/qa.json",
-        "data/tracking/csc429/build_sample/meta.json",
-        "data/tracking/csc429/build_sample/plan.json",
-        "data/tracking/csc429/model_answers.json",
-        "data/reference/CSC429/CSC429 SCHEME TEMPLATE.docx",
-        "src/subjects/csc429/build_docx.py",
-        "src/subjects/csc429/answers.py",
-        "tests/test_csc429_build.py",
-        "tests/test_csc429_answers.py",
-        "docs/CSC429.md"
+        "outputs/pure_extraction/CSC429_seed_1_3_formatted/gate2_report.json",
+        "outputs/pure_extraction/CSC429_seed_1_3_formatted/GATE2_REPORT.md",
+        "outputs/pure_extraction/CSC429_seed_1_3_formatted/format_report.json",
+        "outputs/pure_extraction/CSC429_seed_1_3_formatted/seed_01",
+        "outputs/pure_extraction/CSC429_seed_1_3_formatted/seed_02",
+        "outputs/pure_extraction/CSC429_seed_1_3_formatted/seed_03",
+        "data/tracking/csc429/bank/answers.json"
       ],
-      "llm_cost_usd": 0.014089,
-      "blockers": [
-        "Stage 1 must be re-approved before Stage 7 can be accepted."
-      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": "Rejected 2026-11-06; sample regenerated after the Stage-1 correction."
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-08",
+        "note": "GATE 2 approved after reviewing formatted seeds 1-3."
       },
-      "notes": "Sample regenerated from the corrected bank: 7 paper pages, 10 scheme pages; 11/11 slots accepted; 2 generated (A3/A10) and 9 real-bank (A1,A2,A4-A9,B1). The scheme uses the fixed CSC429 scheme standard and cleaned question text; figure/table regions are represented by native placeholders rather than raw OCR labels. All 9 real-bank slots have an unofficial answer; A4 was reviewer-corrected from indirect to direct addressing after checking Figure 2. Answer cache to date: 15 DeepSeek Flash calls, 7,054 prompt + 9,978 completion tokens, $0.014089 actual estimated cost; current rebuild $0. Stage 7 is paused behind the reopened Stage 1 gate."
+      "notes": "P6: seeds 1-3 assembled with approved questions only, original assets, native Word numbers, sequential captions, right-tabbed marks, no question bodies in scheme. Word 16.0; QA pass."
     },
     "8_library_prebuild": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "outputs/web_cache/CSC429/manifest.json",
+        "outputs/web_cache/CSC429/",
+        "outputs/pure_extraction/CSC429_all_seeds/P8_REPORT.md",
+        "outputs/pure_extraction/CSC429_all_seeds/P7_REPORT.md"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-08",
+        "note": "Gate 2 approval authorised P7/P8; local library metadata only, no publication."
       },
-      "notes": "Not started. Rebuild the 20-seed library only after Stage 1 and Stage 7 are re-approved. Real-question answers are cached by question id on demand."
+      "notes": "20/20 seeds assembled and QA-passed; local Library manifest and metadata written; library_items(\"CSC429\") returns 20."
     },
     "9_publish": {
-      "status": "pending",
-      "evidence": [],
+      "status": "skipped",
+      "evidence": [
+        "outputs/public_bundle/LOCAL_BUILD_REPORT.json",
+        "outputs/public_bundle/LOCAL_BUILD_REPORT.md",
+        "outputs/public_bundle/subjects.json",
+        "outputs/public_bundle/library/CSC429/manifest.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-08",
+        "note": "Owner declared CSC429 complete. Public bundle built locally; R2 upload and Worker deployment were not requested and were not performed."
       },
-      "notes": ""
+      "notes": "Skipped by owner decision: local public bundle exists and validates; no upload/deploy."
     },
     "10_close_out": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "outputs/pure_extraction/CSC429_all_seeds/P9_REPORT.md",
+        "outputs/pure_extraction/CSC429_all_seeds/p9_report.json",
+        "docs/CSC429.md",
+        "data/tracking/csc429/usage.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-08",
+        "note": "Owner directed P7-P9 close-out; Stage 9 publish remains separate."
       },
-      "notes": ""
+      "notes": "Docs, reports, tests, cost and playbook-change list recorded."
     }
   },
   "unsure": [
     {
-      "paper_id": "CSC429-2014-06",
-      "question_id": "CSC429-2014-06-A10",
-      "code": "ambiguous_marks",
-      "detail": "mark 4 follows preamble text, not a subpart"
-    },
-    {
-      "paper_id": "CSC429-2014-12",
-      "question_id": "CSC429-2014-12-A1",
-      "code": "unresolved_reference",
-      "detail": "reference(s) without a matching asset: Table 1"
-    },
-    {
-      "paper_id": "CSC429-2016-12",
-      "question_id": "CSC429-2016-12-B1",
-      "code": "unresolved_reference",
-      "detail": "reference(s) without a matching asset: Table 4"
-    },
-    {
-      "paper_id": "CSC429-2017-07",
-      "question_id": "CSC429-2017-07-B1",
-      "code": "unresolved_reference",
-      "detail": "reference(s) without a matching asset: Table 1"
-    },
-    {
-      "paper_id": "CSC429-2023-02",
-      "question_id": "CSC429-2023-02-B1",
-      "code": "unresolved_reference",
-      "detail": "reference(s) without a matching asset: Table 1"
-    },
-    {
-      "paper_id": "CSC429-2023-07",
-      "question_id": "CSC429-2023-07-A4",
-      "code": "ambiguous_marks",
-      "detail": "mark 2 follows preamble text, not a subpart"
-    },
-    {
-      "paper_id": "CSC429",
-      "question_id": "CSC429-MODEL-ANSWERS",
-      "code": "unofficial_model_answer",
-      "detail": "Seed-1 real-bank answers are AI-generated unofficial model answers; A4 is reviewer-corrected. Not an official UTM scheme.",
       "stage": "7_builders_qa",
-      "item": "Real-bank scheme answers are unofficial and must be checked against the source paper.",
-      "blocking": false
+      "item": "26 needs_fix and 17 rejected questions remain outside the approved pool.",
+      "blocking": false,
+      "opened": "2026-11-08",
+      "path": "data/tracking/csc429/bank/gate1_import_report.json"
+    },
+    {
+      "stage": "7_builders_qa",
+      "item": "5 numeric data-representation answers are flagged for human checking.",
+      "blocking": false,
+      "opened": "2026-11-08",
+      "path": "data/tracking/csc429/bank/answers_report.json"
     }
   ],
   "llm_cost": {
     "currency": "USD",
-    "total_usd": 0.014089,
+    "total_usd": 0.139464,
     "by_stage": {
       "0_intake": 0.0,
       "1_preprocess": 0.0,
@@ -302,14 +262,41 @@
       "4_taxonomy_question_log": 0.0,
       "5_fingerprint_planner": 0.0,
       "6_generators": 0.0,
-      "7_builders_qa": 0.014089,
+      "7_builders_qa": 0.0,
       "8_library_prebuild": 0.0,
       "9_publish": 0.0,
-      "10_close_out": 0.0
+      "10_close_out": 0.0,
+      "P5_answers": 0.139464
     }
   },
-  "lifecycle_status": "stopped",
-  "stop_reason": "Owner stopped the CSC429 lifecycle on 2026-11-06: too much noise; fixing one issue repeatedly broke another. The attempt will be restarted from zero.",
-  "stopped_at": "2026-11-06T05:45:55Z",
-  "stopped_by": "owner"
+  "gate": "GATE 2",
+  "gate_status": "approved",
+  "templates": [
+    {
+      "name": "paper_template_good_example_recreational.docx",
+      "source": "C:\\Users\\Ahmad\\AppData\\Roaming\\CherryStudio\\Data\\Files\\01a1ba26-ddf1-779b-b641-f74111c0c77f.docx",
+      "path": "data/tracking/csc429/templates/paper_template_good_example_recreational.docx",
+      "sha256": "d24f9810e851357a0111d8ec44056f7debe27c912879f10d7c9ec274ef6f7e01",
+      "matches_existing": true,
+      "canonical": "data/tracking/csc429/templates/paper_template.docx"
+    },
+    {
+      "name": "scheme_template_fix_wide_content.docx",
+      "source": "C:\\Users\\Ahmad\\AppData\\Roaming\\CherryStudio\\Data\\Files\\01a1ba26-ddec-71cd-8add-3b1531064471.docx",
+      "path": "data/tracking/csc429/templates/scheme_template_fix_wide_content.docx",
+      "sha256": "edbe3dfbcfcfcbc4d66d8fe732ec63949c3b44063d160b5d05d4fb1505105210",
+      "matches_existing": true,
+      "canonical": "data/tracking/csc429/templates/scheme_template.docx"
+    }
+  ],
+  "rejected_registry": "data/tracking/csc429/rejected_registry.json",
+  "gate_approved_at": "",
+  "gate_approval_note": "Owner approved GATE 2 for the formatted seeds 1-3 on 2026-11-08.",
+  "gate1_approved": true,
+  "gate1_approved_at": "2026-11-08T00:00:00Z",
+  "gate2_approved": true,
+  "gate2_approved_at": "2026-11-08T00:00:00Z",
+  "lifecycle_status": "complete",
+  "completed_on": "2026-11-08",
+  "completion_note": "Subject complete. 20 seeds, local library, local public bundle; no R2 upload or Worker deployment."
 }
