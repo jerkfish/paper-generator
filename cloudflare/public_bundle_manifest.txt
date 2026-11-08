@@ -7,92 +7,262 @@ present    assets/htmx.min.js  <- copied from src/app/static
 present    assets/library.js  <- copied from src/app/static
 present    assets/gallery.js  <- copied from src/app/static
 present    library/manifest.json  <- copied from src/app/static
-generated  subjects.json  <- copied from src/app/static
+present    subjects.json  <- copied from src/app/static
 present    subjects/CSC402/subject.json  <- generated from registry; public-safe fields only
-generated  csc402/index.html  <- generated from app templates
-generated  csc402/library/index.html  <- generated from app templates
-generated  csc402/generate/index.html  <- generated from app templates
-generated  library/CSC402/manifest.json  <- generated from public Library metadata
-generated  library/CSC402/papers/CSC402 Seed 01 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC402/papers/CSC402 Seed 01 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC402/schemes/CSC402 Seed 01 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/schemes/CSC402 Seed 01 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/papers/CSC402 Seed 02 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC402/papers/CSC402 Seed 02 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC402/schemes/CSC402 Seed 02 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/schemes/CSC402 Seed 02 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/papers/CSC402 Seed 03 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC402/papers/CSC402 Seed 03 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC402/schemes/CSC402 Seed 03 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/schemes/CSC402 Seed 03 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/papers/CSC402 Seed 04 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC402/papers/CSC402 Seed 04 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC402/schemes/CSC402 Seed 04 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/schemes/CSC402 Seed 04 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/papers/CSC402 Seed 05 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC402/papers/CSC402 Seed 05 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC402/schemes/CSC402 Seed 05 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/schemes/CSC402 Seed 05 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/papers/CSC402 Seed 06 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC402/papers/CSC402 Seed 06 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC402/schemes/CSC402 Seed 06 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/schemes/CSC402 Seed 06 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/papers/CSC402 Seed 07 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC402/papers/CSC402 Seed 07 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC402/schemes/CSC402 Seed 07 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/schemes/CSC402 Seed 07 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/papers/CSC402 Seed 08 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC402/papers/CSC402 Seed 08 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC402/schemes/CSC402 Seed 08 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/schemes/CSC402 Seed 08 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/papers/CSC402 Seed 09 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC402/papers/CSC402 Seed 09 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC402/schemes/CSC402 Seed 09 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/schemes/CSC402 Seed 09 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/papers/CSC402 Seed 10 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC402/papers/CSC402 Seed 10 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC402/schemes/CSC402 Seed 10 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/schemes/CSC402 Seed 10 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/papers/CSC402 Seed 11 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC402/papers/CSC402 Seed 11 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC402/schemes/CSC402 Seed 11 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/schemes/CSC402 Seed 11 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/papers/CSC402 Seed 12 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC402/papers/CSC402 Seed 12 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC402/schemes/CSC402 Seed 12 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/schemes/CSC402 Seed 12 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/papers/CSC402 Seed 13 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC402/papers/CSC402 Seed 13 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC402/schemes/CSC402 Seed 13 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/schemes/CSC402 Seed 13 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/papers/CSC402 Seed 14 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC402/papers/CSC402 Seed 14 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC402/schemes/CSC402 Seed 14 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/schemes/CSC402 Seed 14 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/papers/CSC402 Seed 15 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC402/papers/CSC402 Seed 15 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC402/schemes/CSC402 Seed 15 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/schemes/CSC402 Seed 15 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/papers/CSC402 Seed 16 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC402/papers/CSC402 Seed 16 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC402/schemes/CSC402 Seed 16 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/schemes/CSC402 Seed 16 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/papers/CSC402 Seed 17 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC402/papers/CSC402 Seed 17 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC402/schemes/CSC402 Seed 17 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/schemes/CSC402 Seed 17 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/papers/CSC402 Seed 18 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC402/papers/CSC402 Seed 18 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC402/schemes/CSC402 Seed 18 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/schemes/CSC402 Seed 18 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/papers/CSC402 Seed 19 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC402/papers/CSC402 Seed 19 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC402/schemes/CSC402 Seed 19 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/schemes/CSC402 Seed 19 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/papers/CSC402 Seed 20 2026.docx  <- PUBLIC_BUILD output
-generated  library/CSC402/papers/CSC402 Seed 20 2026.pdf  <- PUBLIC_BUILD output
-generated  library/CSC402/schemes/CSC402 Seed 20 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
-generated  library/CSC402/schemes/CSC402 Seed 20 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    csc402/index.html  <- generated from app templates
+present    csc402/library/index.html  <- generated from app templates
+present    csc402/generate/index.html  <- generated from app templates
+present    library/CSC402/manifest.json  <- generated from public Library metadata
+present    library/CSC402/papers/CSC402 Seed 01 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC402/papers/CSC402 Seed 01 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC402/schemes/CSC402 Seed 01 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/schemes/CSC402 Seed 01 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/papers/CSC402 Seed 02 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC402/papers/CSC402 Seed 02 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC402/schemes/CSC402 Seed 02 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/schemes/CSC402 Seed 02 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/papers/CSC402 Seed 03 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC402/papers/CSC402 Seed 03 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC402/schemes/CSC402 Seed 03 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/schemes/CSC402 Seed 03 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/papers/CSC402 Seed 04 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC402/papers/CSC402 Seed 04 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC402/schemes/CSC402 Seed 04 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/schemes/CSC402 Seed 04 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/papers/CSC402 Seed 05 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC402/papers/CSC402 Seed 05 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC402/schemes/CSC402 Seed 05 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/schemes/CSC402 Seed 05 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/papers/CSC402 Seed 06 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC402/papers/CSC402 Seed 06 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC402/schemes/CSC402 Seed 06 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/schemes/CSC402 Seed 06 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/papers/CSC402 Seed 07 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC402/papers/CSC402 Seed 07 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC402/schemes/CSC402 Seed 07 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/schemes/CSC402 Seed 07 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/papers/CSC402 Seed 08 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC402/papers/CSC402 Seed 08 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC402/schemes/CSC402 Seed 08 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/schemes/CSC402 Seed 08 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/papers/CSC402 Seed 09 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC402/papers/CSC402 Seed 09 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC402/schemes/CSC402 Seed 09 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/schemes/CSC402 Seed 09 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/papers/CSC402 Seed 10 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC402/papers/CSC402 Seed 10 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC402/schemes/CSC402 Seed 10 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/schemes/CSC402 Seed 10 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/papers/CSC402 Seed 11 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC402/papers/CSC402 Seed 11 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC402/schemes/CSC402 Seed 11 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/schemes/CSC402 Seed 11 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/papers/CSC402 Seed 12 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC402/papers/CSC402 Seed 12 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC402/schemes/CSC402 Seed 12 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/schemes/CSC402 Seed 12 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/papers/CSC402 Seed 13 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC402/papers/CSC402 Seed 13 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC402/schemes/CSC402 Seed 13 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/schemes/CSC402 Seed 13 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/papers/CSC402 Seed 14 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC402/papers/CSC402 Seed 14 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC402/schemes/CSC402 Seed 14 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/schemes/CSC402 Seed 14 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/papers/CSC402 Seed 15 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC402/papers/CSC402 Seed 15 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC402/schemes/CSC402 Seed 15 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/schemes/CSC402 Seed 15 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/papers/CSC402 Seed 16 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC402/papers/CSC402 Seed 16 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC402/schemes/CSC402 Seed 16 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/schemes/CSC402 Seed 16 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/papers/CSC402 Seed 17 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC402/papers/CSC402 Seed 17 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC402/schemes/CSC402 Seed 17 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/schemes/CSC402 Seed 17 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/papers/CSC402 Seed 18 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC402/papers/CSC402 Seed 18 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC402/schemes/CSC402 Seed 18 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/schemes/CSC402 Seed 18 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/papers/CSC402 Seed 19 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC402/papers/CSC402 Seed 19 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC402/schemes/CSC402 Seed 19 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/schemes/CSC402 Seed 19 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/papers/CSC402 Seed 20 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC402/papers/CSC402 Seed 20 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC402/schemes/CSC402 Seed 20 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC402/schemes/CSC402 Seed 20 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    subjects/CSC413/subject.json  <- generated from registry; public-safe fields only
+present    csc413/index.html  <- generated from app templates
+present    csc413/library/index.html  <- generated from app templates
+present    csc413/generate/index.html  <- generated from app templates
+present    library/CSC413/manifest.json  <- generated from public Library metadata
+present    library/CSC413/papers/CSC413 Seed 01 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC413/papers/CSC413 Seed 01 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC413/schemes/CSC413 Seed 01 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/schemes/CSC413 Seed 01 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/papers/CSC413 Seed 02 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC413/papers/CSC413 Seed 02 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC413/schemes/CSC413 Seed 02 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/schemes/CSC413 Seed 02 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/papers/CSC413 Seed 03 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC413/papers/CSC413 Seed 03 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC413/schemes/CSC413 Seed 03 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/schemes/CSC413 Seed 03 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/papers/CSC413 Seed 04 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC413/papers/CSC413 Seed 04 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC413/schemes/CSC413 Seed 04 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/schemes/CSC413 Seed 04 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/papers/CSC413 Seed 05 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC413/papers/CSC413 Seed 05 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC413/schemes/CSC413 Seed 05 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/schemes/CSC413 Seed 05 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/papers/CSC413 Seed 06 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC413/papers/CSC413 Seed 06 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC413/schemes/CSC413 Seed 06 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/schemes/CSC413 Seed 06 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/papers/CSC413 Seed 07 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC413/papers/CSC413 Seed 07 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC413/schemes/CSC413 Seed 07 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/schemes/CSC413 Seed 07 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/papers/CSC413 Seed 08 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC413/papers/CSC413 Seed 08 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC413/schemes/CSC413 Seed 08 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/schemes/CSC413 Seed 08 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/papers/CSC413 Seed 09 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC413/papers/CSC413 Seed 09 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC413/schemes/CSC413 Seed 09 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/schemes/CSC413 Seed 09 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/papers/CSC413 Seed 10 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC413/papers/CSC413 Seed 10 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC413/schemes/CSC413 Seed 10 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/schemes/CSC413 Seed 10 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/papers/CSC413 Seed 11 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC413/papers/CSC413 Seed 11 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC413/schemes/CSC413 Seed 11 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/schemes/CSC413 Seed 11 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/papers/CSC413 Seed 12 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC413/papers/CSC413 Seed 12 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC413/schemes/CSC413 Seed 12 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/schemes/CSC413 Seed 12 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/papers/CSC413 Seed 13 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC413/papers/CSC413 Seed 13 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC413/schemes/CSC413 Seed 13 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/schemes/CSC413 Seed 13 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/papers/CSC413 Seed 14 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC413/papers/CSC413 Seed 14 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC413/schemes/CSC413 Seed 14 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/schemes/CSC413 Seed 14 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/papers/CSC413 Seed 15 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC413/papers/CSC413 Seed 15 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC413/schemes/CSC413 Seed 15 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/schemes/CSC413 Seed 15 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/papers/CSC413 Seed 16 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC413/papers/CSC413 Seed 16 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC413/schemes/CSC413 Seed 16 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/schemes/CSC413 Seed 16 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/papers/CSC413 Seed 17 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC413/papers/CSC413 Seed 17 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC413/schemes/CSC413 Seed 17 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/schemes/CSC413 Seed 17 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/papers/CSC413 Seed 18 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC413/papers/CSC413 Seed 18 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC413/schemes/CSC413 Seed 18 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/schemes/CSC413 Seed 18 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/papers/CSC413 Seed 19 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC413/papers/CSC413 Seed 19 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC413/schemes/CSC413 Seed 19 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/schemes/CSC413 Seed 19 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/papers/CSC413 Seed 20 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC413/papers/CSC413 Seed 20 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC413/schemes/CSC413 Seed 20 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC413/schemes/CSC413 Seed 20 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    subjects/CSC429/subject.json  <- generated from registry; public-safe fields only
+present    csc429/index.html  <- generated from app templates
+present    csc429/library/index.html  <- generated from app templates
+present    csc429/generate/index.html  <- generated from app templates
+present    library/CSC429/manifest.json  <- generated from public Library metadata
+present    library/CSC429/papers/CSC429 Seed 01 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC429/papers/CSC429 Seed 01 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC429/schemes/CSC429 Seed 01 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/schemes/CSC429 Seed 01 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/papers/CSC429 Seed 02 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC429/papers/CSC429 Seed 02 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC429/schemes/CSC429 Seed 02 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/schemes/CSC429 Seed 02 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/papers/CSC429 Seed 03 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC429/papers/CSC429 Seed 03 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC429/schemes/CSC429 Seed 03 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/schemes/CSC429 Seed 03 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/papers/CSC429 Seed 04 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC429/papers/CSC429 Seed 04 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC429/schemes/CSC429 Seed 04 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/schemes/CSC429 Seed 04 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/papers/CSC429 Seed 05 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC429/papers/CSC429 Seed 05 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC429/schemes/CSC429 Seed 05 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/schemes/CSC429 Seed 05 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/papers/CSC429 Seed 06 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC429/papers/CSC429 Seed 06 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC429/schemes/CSC429 Seed 06 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/schemes/CSC429 Seed 06 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/papers/CSC429 Seed 07 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC429/papers/CSC429 Seed 07 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC429/schemes/CSC429 Seed 07 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/schemes/CSC429 Seed 07 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/papers/CSC429 Seed 08 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC429/papers/CSC429 Seed 08 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC429/schemes/CSC429 Seed 08 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/schemes/CSC429 Seed 08 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/papers/CSC429 Seed 09 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC429/papers/CSC429 Seed 09 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC429/schemes/CSC429 Seed 09 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/schemes/CSC429 Seed 09 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/papers/CSC429 Seed 10 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC429/papers/CSC429 Seed 10 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC429/schemes/CSC429 Seed 10 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/schemes/CSC429 Seed 10 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/papers/CSC429 Seed 11 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC429/papers/CSC429 Seed 11 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC429/schemes/CSC429 Seed 11 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/schemes/CSC429 Seed 11 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/papers/CSC429 Seed 12 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC429/papers/CSC429 Seed 12 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC429/schemes/CSC429 Seed 12 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/schemes/CSC429 Seed 12 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/papers/CSC429 Seed 13 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC429/papers/CSC429 Seed 13 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC429/schemes/CSC429 Seed 13 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/schemes/CSC429 Seed 13 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/papers/CSC429 Seed 14 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC429/papers/CSC429 Seed 14 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC429/schemes/CSC429 Seed 14 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/schemes/CSC429 Seed 14 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/papers/CSC429 Seed 15 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC429/papers/CSC429 Seed 15 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC429/schemes/CSC429 Seed 15 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/schemes/CSC429 Seed 15 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/papers/CSC429 Seed 16 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC429/papers/CSC429 Seed 16 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC429/schemes/CSC429 Seed 16 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/schemes/CSC429 Seed 16 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/papers/CSC429 Seed 17 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC429/papers/CSC429 Seed 17 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC429/schemes/CSC429 Seed 17 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/schemes/CSC429 Seed 17 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/papers/CSC429 Seed 18 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC429/papers/CSC429 Seed 18 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC429/schemes/CSC429 Seed 18 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/schemes/CSC429 Seed 18 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/papers/CSC429 Seed 19 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC429/papers/CSC429 Seed 19 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC429/schemes/CSC429 Seed 19 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/schemes/CSC429 Seed 19 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/papers/CSC429 Seed 20 2026.docx  <- PUBLIC_BUILD output
+present    library/CSC429/papers/CSC429 Seed 20 2026.pdf  <- PUBLIC_BUILD output
+present    library/CSC429/schemes/CSC429 Seed 20 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
+present    library/CSC429/schemes/CSC429 Seed 20 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
 present    subjects/CSC662/subject.json  <- generated from registry; public-safe fields only
 present    csc662/index.html  <- generated from app templates
 present    csc662/library/index.html  <- generated from app templates
@@ -263,8 +433,6 @@ present    library/MAT133/papers/MAT133 Seed 20 2026.docx  <- PUBLIC_BUILD outpu
 present    library/MAT133/papers/MAT133 Seed 20 2026.pdf  <- PUBLIC_BUILD output
 present    library/MAT133/schemes/MAT133 Seed 20 2026 - Marking Scheme.docx  <- PUBLIC_BUILD output; quote-free scheme
 present    library/MAT133/schemes/MAT133 Seed 20 2026 - Marking Scheme.pdf  <- PUBLIC_BUILD output; quote-free scheme
-present    subjects/CSC413/subject.json  <- generated from registry coming_soon stub
-present    subjects/CSC429/subject.json  <- generated from registry coming_soon stub
 present    subjects/CTU552/subject.json  <- generated from registry coming_soon stub
 present    subjects/HBU111/subject.json  <- generated from registry coming_soon stub
 present    subjects/ICT450/subject.json  <- generated from registry coming_soon stub

@@ -447,3 +447,16 @@ def test_cache_entry_prefers_newest_duplicate_seed(monkeypatch, tmp_path):
     path, meta = jobs._cache_entry(5, "CSC402")
     assert path == new
     assert meta["revision"] == "new"
+
+
+def test_subjects_without_past_papers_are_marked():
+    assert get_subject("CSC429").has_past_papers is True
+    assert get_subject("CTU552").has_past_papers is False
+    assert get_subject("HBU111").has_past_papers is False
+
+
+def test_only_flagged_subjects_get_no_past_papers_highlight():
+    assert get_subject("CTU552").highlight_no_past_papers is True
+    assert get_subject("HBU111").highlight_no_past_papers is True
+    assert get_subject("ICT450").highlight_no_past_papers is False
+    assert get_subject("CSC429").highlight_no_past_papers is False

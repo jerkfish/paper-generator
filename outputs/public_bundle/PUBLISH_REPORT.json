@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "subject": "CSC429",
+  "stage": "Stage 9 publish",
+  "status": "live",
+  "published_at": "2026-11-08T12:03:41.741516+00:00",
+  "live_url": "https://uitmpapergen.download",
+  "worker_url": "https://papergen.jerkfish123.workers.dev",
+  "worker_version": "cdcb3aee-bc2f-4a54-bd00-e3170bf37498",
+  "r2": {
+    "objects": 476,
+    "bytes": 118249720,
+    "class_a": 466,
+    "class_b": 0,
+    "uploaded_this_run": 55,
+    "unchanged": 421
+  },
+  "verification": {
+    "home": 200,
+    "home_no_past_papers_rows": 39,
+    "csc429_route": 200,
+    "library_page": 200,
+    "library_manifest": 200,
+    "paper_pdf": 200,
+    "scheme_pdf": 200,
+    "style_css": 200,
+    "live_library_links": 20
+  },
+  "checks": {
+    "tests": "342 passed, 12 skipped",
+    "safety": "319 text files OK",
+    "worker_tests": "6 passed"
+  },
+  "notes": [
+    "Subjects without a past-paper fingerprint are highlighted in amber with a no past papers badge.",
+    "No additional subject constants were added to the Worker.",
+    "R2 upload and Worker deploy were explicitly authorised by the owner."
+  ]
+}

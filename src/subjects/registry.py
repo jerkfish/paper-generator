@@ -54,6 +54,7 @@ class Subject:
     enabled_computed_generators: list[str] = field(default_factory=list)
     has_practice_mode: bool = True
     has_placeholders: bool = True
+    highlight_no_past_papers: bool = False
     order: int = 9999
     registry_path: Path | None = None
     subject_type: str = "C"
@@ -83,6 +84,14 @@ class Subject:
         return bool(self.capabilities.get(
             "public_scheme_requires_quote_marker", not self.deterministic))
 
+    @property
+    def has_past_papers(self) -> bool:
+        """True when the registry records a real past-paper source."""
+        fingerprint = self.fingerprint or {}
+        return bool(fingerprint.get("source_papers")
+                    or fingerprint.get("source")
+                    or fingerprint.get("paper_count"))
+
     def plugin_path(self, name: str) -> str:
         return str(self.plugins.get(name, "") or "")
 
@@ -103,6 +112,8 @@ class Subject:
             "has_practice_mode": self.has_practice_mode,
             "has_placeholders": self.has_placeholders,
             "order": self.order,
+            "has_past_papers": self.has_past_papers,
+            "highlight_no_past_papers": self.highlight_no_past_papers,
             "capabilities": capabilities,
         }
 
@@ -222,6 +233,8 @@ def _load_one(path: Path) -> Subject:
         enabled_computed_generators=enabled,
         has_practice_mode=practice,
         has_placeholders=placeholders,
+        highlight_no_past_papers=bool(
+            data.get("highlight_no_past_papers", False)),
         order=int(data.get("order", 9999)),
         registry_path=path,
         subject_type=subject_type,

@@ -214,3 +214,15 @@ th .sort-mark { font-family: "Courier New", Courier, monospace; }
 .table-scroll { overflow-x: auto; }
 
 .footer { margin-top: 16px; }
+
+/* Subjects with no past-paper source are deliberately conspicuous. */
+.no-past-papers-row td { background: #fff1b8; }
+.no-past-papers-row td:first-child { border-left: 4px solid #b45309; }
+.no-past-papers-badge {
+  display: inline-block;
+  padding: 1px 6px;
+  background: #b45309;
+  color: #fff;
+  font-weight: bold;
+  white-space: nowrap;
+}

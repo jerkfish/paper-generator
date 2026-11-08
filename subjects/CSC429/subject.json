@@ -77,8 +77,10 @@
       "seeds": 20,
       "library": "outputs/web_cache/CSC429",
       "public_bundle": "outputs/public_bundle",
-      "uploaded": false,
-      "deployed": false
+      "uploaded": true,
+      "deployed": true,
+      "live_url": "https://uitmpapergen.download",
+      "worker_version": "cdcb3aee-bc2f-4a54-bd00-e3170bf37498"
     }
   },
   "deck_map": {},

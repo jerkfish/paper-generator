@@ -4,7 +4,7 @@
   "type": "D",
   "strategy": "pure_extraction",
   "created": "2026-11-07T08:08:55.939319+00:00",
-  "updated": "2026-11-08T10:30:00Z",
+  "updated": "2026-11-08T12:05:00Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -197,12 +197,14 @@
       "notes": "20/20 seeds assembled and QA-passed; local Library manifest and metadata written; library_items(\"CSC429\") returns 20."
     },
     "9_publish": {
-      "status": "skipped",
+      "status": "done",
       "evidence": [
-        "outputs/public_bundle/LOCAL_BUILD_REPORT.json",
-        "outputs/public_bundle/LOCAL_BUILD_REPORT.md",
+        "outputs/public_bundle/PUBLISH_REPORT.json",
+        "outputs/public_bundle/PUBLISH_REPORT.md",
         "outputs/public_bundle/subjects.json",
-        "outputs/public_bundle/library/CSC429/manifest.json"
+        "outputs/r2_sync_state.json",
+        "outputs/r2_quota_ledger.json",
+        "cloudflare/public_bundle_manifest.txt"
       ],
       "llm_cost_usd": 0.0,
       "blockers": [],
@@ -211,9 +213,9 @@
         "approved": true,
         "by": "owner",
         "on": "2026-11-08",
-        "note": "Owner declared CSC429 complete. Public bundle built locally; R2 upload and Worker deployment were not requested and were not performed."
+        "note": "Owner explicitly instructed publish to live; R2 upload and Worker deploy performed."
       },
-      "notes": "Skipped by owner decision: local public bundle exists and validates; no upload/deploy."
+      "notes": "Published to https://uitmpapergen.download. R2 476 objects / 118,249,720 bytes. Worker version cdcb3aee-bc2f-4a54-bd00-e3170bf37498. Homepage highlights no-past-paper subjects."
     },
     "10_close_out": {
       "status": "done",
@@ -298,5 +300,5 @@
   "gate2_approved_at": "2026-11-08T00:00:00Z",
   "lifecycle_status": "complete",
   "completed_on": "2026-11-08",
-  "completion_note": "Subject complete. 20 seeds, local library, local public bundle; no R2 upload or Worker deployment."
+  "completion_note": "Subject complete and live. 20 seeds, local library, public bundle uploaded, Worker deployed. No secrets in repo."
 }
