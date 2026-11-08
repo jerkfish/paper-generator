@@ -1,223 +1,200 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "subject": "CSC429",
-  "type": "C",
-  "template_path": "",
-  "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-07T07:05:00Z",
+  "type": "D",
+  "strategy": "pure_extraction",
+  "created": "2026-11-07T08:08:55.939319+00:00",
+  "updated": "2026-11-08T09:30:00Z",
   "stages": {
     "0_intake": {
       "status": "done",
       "evidence": [
         "subjects/CSC429/subject.json",
-        "subjects/CSC429/lifecycle_state.json",
-        "docs/CSC429.md",
-        "src/subjects/csc429/",
-        "data/papers/CSC429/",
-        "data/tracking/csc429/papers_register.json",
-        "data/tracking/csc429/papers_summary.json"
+        "data/tracking/csc429/rejected_registry.json",
+        "data/tracking/csc429/p0_reset_report.json",
+        "data/tracking/csc429/templates/paper_template.docx",
+        "data/tracking/csc429/templates/scheme_template.docx"
       ],
       "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": true,
-        "by": "owner",
-        "on": "2026-11-05",
-        "note": "Type C/order 3 confirmed; scheme and lecture slides waived; publication kept false; 23 supplied PDFs accepted as inputs."
-      },
-      "notes": "Stage-0 intake approved on 2026-11-05. The Stage 1+ attempt was rejected because it invented descriptive questions instead of drawing real past-paper questions and their original diagrams. Stage 1 is being redone."
-    },
-    "1_preprocess": {
-      "status": "done",
-      "evidence": [
-        "data/tracking/csc429/papers_register.json",
-        "data/tracking/csc429/papers_summary.json",
-        "data/tracking/csc429/cover_text.json",
-        "data/tracking/csc429/paper_text/index.json",
-        "data/tracking/csc429/pages_manifest.json",
-        "data/tracking/csc429/layout_manifest.json",
-        "data/tracking/csc429/assets/manifest.json",
-        "data/tracking/csc429/stage1_corrections.json",
-        "data/tracking/csc429/stage1_report.json",
-        "data/tracking/csc429/question_bank_draft.json",
-        "src/subjects/csc429/capture.py",
-        "src/subjects/csc429/layout.py",
-        "src/subjects/csc429/assets.py",
-        "src/subjects/csc429/corrections.py",
-        "src/subjects/csc429/questions.py",
-        "src/subjects/csc429/stage1.py",
-        "src/subjects/csc429/seed_pilot.py",
-        "src/ingest/ocr.py",
-        "tests/test_csc429_capture.py",
-        "tests/test_csc429_assets.py",
-        "tests/test_csc429_questions.py",
-        "tests/test_csc429_tables.py",
-        "tests/test_csc429_stage1.py",
-        "tests/test_csc429_stage1_regressions.py",
-        "docs/CSC429.md"
-      ],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": true,
-        "by": "owner",
-        "on": "2026-11-06",
-        "note": "Reopened with the pure-extraction experiment principles. The owner delegated stages 1-6; only Stage 7 is a human gate."
-      },
-      "notes": "Stage 1 complete with the pure-extraction experiment principles. 20 unique papers / 125 pages at 300 dpi; 4,696 layout lines; 98 content-only page crops (61 figures, 37 tables). Figure crops carry per-asset display widths (8 cm small pictures, 12 cm most diagrams, 16.2 cm very wide, 12 cm height cap) and native captions. Owner verification resolved all six unsure items: 2014-06-A10 a=4/b=4/c=2; 2023-07-A4 a=2/b=3; 2016-12-B1 Table 4 was a clerical error for Table 3; 2017-07-B1 Table 1 -> Table 2; 2023-02-B1 Table 1 -> Table 3; 2014-12-A1 Table 1 supplied by the owner and recreated natively. 215 questions, 633 subparts, 69 asset-linked questions, 0 unresolved, 0 unsure. LLM cost $0.00."
-    },
-    "2_scheme_slides": {
-      "status": "done",
-      "evidence": [
-        "subjects/CSC429/subject.json"
-      ],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": true,
-        "by": "owner",
-        "on": "2026-11-05",
-        "note": "Owner waived supplied scheme and lecture slides at Stage 0; permissions.scheme and permissions.slides record the waiver with basis."
-      },
-      "notes": "Waived by the owner: no scheme and no lecture slides were supplied; permissions.scheme.allowed=false and permissions.slides.allowed=false with owner basis. No scheme parse or deck map required."
-    },
-    "3_template": {
-      "status": "done",
-      "evidence": [
-        "data/tracking/csc429/template_check.json",
-        "data/reference/CSC429/CSC429 TEMPLATE.docx",
-        "outputs/pilot/CSC429/seed_01/paper.pdf"
-      ],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": true,
-        "by": "owner",
-        "on": "2026-11-05",
-        "note": "Owner approved continue after reviewing the rendered cover and page-2 transition."
-      },
-      "notes": "subject.json.template_path now points at the owner-approved CSC429 TEMPLATE.docx. template_check.json reports xml_valid true, 2 sections, 1 footer, 1 image, non-empty cover text and no problems. The seed PDFs render the approved cover and page-2 transition. Stage 3 awaits the owner [HUMAN] gate."
-    },
-    "4_taxonomy_question_log": {
-      "status": "done",
-      "evidence": [
-        "data/tracking/csc429/taxonomy.json",
-        "data/tracking/csc429/question_log.json",
-        "data/tracking/csc429/taxonomy_summary.json",
-        "src/subjects/csc429/taxonomy.py",
-        "tests/test_csc429_taxonomy.py",
-        "subjects/CSC429/subject.json"
-      ],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": true,
-        "by": "owner",
-        "on": "2026-11-06",
-        "note": "Reopened with the pure-extraction experiment principles. The owner delegated stages 1-6; only Stage 7 is a human gate."
-      },
-      "notes": "Rebuilt after all six unsure items were owner-verified: 8 topics, 215 questions, 2,000 marks, 20/20 papers reconciled, zero unclassified, zero unsure. Stage 4 complete under the owner delegation."
-    },
-    "5_fingerprint_planner": {
-      "status": "done",
-      "evidence": [
-        "data/tracking/csc429/planner_seed_01.json",
-        "data/tracking/csc429/planner_seed_02.json",
-        "data/tracking/csc429/planner_seed_03.json",
-        "src/subjects/csc429/planner.py",
-        "src/subjects/csc429/plugin.py",
-        "tests/test_csc429_planner.py",
-        "subjects/CSC429/subject.json"
-      ],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": true,
-        "by": "owner",
-        "on": "2026-11-06",
-        "note": "Reopened with the pure-extraction experiment principles. The owner delegated stages 1-6; only Stage 7 is a human gate."
-      },
-      "notes": "Deterministic 11-slot planner rebuilt: A1-A4 5 marks, A5-A10 10 marks, B1 20 marks; Part A 80 + Part B 20 = 100. Topic quota unchanged. Stage 5 is complete under the owner delegation for stages 1-6."
-    },
-    "6_generators": {
-      "status": "done",
-      "evidence": [
-        "data/tracking/csc429/generator_sample_seed_01.json",
-        "data/tracking/csc429/generator_validation.json",
-        "src/subjects/csc429/generators.py",
-        "tests/test_csc429_generators.py",
-        "subjects/CSC429/subject.json"
-      ],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": true,
-        "by": "owner",
-        "on": "2026-11-05",
-        "note": "Owner approved continue after sampling the generated arithmetic, IEEE 754 and number-base questions."
-      },
-      "notes": "Three deterministic generators implemented: number-base conversion, signed arithmetic with sign-magnitude/1's/2's complement, and IEEE 754 single precision encode/decode. Planner data-representation slots resolve to csc429.generator; all other slots remain csc429.real_bank. 5-mark slots yield one worked question, 10-mark slots yield two 5-mark subparts. A 20-seed validation produced 40 generated slots, all three generators used, and zero answer errors; generator_sample_seed_01.json records seed 1. LLM cost $0.00."
-    },
-    "7_builders_qa": {
-      "status": "done",
-      "evidence": [
-        "data/tracking/csc429/build_sample/paper.docx",
-        "data/tracking/csc429/build_sample/paper.pdf",
-        "data/tracking/csc429/build_sample/scheme.docx",
-        "data/tracking/csc429/build_sample/scheme.pdf",
-        "data/tracking/csc429/build_sample/qa.json",
-        "data/tracking/csc429/build_sample/meta.json",
-        "data/tracking/csc429/build_sample/plan.json",
-        "data/tracking/csc429/model_answers.json",
-        "data/reference/CSC429/CSC429 SCHEME TEMPLATE.docx",
-        "src/subjects/csc429/build_docx.py",
-        "src/subjects/csc429/seed_pilot.py",
-        "src/subjects/csc429/assets.py",
-        "tests/test_csc429_build.py",
-        "tests/test_csc429_answers.py",
-        "docs/CSC429.md"
-      ],
-      "llm_cost_usd": 0.017014,
       "blockers": [],
       "human_approval": {
         "required": true,
         "approved": true,
         "by": "owner",
         "on": "2026-11-07",
-        "note": "Owner approved the Stage 7 paper/scheme sample and instructed continuation to the next required stage."
+        "note": "Owner supplied the P0 reset and strategy lock: Type D, pure extraction, generators disabled."
       },
-      "notes": "Stage 7 approved by the owner on 2026-11-07. Sample: 8 paper pages, 9 scheme pages; 11/11 slots accepted; figures use per-question widths and native captions; marks are right-tabbed; the scheme excludes question bodies. Answer cache: 18 DeepSeek Flash calls, $0.017014. QA problems: none."
+      "notes": "P0 reset. Type D, strategy pure_extraction, generators disabled, parametric variants disabled. Inputs confirmed: 23 PDFs, 20 unique. Templates copied from the accepted pure-extraction experiment."
     },
-    "8_library_prebuild": {
-      "status": "in_progress",
+    "1_preprocess": {
+      "status": "done",
       "evidence": [
-        "outputs/web_cache/CSC429/",
-        "outputs/web_cache/CSC429/stage8_coverage.json",
-        "outputs/web_cache/CSC429/prebuild_2_20.log",
-        "data/tracking/csc429/stage8_coverage.json",
-        "src/subjects/csc429/library_report.py",
-        "subjects/CSC429/subject.json",
-        "docs/CSC429.md"
+        "data/tracking/csc429/bank/index.json",
+        "data/tracking/csc429/bank/questions_index.json",
+        "data/tracking/csc429/bank/assets_index.json",
+        "data/tracking/csc429/bank/unsure.json",
+        "data/tracking/csc429/bank/gate1_report.json",
+        "data/tracking/csc429/bank/review/index.html",
+        "data/tracking/csc429/bank/compare_report.json",
+        "data/tracking/csc429/rejected_registry.json",
+        "data/tracking/csc429/usage.json",
+        "data/tracking/csc429/p0_reset_report.json",
+        "data/tracking/csc429/bank/gate1_report.md",
+        "data/tracking/csc429/bank/review_index.json"
       ],
-      "llm_cost_usd": 0.128226,
-      "blockers": [
-        "owner rejected the 20-seed set; pure-extraction seeds 1-3 built for review outside the lifecycle"
-      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": "20-seed Library set built and validated; awaiting owner acceptance of the seed set and its coverage note."
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-08",
+        "note": "GATE 1 review decisions imported: 172 approved, 26 needs_fix, 17 rejected."
       },
-      "notes": "Rejected by the owner on 2026-11-07. The 20-seed cache is archived at outputs/archive/csc429_stage8_rejected_20261107/. Pure-extraction seeds 1-3 were built at outputs/experiments/csc429_pure_20261107/: 33 distinct real questions, 30 fresh, 19 asset-bearing, 100 marks per seed, QA clean. Initial answer generation: 31 calls, $0.028619. No publication."
+      "notes": "P1 extract complete: 20 papers, 215 questions, 633 sub-parts, 96 source-crop assets, 67 questions with assets. P2 compare: 15 native tables accepted, 21 table crops, 60 pictures/figures/diagrams/formulas original-only. P3 review: 20 local HTML sheets. GATE 1 awaiting owner review."
+    },
+    "2_scheme_slides": {
+      "status": "not_applicable",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-07",
+        "note": "Type D uses approved templates and unofficial answers; supplied scheme/slides are not the source of truth."
+      },
+      "notes": "Not applicable under the owner-directed Type D strategy."
+    },
+    "3_template": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/csc429/templates/paper_template.docx",
+        "data/tracking/csc429/templates/scheme_template.docx",
+        "data/tracking/csc429/p0_reset_report.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-07",
+        "note": "Owner directed use of the accepted experiment templates, crest and cover box offsets."
+      },
+      "notes": "Paper template d24f9810..., scheme template edbe3dfb...; copied into the new working tree."
+    },
+    "4_taxonomy_question_log": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/csc429/bank/questions_index.json",
+        "data/tracking/csc429/bank/index.json",
+        "data/tracking/csc429/bank/gate1_report.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-08",
+        "note": "Gate 1 decisions imported; 26 needs_fix and 17 rejected are excluded from the pool."
+      },
+      "notes": "Question bank written; only owner-approved questions may enter the P4 pool."
+    },
+    "5_fingerprint_planner": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/csc429/bank/pool.json",
+        "data/tracking/csc429/bank/feasibility.json",
+        "data/tracking/csc429/bank/plans/index.json",
+        "data/tracking/csc429/bank/plans/seed_01.json",
+        "data/tracking/csc429/bank/plans/seed_02.json",
+        "data/tracking/csc429/bank/plans/seed_03.json",
+        "data/tracking/csc429/bank/plans/seed_04.json",
+        "data/tracking/csc429/bank/plans/seed_05.json",
+        "data/tracking/csc429/bank/plans/seed_06.json",
+        "data/tracking/csc429/bank/plans/seed_07.json",
+        "data/tracking/csc429/bank/plans/seed_08.json",
+        "data/tracking/csc429/bank/plans/seed_09.json",
+        "data/tracking/csc429/bank/plans/seed_10.json",
+        "data/tracking/csc429/bank/plans/seed_11.json",
+        "data/tracking/csc429/bank/plans/seed_12.json",
+        "data/tracking/csc429/bank/plans/seed_13.json",
+        "data/tracking/csc429/bank/plans/seed_14.json",
+        "data/tracking/csc429/bank/plans/seed_15.json",
+        "data/tracking/csc429/bank/plans/seed_16.json",
+        "data/tracking/csc429/bank/plans/seed_17.json",
+        "data/tracking/csc429/bank/plans/seed_18.json",
+        "data/tracking/csc429/bank/plans/seed_19.json",
+        "data/tracking/csc429/bank/plans/seed_20.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-08",
+        "note": "Gate 1 approved pool; deterministic P4 plan generated with no reuse in adjacent seeds."
+      },
+      "notes": "P4: 172 approved questions; 5 fully distinct seeds; 20 seeds at reuse cap K=4; no question in adjacent seeds."
+    },
+    "6_generators": {
+      "status": "not_applicable",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-07",
+        "note": "Owner locked generators_enabled to [] and parametric_variants to false."
+      },
+      "notes": "All generators and parametric variants are disabled for Type D."
+    },
+    "7_builders_qa": {
+      "status": "done",
+      "evidence": [
+        "outputs/pure_extraction/CSC429_seed_1_3_formatted/gate2_report.json",
+        "outputs/pure_extraction/CSC429_seed_1_3_formatted/GATE2_REPORT.md",
+        "outputs/pure_extraction/CSC429_seed_1_3_formatted/format_report.json",
+        "outputs/pure_extraction/CSC429_seed_1_3_formatted/seed_01",
+        "outputs/pure_extraction/CSC429_seed_1_3_formatted/seed_02",
+        "outputs/pure_extraction/CSC429_seed_1_3_formatted/seed_03",
+        "data/tracking/csc429/bank/answers.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-08",
+        "note": "GATE 2 approved after reviewing formatted seeds 1-3."
+      },
+      "notes": "P6: seeds 1-3 assembled with approved questions only, original assets, native Word numbers, sequential captions, right-tabbed marks, no question bodies in scheme. Word 16.0; QA pass."
+    },
+    "8_library_prebuild": {
+      "status": "done",
+      "evidence": [
+        "outputs/web_cache/CSC429/manifest.json",
+        "outputs/web_cache/CSC429/",
+        "outputs/pure_extraction/CSC429_all_seeds/P8_REPORT.md",
+        "outputs/pure_extraction/CSC429_all_seeds/P7_REPORT.md"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-08",
+        "note": "Gate 2 approval authorised P7/P8; local library metadata only, no publication."
+      },
+      "notes": "20/20 seeds assembled and QA-passed; local Library manifest and metadata written; library_items(\"CSC429\") returns 20."
     },
     "9_publish": {
       "status": "pending",
@@ -231,27 +208,47 @@
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "Stage 9 is a separate hard stop; publication, R2 upload and Worker deployment were not performed."
     },
     "10_close_out": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "outputs/pure_extraction/CSC429_all_seeds/P9_REPORT.md",
+        "outputs/pure_extraction/CSC429_all_seeds/p9_report.json",
+        "docs/CSC429.md",
+        "data/tracking/csc429/usage.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-08",
+        "note": "Owner directed P7-P9 close-out; Stage 9 publish remains separate."
       },
-      "notes": ""
+      "notes": "Docs, reports, tests, cost and playbook-change list recorded."
     }
   },
-  "unsure": [],
+  "unsure": [
+    {
+      "stage": "7_builders_qa",
+      "item": "26 needs_fix and 17 rejected questions remain outside the approved pool.",
+      "blocking": false,
+      "opened": "2026-11-08",
+      "path": "data/tracking/csc429/bank/gate1_import_report.json"
+    },
+    {
+      "stage": "7_builders_qa",
+      "item": "5 numeric data-representation answers are flagged for human checking.",
+      "blocking": false,
+      "opened": "2026-11-08",
+      "path": "data/tracking/csc429/bank/answers_report.json"
+    }
+  ],
   "llm_cost": {
     "currency": "USD",
-    "total_usd": 0.14524,
+    "total_usd": 0.139464,
     "by_stage": {
       "0_intake": 0.0,
       "1_preprocess": 0.0,
@@ -260,63 +257,38 @@
       "4_taxonomy_question_log": 0.0,
       "5_fingerprint_planner": 0.0,
       "6_generators": 0.0,
-      "7_builders_qa": 0.017014,
-      "8_library_prebuild": 0.128226,
+      "7_builders_qa": 0.0,
+      "8_library_prebuild": 0.0,
       "9_publish": 0.0,
-      "10_close_out": 0.0
+      "10_close_out": 0.0,
+      "P5_answers": 0.139464
     }
   },
-  "resolved_unsure": [
+  "gate": "GATE 2",
+  "gate_status": "approved",
+  "templates": [
     {
-      "paper_id": "CSC429-2014-06",
-      "question_id": "CSC429-2014-06-A10",
-      "code": "ambiguous_marks",
-      "detail": "mark 4 follows preamble text, not a subpart",
-      "resolution": "owner_verified",
-      "resolved_on": "2026-11-07"
+      "name": "paper_template_good_example_recreational.docx",
+      "source": "C:\\Users\\Ahmad\\AppData\\Roaming\\CherryStudio\\Data\\Files\\01a1ba26-ddf1-779b-b641-f74111c0c77f.docx",
+      "path": "data/tracking/csc429/templates/paper_template_good_example_recreational.docx",
+      "sha256": "d24f9810e851357a0111d8ec44056f7debe27c912879f10d7c9ec274ef6f7e01",
+      "matches_existing": true,
+      "canonical": "data/tracking/csc429/templates/paper_template.docx"
     },
     {
-      "paper_id": "CSC429-2014-12",
-      "question_id": "CSC429-2014-12-A1",
-      "code": "unresolved_reference",
-      "detail": "reference(s) without a matching asset: Table 1",
-      "resolution": "owner_verified",
-      "resolved_on": "2026-11-07"
-    },
-    {
-      "paper_id": "CSC429-2016-12",
-      "question_id": "CSC429-2016-12-B1",
-      "code": "unresolved_reference",
-      "detail": "reference(s) without a matching asset: Table 4",
-      "resolution": "owner_verified",
-      "resolved_on": "2026-11-07"
-    },
-    {
-      "paper_id": "CSC429-2017-07",
-      "question_id": "CSC429-2017-07-B1",
-      "code": "unresolved_reference",
-      "detail": "reference(s) without a matching asset: Table 1",
-      "resolution": "owner_verified",
-      "resolved_on": "2026-11-07"
-    },
-    {
-      "paper_id": "CSC429-2023-02",
-      "question_id": "CSC429-2023-02-B1",
-      "code": "unresolved_reference",
-      "detail": "reference(s) without a matching asset: Table 1",
-      "resolution": "owner_verified",
-      "resolved_on": "2026-11-07"
-    },
-    {
-      "paper_id": "CSC429-2023-07",
-      "question_id": "CSC429-2023-07-A4",
-      "code": "ambiguous_marks",
-      "detail": "mark 2 follows preamble text, not a subpart",
-      "resolution": "owner_verified",
-      "resolved_on": "2026-11-07"
+      "name": "scheme_template_fix_wide_content.docx",
+      "source": "C:\\Users\\Ahmad\\AppData\\Roaming\\CherryStudio\\Data\\Files\\01a1ba26-ddec-71cd-8add-3b1531064471.docx",
+      "path": "data/tracking/csc429/templates/scheme_template_fix_wide_content.docx",
+      "sha256": "edbe3dfbcfcfcbc4d66d8fe732ec63949c3b44063d160b5d05d4fb1505105210",
+      "matches_existing": true,
+      "canonical": "data/tracking/csc429/templates/scheme_template.docx"
     }
   ],
-  "answer_policy_note": "Real-bank scheme answers are unofficial reference answers, not an official UTM marking scheme; A4 is reviewer-corrected.",
-  "lifecycle_status": "stopped",
-  "stop_reason": "Owner rejected the Stage 8 20-seed prebuild and directed a pure-extraction rebuild of seeds 1-3 outside the lifecycle stage pipeline."
+  "rejected_registry": "data/tracking/csc429/rejected_registry.json",
+  "gate_approved_at": "",
+  "gate_approval_note": "Owner approved GATE 2 for the formatted seeds 1-3 on 2026-11-08.",
+  "gate1_approved": true,
+  "gate1_approved_at": "2026-11-08T00:00:00Z",
+  "gate2_approved": true,
+  "gate2_approved_at": "2026-11-08T00:00:00Z"
 }

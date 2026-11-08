@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "subject": "CSC429",
+  "format": "native_word_multilevel_list",
+  "question_headings": "QUESTION 1..11",
+  "status": "applied",
+  "seeds": [
+    {
+      "seed": 1,
+      "paper_pages": 5,
+      "scheme_pages": 10,
+      "numbered_paragraphs": 29,
+      "numbering_defs": 29,
+      "qa": [],
+      "word_version": "16.0",
+      "headings": [
+        "QUESTION 1\t(5 marks)",
+        "QUESTION 2\t(5 marks)",
+        "QUESTION 3\t(5 marks)",
+        "QUESTION 4\t(5 marks)",
+        "QUESTION 5\t(10 marks)",
+        "QUESTION 6\t(10 marks)",
+        "QUESTION 7\t(10 marks)",
+        "QUESTION 8\t(10 marks)",
+        "QUESTION 9\t(10 marks)",
+        "QUESTION 10\t(10 marks)",
+        "QUESTION 11\t(20 marks)"
+      ]
+    },
+    {
+      "seed": 2,
+      "paper_pages": 5,
+      "scheme_pages": 10,
+      "numbered_paragraphs": 20,
+      "numbering_defs": 25,
+      "qa": [],
+      "word_version": "16.0",
+      "headings": [
+        "QUESTION 1\t(5 marks)",
+        "QUESTION 2\t(5 marks)",
+        "QUESTION 3\t(5 marks)",
+        "QUESTION 4\t(5 marks)",
+        "QUESTION 5\t(10 marks)",
+        "QUESTION 6\t(10 marks)",
+        "QUESTION 7\t(10 marks)",
+        "QUESTION 8\t(10 marks)",
+        "QUESTION 9\t(10 marks)",
+        "QUESTION 10\t(10 marks)",
+        "QUESTION 11\t(20 marks)"
+      ]
+    },
+    {
+      "seed": 3,
+      "paper_pages": 5,
+      "scheme_pages": 11,
+      "numbered_paragraphs": 33,
+      "numbering_defs": 29,
+      "qa": [],
+      "word_version": "16.0",
+      "headings": [
+        "QUESTION 1\t(5 marks)",
+        "QUESTION 2\t(5 marks)",
+        "QUESTION 3\t(5 marks)",
+        "QUESTION 4\t(5 marks)",
+        "QUESTION 5\t(10 marks)",
+        "QUESTION 6\t(10 marks)",
+        "QUESTION 7\t(10 marks)",
+        "QUESTION 8\t(10 marks)",
+        "QUESTION 9\t(10 marks)",
+        "QUESTION 10\t(10 marks)",
+        "QUESTION 11\t(20 marks)"
+      ]
+    }
+  ],
+  "notes": [
+    "a)/b)/c) and i./ii. are Word list numbering, not literal text.",
+    "Question headings are sequential 1..11 regardless of Part A/B.",
+    "Question heading spacing: 18 pt before, 10 pt after.",
+    "Figure/table captions: 4 pt before, 8 pt after."
+  ]
+}

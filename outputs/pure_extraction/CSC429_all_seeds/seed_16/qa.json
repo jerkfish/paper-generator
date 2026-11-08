@@ -1,0 +1,92 @@
+{
+  "subject": "CSC429",
+  "seed": 16,
+  "paper": {
+    "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\pure_extraction\\CSC429_all_seeds\\seed_16\\paper.pdf",
+    "pages": 4,
+    "page1_images": 3,
+    "images_total": 4,
+    "right_overflow": [],
+    "bottom_overflow": [],
+    "part_a": true,
+    "part_b": true
+  },
+  "scheme": {
+    "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\pure_extraction\\CSC429_all_seeds\\seed_16\\scheme.pdf",
+    "pages": 9,
+    "page1_images": 3,
+    "images_total": 3,
+    "right_overflow": [],
+    "bottom_overflow": [],
+    "part_a": true,
+    "part_b": true
+  },
+  "problems": [],
+  "warnings": [],
+  "forbidden_hits": [],
+  "expected_images": 1,
+  "word_version": "16.0",
+  "mapping": {
+    "CSC429-2018-12-A10": {
+      "question_id": "CSC429-2018-12-A10",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2017-07-A10": {
+      "question_id": "CSC429-2017-07-A10",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2026-02-A1": {
+      "question_id": "CSC429-2026-02-A1",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2014-12-A6": {
+      "question_id": "CSC429-2014-12-A6",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2025-02-A8": {
+      "question_id": "CSC429-2025-02-A8",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2025-07-A8": {
+      "question_id": "CSC429-2025-07-A8",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2023-07-A5": {
+      "question_id": "CSC429-2023-07-A5",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2018-12-A9": {
+      "question_id": "CSC429-2018-12-A9",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2015-12-A7": {
+      "question_id": "CSC429-2015-12-A7",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2023-02-A7": {
+      "question_id": "CSC429-2023-02-A7",
+      "labels": {},
+      "assets": []
+    },
+    "CSC429-2013-12-B1": {
+      "question_id": "CSC429-2013-12-B1",
+      "labels": {
+        "Figure 4": "Figure 1",
+        "Table 2": "Table 1"
+      },
+      "assets": [
+        "CSC429-2013-12-F4",
+        "CSC429-2013-12-T2"
+      ]
+    }
+  }
+}

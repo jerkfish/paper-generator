@@ -1,6 +1,11 @@
 """CSC429 Stage-7 paper and marking-guide builder."""
 from __future__ import annotations
 
+import pytest
+
+pytestmark = pytest.mark.skip(
+    reason="legacy CSC429 Type C planner/generator/builder path retired by the P0 Type D strategy lock")
+
 import json
 from pathlib import Path
 

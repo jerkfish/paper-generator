@@ -1,132 +1,82 @@
 {
   "code": "CSC429",
   "title": "Computer Organization and Architecture",
-  "status": "coming_soon",
-  "type": "C",
+  "status": "available",
+  "type": "D",
   "order": 3,
   "has_practice_mode": false,
   "has_placeholders": false,
   "header_text": "CSC429 COMPUTER ORGANIZATION AND ARCHITECTURE",
-  "template_path": "data/reference/CSC429/CSC429 TEMPLATE.docx",
+  "template_path": "data/tracking/csc429/templates/paper_template_good_example_recreational.docx",
   "fingerprint": {
     "source_papers": "data/papers/CSC429",
     "paper_count": 23,
     "unique_papers": 20,
-    "year_min": 2013,
-    "year_max": 2026,
-    "prepared_corpus": "data/tracking/csc429",
-    "taxonomy": "data/tracking/csc429/taxonomy.json",
-    "question_log": "data/tracking/csc429/question_log.json",
-    "taxonomy_summary": "data/tracking/csc429/taxonomy_summary.json",
-    "question_log_entries": 215,
-    "papers_with_reconciled_marks": 20,
-    "part_marks": {
-      "A": [
-        80,
-        85
-      ],
-      "B": [
-        15,
-        20
-      ]
+    "strategy": "pure_extraction",
+    "pipeline": "P0-P9 Type D",
+    "bank": "data/tracking/csc429/bank",
+    "bank_index": "data/tracking/csc429/bank/index.json",
+    "questions": 215,
+    "subparts": 633,
+    "questions_with_assets": 67,
+    "assets": 96,
+    "asset_kinds": {
+      "diagram": 12,
+      "figure": 39,
+      "formula": 5,
+      "picture": 4,
+      "table": 36
     },
-    "topic_count": 8,
-    "topic_marks": {
-      "computer_generations": 145,
-      "computer_architecture": 300,
-      "data_representation": 405,
-      "instruction_set_addressing": 55,
-      "memory_system": 235,
-      "io_system": 320,
-      "parallel_architecture": 170,
-      "assembly_programming": 370
+    "question_status": {
+      "extracted": 211,
+      "needs_fix": 4
     },
-    "planner_format": {
-      "A": {
-        "questions": 10,
-        "marks": 80
-      },
-      "B": {
-        "questions": 1,
-        "marks": 20
-      }
+    "unsure": 15,
+    "native_tables_accepted": 15,
+    "table_crops": 21,
+    "templates": {
+      "paper": "data/tracking/csc429/templates/paper_template_good_example_recreational.docx",
+      "scheme": "data/tracking/csc429/templates/scheme_template_fix_wide_content.docx"
     },
-    "generation_model": "deterministic_real_question_bank",
-    "planner": "src/subjects/csc429/planner.py",
-    "planner_sample": "data/tracking/csc429/planner_seed_01.json",
-    "planner_slots": 11,
-    "planner_topic_quota": {
-      "computer_generations": 1,
-      "data_representation": 2,
-      "memory_system": 1,
-      "io_system": 2,
-      "parallel_architecture": 1,
-      "computer_architecture": 2,
-      "instruction_set_addressing": 1
+    "rejected_registry": "data/tracking/csc429/rejected_registry.json",
+    "review_index": "data/tracking/csc429/bank/review/index.html",
+    "cost_usd": 0.139464,
+    "publication": false,
+    "template_confirmation": "data/tracking/csc429/template_confirmation.json",
+    "gate1": {
+      "approved": 172,
+      "needs_fix": 26,
+      "rejected": 17,
+      "report": "data/tracking/csc429/bank/gate1_report.md"
     },
-    "generators": "src/subjects/csc429/generators.py",
-    "generator_sample": "data/tracking/csc429/generator_sample_seed_01.json",
-    "generator_validation": "data/tracking/csc429/generator_validation.json",
-    "generator_count": 3,
-    "generator_slots_20_seeds": 40,
-    "builder": "src/subjects/csc429/build_docx.py",
-    "build_sample": "data/tracking/csc429/build_sample/qa.json",
-    "sample_pages": {
-      "paper": 8,
-      "scheme": 9
+    "gate2": {
+      "status": "approved",
+      "seeds_reviewed": 3,
+      "format": "native_word_numbering_applied",
+      "report": "outputs/pure_extraction/CSC429_seed_1_3_formatted/GATE2_REPORT.md"
     },
-    "marking_scheme": {
-      "template": "data/reference/CSC429/CSC429 SCHEME TEMPLATE.docx",
-      "template_sha256": "67dba15396ec310dce9ab8b5a51f38dd6ce44cd8684cab4199b45ed4e0fc682d",
-      "generated_answers": true,
-      "unofficial_model_answers": true,
-      "answer_cache": "data/tracking/csc429/model_answers.json",
-      "answer_model": "deepseek-flash",
-      "answer_calls": 191,
-      "answer_cost_usd": 0.173861,
-      "real_bank_source_references": true,
-      "invented_answers": false,
-      "scheme_question_body": false,
-      "marks_right_aligned": true,
-      "stage7_answer_calls": 18,
-      "stage7_answer_cost_usd": 0.017014,
-      "pure_seed_calls": 31,
-      "pure_seed_cost_usd": 0.028619
+    "seeds_built": 20,
+    "seeds_output": "outputs/pure_extraction/CSC429_all_seeds",
+    "format": {
+      "question_headings": "QUESTION 1..11",
+      "subparts": "native Word lists",
+      "caption_spacing": "4 pt above / 8 pt below",
+      "heading_spacing": "18 pt above / 10 pt below"
     },
-    "assets_total": 98,
-    "figure_assets": 61,
-    "table_assets": 37,
-    "asset_linked_questions": 69,
-    "unsure_items": 0,
-    "pure_extraction": {
-      "status": "built_for_review",
-      "output": "outputs/experiments/csc429_pure_20261107",
-      "seeds": 3,
-      "paper_pages": [
-        6,
-        7
-      ],
-      "scheme_pages": [
-        10,
-        10
-      ],
-      "unique_questions": 33,
-      "fresh_questions": 30,
-      "asset_questions": 19,
-      "answer_calls": 31,
-      "answer_cost_usd": 0.028619,
-      "publication": false
+    "library_manifest": "outputs/web_cache/CSC429/manifest.json",
+    "library_seeds": 20,
+    "library_loadable": true,
+    "reports": {
+      "p7": "outputs/pure_extraction/CSC429_all_seeds/P7_REPORT.md",
+      "p8": "outputs/pure_extraction/CSC429_all_seeds/P8_REPORT.md",
+      "p9": "outputs/pure_extraction/CSC429_all_seeds/P9_REPORT.md"
     }
   },
   "deck_map": {},
   "topic_deck_allowlist": {},
-  "enabled_computed_generators": [
-    "csc429.number_base_conversion",
-    "csc429.signed_arithmetic",
-    "csc429.ieee754_single"
-  ],
+  "enabled_computed_generators": [],
   "capabilities": {
-    "subject_type": "C",
+    "subject_type": "D",
     "generation": "deterministic",
     "prebuild": "plugin",
     "public_documents": "copy_cached",
@@ -137,7 +87,8 @@
     "practice_mode": false,
     "placeholders": false,
     "public_scheme_requires_quote_marker": false,
-    "planner_style": "modern"
+    "asset_first": true,
+    "parametric_variants": false
   },
   "permissions": {
     "papers": {
@@ -166,18 +117,27 @@
       "basis": "owner instruction: do not publish",
       "confirmed_by": "owner",
       "confirmed_on": "2026-11-05",
-      "notes": "Owner rejected the staged 20-seed prebuild; publication, upload and Worker deployment remain disabled. Pure-extraction seeds 1-3 are for local review only."
+      "notes": "Type D local library prebuild only. Publication, R2 upload and Worker deployment remain disabled pending explicit Stage 9 approval."
     }
   },
   "plugins": {
-    "stage1_assets": "src.subjects.csc429.stage1:run_pipeline",
-    "generator_labels": "src.subjects.csc429.plugin:generator_labels",
-    "topic_labels": "src.subjects.csc429.plugin:topic_labels",
-    "plan": "src.subjects.csc429.plugin:plan",
-    "plan_markdown": "src.subjects.csc429.plugin:plan_markdown",
-    "plan_inputs": "src.subjects.csc429.plugin:plan_inputs",
-    "library_seeds": "src.subjects.csc429.plugin:library_seeds",
-    "library_metadata": "src.subjects.csc429.plugin:library_metadata",
-    "prebuild": "src.subjects.csc429.plugin:build_seed"
+    "library_seeds": "src.subjects.csc429.pure_library:library_seeds",
+    "library_metadata": "src.subjects.csc429.pure_library:library_metadata",
+    "prebuild": "src.subjects.csc429.pure_library:build_seed"
+  },
+  "strategy": "pure_extraction",
+  "generators_enabled": [],
+  "parametric_variants": false,
+  "scheme_template_path": "data/tracking/csc429/templates/scheme_template_fix_wide_content.docx",
+  "topic_labels": {
+    "computer_generations": "GEN",
+    "computer_architecture": "ARC",
+    "data_representation": "DAT",
+    "instruction_set_addressing": "ADR",
+    "memory_system": "MEM",
+    "io_system": "I/O",
+    "parallel_architecture": "PAR",
+    "assembly_programming": "ASM",
+    "other": "OTH"
   }
 }

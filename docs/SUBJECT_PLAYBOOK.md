@@ -63,6 +63,41 @@ papers. Those are separate [HUMAN] decisions.
 | **A** | Slides + LLM theory | CSC662 (`subjects/CSC662/subject.json`) | LLM theory, lecture retrieval | LLM seed set + cached rebuild | Rebuilt with the quote-omission marker |
 | **B** | Deterministic computed | MAT133 (`subjects/MAT133/subject.json`) | Deterministic, paper-derived | Subject plugin, no LLM | Copied from cache; no quote marker |
 | **C** | Hybrid | New scaffolds default here | Deterministic and/or LLM theory | Subject plugin or LLM seed set | Rebuilt if it uses slide quotes; otherwise copied |
+| **D** | Asset-first assembly | CSC429 (`subjects/CSC429/subject.json`) | Approved real-paper questions only; generators disabled | Approved seed set + deterministic assembler | Copied from cache; no quote marker |
+
+### Type D — asset-first assembly (additive)
+
+Type D is an additive type for subjects whose source of truth is a set of real
+past papers. It does not change Types A, B or C. It maps the stage numbers to
+the asset-first pipeline:
+
+| Playbook stage | Type D operation |
+|---|---|
+| 0 intake | P0 reset and lock: archive old state/assets/seeds, write `rejected_registry.json`, confirm source papers and templates. |
+| 1 preprocess | P1 extract: segment questions/sub-parts and marks, native text, source crops for every picture/figure/diagram/table, labels and references, topic tags. |
+| 2 scheme/slides | Not used as source of truth. Reference answers are unofficial and are produced at the answers stage. |
+| 3 template | P0/P6: use the owner-approved paper and scheme templates, including crest and cover box offsets. |
+| 4 taxonomy/log | P1: write the per-question/per-asset bank under `data/tracking/<CODE>/bank/`. |
+| 5 fingerprint/planner | P4: derive paper structure and a deterministic seed plan from **approved** questions only. |
+| 6 generators | Disabled. `generators_enabled: []`, `parametric_variants: false`; only the owner may switch them on. |
+| 7 builders/QA | P6: assemble seeds 1-3, enforce approval/asset/reference/rejected-registry gates, export via Word COM and run QA. |
+| 8 library prebuild | P7/P8: build remaining approved seeds and manifest. |
+| 9 publish | Separate [HUMAN] stage; never part of P0-P8. |
+
+Type D data contracts:
+
+- `bank/questions/<QID>.json` — id, source paper/pages, marks and sub-part
+  marks, native text blocks, native tables, `refs`, `assets[]`, topic tags,
+  status, content hash, notes.
+- `bank/assets/<AID>.png` and `<AID>.json` — 300 dpi source crop, kind,
+  caption/label, page, bbox, treatment, compare result and human verdict.
+- `bank/corrections.json` and `bank/approvals.json` — keyed by QID and content
+  hash; re-extraction must not overwrite them.
+
+Hard gate: the seed builder must refuse to run unless every selected question
+is `approved`, every asset belongs to its question, and the required gate is
+recorded as approved in `lifecycle_state.json`. The word “continue” is not an
+approval.
 
 The type is a promise encoded in `capabilities`:
 

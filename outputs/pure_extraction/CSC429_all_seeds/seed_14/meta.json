@@ -1,0 +1,42 @@
+{
+  "subject": "CSC429",
+  "seed": 14,
+  "type": "D",
+  "strategy": "pure_extraction",
+  "publication": false,
+  "paper_pages": 5,
+  "scheme_pages": 11,
+  "source_papers": [
+    "CSC429-2015-12",
+    "CSC429-2016-06",
+    "CSC429-2016-12",
+    "CSC429-2018-01",
+    "CSC429-2018-06",
+    "CSC429-2018-12",
+    "CSC429-2019-12",
+    "CSC429-2023-07",
+    "CSC429-2024-07",
+    "CSC429-2025-07"
+  ],
+  "questions": [
+    "CSC429-2023-07-A3",
+    "CSC429-2016-06-A2",
+    "CSC429-2024-07-A3",
+    "CSC429-2018-06-A10",
+    "CSC429-2016-12-A7",
+    "CSC429-2018-01-A7",
+    "CSC429-2016-06-A4",
+    "CSC429-2015-12-A8",
+    "CSC429-2019-12-A7",
+    "CSC429-2018-12-A1",
+    "CSC429-2025-07-B1"
+  ],
+  "files": {
+    "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\pure_extraction\\CSC429_all_seeds\\seed_14\\paper.docx",
+    "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\pure_extraction\\CSC429_all_seeds\\seed_14\\paper.pdf",
+    "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\pure_extraction\\CSC429_all_seeds\\seed_14\\scheme.docx",
+    "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\pure_extraction\\CSC429_all_seeds\\seed_14\\scheme.pdf"
+  },
+  "word_version": "16.0",
+  "cost_usd": 0.0
+}
