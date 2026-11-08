@@ -11,7 +11,7 @@ Status: **live**
 
 ## Verified
 
-- Homepage 200; **39** no-past-paper rows highlighted, including CTU552 and HBU111.
+- Homepage 200; **2** highlighted rows: CTU552 and HBU111.
 - `/csc429` 200; `/csc429/library/` 200 with 20 paper links.
 - `/library/CSC429/manifest.json` 200.
 - Paper and scheme PDF downloads 200.

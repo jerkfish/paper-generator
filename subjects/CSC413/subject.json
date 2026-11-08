@@ -144,6 +144,13 @@
       "confirmed_by": "user instruction \"Publication: true\"",
       "confirmed_on": "2026-11-04",
       "notes": "Published on 2026-11-05 at https://uitmpapergen.download/csc413/; 20-paper Library live."
+    },
+    "cloud_processing": {
+      "allowed": true,
+      "basis": "owner instructed the MinerU pilot on the subjects whose figure OCR is inadequate",
+      "confirmed_by": "owner",
+      "confirmed_on": "2026-11-08",
+      "notes": "Pilot only. Originals are read-only; no Library files are changed."
     }
   },
   "plugins": {
@@ -151,5 +158,11 @@
     "topic_labels": "src.subjects.csc413.plugin:topic_labels",
     "prebuild": "src.subjects.csc413.plugin:build_seed",
     "library_seeds": "src.subjects.csc413.plugin:library_seeds"
+  },
+  "extraction": {
+    "parser": "mineru",
+    "status": "pilot",
+    "model_version": "pipeline|vlm comparison",
+    "pilot_dir": "data/tracking/csc413/mineru"
   }
 }

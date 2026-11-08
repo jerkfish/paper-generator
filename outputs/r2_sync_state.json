@@ -1,5 +1,5 @@
 {
-  "class_a": 464,
+  "class_a": 514,
   "class_b": 0,
   "month": "2026-11",
   "objects": {
@@ -12,6 +12,16 @@
       "etag": "8e22044a3cd6be579bbd7e3d120d9783",
       "sha256": "20bb3c7b9990ffe9bd16a487822bf17bbfb9d8bf9bd2896bea205c6d0adb709d",
       "size": 495
+    },
+    "PUBLISH_REPORT.json": {
+      "etag": "e77ec46f06f689f70b51afd5f4ec144c",
+      "sha256": "475e28572807e2dbd3635afce24858d0cea37e892331adcd024d8e6a2a8d480e",
+      "size": 1144
+    },
+    "PUBLISH_REPORT.md": {
+      "etag": "d47c44cceca52e505a73316313239b3d",
+      "sha256": "d1c8c7f0ca8106c88a8c53d9880080d2cf3677f497930f530e388a17d3f9bf91",
+      "size": 727
     },
     "assets/gallery.js": {
       "etag": "f505bd697ea3e57e3d3e894d487d2abe",
@@ -99,9 +109,9 @@
       "size": 3183
     },
     "index.html": {
-      "etag": "acd359a885c01ff1b9473c37efbbda36",
-      "sha256": "24b190dcf0fac276f9fc957722e502e5de5e2cc1c0497532fe6a74049e847215",
-      "size": 15504
+      "etag": "0db6044124a25d5c3def31aca9645300",
+      "sha256": "7b4c55e0e8c4aa3f09b38ba493e72688d662805ea982284fe9289256d26488a9",
+      "size": 13025
     },
     "library/CSC402/manifest.json": {
       "etag": "6812207ed6bfe4c87f2355d8d8be40d5",
@@ -2129,8 +2139,8 @@
       "size": 500907
     },
     "library/manifest.json": {
-      "etag": "172332bafb49033315e5a51aca33b342",
-      "sha256": "14085bdde2f2ba779b2587268ababd179e3aab398ccea81eebe8111dd20195cb",
+      "etag": "a9ab5dd79a7812b51c0ff3cacd31be30",
+      "sha256": "148fd60fd11b8d5b48f8e4b3aafafc74dd0e6b5449c050d44f3c2b0c86154411",
       "size": 7252
     },
     "mat133/generate/index.html": {
@@ -2159,229 +2169,229 @@
       "size": 3183
     },
     "subjects.json": {
-      "etag": "961fdc01ad7dd272276f41a46bcb3748",
-      "sha256": "969eb1f40dd8495adba3512047c7badc91db5a8808cccbf796f3378b131c1612",
+      "etag": "b6b4f514bb80c734abc13a5138164c08",
+      "sha256": "d4600efb46e786f24a14b5e6ebde965f77bf177c819891974448b8c974d90bbf",
       "size": 11936
     },
     "subjects/CSC402/subject.json": {
-      "etag": "138a660c5e4bdf586a251af2e6884324",
-      "sha256": "88d87e9fc49c18447f95a0445d1377a9fb14e253adc87b8c71c8a4eed3dbbe74",
-      "size": 676
-    },
-    "subjects/CSC404/subject.json": {
-      "etag": "09de109b1ae61d65cfe0e189c3a9f484",
-      "sha256": "50b3e7d0c1f370ef88ab39a0d377e57d5d71ae721280adef02325701426d3941",
-      "size": 671
-    },
-    "subjects/CSC413/subject.json": {
-      "etag": "be0d58ef29c2041a61ceeb0c3f0a3de9",
-      "sha256": "d44308a09d3b09b3d641c47ecdc0bf35fa2f8eb5f62c2414ed53a8fc07ba69d9",
-      "size": 824
-    },
-    "subjects/CSC429/subject.json": {
-      "etag": "9c1f4cb2017b4fd848ea94b48d854296",
-      "sha256": "4fe9a9c3e76decf67de89361c9d7b6050aedced0704317663b4f2e840f49d172",
-      "size": 899
-    },
-    "subjects/CSC435/subject.json": {
-      "etag": "ee89d9dc0420aa9617444515c027601c",
-      "sha256": "e50939e9fd92bb2493b9bdfabd31a47d6dade35abc9bfcba9b6e2745b5bb4709",
-      "size": 698
-    },
-    "subjects/CSC508/subject.json": {
-      "etag": "cdf3bb0b676605fa4feffb5dd8fcd304",
-      "sha256": "de6ca11436fbf40d2544b4e49f7722ff142442d02c03045ecd49dacce6e77846",
-      "size": 674
-    },
-    "subjects/CSC510/subject.json": {
-      "etag": "fa3e2d963dc830d379655c5a7b2d872a",
-      "sha256": "41130c3610fb49bb58b285340316283c94e50286c52522e168222887fa8efbf3",
-      "size": 682
-    },
-    "subjects/CSC520/subject.json": {
-      "etag": "0f8a52382d2ea1930e7522af82296eaa",
-      "sha256": "98501a6b97535787c8c7c9e407d2dca068fa2c52efba80d2f92930290df65dd7",
-      "size": 706
-    },
-    "subjects/CSC562/subject.json": {
-      "etag": "068741055a4c53d7ddfbf57b35b4fa3a",
-      "sha256": "af1cac63cebd899f9c320f8fb95cd63eedd7172f5109b5d24c6c4539429509d7",
-      "size": 736
-    },
-    "subjects/CSC569/subject.json": {
-      "etag": "3c3976ece0cc6cd1d9a5bdcea6878eea",
-      "sha256": "bcc5ade67b12d1281454662b277403d2f1242d0e834715b628ef65ad4a7e7660",
-      "size": 690
-    },
-    "subjects/CSC575/subject.json": {
-      "etag": "41c70647ba24528d6e1e3e3ff7b58f73",
-      "sha256": "1a1dcbf4356c099c93b285b3158e6c23c82b116ffe2b788a3522d93bef28c959",
-      "size": 698
-    },
-    "subjects/CSC577/subject.json": {
-      "etag": "862caef512488c7b7001bd0721fcbdfa",
-      "sha256": "7486a926592f7f386a5f215e2df32f46e173315fb803e99eddbcf5b5d84a2a0b",
-      "size": 736
-    },
-    "subjects/CSC580/subject.json": {
-      "etag": "38f714a7c4d4fa64e79cc20ebd77cb0f",
-      "sha256": "2b2f953ffc8396f7770a302d878f83d075657f0271c0e4ff6c2d8798c5d9f7bd",
-      "size": 682
-    },
-    "subjects/CSC583/subject.json": {
-      "etag": "df32f7ba1c98a71baddd825a3491d0db",
-      "sha256": "f61edc38eee38896492daa63aeac129c5a8156cdaf13b94287efebe553f85891",
-      "size": 712
-    },
-    "subjects/CSC584/subject.json": {
-      "etag": "9d6c82570072d2cebf38a81bc681330a",
-      "sha256": "b8a193176433636aedbbec9a99b9375431c87b8480ad930e31d20954e4b37e0e",
-      "size": 688
-    },
-    "subjects/CSC645/subject.json": {
-      "etag": "3818f4525135a455dbf1d916402ecf01",
-      "sha256": "e99d319171ef9028e0364953fb291473e2ddfe0b3af2bb4412c8ebdf9b77c1c7",
-      "size": 702
-    },
-    "subjects/CSC649/subject.json": {
-      "etag": "4faedd807b3c09070a321ec7efe19270",
-      "sha256": "7445058bfe5b3de415555965ea16130e005f325a9ef5329068c371c0d9ac528f",
-      "size": 712
-    },
-    "subjects/CSC662/subject.json": {
-      "etag": "3c53c03118d8baaa102d100958f89203",
-      "sha256": "e504919c2115891c3dbb77819043725bab847e8033559aaddcabb1a1d1df6c95",
-      "size": 809
-    },
-    "subjects/CSC683/subject.json": {
-      "etag": "110dd690d3a87b34064a8c2f653c44d9",
-      "sha256": "68b2bed09eef855ef94e382a23cf40dea1c5accfcea34cc3bf63091cf471b616",
-      "size": 698
-    },
-    "subjects/CSP600/subject.json": {
-      "etag": "3c16a44823729d6c9229a3727a222b39",
-      "sha256": "c55e066cf49b3d235131002f7cfc18b241a50a53c40751feed5f8935cdb424b4",
-      "size": 682
-    },
-    "subjects/CSP650/subject.json": {
-      "etag": "9ee6d1233d2e9a130aa2bebe4e855e06",
-      "sha256": "54b31412caa05ffb1ada230cce5c76bb98d04fb4ca24d903482f59104885f0e0",
-      "size": 658
-    },
-    "subjects/CST688/subject.json": {
-      "etag": "8ea57749c0435f1de5b90576b4feff22",
-      "sha256": "db783bdd06240ece3dbcfe4c5a92e30639b20c514e922f3bc9836cf00d2e045a",
-      "size": 718
-    },
-    "subjects/CTU552/subject.json": {
-      "etag": "5a4769b605598cb4f52865207011d748",
-      "sha256": "b3eebc9535a7c25ab8ba4c43339bba396143341c34124407e7a3f950b55fb55e",
-      "size": 701
-    },
-    "subjects/CTU554/subject.json": {
-      "etag": "97a3d67245b4f5fec342e2d7b16c10d2",
-      "sha256": "8d906028b1453cd1a6d9ae32cfa589d8a4216743ec0807e2b5ffb76cff07adfb",
-      "size": 695
-    },
-    "subjects/EET699/subject.json": {
-      "etag": "e37b0aa3cbdc995ed51e0014f34b1fc6",
-      "sha256": "d5fdfb912d377377200769640ce12fc9b0e2b8f52ceebf7217bf0ad195a62961",
-      "size": 678
-    },
-    "subjects/ENT600/subject.json": {
-      "etag": "d990d61e10bd26e86e387cf7b0d0d54b",
-      "sha256": "a3a33c7a6ce36626053f307c55bd299110b42e1a735b9fcad15475e0df6b1a07",
-      "size": 698
-    },
-    "subjects/HBU111/subject.json": {
-      "etag": "097697aa47ac7f98efc5f3fe3087bb0e",
-      "sha256": "99d59fd100830c40a3fec523609fb73e40bda6c1141c1ce64b976267289600b3",
-      "size": 681
-    },
-    "subjects/HBU121/subject.json": {
-      "etag": "b2d7f0e263c2e4bb3599a136988031fe",
-      "sha256": "125c47fe5309c4413b8689962b4dcc25b522b44e0def83588baae070d1c25962",
-      "size": 684
-    },
-    "subjects/HBU131/subject.json": {
-      "etag": "a30c2f66403230ab6f842e9e799007d7",
-      "sha256": "7084577d9b7e499340e88bb10e4487a48d98e36bdee75f4922babf091185f85d",
-      "size": 686
-    },
-    "subjects/ICT450/subject.json": {
-      "etag": "a7c366f2b17b9fe8e9b30f249e104045",
-      "sha256": "bbaf87b869e38ded5390f18fd0a6ba7207ef97f2ddd35856cec8a3f8a12004ff",
-      "size": 705
-    },
-    "subjects/ICT502/subject.json": {
-      "etag": "170e4c05dd09a031d2da11611d90002e",
-      "sha256": "04833db44e314bf7c21503790b1cceec333fbd0e834e1de3dc5e228a073c61af",
-      "size": 684
-    },
-    "subjects/ICT652/subject.json": {
-      "etag": "1459fea471dab213d5789e796af93526",
-      "sha256": "1056ce315ef1f00bc0b9c71e9a7268dd1dbd96462bd49761cc873bae8d909807",
-      "size": 738
-    },
-    "subjects/ITT400/subject.json": {
-      "etag": "ddab199c234b6c9bdfe960b776b91cbc",
-      "sha256": "59a37ee20bf73057db0aeff36a81a85f05ed1a45021d5e16af5f0237b8fbf923",
-      "size": 742
-    },
-    "subjects/LCC401/subject.json": {
-      "etag": "9fe7455dd8607a68045d52fdd5d1b7af",
-      "sha256": "c959f334490eee8178d3e50bb41d06ab7e0231910eefd6268512cb521e47f2c1",
-      "size": 698
-    },
-    "subjects/LCC500/subject.json": {
-      "etag": "68cc93f43afa7eccd67905c4c4740713",
-      "sha256": "5ccf8e5e2faea9b1b1de4c6df9c37738f04a0255a909f2f06e650fd461cca195",
+      "etag": "8b5b9abe25d35692c19e3650da2c5775",
+      "sha256": "542eb2b0334fa8c3e1274bfd76122056988724e9337d24725459e24c89e82fb5",
       "size": 714
     },
-    "subjects/MAT133/subject.json": {
-      "etag": "c8104754a8968d9e059f160a207c3a5e",
-      "sha256": "cef99abd94c633b50526defa842d498be9deec432f5792cf4e2fd2ce361797ab",
-      "size": 2657
+    "subjects/CSC404/subject.json": {
+      "etag": "4a46be4727471fdcc363044cdf2ce748",
+      "sha256": "bdcb4163651d1e4a604aa29d13728267a2c3e6a1bcb4f520d655a217d485298c",
+      "size": 709
     },
-    "subjects/MAT406/subject.json": {
-      "etag": "64802c34b0ec58b1361cc208609ba28e",
-      "sha256": "611c1258da05117016a74171e82dc9d0ecc15f5d06771f77815b18b3f31c5174",
-      "size": 687
+    "subjects/CSC413/subject.json": {
+      "etag": "e152ac3f478be75e8a9e22d6052f5446",
+      "sha256": "96f6ba63ec3718306e39009a1ec09930cfd1d9ae339ab0e2dc0dce7ad1dab446",
+      "size": 862
     },
-    "subjects/MAT421/subject.json": {
-      "etag": "2ef7365277d4f0596f3687c37b4773ac",
-      "sha256": "58935a9b024be5267777046ffc4c3b2a32c9c573cf81f664d21f9da0e938fe8d",
-      "size": 664
+    "subjects/CSC429/subject.json": {
+      "etag": "06583975a9a1b92deb36cbb674ba667d",
+      "sha256": "779408709ab594020dc59dcd198bc0b5ce270465c5ed406c8230a3071e9d9f24",
+      "size": 937
     },
-    "subjects/MAT423/subject.json": {
-      "etag": "7c178705aa1cd6f62a0e8e02b64df9d9",
-      "sha256": "4978daa6e7d4b938238a1e557ee83b6e9269a530457d549f32f750246c7d69fe",
-      "size": 676
+    "subjects/CSC435/subject.json": {
+      "etag": "79c7df617f210b8267aac95b3008daa6",
+      "sha256": "4f63200854b45d7ea60b93dfedf67c8f0ac6e700e4cf96944af53e06316ed23a",
+      "size": 736
     },
-    "subjects/STA404/subject.json": {
-      "etag": "7d716f442b0e3052ada25f7e15731e6f",
-      "sha256": "26294a431f8a9e658f59b23fa62ce1e78d3a96f1a0e05b64419f3c733ef1db77",
-      "size": 730
-    },
-    "subjects/STA416/subject.json": {
-      "etag": "fd1a334a09f4eec72c958a9f6ff939f3",
-      "sha256": "b62eb1f65d01c503f254c1904feffd4946cd9e9b6d47803c11d3edf2cc01a3e5",
+    "subjects/CSC508/subject.json": {
+      "etag": "30b598f7ad2cb87f8ed26df6f0235ee9",
+      "sha256": "a1647744e823dde9e26feb32b2e838ad8fea79ed7b66c76593cee1253c8e1a0a",
       "size": 712
     },
+    "subjects/CSC510/subject.json": {
+      "etag": "d33aadb7d67522e53755958b1a1732c0",
+      "sha256": "f713c6b32c4e50baa802b3f3f5c65750d6b7a460e993eec355ef173a164d6895",
+      "size": 720
+    },
+    "subjects/CSC520/subject.json": {
+      "etag": "dc60bb3734bac8b853a72656b9ae4bea",
+      "sha256": "5562c2f54e6083d0f6c555bfe7dffa57b1f12a480edf660f75c2e41be43d36a6",
+      "size": 744
+    },
+    "subjects/CSC562/subject.json": {
+      "etag": "341455a31288ca6c7eaa1b7dcca8e57b",
+      "sha256": "505ef172a8e663e3143c652bf1d5e4f1a676dc263357de9e6370f0dc3b7a2802",
+      "size": 774
+    },
+    "subjects/CSC569/subject.json": {
+      "etag": "3a830fc002e7ccf238dc4b0acfc21feb",
+      "sha256": "5e1c07d855c493f4361f4bd31fcfde19dc2d5f00f7238b465389d57289cfac59",
+      "size": 728
+    },
+    "subjects/CSC575/subject.json": {
+      "etag": "80239b3f45565065af979f5e9a8af6b3",
+      "sha256": "7360bb5c7d81a11adcde46b20f9a0bacf62d6d98a105449c75f0dfeee3367139",
+      "size": 736
+    },
+    "subjects/CSC577/subject.json": {
+      "etag": "6199d7c3ee54dbeb9296f64762c5fd61",
+      "sha256": "b95061d0666a49feb86b2f6945d2747b8ecf90dbed3ca33fdfc32a2234a48860",
+      "size": 774
+    },
+    "subjects/CSC580/subject.json": {
+      "etag": "9bd697920bc91fe3baeaea09a35308fa",
+      "sha256": "bfc9233dfde3afcae77ed48f0dffc8df779c759f62640eaddc4c74cb6b467995",
+      "size": 720
+    },
+    "subjects/CSC583/subject.json": {
+      "etag": "6c2acd987cae9870437be17f874ff0d2",
+      "sha256": "4008d80c80e8d042d377ac6818c4155d334dcccfe979a23f0694594bed6dee8b",
+      "size": 750
+    },
+    "subjects/CSC584/subject.json": {
+      "etag": "c54872cc620c2901767e4937e2efaf15",
+      "sha256": "07b66376d1e449be66238d6548fd97b94ff9f469254bc4b57e2f2741ce36dba1",
+      "size": 726
+    },
+    "subjects/CSC645/subject.json": {
+      "etag": "b0833422062f3491697ca81c5fb002d5",
+      "sha256": "5cb8501f91f98552f2a8efed6ddc83382d4ba4c29c3c93c61e9f5d17624ca275",
+      "size": 740
+    },
+    "subjects/CSC649/subject.json": {
+      "etag": "1fde9c1abe05521fe34f7487bed51f41",
+      "sha256": "7760f9a4ac541319101715a305cab78793dd7adcdcdad9a0460351a0b0f130b9",
+      "size": 750
+    },
+    "subjects/CSC662/subject.json": {
+      "etag": "47d66b384d2747f95c969b09dae5a168",
+      "sha256": "094ee335b969f4786be6111e270c9cd621987ed3f8198c8b1dfebccee8d1bb1c",
+      "size": 847
+    },
+    "subjects/CSC683/subject.json": {
+      "etag": "8d79a294994defad763aaed5b0d6b5ac",
+      "sha256": "487766426857a7ae55e2d7b0b9060b03da67e85e35fe618e621661537a40e36c",
+      "size": 736
+    },
+    "subjects/CSP600/subject.json": {
+      "etag": "a24043c70a10e173bdbf02d0b680d2ae",
+      "sha256": "cae76439affca21a3cb9aec58127110dbe198e9e7d6f554dbf763d141a432d8d",
+      "size": 720
+    },
+    "subjects/CSP650/subject.json": {
+      "etag": "f8e7877c49387486486847bd572df9e7",
+      "sha256": "141c4a773aa11f6bc099fe3556825be60c2fb8e9e9dcd9b924f393b34ef4ed59",
+      "size": 696
+    },
+    "subjects/CST688/subject.json": {
+      "etag": "9a5aaf816fe3c784666c93ccc65ab490",
+      "sha256": "066269793b86cfb5d6b8b9555b099fdbd4a6b236358b3d244bca630290e87f9b",
+      "size": 756
+    },
+    "subjects/CTU552/subject.json": {
+      "etag": "44ff9c20396c0438ca6d9886db94c7cf",
+      "sha256": "5b92169274bd167b8168c40acbc82ff3f736c3d815200d1a2c62a5b5f6240186",
+      "size": 738
+    },
+    "subjects/CTU554/subject.json": {
+      "etag": "72fe71e14f6bd42e024ee2a11c4ba195",
+      "sha256": "e9cffa3e8bdbab662651e14a49c16d8c1b38e60980596c16aa754e44b5c0205a",
+      "size": 733
+    },
+    "subjects/EET699/subject.json": {
+      "etag": "66dc5633ae6a797d75d0945e37facda9",
+      "sha256": "7c1f10a83b2cafbb226686c83b2d04873a175ef490b56b47d7ef7fb070e60f09",
+      "size": 716
+    },
+    "subjects/ENT600/subject.json": {
+      "etag": "5e141be5551981d02c7bb585faad902a",
+      "sha256": "5f8b11e1a708c1759f8c2e2bac8864601f010194e39726c06757da49c14abd78",
+      "size": 736
+    },
+    "subjects/HBU111/subject.json": {
+      "etag": "ba67d3bdf59bd04334691ca9dbd1805a",
+      "sha256": "a788141ca2fcd02af67d74598d9ba82a7bf9c9630fba4feb70a18ee3246e27c0",
+      "size": 718
+    },
+    "subjects/HBU121/subject.json": {
+      "etag": "9405271b472f9fa3fcec0d5120d71a68",
+      "sha256": "3b197566d82dbb1abfe47a7a6b72a177b77167f6d99cb6723082f2611f8643e9",
+      "size": 722
+    },
+    "subjects/HBU131/subject.json": {
+      "etag": "87c2181b46a6665ff48d0da146ef836e",
+      "sha256": "9af1b23d9cf5143d2005c9e70ce1e0fa77da6e3e4a01b8a3dc295f13c7291843",
+      "size": 724
+    },
+    "subjects/ICT450/subject.json": {
+      "etag": "450227903c8e77699a5a38dc56143b77",
+      "sha256": "1f2978ffe5509b2e696b41411b34736783c6d341194b33fb9b35208212a129b0",
+      "size": 743
+    },
+    "subjects/ICT502/subject.json": {
+      "etag": "2de8a36584de5341ba2fcdcf447a1750",
+      "sha256": "a36b729c2738272cc64b978a9c4c5c9b6d242998f831b0e83af73716878f37f1",
+      "size": 722
+    },
+    "subjects/ICT652/subject.json": {
+      "etag": "7cb978247b76be6bb5e1155874a04a2f",
+      "sha256": "b9c269e7f320c595505b5aebf26338af209601a039e8c7f3455ed6445190dd66",
+      "size": 776
+    },
+    "subjects/ITT400/subject.json": {
+      "etag": "652e85c905d5bb5a83a5adc669a3724a",
+      "sha256": "ba63838d616e04888676c5d18324f9c4ee909404b434f03016c6121d57890723",
+      "size": 780
+    },
+    "subjects/LCC401/subject.json": {
+      "etag": "4e3c82786cae4bda9631289e091f3864",
+      "sha256": "658e15d214adb1c83cc45198f2ac6f981305f799f54d39a18559d3a5abad10a2",
+      "size": 736
+    },
+    "subjects/LCC500/subject.json": {
+      "etag": "9a76e215486e1dcd620f6e5bbe803d34",
+      "sha256": "2bdcf4574f8d4cea9591652be991d809ecd7f681ee85c35d23cb702efb9d7a79",
+      "size": 752
+    },
+    "subjects/MAT133/subject.json": {
+      "etag": "9674c46f9a929f18e559a565160ba390",
+      "sha256": "d95302a8c32fe8f9a564f0cc4f26304a82f3d112ef07317e38039bcb0de71050",
+      "size": 2695
+    },
+    "subjects/MAT406/subject.json": {
+      "etag": "c23b2b161a2914c3d2f91cff335e43ce",
+      "sha256": "7c13cd95099d6402ae79134eb7fd5c655a0e9beabc7eeedb3e04a533ab1e1ca7",
+      "size": 725
+    },
+    "subjects/MAT421/subject.json": {
+      "etag": "d2d3e4bc0c42a2111a6ca7e3aa002d58",
+      "sha256": "a036b2409f4935b7af2c33daf263d9666e9ffa8e4a44b89a3a2ceb952be89a5f",
+      "size": 702
+    },
+    "subjects/MAT423/subject.json": {
+      "etag": "e280b5bc5d33b10d7709d16140055bee",
+      "sha256": "18d534a2069f9d8747a2a07bd0647c00c0711e2c5f56f35559bc904ff89cc266",
+      "size": 714
+    },
+    "subjects/STA404/subject.json": {
+      "etag": "d5bdba496ce7607c0922614c606fd9e5",
+      "sha256": "12f21410e892d5ab852ad5243fcf6c46a9ab180822d09dd8d0c3b4742915b568",
+      "size": 768
+    },
+    "subjects/STA416/subject.json": {
+      "etag": "8fc292443b1210ca4018004d95cef15b",
+      "sha256": "fc3abeb5081a07525c7b38e0dd5d1665fb6aed6888fd0e4f96a7e4f4b8c4ab7c",
+      "size": 750
+    },
     "subjects/TMC401/subject.json": {
-      "etag": "20fbb9a892000ed11e0099357ea88a6c",
-      "sha256": "80bfe88b80907846e2302acee614bde23b9690aa864b0910ac163ff918c57c1b",
-      "size": 706
+      "etag": "436ebef47974b187a24029c7f09d053b",
+      "sha256": "cba4b7011df3b26a6877c27224f1ed02e9404313e1d000c62e1ac7ed07374646",
+      "size": 744
     },
     "subjects/TMC451/subject.json": {
-      "etag": "577534d78270c959885f3d8c557d3fd5",
-      "sha256": "293a5d0ee33a8ed74a4b869beeacae1c2f7d51eb0587fdc95b2903713d1e1d40",
-      "size": 708
+      "etag": "4fec217d4417ead08c4005ef02ac5c8f",
+      "sha256": "d36fad2d086214fdb00747a7b043ea0e5d95b39e00772d464f83e299cc864d5b",
+      "size": 746
     },
     "subjects/TMC501/subject.json": {
-      "etag": "09d88e518296a700483f99a168260958",
-      "sha256": "ee01aa60e41085d3f1a740fedd94fc25df3c6b4e1aced4f343887965be1b2d58",
-      "size": 710
+      "etag": "a66cccd3ec4f27aefcacb499f80ff4e4",
+      "sha256": "10e9c6e33ad54618900bb218b00572c5bfbb4da25e2527f99aaf788daecf2e5e",
+      "size": 748
     }
   }
 }

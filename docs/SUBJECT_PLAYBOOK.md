@@ -258,6 +258,74 @@ pairs) and `docs/CSC402.md`.
 `scripts/register_mat133_papers.py` (the subject-specific predecessor),
 `scripts/build_mat133_corpus.py`.
 
+### Stage 1a — MinerU document processing (additive, figure-heavy subjects)
+
+MinerU is an optional cloud parser for Stage 1. It is **additive**: the legacy
+OCR/layout path stays available, and A/B/C/D behaviour is otherwise unchanged.
+
+**When to use it.** Use MinerU by default for a figure-heavy subject whose
+legacy OCR cannot capture figures, tables or equations reliably. The owner
+chooses the subject and later chooses the default model.
+
+**Inputs.**
+- Working copies under `data/papers/<CODE>/` only. Originals are read-only.
+- `MINERU_API_KEY`, `MINERU_MODEL_VERSION` (`pipeline` or `vlm`),
+  `MINERU_LANGUAGE`, and optional page/timeout/concurrency settings, all from
+  the environment. Never print or commit key values.
+- `permissions.papers.allowed` plus an explicit
+  `permissions.cloud_processing.allowed` before any upload. Files without
+  cloud permission are listed as excluded and are never uploaded.
+
+**Flow (Cloud API v4 local-file flow).**
+1. Request batch upload URLs with the selected model, language and options.
+2. PUT each PDF to its presigned URL.
+3. Poll the batch until done; handle auth expiry and quota errors with a
+   clear message.
+4. Download the full result ZIP and extract the **entire tree**: `full.md`,
+   `content_list.json`, layout/middle JSON and `images/`.
+5. Cache under `data/tracking/<code>/mineru/<paper_id>/<model>_<options-hash>/`
+   keyed by file SHA-256, model and options. Write `manifest.json` with task
+   id, page count, model, timing and files. A cache hit makes **no API call
+   and costs 0**.
+6. Enforce a per-subject page budget before upload; abort with the budget and
+   requested page count in the message.
+
+**Normalization.** `src/subjects/parsers/mineru_normalize.py` converts
+`content_list.json` blocks (text, image, table, equation) into the existing
+bank contracts. It keeps page index, bbox, caption and block id as
+provenance. Figures/tables attach to questions by page/position and caption
+(`Figure 2`, `Table 1`); MinerU table HTML is the native-table candidate and
+the MinerU image is the asset crop.
+
+**Fallback and cross-check.** If a referenced Figure/Table has no MinerU
+asset, or a page is mostly a background scan, crop from the 300 dpi page
+render using the MinerU bbox or the legacy heuristics. Record
+`parser=mineru|legacy|fallback` on every asset and flag disagreements.
+`corrections.json` and `approvals.json` are never overwritten; match by
+question id and content hash.
+
+**Review gate (before the normal Stage 1 approval).** Pilot three
+representative papers (one text-layer, one scanned, one with the most
+figures) with **both** `pipeline` and `vlm`. Report per paper: pages, figures,
+tables, equations, referenced figures/tables resolved, fallback count,
+cost/quota and a contact sheet. The owner chooses the default model. Do not
+process the remaining papers until that choice is recorded.
+
+**Subject field.**
+```json
+"extraction": {
+  "parser": "mineru",
+  "status": "pilot",
+  "model_version": "pipeline|vlm comparison",
+  "pilot_dir": "data/tracking/<code>/mineru"
+}
+```
+
+**Lifecycle.** Add a `parser_provenance` list to `lifecycle_state.json` with
+per-paper parser, model, cache path, task id, page count and counts. It is
+shown by `scripts/lifecycle_status.py`. A parser change is data, not a hidden
+code path.
+
 ### Stage 2 — Scheme and slides [HUMAN]
 
 **Purpose.** Confirm what answer/scheme material and lecture material exist,
