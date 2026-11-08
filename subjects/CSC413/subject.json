@@ -161,8 +161,14 @@
   },
   "extraction": {
     "parser": "mineru",
-    "status": "pilot",
-    "model_version": "pipeline|vlm comparison",
-    "pilot_dir": "data/tracking/csc413/mineru"
+    "status": "pilot_complete_pending_owner_choice",
+    "model_version": "pipeline|vlm comparison complete; owner choice pending",
+    "pilot_dir": "data/tracking/csc413/mineru",
+    "pilot_report": "data/tracking/csc413/mineru/PILOT_REPORT.md",
+    "page_budget": 200,
+    "pages_requested": 60,
+    "pages_submitted": 60,
+    "contact_sheets": 6,
+    "owner_choice_pending": true
   }
 }

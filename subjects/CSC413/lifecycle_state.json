@@ -4,7 +4,7 @@
   "type": "B",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-05T01:07:31Z",
+  "updated": "2026-11-08T16:18:39Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -235,7 +235,15 @@
       "notes": "Close-out complete. Stage history, evidence, deviations and live URLs are recorded in docs/CSC413.md and lifecycle_state.json. No blocking unsure items. LLM cost $0."
     }
   },
-  "unsure": [],
+  "unsure": [
+    {
+      "stage": "1_preprocess",
+      "item": "MinerU pilot complete for both pipeline and vlm. Counts agree on all three papers: 2 figures, 2 tables, 0 equations, 0 referenced assets resolved, 0 fallbacks. Owner must choose the default model before any remaining papers are processed.",
+      "blocking": true,
+      "opened": "2026-11-08",
+      "path": "data/tracking/csc413/mineru/PILOT_REPORT.md"
+    }
+  ],
   "llm_cost": {
     "currency": "USD",
     "total_usd": 0.0,
@@ -252,5 +260,161 @@
       "9_publish": 0.0,
       "10_close_out": 0.0
     }
+  },
+  "parser_provenance": [
+    {
+      "paper_id": "CSC413-2023-FEB",
+      "parser": "mineru",
+      "model": "pipeline",
+      "pages": 11,
+      "task_id": "4414d80d-b9fb-454c-91b9-006a3fa8f1bb",
+      "status": "done",
+      "cache_path": "data/tracking/csc413/mineru/CSC413-2023-FEB/pipeline_92339dffc4",
+      "counts": {
+        "pages": 11,
+        "questions": 4,
+        "figures": 0,
+        "tables": 1,
+        "equations": 0,
+        "assets": 1,
+        "referenced_figures_tables": 0,
+        "resolved_references": 0,
+        "fallback_assets": 0
+      },
+      "contact_sheet": "data/tracking/csc413/mineru/CSC413-2023-FEB/pipeline_92339dffc4/review/contact_sheet.png",
+      "error": ""
+    },
+    {
+      "paper_id": "CSC413-2023-FEB",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 11,
+      "task_id": "34410301-c5be-4496-9f58-cae675d1415d",
+      "status": "done",
+      "cache_path": "data/tracking/csc413/mineru/CSC413-2023-FEB/vlm_c51270358e",
+      "counts": {
+        "pages": 11,
+        "questions": 4,
+        "figures": 0,
+        "tables": 1,
+        "equations": 0,
+        "assets": 1,
+        "referenced_figures_tables": 0,
+        "resolved_references": 0,
+        "fallback_assets": 0
+      },
+      "contact_sheet": "data/tracking/csc413/mineru/CSC413-2023-FEB/vlm_c51270358e/review/contact_sheet.png",
+      "error": ""
+    },
+    {
+      "paper_id": "CSC413-2014-JUN",
+      "parser": "mineru",
+      "model": "pipeline",
+      "pages": 9,
+      "task_id": "890e235e-357f-46e2-96e8-8b8b806205e9",
+      "status": "done",
+      "cache_path": "data/tracking/csc413/mineru/CSC413-2014-JUN/pipeline_92339dffc4",
+      "counts": {
+        "pages": 9,
+        "questions": 7,
+        "figures": 0,
+        "tables": 0,
+        "equations": 0,
+        "assets": 0,
+        "referenced_figures_tables": 0,
+        "resolved_references": 0,
+        "fallback_assets": 0
+      },
+      "contact_sheet": "data/tracking/csc413/mineru/CSC413-2014-JUN/pipeline_92339dffc4/review/contact_sheet.png",
+      "error": ""
+    },
+    {
+      "paper_id": "CSC413-2014-JUN",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 9,
+      "task_id": "8e75a664-b7c2-4588-a98b-191a9d527e3f",
+      "status": "done",
+      "cache_path": "data/tracking/csc413/mineru/CSC413-2014-JUN/vlm_c51270358e",
+      "counts": {
+        "pages": 9,
+        "questions": 7,
+        "figures": 0,
+        "tables": 0,
+        "equations": 0,
+        "assets": 0,
+        "referenced_figures_tables": 0,
+        "resolved_references": 0,
+        "fallback_assets": 0
+      },
+      "contact_sheet": "data/tracking/csc413/mineru/CSC413-2014-JUN/vlm_c51270358e/review/contact_sheet.png",
+      "error": ""
+    },
+    {
+      "paper_id": "CSC413-2018-DEC",
+      "parser": "mineru",
+      "model": "pipeline",
+      "pages": 10,
+      "task_id": "b1054b66-94e1-4524-a94b-f1b84639f750",
+      "status": "done",
+      "cache_path": "data/tracking/csc413/mineru/CSC413-2018-DEC/pipeline_92339dffc4",
+      "counts": {
+        "pages": 10,
+        "questions": 7,
+        "figures": 1,
+        "tables": 0,
+        "equations": 0,
+        "assets": 1,
+        "referenced_figures_tables": 0,
+        "resolved_references": 0,
+        "fallback_assets": 0
+      },
+      "contact_sheet": "data/tracking/csc413/mineru/CSC413-2018-DEC/pipeline_92339dffc4/review/contact_sheet.png",
+      "error": ""
+    },
+    {
+      "paper_id": "CSC413-2018-DEC",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 10,
+      "task_id": "053368e5-8f19-4f5d-9547-9f0b9849ff28",
+      "status": "done",
+      "cache_path": "data/tracking/csc413/mineru/CSC413-2018-DEC/vlm_c51270358e",
+      "counts": {
+        "pages": 10,
+        "questions": 7,
+        "figures": 1,
+        "tables": 0,
+        "equations": 0,
+        "assets": 1,
+        "referenced_figures_tables": 0,
+        "resolved_references": 0,
+        "fallback_assets": 0
+      },
+      "contact_sheet": "data/tracking/csc413/mineru/CSC413-2018-DEC/vlm_c51270358e/review/contact_sheet.png",
+      "error": ""
+    }
+  ],
+  "extraction": {
+    "parser": "mineru",
+    "status": "pilot_complete_pending_owner_choice",
+    "pilot_dir": "data/tracking/csc413/mineru",
+    "models": [
+      "pipeline",
+      "vlm"
+    ],
+    "pages_requested": 60,
+    "pages_submitted": 60,
+    "totals": {
+      "figures": 2,
+      "tables": 2,
+      "equations": 0,
+      "fallback_assets": 0,
+      "resolved_references": 0,
+      "referenced_figures_tables": 0
+    },
+    "contact_sheets": 6,
+    "pilot_report": "data/tracking/csc413/mineru/PILOT_REPORT.md",
+    "owner_choice_pending": true
   }
 }

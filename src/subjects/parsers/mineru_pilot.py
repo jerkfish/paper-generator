@@ -138,6 +138,8 @@ def run() -> dict:
     config_data = mineru_client.MineruConfig(
         api_key=configured.api_key,
         page_budget=configured.page_budget,
+        request_timeout=int(os.environ.get("MINERU_REQUEST_TIMEOUT_SECONDS",
+                                          "300")),
         options=mineru_client.MineruOptions(
             model_version="pipeline",
             language=os.environ.get("MINERU_LANGUAGE", "en").strip() or "en",
@@ -159,6 +161,7 @@ def run() -> dict:
                     retries=config_data.options.retries,
                     concurrency=config_data.options.concurrency,
                 )
+                print(f"{paper['paper_id']} {model}: start", flush=True)
                 entry = {
                     "paper_id": paper["paper_id"],
                     "source": paper["source"],
@@ -192,6 +195,8 @@ def run() -> dict:
                     )
                     entry["counts"] = _stats(normalized)
                     entry["contact_sheet"] = normalized["contact_sheet"]
+                    print(f"{paper['paper_id']} {model}: "
+                          f"{entry['counts']}", flush=True)
                 except mineru_client.MineruAuthError as error:
                     entry["error"] = f"AUTH: {error}"
                 except mineru_client.MineruQuotaError as error:
@@ -200,6 +205,9 @@ def run() -> dict:
                     entry["error"] = f"TIMEOUT: {error}"
                 except Exception as error:
                     entry["error"] = f"{type(error).__name__}: {error}"
+                if entry.get("error"):
+                    print(f"{paper['paper_id']} {model}: {entry['error']}",
+                          flush=True)
                 results.append(entry)
     tally = Counter()
     for row in results:

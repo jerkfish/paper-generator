@@ -86,6 +86,8 @@ def _print(data: dict) -> None:
         if data.get("stop_reason"):
             print(f"Stop reason: {data['stop_reason']}")
         print("Next stage: none (lifecycle stopped)")
+    elif data.get("next_stage") is None and data.get("unsure"):
+        print("Next stage: none — lifecycle has open blocking unsure items")
     elif data.get("next_stage") is None:
         print("Next stage: none — lifecycle complete")
     else:

@@ -71,7 +71,7 @@ class MineruConfig:
     api_key: str = ""
     base_url: str = BASE_URL
     page_budget: int = 200
-    request_timeout: int = 60
+    request_timeout: int = 300
     options: MineruOptions = field(default_factory=MineruOptions)
 
 
@@ -123,12 +123,22 @@ class MineruClient:
         if not self.config.api_key:
             raise MineruAuthError(
                 "MINERU_API_KEY is not set; export it in the environment")
+        timeout = httpx.Timeout(
+            connect=30,
+            read=float(self.config.request_timeout),
+            write=float(self.config.request_timeout),
+            pool=30)
         self._client = httpx.Client(
-            timeout=httpx.Timeout(self.config.request_timeout),
+            timeout=timeout,
             headers={"Authorization": f"Bearer {self.config.api_key}"})
+        # Presigned OSS upload URLs carry their signature in the query string.
+        # Sending the API Authorization header breaks that signature, so uploads
+        # must use a client without the MinerU auth header.
+        self._upload_client = httpx.Client(timeout=timeout)
 
     def close(self) -> None:
         self._client.close()
+        self._upload_client.close()
 
     def __enter__(self):
         return self
@@ -136,12 +146,14 @@ class MineruClient:
     def __exit__(self, *exc):
         self.close()
 
-    def _request(self, method: str, url: str, **kwargs) -> httpx.Response:
+    def _request(self, method: str, url: str, *, with_auth: bool = True,
+                 **kwargs) -> httpx.Response:
         delay = 1.5
         last = None
+        client = self._client if with_auth else self._upload_client
         for attempt in range(self.config.options.retries + 1):
             try:
-                response = self._client.request(method, url, **kwargs)
+                response = client.request(method, url, **kwargs)
             except httpx.RequestError as error:
                 last = error
                 if attempt >= self.config.options.retries:
@@ -149,10 +161,18 @@ class MineruClient:
                 time.sleep(delay)
                 delay *= 2
                 continue
-            if response.status_code in (401, 403):
+            if with_auth and response.status_code in (401, 403):
                 raise MineruAuthError(
                     "MinerU key/token rejected (401/403). Check "
                     "MINERU_API_KEY and its quota.")
+            if not with_auth and response.status_code == 403:
+                raise MineruError(
+                    "MinerU upload URL rejected the upload (403). The "
+                    "presigned URL may have expired; retry the paper.")
+            if not with_auth and response.status_code >= 400:
+                raise MineruError(
+                    f"MinerU upload HTTP {response.status_code}: "
+                    f"{response.text[:300]}")
             if response.status_code == 429:
                 raise MineruQuotaError(
                     "MinerU quota/rate limit reached (429). Wait for the "
@@ -225,9 +245,11 @@ class MineruClient:
                 raise MineruError(
                     "batch response missing batch_id or upload URLs")
             task_id = str(batch_id)
-            self._request("PUT", urls[0],
-                          content=paper_path.read_bytes(),
-                          headers={"Content-Type": "application/pdf"})
+            # The presigned URL signs only its query string. Do not add
+            # Content-Type (or the API Authorization header) here: either one
+            # changes the signature and OSS returns SignatureDoesNotMatch.
+            self._request("PUT", urls[0], with_auth=False,
+                          content=paper_path.read_bytes())
             zip_url = self._poll(batch_id, paper_path.name, options)
         except Exception:
             raise

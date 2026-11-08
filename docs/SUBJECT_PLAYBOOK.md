@@ -170,6 +170,10 @@ Statuses are `pending`, `in_progress`, `blocked`, `done`, `skipped` and
 `not_applicable`. A stage is not complete if its evidence path is missing, its
 required human approval is absent, or a blocking `unsure` item remains.
 
+Optional top-level `parser_provenance` records the per-paper parser decision
+for MinerU/legacy extraction: paper id, parser, model, page count, task id,
+cache path and status. `scripts/lifecycle_status.py` prints it when present.
+
 ## Stages 0–10
 
 Each stage has a human checkpoint. The [HUMAN] gate is deliberate: it is the

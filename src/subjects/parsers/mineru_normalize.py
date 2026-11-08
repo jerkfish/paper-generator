@@ -35,10 +35,14 @@ def _save(path: Path, payload) -> None:
 
 
 def _find_content_list(root: Path) -> Path | None:
-    for path in root.rglob("*content_list*.json"):
-        if path.is_file():
+    candidates = [path for path in root.rglob("*content_list*.json")
+                  if path.is_file()]
+    # MinerU also writes *_content_list_v2.json (one list per page). The
+    # normalizer consumes the flat V1 content list.
+    for path in candidates:
+        if "content_list_v2" not in path.name.lower():
             return path
-    return None
+    return candidates[0] if candidates else None
 
 
 def _norm(text: str) -> str:

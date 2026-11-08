@@ -90,6 +90,9 @@ def test_normalizer_links_figure_by_caption(tmp_path):
          "img_path": "images/f2.png", "image_caption": ["Figure 2: test"]},
     ]
     (cache / "content_list.json").write_text(json.dumps(blocks), encoding="utf-8")
+    # MinerU also writes a per-page V2 list; the normalizer must use V1.
+    (cache / "paper_content_list_v2.json").write_text(
+        json.dumps([[{"type": "text", "page_idx": 0}]]), encoding="utf-8")
     out = cache / "review"
     result = mineru_normalize.normalize(
         paper_id="CSC413-TEST", pdf_path=pdf, cache_dir=cache,
@@ -125,9 +128,53 @@ def test_fallback_triggers_for_missing_asset_and_preserves_files(tmp_path):
     assert approvals.read_text(encoding="utf-8") == '{"sentinel": true}'
 
 
-def test_permission_denied_never_calls_api(monkeypatch):
+def test_upload_uses_client_without_api_auth_header(monkeypatch):
+    client = mineru_client.MineruClient(
+        mineru_client.MineruConfig(api_key="test-key"))
+    assert "authorization" not in {
+        key.lower() for key in client._upload_client.headers}
+    calls = []
+
+    def fake_upload(method, url, **kwargs):
+        calls.append((method, url, kwargs))
+        return httpx.Response(200, request=httpx.Request(method, url))
+
+    def fail_api(*args, **kwargs):
+        pytest.fail("upload must not use the authenticated API client")
+
+    monkeypatch.setattr(client._upload_client, "request", fake_upload)
+    monkeypatch.setattr(client._client, "request", fail_api)
+    client._request("PUT", "https://oss.example/upload", with_auth=False,
+                    content=b"pdf")
+    assert calls and calls[0][0] == "PUT"
+    assert "headers" not in calls[0][2]
+    client.close()
+
+
+def test_upload_403_is_not_reported_as_api_key_error(monkeypatch):
+    client = mineru_client.MineruClient(
+        mineru_client.MineruConfig(api_key="test-key"))
+
+    def fake_upload(method, url, **kwargs):
+        return httpx.Response(403, request=httpx.Request(method, url),
+                              text="SignatureDoesNotMatch")
+
+    monkeypatch.setattr(client._upload_client, "request", fake_upload)
+    with pytest.raises(mineru_client.MineruError) as caught:
+        client._request("PUT", "https://oss.example/upload", with_auth=False,
+                        content=b"pdf")
+    assert not isinstance(caught.value, mineru_client.MineruAuthError)
+    assert "upload" in str(caught.value).lower()
+    client.close()
+
+
+def test_permission_denied_never_calls_api(tmp_path, monkeypatch):
     from src.subjects.parsers import mineru_pilot
-    monkeypatch.setattr(mineru_pilot, "_permission", lambda: (False, {}, [{"source": "x.pdf"}]))
+    monkeypatch.setattr(mineru_pilot, "REPORT", tmp_path / "pilot_report.json")
+    monkeypatch.setattr(mineru_pilot, "REPORT_MD", tmp_path / "PILOT_REPORT.md")
+    monkeypatch.setattr(mineru_pilot, "_permission",
+                        lambda: (False, {}, [{"source": "x.pdf"}]))
     result = mineru_pilot.run()
     assert result["status"] == "blocked_permission"
     assert result["excluded_files"]
+    assert (tmp_path / "pilot_report.json").is_file()
