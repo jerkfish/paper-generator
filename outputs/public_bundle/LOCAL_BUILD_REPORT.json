@@ -1,22 +1,22 @@
 {
   "schema_version": 1,
   "subject": "CSC429",
-  "stage": "Stage 9 local only",
-  "status": "local_bundle_built",
-  "generated_at": "2026-11-08T09:58:33.732377+00:00",
+  "stage": "Stage 9 public bundle",
+  "status": "public_bundle_built_not_uploaded",
+  "generated_at": "2026-11-08T10:39:22.507097+00:00",
   "path": "outputs/public_bundle",
+  "build_command": "uv run python -m scripts.build_public_bundle --out outputs/public_bundle --subject CSC429 --seeds 1-20 --force",
   "seeds": 20,
   "paper_files": 40,
   "scheme_files": 40,
   "manifest_count": 20,
   "validation_problems": 0,
-  "publication_allowed_after_build": false,
+  "publication_permission": true,
   "uploaded": false,
   "deployed": false,
   "notes": [
-    "Built with the explicit --local-only flag; publication permission was never changed.",
+    "Publication permission granted by owner on 2026-11-08.",
+    "Public bundle built and validated locally.",
     "No R2 upload and no Worker deployment."
-  ],
-  "build_command": "uv run python -m scripts.build_public_bundle --out outputs/public_bundle --subject CSC429 --seeds 1-20 --local-only --force",
-  "temporary_permission_override": false
+  ]
 }

@@ -5,7 +5,7 @@ from src.subjects.registry import get_subject
 from scripts.build_public_bundle import _public_subjects
 
 
-def test_local_only_includes_available_but_unpublished_subject():
+def test_local_only_matches_public_build_when_permission_is_granted():
     assert get_subject("CSC429").available
-    assert "CSC429" not in {s.code for s in _public_subjects(local_only=False)}
+    assert "CSC429" in {s.code for s in _public_subjects(local_only=False)}
     assert "CSC429" in {s.code for s in _public_subjects(local_only=True)}

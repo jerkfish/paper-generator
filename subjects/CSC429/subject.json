@@ -41,7 +41,7 @@
     "rejected_registry": "data/tracking/csc429/rejected_registry.json",
     "review_index": "data/tracking/csc429/bank/review/index.html",
     "cost_usd": 0.139464,
-    "publication": false,
+    "publication": true,
     "template_confirmation": "data/tracking/csc429/template_confirmation.json",
     "gate1": {
       "approved": 172,
@@ -113,11 +113,11 @@
       "notes": "Owner waived supplied lecture slides at stage 0."
     },
     "publication": {
-      "allowed": false,
-      "basis": "owner instruction: do not publish",
+      "allowed": true,
+      "basis": "owner granted publication permission on 2026-11-08",
       "confirmed_by": "owner",
-      "confirmed_on": "2026-11-05",
-      "notes": "Type D local library prebuild only. Publication, R2 upload and Worker deployment remain disabled pending explicit Stage 9 approval."
+      "confirmed_on": "2026-11-08",
+      "notes": "Publication permission granted. R2 upload and Worker deployment still require an explicit Stage 9 instruction."
     }
   },
   "plugins": {

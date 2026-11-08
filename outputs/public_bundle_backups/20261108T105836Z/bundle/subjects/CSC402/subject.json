@@ -1,0 +1,25 @@
+{
+  "code": "CSC402",
+  "title": "Programming I",
+  "status": "available",
+  "type": "B",
+  "header_text": "CSC402 PROGRAMMING I",
+  "enabled_computed_generators": [],
+  "has_practice_mode": false,
+  "has_placeholders": false,
+  "order": 1,
+  "capabilities": {
+    "subject_type": "B",
+    "generation": "deterministic",
+    "prebuild": "plugin",
+    "public_documents": "copy_cached",
+    "needs_llm": false,
+    "uses_slides": false,
+    "uses_past_papers": true,
+    "deterministic": true,
+    "practice_mode": false,
+    "placeholders": false,
+    "public_scheme_requires_quote_marker": false
+  },
+  "paper_count": 0
+}

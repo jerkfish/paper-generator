@@ -4,7 +4,7 @@
   "type": "D",
   "strategy": "pure_extraction",
   "created": "2026-11-07T08:08:55.939319+00:00",
-  "updated": "2026-11-08T09:45:00Z",
+  "updated": "2026-11-08T10:00:00Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -209,11 +209,11 @@
       "human_approval": {
         "required": true,
         "approved": false,
-        "by": "",
-        "on": "",
-        "note": "Local public bundle built and validated; upload/deploy not approved."
+        "by": "owner",
+        "on": "2026-11-08",
+        "note": "Publication permission granted; public bundle built. R2 upload/Worker deployment not requested."
       },
-      "notes": "Local public bundle built at outputs/public_bundle with 20 seeds, 0 validation problems. No R2 upload and no Worker deployment. Publication permission remains false."
+      "notes": "Public bundle built at outputs/public_bundle (20 seeds, 0 validation problems). No R2 upload and no Worker deployment."
     },
     "10_close_out": {
       "status": "done",
