@@ -14,7 +14,7 @@
   "format": "QUESTION 1..11 + native Word lists",
   "cost_usd": 0.139464,
   "cap_usd": 5.0,
-  "tests": "340 passed, 12 skipped (legacy Type C retired)",
+  "tests": "341 passed, 12 skipped (legacy Type C retired)",
   "qa_failures": 0,
   "publication": false,
   "library_manifest": "outputs/web_cache/CSC429/manifest.json",
@@ -23,5 +23,13 @@
     "26 needs_fix and 17 rejected questions remain outside the pool.",
     "5 numeric answers flagged for human checking.",
     "All 20 seeds use approved questions only and original source assets."
-  ]
+  ],
+  "public_bundle": {
+    "built": true,
+    "path": "outputs/public_bundle",
+    "validation_problems": 0,
+    "uploaded": false,
+    "deployed": false,
+    "publication_permission_after_build": false
+  }
 }

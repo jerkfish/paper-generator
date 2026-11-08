@@ -1,0 +1,692 @@
+{
+  "subject": "CSC429",
+  "title": "Computer Organization and Architecture",
+  "year": 2026,
+  "has_practice_mode": false,
+  "has_placeholders": false,
+  "count": 20,
+  "papers": [
+    {
+      "seed": 1,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 11,
+      "placeholders": 0,
+      "topic_marks": {
+        "assembly_programming": 30,
+        "computer_architecture": 15,
+        "computer_generations": 15,
+        "data_representation": 5,
+        "instruction_set_addressing": 5,
+        "io_system": 10,
+        "memory_system": 10,
+        "parallel_architecture": 10
+      },
+      "topic_mix": "ASM 30 ARC 15 GEN 15 I/O 10 MEM 10 PAR 10 DAT 5 ADR 5",
+      "files": {
+        "paper_docx": "library/CSC429/papers/CSC429 Seed 01 2026.docx",
+        "paper_pdf": "library/CSC429/papers/CSC429 Seed 01 2026.pdf",
+        "scheme_docx": "library/CSC429/schemes/CSC429 Seed 01 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC429/schemes/CSC429 Seed 01 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC429/papers/CSC429%20Seed%2001%202026.docx?v=1794128531",
+        "paper_pdf": "/library/CSC429/papers/CSC429%20Seed%2001%202026.pdf?v=1794128536",
+        "scheme_docx": "/library/CSC429/schemes/CSC429%20Seed%2001%202026%20-%20Marking%20Scheme.docx?v=1794128545",
+        "scheme_pdf": "/library/CSC429/schemes/CSC429%20Seed%2001%202026%20-%20Marking%20Scheme.pdf?v=1794128550"
+      }
+    },
+    {
+      "seed": 2,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 11,
+      "placeholders": 0,
+      "topic_marks": {
+        "assembly_programming": 30,
+        "computer_architecture": 15,
+        "computer_generations": 15,
+        "data_representation": 15,
+        "io_system": 5,
+        "memory_system": 10,
+        "parallel_architecture": 10
+      },
+      "topic_mix": "ASM 30 ARC 15 GEN 15 DAT 15 MEM 10 PAR 10 I/O 5",
+      "files": {
+        "paper_docx": "library/CSC429/papers/CSC429 Seed 02 2026.docx",
+        "paper_pdf": "library/CSC429/papers/CSC429 Seed 02 2026.pdf",
+        "scheme_docx": "library/CSC429/schemes/CSC429 Seed 02 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC429/schemes/CSC429 Seed 02 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC429/papers/CSC429%20Seed%2002%202026.docx?v=1794128562",
+        "paper_pdf": "/library/CSC429/papers/CSC429%20Seed%2002%202026.pdf?v=1794128567",
+        "scheme_docx": "/library/CSC429/schemes/CSC429%20Seed%2002%202026%20-%20Marking%20Scheme.docx?v=1794128576",
+        "scheme_pdf": "/library/CSC429/schemes/CSC429%20Seed%2002%202026%20-%20Marking%20Scheme.pdf?v=1794128581"
+      }
+    },
+    {
+      "seed": 3,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 11,
+      "placeholders": 0,
+      "topic_marks": {
+        "assembly_programming": 30,
+        "computer_architecture": 15,
+        "computer_generations": 5,
+        "data_representation": 15,
+        "io_system": 15,
+        "memory_system": 10,
+        "parallel_architecture": 10
+      },
+      "topic_mix": "ASM 30 ARC 15 DAT 15 I/O 15 MEM 10 PAR 10 GEN 5",
+      "files": {
+        "paper_docx": "library/CSC429/papers/CSC429 Seed 03 2026.docx",
+        "paper_pdf": "library/CSC429/papers/CSC429 Seed 03 2026.pdf",
+        "scheme_docx": "library/CSC429/schemes/CSC429 Seed 03 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC429/schemes/CSC429 Seed 03 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC429/papers/CSC429%20Seed%2003%202026.docx?v=1794128594",
+        "paper_pdf": "/library/CSC429/papers/CSC429%20Seed%2003%202026.pdf?v=1794128598",
+        "scheme_docx": "/library/CSC429/schemes/CSC429%20Seed%2003%202026%20-%20Marking%20Scheme.docx?v=1794128608",
+        "scheme_pdf": "/library/CSC429/schemes/CSC429%20Seed%2003%202026%20-%20Marking%20Scheme.pdf?v=1794128612"
+      }
+    },
+    {
+      "seed": 4,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 11,
+      "placeholders": 0,
+      "topic_marks": {
+        "assembly_programming": 30,
+        "computer_architecture": 15,
+        "computer_generations": 5,
+        "data_representation": 15,
+        "io_system": 15,
+        "memory_system": 10,
+        "parallel_architecture": 10
+      },
+      "topic_mix": "ASM 30 ARC 15 DAT 15 I/O 15 MEM 10 PAR 10 GEN 5",
+      "files": {
+        "paper_docx": "library/CSC429/papers/CSC429 Seed 04 2026.docx",
+        "paper_pdf": "library/CSC429/papers/CSC429 Seed 04 2026.pdf",
+        "scheme_docx": "library/CSC429/schemes/CSC429 Seed 04 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC429/schemes/CSC429 Seed 04 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC429/papers/CSC429%20Seed%2004%202026.docx?v=1794128642",
+        "paper_pdf": "/library/CSC429/papers/CSC429%20Seed%2004%202026.pdf?v=1794128647",
+        "scheme_docx": "/library/CSC429/schemes/CSC429%20Seed%2004%202026%20-%20Marking%20Scheme.docx?v=1794128657",
+        "scheme_pdf": "/library/CSC429/schemes/CSC429%20Seed%2004%202026%20-%20Marking%20Scheme.pdf?v=1794128661"
+      }
+    },
+    {
+      "seed": 5,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 11,
+      "placeholders": 0,
+      "topic_marks": {
+        "assembly_programming": 20,
+        "computer_architecture": 15,
+        "computer_generations": 5,
+        "data_representation": 15,
+        "io_system": 15,
+        "memory_system": 20,
+        "parallel_architecture": 10
+      },
+      "topic_mix": "ASM 20 MEM 20 ARC 15 DAT 15 I/O 15 PAR 10 GEN 5",
+      "files": {
+        "paper_docx": "library/CSC429/papers/CSC429 Seed 05 2026.docx",
+        "paper_pdf": "library/CSC429/papers/CSC429 Seed 05 2026.pdf",
+        "scheme_docx": "library/CSC429/schemes/CSC429 Seed 05 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC429/schemes/CSC429 Seed 05 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC429/papers/CSC429%20Seed%2005%202026.docx?v=1794128674",
+        "paper_pdf": "/library/CSC429/papers/CSC429%20Seed%2005%202026.pdf?v=1794128678",
+        "scheme_docx": "/library/CSC429/schemes/CSC429%20Seed%2005%202026%20-%20Marking%20Scheme.docx?v=1794128704",
+        "scheme_pdf": "/library/CSC429/schemes/CSC429%20Seed%2005%202026%20-%20Marking%20Scheme.pdf?v=1794128708"
+      }
+    },
+    {
+      "seed": 6,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 11,
+      "placeholders": 0,
+      "topic_marks": {
+        "assembly_programming": 20,
+        "computer_architecture": 15,
+        "computer_generations": 5,
+        "data_representation": 15,
+        "io_system": 15,
+        "memory_system": 20,
+        "parallel_architecture": 10
+      },
+      "topic_mix": "ASM 20 MEM 20 ARC 15 DAT 15 I/O 15 PAR 10 GEN 5",
+      "files": {
+        "paper_docx": "library/CSC429/papers/CSC429 Seed 06 2026.docx",
+        "paper_pdf": "library/CSC429/papers/CSC429 Seed 06 2026.pdf",
+        "scheme_docx": "library/CSC429/schemes/CSC429 Seed 06 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC429/schemes/CSC429 Seed 06 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC429/papers/CSC429%20Seed%2006%202026.docx?v=1794128721",
+        "paper_pdf": "/library/CSC429/papers/CSC429%20Seed%2006%202026.pdf?v=1794128725",
+        "scheme_docx": "/library/CSC429/schemes/CSC429%20Seed%2006%202026%20-%20Marking%20Scheme.docx?v=1794128735",
+        "scheme_pdf": "/library/CSC429/schemes/CSC429%20Seed%2006%202026%20-%20Marking%20Scheme.pdf?v=1794128739"
+      }
+    },
+    {
+      "seed": 7,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 11,
+      "placeholders": 0,
+      "topic_marks": {
+        "assembly_programming": 20,
+        "computer_architecture": 15,
+        "computer_generations": 5,
+        "data_representation": 15,
+        "io_system": 15,
+        "memory_system": 20,
+        "parallel_architecture": 10
+      },
+      "topic_mix": "ASM 20 MEM 20 ARC 15 DAT 15 I/O 15 PAR 10 GEN 5",
+      "files": {
+        "paper_docx": "library/CSC429/papers/CSC429 Seed 07 2026.docx",
+        "paper_pdf": "library/CSC429/papers/CSC429 Seed 07 2026.pdf",
+        "scheme_docx": "library/CSC429/schemes/CSC429 Seed 07 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC429/schemes/CSC429 Seed 07 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC429/papers/CSC429%20Seed%2007%202026.docx?v=1794128752",
+        "paper_pdf": "/library/CSC429/papers/CSC429%20Seed%2007%202026.pdf?v=1794128756",
+        "scheme_docx": "/library/CSC429/schemes/CSC429%20Seed%2007%202026%20-%20Marking%20Scheme.docx?v=1794128766",
+        "scheme_pdf": "/library/CSC429/schemes/CSC429%20Seed%2007%202026%20-%20Marking%20Scheme.pdf?v=1794128771"
+      }
+    },
+    {
+      "seed": 8,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 11,
+      "placeholders": 0,
+      "topic_marks": {
+        "assembly_programming": 20,
+        "computer_architecture": 15,
+        "computer_generations": 5,
+        "data_representation": 15,
+        "io_system": 15,
+        "memory_system": 20,
+        "parallel_architecture": 10
+      },
+      "topic_mix": "ASM 20 MEM 20 ARC 15 DAT 15 I/O 15 PAR 10 GEN 5",
+      "files": {
+        "paper_docx": "library/CSC429/papers/CSC429 Seed 08 2026.docx",
+        "paper_pdf": "library/CSC429/papers/CSC429 Seed 08 2026.pdf",
+        "scheme_docx": "library/CSC429/schemes/CSC429 Seed 08 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC429/schemes/CSC429 Seed 08 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC429/papers/CSC429%20Seed%2008%202026.docx?v=1794128784",
+        "paper_pdf": "/library/CSC429/papers/CSC429%20Seed%2008%202026.pdf?v=1794128788",
+        "scheme_docx": "/library/CSC429/schemes/CSC429%20Seed%2008%202026%20-%20Marking%20Scheme.docx?v=1794128798",
+        "scheme_pdf": "/library/CSC429/schemes/CSC429%20Seed%2008%202026%20-%20Marking%20Scheme.pdf?v=1794128804"
+      }
+    },
+    {
+      "seed": 9,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 11,
+      "placeholders": 0,
+      "topic_marks": {
+        "assembly_programming": 30,
+        "computer_architecture": 15,
+        "computer_generations": 5,
+        "data_representation": 15,
+        "io_system": 15,
+        "memory_system": 10,
+        "parallel_architecture": 10
+      },
+      "topic_mix": "ASM 30 ARC 15 DAT 15 I/O 15 MEM 10 PAR 10 GEN 5",
+      "files": {
+        "paper_docx": "library/CSC429/papers/CSC429 Seed 09 2026.docx",
+        "paper_pdf": "library/CSC429/papers/CSC429 Seed 09 2026.pdf",
+        "scheme_docx": "library/CSC429/schemes/CSC429 Seed 09 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC429/schemes/CSC429 Seed 09 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC429/papers/CSC429%20Seed%2009%202026.docx?v=1794128816",
+        "paper_pdf": "/library/CSC429/papers/CSC429%20Seed%2009%202026.pdf?v=1794128821",
+        "scheme_docx": "/library/CSC429/schemes/CSC429%20Seed%2009%202026%20-%20Marking%20Scheme.docx?v=1794128831",
+        "scheme_pdf": "/library/CSC429/schemes/CSC429%20Seed%2009%202026%20-%20Marking%20Scheme.pdf?v=1794128836"
+      }
+    },
+    {
+      "seed": 10,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 11,
+      "placeholders": 0,
+      "topic_marks": {
+        "assembly_programming": 30,
+        "computer_architecture": 15,
+        "computer_generations": 5,
+        "data_representation": 15,
+        "io_system": 15,
+        "memory_system": 10,
+        "parallel_architecture": 10
+      },
+      "topic_mix": "ASM 30 ARC 15 DAT 15 I/O 15 MEM 10 PAR 10 GEN 5",
+      "files": {
+        "paper_docx": "library/CSC429/papers/CSC429 Seed 10 2026.docx",
+        "paper_pdf": "library/CSC429/papers/CSC429 Seed 10 2026.pdf",
+        "scheme_docx": "library/CSC429/schemes/CSC429 Seed 10 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC429/schemes/CSC429 Seed 10 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC429/papers/CSC429%20Seed%2010%202026.docx?v=1794128849",
+        "paper_pdf": "/library/CSC429/papers/CSC429%20Seed%2010%202026.pdf?v=1794128854",
+        "scheme_docx": "/library/CSC429/schemes/CSC429%20Seed%2010%202026%20-%20Marking%20Scheme.docx?v=1794128864",
+        "scheme_pdf": "/library/CSC429/schemes/CSC429%20Seed%2010%202026%20-%20Marking%20Scheme.pdf?v=1794128870"
+      }
+    },
+    {
+      "seed": 11,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 11,
+      "placeholders": 0,
+      "topic_marks": {
+        "assembly_programming": 30,
+        "computer_architecture": 15,
+        "computer_generations": 5,
+        "data_representation": 15,
+        "io_system": 20,
+        "memory_system": 5,
+        "parallel_architecture": 10
+      },
+      "topic_mix": "ASM 30 I/O 20 ARC 15 DAT 15 PAR 10 GEN 5 MEM 5",
+      "files": {
+        "paper_docx": "library/CSC429/papers/CSC429 Seed 11 2026.docx",
+        "paper_pdf": "library/CSC429/papers/CSC429 Seed 11 2026.pdf",
+        "scheme_docx": "library/CSC429/schemes/CSC429 Seed 11 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC429/schemes/CSC429 Seed 11 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC429/papers/CSC429%20Seed%2011%202026.docx?v=1794128882",
+        "paper_pdf": "/library/CSC429/papers/CSC429%20Seed%2011%202026.pdf?v=1794128887",
+        "scheme_docx": "/library/CSC429/schemes/CSC429%20Seed%2011%202026%20-%20Marking%20Scheme.docx?v=1794128897",
+        "scheme_pdf": "/library/CSC429/schemes/CSC429%20Seed%2011%202026%20-%20Marking%20Scheme.pdf?v=1794128902"
+      }
+    },
+    {
+      "seed": 12,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 11,
+      "placeholders": 0,
+      "topic_marks": {
+        "assembly_programming": 30,
+        "computer_architecture": 15,
+        "computer_generations": 5,
+        "data_representation": 15,
+        "io_system": 20,
+        "memory_system": 5,
+        "parallel_architecture": 10
+      },
+      "topic_mix": "ASM 30 I/O 20 ARC 15 DAT 15 PAR 10 GEN 5 MEM 5",
+      "files": {
+        "paper_docx": "library/CSC429/papers/CSC429 Seed 12 2026.docx",
+        "paper_pdf": "library/CSC429/papers/CSC429 Seed 12 2026.pdf",
+        "scheme_docx": "library/CSC429/schemes/CSC429 Seed 12 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC429/schemes/CSC429 Seed 12 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC429/papers/CSC429%20Seed%2012%202026.docx?v=1794128916",
+        "paper_pdf": "/library/CSC429/papers/CSC429%20Seed%2012%202026.pdf?v=1794128921",
+        "scheme_docx": "/library/CSC429/schemes/CSC429%20Seed%2012%202026%20-%20Marking%20Scheme.docx?v=1794128931",
+        "scheme_pdf": "/library/CSC429/schemes/CSC429%20Seed%2012%202026%20-%20Marking%20Scheme.pdf?v=1794128936"
+      }
+    },
+    {
+      "seed": 13,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 11,
+      "placeholders": 0,
+      "topic_marks": {
+        "assembly_programming": 20,
+        "computer_architecture": 15,
+        "computer_generations": 15,
+        "data_representation": 15,
+        "io_system": 20,
+        "memory_system": 5,
+        "parallel_architecture": 10
+      },
+      "topic_mix": "ASM 20 I/O 20 ARC 15 GEN 15 DAT 15 PAR 10 MEM 5",
+      "files": {
+        "paper_docx": "library/CSC429/papers/CSC429 Seed 13 2026.docx",
+        "paper_pdf": "library/CSC429/papers/CSC429 Seed 13 2026.pdf",
+        "scheme_docx": "library/CSC429/schemes/CSC429 Seed 13 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC429/schemes/CSC429 Seed 13 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC429/papers/CSC429%20Seed%2013%202026.docx?v=1794128949",
+        "paper_pdf": "/library/CSC429/papers/CSC429%20Seed%2013%202026.pdf?v=1794128954",
+        "scheme_docx": "/library/CSC429/schemes/CSC429%20Seed%2013%202026%20-%20Marking%20Scheme.docx?v=1794128964",
+        "scheme_pdf": "/library/CSC429/schemes/CSC429%20Seed%2013%202026%20-%20Marking%20Scheme.pdf?v=1794128969"
+      }
+    },
+    {
+      "seed": 14,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 11,
+      "placeholders": 0,
+      "topic_marks": {
+        "assembly_programming": 20,
+        "computer_architecture": 15,
+        "computer_generations": 15,
+        "data_representation": 15,
+        "io_system": 20,
+        "memory_system": 10,
+        "parallel_architecture": 5
+      },
+      "topic_mix": "ASM 20 I/O 20 ARC 15 GEN 15 DAT 15 MEM 10 PAR 5",
+      "files": {
+        "paper_docx": "library/CSC429/papers/CSC429 Seed 14 2026.docx",
+        "paper_pdf": "library/CSC429/papers/CSC429 Seed 14 2026.pdf",
+        "scheme_docx": "library/CSC429/schemes/CSC429 Seed 14 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC429/schemes/CSC429 Seed 14 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC429/papers/CSC429%20Seed%2014%202026.docx?v=1794128982",
+        "paper_pdf": "/library/CSC429/papers/CSC429%20Seed%2014%202026.pdf?v=1794128986",
+        "scheme_docx": "/library/CSC429/schemes/CSC429%20Seed%2014%202026%20-%20Marking%20Scheme.docx?v=1794128996",
+        "scheme_pdf": "/library/CSC429/schemes/CSC429%20Seed%2014%202026%20-%20Marking%20Scheme.pdf?v=1794129001"
+      }
+    },
+    {
+      "seed": 15,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 11,
+      "placeholders": 0,
+      "topic_marks": {
+        "assembly_programming": 20,
+        "computer_architecture": 15,
+        "computer_generations": 5,
+        "data_representation": 15,
+        "io_system": 20,
+        "memory_system": 20,
+        "parallel_architecture": 5
+      },
+      "topic_mix": "ASM 20 I/O 20 MEM 20 ARC 15 DAT 15 GEN 5 PAR 5",
+      "files": {
+        "paper_docx": "library/CSC429/papers/CSC429 Seed 15 2026.docx",
+        "paper_pdf": "library/CSC429/papers/CSC429 Seed 15 2026.pdf",
+        "scheme_docx": "library/CSC429/schemes/CSC429 Seed 15 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC429/schemes/CSC429 Seed 15 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC429/papers/CSC429%20Seed%2015%202026.docx?v=1794129013",
+        "paper_pdf": "/library/CSC429/papers/CSC429%20Seed%2015%202026.pdf?v=1794129017",
+        "scheme_docx": "/library/CSC429/schemes/CSC429%20Seed%2015%202026%20-%20Marking%20Scheme.docx?v=1794129028",
+        "scheme_pdf": "/library/CSC429/schemes/CSC429%20Seed%2015%202026%20-%20Marking%20Scheme.pdf?v=1794129032"
+      }
+    },
+    {
+      "seed": 16,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 11,
+      "placeholders": 0,
+      "topic_marks": {
+        "assembly_programming": 20,
+        "computer_architecture": 15,
+        "computer_generations": 5,
+        "data_representation": 15,
+        "io_system": 20,
+        "memory_system": 20,
+        "parallel_architecture": 5
+      },
+      "topic_mix": "ASM 20 I/O 20 MEM 20 ARC 15 DAT 15 GEN 5 PAR 5",
+      "files": {
+        "paper_docx": "library/CSC429/papers/CSC429 Seed 16 2026.docx",
+        "paper_pdf": "library/CSC429/papers/CSC429 Seed 16 2026.pdf",
+        "scheme_docx": "library/CSC429/schemes/CSC429 Seed 16 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC429/schemes/CSC429 Seed 16 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC429/papers/CSC429%20Seed%2016%202026.docx?v=1794129045",
+        "paper_pdf": "/library/CSC429/papers/CSC429%20Seed%2016%202026.pdf?v=1794129049",
+        "scheme_docx": "/library/CSC429/schemes/CSC429%20Seed%2016%202026%20-%20Marking%20Scheme.docx?v=1794129058",
+        "scheme_pdf": "/library/CSC429/schemes/CSC429%20Seed%2016%202026%20-%20Marking%20Scheme.pdf?v=1794129063"
+      }
+    },
+    {
+      "seed": 17,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 11,
+      "placeholders": 0,
+      "topic_marks": {
+        "assembly_programming": 20,
+        "computer_architecture": 15,
+        "computer_generations": 5,
+        "data_representation": 15,
+        "io_system": 20,
+        "memory_system": 20,
+        "parallel_architecture": 5
+      },
+      "topic_mix": "ASM 20 I/O 20 MEM 20 ARC 15 DAT 15 GEN 5 PAR 5",
+      "files": {
+        "paper_docx": "library/CSC429/papers/CSC429 Seed 17 2026.docx",
+        "paper_pdf": "library/CSC429/papers/CSC429 Seed 17 2026.pdf",
+        "scheme_docx": "library/CSC429/schemes/CSC429 Seed 17 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC429/schemes/CSC429 Seed 17 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC429/papers/CSC429%20Seed%2017%202026.docx?v=1794129076",
+        "paper_pdf": "/library/CSC429/papers/CSC429%20Seed%2017%202026.pdf?v=1794129080",
+        "scheme_docx": "/library/CSC429/schemes/CSC429%20Seed%2017%202026%20-%20Marking%20Scheme.docx?v=1794129090",
+        "scheme_pdf": "/library/CSC429/schemes/CSC429%20Seed%2017%202026%20-%20Marking%20Scheme.pdf?v=1794129094"
+      }
+    },
+    {
+      "seed": 18,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 11,
+      "placeholders": 0,
+      "topic_marks": {
+        "assembly_programming": 20,
+        "computer_architecture": 15,
+        "computer_generations": 5,
+        "data_representation": 15,
+        "io_system": 20,
+        "memory_system": 20,
+        "parallel_architecture": 5
+      },
+      "topic_mix": "ASM 20 I/O 20 MEM 20 ARC 15 DAT 15 GEN 5 PAR 5",
+      "files": {
+        "paper_docx": "library/CSC429/papers/CSC429 Seed 18 2026.docx",
+        "paper_pdf": "library/CSC429/papers/CSC429 Seed 18 2026.pdf",
+        "scheme_docx": "library/CSC429/schemes/CSC429 Seed 18 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC429/schemes/CSC429 Seed 18 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC429/papers/CSC429%20Seed%2018%202026.docx?v=1794129107",
+        "paper_pdf": "/library/CSC429/papers/CSC429%20Seed%2018%202026.pdf?v=1794129111",
+        "scheme_docx": "/library/CSC429/schemes/CSC429%20Seed%2018%202026%20-%20Marking%20Scheme.docx?v=1794129121",
+        "scheme_pdf": "/library/CSC429/schemes/CSC429%20Seed%2018%202026%20-%20Marking%20Scheme.pdf?v=1794129125"
+      }
+    },
+    {
+      "seed": 19,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 11,
+      "placeholders": 0,
+      "topic_marks": {
+        "assembly_programming": 20,
+        "computer_architecture": 15,
+        "computer_generations": 5,
+        "data_representation": 15,
+        "instruction_set_addressing": 5,
+        "io_system": 20,
+        "memory_system": 10,
+        "parallel_architecture": 10
+      },
+      "topic_mix": "ASM 20 I/O 20 ARC 15 DAT 15 MEM 10 PAR 10 GEN 5 ADR 5",
+      "files": {
+        "paper_docx": "library/CSC429/papers/CSC429 Seed 19 2026.docx",
+        "paper_pdf": "library/CSC429/papers/CSC429 Seed 19 2026.pdf",
+        "scheme_docx": "library/CSC429/schemes/CSC429 Seed 19 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC429/schemes/CSC429 Seed 19 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC429/papers/CSC429%20Seed%2019%202026.docx?v=1794129138",
+        "paper_pdf": "/library/CSC429/papers/CSC429%20Seed%2019%202026.pdf?v=1794129142",
+        "scheme_docx": "/library/CSC429/schemes/CSC429%20Seed%2019%202026%20-%20Marking%20Scheme.docx?v=1794129152",
+        "scheme_pdf": "/library/CSC429/schemes/CSC429%20Seed%2019%202026%20-%20Marking%20Scheme.pdf?v=1794129156"
+      }
+    },
+    {
+      "seed": 20,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 11,
+      "placeholders": 0,
+      "topic_marks": {
+        "assembly_programming": 20,
+        "computer_architecture": 15,
+        "computer_generations": 5,
+        "data_representation": 15,
+        "io_system": 15,
+        "memory_system": 20,
+        "parallel_architecture": 10
+      },
+      "topic_mix": "ASM 20 MEM 20 ARC 15 DAT 15 I/O 15 PAR 10 GEN 5",
+      "files": {
+        "paper_docx": "library/CSC429/papers/CSC429 Seed 20 2026.docx",
+        "paper_pdf": "library/CSC429/papers/CSC429 Seed 20 2026.pdf",
+        "scheme_docx": "library/CSC429/schemes/CSC429 Seed 20 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/CSC429/schemes/CSC429 Seed 20 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/CSC429/papers/CSC429%20Seed%2020%202026.docx?v=1794129169",
+        "paper_pdf": "/library/CSC429/papers/CSC429%20Seed%2020%202026.pdf?v=1794129173",
+        "scheme_docx": "/library/CSC429/schemes/CSC429%20Seed%2020%202026%20-%20Marking%20Scheme.docx?v=1794129183",
+        "scheme_pdf": "/library/CSC429/schemes/CSC429%20Seed%2020%202026%20-%20Marking%20Scheme.pdf?v=1794129187"
+      }
+    }
+  ]
+}

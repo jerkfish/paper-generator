@@ -240,17 +240,20 @@ def _urls(item: dict, out_dir: Path | None = None,
     return urls
 
 
-def _public_subjects() -> list[Subject]:
+def _public_subjects(local_only: bool = False) -> list[Subject]:
     """Subjects the public bundle may expose.
 
     ``coming_soon`` stubs are always public metadata.  An ``available``
     subject is exposed only after its publication permission is recorded.
+    ``local_only`` builds a local verification bundle without changing the
+    publication permission; it never uploads or deploys.
     """
     public: list[Subject] = []
     for subject in load_subjects().values():
         allowed = bool(
             (subject.permissions or {}).get("publication", {}).get("allowed"))
-        if not subject.available or allowed:
+        if not subject.available or allowed or (
+                local_only and subject.available):
             public.append(subject)
     return public
 
@@ -274,12 +277,13 @@ def _bundle_count(out: Path, code: str, built: int) -> int:
         return 0
 
 
-def _render_pages(out: Path, subject_items: dict[str, list[dict]]) -> dict:
+def _render_pages(out: Path, subject_items: dict[str, list[dict]],
+                  local_only: bool = False) -> dict:
     env = Environment(
         loader=FileSystemLoader(str(TEMPLATES)),
         autoescape=select_autoescape(["html", "xml"]),
     )
-    subjects = _public_subjects()
+    subjects = _public_subjects(local_only)
     counts = {
         s.code: _bundle_count(out, s.code, len(subject_items.get(s.code, [])))
         for s in subjects
@@ -352,8 +356,9 @@ def _render_pages(out: Path, subject_items: dict[str, list[dict]]) -> dict:
     return {"pages": len(pages) + 1, "assets": 4}
 
 
-def _write_manifests(out: Path, subject_items: dict[str, list[dict]]) -> dict:
-    subjects = _public_subjects()
+def _write_manifests(out: Path, subject_items: dict[str, list[dict]],
+                     local_only: bool = False) -> dict:
+    subjects = _public_subjects(local_only)
     subject_dir = out / "subjects"
     generated = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     for item in subjects:
@@ -514,12 +519,13 @@ def _seeds(value: str) -> list[int]:
 
 
 def build(out: Path, seeds: list[int], force: bool = False,
-          pages_only: bool = False, subjects: list[str] | None = None) -> dict:
+          pages_only: bool = False, subjects: list[str] | None = None,
+          local_only: bool = False) -> dict:
     out = out.resolve()
     if config.PUBLIC_BUILD:
         raise SystemExit("run the builder without PUBLIC_BUILD=1")
     out.mkdir(parents=True, exist_ok=True)
-    available = {s.code for s in _public_subjects() if s.available}
+    available = {s.code for s in _public_subjects(local_only) if s.available}
     codes = [code.upper() for code in (subjects or sorted(available))]
     unknown = [code for code in codes if code not in available]
     if unknown:
@@ -539,9 +545,9 @@ def build(out: Path, seeds: list[int], force: bool = False,
             doc_info[code] = build_documents(out, seeds, force=force,
                                              subject=code)
             print(f"{code} documents: {doc_info[code]}", flush=True)
-    page_info = _render_pages(out, subject_items)
+    page_info = _render_pages(out, subject_items, local_only=local_only)
     print(f"pages: {page_info}", flush=True)
-    manifest_info = _write_manifests(out, subject_items)
+    manifest_info = _write_manifests(out, subject_items, local_only=local_only)
     print(f"manifests: {manifest_info}", flush=True)
     problems = validate(out)
     if problems:
@@ -561,9 +567,13 @@ def main() -> None:
                          "Default: every available subject")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--pages-only", action="store_true")
+    ap.add_argument("--local-only", action="store_true",
+                    help="build a local verification bundle without changing "
+                         "publication permission; never uploads or deploys")
     args = ap.parse_args()
     print(build(Path(args.out), _seeds(args.seeds), force=args.force,
-                pages_only=args.pages_only, subjects=args.subject))
+                pages_only=args.pages_only, subjects=args.subject,
+                local_only=args.local_only))
 
 
 if __name__ == "__main__":

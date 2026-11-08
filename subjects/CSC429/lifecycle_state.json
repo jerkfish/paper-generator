@@ -4,7 +4,7 @@
   "type": "D",
   "strategy": "pure_extraction",
   "created": "2026-11-07T08:08:55.939319+00:00",
-  "updated": "2026-11-08T09:30:00Z",
+  "updated": "2026-11-08T09:45:00Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -197,8 +197,13 @@
       "notes": "20/20 seeds assembled and QA-passed; local Library manifest and metadata written; library_items(\"CSC429\") returns 20."
     },
     "9_publish": {
-      "status": "pending",
-      "evidence": [],
+      "status": "in_progress",
+      "evidence": [
+        "outputs/public_bundle/LOCAL_BUILD_REPORT.json",
+        "outputs/public_bundle/LOCAL_BUILD_REPORT.md",
+        "outputs/public_bundle/subjects.json",
+        "outputs/public_bundle/library/CSC429/manifest.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
@@ -206,9 +211,9 @@
         "approved": false,
         "by": "",
         "on": "",
-        "note": ""
+        "note": "Local public bundle built and validated; upload/deploy not approved."
       },
-      "notes": "Stage 9 is a separate hard stop; publication, R2 upload and Worker deployment were not performed."
+      "notes": "Local public bundle built at outputs/public_bundle with 20 seeds, 0 validation problems. No R2 upload and no Worker deployment. Publication permission remains false."
     },
     "10_close_out": {
       "status": "done",

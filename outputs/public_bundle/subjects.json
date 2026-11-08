@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-04T18:16:47Z",
+  "generated": "2026-11-08T10:30:17Z",
   "subjects": [
     {
       "code": "CSC402",
@@ -19,12 +19,23 @@
       "route": "csc413",
       "available": true,
       "type": "B",
+      "papers": 0,
+      "library_manifest": null,
+      "routes": null
+    },
+    {
+      "code": "CSC429",
+      "title": "Computer Organization and Architecture",
+      "status": "available",
+      "route": "csc429",
+      "available": true,
+      "type": "D",
       "papers": 20,
-      "library_manifest": "/library/CSC413/manifest.json",
+      "library_manifest": "/library/CSC429/manifest.json",
       "routes": {
-        "home": "/csc413",
-        "library": "/csc413/library",
-        "generate": "/csc413/generate"
+        "home": "/csc429",
+        "library": "/csc429/library",
+        "generate": "/csc429/generate"
       }
     },
     {
@@ -45,17 +56,6 @@
       "route": "mat133",
       "available": true,
       "type": "B",
-      "papers": 0,
-      "library_manifest": null,
-      "routes": null
-    },
-    {
-      "code": "CSC429",
-      "title": "Computer Organization and Architecture",
-      "status": "coming_soon",
-      "route": "csc429",
-      "available": false,
-      "type": "C",
       "papers": 0,
       "library_manifest": null,
       "routes": null

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "subject": "CSC429",
+  "stage": "Stage 9 local only",
+  "status": "local_bundle_built",
+  "generated_at": "2026-11-08T09:58:33.732377+00:00",
+  "path": "outputs/public_bundle",
+  "seeds": 20,
+  "paper_files": 40,
+  "scheme_files": 40,
+  "manifest_count": 20,
+  "validation_problems": 0,
+  "publication_allowed_after_build": false,
+  "uploaded": false,
+  "deployed": false,
+  "notes": [
+    "Built with the explicit --local-only flag; publication permission was never changed.",
+    "No R2 upload and no Worker deployment."
+  ],
+  "build_command": "uv run python -m scripts.build_public_bundle --out outputs/public_bundle --subject CSC429 --seeds 1-20 --local-only --force",
+  "temporary_permission_override": false
+}
