@@ -1,0 +1,35 @@
+{
+  "code": "CSC662",
+  "title": "Computer Security",
+  "status": "available",
+  "type": "A",
+  "header_text": "CSC662 COMPUTER SECURITY",
+  "enabled_computed_generators": [
+    "vigenere",
+    "acm",
+    "columnar_keyword",
+    "columnar_3x4",
+    "rail_fence",
+    "otp",
+    "caesar"
+  ],
+  "has_practice_mode": true,
+  "has_placeholders": true,
+  "order": 38,
+  "has_past_papers": true,
+  "highlight_no_past_papers": false,
+  "capabilities": {
+    "subject_type": "A",
+    "generation": "llm_theory",
+    "prebuild": "llm_seed_set",
+    "public_documents": "rebuild_scheme",
+    "needs_llm": true,
+    "uses_slides": true,
+    "uses_past_papers": true,
+    "deterministic": false,
+    "practice_mode": true,
+    "placeholders": true,
+    "public_scheme_requires_quote_marker": true
+  },
+  "paper_count": 0
+}

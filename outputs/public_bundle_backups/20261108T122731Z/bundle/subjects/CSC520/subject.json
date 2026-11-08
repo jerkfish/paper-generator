@@ -1,0 +1,27 @@
+{
+  "code": "CSC520",
+  "title": "Principles of Operating Systems",
+  "status": "coming_soon",
+  "type": "C",
+  "header_text": "CSC520 PRINCIPLES OF OPERATING SYSTEMS",
+  "enabled_computed_generators": [],
+  "has_practice_mode": true,
+  "has_placeholders": true,
+  "order": 17,
+  "has_past_papers": false,
+  "highlight_no_past_papers": false,
+  "capabilities": {
+    "subject_type": "C",
+    "generation": "hybrid",
+    "prebuild": "plugin",
+    "public_documents": "rebuild_scheme",
+    "needs_llm": true,
+    "uses_slides": true,
+    "uses_past_papers": true,
+    "deterministic": false,
+    "practice_mode": true,
+    "placeholders": true,
+    "public_scheme_requires_quote_marker": true
+  },
+  "paper_count": 0
+}

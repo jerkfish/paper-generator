@@ -67,6 +67,7 @@
   "has_placeholders": false,
   "order": 44,
   "has_past_papers": true,
+  "highlight_no_past_papers": false,
   "capabilities": {
     "subject_type": "B",
     "generation": "deterministic",

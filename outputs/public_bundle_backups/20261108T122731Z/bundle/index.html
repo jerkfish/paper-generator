@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mock Paper Generator</title>
+  <script src="/assets/htmx.min.js?v=1794139258" defer></script>
+  <script src="/assets/library.js?v=1794139258" defer></script>
+  
+  <link rel="stylesheet" href="/assets/style.css?v=1794139258">
+</head>
+<body>
+<h1>Mock Paper Generator</h1>
+<div class="nav">
+  <a href="/">Subjects</a>
+  
+    
+    <a href="/csc402">CSC402</a>
+    <!--  -->
+    
+  
+    
+    <a href="/csc413">CSC413</a>
+    <!--  -->
+    
+  
+    
+    <a href="/csc429">CSC429</a>
+    <!--  -->
+    
+  
+    
+    <a href="/csc662">CSC662</a>
+    <!--  -->
+    
+  
+    
+    <a href="/mat133">MAT133</a>
+    <!--  -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  <a href="/gallery">Gallery</a>
+</div>
+<hr>
+
+
+<div class="notice">Public bundle: papers keep the original local-build cover;
+public schemes omit verbatim slide quotes. The Library contains PUBLIC_BUILD
+files only.</div>
+
+
+
+<p>Generate practice papers from lecture material, or browse pre-generated
+papers. Local study aid. No accounts, no uploads.</p>
+<p class="small">Theory answers are supported by lecture slides, not
+lecturer-marked. This is not an official exam paper.</p>
+
+<h2>Subjects</h2>
+<table>
+  <tr><th>Code</th><th>Subject</th><th>Status</th><th>Papers</th><th></th></tr>
+  
+  <tr class="">
+    <td>CSC402</td>
+    <td>Programming I</td>
+    <td class="ok">available</td>
+    
+    <td>
+      
+        20 public papers
+      
+    </td>
+    <td>
+      <a href="/csc402">open</a>
+      
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>CSC413</td>
+    <td>Introduction to Interactive Multimedia</td>
+    <td class="ok">available</td>
+    
+    <td>
+      
+        20 public papers
+      
+    </td>
+    <td>
+      <a href="/csc413">open</a>
+      
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>CSC429</td>
+    <td>Computer Organization and Architecture</td>
+    <td class="ok">available</td>
+    
+    <td>
+      
+        20 public papers
+      
+    </td>
+    <td>
+      <a href="/csc429">open</a>
+      
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>CSC662</td>
+    <td>Computer Security</td>
+    <td class="ok">available</td>
+    
+    <td>
+      
+        20 public papers
+      
+    </td>
+    <td>
+      <a href="/csc662">open</a>
+      
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>MAT133</td>
+    <td>Pre-Calculus</td>
+    <td class="ok">available</td>
+    
+    <td>
+      
+        20 public papers
+      
+    </td>
+    <td>
+      <a href="/mat133">open</a>
+      
+    </td>
+  </tr>
+  
+  <tr class="no-past-papers-row">
+    <td>CTU552</td>
+    <td>Philosophy and Current Issues</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      <span class="no-past-papers-badge">no past papers</span>
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="no-past-papers-row">
+    <td>HBU111</td>
+    <td>National Kesatria I</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      <span class="no-past-papers-badge">no past papers</span>
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>ICT450</td>
+    <td>Database Design and Development</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>MAT406</td>
+    <td>Foundation Mathematics</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>CSC404</td>
+    <td>Programming II</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>CTU554</td>
+    <td>Values and Civilization II</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>HBU121</td>
+    <td>National Kesatria II</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>ICT502</td>
+    <td>Database Engineering</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>ITT400</td>
+    <td>Introduction to Data Communication and Networking</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>MAT421</td>
+    <td>Calculus I</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>STA416</td>
+    <td>Applied Probability and Statistics</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>CSC435</td>
+    <td>Object-Oriented Programming</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>CSC510</td>
+    <td>Discrete Structures</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>CSC520</td>
+    <td>Principles of Operating Systems</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>CSC583</td>
+    <td>Artificial Intelligence Algorithms</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>HBU131</td>
+    <td>National Kesatria III</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>LCC401</td>
+    <td>English for Mediating Texts</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>MAT423</td>
+    <td>Linear Algebra I</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>TMC401</td>
+    <td>Introductory Mandarin (Level I)</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>CSC508</td>
+    <td>Data Structures</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>CSC569</td>
+    <td>Principles of Compilers</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>CSC575</td>
+    <td>Software Project Management</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>CSC577</td>
+    <td>Software Engineering - Theories and Principles</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>CSC584</td>
+    <td>Enterprise Programming</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>LCC500</td>
+    <td>English for Workplace Communication</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>TMC451</td>
+    <td>Introductory Mandarin (Level II)</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>CSC580</td>
+    <td>Parallel Processing</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>CSC645</td>
+    <td>Algorithm Analysis and Design</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>CSC649</td>
+    <td>Special Topics in Computer Science</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>CSP600</td>
+    <td>Project Formulation</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>ENT600</td>
+    <td>Technology Entrepreneurship</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>STA404</td>
+    <td>Statistics for Business and Social Sciences</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>TMC501</td>
+    <td>Introductory Mandarin (Level III)</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>CSC562</td>
+    <td>Information Retrieval and Searching Algorithms</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>CSC683</td>
+    <td>Game Design and Development</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>CSP650</td>
+    <td>Project</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>EET699</td>
+    <td>English Exit Test</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>ICT652</td>
+    <td>Ethical, Social, and Professional Issues in ICT</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+  <tr class="">
+    <td>CST688</td>
+    <td>Computing Science Industrial Training</td>
+    <td class="muted">coming soon</td>
+    
+    <td>
+      no data
+      
+    </td>
+    <td>
+      &mdash;
+    </td>
+  </tr>
+  
+</table>
+
+<h2>Purpose</h2>
+<table>
+  <tr><th>Path</th><th>What it does</th><th>Needs a key?</th><th>Cost</th></tr>
+  <tr><td>Generate a new paper</td>
+      <td>Background generation with slot-by-slot status from the subject
+        planner or deterministic generator plugin</td>
+      <td>LLM theory subjects only; deterministic subjects need no key</td>
+      <td>LLM per-run cap $0.05; deterministic $0</td></tr>
+  <tr><td>Browse pre-generated papers</td>
+      <td>Cached realistic papers, instant download</td>
+      <td>no</td><td>$0</td></tr>
+  <tr><td>Public gallery</td>
+      <td>Opt-in shared papers, deleted after 7 days</td>
+      <td>no</td><td>$0</td></tr>
+</table>
+
+
+<div class="footer">
+  <hr>
+  <p class="small">Study aid, not an official paper. Theory answers are
+  supported by lecture slides where a subject supplies them; deterministic
+  subjects use paper-derived generators. Not lecturer-marked.
+  <a href="/gallery#takedown">Takedown contact</a>.</p>
+  <p class="small">Contact:
+  <a href="mailto:auzair1990@gmail.com">auzair1990@gmail.com</a><br>
+  Git repository:
+  <a href="https://github.com/jerkfish/paper-generator">https://github.com/jerkfish/paper-generator</a></p>
+</div>
+</body>
+</html>
