@@ -1,12 +1,49 @@
 {
   "code": "ICT450",
   "title": "Database Design and Development",
+  "aliases": [
+    "ITS432"
+  ],
+  "related_codes": [
+    "ICT200"
+  ],
   "status": "coming_soon",
+  "type": "C",
   "order": 6,
   "header_text": "ICT450 DATABASE DESIGN AND DEVELOPMENT",
   "template_path": "",
   "fingerprint": {},
   "deck_map": {},
   "topic_deck_allowlist": {},
-  "enabled_computed_generators": []
+  "enabled_computed_generators": [],
+  "permissions": {
+    "papers": {
+      "allowed": true,
+      "basis": "owner supplied 13 PDFs (12 unique) on 2026-11-09 for ICT450/ITS432 onboarding",
+      "confirmed_by": "owner",
+      "confirmed_on": "2026-11-09",
+      "notes": "Working copies only under data/papers/ICT450; the supplied PDFs remain read-only."
+    },
+    "scheme": {
+      "allowed": false,
+      "basis": "unsure: no marking scheme was supplied",
+      "confirmed_by": "",
+      "confirmed_on": "",
+      "notes": "Record the scheme decision at Stage 2."
+    },
+    "slides": {
+      "allowed": false,
+      "basis": "unsure: owner says ICT200/ICT450 are related, but no slide deck was supplied",
+      "confirmed_by": "owner",
+      "confirmed_on": "2026-11-09",
+      "notes": "No deck exists under data/lecturedecks/ICT450; confirm the knowledge-base/slides source at Stage 2."
+    },
+    "publication": {
+      "allowed": false,
+      "basis": "unsure: do not publish without an explicit Stage 9 instruction",
+      "confirmed_by": "",
+      "confirmed_on": "",
+      "notes": "No upload, R2 sync or Worker deploy."
+    }
+  }
 }
