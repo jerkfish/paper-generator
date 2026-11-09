@@ -11,8 +11,17 @@
   "type": "C",
   "order": 6,
   "header_text": "ICT450 DATABASE DESIGN AND DEVELOPMENT",
-  "template_path": "",
-  "fingerprint": {},
+  "template_path": "data/reference/ICT450/ICT450 TEMPLATE.docx",
+  "fingerprint": {
+    "source": "data/tracking/ict450/question_log.json",
+    "paper_count": 12,
+    "question_count": 60,
+    "topics": 8,
+    "marks_total_mismatch": 4,
+    "unresolved_refs": 3,
+    "fallback_assets": 3,
+    "model": "mineru-vlm"
+  },
   "deck_map": {
     "Database Concept": [
       "TOPIC 1 DATABASE CONCEPT (1)"
@@ -79,7 +88,7 @@
       "basis": "owner instructed use of the standard marking-scheme format",
       "confirmed_by": "owner",
       "confirmed_on": "2026-11-09",
-      "notes": "Use data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx per AGENTS.md; patch fields, do not create a bespoke cover."
+      "notes": "Use data/reference/standard/UTM_STANDARD_MARKING_SCHEMEv2.docx; patch fields, do not create a bespoke cover."
     },
     "slides": {
       "allowed": true,
@@ -160,5 +169,17 @@
     "owner_choice_pending": false,
     "daily_limit_documents": 5000,
     "notes": "Owner selected VLM and approved processing the remaining papers. Local OCR was used only for the initial Stage 1 register/corpus before the MinerU directive; MinerU is the document parser for all 12 unique papers."
+  },
+  "scheme_template_path": "data/reference/standard/UTM_STANDARD_MARKING_SCHEMEv2.docx",
+  "template_source": "data/reference/standard/UTM_STANDARD_COVERv2.docx",
+  "topic_labels": {
+    "database_concept": "CON",
+    "data_model": "MOD",
+    "relational": "REL",
+    "erd": "ERD",
+    "normalization": "NRM",
+    "database_design": "DES",
+    "sql": "SQL",
+    "other": "OTH"
   }
 }

@@ -168,6 +168,26 @@ def test_upload_403_is_not_reported_as_api_key_error(monkeypatch):
     client.close()
 
 
+def test_header_question_heading_is_promoted(tmp_path):
+    pdf = tmp_path / "paper.pdf"
+    _pdf(pdf)
+    cache = tmp_path / "cache"
+    cache.mkdir()
+    blocks = [
+        {"type": "header", "page_idx": 0, "bbox": [10, 10, 300, 30],
+         "text": "CONFIDENTIAL\n4\nCS/FEB 2026/ICT450/ITS432\nQUESTION 1"},
+        {"type": "text", "page_idx": 0, "bbox": [10, 40, 500, 60],
+         "text": "Explain the difference. (5 marks)"},
+    ]
+    (cache / "content_list.json").write_text(json.dumps(blocks), encoding="utf-8")
+    result = mineru_normalize.normalize(
+        paper_id="ICT450-TEST", pdf_path=pdf, cache_dir=cache,
+        model="vlm", out_dir=cache / "review")
+    assert result["counts"]["questions"] == 1
+    assert "Explain the difference" in result["questions"][0]["text"]
+    assert "CONFIDENTIAL" not in result["questions"][0]["text"]
+
+
 def test_repeated_question_numbers_get_unique_ids(tmp_path):
     pdf = tmp_path / "paper.pdf"
     _pdf(pdf)

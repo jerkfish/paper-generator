@@ -4,7 +4,7 @@
   "type": "C",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-09T07:32:29Z",
+  "updated": "2026-11-09T07:43:21Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -67,37 +67,44 @@
       "notes": "Scheme uses the standard UTM template; no supplied answer scheme. The 8 ICT200/ICT450 knowledge-base PDFs and Markdown sidecars are exported to data/lecturedecks/ICT450/ and load as 511 chunks across 8 decks. Subject deck_map and topic_deck_allowlist are populated."
     },
     "3_template": {
-      "status": "blocked",
+      "status": "done",
       "evidence": [
-        "docs/ICT450.md",
-        "data/reference/standard/UTM_STANDARD_COVER.docx"
+        "data/tracking/ict450/template_install.log",
+        "data/tracking/ict450/template_check.json",
+        "data/reference/ICT450/ICT450 TEMPLATE.docx",
+        "docs/ICT450.md"
       ],
-      "llm_cost_usd": 0.0,
-      "blockers": [
-        "no template found for ICT450 under data/reference/ICT450"
-      ],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": "Awaiting owner approval of the standard UTM cover as the ICT450 paper template."
-      },
-      "notes": "Stage 3 template not installed. The standard UTM cover data/reference/standard/UTM_STANDARD_COVER.docx is available as the proposed template; owner approval is required before install/check."
-    },
-    "4_taxonomy_question_log": {
-      "status": "pending",
-      "evidence": [],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-09",
+        "note": "Owner approved UTM_STANDARD_COVERv2.docx; installed as the ICT450 template. Structural check passes. Cover/reference tokens still say CSC662 and must be patched during assembly."
+      },
+      "notes": "Template UTM_STANDARD_COVERv2.docx installed. xml_valid, 22 sections, 2 header parts, 3 footer parts, 1 image; no structural problems. Scheme v2 recorded at data/reference/standard/UTM_STANDARD_MARKING_SCHEMEv2.docx."
+    },
+    "4_taxonomy_question_log": {
+      "status": "in_progress",
+      "evidence": [
+        "data/tracking/ict450/question_log.json",
+        "data/tracking/ict450/taxonomy.json",
+        "scripts/build_ict450_question_log.py",
+        "docs/ICT450.md"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [
+        "[HUMAN] Stage 4 gate pending approval"
+      ],
+      "human_approval": {
+        "required": true,
         "approved": false,
         "by": "",
         "on": "",
-        "note": ""
+        "note": "Awaiting review of marks totals and topic tags."
       },
-      "notes": ""
+      "notes": "Deterministic question log from 12 MinerU VLM normalized outputs: 60 questions, 0 missing marks, 3 fallback questions, 3 unresolved refs, 13 topic-review flags, 4 papers whose detected marks do not sum to 100. No LLM cost."
     },
     "5_fingerprint_planner": {
       "status": "pending",
@@ -187,24 +194,31 @@
   "unsure": [
     {
       "stage": "0_intake",
-      "item": "Type C and curriculum order 6 were retained from the existing scaffold; confirm before Stage 4 if either is wrong.",
+      "item": "Type C and curriculum order 6 were retained from the existing scaffold; confirm before Stage 5 if either is wrong.",
       "blocking": false,
       "opened": "2026-11-09",
       "path": "docs/ICT450.md"
     },
     {
-      "stage": "1_preprocess",
-      "item": "Three table fallbacks remain: ICT450-2023-JUL Table 1, ICT450-2025-JUL Table 1 and ICT450-2025-JUL Table 4. Review the report/contact sheet and confirm the tables are complete.",
+      "stage": "4_taxonomy_question_log",
+      "item": "Detected marks do not sum to 100 for: ICT450-2023-FEB, ICT450-2024-JAN, ICT450-2025-JUL, ICT450-2018-JUN. Review the missing marks before the Stage 5 fingerprint.",
+      "blocking": true,
+      "opened": "2026-11-09",
+      "path": "data/tracking/ict450/question_log.json"
+    },
+    {
+      "stage": "4_taxonomy_question_log",
+      "item": "13 questions have low/medium topic confidence; review the keyword topic tags in taxonomy.json.",
+      "blocking": false,
+      "opened": "2026-11-09",
+      "path": "data/tracking/ict450/taxonomy.json"
+    },
+    {
+      "stage": "4_taxonomy_question_log",
+      "item": "Three referenced assets remain unresolved/fallback: ICT450-2023-JUL Table 1, ICT450-2025-JUL Table 1 and Table 4.",
       "blocking": false,
       "opened": "2026-11-09",
       "path": "data/tracking/ict450/mineru/EXTRACTION_INDEX.md"
-    },
-    {
-      "stage": "1_preprocess",
-      "item": "Two medium-confidence covers were manually confirmed before the MinerU directive: ICT450 (6).pdf = JULY 2025 and ITS432_ICT450.PDF = JUNE 2019. Confirm if a second check is required.",
-      "blocking": false,
-      "opened": "2026-11-09",
-      "path": "data/tracking/ict450/cover_confirmations.json"
     }
   ],
   "llm_cost": {
