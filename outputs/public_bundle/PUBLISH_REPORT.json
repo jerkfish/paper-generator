@@ -17,17 +17,21 @@
   },
   "verification": {
     "home": 200,
-    "home_no_past_papers_rows": 39,
+    "home_no_past_papers_rows": 2,
     "csc429_route": 200,
     "library_page": 200,
     "library_manifest": 200,
     "paper_pdf": 200,
     "scheme_pdf": 200,
     "style_css": 200,
-    "live_library_links": 20
+    "live_library_links": 20,
+    "home_highlighted_subjects": [
+      "CTU552",
+      "HBU111"
+    ]
   },
   "checks": {
-    "tests": "342 passed, 12 skipped",
+    "tests": "343 passed, 12 skipped",
     "safety": "319 text files OK",
     "worker_tests": "6 passed"
   },

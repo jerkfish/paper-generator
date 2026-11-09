@@ -64,6 +64,8 @@ def report(root: Path, code: str) -> dict:
             item for item in state.get("unsure") or []
             if item.get("blocking")
         ]
+        data["parser_provenance"] = list(
+            state.get("parser_provenance") or [])
         data["llm_cost_usd"] = float(
             (state.get("llm_cost") or {}).get("total_usd", 0.0))
         data["stage_statuses"] = {
@@ -84,6 +86,8 @@ def _print(data: dict) -> None:
         if data.get("stop_reason"):
             print(f"Stop reason: {data['stop_reason']}")
         print("Next stage: none (lifecycle stopped)")
+    elif data.get("next_stage") is None and data.get("unsure"):
+        print("Next stage: none — lifecycle has open blocking unsure items")
     elif data.get("next_stage") is None:
         print("Next stage: none — lifecycle complete")
     else:
@@ -104,6 +108,19 @@ def _print(data: dict) -> None:
         print(f"Open unsure items: {len(unsure)}")
         for item in unsure:
             print(f"  - [{item.get('stage')}] {item.get('item')}")
+    provenance = data.get("parser_provenance") or []
+    if provenance:
+        print("Parser provenance:")
+        for row in provenance:
+            line = (
+                f"  - {row.get('paper_id','?')}: "
+                f"{row.get('parser','?')}/{row.get('model','?')} "
+                f"pages={row.get('pages','?')} "
+                f"task={row.get('task_id','')} "
+                f"cache={row.get('cache_path','')}")
+            if row.get("report"):
+                line += f" report={row['report']}"
+            print(line)
     print(f"LLM cost recorded: ${data.get('llm_cost_usd', 0.0):.4f}")
     print(f"updated: {data.get('updated', '')}")
 

@@ -129,6 +129,13 @@
       "confirmed_by": "owner",
       "confirmed_on": "2026-11-08",
       "notes": "Publication permission granted. R2 upload and Worker deployment still require an explicit Stage 9 instruction."
+    },
+    "cloud_processing": {
+      "allowed": true,
+      "basis": "owner instructed the MinerU prototype test on CSC429, a figure-heavy subject",
+      "confirmed_by": "owner",
+      "confirmed_on": "2026-11-09",
+      "notes": "Pilot only. Working copies under data/papers/CSC429; originals are read-only. No Library, approved-bank, correction or approval file is changed."
     }
   },
   "plugins": {
@@ -152,5 +159,25 @@
     "other": "OTH"
   },
   "lifecycle_status": "complete",
-  "completed_on": "2026-11-08"
+  "completed_on": "2026-11-08",
+  "extraction": {
+    "parser": "mineru",
+    "status": "pilot_complete_pending_owner_choice",
+    "model_version": "pipeline|vlm comparison complete; owner choice pending",
+    "pilot_dir": "data/tracking/csc429/mineru",
+    "pilot_report": "data/tracking/csc429/mineru/PILOT_REPORT.md",
+    "report_standard": "full_markdown",
+    "report_glob": "data/tracking/csc429/mineru/*/EXTRACTION_REPORT.md",
+    "reports": [
+      "data/tracking/csc429/mineru/CSC429-2019-DEC/EXTRACTION_REPORT.md",
+      "data/tracking/csc429/mineru/CSC429-2014-JUN/EXTRACTION_REPORT.md",
+      "data/tracking/csc429/mineru/CSC429-2023-JUL/EXTRACTION_REPORT.md"
+    ],
+    "page_budget": 200,
+    "pages_requested": 38,
+    "pages_submitted": 38,
+    "contact_sheets": 6,
+    "owner_choice_pending": true,
+    "notes": "Additive prototype test. Approved bank, Library, corrections, approvals and publication state are unchanged."
+  }
 }

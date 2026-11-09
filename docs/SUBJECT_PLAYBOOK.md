@@ -170,6 +170,10 @@ Statuses are `pending`, `in_progress`, `blocked`, `done`, `skipped` and
 `not_applicable`. A stage is not complete if its evidence path is missing, its
 required human approval is absent, or a blocking `unsure` item remains.
 
+Optional top-level `parser_provenance` records the per-paper parser decision
+for MinerU/legacy extraction: paper id, parser, model, page count, task id,
+cache path and status. `scripts/lifecycle_status.py` prints it when present.
+
 ## Stages 0–10
 
 Each stage has a human checkpoint. The [HUMAN] gate is deliberate: it is the
@@ -257,6 +261,120 @@ pairs) and `docs/CSC402.md`.
 **References.** `src/subjects/preprocess.py`, `src/ingest/ocr.py`,
 `scripts/register_mat133_papers.py` (the subject-specific predecessor),
 `scripts/build_mat133_corpus.py`.
+
+### Stage 1a — MinerU document processing (additive, figure-heavy subjects)
+
+MinerU is an optional cloud parser for Stage 1. It is **additive**: the legacy
+OCR/layout path stays available, and A/B/C/D behaviour is otherwise unchanged.
+
+**When to use it.** Use MinerU for a figure-heavy subject whose legacy OCR
+cannot capture figures, tables or equations reliably. The owner chooses the
+subject. The review standard is the full Markdown extraction report below; a
+single-model default is chosen only after the pilot reports are accepted.
+
+**Pilot command.**
+```bash
+uv run python -m src.subjects.parsers.mineru_pilot <CODE>
+```
+`<CODE>` selects the subject (default `CSC413`); the pilot still runs three
+papers with both models and writes under `data/tracking/<code>/mineru/`.
+
+**Standard review artifact — full extraction report.**
+The earlier counts-only `PILOT_REPORT.md` is a summary/QA artifact, not the
+review standard. Each pilot paper must produce a full Markdown report:
+
+```bash
+uv run python -m scripts.mineru_extract_report \
+  --paper-dir data/tracking/<code>/mineru/<paper_id> \
+  --source data/papers/<CODE>/<source.pdf>
+```
+
+Output: `data/tracking/<code>/mineru/<paper_id>/EXTRACTION_REPORT.md`.
+
+The report must:
+
+- record the source SHA-256, page count, both batch ids, cache paths and cost;
+- render every page and every block (text, image, table, equation, header,
+  footer, page number) with block id and bbox;
+- embed figures and equation images, convert table HTML to Markdown and keep
+  the raw HTML, and render equations as LaTeX;
+- list structured questions, assets, fallbacks and a pipeline/vlm block diff;
+- append both raw `full.md` files and the block-provenance table.
+
+Both models are required. VLM is the primary text/math source because it
+reconstructs inline LaTeX; pipeline is retained as the image supplement. An
+`equation` block with `img_path` is a visual asset and must be shown even when
+the normalizer does not count it as a figure. Never discard one model's asset
+because the other model has cleaner text.
+
+**Inputs.**
+- Working copies under `data/papers/<CODE>/` only. Originals are read-only.
+- `MINERU_API_KEY`, `MINERU_MODEL_VERSION` (`pipeline` or `vlm`),
+  `MINERU_LANGUAGE`, and optional page/timeout/concurrency settings, all from
+  the environment. Never print or commit key values.
+- `permissions.papers.allowed` plus an explicit
+  `permissions.cloud_processing.allowed` before any upload. Files without
+  cloud permission are listed as excluded and are never uploaded.
+
+**Flow (Cloud API v4 local-file flow).**
+1. Request batch upload URLs with the selected model, language and options.
+2. PUT each PDF to its presigned URL.
+3. Poll the batch until done; handle auth expiry and quota errors with a
+   clear message.
+4. Download the full result ZIP and extract the **entire tree**: `full.md`,
+   `content_list.json`, layout/middle JSON and `images/`.
+5. Cache under `data/tracking/<code>/mineru/<paper_id>/<model>_<options-hash>/`
+   keyed by file SHA-256, model and options. Write `manifest.json` with task
+   id, page count, model, timing and files. A cache hit makes **no API call
+   and costs 0**.
+6. Enforce a per-subject page budget before upload; abort with the budget and
+   requested page count in the message.
+
+**Normalization.** `src/subjects/parsers/mineru_normalize.py` converts
+`content_list.json` blocks (text, image, table, equation) into the existing
+bank contracts. It keeps page index, bbox, caption and block id as
+provenance. Figures/tables attach to questions by page/position and caption
+(`Figure 2`, `Table 1`); MinerU table HTML is the native-table candidate and
+the MinerU image is the asset crop. Structured counts remain useful for QA, but
+the full extraction report is the review standard because it preserves every
+block — including equation images the normalizer may score as fallback.
+
+**Fallback and cross-check.** If a referenced Figure/Table has no MinerU
+asset, or a page is mostly a background scan, crop from the 300 dpi page
+render using the MinerU bbox or the legacy heuristics. Record
+`parser=mineru|legacy|fallback` on every asset and flag disagreements. An
+`equation` block with `img_path` is a visual asset and must appear in the
+report; do not call the figure missing solely because the block type is
+`equation`. `corrections.json` and `approvals.json` are never overwritten;
+match by question id and content hash.
+
+**Review gate (before the normal Stage 1 approval).** Pilot three
+representative papers (one text-layer, one scanned, one with the most
+figures) with **both** `pipeline` and `vlm`. For each paper produce the full
+`EXTRACTION_REPORT.md` plus a supporting contact sheet. The review must
+confirm every figure, table, equation and referenced asset is present;
+fallbacks and model disagreements are listed explicitly. The owner accepts
+the reports and chooses the default model (or the merged VLM+pipeline
+standard). Do not process the remaining papers until that choice is recorded.
+
+**Subject field.**
+```json
+"extraction": {
+  "parser": "mineru",
+  "status": "pilot",
+  "model_version": "pipeline|vlm comparison",
+  "pilot_dir": "data/tracking/<code>/mineru",
+  "report_standard": "full_markdown",
+  "report_glob": "data/tracking/<code>/mineru/*/EXTRACTION_REPORT.md"
+}
+```
+
+**Lifecycle.** Add a `parser_provenance` list to `lifecycle_state.json` with
+per-paper parser, model, cache path, task id, page count, counts and the
+`report` path (`data/tracking/<code>/mineru/<paper_id>/EXTRACTION_REPORT.md`).
+Set `report_standard: "full_markdown"` in the `extraction` block. Provenance
+is shown by `scripts/lifecycle_status.py`. A parser change is data, not a
+hidden code path.
 
 ### Stage 2 — Scheme and slides [HUMAN]
 
