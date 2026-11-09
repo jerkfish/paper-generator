@@ -25,25 +25,66 @@
       "notes": "Working copies only under data/papers/ICT450; the supplied PDFs remain read-only."
     },
     "scheme": {
-      "allowed": false,
-      "basis": "unsure: no marking scheme was supplied",
-      "confirmed_by": "",
-      "confirmed_on": "",
-      "notes": "Record the scheme decision at Stage 2."
-    },
-    "slides": {
-      "allowed": false,
-      "basis": "unsure: owner says ICT200/ICT450 are related, but no slide deck was supplied",
+      "allowed": true,
+      "basis": "owner instructed use of the standard marking-scheme format",
       "confirmed_by": "owner",
       "confirmed_on": "2026-11-09",
-      "notes": "No deck exists under data/lecturedecks/ICT450; confirm the knowledge-base/slides source at Stage 2."
+      "notes": "Use data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx per AGENTS.md; patch fields, do not create a bespoke cover."
+    },
+    "slides": {
+      "allowed": true,
+      "basis": "owner supplied the ICT200/ICT450 knowledge base (id 39367590-f20f-4383-8adf-721753d49e1c)",
+      "confirmed_by": "owner",
+      "confirmed_on": "2026-11-09",
+      "notes": "8 documents: Topic 1 Database Concept, Topic 2 Data Model, Topic 3 Relational Data Model, Topic 4 ERD, Topic 5 Normalization, Topic 6 Database Design, Topic 7 SQL, DB2 SQL Workshop IBM."
     },
     "publication": {
-      "allowed": false,
-      "basis": "unsure: do not publish without an explicit Stage 9 instruction",
-      "confirmed_by": "",
-      "confirmed_on": "",
-      "notes": "No upload, R2 sync or Worker deploy."
+      "allowed": true,
+      "basis": "owner confirmed publication permission on 2026-11-09",
+      "confirmed_by": "owner",
+      "confirmed_on": "2026-11-09",
+      "notes": "Publication permission granted. R2 upload and Worker deployment remain a separate Stage 9 instruction; no publish in this onboarding run."
+    },
+    "cloud_processing": {
+      "allowed": true,
+      "basis": "owner instructed use MinerU, not local OCR, for ICT450 on 2026-11-09",
+      "confirmed_by": "owner",
+      "confirmed_on": "2026-11-09",
+      "notes": "MinerU Stage 1a only. Working copies under data/papers/ICT450; supplied originals are read-only. Do not upload files without this permission."
     }
+  },
+  "knowledge_base": {
+    "base_id": "39367590-f20f-4383-8adf-721753d49e1c",
+    "title": "ICT200/ICT450",
+    "documents": 8,
+    "topics": [
+      "Database Concept",
+      "Data Model",
+      "Relational Data Model",
+      "ERD",
+      "Normalization",
+      "Database Design",
+      "SQL",
+      "DB2 SQL Workshop IBM"
+    ]
+  },
+  "extraction": {
+    "parser": "mineru",
+    "status": "pilot_complete_pending_owner_choice",
+    "model_version": "pipeline|vlm comparison complete; owner choice pending",
+    "pilot_dir": "data/tracking/ict450/mineru",
+    "report_standard": "full_markdown",
+    "report_glob": "data/tracking/ict450/mineru/*/EXTRACTION_REPORT.md",
+    "reports": [
+      "data/tracking/ict450/mineru/ICT450-2023-FEB/EXTRACTION_REPORT.md",
+      "data/tracking/ict450/mineru/ICT450-2023-JUL/EXTRACTION_REPORT.md",
+      "data/tracking/ict450/mineru/ICT450-2019-JUN/EXTRACTION_REPORT.md"
+    ],
+    "page_budget": 200,
+    "pages_requested": 34,
+    "pages_submitted": 34,
+    "contact_sheets": 6,
+    "owner_choice_pending": true,
+    "notes": "Local OCR was used for the initial Stage 1 register/corpus. MinerU is the document parser for the Stage 1a pilot and the intended parser for remaining papers."
   }
 }

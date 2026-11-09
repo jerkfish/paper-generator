@@ -301,11 +301,15 @@ The report must:
 - list structured questions, assets, fallbacks and a pipeline/vlm block diff;
 - append both raw `full.md` files and the block-provenance table.
 
-Both models are required. VLM is the primary text/math source because it
-reconstructs inline LaTeX; pipeline is retained as the image supplement. An
-`equation` block with `img_path` is a visual asset and must be shown even when
-the normalizer does not count it as a figure. Never discard one model's asset
-because the other model has cleaner text.
+Both models are required for the pilot. VLM is the primary text/math source
+because it reconstructs inline LaTeX; pipeline is retained as the image
+supplement. An `equation` block with `img_path` is a visual asset and must be
+shown even when the normalizer does not count it as a figure. Never discard one
+model's asset because the other model has cleaner text.
+
+After the owner records the default model (or the merged standard), remaining
+papers may be processed with that model alone. A single-model report must say
+so and omit the missing comparison; never fabricate the other model's output.
 
 **Inputs.**
 - Working copies under `data/papers/<CODE>/` only. Originals are read-only.
