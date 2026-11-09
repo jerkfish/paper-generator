@@ -271,6 +271,13 @@ OCR/layout path stays available, and A/B/C/D behaviour is otherwise unchanged.
 legacy OCR cannot capture figures, tables or equations reliably. The owner
 chooses the subject and later chooses the default model.
 
+**Pilot command.**
+```bash
+uv run python -m src.subjects.parsers.mineru_pilot <CODE>
+```
+`<CODE>` selects the subject (default `CSC413`); the pilot still runs three
+papers with both models and writes under `data/tracking/<code>/mineru/`.
+
 **Inputs.**
 - Working copies under `data/papers/<CODE>/` only. Originals are read-only.
 - `MINERU_API_KEY`, `MINERU_MODEL_VERSION` (`pipeline` or `vlm`),

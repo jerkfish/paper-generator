@@ -168,13 +168,35 @@ def test_upload_403_is_not_reported_as_api_key_error(monkeypatch):
     client.close()
 
 
+def test_repeated_question_numbers_get_unique_ids(tmp_path):
+    pdf = tmp_path / "paper.pdf"
+    _pdf(pdf)
+    cache = tmp_path / "cache"
+    cache.mkdir()
+    blocks = [
+        {"type": "text", "page_idx": 0, "bbox": [10, 10, 500, 30],
+         "text": "QUESTION 1 First part."},
+        {"type": "text", "page_idx": 0, "bbox": [10, 40, 500, 60],
+         "text": "QUESTION 1 Second part."},
+    ]
+    (cache / "content_list.json").write_text(json.dumps(blocks), encoding="utf-8")
+    result = mineru_normalize.normalize(
+        paper_id="CSC429-TEST", pdf_path=pdf, cache_dir=cache,
+        model="pipeline", out_dir=cache / "review")
+    ids = [question["question_id"] for question in result["questions"]]
+    assert ids == ["CSC429-TEST-Q1", "CSC429-TEST-Q1-2"]
+
+
 def test_permission_denied_never_calls_api(tmp_path, monkeypatch):
     from src.subjects.parsers import mineru_pilot
-    monkeypatch.setattr(mineru_pilot, "REPORT", tmp_path / "pilot_report.json")
-    monkeypatch.setattr(mineru_pilot, "REPORT_MD", tmp_path / "PILOT_REPORT.md")
+    report = tmp_path / "pilot_report.json"
+    monkeypatch.setattr(
+        mineru_pilot, "_paths",
+        lambda code: (tmp_path / "tracking", tmp_path / "mineru", report,
+                      tmp_path / "PILOT_REPORT.md"))
     monkeypatch.setattr(mineru_pilot, "_permission",
-                        lambda: (False, {}, [{"source": "x.pdf"}]))
+                        lambda *args: (False, {}, [{"source": "x.pdf"}]))
     result = mineru_pilot.run()
     assert result["status"] == "blocked_permission"
     assert result["excluded_files"]
-    assert (tmp_path / "pilot_report.json").is_file()
+    assert report.is_file()

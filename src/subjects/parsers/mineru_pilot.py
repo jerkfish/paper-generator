@@ -1,9 +1,12 @@
-"""Run the MinerU pilot on three representative CSC413 papers.
+"""Run the MinerU pilot on three representative papers for one subject.
 
-Pilot only: three papers, both model versions, no Library changes, no publish.
+Default: CSC413. Pass another code (for example CSC429) to repeat the same
+prototype on that subject. Pilot only: three papers, both model versions, no
+Library changes, no publish.
 """
 from __future__ import annotations
 
+import argparse
 import json
 import os
 import time
@@ -16,12 +19,14 @@ from src import config
 from src.subjects.parsers import mineru_client, mineru_normalize
 from src.subjects.registry import get_subject
 
-CODE = "CSC413"
-TRACKING = config.TRACKING_DIR / "csc413"
-MINERU_ROOT = TRACKING / "mineru"
-REPORT = MINERU_ROOT / "pilot_report.json"
-REPORT_MD = MINERU_ROOT / "PILOT_REPORT.md"
+DEFAULT_CODE = "CSC413"
 PILOT_MODELS = ("pipeline", "vlm")
+
+
+def _paths(code: str) -> tuple[Path, Path, Path, Path]:
+    tracking = config.TRACKING_DIR / code.lower()
+    root = tracking / "mineru"
+    return tracking, root, root / "pilot_report.json", root / "PILOT_REPORT.md"
 
 
 def _load(path: Path, default):
@@ -37,20 +42,20 @@ def _save(path: Path, payload) -> None:
                     encoding="utf-8")
 
 
-def _papers() -> list[dict]:
-    register = _load(TRACKING / "papers_register.json", [])
+def _papers(code: str, tracking: Path) -> list[dict]:
+    register = _load(tracking / "papers_register.json", [])
     rows = []
     for row in register:
         if row.get("error") or row.get("duplicate_of"):
             continue
-        path = config.PAPERS_ROOT / CODE / str(row.get("source", ""))
+        path = config.PAPERS_ROOT / code / str(row.get("source", ""))
         if not path.is_file():
             continue
         with pymupdf.open(str(path)) as pdf:
             pages = len(pdf)
             images = sum(len(page.get_images(full=True)) for page in pdf)
         rows.append({
-            "paper_id": f"CSC413-{row.get('year')}-{str(row.get('month'))[:3]}",
+            "paper_id": f"{code}-{row.get('year')}-{str(row.get('month'))[:3]}",
             "source": row.get("source"),
             "path": path,
             "pages": pages,
@@ -76,11 +81,11 @@ def _select(rows: list[dict]) -> list[dict]:
     return selected[:3]
 
 
-def _permission() -> tuple[bool, dict, list[dict]]:
-    subject = get_subject(CODE)
+def _permission(code: str, tracking: Path) -> tuple[bool, dict, list[dict]]:
+    subject = get_subject(code)
     cloud = (subject.permissions or {}).get("cloud_processing") or {}
     allowed = bool(cloud.get("allowed"))
-    papers = _load(TRACKING / "papers_register.json", [])
+    papers = _load(tracking / "papers_register.json", [])
     excluded = [] if allowed else [
         {"source": row.get("source"), "reason": "cloud_processing not allowed"}
         for row in papers if not row.get("error") and not row.get("duplicate_of")
@@ -92,46 +97,48 @@ def _stats(result: dict) -> dict:
     return result.get("counts", {})
 
 
-def run() -> dict:
-    allowed, cloud, excluded = _permission()
-    rows = _papers()
+def run(code: str = DEFAULT_CODE) -> dict:
+    code = code.upper()
+    tracking, _root, report_path, report_md = _paths(code)
+    allowed, cloud, excluded = _permission(code, tracking)
+    rows = _papers(code, tracking)
     selected = _select(rows)
     total_pages = sum(row["pages"] for row in selected) * len(PILOT_MODELS)
     configured = mineru_client.load_config()
     if not allowed:
         report = {
             "schema_version": 1,
-            "subject": CODE,
+            "subject": code,
             "status": "blocked_permission",
             "cloud_processing": cloud,
             "excluded_files": excluded,
             "paper_count": len(rows),
             "cost_usd": 0.0,
         }
-        _save(REPORT, report)
+        _save(report_path, report)
         return report
     if total_pages > configured.page_budget:
         report = {
             "schema_version": 1,
-            "subject": CODE,
+            "subject": code,
             "status": "blocked_page_budget",
             "page_budget": configured.page_budget,
             "pages_requested": total_pages,
             "selected": [row["paper_id"] for row in selected],
             "cost_usd": 0.0,
         }
-        _save(REPORT, report)
+        _save(report_path, report)
         return report
     if not configured.api_key:
         report = {
             "schema_version": 1,
-            "subject": CODE,
+            "subject": code,
             "status": "blocked_api_key",
             "required_variable": "MINERU_API_KEY",
             "selected": [row["paper_id"] for row in selected],
             "cost_usd": 0.0,
         }
-        _save(REPORT, report)
+        _save(report_path, report)
         return report
     results = []
     started = time.time()
@@ -174,12 +181,12 @@ def run() -> dict:
                 }
                 try:
                     manifest = client.parse(
-                        code=CODE,
+                        code=code,
                         paper_path=paper["path"],
                         paper_id=paper["paper_id"],
                         page_count=paper["pages"],
                         options=options,
-                        tracking=TRACKING,
+                        tracking=tracking,
                     )
                     entry["cached"] = bool(manifest.get("cached"))
                     entry["batch_id"] = manifest.get("batch_id", "")
@@ -217,7 +224,7 @@ def run() -> dict:
                 tally[key] += int(row["counts"].get(key, 0))
     report = {
         "schema_version": 1,
-        "subject": CODE,
+        "subject": code,
         "status": "complete" if not any(row["error"] for row in results)
         else "complete_with_errors",
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
@@ -235,9 +242,9 @@ def run() -> dict:
         "contact_sheets": [row.get("contact_sheet") for row in results
                            if row.get("contact_sheet")],
     }
-    _save(REPORT, report)
+    _save(report_path, report)
     lines = [
-        "# MinerU pilot — CSC413",
+        f"# MinerU pilot — {code}",
         "",
         f"Status: **{report['status']}**",
         "",
@@ -262,12 +269,17 @@ def run() -> dict:
     lines += ["", "Contact sheets:", ""]
     lines += [f"- `{path}`" for path in report["contact_sheets"]]
     lines += ["", "No remaining papers were processed. The default model is for the owner to choose.", ""]
-    REPORT_MD.write_text("\n".join(lines), encoding="utf-8")
+    report_md.parent.mkdir(parents=True, exist_ok=True)
+    report_md.write_text("\n".join(lines), encoding="utf-8")
     return report
 
 
 def main() -> None:
-    print(json.dumps(run(), indent=2, ensure_ascii=False))
+    parser = argparse.ArgumentParser()
+    parser.add_argument("subject", nargs="?", default=DEFAULT_CODE,
+                        help="Subject code, e.g. CSC413 or CSC429")
+    args = parser.parse_args()
+    print(json.dumps(run(args.subject), indent=2, ensure_ascii=False))
 
 
 if __name__ == "__main__":

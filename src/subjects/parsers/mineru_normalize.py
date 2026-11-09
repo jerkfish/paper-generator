@@ -149,8 +149,26 @@ def _asset_preview(block: dict, root: Path, size=(360, 240)) -> Image.Image:
 
 def _contact_sheet(paper_id: str, pdf_path: Path, page_cache: Path,
                    cache_dir: Path, assets: list[dict], model: str,
-                   target: Path) -> str:
+                   target: Path, fallback: list[dict] | None = None) -> str:
     rows = []
+
+    def add_row(original: Image.Image, preview: Image.Image,
+                left_label: str, middle_label: str) -> None:
+        recreation = Image.new("RGB", (360, 240), "white")
+        ImageDraw.Draw(recreation).text(
+            (8, 8), "No recreation", fill="black", font=_font(14))
+        height = max(original.height, preview.height, recreation.height) + 30
+        sheet = Image.new("RGB", (1120, height), "white")
+        x = 0
+        for image, label in ((original, left_label),
+                             (preview, middle_label),
+                             (recreation, "Recreation")):
+            sheet.paste(image, (x, 24))
+            ImageDraw.Draw(sheet).text((x, 5), label, fill="black",
+                                       font=_font(13))
+            x += 370
+        rows.append(sheet)
+
     for asset in assets:
         page_idx = int(asset.get("page_idx", 0))
         page_path = page_cache / f"page_{page_idx + 1:03d}.png"
@@ -164,20 +182,26 @@ def _contact_sheet(paper_id: str, pdf_path: Path, page_cache: Path,
             original.thumbnail((360, 240))
             original = original.copy()
         preview = _asset_preview(asset["_block"], cache_dir, (360, 240))
-        recreation = Image.new("RGB", (360, 240), "white")
-        ImageDraw.Draw(recreation).text(
-            (8, 8), "No recreation", fill="black", font=_font(14))
-        height = max(original.height, preview.height, recreation.height) + 30
-        sheet = Image.new("RGB", (1120, height), "white")
-        x = 0
-        for image, label in ((original, "Original page crop"),
-                             (preview, "MinerU image/table"),
-                             (recreation, "Recreation")):
-            sheet.paste(image, (x, 24))
-            ImageDraw.Draw(sheet).text((x, 5), label, fill="black",
-                                       font=_font(13))
-            x += 370
-        rows.append(sheet)
+        add_row(original, preview, "Original page crop",
+                "MinerU image/table")
+    for item in fallback or []:
+        page_path = Path(item.get("path", ""))
+        if not page_path.is_file():
+            page_idx = int(item.get("page_idx", 0))
+            page_path = page_cache / f"page_{page_idx + 1:03d}.png"
+            if not page_path.exists():
+                _render_page(pdf_path, page_idx, page_path)
+        with Image.open(page_path) as page:
+            original = page.convert("RGB")
+            original.thumbnail((360, 240))
+            original = original.copy()
+        preview = Image.new("RGB", (360, 240), "white")
+        ImageDraw.Draw(preview).multiline_text(
+            (8, 8),
+            f"No MinerU asset\n{item.get('label', '')}".strip(),
+            fill="black", font=_font(14), spacing=4)
+        add_row(original, preview, "Fallback page crop",
+                "MinerU asset (missing)")
     if not rows:
         rows.append(Image.new("RGB", (1120, 260), "white"))
     height = sum(row.height for row in rows)
@@ -232,6 +256,7 @@ def normalize(*, paper_id: str, pdf_path: Path, cache_dir: Path,
         int(block.get("page_idx", 0)), (_bbox(block) or [0, 0, 0, 0])[1]))
     questions = []
     current = None
+    seen_numbers: dict[int, int] = {}
     for block in text_blocks:
         text = _norm(block.get("text", ""))
         match = QUESTION_RE.search(text)
@@ -239,8 +264,11 @@ def normalize(*, paper_id: str, pdf_path: Path, cache_dir: Path,
         if match:
             number = _number(match.group(1))
             if number is not None:
+                occurrence = seen_numbers.get(number, 0) + 1
+                seen_numbers[number] = occurrence
+                suffix = f"-{occurrence}" if occurrence > 1 else ""
                 current = {
-                    "question_id": f"{paper_id}-Q{number}",
+                    "question_id": f"{paper_id}-Q{number}{suffix}",
                     "number": number,
                     "page_idx": int(block.get("page_idx", 0)),
                     "y": bbox[1],
@@ -331,7 +359,8 @@ def normalize(*, paper_id: str, pdf_path: Path, cache_dir: Path,
             })
             question.setdefault("fallback_assets", []).append(fallback[-1]["asset_id"])
     contact = _contact_sheet(paper_id, pdf_path, page_cache, cache_dir,
-                             assets, model, out_dir / "contact_sheet.png")
+                             assets, model, out_dir / "contact_sheet.png",
+                             fallback)
     referenced = sum(len(question["refs"]) for question in questions)
     resolved = sum(1 for question in questions for ref in question["refs"]
                    if any(asset["label"] == ref for asset in assets))
