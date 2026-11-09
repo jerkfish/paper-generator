@@ -125,6 +125,16 @@
       "name": "074B - Crytocurrency.pptx",
       "size": 3700395,
       "mtime_ns": 1790928956697175400
+    },
+    {
+      "name": "Chapter 1 - Fundamentals of Computer Security.pdf",
+      "size": 853129,
+      "mtime_ns": 1790928582051965200
+    },
+    {
+      "name": "CSC662 LAB1 done.pdf",
+      "size": 132294,
+      "mtime_ns": 1791796027031363000
     }
   ],
   "chunks": [
@@ -4095,6 +4105,286 @@
       "part": 1,
       "text": "Free templates for all your presentation needs\nReady to use, professional and customizable\n100% free for personal or commercial use\nBlow your audience away with attractive visuals\nFor PowerPoint and Google Slides",
       "chars": 212
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s01::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 1,
+      "part": 1,
+      "text": "CSC662 Computer Security\nChapter 1\nIntroduction and Overview of Computer Security",
+      "chars": 81
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s02::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 2,
+      "part": 1,
+      "text": "COURSE INFORMATION\n\u2022 Course Code \n: CSC662\n\u2022 Course Name\n: Computer Security\n\u2022 Faculty\n: Faculty of Computer and Mathematical \nSciences\n\u2022 Course Level \n: Bachelors Degree\n\u2022 Credit Unit\n: 3\n\u2022 Lecturer\n: Sulastri Binti Putit\nKAS - UiTM Kampus Tapah",
+      "chars": 246
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s03::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 3,
+      "part": 1,
+      "text": "COURSE DESCRIPTION\nThe course will provide an overview of main problems and techniques \nof computer security. It will introduce the key security management \nissues, such as threats, attacks, objectives and measures. It will focus \non technical security instruments deployed at various components of \ndistributed systems, while keeping an eye on operational issues. \nSpecific security mechanisms of common operating systems and \nnetwork protocols will be covered. Exercises will contain \"paper-and-\npencil\" problems for better understanding of theoretical fundamentals \nas well as some programming tasks.\nKAS - UiTM Kampus Tapah",
+      "chars": 627
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s04::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 4,
+      "part": 1,
+      "text": "COURSE OUTLINE\nWeek\nContent\n1-2\n1. Fundamentals of Computer Security\n             Introduction\n             Computer Security Concepts\n             Security Design Principles\n3 - 4\n2.   Authentication\n             Identification Concepts\n             Authentication Concepts\n             Access Control and Authorization\n5 \u2013 6\n3.  Cryptography\n             Foundation of Cryptography\n             Hash Function and Digital Certificates\nKAS - UiTM Kampus Tapah",
+      "chars": 459
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s05::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 5,
+      "part": 1,
+      "text": "COURSE OUTLINE\nKAS - UiTM Kampus Tapah\n7 - 8\n4.   Operating System Security\nWindows\nLinux\n9 - 10\n5.   Software Security\nMalicious Code\nSoftware Security Principles\nSoftware Security Issues\nWatermarking\n11 -12\n6.  Network Security\nNetwork Security Concepts\nIntrusion Detection\n13 - 14\n7.  Other Computer Security Issues\nEthics\nBiometrics\nTrusted Computing\nCrypto Currency",
+      "chars": 370
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s06::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 6,
+      "part": 1,
+      "text": "ASSESSMENT\n\u2022 50% continuous assessment\n\u2022 50% final examination\nContinuous Assessment\nPercentage\nLab exercises\n20 %\nWritten Report\n10 %\nTests (2)\n20 %\nKAS - UiTM Kampus Tapah",
+      "chars": 173
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s07::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 7,
+      "part": 1,
+      "text": "RECOMMENDED TEXT\nKAS - UiTM Kampus Tapah\nMatt Bishop, Introduction to computer security, Addison-Wesley, 2005, ISBN: 0-321-\n24744-2\nDieter Gollmann, Computer security, Wiley, 2006, ISBN: 0470862939\nCharles P. Pfleeger, Shari Lawrence Pfleeger; [foreword by Willis H. Ware], Security in \ncomputing, Prentice Hall, 2007, ISBN: 9780132390774\nNeil Daswani, Christoph Kern, Anita Kesavan, Foundations of Security: What Every \nProgrammer Needs to Know, Apress, ISBN: 1590597842\nJohn Viega, Gary McGraw, Building Secure Software: How to Avoid Security Problems the \nRight Way, Addison-Wesley Professional, ISBN: 0321774957",
+      "chars": 615
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s09::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 9,
+      "part": 1,
+      "text": "What is Security?\nKAS - UiTM Kampus Tapah\n\u2022 Protection of assets.\n\u25aa\nTechnical \ninstruments \n(software \nand \nhardware \ninstruments.\n\u25aa\nOrganizational measures (access control, policies, etc.).\n\u25aa\nUser work habits.\n\u2022 Security vs Reliability\n\u2022 Solutions vs Manageability",
+      "chars": 265
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s10::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 10,
+      "part": 1,
+      "text": "What are assets?\nKAS - UiTM Kampus Tapah\n\u2022 Specific constituents of an organization\u2019s business.\n\u25aa\nPhysical devices\n\u25aa\nSoftware\n\u25aa\nData\n\u25aa\nIntellectual Property and Know-how\n\u25aa\nReputation\n\u2022 Asset valuation\n\u25aa\nMonetary replacement value\n\u25aa\nLost revenue",
+      "chars": 244
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s11::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 11,
+      "part": 1,
+      "text": "Security Instruments\nKAS - UiTM Kampus Tapah\n\u2022 Prevention\n\u25aa\nEnforce certain operational \npolicies.\n\u2022 Detection\n\u25aa\nDetect violations of security \npolicies.\n\u2022 Reaction\n\u25aa\nUnderstand the root causes of \nsuccessful attacks.\n\u25aa\nUpdate prevention mechanisms.\n\u25aa\nReal-time response, autonomous \ndecisions.",
+      "chars": 294
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s12::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 12,
+      "part": 1,
+      "text": "Traditional security vs Information Security\nKAS - UiTM Kampus Tapah\n\u2022 Information can be stolen - but you still have it\n\u2022 Confidential information may be copied and sold -but \nthe theft might not be detected\n\u2022 The criminals may be on the other side of the world",
+      "chars": 262
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s13::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 13,
+      "part": 1,
+      "text": "What is Computer Security?\nKAS - UiTM Kampus Tapah\n\u2022 It deals with the prevention and detection of \nunauthorised actions by users of a computer system.\n\u2022 Designed to protect our computer and everything \nassociated with it.",
+      "chars": 222
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s14::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 14,
+      "part": 1,
+      "text": "Security objectives \u2013 the CIA triad\nKAS - UiTM Kampus Tapah\n\u2022 The CIA Triad is a well-known model for security policy \ndevelopment.\n\u25aa\nused to identify problem areas and necessary solutions for \ncomputer security.\n\u25aa\n3 components:\n\u2022\n1) Confidentiality\n\u2022\n2) Integrity\n\u2022\n3) Availability",
+      "chars": 282
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s15::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 15,
+      "part": 1,
+      "text": "Security objectives \u2013 the CIA triad\nKAS - UiTM Kampus Tapah\n\u2022 Confidentiality\n\u25aa\nThe prevention of unauthorised disclosure of information.\n\u25aa\nConfidentiality is keeping information secret or private.\n\u25aa\nConfidentiality might be important for military, business or \npersonal reasons.",
+      "chars": 279
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s16::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 16,
+      "part": 1,
+      "text": "Security objectives \u2013 the CIA triad\nKAS - UiTM Kampus Tapah\n\u2022 Integrity\n\u25aa\nTo ensure data has not been (maliciously) altered.\n\u25aa\nIntegrity means that there is an external consistency in the \nsystem - everything is as it is expected to be.\n\u25aa\nData integrity means that the data stored on a computer is \nthe same as the source documents.",
+      "chars": 332
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s17::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 17,
+      "part": 1,
+      "text": "Security objectives \u2013 the CIA triad\nKAS - UiTM Kampus Tapah\n\u2022 Availability\n\u25aa\nData/services can be accessed as desired. \n\u25aa\nInformation should be accessible and usable upon \nappropriate demand by an authorised user.\n\u25aa\nPrevention of unauthorised withholding of information.\n\u25aa\nCommon attack \u2013 DOS (Denial of Service)",
+      "chars": 312
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s18::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 18,
+      "part": 1,
+      "text": "Beyond the CIA triad\nKAS - UiTM Kampus Tapah\n\u2022 Authentication\n\u2022\nUser or data origin is properly identifiable (you are who you \nsay you are).\n\u2022 Authorization/ Access Control\n\u2022\nThe limitation and control of access through identification \nand authentication.\n\u2022\nPermission to do or own something",
+      "chars": 291
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s19::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 19,
+      "part": 1,
+      "text": "Beyond the CIA triad\nKAS - UiTM Kampus Tapah\n\u2022 Accountability\n\u2022\nActions are traceable to those responsible.\n\u2022 Non-repudiation\n\u2022\nNon-repudiation is the prevention of either the sender or the \nreceiver denying a transmitted message.",
+      "chars": 230
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s20::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 20,
+      "part": 1,
+      "text": "What is an attack?\nKAS - UiTM Kampus Tapah\n\u2022 Act or action that exploits vulnerability (i.e., an \nidentified weakness) in controlled system.\n\u2022 Accomplished by threat agent which damages or steals \norganization\u2019s information.",
+      "chars": 224
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s21::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 21,
+      "part": 1,
+      "text": "Attacks - Examples\nKAS - UiTM Kampus Tapah\n\u2022 Malware: viruses/worms, Trojans/backdoors,\nkeyloggers/spywares. . etc.\n\u2022 Intrusions:Compromises.\n\u2022 Denial of Service Attacks: flooding. . . etc.\n\u2022 Theft\n\u2022 Spamming and Phishing\n\u2022 Social engineering",
+      "chars": 242
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s22::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 22,
+      "part": 1,
+      "text": "What is a threat?\nKAS - UiTM Kampus Tapah\n\u2022 Threat: an object, person, or other entity that \nrepresents a constant danger to an asset \u2013 potential \nviolation of security.\n\u2022 Management must be informed of the different threats \nfacing the organization",
+      "chars": 249
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s23::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 23,
+      "part": 1,
+      "text": "Classes of threats\nKAS - UiTM Kampus Tapah\n\u2022 Disclosure \u2192unauthorized access to information\n\u2013 snooping, sniffing, wiretapping\n\u2013 Confidentiality services counter this threat\nDeception \u2192acceptance of false data\n\u2013 Modification, spoofing, repudiation of origin, \ndenial of receipt\n\u2013 Integrity services counter this threat\n\u2022",
+      "chars": 319
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s24::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 24,
+      "part": 1,
+      "text": "Classes of threats - continued\nKAS - UiTM Kampus Tapah\nDisruption \u2192interruption or prevention of correct operation.\n\u2013 Modification\n\u2013 Integrity services counter this threat\nUsurpation \u2192unauthorized control of some part of a system\n\u2013 Modification, spoofing, delay, denial of service\n\u2013 Availability services counter this threat\n\u2022\n\u2022",
+      "chars": 328
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s25::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 25,
+      "part": 1,
+      "text": "Policies and Mechanism\nKAS - UiTM Kampus Tapah\nSecurity policy \u2192Definition\n\u2022 A security policy is a statement of what is, and what is not, allowed\n\u2013 Policy says: formal or informal --- legal or illegal\n\u2013 This defines \u201csecurity\u201d for the site/system/etc.\nSecurity mechanism \u2192Definition\n\u2022 A security mechanism is a method, tool, or procedure for enforcing\na security policy.\n\u2013 Mechanisms\nenforce policies \u2013 can be non technical (ID proof)\n\u2013 Composition of policies\n\u2013 If policies conflict, discrepancies may create security vulnerabilities",
+      "chars": 535
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s26::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 26,
+      "part": 1,
+      "text": "Assumptions and Trust\nKAS - UiTM Kampus Tapah\n\u2022 Underlie all aspects of security\n\u2013 Example: Opening a door lock requires a key?\nPolicies\n\u2013 Unambiguously & clearly partition system states into\n\u201csecure & non-secure\u201d states.\n\u2013 Correctly capture security requirements not allowing\nthe system to enter in \u201cnon-secure\u201d state.\nMechanisms\n\u2013 Assumed to enforce policy\n\u2013 Support mechanisms work correctly\n\u2022\n\u2022",
+      "chars": 398
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s27::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 27,
+      "part": 1,
+      "text": "Type of Mechanisms\nKAS - UiTM Kampus Tapah\nSECURE\nPRECISE\nBROAD\nset of reachable states\nset of secure states",
+      "chars": 108
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s28::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 28,
+      "part": 1,
+      "text": "Assurance\nKAS - UiTM Kampus Tapah\nAssurance- Definition\n\u2022 A basis of \u201chow much\u201d one can trust a system\n\u2013 Specification\n\u2022Requirements analysis\n\u2022Statement of desired functionality\n\u2013 Design\n\u2022How system will meet specification\n\u2013 Implementation\n\u2022Programs/systems that carry out design",
+      "chars": 279
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s29::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 29,
+      "part": 1,
+      "text": "Operational Issues\nKAS - UiTM Kampus Tapah\n\u2022 Policies and mechanisms must consider factors other than\nprotection.\n\u2022 Cost-Benefit Analysis\n\u2013 Is it cheaper to prevent or recover?\n\u2022 Risk Analysis - Attack trees\n\u2013 Should we protect something? - potential threats\n\u2013 How much should we protect this thing? \u2013 level of protection",
+      "chars": 321
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s30::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 30,
+      "part": 1,
+      "text": "Operational Issues - Continued\nKAS - UiTM Kampus Tapah\n\u2022 Laws and Customs\n\u2013 Are desired security measures illegal? - legal\n\u2013 Will people do them? \u2013 acceptable\nUnused mechanisms ?\n\u2022 Better not to have a mechanism than unused one\n\u2022 Give false security impression \u2013 users may rely on them without knowing!!",
+      "chars": 303
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s31::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 31,
+      "part": 1,
+      "text": "Human Issues\nKAS - UiTM Kampus Tapah\n\u2022 Organizational problems\n\u2013 Power and responsibility\n\u2022Security conflicts with usability,\nfree access, performance\n\u2013 NO financial benefits\n\u2013 Human limitation\n(non-knowledgeable, overloaded)\n\u2013 Lack of resources\n(work time, technology & designs, training)",
+      "chars": 289
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s32::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 32,
+      "part": 1,
+      "text": "Human Issues - continued\nKAS - UiTM Kampus Tapah\n\u2022 People problems\n\u2013 Outsiders and insiders\n\u2013 Social engineering",
+      "chars": 112
+    },
+    {
+      "chunk_id": "Chapter 1 - Fundamentals of Computer Security::s33::1",
+      "deck": "Chapter 1 - Fundamentals of Computer Security",
+      "slide": 33,
+      "part": 1,
+      "text": "Tying it together\nKAS - UiTM Kampus Tapah\nThreats\nPolicy\nSpecification\nDesign\nImplementation\nOperation\nThe security\nThe security\nlife cycle\nlife cycle",
+      "chars": 150
+    },
+    {
+      "chunk_id": "CSC662 LAB1 done::s01::1",
+      "deck": "CSC662 LAB1 done",
+      "slide": 1,
+      "part": 1,
+      "text": "TASK 1 TASK 2 Improvement: Mandatory biometric multi-factor authentication (MFA) Description: Require a biometric factor (fingerprint or facial recognition on the mobile app) in addition to the existing password and OTP, for both login and high-value transactions. Instead of relying on any single factor, the system would require all three of something you know (password), something you have (OTP), and something you are (biometric). How it strengthens security: Security Concept How It's Applied in Online Banking Confidentiality Protects account details (numbers, balances, personal info) from unauthorized disclosure. Implemented via TLS/HTTPS encryption for data in transit, encryption of data at rest in the bank's database, masking account numbers on screen (showing only the last 4 digits), and auto-logout after inactivity so a shared/abandoned device can't reveal data. Integrity Ensures transaction data isn't altered between customer and bank 1. Applied through digital signatures and hashing on each transaction, atomic transactions (a transfer either fully completes or fully rolls back \u2014 money is never \"lost in the middle\"), checksums on messages, and HTTPS message",
+      "chars": 1182
+    },
+    {
+      "chunk_id": "CSC662 LAB1 done::s01::2",
+      "deck": "CSC662 LAB1 done",
+      "slide": 1,
+      "part": 2,
+      "text": "integrity to prevent in-transit tampering of amounts or payees. Availability Keeps banking services accessible 24/7 as expected 1. Achieved via redundant servers and load balancers, DDoS protection to absorb attacks, disaster-recovery sites, and high-availability clustering so a single server failure doesn't take down the whole bank. Authentication Verifies the user is genuinely who they claim to be 12. Implemented with username + password (something you know), one-time passwords (OTP) sent to a registered phone or authenticator app (something you have), and increasingly biometrics like fingerprint/face on the mobile app (something you are). Access Control Determines what an authenticated user is permitted to do 13. Uses Role- Based Access Control (RBAC)  a customer, teller, and admin have very different privileges. Customers can only view their own accounts; high-value transfers may require extra approval; and transaction limits restrict damage if an account is compromised (least privilege). Accountability Makes every action traceable back to the person who did it 12. Maintained through audit logs and transaction history (who, what, when, from which",
+      "chars": 1168
+    },
+    {
+      "chunk_id": "CSC662 LAB1 done::s01::3",
+      "deck": "CSC662 LAB1 done",
+      "slide": 1,
+      "part": 3,
+      "text": "IP/device), timestamps, and non-repudiation via digital signatures \u2014 so a customer can't plausibly deny authorizing a transaction.",
+      "chars": 130
     }
   ]
 }

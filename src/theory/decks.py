@@ -10,6 +10,7 @@ import re
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
+import pymupdf
 from pptx import Presentation
 
 from src import config
@@ -78,9 +79,68 @@ def _split_text(text: str, limit: int = MAX_CHUNK_CHARS) -> list[str]:
     return chunks
 
 
+def _chunk_text(deck: str, slide: int, text: str) -> list[DeckChunk]:
+    chunks = []
+    for part, piece in enumerate(_split_text(text), 1):
+        if len(piece) < MIN_CHUNK_CHARS:
+            continue
+        chunks.append(DeckChunk(
+            chunk_id=f"{deck}::s{slide:02d}::{part}",
+            deck=deck, slide=slide, part=part, text=piece,
+            chars=len(piece)))
+    return chunks
+
+
+def _pdf_chunks(path: Path) -> list[DeckChunk]:
+    chunks = []
+    try:
+        doc = pymupdf.open(str(path))
+    except Exception as e:
+        return [DeckChunk(
+            chunk_id=f"{path.stem}::ERROR::0", deck=path.stem, slide=0,
+            part=0, text=f"UNREADABLE DECK: {e}", chars=0)]
+    try:
+        for slide_no, page in enumerate(doc, 1):
+            text = page.get_text("text").strip()
+            if len(text) < MIN_CHUNK_CHARS:
+                continue
+            chunks.extend(_chunk_text(path.stem, slide_no, text))
+    finally:
+        doc.close()
+    return chunks
+
+
+def _md_chunks(path: Path) -> list[DeckChunk]:
+    try:
+        text = path.read_text(encoding="utf-8")
+    except Exception as e:
+        return [DeckChunk(
+            chunk_id=f"{path.stem}::ERROR::0", deck=path.stem, slide=0,
+            part=0, text=f"UNREADABLE DECK: {e}", chars=0)]
+    sections = [section.strip() for section in
+                re.split(r"(?m)^(?=##\s+)", text) if section.strip()]
+    if not sections:
+        sections = [text.strip()]
+    chunks = []
+    for slide_no, section in enumerate(sections, 1):
+        if len(section) < MIN_CHUNK_CHARS:
+            continue
+        chunks.extend(_chunk_text(path.stem, slide_no, section))
+    return chunks
+
+
+def _deck_files(folder: Path) -> list[Path]:
+    """PPTX decks first; PDF decks next; Markdown only when no same-stem PDF."""
+    pptx = sorted(folder.glob("*.pptx"))
+    pdf = sorted(folder.glob("*.pdf"))
+    md = [path for path in sorted(folder.glob("*.md"))
+          if not (folder / f"{path.stem}.pdf").exists()]
+    return pptx + pdf + md
+
+
 def _source_fingerprint(folder: Path) -> list[dict]:
     out = []
-    for f in sorted(folder.glob("*.pptx")):
+    for f in _deck_files(folder):
         st = f.stat()
         out.append({"name": f.name, "size": st.st_size,
                     "mtime_ns": st.st_mtime_ns})
@@ -99,11 +159,18 @@ def _cache_path(subject: str = "CSC662") -> Path:
 def extract_chunks(folder: Path) -> list[DeckChunk]:
     if not folder.exists():
         raise RuntimeError(f"lecture deck folder does not exist: {folder}")
-    files = sorted(folder.glob("*.pptx"))
+    files = _deck_files(folder)
     if not files:
-        raise RuntimeError(f"no .pptx decks found in {folder}")
+        raise RuntimeError(
+            f"no .pptx, .pdf or .md decks found in {folder}")
     chunks: list[DeckChunk] = []
     for f in files:
+        if f.suffix.lower() == ".pdf":
+            chunks.extend(_pdf_chunks(f))
+            continue
+        if f.suffix.lower() == ".md":
+            chunks.extend(_md_chunks(f))
+            continue
         try:
             prs = Presentation(str(f))
         except Exception as e:  # keep going; report the unreadable deck
@@ -115,13 +182,7 @@ def extract_chunks(folder: Path) -> list[DeckChunk]:
             text = _slide_text(slide)
             if len(text) < MIN_CHUNK_CHARS:
                 continue
-            for part, piece in enumerate(_split_text(text), 1):
-                if len(piece) < MIN_CHUNK_CHARS:
-                    continue
-                chunks.append(DeckChunk(
-                    chunk_id=f"{f.stem}::s{slide_no:02d}::{part}",
-                    deck=f.stem, slide=slide_no, part=part, text=piece,
-                    chars=len(piece)))
+            chunks.extend(_chunk_text(f.stem, slide_no, text))
     return chunks
 
 

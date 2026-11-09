@@ -13,8 +13,58 @@
   "header_text": "ICT450 DATABASE DESIGN AND DEVELOPMENT",
   "template_path": "",
   "fingerprint": {},
-  "deck_map": {},
-  "topic_deck_allowlist": {},
+  "deck_map": {
+    "Database Concept": [
+      "TOPIC 1 DATABASE CONCEPT (1)"
+    ],
+    "Data Model": [
+      "TOPIC 2 DATA MODEL (1)"
+    ],
+    "Relational Data Model": [
+      "TOPIC 3 RELATIONAL DATA MODELstu"
+    ],
+    "ERD": [
+      "TOPIC 4 ERD_stu (2)"
+    ],
+    "Normalization": [
+      "TOPIC 5 NORMALIZATION  (1)"
+    ],
+    "Database Design": [
+      "TOPIC 6 DATABASE DESIGN (1)"
+    ],
+    "SQL": [
+      "TOPIC 7 SQL"
+    ],
+    "DB2 SQL": [
+      "DB2 SQL Workshop IBM"
+    ]
+  },
+  "topic_deck_allowlist": {
+    "Database Concept": [
+      "TOPIC 1 DATABASE CONCEPT (1)"
+    ],
+    "Data Model": [
+      "TOPIC 2 DATA MODEL (1)"
+    ],
+    "Relational Data Model": [
+      "TOPIC 3 RELATIONAL DATA MODELstu"
+    ],
+    "ERD": [
+      "TOPIC 4 ERD_stu (2)"
+    ],
+    "Normalization": [
+      "TOPIC 5 NORMALIZATION  (1)"
+    ],
+    "Database Design": [
+      "TOPIC 6 DATABASE DESIGN (1)"
+    ],
+    "SQL": [
+      "TOPIC 7 SQL"
+    ],
+    "DB2 SQL": [
+      "DB2 SQL Workshop IBM"
+    ]
+  },
   "enabled_computed_generators": [],
   "permissions": {
     "papers": {
@@ -70,21 +120,45 @@
   },
   "extraction": {
     "parser": "mineru",
-    "status": "pilot_complete_pending_owner_choice",
-    "model_version": "pipeline|vlm comparison complete; owner choice pending",
+    "status": "complete_vlm_default",
+    "model_version": "vlm (owner-selected default)",
     "pilot_dir": "data/tracking/ict450/mineru",
     "report_standard": "full_markdown",
     "report_glob": "data/tracking/ict450/mineru/*/EXTRACTION_REPORT.md",
     "reports": [
+      "data/tracking/ict450/mineru/ICT450-2018-DEC/EXTRACTION_REPORT.md",
+      "data/tracking/ict450/mineru/ICT450-2018-JUN/EXTRACTION_REPORT.md",
+      "data/tracking/ict450/mineru/ICT450-2019-DEC/EXTRACTION_REPORT.md",
+      "data/tracking/ict450/mineru/ICT450-2019-JUN/EXTRACTION_REPORT.md",
+      "data/tracking/ict450/mineru/ICT450-2022-FEB/EXTRACTION_REPORT.md",
       "data/tracking/ict450/mineru/ICT450-2023-FEB/EXTRACTION_REPORT.md",
       "data/tracking/ict450/mineru/ICT450-2023-JUL/EXTRACTION_REPORT.md",
-      "data/tracking/ict450/mineru/ICT450-2019-JUN/EXTRACTION_REPORT.md"
+      "data/tracking/ict450/mineru/ICT450-2024-JAN/EXTRACTION_REPORT.md",
+      "data/tracking/ict450/mineru/ICT450-2024-JUL/EXTRACTION_REPORT.md",
+      "data/tracking/ict450/mineru/ICT450-2025-FEB/EXTRACTION_REPORT.md",
+      "data/tracking/ict450/mineru/ICT450-2025-JUL/EXTRACTION_REPORT.md",
+      "data/tracking/ict450/mineru/ICT450-2026-FEB/EXTRACTION_REPORT.md"
     ],
     "page_budget": 200,
-    "pages_requested": 34,
-    "pages_submitted": 34,
-    "contact_sheets": 6,
-    "owner_choice_pending": true,
-    "notes": "Local OCR was used for the initial Stage 1 register/corpus. MinerU is the document parser for the Stage 1a pilot and the intended parser for remaining papers."
+    "pages_requested": 67,
+    "pages_submitted": 67,
+    "contact_sheets": 12,
+    "totals": {
+      "figures": 10,
+      "tables": 29,
+      "equations": 1,
+      "referenced_figures_tables": 28,
+      "resolved_references": 26,
+      "fallback_assets": 3
+    },
+    "fallbacks": [
+      "ICT450-2023-JUL Table 1",
+      "ICT450-2025-JUL Table 1",
+      "ICT450-2025-JUL Table 4"
+    ],
+    "default_model": "vlm",
+    "owner_choice_pending": false,
+    "daily_limit_documents": 5000,
+    "notes": "Owner selected VLM and approved processing the remaining papers. Local OCR was used only for the initial Stage 1 register/corpus before the MinerU directive; MinerU is the document parser for all 12 unique papers."
   }
 }
