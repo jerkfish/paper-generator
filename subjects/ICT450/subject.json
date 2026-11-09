@@ -20,7 +20,21 @@
     "marks_total_mismatch": 4,
     "unresolved_refs": 3,
     "fallback_assets": 3,
-    "model": "mineru-vlm"
+    "model": "mineru-vlm",
+    "era": "2018-2026",
+    "slot_structure": {
+      "questions": 5,
+      "marks": 100,
+      "slot_marks": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ]
+    },
+    "planner_version": 1,
+    "planner_seed_01": "data/tracking/ict450/planner_seed_01.json"
   },
   "deck_map": {
     "Database Concept": [
@@ -181,5 +195,23 @@
     "database_design": "DES",
     "sql": "SQL",
     "other": "OTH"
+  },
+  "capabilities": {
+    "subject_type": "C",
+    "generation": "hybrid",
+    "prebuild": "plugin",
+    "public_documents": "rebuild_scheme",
+    "needs_llm": true,
+    "uses_slides": true,
+    "uses_past_papers": true,
+    "deterministic": false,
+    "practice_mode": true,
+    "placeholders": true,
+    "public_scheme_requires_quote_marker": true
+  },
+  "plugins": {
+    "plan": "src.subjects.ict450.plugin:plan",
+    "plan_markdown": "src.subjects.ict450.plugin:plan_markdown",
+    "plan_inputs": "src.subjects.ict450.plugin:plan_inputs"
   }
 }

@@ -4,7 +4,7 @@
   "type": "C",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-09T07:43:21Z",
+  "updated": "2026-11-09T08:05:00Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -86,7 +86,7 @@
       "notes": "Template UTM_STANDARD_COVERv2.docx installed. xml_valid, 22 sections, 2 header parts, 3 footer parts, 1 image; no structural problems. Scheme v2 recorded at data/reference/standard/UTM_STANDARD_MARKING_SCHEMEv2.docx."
     },
     "4_taxonomy_question_log": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "data/tracking/ict450/question_log.json",
         "data/tracking/ict450/taxonomy.json",
@@ -94,31 +94,37 @@
         "docs/ICT450.md"
       ],
       "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-09",
+        "note": "Owner approved continuation. Marks-total mismatches remain review flags in question_log.json; they do not block the fixed 5x20 planner."
+      },
+      "notes": "Stage 4 question log/taxonomy approved. 12 papers, 60 questions, 0 missing per-question marks, 4 papers with detected totals 94/96 flagged, 3 fallback assets, 13 topic-review flags."
+    },
+    "5_fingerprint_planner": {
+      "status": "in_progress",
+      "evidence": [
+        "data/tracking/ict450/planner_seed_01.json",
+        "src/subjects/ict450/planner.py",
+        "src/subjects/ict450/plugin.py",
+        "tests/test_ict450_planner.py",
+        "docs/ICT450.md"
+      ],
+      "llm_cost_usd": 0.0,
       "blockers": [
-        "[HUMAN] Stage 4 gate pending approval"
+        "[HUMAN] Stage 5 gate pending approval"
       ],
       "human_approval": {
         "required": true,
         "approved": false,
         "by": "",
         "on": "",
-        "note": "Awaiting review of marks totals and topic tags."
+        "note": "Awaiting review of the five-slot topic sequence and planner plugin."
       },
-      "notes": "Deterministic question log from 12 MinerU VLM normalized outputs: 60 questions, 0 missing marks, 3 fallback questions, 3 unresolved refs, 13 topic-review flags, 4 papers whose detected marks do not sum to 100. No LLM cost."
-    },
-    "5_fingerprint_planner": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
+      "notes": "Deterministic 5-slot x 20-mark planner (100 marks). Seed 1 topics: Database Concept, Relational Data Model, ERD, Normalization, Database Design. Topic order is a seeded weighted sample without replacement from 60 questions. No LLM cost."
     },
     "6_generators": {
       "status": "pending",
@@ -201,8 +207,8 @@
     },
     {
       "stage": "4_taxonomy_question_log",
-      "item": "Detected marks do not sum to 100 for: ICT450-2023-FEB, ICT450-2024-JAN, ICT450-2025-JUL, ICT450-2018-JUN. Review the missing marks before the Stage 5 fingerprint.",
-      "blocking": true,
+      "item": "Detected marks do not sum to 100 for ICT450-2023-FEB (94), ICT450-2024-JAN (96), ICT450-2025-JUL (94) and ICT450-2018-JUN (94). Retained as review flags; owner approved continuation.",
+      "blocking": false,
       "opened": "2026-11-09",
       "path": "data/tracking/ict450/question_log.json"
     },
