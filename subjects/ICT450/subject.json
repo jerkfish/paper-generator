@@ -34,7 +34,9 @@
       ]
     },
     "planner_version": 1,
-    "planner_seed_01": "data/tracking/ict450/planner_seed_01.json"
+    "planner_seed_01": "data/tracking/ict450/planner_seed_01.json",
+    "generator_count": 7,
+    "generator_validation": "data/tracking/ict450/generator_validation.json"
   },
   "deck_map": {
     "Database Concept": [
@@ -88,7 +90,15 @@
       "DB2 SQL Workshop IBM"
     ]
   },
-  "enabled_computed_generators": [],
+  "enabled_computed_generators": [
+    "ict450.database_concept",
+    "ict450.data_model",
+    "ict450.relational_model",
+    "ict450.erd",
+    "ict450.normalization",
+    "ict450.database_design",
+    "ict450.sql"
+  ],
   "permissions": {
     "papers": {
       "allowed": true,
@@ -201,17 +211,19 @@
     "generation": "hybrid",
     "prebuild": "plugin",
     "public_documents": "rebuild_scheme",
-    "needs_llm": true,
+    "needs_llm": false,
     "uses_slides": true,
     "uses_past_papers": true,
     "deterministic": false,
     "practice_mode": true,
     "placeholders": true,
-    "public_scheme_requires_quote_marker": true
+    "public_scheme_requires_quote_marker": false,
+    "generator_mode": "deterministic_templates"
   },
   "plugins": {
     "plan": "src.subjects.ict450.plugin:plan",
     "plan_markdown": "src.subjects.ict450.plugin:plan_markdown",
-    "plan_inputs": "src.subjects.ict450.plugin:plan_inputs"
+    "plan_inputs": "src.subjects.ict450.plugin:plan_inputs",
+    "generator_labels": "src.subjects.ict450.plugin:generator_labels"
   }
 }

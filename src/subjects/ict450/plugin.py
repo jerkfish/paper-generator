@@ -28,3 +28,15 @@ def plan_inputs(seed: int) -> dict[str, Path]:
         "taxonomy": tracking / "taxonomy.json",
         "question_log": tracking / "question_log.json",
     }
+
+
+def generator_labels() -> dict:
+    return {
+        "ict450.database_concept": "Database concept",
+        "ict450.data_model": "Data model",
+        "ict450.relational_model": "Relational data model",
+        "ict450.erd": "Entity-relationship diagram",
+        "ict450.normalization": "Normalization",
+        "ict450.database_design": "Database design",
+        "ict450.sql": "SQL",
+    }
