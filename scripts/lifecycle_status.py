@@ -112,12 +112,15 @@ def _print(data: dict) -> None:
     if provenance:
         print("Parser provenance:")
         for row in provenance:
-            print(
+            line = (
                 f"  - {row.get('paper_id','?')}: "
                 f"{row.get('parser','?')}/{row.get('model','?')} "
                 f"pages={row.get('pages','?')} "
                 f"task={row.get('task_id','')} "
                 f"cache={row.get('cache_path','')}")
+            if row.get("report"):
+                line += f" report={row['report']}"
+            print(line)
     print(f"LLM cost recorded: ${data.get('llm_cost_usd', 0.0):.4f}")
     print(f"updated: {data.get('updated', '')}")
 

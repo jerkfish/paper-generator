@@ -166,6 +166,13 @@
     "model_version": "pipeline|vlm comparison complete; owner choice pending",
     "pilot_dir": "data/tracking/csc429/mineru",
     "pilot_report": "data/tracking/csc429/mineru/PILOT_REPORT.md",
+    "report_standard": "full_markdown",
+    "report_glob": "data/tracking/csc429/mineru/*/EXTRACTION_REPORT.md",
+    "reports": [
+      "data/tracking/csc429/mineru/CSC429-2019-DEC/EXTRACTION_REPORT.md",
+      "data/tracking/csc429/mineru/CSC429-2014-JUN/EXTRACTION_REPORT.md",
+      "data/tracking/csc429/mineru/CSC429-2023-JUL/EXTRACTION_REPORT.md"
+    ],
     "page_budget": 200,
     "pages_requested": 38,
     "pages_submitted": 38,
