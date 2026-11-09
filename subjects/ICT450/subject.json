@@ -224,6 +224,7 @@
     "plan": "src.subjects.ict450.plugin:plan",
     "plan_markdown": "src.subjects.ict450.plugin:plan_markdown",
     "plan_inputs": "src.subjects.ict450.plugin:plan_inputs",
-    "generator_labels": "src.subjects.ict450.plugin:generator_labels"
+    "generator_labels": "src.subjects.ict450.plugin:generator_labels",
+    "prebuild": "src.subjects.ict450.build_docx:build_seed"
   }
 }

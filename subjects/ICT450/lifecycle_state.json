@@ -4,7 +4,7 @@
   "type": "C",
   "template_path": "",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-09T08:20:00Z",
+  "updated": "2026-11-09T08:16:42Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -125,7 +125,7 @@
       "notes": "Deterministic 5-slot x 20-mark planner (100 marks). Seed 1 topics: Database Concept, Relational Data Model, ERD, Normalization, Database Design. Topic order is a seeded weighted sample without replacement from 60 questions. No LLM cost."
     },
     "6_generators": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "data/tracking/ict450/generator_sample_seed_01.json",
         "data/tracking/ict450/generator_validation.json",
@@ -134,31 +134,38 @@
         "docs/ICT450.md"
       ],
       "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-09",
+        "note": "Owner approved continuation after reviewing the Stage 6 sample/validation."
+      },
+      "notes": "Seven deterministic topic generators. Seeds 1-20 validated: 20/20 pass, five questions and 100 marks each, subpart marks reconcile, answers and marking points non-empty. No LLM cost."
+    },
+    "7_builders_qa": {
+      "status": "in_progress",
+      "evidence": [
+        "outputs/web_cache/ICT450/1be6b100db081989909a/meta.json",
+        "outputs/web_cache/ICT450/1be6b100db081989909a/qa.json",
+        "outputs/web_cache/ICT450/1be6b100db081989909a/ICT450 Seed 01 2026.pdf",
+        "outputs/web_cache/ICT450/1be6b100db081989909a/ICT450 Seed 01 2026 - Marking Scheme.pdf",
+        "src/subjects/ict450/build_docx.py",
+        "docs/ICT450.md"
+      ],
+      "llm_cost_usd": 0.0,
       "blockers": [
-        "[HUMAN] Stage 6 gate pending approval"
+        "[HUMAN] Stage 7 visual approval pending"
       ],
       "human_approval": {
         "required": true,
         "approved": false,
         "by": "",
         "on": "",
-        "note": "Awaiting review of the generated sample questions, answers and marking points."
+        "note": "Awaiting visual approval of the paper and scheme PDFs."
       },
-      "notes": "Seven deterministic topic generators. Seeds 1-20 validated: 20/20 pass, five questions and 100 marks each, subpart marks reconcile, answers and marking points non-empty. No LLM cost."
-    },
-    "7_builders_qa": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
+      "notes": "Seed 1 built: paper 6 pages, scheme 6 pages, QA 0 problems. Template body stripped to cover; running header/footer added; cover instructions and marking-scheme notes patched to ICT450. PDF export succeeded."
     },
     "8_library_prebuild": {
       "status": "pending",
@@ -231,6 +238,13 @@
       "blocking": false,
       "opened": "2026-11-09",
       "path": "data/tracking/ict450/mineru/EXTRACTION_INDEX.md"
+    },
+    {
+      "stage": "7_builders_qa",
+      "item": "The local prebuild command refuses ICT450 because registry status is coming_soon. Stage 8 needs either an explicit local prebuild override or an approved status change; do not publish yet.",
+      "blocking": false,
+      "opened": "2026-11-09",
+      "path": "docs/ICT450.md"
     }
   ],
   "llm_cost": {
