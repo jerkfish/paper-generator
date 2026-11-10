@@ -1,46 +1,211 @@
 # Mock Paper Generator
 
-Local study tool for four subjects:
+A local-first study tool that learns the structure of past exam papers and
+generates new mock papers and marking schemes. Generation runs on your machine;
+the public site is a **library-only** deployment that serves pre-built papers
+through Cloudflare.
 
-- **CSC402 Programming I** - deterministic, paper-derived programming papers.
-  No lecture decks, no LLM calls and no API key.
-- **CSC413 Introduction to Interactive Multimedia** - deterministic
-  TRUE/FALSE, matching, MCQ and structured questions derived from past papers.
-- **CSC662 Computer Security** - plans realistic or practice papers, drafts
-  grounded theory questions from lecture decks, verifies marking points and
-  exports Word/PDF papers and marking schemes.
-- **MAT133 Pre-Calculus** - deterministic, paper-derived computed generators.
-  No lecture decks, no LLM calls and no API key.
+The project is built around one idea: every generated paper must be traceable
+to real source material, an explicit subject contract, and a human-approved
+stage. It is not a generic question generator.
 
-There are two environments:
+## Contents
 
-- **Local generator** - runs on this machine, can call the LLM for CSC662, and
-  keeps lecture decks and past papers private.
-- **Public site** - a library-only deployment that serves pre-generated
-  public papers/schemes through Cloudflare. It runs no Python and makes no LLM
-  calls.
+- [At a glance](#at-a-glance)
+- [How it fits together](#how-it-fits-together)
+- [The subject lifecycle](#the-subject-lifecycle)
+- [How a paper is made](#how-a-paper-is-made)
+- [Quick start](#quick-start)
+- [Subject status](#subject-status)
+- [Repository map](#repository-map)
+- [Common commands](#common-commands)
+- [Public deployment](#public-deployment)
+- [Safety and contribution rules](#safety-and-contribution-rules)
+- [Documentation index](#documentation-index)
+- [Tests](#tests)
 
-## Current deployment
+## At a glance
 
 | Item | Value |
 |---|---|
-| Public site | **https://uitmpapergen.download** |
-| `www` | `https://www.uitmpapergen.download` -> 301 -> apex |
-| Fallback | https://papergen.jerkfish123.workers.dev |
+| Purpose | Generate mock exam papers and marking schemes from past-paper structure |
+| Local runtime | Python 3.12+, FastAPI, `uv` |
+| Subjects | 44 registry entries: 5 `available`, 39 `coming_soon` |
+| Available locally | CSC402, CSC413, CSC429, CSC662, MAT133 |
+| Published | CSC413, CSC429, CSC662, MAT133 |
+| Public site | <https://uitmpapergen.download> |
+| Public runtime | Cloudflare Worker + R2 + D1; no Python and no LLM |
+| Local UI | <http://127.0.0.1:8000> |
 | Worker | `cloudflare/worker/` |
-| D1 database | `papergen` (`9d99c331-d8ba-495e-9a8d-35e295bb882c`) |
-| R2 bucket | `exampapers` |
-| Public bundle | 390 files, 75,951,553 bytes / 72.43 MiB (documents + 44 subject stubs) |
-| R2 bucket contents | 390 objects, 75,951,553 bytes / 72.43 MiB |
-| R2 quota used | 302 / 10,000 internal Class A, 0 Class B (November 2026) |
-| Worker | Deployed with CSC413, CSC662 and MAT133 routes |
-| Live mode | Scaffolded in `cloudflare/container-worker/`; not deployed |
-| Live-mode prerequisite | Cloudflare Workers Paid, **$5/month** (Containers has no free tier) |
-| Subjects | Local registry: CSC402, CSC413, CSC662 and MAT133 available; 40 curriculum stubs coming soon. Public site: CSC413, CSC662 and MAT133 (CSC402 not published) |
+| Tests | `uv run pytest -q` and `cd cloudflare/worker && bun test` |
 | Contact | auzair1990@gmail.com |
-| Repository | https://github.com/jerkfish/paper-generator |
+| Repository | <https://github.com/jerkfish/paper-generator> |
 
-## Run the local web UI
+## How it fits together
+
+The project has two deliberately separate environments.
+
+- **Local generator** — reads past papers, lecture decks and subject plugins,
+  optionally calls MinerU or an LLM, builds papers and schemes, and writes a
+  private cache under `outputs/web_cache/<CODE>/`.
+- **Public site** — serves a pre-built bundle from Cloudflare R2. It never
+  runs Python, never makes an LLM call, and cannot generate new questions.
+
+```mermaid
+flowchart LR
+  subgraph LOCAL["Local machine — Python 3.12 / uv"]
+    UI["FastAPI study UI"]
+    REG["Subject registry<br/>subjects/*/subject.json"]
+    PRE["Stage 1 preprocessing<br/>legacy OCR or MinerU"]
+    LOG["Taxonomy + question log"]
+    PLAN["Planner"]
+    GEN["Generators or grounded theory"]
+    BUILD["DOCX/PDF builder + QA"]
+    CACHE[("outputs/web_cache")]
+  end
+
+  PAPERS[("data/papers")] --> PRE
+  DECKS[("data/lecturedecks")] --> GEN
+  MINERU[["MinerU Cloud<br/>optional"]] --> PRE
+  LLM[["LLM providers<br/>optional"]] --> GEN
+
+  REG --> UI
+  PRE --> LOG --> PLAN --> GEN --> BUILD --> CACHE
+  CACHE --> BUNDLE["Public bundle<br/>outputs/public_bundle"]
+  BUNDLE --> R2[("Cloudflare R2")]
+  R2 --> WORKER["Cloudflare Worker"]
+  WORKER --> D1[("D1 gallery")]
+  WORKER --> BROWSER["Browser"]
+```
+
+### Component map
+
+| Layer | Key paths | Responsibility |
+|---|---|---|
+| Local UI | `src/app/` | Subject pages, generation jobs, Library, health and safety checks |
+| Subject contract | `subjects/<CODE>/subject.json`, `src/subjects/registry.py`, `src/subjects/plugins.py` | Registry-driven subject metadata, capabilities and plugin loading |
+| Subject implementations | `src/subjects/<code>/` | Planner, generators, builders and subject-specific rules |
+| Preprocessing | `src/subjects/preprocess.py`, `src/ingest/`, `src/subjects/parsers/` | Paper register, OCR, MinerU extraction and normalization |
+| Theory | `src/theory/` | Lecture-deck retrieval and grounded question drafting for type A/C subjects |
+| Shared assembly | `src/assemble/`, `src/subjects/templates.py`, `src/subjects/forbidden.py` | DOCX assembly, PDF export, templates and forbidden-token checks |
+| Public bundle | `scripts/build_public_bundle.py` | Builds the static public site from the private cache |
+| Public Worker | `cloudflare/worker/` | R2 document serving, generated routes and D1-backed gallery |
+
+The registry is the single source of truth for subject routes, cache folders,
+Library manifests and public pages. A hard-coded subject list in application
+code is treated as a bug.
+
+## The subject lifecycle
+
+Every subject is onboarded through the same 11-stage playbook. Each stage has
+a **[HUMAN]** gate: a person must review the evidence and approve the stage
+before the lifecycle state moves to `done`.
+
+```mermaid
+flowchart TD
+  S0["0 · Intake and permissions<br/>[HUMAN]"] --> S1["1 · Paper preprocessing<br/>[HUMAN]"]
+  S1 --> S1A["1a · MinerU extraction<br/>optional, additive<br/>[HUMAN]"]
+  S1A --> S2["2 · Scheme and slides<br/>[HUMAN]"]
+  S1 --> S2
+  S2 --> S3["3 · Template and cover<br/>[HUMAN]"]
+  S3 --> S4["4 · Taxonomy and question log<br/>[HUMAN]"]
+  S4 --> S5["5 · Fingerprint and planner<br/>[HUMAN]"]
+  S5 --> S6["6 · Generators<br/>[HUMAN]"]
+  S6 --> S7["7 · Builders and QA<br/>[HUMAN]"]
+  S7 --> S8["8 · Library prebuild<br/>[HUMAN]"]
+  S8 --> S9["9 · Publish<br/>HARD STOP [HUMAN]"]
+  S9 --> S10["10 · Close-out<br/>[HUMAN]"]
+```
+
+### Stage reference
+
+| Stage | Purpose | Main evidence |
+|---|---|---|
+| **0 · Intake** | Confirm code, title, curriculum order, subject type and permissions | `subjects/<CODE>/subject.json`, `lifecycle_state.json` |
+| **1 · Paper preprocessing** | Register working copies, remove duplicate copies, extract text/OCR | `papers_register.json`, `papers_summary.json`, `paper_text/` |
+| **1a · MinerU** | Optional figure/table/equation extraction for figure-heavy subjects | Full ZIP cache and `EXTRACTION_REPORT.md` per paper |
+| **2 · Scheme and slides** | Confirm scheme/slide availability and permissions | `permissions`, deck inventory, deck map |
+| **3 · Template and cover** | Install and approve the paper and scheme templates | `template_check.json`, approved template DOCX |
+| **4 · Taxonomy and question log** | Derive topics, marks and traceable question metadata | `taxonomy.json`, `question_log.json` |
+| **5 · Fingerprint and planner** | Turn the question log into a repeatable paper plan | Planner JSON / deterministic plan |
+| **6 · Generators** | Implement every slot type the planner can emit | Generator modules, validation report |
+| **7 · Builders and QA** | Assemble paper and scheme DOCX/PDF and run structural checks | `qa.json`, `meta.json`, rendered samples |
+| **8 · Library prebuild** | Build the fixed 20-seed Library | `outputs/web_cache/<CODE>/` |
+| **9 · Publish** | Build the public bundle, upload and deploy | Public bundle, R2 ledger, Worker deployment |
+| **10 · Close-out** | Record final cost, evidence and unresolved items | Strict lifecycle status and `docs/<CODE>.md` |
+
+A stage is not complete just because a file or cache folder exists. It needs:
+
+1. a recorded status in `subjects/<CODE>/lifecycle_state.json`;
+2. evidence paths that exist;
+3. the required `[HUMAN]` approval;
+4. no blocking `unsure` item;
+5. the stage gates passing.
+
+### Subject types
+
+| Type | Meaning | Example | Generation |
+|---|---|---|---|
+| **A** | Slides + LLM theory | CSC662 | LLM drafts grounded theory questions from lecture decks; computed questions use deterministic plugins |
+| **B** | Deterministic computed | CSC402, CSC413, MAT133 | Every question comes from a subject plugin; no LLM |
+| **C** | Hybrid | ICT450 | Deterministic and/or grounded theory, depending on the subject contract |
+| **D** | Asset-first assembly | CSC429 | Approved real-paper questions and assets; generators disabled |
+
+The type is a contract in `subject.json`: `capabilities`, `plugins` and
+`permissions` determine what the app may do. The app reads that contract at
+runtime; it does not branch on a subject name.
+
+### Lifecycle state
+
+Each subject has a machine-readable state file:
+
+```text
+subjects/<CODE>/lifecycle_state.json
+```
+
+It records the current stage, status, evidence, blockers, human approvals,
+`unsure` items and the actual LLM cost per stage. Query it with:
+
+```bash
+uv run python -m scripts.lifecycle_status <CODE>
+```
+
+If the file is missing, do not guess progress. Start at stage 0.
+
+## How a paper is made
+
+```mermaid
+flowchart LR
+  A["Past papers<br/>data/papers/<CODE>"] --> B["Register + OCR / MinerU"]
+  B --> C["Question log + taxonomy"]
+  C --> D["Planner"]
+  D --> E{"Subject type"}
+  E -->|A / C| F["Grounded theory<br/>+ verification"]
+  E -->|B / C / D| G["Deterministic or<br/>asset-first generators"]
+  F --> H["Paper + scheme builder"]
+  G --> H
+  H --> I["DOCX/PDF + QA"]
+  I --> J["Private cache<br/>outputs/web_cache"]
+  J --> K["Public bundle"]
+  K --> L["R2 + Worker"]
+```
+
+The important properties are:
+
+- **Traceability** — every question, asset and mark points back to a source
+  paper or an approved generator rule.
+- **Determinism** — a seed reproduces the same paper. Type-B subjects make no
+  LLM calls and cost $0.
+- **Caching** — a cache key covers subject, mode, seed, computed marks, model
+  and build settings. A cache hit costs $0.
+- **Asset reuse** — figure-heavy subjects reuse real past-paper figures and
+  tables. MinerU table HTML is rendered as a native Word table; figures use
+  the extracted image crop.
+- **Human review** — a plausible paper is not an approved paper. Stage 7
+  requires a visual check of the cover, question layout, tables, marks and
+  marking scheme.
+
+## Quick start
 
 ```bash
 uv sync
@@ -48,493 +213,183 @@ uv run python -m src.app.main
 # open http://127.0.0.1:8000
 ```
 
-Or:
+Or run the app directly with Uvicorn:
 
 ```bash
 uv run uvicorn src.app.main:app --host 127.0.0.1 --port 8000
 ```
 
-## Local routes
+Type-B subjects (CSC402, CSC413, MAT133) work without an API key. CSC662 live
+generation needs a key in `.env`; the file is gitignored. Keys are read from
+the environment only:
 
-| Route | Purpose |
-|---|---|
-| `/` | Local subject table: CSC402, CSC413, CSC662 and MAT133 available; 40 curriculum stubs coming soon |
-| `/csc402` | CSC402 deterministic hub and Library |
-| `/csc413` | CSC413 deterministic hub and Library |
-| `/csc662` | CSC662 hub: generate, Library, gallery |
-| `/csc662/library` | Filterable table of the 20 prebuilt CSC662 papers |
-| `/generate` | Shortcut to `/csc402/generate` |
-| `/csc662/generate` | Generate a CSC662 paper as a background job (LLM) |
-| `/mat133` | MAT133 hub: deterministic generate and Library |
-| `/mat133/library` | Filterable table of the 20 prebuilt MAT133 papers |
-| `/mat133/generate` | Generate a MAT133 paper from a seed (no key, no cost) |
-| `/gallery` | Gallery page; the API is supplied by the deployed Worker |
-| `/paused` | Daily-cap fallback notice |
+```text
+DEEPSEEK_API_KEY=...
+GEMINI_API_KEY=...
+```
 
-The Library is subject-aware. CSC662 keeps the **Computed marks** column
-(practice-mode `N`), numeric **Placeholders** and its placeholder filter.
-MAT133 has no practice mode and no placeholders, so the same position becomes
-**Total marks** (64-72), the placeholder column shows **—**, and the marks
-filter operates on total marks. Click any column title to sort
-ascending/descending; the next click reverses the direction. Filtering and
-sorting are a small vanilla-JS enhancement, so the static public bundle
-behaves the same way.
+`GEMINI_API_KEY=REPLACE_WITH_GEMINI_API_KEY` in `.env.example` is a placeholder.
+Public builds fail closed if the real key is missing; generation does not
+silently fall back to another provider.
 
-The job page shows one row per question and per-part slot status, updated from
-real job events. Progress uses a Windows XP-style segmented process bar driven
-by the real accepted/placeholder count. Completed realistic Library seeds 1-20
-show a **Share this paper to the public gallery** link, which proxies to the
-public Worker. There is no fake timer or typewriter. MAT133 jobs are
-deterministic and finish without an API key.
-
-## Public routes
-
-The public deployment is **library-only**. The Generate page is a static
-notice; no API key or Python process exists there.
+### Local routes
 
 | Route | Purpose |
 |---|---|
 | `/` | Subject table |
-| `/csc413` | CSC413 hub |
-| `/csc413/library` | Sortable/filterable CSC413 Library with Share buttons |
-| `/csc413/generate` | Static "live generation disabled" page |
-| `/csc662` | CSC662 hub |
-| `/csc662/library` | Sortable/filterable CSC662 Library with Share buttons |
-| `/csc662/generate` | Static "live generation disabled" page |
-| `/mat133` | MAT133 hub |
-| `/mat133/library` | Sortable/filterable MAT133 Library with Share buttons |
-| `/mat133/generate` | Static "live generation disabled" page |
-| `/gallery` | D1-backed shared-paper gallery |
-| `/paused` | Paused notice |
-| `/library/<SUBJECT>/...` | R2 papers and schemes |
+| `/<code>` | Subject hub |
+| `/<code>/library` | Pre-built Library for that subject |
+| `/<code>/generate` | Generate a paper from a seed |
+| `/gallery` | Public gallery API preview |
+| `/paused` | Daily-cap fallback notice |
 
-The Worker maps `/csc413...`, `/csc662...` and `/mat133...`. A share request
-carries the subject code, and the Worker reads that subject's
-`library/<SUBJECT>/manifest.json`.
+## Subject status
 
-## Subject registry
+| Subject | Title | Type | Local | Public | Notes |
+|---|---|---|---|---|---|
+| CSC402 | Programming I | B | Available | **Not published** | Stage 9 pending; publication permission is not granted |
+| CSC413 | Introduction to Interactive Multimedia | B | Available | Published | 20-paper deterministic Library |
+| CSC429 | Computer Organization and Architecture | D | Available | Published | Approved real-paper question/asset assembly |
+| CSC662 | Computer Security | A | Available | Published | LLM theory + computed generators; 20-paper Library |
+| MAT133 | Pre-Calculus | B | Available | Published | 57 deterministic generators; 20-paper Library |
+| ICT450 | Database Design and Development | C | In onboarding | Not published | Stage 7 revision 3 awaiting visual approval |
 
-The app discovers subjects by scanning `subjects/*/subject.json`:
+The remaining 38 registry entries are `coming_soon` curriculum stubs with no
+papers, templates or Library cache yet.
 
-```text
-subjects/CSC402/subject.json   status: available, order 1
-subjects/CSC413/subject.json   status: available, order 2
-subjects/CSC662/subject.json   status: available, order 38
-subjects/MAT133/subject.json   status: available, order 44
-...
-subjects/CST688/subject.json   status: coming_soon, order 43
-```
-
-The registry follows the curriculum order in the `order` field, with available
-subjects first. There are 44 subjects: CSC402, CSC413, CSC662 and MAT133 are
-available locally, plus 40 curriculum stubs. CSC402 and CSC413 are type-B
-deterministic subjects with 20-seed private Libraries. CSC413 is **published**;
-CSC402 is **not published**. The public site contains CSC413, CSC662 and
-MAT133. Each record contains the code,
-title, status, header text, template path, fingerprint metadata, capabilities,
-plugins, permissions, deck map, topic-deck allow-list and enabled computed
-generators. Stubs appear on the home page but have no papers or Library cache.
-
-Computed generators are subject plugins: the CSC662 types (Vigenere, ACM,
-columnar, rail fence, OTP, Caesar) live in `src/generators/`. MAT133 has its
-own deterministic plugins in `src/mat133/generators/`. Another subject needs
-its own planner, deck map and generator plugin before it can become
-`available`. Routes, cache keys and Library folders are subject-scoped.
-
-## MAT133 Pre-Calculus
-
-MAT133 is paper-derived: there are no lecture decks. The 41 past papers were
-ingested into a taxonomy and question log, and 57 computed generators cover
-every subtopic. See `docs/MAT133_TAXONOMY.md` and `docs/MAT133.md`.
-
-The MAT133 planner (`src/mat133/planner.py`) builds five questions from the
-same structure observed in the past papers:
-
-1. inequalities and absolute value;
-2. functions and coordinate geometry;
-3. complex numbers and algebra;
-4. systems and coordinate geometry;
-5. trigonometry and geometry.
-
-Each seed deterministically selects the generators and parameters. A paper
-has 15 parts, 64-72 marks and a full `NO | SOLUTION | MARK` marking scheme.
-Across seeds 1-20, all 57 generators are exercised. MAT133 Library metadata
-exports `total_marks`, `has_practice_mode: false` and
-`has_placeholders: false`; the public manifests carry the same fields.
-
-```bash
-# rebuild the paper text/OCR cache and the question log (cached LLM calls free)
-uv run python -m scripts.build_mat133_corpus
-uv run python -m scripts.build_mat133_question_log --workers 4
-
-# build the 20-seed deterministic MAT133 Library (Word COM for PDF)
-uv run python -m src.app.prebuild_library --seeds 1-20 --subject MAT133
-
-# generate, build and validate all three generator groups
-uv run python -m scripts.validate_mat133_generators --group 1
-uv run python -m scripts.validate_mat133_generators --group 2
-uv run python -m scripts.validate_mat133_generators --group 3
-```
-
-The MAT133 builder (`src/mat133/build_docx.py`) never clones CSC662 sample
-blocks: it starts from the MAT133 cover and appends a clean question paper and
-a marking scheme in the original `NO | SOLUTION | MARK` table layout. Scheme
-working is line-by-line mathematics with red `M1`/`A1`/`B1` codes; explanatory
-prose and numbered steps are not rendered. The marker cover uses
-`INSTRUCTIONS TO MARKERS` with only the two scheme notes.
-
-Public MAT133 schemes have no lecture quotes, so they do not need the CSC662
-quote-omission marker. The bundle validator applies that marker only to
-CSC662.
-
-## Download names
-
-Downloads carry both an ASCII `filename` and an RFC 5987 `filename*` header:
+## Repository map
 
 ```text
-CSC662 Seed 07 2026.pdf
-MAT133 Seed 07 2026.pdf
-MAT133 Seed 07 2026 - Marking Scheme.docx
-CSC662 Seed 07 2026 (practice 14).pdf
+subjects/<CODE>/subject.json       Subject contract and permissions
+subjects/<CODE>/lifecycle_state.json Stage, evidence, blockers and cost
+src/subjects/<code>/               Subject planner, generators and builders
+src/subjects/registry.py           Registry loader
+src/subjects/preprocess.py         Shared paper register/corpus stage
+src/subjects/parsers/              MinerU client and normalizer
+src/subjects/templates.py          Template install/check
+src/subjects/forbidden.py          Forbidden-token and private-path checks
+src/theory/                        Lecture retrieval and grounded theory
+src/assemble/                      Shared DOCX/PDF assembly
+src/app/                           FastAPI local UI and job runner
+scripts/                           Onboarding, bundle, R2 and lifecycle tools
+cloudflare/worker/                 Library-only Worker and gallery
+data/papers/<CODE>/                Read-only working copies of past papers
+data/reference/<CODE>/             Templates, crests and cover assets
+data/lecturedecks/<CODE>/          Lecture decks, where used
+data/tracking/<code>/              Extraction, taxonomy and planner artifacts
+outputs/web_cache/<CODE>/          Private pre-built Library
+outputs/public_bundle/             Public static bundle
+docs/                              Playbook, lifecycle and per-subject reports
 ```
 
-`YEAR` is the UTC year of generation (the cached Library uses the year stored
-when it was prebuilt). Practice mode adds ` (practice N)` where `N` is the
-requested computed marks. Seeds are zero-padded to two digits: seed 7 is
-`Seed 07`, seed 12345 remains `Seed 12345`.
+## Common commands
 
-## Local generation
+| Task | Command |
+|---|---|
+| Run the local UI | `uv run python -m src.app.main` |
+| Run all Python tests | `uv run pytest -q` |
+| Run Worker tests | `cd cloudflare/worker && bun test` |
+| Check for leaked secrets | `uv run python -m src.app.safety --check` |
+| Show subject progress | `uv run python -m scripts.lifecycle_status <CODE>` |
+| Scaffold a subject | `uv run python -m scripts.new_subject <CODE> --type A|B|C --dry-run` |
+| Register papers | `uv run python -m src.subjects.preprocess --subject <CODE> --register --corpus` |
+| Check a template | `uv run python -m src.subjects.templates --subject <CODE> --check` |
+| Build one sample seed | `uv run python -m src.app.prebuild_library --seeds 1 --subject <CODE> --force` |
+| Build the 20-seed Library | `uv run python -m src.app.prebuild_library --seeds 1-20 --subject <CODE>` |
+| Build the public bundle | `uv run python -m scripts.build_public_bundle --out outputs/public_bundle` |
+| R2 dry run | `uv run python -m scripts.r2_sync --bundle outputs/public_bundle` |
 
-Only CSC662 live generation needs an API key. Put it in `.env` (gitignored):
+Stage 9 is a hard stop. The R2 upload and Worker deploy commands are documented
+in `docs/LIFECYCLE.md`; never run them without explicit publication approval.
 
-```text
-DEEPSEEK_API_KEY=...
-# Public-build generation:
-GEMINI_API_KEY=...
-```
+## Public deployment
 
-Local builds default to `deepseek-flash` (DeepSeek-V4.1-Flash-1017). Public
-builds (`PUBLIC_BUILD=1`) default to **`gemini-3.5-flash`**; `MOCKGEN_MODEL`
-overrides this. If the Gemini key is missing or still the placeholder, public
-generation fails closed instead of silently falling back to DeepSeek. Gemini
-calls send `reasoning_effort: "none"` so thinking tokens do not truncate JSON.
-`GEMINI_API_KEY=REPLACE_WITH_GEMINI_API_KEY` in `.env.example` is a
-placeholder; the live Worker requires the real value via
-`wrangler secret put GEMINI_API_KEY` and refuses to start the container while
-the placeholder is present.
+| Item | Current value |
+|---|---|
+| Public site | <https://uitmpapergen.download> |
+| `www` | <https://www.uitmpapergen.download> → 301 → apex |
+| Worker fallback | <https://papergen.jerkfish123.workers.dev> |
+| Public subjects | CSC413, CSC429, CSC662, MAT133 |
+| R2 snapshot | 478 objects, 118,250,782 bytes |
+| R2 quota used | 516 Class A, 0 Class B (November 2026) |
+| D1 database | `papergen` |
+| R2 bucket | `exampapers` |
+| Worker source | `cloudflare/worker/` |
 
-With no key, the CSC662 Library still works; the Generate page explains that
-live generation is unavailable. MAT133 never needs a key.
+The Worker:
 
-The CSC662 pipeline is:
+- serves static pages and documents from R2;
+- resolves subject routes from the generated `subjects.json`;
+- exposes a D1-backed gallery with 7-day share expiry;
+- has no Python runtime, no API key and no live generation.
 
-1. Planner builds 24 slots (A1-A10, B1, B2).
-2. Theory module retrieves lecture chunks with BM25, drafts questions and
-   marking points, then verifies source overlap, entailment, near-copy against
-   past papers, topic/deck allow-lists and style confidence.
-3. Paper builder creates the original local-build cover and computed questions.
-4. Scheme builder adds working, citations and quote-free public marking points.
-5. Word COM exports PDF; scheme table geometry and margins are QA checked in
-   Word and LibreOffice.
-6. Result is cached under `outputs/web_cache/CSC662/<config-hash>/`.
+The public bundle is built locally, validated on forbidden paths and missing
+manifests, then uploaded only after stage 9 approval. The live container mode
+is scaffolded in `cloudflare/container-worker/` but **not deployed**; it
+requires Cloudflare Workers Paid and Docker. See `docs/DEPLOY_LIVE.md`.
 
-The MAT133 pipeline is:
+## Safety and contribution rules
 
-1. Planner selects five deterministic question groups from the 57 generators.
-2. Generators produce question text, exact answers, LaTeX working and diagrams.
-3. The MAT133 builder writes paper and scheme DOCX/PDF.
-4. Result is cached under `outputs/web_cache/MAT133/<config-hash>/`.
+These rules apply to every contributor and every automated agent.
 
-## Library
+- **Originals are read-only.** Never edit, rename, move or delete supplied
+  papers in `CSC662/`, `data/papers/<CODE>/` source files,
+  `data/reference/<CODE>/` or `data/lecturedecks/<CODE>/`. Stage 1 works on
+  copies under `data/papers/<CODE>/`.
+- **Never publish without an explicit human instruction.** Building a local
+  bundle is not publishing. R2 upload and Worker deploy are stage 9 only.
+- **No secrets in the repository.** Read keys from the environment; never
+  print, log or commit key values.
+- **Record uncertainty.** Noisy covers, missing assets, unconfirmed
+  permissions and unvalidated generators go into `unsure` in
+  `lifecycle_state.json`. Never invent a month, mark, answer or test result.
+- **Every stage has a [HUMAN] gate.** Do not mark a stage `done` without
+  evidence and approval.
+- **No hard-coded subject lists.** Application code reads the registry or the
+  generated `subjects.json`.
+- **A human operator owns git.** Automated agents must not run `git commit`,
+  `git push`, `git pull` or any other repository mutation. A human operator
+  reviews and commits changes.
 
-The Library is prebuilt per subject in `outputs/web_cache/<SUBJECT>/`. CSC662
-is built from the stored 20-seed planner/theory JSON (no LLM calls); MAT133 is
-built directly from deterministic generators.
+### Gate checklist
+
+Run these at every stage:
 
 ```bash
-uv run python -m src.app.prebuild_library --seeds 1-20 --subject CSC662
-# schemes only, reusing the cached paper DOCX:
-uv run python -m src.app.prebuild_library --seeds 1-20 --subject CSC662 --schemes-only
-
-uv run python -m src.app.prebuild_library --seeds 1-20 --subject MAT133
+uv run python -m src.app.safety --check
+uv run pytest -q
+cd cloudflare/worker && bun test
+uv run python -m scripts.lifecycle_status <CODE>
 ```
 
-Caches created before Phase 1 lived in flat `outputs/web_cache/<hash>/`
-folders. They remain readable; to copy them into the subject folder and add
-the subject/year/topic fields:
+Stop at the stage's `[HUMAN]` gate and report the evidence, `unsure` items and
+actual LLM cost so far.
 
-```bash
-uv run python -m scripts.migrate_cache_subjects
-# --move removes the old flat folders after a successful copy
-```
+## Documentation index
 
-## Cost cap and cache
-
-- CSC662 per-run cap: `MOCKGEN_COST_CAP_USD` (default **$0.05**). The
-  generator checks running token cost after every LLM call and aborts with
-  `cost_capped`.
-- MAT133 cost: **$0**. It makes no LLM calls.
-- Cache key: subject + mode + seed + computed marks + model + thresholds +
-  `PUBLIC_BUILD`. A cache hit returns instantly with **$0** run cost.
-
-## PDF export and scheme QA
-
-PDF export uses Microsoft Word COM on Windows. Set
-`MOCKGEN_PDF_ENGINE=libreoffice` to use LibreOffice headless; this is the
-default on non-Windows hosts and inside the container. If neither converter is
-available, a CSC662 job completes with DOCX links and says PDF export is
-unavailable. MAT133 prebuild treats a missing PDF as a build error because the
-public bundle needs both formats.
-
-LibreOffice currently renders the MAT133 cover one page longer than Word; the
-live deployment must either serve DOCX only or accept/document that difference
-until the cover is tuned for LibreOffice.
-
-Scheme tables are checked after export: the grid must fit the body usable
-width, and rendered pages are scanned for ink beyond the right margin in both
-Word and LibreOffice headless. A failure raises `SchemeQAError` and fails the
-CSC662 build. MAT133 prebuild also rejects right-margin overflow, missing
-cover, missing part labels or missing marks.
-
-## Safety and public build
-
-- Secrets are read only from the environment / Wrangler secrets. `.env` is
-  gitignored; `.env.example` contains names and non-secret public values.
-- The FastAPI app runs a startup secret scan. It fails if an environment
-  secret value appears in a tracked text file.
-- Run the check manually:
-
-  ```bash
-  uv run python -m src.app.safety --check
-  ```
-
-- `PUBLIC_BUILD=1` keeps the original local-build cover, omits verbatim slide
-  quotes from CSC662 public schemes, disables the private Library in the live
-  FastAPI app and refuses to serve files under `data/reference/`, `CSC662/`,
-  `MAT133/` or `data/papers/`.
-- Set `MOCKGEN_PUBLIC_STRIP_BRANDING=1` only if you intentionally want the old
-  generic-branding cover. The default is **0** (original cover retained).
-- Public document URLs include `?v=<mtime>`, so a rebuilt PDF is not hidden by
-  a browser cache.
-- The public-bundle allowlist is generated with:
-
-  ```bash
-  uv run python -m scripts.public_bundle --write
-  # cloudflare/public_bundle_manifest.txt / .json
-  ```
-
-## Build the public bundle
-
-```bash
-# every publication-approved available subject from the registry
-uv run python -m scripts.build_public_bundle --out outputs/public_bundle
-
-# one subject only
-uv run python -m scripts.build_public_bundle --subject MAT133
-
-# resume after an interruption; existing complete seed files are skipped
-uv run python -m scripts.build_public_bundle --out outputs/public_bundle
-
-# pages/manifests only (fast; no Word/LibreOffice)
-uv run python -m scripts.build_public_bundle --out outputs/public_bundle --pages-only
-```
-
-The builder keeps each paper's original local-build cover, rebuilds CSC662
-schemes with verbatim slide quotes omitted, copies the already-public-safe
-MAT133 deterministic files, renders the public pages and writes:
-
-```text
-index.html
-csc662/index.html
-csc662/library/index.html
-csc662/generate/index.html
-mat133/index.html
-mat133/library/index.html
-mat133/generate/index.html
-gallery/index.html
-paused/index.html
-assets/style.css, htmx.min.js, library.js, gallery.js
-subjects/<CODE>/subject.json
-library/manifest.json
-library/CSC662/manifest.json
-library/MAT133/manifest.json
-library/<SUBJECT>/papers/*.docx, *.pdf
-library/<SUBJECT>/schemes/*.docx, *.pdf
-static/gallery-shell.html
-```
-
-The builder fails on a forbidden path, a missing manifest file, or a CSC662
-scheme without the quote-omission marker.
-
-## Publish to R2
-
-```bash
-# dry run: no credentials, no network calls
-uv run python -m scripts.r2_sync --bundle outputs/public_bundle
-
-# upload (requires R2_ACCESS_KEY_ID / R2_SECRET_ACCESS_KEY)
-uv run --with boto3 python -m scripts.r2_sync \
-  --bundle outputs/public_bundle --upload
-
-# verify the bucket
-uv run --with boto3 python -m scripts.r2_sync --check
-```
-
-- One bucket listing per sync; only changed files are uploaded.
-- A local backup is made before each upload.
-- Hard budgets: 1 GiB, 5,000 objects, 10,000 Class A/month and 100,000
-  Class B/month. The tool aborts before crossing a cap.
-- Runtime state: `outputs/r2_sync_state.json`; quota ledger:
-  `outputs/r2_quota_ledger.json`.
-- R2 configuration: `R2_ACCOUNT_ID`, `R2_BUCKET` (default `exampapers`),
-  optional `R2_ENDPOINT`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`.
-- Free-tier compliance and backup plan: `cloudflare/R2_QUOTA_PLAN.md`.
-- Minimal credential scopes: `cloudflare/TOKEN_SCOPES.md`.
-
-## Live mode (Phase 4.2)
-
-The optional live deployment runs the FastAPI app in a Cloudflare Container
-and fronts it with a Worker:
-
-- `Dockerfile` — Python 3.12, uv, LibreOffice Writer and Graphviz.
-- `cloudflare/container-worker/` — Worker and Durable Object lifecycle.
-- `docs/DEPLOY_LIVE.md` — costs, secrets, privacy and deploy steps.
-- `MOCKGEN_PDF_ENGINE=libreoffice` switches PDF export from Word COM to
-  LibreOffice headless. The Windows local default remains Word.
-- The live container uses the `GEMINI_API_KEY` Worker secret. The checked-in
-  example is only `REPLACE_WITH_GEMINI_API_KEY`; the Worker refuses to start
-  the container if the secret is missing or still a placeholder.
-
-**Not deployed.** Cloudflare Containers requires the **Workers Paid plan
-($5/month)**; it has no free tier. The deploying machine also needs Docker;
-this machine has no Docker, so the image build/deploy was not executed. The
-library-only site remains $0 and is unaffected.
-
-## Cloudflare Worker and gallery
-
-The library-only Worker lives in `cloudflare/worker/`. It serves the static
-bundle from R2, exposes a D1-backed gallery and copies PUBLIC_BUILD files into
-`shared/<id>/` when someone shares a Library paper. There is no Python runtime
-and no LLM call. The Worker supports CSC662 and MAT133 routes and subjects.
-
-Current Worker state:
-
-- Custom domains: `uitmpapergen.download` and `www.uitmpapergen.download`
-- D1 schema applied (`migrations/0001_gallery.sql`)
-- Gallery capped at 100 active entries, 7-day expiry
-- Daily Cron at 03:00 UTC deletes expired rows and R2 objects
-- R2 lifecycle rule for `shared/` is **not installed** yet; see below
-
-Deploy or redeploy:
-
-```bash
-cd cloudflare/worker
-bun test
-bun run deploy
-```
-
-Initial setup (already done for this account):
-
-```bash
-bun x wrangler d1 create papergen
-# put the returned database_id into wrangler.toml
-bun run db:migrate
-```
-
-Deployment needs a Cloudflare API token with Workers Scripts Write, D1 Write
-and Workers R2 Storage Read (or `wrangler login`). Add Workers R2 Storage Write
-for lifecycle management and Zone Workers Routes Write + Zone Read only for a
-custom domain. `Workers Routes:Edit` is not a valid permission name.
-
-### R2 lifecycle status
-
-Show the current rules:
-
-```bash
-uv run python -m scripts.r2_lifecycle --show
-```
-
-Only the default multipart-abort rule is present. Applying the `shared/`
-7-day rule currently fails because the token lacks Workers R2 Storage Write:
-
-```bash
-uv run python -m scripts.r2_lifecycle --apply
-# Cloudflare API permission denied
-```
-
-Add that permission, or set the rule in the dashboard:
-R2 -> `exampapers` -> Settings -> Object lifecycle rules -> prefix `shared/`,
-delete after 7 days. The daily Cron already removes expired objects, so the
-lifecycle rule is the storage backstop.
-
-## Data required at runtime
-
-- `data/tracking/mock_paper_planner.xlsx` - CSC662 question/fingerprint source.
-- `data/tracking/theory/deck_chunks.json` - cached CSC662 lecture chunks.
-- `data/phrases.json` - offline phrase bank for computed questions.
-- `data/reference/CSC662/CSC662 FEBRUARY 2026-raw docx.docx` - CSC662
-  paper/scheme template.
-- `data/reference/MAT133/MAT133 TEMPLATE.docx` - MAT133 cover/template.
-- `outputs/computed_questions.json`, `outputs/acm_questions.json`.
-- `outputs/web_cache/CSC662/` - prebuilt CSC662 Library.
-- `outputs/web_cache/MAT133/` - prebuilt MAT133 Library (20 deterministic seeds).
-- `outputs/eval_final_deepseek/seed_*_planner.json` and
-  `seed_*_theory.json` - source data for rebuilding the CSC662 Library.
-- `data/tracking/mat133/taxonomy.json`,
-  `question_log.json` and `question_log.schema.json` - MAT133 paper-derived
-  taxonomy and question log.
-- `data/tracking/mat133/paper_text/` and `question_log/raw/` - cached OCR/text
-  and per-paper extraction (reruns cost $0).
-- `data/tracking/csc402/` - CSC402 paper corpus, taxonomy/question log,
-  generator validation, build sample and 20-seed Library summary.
-
-Per-subject input folders:
-
-```text
-data/papers/<SUBJECT>/         past-paper working copies
-data/reference/<SUBJECT>/      templates, crest and cover assets
-data/lecturedecks/<SUBJECT>/   lecture decks, if the subject uses them
-```
-
-The 38 CSC662 papers were moved to `data/papers/CSC662/`. The CSC662 template
-is at `data/reference/CSC662/`. MAT133 papers are in `data/papers/MAT133/`;
-its template and answer scheme are in `data/reference/MAT133/`; it has no
-lecture decks. The 41 remaining curriculum stubs have no paper or reference data yet;
-create `data/papers/<SUBJECT>/` and `data/reference/<SUBJECT>/` when papers are
-added. The CSC662 lecture folder exists at `data/lecturedecks/CSC662/`; when it
-is empty the loader uses the external `CSC662_DECKS_DIR`/Desktop fallback, so
-no 52 MB of slides need to be copied into the repository.
-
-## Lifecycle
-
-See `docs/LIFECYCLE.md` for the complete flow: local generation, public bundle,
-R2 upload, Worker serving, gallery share/expiry and adding a new subject.
-The subject onboarding playbook is `docs/SUBJECT_PLAYBOOK.md`; every subject's
-current stage is in `subjects/<CODE>/lifecycle_state.json`. MAT133 setup,
-scheme parse, cover template, taxonomy, question log, builder, planner, 20-seed
-Library and generator validation are in `docs/MAT133.md`; the taxonomy/report
-is in `docs/MAT133_TAXONOMY.md`.
-
-## Design review
-
-The multi-subject / Cloudflare page design and the public-bundle allowlist are
-in `design/DESIGN.md` and `design/PUBLIC_BUNDLE_PROPOSAL.md`. Static page
-mockups are in `design/mockups/`.
+| Document | Read it for |
+|---|---|
+| `docs/SUBJECT_PLAYBOOK.md` | The authoritative 11-stage onboarding procedure, evidence rules and [HUMAN] gates |
+| `docs/LIFECYCLE.md` | Local generation, public bundle, R2 upload, Worker serving and gallery lifecycle |
+| `docs/<CODE>.md` | Per-subject decisions, commands, deviations and caveats |
+| `docs/CSC429.md` | Type-D asset-first assembly example |
+| `docs/ICT450.md` | Current type-C onboarding report and Stage 7 status |
+| `docs/MAT133.md`, `docs/MAT133_TAXONOMY.md` | Deterministic paper-derived generator and taxonomy example |
+| `docs/DEPLOY_LIVE.md` | Optional live container mode, cost and secrets |
+| `AGENTS.md` | Repository rules for automated agents |
+| `design/` | Public page design and public-bundle allowlist |
 
 ## Tests
 
 ```bash
-uv run pytest -q        # 305 Python tests
-cd cloudflare/worker
-bun test                # 6 Worker tests
+uv run pytest -q
+cd cloudflare/worker && bun test
 ```
 
-Coverage includes the planner/verifier, job lifecycle, cancel, cost-cap abort,
-cache hit, Library without a key, scheme table geometry, subject discovery,
-download names, subject-scoped routes, sortable/filterable Library,
-subject-aware marks/placeholder columns, public bundle rendering/validation,
-secret scan, public-path guards, bundle allowlist,
-R2 quota guard, MAT133 taxonomy/question-log integrity, all 57 MAT133
-generators, the MAT133 deterministic planner, the 20-seed generator coverage,
-the MAT133 DOCX/XML builder, provider routing, public-build Gemini selection,
-the `/generate` shortcut/health endpoint and PDF engine selection.
+Coverage includes the planner/verifier, job lifecycle, cost-cap abort, cache
+hits, subject discovery, Library rendering, public-bundle validation, secret
+scanning, private-path guards, R2 quota guards, MinerU normalization, the
+deterministic MAT133 generators, the ICT450 builders and the Worker API.
+
+Current suite: **366 passed, 12 skipped** Python tests and **6 passed** Worker
+tests. Counts are a snapshot; run the commands above for the current result.
