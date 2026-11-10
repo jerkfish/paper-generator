@@ -10,8 +10,11 @@
   "total_slots": 5,
   "has_practice_mode": true,
   "has_placeholders": true,
-  "created": 1794212174.3664315,
+  "created": 1794218074.3798285,
   "year": 2026,
+  "asset_count": 6,
+  "table_count": 4,
+  "figure_count": 2,
   "topic_marks": {
     "database_concept": 20,
     "relational": 20,
@@ -34,7 +37,8 @@
       "cost_usd": 0,
       "calls": 0,
       "accepted": 1,
-      "placeholders": 0
+      "placeholders": 0,
+      "assets": 1
     },
     {
       "question": "2",
@@ -44,7 +48,8 @@
       "cost_usd": 0,
       "calls": 0,
       "accepted": 1,
-      "placeholders": 0
+      "placeholders": 0,
+      "assets": 2
     },
     {
       "question": "3",
@@ -54,7 +59,8 @@
       "cost_usd": 0,
       "calls": 0,
       "accepted": 1,
-      "placeholders": 0
+      "placeholders": 0,
+      "assets": 1
     },
     {
       "question": "4",
@@ -64,7 +70,8 @@
       "cost_usd": 0,
       "calls": 0,
       "accepted": 1,
-      "placeholders": 0
+      "placeholders": 0,
+      "assets": 1
     },
     {
       "question": "5",
@@ -74,7 +81,8 @@
       "cost_usd": 0,
       "calls": 0,
       "accepted": 1,
-      "placeholders": 0
+      "placeholders": 0,
+      "assets": 1
     }
   ],
   "summary": {
@@ -89,6 +97,9 @@
       "normalization",
       "database_design"
     ],
+    "assets": 6,
+    "tables": 4,
+    "figures": 2,
     "qa_problems": []
   }
 }

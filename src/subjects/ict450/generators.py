@@ -220,9 +220,9 @@ QUESTION_BANK = {
         "subparts": [
             _subpart(
                 "a", 8,
-                "Figure 1 shows part of an ERD for {org}. Identify the "
-                "entities, their attributes, the relationship between them "
-                "and the cardinalities shown.",
+                "Figure 1 shows part of an ERD for a supplier and product "
+                "database. Identify the entities, their attributes, the "
+                "relationship between them and the cardinalities shown.",
                 "Entities: VENDOR with VEND_CODE, VEND_CONTACT, "
                 "VEND_AREACODE and VEND_PHONE; PRODUCT with PROD_CODE, "
                 "PROD_DESCRIPT, PROD_PRICE, PROD_ON_HAND and VEND_CODE. "
@@ -260,9 +260,9 @@ QUESTION_BANK = {
         "subparts": [
             _subpart(
                 "a", 4,
-                "{org} keeps its course and student records in the "
-                "spreadsheet shown in Table 1. Study Table 1 and identify "
-                "the candidate key and all functional dependencies.",
+                "The spreadsheet in Table 1 shows course and student "
+                "records for a college. Study Table 1 and identify the "
+                "candidate key and all functional dependencies.",
                 "Relation: COURSE_RECORD(CourseCode, CourseName, TutorID, "
                 "TutorName, StudentID, StudentName, DOB, Gender, "
                 "LastAttendance). Candidate key: (CourseCode, StudentID). "
@@ -304,9 +304,8 @@ QUESTION_BANK = {
         "subparts": [
             _subpart(
                 "a", 8,
-                "Figure 1 shows the database design process for {org}. "
-                "Explain FOUR activities carried out during the database "
-                "design phase.",
+                "Figure 1 shows the database design process. Explain FOUR "
+                "activities carried out during the database design phase.",
                 "Conceptual design: identify entities, attributes and "
                 "relationships and build a conceptual model. Logical "
                 "design: map the conceptual model to a relational schema, "

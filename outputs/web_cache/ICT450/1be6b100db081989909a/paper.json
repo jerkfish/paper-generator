@@ -15,7 +15,25 @@
       "marks": 20,
       "generator_id": "ict450.database_concept",
       "source": "ICT200/ICT450 KB Topic 1 Database Concept",
-      "stem": "Nusantara Learning Hub currently keeps student records in separate spreadsheet files. The manager is considering a database management system (DBMS).",
+      "assets": [
+        {
+          "asset_id": "MU-B0030",
+          "kind": "table",
+          "label": "Table 1",
+          "caption": "Table 1 : Sample data for a spreadsheet program",
+          "img_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\ICT450\\1be6b100db081989909a\\assets\\seed_01_q1_asset_1.jpg",
+          "table_html": "<table><tr><td></td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td></tr><tr><td>1</td><td>Customer No</td><td>Customer IC</td><td>First Name</td><td>Last Name</td><td>e-mail</td></tr><tr><td>2</td><td>100</td><td>2021877889</td><td>Abdul</td><td>Badri</td><td>a.abdul</td></tr><tr><td>3</td><td>101</td><td>2021755266</td><td>Anwi</td><td>BenBrahim</td><td>e.anwi</td></tr><tr><td>4</td><td>102</td><td>2021522447</td><td>Zainuddin</td><td>Hamid</td><td>zek90</td></tr><tr><td>5</td><td>103</td><td>2021369874</td><td>Kayrie</td><td>Jamlus</td><td>j.kayrie</td></tr><tr><td>6</td><td>104</td><td>2021123698</td><td>Huan</td><td>Ong</td><td>4d40ng</td></tr><tr><td>7</td><td>105</td><td>2021339693</td><td>Ishak</td><td>Sabarul</td><td>IS4u</td></tr><tr><td>8</td><td>106</td><td>2021745632</td><td>Rita</td><td>Hasrul</td><td>DOH</td></tr></table>",
+          "source_paper": "ICT450-2023-FEB",
+          "source_question": 0,
+          "source_page": 1,
+          "provenance": {
+            "parser": "mineru",
+            "model": "vlm",
+            "block_id": "B0030",
+            "page_idx": 1
+          }
+        }
+      ],
       "subparts": [
         {
           "part": "a",
@@ -26,28 +44,58 @@
             "database definition (2)",
             "DBMS definition (2)",
             "database system definition (2)"
-          ]
+          ],
+          "asset": false,
+          "children": []
         },
         {
           "part": "b",
           "marks": 8,
           "text": "State FOUR limitations of the file-based approach that a DBMS addresses.",
-          "answer": "The limitations include data redundancy, data inconsistency, difficult data sharing, weak concurrency control, limited security, program-data dependence, and difficult backup/recovery.",
+          "answer": "The limitations include data redundancy, data inconsistency, difficult data sharing, weak concurrency control, limited security, program-data dependence, and difficult backup and recovery.",
           "marking_points": [
             "four limitations x 2 marks each"
-          ]
+          ],
+          "asset": false,
+          "children": []
         },
         {
           "part": "c",
           "marks": 6,
-          "text": "Explain THREE functions of a DBMS that address those limitations.",
-          "answer": "A DBMS provides controlled data sharing, integrity enforcement, security and authorisation, concurrency control, backup and recovery, and a data dictionary.",
-          "marking_points": [
-            "three functions x 2 marks each"
+          "text": "Nusantara Learning Hub still keeps its customer records in a spreadsheet program. Table 1 shows a sample of the data. Study Table 1 and answer the following.",
+          "answer": "",
+          "marking_points": [],
+          "asset": true,
+          "children": [
+            {
+              "part": "i",
+              "marks": 3,
+              "text": "Identify TWO candidate keys and ONE primary key from Table 1. Give ONE reason for your chosen primary key.",
+              "answer": "Candidate keys: Customer No, Customer IC and e-mail (any TWO). Primary key: Customer No, because it is unique for every row and does not change.",
+              "marking_points": [
+                "two candidate keys (2)",
+                "primary key with reason (1)"
+              ],
+              "asset": false,
+              "children": []
+            },
+            {
+              "part": "ii",
+              "marks": 3,
+              "text": "Explain why the spreadsheet in Table 1 is not a substitute for a database.",
+              "answer": "A spreadsheet stores unrelated copies of data, so the same customer can be repeated and updated inconsistently. It lacks integrity constraints, concurrency control, access control and recovery facilities that a DBMS provides.",
+              "marking_points": [
+                "redundancy and inconsistency (1)",
+                "missing integrity constraints (1)",
+                "missing concurrency, security or recovery (1)"
+              ],
+              "asset": false,
+              "children": []
+            }
           ]
         }
       ],
-      "answer": "a. A database is an organised collection of related data. A DBMS is software that creates, stores, manages and controls access to a database. A database system is the database, DBMS, application programs, people, procedures and hardware working together.\n\nb. The limitations include data redundancy, data inconsistency, difficult data sharing, weak concurrency control, limited security, program-data dependence, and difficult backup/recovery.\n\nc. A DBMS provides controlled data sharing, integrity enforcement, security and authorisation, concurrency control, backup and recovery, and a data dictionary.",
+      "answer": "a) A database is an organised collection of related data. A DBMS is software that creates, stores, manages and controls access to a database. A database system is the database, DBMS, application programs, people, procedures and hardware working together.\n\nb) The limitations include data redundancy, data inconsistency, difficult data sharing, weak concurrency control, limited security, program-data dependence, and difficult backup and recovery.\n\nc i) Candidate keys: Customer No, Customer IC and e-mail (any TWO). Primary key: Customer No, because it is unique for every row and does not change.\n\nc ii) A spreadsheet stores unrelated copies of data, so the same customer can be repeated and updated inconsistently. It lacks integrity constraints, concurrency control, access control and recovery facilities that a DBMS provides.",
       "marking_points": [
         {
           "part": "a",
@@ -66,10 +114,20 @@
           ]
         },
         {
-          "part": "c",
-          "marks": 6,
+          "part": "c i",
+          "marks": 3,
           "points": [
-            "three functions x 2 marks each"
+            "two candidate keys (2)",
+            "primary key with reason (1)"
+          ]
+        },
+        {
+          "part": "c ii",
+          "marks": 3,
+          "points": [
+            "redundancy and inconsistency (1)",
+            "missing integrity constraints (1)",
+            "missing concurrency, security or recovery (1)"
           ]
         }
       ]
@@ -82,27 +140,68 @@
       "marks": 20,
       "generator_id": "ict450.relational_model",
       "source": "ICT200/ICT450 KB Topic 3 Relational Data Model",
-      "stem": "The relation schema ENROL(StudentID, CourseID, StudentName, CourseName, Lecturer, Grade) records student enrolment. Assume StudentID and CourseID together uniquely identify a row.",
+      "assets": [
+        {
+          "asset_id": "MU-B0029",
+          "kind": "table",
+          "label": "Table 1",
+          "caption": "Table 1: STUDENT table",
+          "img_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\ICT450\\1be6b100db081989909a\\assets\\seed_01_q2_asset_1.jpg",
+          "table_html": "<table><tr><td>STUDENT_IC</td><td>STUDENT_ID</td><td>FIRST_NAME</td><td>LAST_NAME</td><td>EMAIL</td><td>COURSE_ID</td></tr><tr><td>80193939979</td><td>202587788</td><td>Ahmad</td><td>Ali</td><td>AA@gmail.com</td><td>40</td></tr><tr><td>40122566748</td><td>202575526</td><td>Haqiem</td><td>Rosly</td><td>haqiem@gmail.com</td><td>40</td></tr><tr><td>20164723670</td><td>202552244</td><td>Wany</td><td>Hazwan</td><td>wany@gmail.com</td><td>50</td></tr><tr><td>10108990074</td><td>202536987</td><td>Haliza</td><td>Husni</td><td>Ha@gmail.com</td><td>50</td></tr><tr><td>80116756736</td><td>202512369</td><td>Heechul</td><td>Kim</td><td>heechul@gmail.com</td><td>40</td></tr><tr><td>90137476323</td><td>202533969</td><td>James</td><td>Reece</td><td>james@gmail.com</td><td>20</td></tr><tr><td>50143670971</td><td>202574563</td><td>Canos</td><td>Sergi</td><td>Ola21@gmail.com</td><td>20</td></tr></table>",
+          "source_paper": "ICT450-2022-FEB",
+          "source_question": 0,
+          "source_page": 1,
+          "provenance": {
+            "parser": "mineru",
+            "model": "vlm",
+            "block_id": "B0029",
+            "page_idx": 1
+          }
+        },
+        {
+          "asset_id": "MU-B0030",
+          "kind": "table",
+          "label": "Table 2",
+          "caption": "Table 2: COURSE table",
+          "img_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\ICT450\\1be6b100db081989909a\\assets\\seed_01_q2_asset_2.jpg",
+          "table_html": "<table><tr><td>COURSE_ID</td><td>COURSE_NAME</td></tr><tr><td>10</td><td>Networking</td></tr><tr><td>20</td><td>Software Developer</td></tr><tr><td>30</td><td>Web Designer</td></tr><tr><td>40</td><td>Database Developer</td></tr><tr><td>50</td><td>Data Analyst</td></tr><tr><td>60</td><td>IT Professional</td></tr></table>",
+          "source_paper": "ICT450-2022-FEB",
+          "source_question": 0,
+          "source_page": 1,
+          "provenance": {
+            "parser": "mineru",
+            "model": "vlm",
+            "block_id": "B0030",
+            "page_idx": 1
+          }
+        }
+      ],
       "subparts": [
         {
           "part": "a",
           "marks": 4,
-          "text": "Identify the primary key and TWO candidate keys.",
-          "answer": "Primary key: (StudentID, CourseID). Candidate keys: (StudentID, CourseID); StudentID alone is not a candidate key because a student enrols in many courses, and CourseID alone is not a candidate key because a course has many students.",
+          "text": "Nusantara University keeps its student and course records in the tables shown below. Table 1 shows the STUDENT table and Table 2 shows the COURSE table. Identify the primary key of each table and TWO candidate keys in the STUDENT table.",
+          "answer": "STUDENT: primary key Student_ID; candidate keys Student_IC, Student_ID and EMAIL. COURSE: primary key COURSE_ID.",
           "marking_points": [
-            "primary key (2)",
-            "candidate-key explanation (2)"
-          ]
+            "STUDENT primary key (1)",
+            "two candidate keys (2)",
+            "COURSE primary key (1)"
+          ],
+          "asset": true,
+          "children": []
         },
         {
           "part": "b",
           "marks": 6,
-          "text": "Explain entity integrity and referential integrity with one example each.",
-          "answer": "Entity integrity: a primary-key attribute cannot be null. Referential integrity: a foreign-key value must match an existing primary-key value or be null. Example: ENROL.StudentID must exist in STUDENT.StudentID.",
+          "text": "Explain entity integrity and referential integrity. Give ONE example from Table 1 and Table 2.",
+          "answer": "Entity integrity: a primary-key column cannot contain a null or duplicate value. Referential integrity: a foreign-key value must match an existing primary-key value or be null. Example: every COURSE_ID in STUDENT must exist in COURSE, and STUDENT_ID must be unique and not null.",
           "marking_points": [
-            "entity integrity definition/example (3)",
-            "referential integrity definition/example (3)"
-          ]
+            "entity integrity definition (2)",
+            "referential integrity definition (2)",
+            "example from the tables (2)"
+          ],
+          "asset": false,
+          "children": []
         },
         {
           "part": "c",
@@ -111,34 +210,40 @@
           "answer": "Tuple = a row; attribute = a column; degree = number of attributes; cardinality = number of tuples.",
           "marking_points": [
             "one mark each"
-          ]
+          ],
+          "asset": false,
+          "children": []
         },
         {
           "part": "d",
           "marks": 6,
-          "text": "Explain TWO update anomalies that can occur in this schema.",
-          "answer": "StudentName repeats for every enrolment, so a name change may be missed in some rows (update anomaly). Deleting the last enrolment for a course may lose course data (delete anomaly). Inserting a new course before any student enrols is difficult (insert anomaly).",
+          "text": "Explain TWO update anomalies that can occur in the STUDENT table if course details are stored together with student details.",
+          "answer": "If COURSE_NAME is repeated for every student, changing a course name in one row but not the others causes an update anomaly. Deleting the last student for a course loses the course data (delete anomaly), and adding a new course before any student enrols is difficult (insert anomaly).",
           "marking_points": [
             "two anomalies explained x 3 marks"
-          ]
+          ],
+          "asset": false,
+          "children": []
         }
       ],
-      "answer": "a. Primary key: (StudentID, CourseID). Candidate keys: (StudentID, CourseID); StudentID alone is not a candidate key because a student enrols in many courses, and CourseID alone is not a candidate key because a course has many students.\n\nb. Entity integrity: a primary-key attribute cannot be null. Referential integrity: a foreign-key value must match an existing primary-key value or be null. Example: ENROL.StudentID must exist in STUDENT.StudentID.\n\nc. Tuple = a row; attribute = a column; degree = number of attributes; cardinality = number of tuples.\n\nd. StudentName repeats for every enrolment, so a name change may be missed in some rows (update anomaly). Deleting the last enrolment for a course may lose course data (delete anomaly). Inserting a new course before any student enrols is difficult (insert anomaly).",
+      "answer": "a) STUDENT: primary key Student_ID; candidate keys Student_IC, Student_ID and EMAIL. COURSE: primary key COURSE_ID.\n\nb) Entity integrity: a primary-key column cannot contain a null or duplicate value. Referential integrity: a foreign-key value must match an existing primary-key value or be null. Example: every COURSE_ID in STUDENT must exist in COURSE, and STUDENT_ID must be unique and not null.\n\nc) Tuple = a row; attribute = a column; degree = number of attributes; cardinality = number of tuples.\n\nd) If COURSE_NAME is repeated for every student, changing a course name in one row but not the others causes an update anomaly. Deleting the last student for a course loses the course data (delete anomaly), and adding a new course before any student enrols is difficult (insert anomaly).",
       "marking_points": [
         {
           "part": "a",
           "marks": 4,
           "points": [
-            "primary key (2)",
-            "candidate-key explanation (2)"
+            "STUDENT primary key (1)",
+            "two candidate keys (2)",
+            "COURSE primary key (1)"
           ]
         },
         {
           "part": "b",
           "marks": 6,
           "points": [
-            "entity integrity definition/example (3)",
-            "referential integrity definition/example (3)"
+            "entity integrity definition (2)",
+            "referential integrity definition (2)",
+            "example from the tables (2)"
           ]
         },
         {
@@ -165,67 +270,91 @@
       "marks": 20,
       "generator_id": "ict450.erd",
       "source": "ICT200/ICT450 KB Topic 4 ERD",
-      "stem": "Cedar Community Library lends books to members. Each book has one publisher; a publisher can publish many books. A member can borrow many books over time, and each loan records the loan date and due date.",
+      "assets": [
+        {
+          "asset_id": "MU-B0029",
+          "kind": "image",
+          "label": "Figure 1",
+          "caption": "Figure 1 : Referential integrity in an Entity Relationship Diagram",
+          "img_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\ICT450\\1be6b100db081989909a\\assets\\seed_01_q3_asset_1.jpg",
+          "table_html": "",
+          "source_paper": "ICT450-2019-DEC",
+          "source_question": 0,
+          "source_page": 1,
+          "provenance": {
+            "parser": "mineru",
+            "model": "vlm",
+            "block_id": "B0029",
+            "page_idx": 1
+          }
+        }
+      ],
       "subparts": [
         {
           "part": "a",
           "marks": 8,
-          "text": "Identify the entities, relationships and cardinalities.",
-          "answer": "Entities: MEMBER, BOOK, PUBLISHER, LOAN. Relationships: PUBLISHER publishes BOOK (1:M); MEMBER borrows BOOK through LOAN (M:N resolved by LOAN); LOAN has loan date and due date.",
+          "text": "Figure 1 shows part of an ERD for a supplier and product database. Identify the entities, their attributes, the relationship between them and the cardinalities shown.",
+          "answer": "Entities: VENDOR with VEND_CODE, VEND_CONTACT, VEND_AREACODE and VEND_PHONE; PRODUCT with PROD_CODE, PROD_DESCRIPT, PROD_PRICE, PROD_ON_HAND and VEND_CODE. Relationship: VENDOR supplies PRODUCT. Cardinality: one VENDOR supplies many PRODUCTs (1:M).",
           "marking_points": [
             "entities (2)",
-            "relationships (3)",
-            "cardinalities (3)"
-          ]
+            "attributes (2)",
+            "relationship (2)",
+            "cardinality (2)"
+          ],
+          "asset": true,
+          "children": []
         },
         {
           "part": "b",
           "marks": 6,
-          "text": "Draw an entity-relationship diagram for the scenario.",
-          "answer": "A correct ERD shows MEMBER, BOOK, PUBLISHER and LOAN, with 1:M from PUBLISHER to BOOK, 1:M from MEMBER to LOAN, and 1:M from BOOK to LOAN. LOAN is the associative entity for the M:N borrowing relationship.",
+          "text": "Explain the referential integrity constraint shown in Figure 1. Give ONE example of an operation that would violate it.",
+          "answer": "PRODUCT.VEND_CODE is a foreign key that must match an existing VENDOR.VEND_CODE or be null. Inserting a PRODUCT with a VEND_CODE that does not exist in VENDOR violates referential integrity; deleting a VENDOR that still has PRODUCTs also violates it unless the products are deleted or reassigned.",
           "marking_points": [
-            "four entities (2)",
-            "three relationships/cardinalities (3)",
-            "associative LOAN entity (1)"
-          ]
+            "foreign-key constraint (3)",
+            "violation example (3)"
+          ],
+          "asset": false,
+          "children": []
         },
         {
           "part": "c",
           "marks": 6,
-          "text": "Map the ERD to a relational schema and mark primary and foreign keys.",
-          "answer": "PUBLISHER(PublisherID PK, PublisherName); BOOK(BookID PK, Title, PublisherID FK); MEMBER(MemberID PK, MemberName); LOAN(LoanID PK, MemberID FK, BookID FK, LoanDate, DueDate).",
+          "text": "Map the ERD in Figure 1 to a relational schema. Mark the primary key and foreign key.",
+          "answer": "VENDOR(VEND_CODE PK, VEND_CONTACT, VEND_AREACODE, VEND_PHONE); PRODUCT(PROD_CODE PK, PROD_DESCRIPT, PROD_PRICE, PROD_ON_HAND, VEND_CODE FK REFERENCES VENDOR(VEND_CODE)).",
           "marking_points": [
-            "four relations (4)",
-            "PK/FK marks (2)"
-          ]
+            "VENDOR relation and primary key (3)",
+            "PRODUCT relation, primary key and foreign key (3)"
+          ],
+          "asset": false,
+          "children": []
         }
       ],
-      "answer": "a. Entities: MEMBER, BOOK, PUBLISHER, LOAN. Relationships: PUBLISHER publishes BOOK (1:M); MEMBER borrows BOOK through LOAN (M:N resolved by LOAN); LOAN has loan date and due date.\n\nb. A correct ERD shows MEMBER, BOOK, PUBLISHER and LOAN, with 1:M from PUBLISHER to BOOK, 1:M from MEMBER to LOAN, and 1:M from BOOK to LOAN. LOAN is the associative entity for the M:N borrowing relationship.\n\nc. PUBLISHER(PublisherID PK, PublisherName); BOOK(BookID PK, Title, PublisherID FK); MEMBER(MemberID PK, MemberName); LOAN(LoanID PK, MemberID FK, BookID FK, LoanDate, DueDate).",
+      "answer": "a) Entities: VENDOR with VEND_CODE, VEND_CONTACT, VEND_AREACODE and VEND_PHONE; PRODUCT with PROD_CODE, PROD_DESCRIPT, PROD_PRICE, PROD_ON_HAND and VEND_CODE. Relationship: VENDOR supplies PRODUCT. Cardinality: one VENDOR supplies many PRODUCTs (1:M).\n\nb) PRODUCT.VEND_CODE is a foreign key that must match an existing VENDOR.VEND_CODE or be null. Inserting a PRODUCT with a VEND_CODE that does not exist in VENDOR violates referential integrity; deleting a VENDOR that still has PRODUCTs also violates it unless the products are deleted or reassigned.\n\nc) VENDOR(VEND_CODE PK, VEND_CONTACT, VEND_AREACODE, VEND_PHONE); PRODUCT(PROD_CODE PK, PROD_DESCRIPT, PROD_PRICE, PROD_ON_HAND, VEND_CODE FK REFERENCES VENDOR(VEND_CODE)).",
       "marking_points": [
         {
           "part": "a",
           "marks": 8,
           "points": [
             "entities (2)",
-            "relationships (3)",
-            "cardinalities (3)"
+            "attributes (2)",
+            "relationship (2)",
+            "cardinality (2)"
           ]
         },
         {
           "part": "b",
           "marks": 6,
           "points": [
-            "four entities (2)",
-            "three relationships/cardinalities (3)",
-            "associative LOAN entity (1)"
+            "foreign-key constraint (3)",
+            "violation example (3)"
           ]
         },
         {
           "part": "c",
           "marks": 6,
           "points": [
-            "four relations (4)",
-            "PK/FK marks (2)"
+            "VENDOR relation and primary key (3)",
+            "PRODUCT relation, primary key and foreign key (3)"
           ]
         }
       ]
@@ -238,17 +367,37 @@
       "marks": 20,
       "generator_id": "ict450.normalization",
       "source": "ICT200/ICT450 KB Topic 5 Normalization",
-      "stem": "The relation ORDER(OrderID, CustomerID, CustomerName, ProductID, ProductName, Quantity, UnitPrice) has these functional dependencies: OrderID → CustomerID, CustomerName; CustomerID → CustomerName; ProductID → ProductName; (OrderID, ProductID) → Quantity, UnitPrice.",
+      "assets": [
+        {
+          "asset_id": "MU-B0051",
+          "kind": "table",
+          "label": "Table 1",
+          "caption": "Table 1 : Sample of college course information",
+          "img_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\ICT450\\1be6b100db081989909a\\assets\\seed_01_q4_asset_1.jpg",
+          "table_html": "<table><tr><td>Course Code</td><td>ICT450</td><td>Course Name</td><td colspan=\"2\">Database Design and Development</td></tr><tr><td>Tutor ID</td><td>306612</td><td>Tutor Name</td><td colspan=\"2\">Professor Albus Dumbledore</td></tr><tr><td colspan=\"5\"></td></tr><tr><td>Student ID</td><td>Student Name</td><td>DOB</td><td>Gender</td><td>Last Attendance Date</td></tr><tr><td>2016123456</td><td>Luke Skywalker</td><td>11.10.96</td><td>F</td><td>31.01.18</td></tr><tr><td>2016534363</td><td>Kylo Ren</td><td>12.12.96</td><td>F</td><td>15.01.18</td></tr><tr><td>2016788924</td><td>Thor Loki</td><td>27.06.96</td><td>F</td><td>31.01.18</td></tr><tr><td>2016329874</td><td>Clint Barton</td><td>31.08.96</td><td>F</td><td>17.01.18</td></tr><tr><td>2016324793</td><td>General Hux</td><td>23.05.96</td><td>F</td><td>23.01.18</td></tr><tr><td>2016479625</td><td>Leia Organa</td><td>17.02.96</td><td>M</td><td>15.01.18</td></tr><tr><td>2016328796</td><td>Hermione Granger</td><td>15.04.96</td><td>M</td><td>31.01.18</td></tr></table>",
+          "source_paper": "ICT450-2018-JUN",
+          "source_question": 2,
+          "source_page": 2,
+          "provenance": {
+            "parser": "mineru",
+            "model": "vlm",
+            "block_id": "B0051",
+            "page_idx": 2
+          }
+        }
+      ],
       "subparts": [
         {
           "part": "a",
           "marks": 4,
-          "text": "Identify the candidate key and all functional dependencies.",
-          "answer": "Candidate key: (OrderID, ProductID). FDs: OrderID → CustomerID, CustomerName; CustomerID → CustomerName; ProductID → ProductName; (OrderID, ProductID) → Quantity, UnitPrice.",
+          "text": "The spreadsheet in Table 1 shows course and student records for a college. Study Table 1 and identify the candidate key and all functional dependencies.",
+          "answer": "Relation: COURSE_RECORD(CourseCode, CourseName, TutorID, TutorName, StudentID, StudentName, DOB, Gender, LastAttendance). Candidate key: (CourseCode, StudentID). FDs: CourseCode -> CourseName, TutorID, TutorName; StudentID -> StudentName, DOB, Gender; (CourseCode, StudentID) -> LastAttendance.",
           "marking_points": [
             "candidate key (2)",
-            "FD list (2)"
-          ]
+            "functional dependencies (2)"
+          ],
+          "asset": true,
+          "children": []
         },
         {
           "part": "b",
@@ -259,39 +408,43 @@
             "1NF (2)",
             "2NF (2)",
             "3NF (2)"
-          ]
+          ],
+          "asset": false,
+          "children": []
         },
         {
           "part": "c",
           "marks": 4,
-          "text": "Identify the partial and transitive dependencies.",
-          "answer": "Partial: OrderID → CustomerID/CustomerName and ProductID → ProductName depend on part of the key. Transitive: OrderID → CustomerID → CustomerName.",
+          "text": "Identify the partial and transitive dependencies in Table 1.",
+          "answer": "Partial: CourseCode -> CourseName, TutorID, TutorName depends on part of the key; StudentID -> StudentName, DOB, Gender depends on part of the key. Transitive: CourseCode -> TutorID -> TutorName.",
           "marking_points": [
             "partial dependencies (2)",
             "transitive dependency (2)"
-          ]
+          ],
+          "asset": false,
+          "children": []
         },
         {
           "part": "d",
           "marks": 6,
-          "text": "Decompose the relation into 3NF relations.",
-          "answer": "CUSTOMER(CustomerID PK, CustomerName); PRODUCT(ProductID PK, ProductName); ORDER_HEADER(OrderID PK, CustomerID FK); ORDER_LINE(OrderID PK, ProductID PK, Quantity, UnitPrice, FKs to ORDER_HEADER and PRODUCT).",
+          "text": "Decompose Table 1 into 3NF relations. Show the primary and foreign keys.",
+          "answer": "COURSE(CourseCode PK, CourseName, TutorID FK); TUTOR(TutorID PK, TutorName); STUDENT(StudentID PK, StudentName, DOB, Gender); ATTENDANCE(CourseCode PK, StudentID PK, LastAttendance, FKs to COURSE and STUDENT).",
           "marking_points": [
-            "CUSTOMER (1.5)",
-            "PRODUCT (1.5)",
-            "ORDER_HEADER (1.5)",
-            "ORDER_LINE (1.5)"
-          ]
+            "four relations (4)",
+            "primary and foreign keys (2)"
+          ],
+          "asset": false,
+          "children": []
         }
       ],
-      "answer": "a. Candidate key: (OrderID, ProductID). FDs: OrderID → CustomerID, CustomerName; CustomerID → CustomerName; ProductID → ProductName; (OrderID, ProductID) → Quantity, UnitPrice.\n\nb. 1NF: all attributes are atomic. 2NF: 1NF and every non-key attribute is fully functionally dependent on the whole candidate key. 3NF: 2NF and no non-key attribute is transitively dependent on the key.\n\nc. Partial: OrderID → CustomerID/CustomerName and ProductID → ProductName depend on part of the key. Transitive: OrderID → CustomerID → CustomerName.\n\nd. CUSTOMER(CustomerID PK, CustomerName); PRODUCT(ProductID PK, ProductName); ORDER_HEADER(OrderID PK, CustomerID FK); ORDER_LINE(OrderID PK, ProductID PK, Quantity, UnitPrice, FKs to ORDER_HEADER and PRODUCT).",
+      "answer": "a) Relation: COURSE_RECORD(CourseCode, CourseName, TutorID, TutorName, StudentID, StudentName, DOB, Gender, LastAttendance). Candidate key: (CourseCode, StudentID). FDs: CourseCode -> CourseName, TutorID, TutorName; StudentID -> StudentName, DOB, Gender; (CourseCode, StudentID) -> LastAttendance.\n\nb) 1NF: all attributes are atomic. 2NF: 1NF and every non-key attribute is fully functionally dependent on the whole candidate key. 3NF: 2NF and no non-key attribute is transitively dependent on the key.\n\nc) Partial: CourseCode -> CourseName, TutorID, TutorName depends on part of the key; StudentID -> StudentName, DOB, Gender depends on part of the key. Transitive: CourseCode -> TutorID -> TutorName.\n\nd) COURSE(CourseCode PK, CourseName, TutorID FK); TUTOR(TutorID PK, TutorName); STUDENT(StudentID PK, StudentName, DOB, Gender); ATTENDANCE(CourseCode PK, StudentID PK, LastAttendance, FKs to COURSE and STUDENT).",
       "marking_points": [
         {
           "part": "a",
           "marks": 4,
           "points": [
             "candidate key (2)",
-            "FD list (2)"
+            "functional dependencies (2)"
           ]
         },
         {
@@ -315,10 +468,8 @@
           "part": "d",
           "marks": 6,
           "points": [
-            "CUSTOMER (1.5)",
-            "PRODUCT (1.5)",
-            "ORDER_HEADER (1.5)",
-            "ORDER_LINE (1.5)"
+            "four relations (4)",
+            "primary and foreign keys (2)"
           ]
         }
       ]
@@ -331,16 +482,39 @@
       "marks": 20,
       "generator_id": "ict450.database_design",
       "source": "ICT200/ICT450 KB Topic 6 Database Design",
-      "stem": "Sri Murni Health Clinic is planning a database for patients, doctors, appointments and prescriptions. The project will follow the database life cycle.",
+      "assets": [
+        {
+          "asset_id": "MU-B0042",
+          "kind": "image",
+          "label": "Figure 1",
+          "caption": "Figure 1 : Database Design Process",
+          "img_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\ICT450\\1be6b100db081989909a\\assets\\seed_01_q5_asset_1.jpg",
+          "table_html": "",
+          "source_paper": "ICT450-2024-JAN",
+          "source_question": 1,
+          "source_page": 2,
+          "provenance": {
+            "parser": "mineru",
+            "model": "vlm",
+            "block_id": "B0042",
+            "page_idx": 2
+          }
+        }
+      ],
       "subparts": [
         {
           "part": "a",
           "marks": 8,
-          "text": "List FOUR phases of the database life cycle and state one activity in each.",
-          "answer": "Database initial study, database design, implementation and loading, testing and evaluation, operation, maintenance and evolution. Activities include requirements analysis, conceptual/logical design, creating storage structures, loading data, testing, and tuning.",
+          "text": "Figure 1 shows the database design process. Explain FOUR activities carried out during the database design phase.",
+          "answer": "Conceptual design: identify entities, attributes and relationships and build a conceptual model. Logical design: map the conceptual model to a relational schema, choose keys and normalize. Physical design: choose storage structures, indexes, file organisation and access paths. Implementation: create the database objects and load the data.",
           "marking_points": [
-            "four phases x 2 marks (phase + activity)"
-          ]
+            "conceptual design (2)",
+            "logical design (2)",
+            "physical design (2)",
+            "implementation (2)"
+          ],
+          "asset": true,
+          "children": []
         },
         {
           "part": "b",
@@ -350,7 +524,9 @@
           "marking_points": [
             "SDLC scope (2)",
             "DBLC scope (2)"
-          ]
+          ],
+          "asset": false,
+          "children": []
         },
         {
           "part": "c",
@@ -360,7 +536,9 @@
           "marking_points": [
             "top-down (2)",
             "bottom-up (2)"
-          ]
+          ],
+          "asset": false,
+          "children": []
         },
         {
           "part": "d",
@@ -370,16 +548,21 @@
           "marking_points": [
             "centralized (2)",
             "decentralized (2)"
-          ]
+          ],
+          "asset": false,
+          "children": []
         }
       ],
-      "answer": "a. Database initial study, database design, implementation and loading, testing and evaluation, operation, maintenance and evolution. Activities include requirements analysis, conceptual/logical design, creating storage structures, loading data, testing, and tuning.\n\nb. SDLC covers the whole information-system life cycle; DBLC focuses on the database component within that system and runs through its own design, implementation, testing, operation and maintenance phases.\n\nc. Top-down starts from the overall data model and breaks it into components. Bottom-up starts from individual data elements and combines them into a model.\n\nd. Centralized design is controlled by one design team or location. Decentralized design distributes design work across teams or locations and requires reconciliation.",
+      "answer": "a) Conceptual design: identify entities, attributes and relationships and build a conceptual model. Logical design: map the conceptual model to a relational schema, choose keys and normalize. Physical design: choose storage structures, indexes, file organisation and access paths. Implementation: create the database objects and load the data.\n\nb) SDLC covers the whole information-system life cycle; DBLC focuses on the database component within that system and runs through its own design, implementation, testing, operation and maintenance phases.\n\nc) Top-down starts from the overall data model and breaks it into components. Bottom-up starts from individual data elements and combines them into a model.\n\nd) Centralized design is controlled by one design team or location. Decentralized design distributes design work across teams or locations and requires reconciliation.",
       "marking_points": [
         {
           "part": "a",
           "marks": 8,
           "points": [
-            "four phases x 2 marks (phase + activity)"
+            "conceptual design (2)",
+            "logical design (2)",
+            "physical design (2)",
+            "implementation (2)"
           ]
         },
         {
@@ -529,5 +712,8 @@
     ],
     "notes": "Five 20-mark structured questions. Topic order is a seeded weighted sample without replacement from the 60-question log. Every slot needs the grounded theory generator at Stage 6."
   },
-  "notes": "Five deterministic 20-mark structured questions. Each subpart has a model answer and marking points. No LLM was used."
+  "notes": "Five deterministic 20-mark structured questions. Each question reuses a past-paper table, figure or diagram from the MinerU cache. No LLM was used.",
+  "asset_count": 6,
+  "table_count": 4,
+  "figure_count": 2
 }

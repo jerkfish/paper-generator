@@ -14,6 +14,10 @@ def test_generate_seed_one_is_complete():
         assert sum(part["marks"] for part in question["subparts"]) == 20
         assert question["answer"].strip()
         assert all(point["points"] for point in question["marking_points"])
+        assert question["assets"], question["topic"]
+        for asset in question["assets"]:
+            assert asset["source_paper"].startswith("ICT450-")
+            assert __import__("pathlib").Path(asset["img_path"]).is_file()
 
 
 def test_generate_is_deterministic():

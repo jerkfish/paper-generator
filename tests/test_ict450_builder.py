@@ -1,6 +1,8 @@
 """ICT450 Stage-7 DOCX/QA builder tests (no PDF export)."""
 from __future__ import annotations
 
+import json
+
 from src.subjects.ict450.build_docx import _docx_text, build_seed
 
 
@@ -18,6 +20,17 @@ def test_build_seed_docx_and_scheme(tmp_path):
     assert "QUESTION 5" in paper_text
     assert "CSC662" not in paper_text
     assert "PART A (10 Questions)" not in paper_text
+    assert "Table 1" in paper_text
+    assert "Figure 1" in paper_text
     assert "MARKING SCHEME" in scheme_text
     assert "CSC662" not in scheme_text
     assert "Five questions x 20 marks = 100 marks." in scheme_text
+    assert "Marking points:" in scheme_text
+    meta = json.loads((tmp_path / "meta.json").read_text(encoding="utf-8"))
+    assert meta["asset_count"] == 6
+    assert meta["table_count"] == 4
+    assert meta["figure_count"] == 2
+    assert result["paper_docx"]["tables"] >= 4
+    assert result["paper_docx"]["images"] >= 2
+    assets = list((tmp_path / "assets").glob("seed_01_q*_asset_*"))
+    assert len(assets) == 6

@@ -21,10 +21,12 @@ from pathlib import Path
 
 import docx
 import pymupdf
+from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_TAB_ALIGNMENT
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Inches, Pt
+from lxml import html as lxml_html
 from PIL import Image
 
 from src import config
@@ -50,7 +52,9 @@ def _replace_text_nodes(xml: str) -> str:
         ("FEBRUARY", "MOCK"),
         ("FEB", "MOCK"),
         ("OCTOBER ", ""),
+        ("OCT\xa0", ""),
         ("OCT ", ""),
+        ("OCT", ""),
     )
     pattern = re.compile(r"(<w:t\b[^>]*>)(.*?)(</w:t>)", re.S)
 
@@ -63,6 +67,46 @@ def _replace_text_nodes(xml: str) -> str:
     return pattern.sub(replace, xml)
 
 
+def _shrink_cover_course(xml: str) -> str:
+    """Fit the ICT450 course name and code into the fixed cover value box.
+
+    The CSC662 cover stores ``COMPUTER SECURITY`` on one line and lets
+    ``CSC662 FEBRUARY 2026`` wrap after the code.  ``DATABASE DESIGN AND
+    DEVELOPMENT`` is much longer, so the value box is widened and the course
+    name is reduced to 7.5 pt.  A hard break after ``ICT450`` restores the
+    intended code/date alignment.
+    """
+    xml = xml.replace("width:2650", "width:3200")
+
+    def shrink(match):
+        run = match.group(0)
+        if "DATABASE DESIGN AND" in run or ">DEVELOPMENT<" in run:
+            run = run.replace('<w:sz w:val="23"/>', '<w:sz w:val="15"/>')
+            run = run.replace('<w:szCs w:val="23"/>',
+                              '<w:szCs w:val="15"/>')
+        return run
+
+    xml = re.sub(r"<w:r\b.*?</w:r>", shrink, xml, flags=re.S)
+    code_run = ('<w:r><w:rPr><w:rFonts w:ascii="Arial"/>'
+                '<w:color w:val="1C1C1C"/><w:sz w:val="23"/></w:rPr>'
+                '<w:t>ICT450</w:t></w:r>')
+    if "MARKING SCHEME" not in xml and code_run in xml:
+        xml = xml.replace(code_run, code_run + "<w:r><w:br/></w:r>", 1)
+    return xml
+
+
+def _widen_cover_code(xml: str) -> str:
+    """Keep the right-hand cover code on one line after the ICT450 patch.
+
+    The cover stores ``CS/FEB 2026/CSC662`` in a 103.5 pt text box anchored
+    420.9 pt from the page edge.  ``CS/MOCK 2026/ICT450`` is two characters
+    longer, so the box is widened to 122 pt and its left edge moved to keep
+    the right edge in the same place.
+    """
+    xml = xml.replace("margin-left:420.9pt", "margin-left:402.4pt")
+    return xml.replace("width:103.5pt", "width:122pt")
+
+
 def _patched_template(source: Path, target: Path) -> Path:
     target.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(source) as zin, zipfile.ZipFile(
@@ -72,7 +116,12 @@ def _patched_template(source: Path, target: Path) -> Path:
             if item.filename.startswith("word/") and item.filename.endswith(
                     ".xml"):
                 text = data.decode("utf-8", errors="replace")
-                data = _replace_text_nodes(text).encode("utf-8")
+                text = _replace_text_nodes(text)
+                if item.filename == "word/document.xml":
+                    text = _shrink_cover_course(text)
+                if re.match(r"word/header\d*\.xml$", item.filename):
+                    text = _widen_cover_code(text)
+                data = text.encode("utf-8")
             zout.writestr(item, data)
     return target
 
@@ -173,6 +222,44 @@ def _set_paragraph_text(paragraph, text: str) -> None:
         paragraph.add_run(text)
 
 
+def _fix_cover_header(doc) -> None:
+    """Replace the cover's fitted-space header with a right tab.
+
+    The template pads ``CONFIDENTIAL`` and the course code with a long run
+    of spaces.  The ICT450 code is slightly longer than CSC662, so that
+    paragraph wraps.  A right tab keeps both parts on one line.
+    """
+    for paragraph in doc.paragraphs:
+        text = paragraph.text
+        if text.startswith("CONFIDENTIAL") and "CS/MOCK" in text:
+            logo = None
+            for run in list(paragraph.runs):
+                if run._r.xpath(".//w:drawing") or run._r.xpath(".//w:pict"):
+                    logo = run
+                    continue
+                run._r.getparent().remove(run._r)
+            paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
+            pf = paragraph.paragraph_format
+            pf.tab_stops.clear_all()
+            pf.tab_stops.add_tab_stop(Inches(2.835),
+                                      WD_TAB_ALIGNMENT.LEFT)
+            pf.tab_stops.add_tab_stop(Inches(6.5), WD_TAB_ALIGNMENT.RIGHT)
+            left = paragraph.add_run("CONFIDENTIAL")
+            left.font.name = "Arial"
+            left.font.size = Pt(10)
+            tab_left = paragraph.add_run()
+            tab_left._r.append(OxmlElement("w:tab"))
+            tab_right = paragraph.add_run()
+            tab_right._r.append(OxmlElement("w:tab"))
+            code = paragraph.add_run("CS/MOCK 2026/ICT450")
+            code.font.name = "Arial"
+            code.font.size = Pt(10)
+            if logo is not None:
+                logo._r.addprevious(left._r)
+                logo._r.addprevious(tab_left._r)
+            break
+
+
 def _fix_cover_instructions(doc) -> None:
     remove = []
     for paragraph in doc.paragraphs:
@@ -187,11 +274,13 @@ def _fix_cover_instructions(doc) -> None:
         paragraph._element.getparent().remove(paragraph._element)
 
 
-def _strip_after(doc, marker: str) -> None:
+def _strip_after(doc, marker: str, *, exact: bool = False,
+                 include_marker: bool = False) -> None:
     """Drop the template's old paper/scheme body, keeping the cover."""
     marker_paragraph = None
     for paragraph in doc.paragraphs:
-        if marker in paragraph.text:
+        text = paragraph.text.strip()
+        if (text == marker) if exact else (marker in text):
             marker_paragraph = paragraph._p
             break
     if marker_paragraph is None:
@@ -201,6 +290,8 @@ def _strip_after(doc, marker: str) -> None:
     for child in list(body):
         if child is marker_paragraph:
             started = True
+            if include_marker:
+                body.remove(child)
             continue
         if started and child.tag != qn("w:sectPr"):
             body.remove(child)
@@ -257,15 +348,89 @@ def _picture_size(path: Path, max_width: float, max_height: float) -> tuple:
     return draw_width, draw_height
 
 
+def _table_specs(table_html: str) -> tuple[list[tuple], int, int]:
+    """Turn MinerU table HTML into (row, col, rowspan, colspan, text) cells."""
+    root = lxml_html.fromstring(table_html)
+    rows = root.xpath(".//tr")
+    specs: list[tuple] = []
+    occupied: set[tuple[int, int]] = set()
+    ncols = 0
+    for row_index, row in enumerate(rows):
+        col = 0
+        for cell in row.xpath("./td|./th"):
+            while (row_index, col) in occupied:
+                col += 1
+            colspan = max(1, int(cell.get("colspan") or 1))
+            rowspan = max(1, int(cell.get("rowspan") or 1))
+            text = " ".join("".join(cell.itertext()).split())
+            specs.append((row_index, col, rowspan, colspan, text))
+            for dr in range(rowspan):
+                for dc in range(colspan):
+                    occupied.add((row_index + dr, col + dc))
+            ncols = max(ncols, col + colspan)
+            col += colspan
+    nrows = max([len(rows)] + [r + 1 for r, _ in occupied])
+    return specs, nrows, ncols
+
+
+def _set_table_borders(table) -> None:
+    borders = OxmlElement("w:tblBorders")
+    for edge in ("top", "left", "bottom", "right", "insideH", "insideV"):
+        element = OxmlElement(f"w:{edge}")
+        element.set(qn("w:val"), "single")
+        element.set(qn("w:sz"), "4")
+        element.set(qn("w:space"), "0")
+        element.set(qn("w:color"), "000000")
+        borders.append(element)
+    table._tbl.tblPr.append(borders)
+
+
+def _add_html_table(doc, asset: dict) -> None:
+    """Render the table content MinerU extracted, not its screenshot."""
+    specs, nrows, ncols = _table_specs(asset["table_html"])
+    if not specs or ncols <= 0:
+        return
+    table = doc.add_table(rows=nrows, cols=ncols)
+    _set_table_borders(table)
+    table.alignment = WD_TABLE_ALIGNMENT.CENTER
+    table.autofit = True
+    size = 8.0 if ncols >= 5 else 9.0
+    headers = {"student id", "student_ic", "course_id", "course code",
+               "customer no", "item", "staff id"}
+    for row_index, col, rowspan, colspan, text in specs:
+        cell = table.cell(row_index, col)
+        if rowspan > 1 or colspan > 1:
+            cell = cell.merge(
+                table.cell(row_index + rowspan - 1, col + colspan - 1))
+        cell.text = ""
+        paragraph = cell.paragraphs[0]
+        paragraph.paragraph_format.space_before = Pt(1)
+        paragraph.paragraph_format.space_after = Pt(1)
+        if text:
+            run = paragraph.add_run(text)
+            run.font.name = "Arial"
+            run.font.size = Pt(size)
+            first = text.strip().lower()
+            if row_index == 0 or first in headers:
+                run.bold = True
+        paragraph.paragraph_format.keep_with_next = True
+    for row in table.rows:
+        trpr = row._tr.get_or_add_trPr()
+        trpr.append(OxmlElement("w:cantSplit"))
+
+
 def _add_assets(doc, assets: list[dict], *, max_width: float = 5.6,
                 max_height: float = 3.4) -> None:
     for asset in assets:
-        path = Path(asset.get("img_path") or "")
-        if not path.is_file():
-            continue
         caption = asset.get("caption") or asset.get("label") or "Figure"
         _para(doc, caption, size=10, bold=True,
               align=WD_ALIGN_PARAGRAPH.CENTER, before=8, after=3, keep=True)
+        if asset.get("table_html"):
+            _add_html_table(doc, asset)
+            continue
+        path = Path(asset.get("img_path") or "")
+        if not path.is_file():
+            continue
         width, height = _picture_size(path, max_width, max_height)
         paragraph = doc.add_paragraph()
         paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -309,13 +474,16 @@ def build_paper_docx(paper: dict, out_docx: Path,
         patched = _patched_template(template, Path(tmp) / "template.docx")
         doc = docx.Document(str(patched))
     _fix_cover_instructions(doc)
-    _strip_after(doc, "DO NOT TURN THIS PAGE")
+    _fix_cover_header(doc)
+    _strip_after(doc, "This examination paper consists of")
     section = doc.sections[-1]
     _running_header_footer(section, "CS/MOCK 2026/ICT450")
     section.left_margin = Inches(1)
     section.right_margin = Inches(1)
-    section.top_margin = Inches(1)
+    section.top_margin = Inches(1.25)
     section.bottom_margin = Inches(1)
+    section.header_distance = Inches(0.55)
+    section.footer_distance = Inches(0.5)
     doc.add_page_break()
     for question in paper["questions"]:
         _question_heading(doc, question["question"])
@@ -361,12 +529,14 @@ def build_scheme_docx(paper: dict, out_docx: Path,
         _running_header_footer(section, "CS/MOCK 2026/ICT450")
         if index > 0:
             section.different_first_page_header_footer = False
-        section.left_margin = Inches(1)
-        section.right_margin = Inches(1)
-        section.top_margin = Inches(1)
-        section.bottom_margin = Inches(1)
+            section.left_margin = Inches(1)
+            section.right_margin = Inches(1)
+            section.top_margin = Inches(1.25)
+            section.bottom_margin = Inches(1)
+            section.header_distance = Inches(0.55)
+            section.footer_distance = Inches(0.5)
     for index, question in enumerate(paper["questions"]):
-        _question_heading(doc, question["question"], before=8)
+        _question_heading(doc, question["question"], before=16)
         _para(doc, question["topic_label"], italic=True, size=9.5, after=4)
         for label, leaf in _iter_leaves(question["subparts"]):
             _para(doc, f"{label}) {leaf['answer']}", size=10, after=2)
@@ -380,10 +550,11 @@ def build_scheme_docx(paper: dict, out_docx: Path,
     return out_docx
 
 
-def _validate_docx(path: Path, *, scheme: bool,
-                   expected_assets: int = 0) -> dict:
+def _validate_docx(path: Path, *, scheme: bool, expected_tables: int = 0,
+                   expected_figures: int = 0) -> dict:
     result = {"path": str(path), "exists": path.is_file(),
-              "xml_valid": False, "sections": 0, "images": 0, "problems": []}
+              "xml_valid": False, "sections": 0, "images": 0, "tables": 0,
+              "problems": []}
     if not path.is_file():
         result["problems"].append("DOCX is missing")
         return result
@@ -391,6 +562,7 @@ def _validate_docx(path: Path, *, scheme: bool,
         document = docx.Document(str(path))
         result["sections"] = len(document.sections)
         result["images"] = len(document.inline_shapes)
+        result["tables"] = len(document.tables)
         with zipfile.ZipFile(path) as archive:
             archive.namelist()
         result["xml_valid"] = True
@@ -406,11 +578,16 @@ def _validate_docx(path: Path, *, scheme: bool,
         for number in ("QUESTION 1", "QUESTION 5"):
             if number not in text:
                 result["problems"].append(f"{number} heading missing")
-        if expected_assets and result["images"] < expected_assets:
+        if expected_tables and result["tables"] < expected_tables:
             result["problems"].append(
-                f"expected {expected_assets} embedded assets, "
+                f"expected {expected_tables} native tables, "
+                f"found {result['tables']}")
+        if expected_figures and result["images"] < expected_figures:
+            result["problems"].append(
+                f"expected {expected_figures} embedded figures, "
                 f"found {result['images']}")
-        if expected_assets and "Table 1" not in text and "Figure 1" not in text:
+        if (expected_tables or expected_figures) and "Table 1" not in text \
+                and "Figure 1" not in text:
             result["problems"].append("asset captions missing")
     for token in FORBIDDEN:
         if token in text:
@@ -419,7 +596,7 @@ def _validate_docx(path: Path, *, scheme: bool,
 
 
 def _validate_pdf(path: Path, *, scheme: bool,
-                  expected_assets: int = 0) -> dict:
+                  expected_figures: int = 0) -> dict:
     result = {"path": str(path), "exists": path.is_file(), "pages": 0,
               "images": 0, "problems": []}
     if not path.is_file():
@@ -440,9 +617,9 @@ def _validate_pdf(path: Path, *, scheme: bool,
         result["problems"].append("ICT450 token missing from PDF")
     if scheme and "MARKING SCHEME" not in text:
         result["problems"].append("marking scheme heading missing from PDF")
-    if not scheme and expected_assets and result["images"] < expected_assets:
+    if not scheme and expected_figures and result["images"] < expected_figures:
         result["problems"].append(
-            f"expected {expected_assets} PDF images, "
+            f"expected {expected_figures} PDF figures, "
             f"found {result['images']}")
     return result
 
@@ -473,6 +650,10 @@ def build_seed(seed: int, out_dir: Path | None = None, export: bool = True,
             question.get("assets", []), out, seed, index)
     paper["asset_count"] = sum(
         len(question.get("assets", [])) for question in paper["questions"])
+    paper["table_count"] = sum(
+        1 for question in paper["questions"]
+        for asset in question.get("assets", []) if asset.get("table_html"))
+    paper["figure_count"] = paper["asset_count"] - paper["table_count"]
     (out / "paper.json").write_text(
         json.dumps(paper, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8")
@@ -480,12 +661,14 @@ def build_seed(seed: int, out_dir: Path | None = None, export: bool = True,
     scheme_docx = out / f"ICT450 Seed {seed:02d} 2026 - Marking Scheme.docx"
     build_paper_docx(paper, paper_docx)
     build_scheme_docx(paper, scheme_docx)
-    expected_assets = paper["asset_count"]
+    expected_tables = paper["table_count"]
+    expected_figures = paper["figure_count"]
     qa = {
         "subject": SUBJECT,
         "seed": seed,
-        "paper_docx": _validate_docx(paper_docx, scheme=False,
-                                     expected_assets=expected_assets),
+        "paper_docx": _validate_docx(
+            paper_docx, scheme=False, expected_tables=expected_tables,
+            expected_figures=expected_figures),
         "scheme_docx": _validate_docx(scheme_docx, scheme=True),
         "paper_pdf": {},
         "scheme_pdf": {},
@@ -502,7 +685,7 @@ def build_seed(seed: int, out_dir: Path | None = None, export: bool = True,
         _update_cover_pages(paper_docx, pages)
         pages = export_pdf(paper_docx, paper_pdf)
         qa["paper_pdf"] = _validate_pdf(paper_pdf, scheme=False,
-                                        expected_assets=expected_assets)
+                                        expected_figures=expected_figures)
         qa["paper_pdf"]["pages"] = pages
         scheme_pdf = scheme_docx.with_suffix(".pdf")
         scheme_pages = export_pdf(scheme_docx, scheme_pdf)
@@ -552,6 +735,8 @@ def build_seed(seed: int, out_dir: Path | None = None, export: bool = True,
         "created": created,
         "year": utc_year(created),
         "asset_count": paper["asset_count"],
+        "table_count": paper["table_count"],
+        "figure_count": paper["figure_count"],
         "topic_marks": {
             question["topic"]: question["marks"]
             for question in paper["questions"]
@@ -565,6 +750,8 @@ def build_seed(seed: int, out_dir: Path | None = None, export: bool = True,
             "question_count": paper["question_count"],
             "topics": [question["topic"] for question in paper["questions"]],
             "assets": paper["asset_count"],
+            "tables": paper["table_count"],
+            "figures": paper["figure_count"],
             "qa_problems": qa["problems"],
         },
     }

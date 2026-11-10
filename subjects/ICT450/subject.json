@@ -112,7 +112,7 @@
       "basis": "owner instructed use of the standard marking-scheme format",
       "confirmed_by": "owner",
       "confirmed_on": "2026-11-09",
-      "notes": "Use data/reference/standard/UTM_STANDARD_MARKING_SCHEMEv2.docx; patch fields, do not create a bespoke cover."
+      "notes": "Use data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx; patch fields, do not create a bespoke cover."
     },
     "slides": {
       "allowed": true,
@@ -194,8 +194,15 @@
     "daily_limit_documents": 5000,
     "notes": "Owner selected VLM and approved processing the remaining papers. Local OCR was used only for the initial Stage 1 register/corpus before the MinerU directive; MinerU is the document parser for all 12 unique papers."
   },
-  "scheme_template_path": "data/reference/standard/UTM_STANDARD_MARKING_SCHEMEv2.docx",
-  "template_source": "data/reference/standard/UTM_STANDARD_COVERv2.docx",
+  "scheme_template_path": "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx",
+  "template_source": "data/reference/standard/UTM_STANDARD_COVER.docx",
+  "asset_bank": {
+    "module": "src/subjects/ict450/assets.py",
+    "topics": 7,
+    "assets": 9,
+    "source": "data/tracking/ict450/mineru/*/vlm_*/review/normalized.json",
+    "note": "Past-paper tables are rendered from MinerU table_html as native Word tables; figures reuse the MinerU image crops. No diagrams are redrawn."
+  },
   "topic_labels": {
     "database_concept": "CON",
     "data_model": "MOD",

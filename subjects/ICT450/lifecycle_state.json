@@ -2,9 +2,9 @@
   "schema_version": 1,
   "subject": "ICT450",
   "type": "C",
-  "template_path": "",
+  "template_path": "data/reference/ICT450/ICT450 TEMPLATE.docx",
   "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-09T08:16:42Z",
+  "updated": "2026-11-09T09:58:00Z",
   "stages": {
     "0_intake": {
       "status": "done",
@@ -81,9 +81,9 @@
         "approved": true,
         "by": "owner",
         "on": "2026-11-09",
-        "note": "Owner approved UTM_STANDARD_COVERv2.docx; installed as the ICT450 template. Structural check passes. Cover/reference tokens still say CSC662 and must be patched during assembly."
+        "note": "Owner initially approved the v2 cover, then rejected the Stage 7 output and instructed use of the old (non-v2) standard cover. The old UTM_STANDARD_COVER.docx is installed as the ICT450 template; the scheme uses UTM_STANDARD_MARKING_SCHEME.docx."
       },
-      "notes": "Template UTM_STANDARD_COVERv2.docx installed. xml_valid, 22 sections, 2 header parts, 3 footer parts, 1 image; no structural problems. Scheme v2 recorded at data/reference/standard/UTM_STANDARD_MARKING_SCHEMEv2.docx."
+      "notes": "Stage 3 revised: UTM_STANDARD_COVER.docx installed (v2 withdrawn by owner instruction). Structural check passes; the old cover carries CSC662 reference tokens that are patched during assembly. Scheme template is UTM_STANDARD_MARKING_SCHEME.docx."
     },
     "4_taxonomy_question_log": {
       "status": "done",
@@ -149,8 +149,13 @@
       "evidence": [
         "outputs/web_cache/ICT450/1be6b100db081989909a/meta.json",
         "outputs/web_cache/ICT450/1be6b100db081989909a/qa.json",
+        "outputs/web_cache/ICT450/1be6b100db081989909a/paper.json",
         "outputs/web_cache/ICT450/1be6b100db081989909a/ICT450 Seed 01 2026.pdf",
         "outputs/web_cache/ICT450/1be6b100db081989909a/ICT450 Seed 01 2026 - Marking Scheme.pdf",
+        "outputs/web_cache/ICT450/1be6b100db081989909a/assets/",
+        "data/tracking/ict450/qa_pages/rev10_paper_page_1.png",
+        "data/tracking/ict450/qa_pages/rev10_scheme_page_1.png",
+        "src/subjects/ict450/assets.py",
         "src/subjects/ict450/build_docx.py",
         "docs/ICT450.md"
       ],
@@ -163,9 +168,9 @@
         "approved": false,
         "by": "",
         "on": "",
-        "note": "Awaiting visual approval of the paper and scheme PDFs."
+        "note": "Revision 3 is awaiting visual approval. The previous v2-template build was rejected for template, question format and missing repurposed assets."
       },
-      "notes": "Seed 1 built: paper 6 pages, scheme 6 pages, QA 0 problems. Template body stripped to cover; running header/footer added; cover instructions and marking-scheme notes patched to ICT450. PDF export succeeded."
+      "notes": "Stage 7 revision 3 after two owner rejections. Uses the old non-v2 cover and marking-scheme templates. Questions follow the real ICT450 layout: no separate stem, lettered subparts with right-aligned marks, roman sub-subparts, and continuous flow. Six repurposed past-paper assets are embedded: Q1 spreadsheet Table 1, Q2 STUDENT and COURSE Tables 1-2, Q3 ERD Figure 1 (supplier/product question text), Q4 college-course Table 1 (college question text) and Q5 database-design-process Figure 1. Tables are rendered as native Word tables from MinerU table_html; figures use the image crops. Seed 1: paper 5 pages, scheme 6 pages, QA 0 problems, 4 native tables and 2 figures embedded. Awaiting visual approval."
     },
     "8_library_prebuild": {
       "status": "pending",
@@ -245,6 +250,13 @@
       "blocking": false,
       "opened": "2026-11-09",
       "path": "docs/ICT450.md"
+    },
+    {
+      "stage": "7_builders_qa",
+      "item": "The repurposed 2019-DEC ERD figure is a scanned past-paper crop; it is readable but low resolution. Confirm it is acceptable during the Stage 7 visual gate.",
+      "blocking": false,
+      "opened": "2026-11-09",
+      "path": "data/tracking/ict450/qa_pages/rev10_paper_page_4.png"
     }
   ],
   "llm_cost": {

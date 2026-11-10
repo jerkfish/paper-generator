@@ -83,7 +83,8 @@ def question_assets(topic: str, seed: int) -> list[dict]:
         return []
     rng = random.Random(int(seed) * 7919 + sorted(ASSET_POOLS).index(topic))
     indexes = list(range(len(pool)))
-    if topic != "data_model":
+    multi = topic in {"data_model", "relational"}
+    if not multi:
         rng.shuffle(indexes)
     index = asset_index()
     selected: list[dict] = []
@@ -101,12 +102,13 @@ def question_assets(topic: str, seed: int) -> list[dict]:
             "label": asset.get("label", ""),
             "caption": caption,
             "img_path": str(path.resolve()),
+            "table_html": asset.get("table_html", ""),
             "source_paper": paper_id,
             "source_question": asset.get("question_index"),
             "source_page": asset.get("page_idx"),
             "provenance": asset.get("provenance", {}),
         })
-        if topic != "data_model":
+        if not multi:
             break
     return selected
 
