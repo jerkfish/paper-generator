@@ -234,6 +234,35 @@ def test_owner_html_is_extracted_and_identical_recreations_merge(
     assert note == ""
 
 
+def test_scaling_fit_respects_the_content_box():
+    from src.subjects.ict450 import scaling
+
+    width, height, capped, _ = scaling._fit(20.0, 10.0)
+    assert width == 16.56
+    assert round(height, 2) == 8.28
+    assert capped == "width"
+
+    width, height, capped, _ = scaling._fit(10.0, 25.0)
+    assert height == 18.0
+    assert round(width, 2) == 7.2
+    assert capped == "height"
+
+    width, height, _, upscaled = scaling._fit(2.0, 2.0)
+    assert width == 6.0 and height == 6.0
+    assert upscaled is True
+
+
+def test_format_profile_is_five_questions_of_twenty_marks():
+    from src.subjects.ict450 import scaling
+
+    profile = scaling.format_profile()
+    assert profile["paper"]["content_width_cm"] == 16.56
+    assert profile["sections"] == [{"key": "Q", "questions": 5,
+                                    "marks_per_slot": 20}]
+    assert profile["total_marks"] == 100
+    assert profile["assets"]["max_height_cm"] == 18.0
+
+
 def test_manual_recreations_cover_the_assets_without_mineru_html():
     from src.subjects.ict450 import review
 

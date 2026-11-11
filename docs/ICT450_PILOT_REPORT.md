@@ -99,8 +99,29 @@ file that can be applied back to the bank.
 
 ## Gate A
 
-Status: **awaiting owner review of the 5 updated recreations**.
+Status: **approved by the owner on 2026-11-11**.
 
-55 questions are accepted. The 5 needs-fix questions remain unapproved until
-their updated recreation sheet is reviewed. Gate A is not approved; seeds,
-answers and templates remain blocked.
+All 60 questions are approved. The final export marked
+`2024-JAN-Q3/A12` as needs_fix and carried the wrong invoice HTML in the
+`2024-JUL-Q2/A14` notes; the owner’s message approved all five, so the
+normalised decisions accept the existing A12 recreation, keep the combined
+A14+A15 recreation, and record both corrections in
+`review_decisions_round3_normalized.json`.
+
+## V3 — format profile and scaling
+
+- `format_profile.json`: A4, 16.56 cm content width, five questions × 20 marks,
+  3 hours, QUESTION n / a), b), c) / i), ii) numbering.
+- `asset_scaling.json` and `asset_scaling.md`: 38 approved assets checked.
+  - 21 native tables at full 16.56 cm width, maximum 7 columns.
+  - 17 images sized between 11.18 and 16.56 cm wide; maximum height 18.0 cm.
+  - **0 warnings**; every asset fits the 16.56 × 24.32 cm content box.
+- `review/scaling_check.pdf`: one page per asset with the A4 content box and
+  the asset at its final size.
+
+**V3 is still open.** The paper template at
+`data/reference/ICT450/ICT450 TEMPLATE.docx` is a CSC662 cover
+(`CS/FEB 2026/CSC662`, PART A 10 questions, PART B 2 questions), and the
+standard cover copy is the same CSC662 file. It cannot be used for ICT450
+documents. V4 also has no official ICT450 scheme or answer source. No paper or
+scheme document has been generated.

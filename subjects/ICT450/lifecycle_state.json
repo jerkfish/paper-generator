@@ -47,14 +47,14 @@
       "notes": "12/12 unique papers extracted with MinerU vlm; full ZIP and review/EXTRACTION_REPORT.md kept per paper; 0 failures."
     },
     "V2_bank": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "data/tracking/ict450/v2/bank/index.json",
-        "data/tracking/ict450/v2/bank/unsure.json",
-        "data/tracking/ict450/v2/bank/duplicates.json",
         "data/tracking/ict450/v2/bank/gate1_report.json",
-        "data/tracking/ict450/v2/bank/gate1_report.md",
-        "data/tracking/ict450/v2/bank/review/index.html"
+        "data/tracking/ict450/v2/bank/review/index.html",
+        "data/tracking/ict450/v2/bank/review/needs_fix.html",
+        "data/tracking/ict450/v2/bank/review/review_decisions_round3_normalized.json",
+        "data/tracking/ict450/v2/bank/approvals.json"
       ],
       "llm_cost_usd": 0.0,
       "blockers": [],
@@ -65,13 +65,21 @@
         "on": "",
         "note": ""
       },
-      "notes": "Owner review round 2 imported: 55 approved, 5 needs_fix. Five owner-supplied HTML recreations are pending review; A14+A15 are combined. Gate A still pending."
+      "notes": "60/60 questions approved. 7 assets use original, 31 use approved recreations; A14+A15 combined. Gate A approved by owner on 2026-11-11."
     },
     "V3_format": {
-      "status": "pending",
-      "evidence": [],
+      "status": "in_progress",
+      "evidence": [
+        "data/tracking/ict450/v2/format_profile.json",
+        "data/tracking/ict450/v2/bank/asset_scaling.json",
+        "data/tracking/ict450/v2/bank/asset_scaling.md",
+        "data/tracking/ict450/v2/bank/review/scaling_check.html",
+        "data/tracking/ict450/v2/bank/review/scaling_check.pdf"
+      ],
       "llm_cost_usd": 0.0,
-      "blockers": [],
+      "blockers": [
+        "The paper template at data/reference/ICT450/ICT450 TEMPLATE.docx is a CSC662 cover (CS/FEB 2026/CSC662, PART A 10 questions, PART B 2 questions). Owner must confirm the ICT450 template or authorize patching the old standard cover."
+      ],
       "human_approval": {
         "required": false,
         "approved": false,
@@ -79,7 +87,7 @@
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "Format profile written: A4, 16.56 cm content width, five questions x 20 marks, 3 hours. 38 approved assets scaled: 21 native tables, 17 images, 0 warnings. Template confirmation is the remaining V3 blocker before document assembly."
     },
     "V4_answers": {
       "status": "pending",
@@ -154,10 +162,17 @@
   },
   "gates": {
     "A": {
-      "status": "pending",
-      "by": "",
-      "on": "",
-      "evidence": []
+      "status": "approved",
+      "by": "owner",
+      "on": "2026-11-11",
+      "evidence": [
+        "data/tracking/ict450/v2/bank/index.json",
+        "data/tracking/ict450/v2/bank/gate1_report.json",
+        "data/tracking/ict450/v2/bank/review/index.html",
+        "data/tracking/ict450/v2/bank/review/needs_fix.html",
+        "data/tracking/ict450/v2/bank/review/review_decisions_round3_normalized.json",
+        "data/tracking/ict450/v2/bank/approvals.json"
+      ]
     },
     "B": {
       "status": "pending",
@@ -174,8 +189,8 @@
   },
   "bank": {
     "questions": 60,
-    "approved": 55,
-    "needs_fix": 5,
+    "approved": 60,
+    "needs_fix": 0,
     "rejected": 0,
     "assets": 40,
     "duplicate_clusters": 0
@@ -187,14 +202,6 @@
     "human_checked": 0
   },
   "unsure": [
-    {
-      "stage": "V3_format",
-      "item": "Crest, cover and template files are unverified; reuse only after owner confirmation.",
-      "blocking": true,
-      "opened": "2026-11-11",
-      "path": "docs/archive/ict450_v1/UNVERIFIED_KEEP.json",
-      "note": "Not used in Phase 4; owner confirmation is required at V3."
-    },
     {
       "stage": "V2_bank",
       "code": "MARKS_MISMATCH",
@@ -280,12 +287,12 @@
       "note": "Dossier complete; month stays provisional"
     },
     {
-      "stage": "V2_bank",
-      "code": "FIX_REVIEW_PENDING",
-      "item": "5 owner-supplied HTML recreations are awaiting final review.",
+      "stage": "V3_format",
+      "code": "TEMPLATE_UNVERIFIED",
+      "item": "The paper template is a CSC662 cover, not an ICT450 paper; confirm the template or authorize patching the old standard cover.",
       "blocking": true,
       "opened": "2026-11-11",
-      "path": "data/tracking/ict450/v2/bank/review/needs_fix.html"
+      "path": "data/reference/ICT450/ICT450 TEMPLATE.docx"
     }
   ],
   "parser_provenance": [

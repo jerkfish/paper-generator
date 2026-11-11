@@ -75,7 +75,7 @@ def test_active_contract_is_v2_recycle():
     assert "V0_intake" in lifecycle["stages"]
     assert lifecycle["lifecycle_status"] in {
         "restarting_v2", "in_progress", "blocked"}
-    assert lifecycle["gates"]["A"]["status"] == "pending"
+    assert lifecycle["gates"]["A"]["status"] in {"pending", "approved"}
     assert lifecycle["gates"]["B"]["status"] == "pending"
     assert lifecycle["gates"]["C"]["status"] == "pending"
     assert int(lifecycle["bank"]["questions"]) >= 0

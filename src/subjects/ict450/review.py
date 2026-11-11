@@ -21,7 +21,7 @@ import subprocess
 from collections import Counter
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageChops
 
 from src import config
 from src.bank.store import BankStore, load_json, save_json
@@ -130,9 +130,12 @@ def apply_decisions(path: Path = DECISIONS) -> dict:
                 asset["recreation_status"] = (
                     "updated" if owner_html else "needs_more_work")
             else:
-                asset["selected_treatment"] = (
-                    "native_table" if asset.get("kind") == "table"
-                    else "html_recreation")
+                if asset.get("owner_recreation_file"):
+                    asset["selected_treatment"] = "html_recreation"
+                else:
+                    asset["selected_treatment"] = (
+                        "native_table" if asset.get("kind") == "table"
+                        else "html_recreation")
                 if fix_round:
                     asset["verdict"] = "approved"
                     asset["recreation_status"] = "approved"
@@ -432,6 +435,19 @@ def _thumb(asset: dict) -> str:
     return f"thumbs/{aid}.jpg"
 
 
+def trim_png(path: Path) -> None:
+    """Remove uniform outer margins from a rendered recreation."""
+    if not Path(path).is_file():
+        return
+    with Image.open(path) as source:
+        image = source.convert("RGB")
+    background = Image.new("RGB", image.size, image.getpixel((0, 0)))
+    diff = ImageChops.difference(image, background)
+    box = diff.getbbox()
+    if box and box != (0, 0, image.width, image.height):
+        image.crop(box).save(path, "PNG")
+
+
 def render_owner_pngs(assets: list[dict]) -> None:
     """Render owner HTML files to full-page PNGs for a clean print layout."""
     sources = [asset for asset in assets
@@ -470,6 +486,7 @@ def render_owner_pngs(assets: list[dict]) -> None:
                 if not written:
                     page.screenshot(path=str(target), full_page=True)
                 page.close()
+                trim_png(target)
         finally:
             browser.close()
 
