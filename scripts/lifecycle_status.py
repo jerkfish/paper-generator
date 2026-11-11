@@ -11,8 +11,14 @@ from pathlib import Path
 
 from src import config
 from src.subjects.lifecycle import (
+    GATE_KEYS,
+    GATE_TITLES,
     STAGE_BY_KEY,
+    STAGE_BY_KEY_V2,
     STAGE_KEYS,
+    STAGE_KEYS_V2,
+    gate_status,
+    is_v2,
     load_state,
     stage_blockers,
     status_report,
@@ -43,23 +49,25 @@ def report(root: Path, code: str) -> dict:
     data["registry_status"] = subject.status
     state = load_state(root, code)
     if state is not None:
+        v2 = is_v2(state)
+        keys = STAGE_KEYS_V2 if v2 else STAGE_KEYS
         data["lifecycle_status"] = state.get("lifecycle_status")
         data["stop_reason"] = state.get("stop_reason", "")
         if str(state.get("type", "")).upper() != subject.subject_type:
             data["blockers"].append(
                 "lifecycle type does not match subject.json type")
-        # Completed stages still need evidence and human signatures.
-        for key in STAGE_KEYS:
+        # Completed stages still need evidence and, for v1, signatures.
+        for key in keys:
             if key == data.get("next_stage"):
                 break
             problems = stage_blockers(state, key, root)
             data["blockers"].extend(f"{key}: {problem}"
                                     for problem in problems)
         next_key = data.get("next_stage")
-        if next_key in STAGE_KEYS:
-            index = STAGE_KEYS.index(next_key)
-            if index >= STAGE_KEYS.index("9_publish"):
-                data["blockers"].extend(_permission_blockers(subject))
+        publish_key = "V7_publish" if v2 else "9_publish"
+        if next_key in keys and keys.index(next_key) >= keys.index(
+                publish_key):
+            data["blockers"].extend(_permission_blockers(subject))
         data["unsure"] = [
             item for item in state.get("unsure") or []
             if item.get("blocking")
@@ -71,14 +79,28 @@ def report(root: Path, code: str) -> dict:
         data["stage_statuses"] = {
             key: (state.get("stages") or {}).get(key, {}).get(
                 "status", "pending")
-            for key in STAGE_KEYS
+            for key in keys
         }
+        if v2:
+            data["lifecycle_schema"] = 2
+            data["strategy"] = state.get("strategy")
+            data["gates"] = {key: gate_status(state, key)
+                             for key in GATE_KEYS}
+            data["gates_open"] = [key for key in GATE_KEYS
+                                  if not gate_status(state, key).get(
+                                      "status") == "approved"]
+            data["bank"] = dict(state.get("bank") or {})
+            data["answers"] = dict(state.get("answers") or {})
     return data
 
 
 def _print(data: dict) -> None:
+    v2 = data.get("lifecycle_schema") == 2
+    by_key = STAGE_BY_KEY_V2 if v2 else STAGE_BY_KEY
+    keys = STAGE_KEYS_V2 if v2 else STAGE_KEYS
     print(f"{data['subject']} type {data.get('type', '?')} "
-          f"registry={data.get('registry_status', '?')}")
+          f"registry={data.get('registry_status', '?')}"
+          + (" — schema v2 / recycle" if v2 else ""))
     if not data.get("initialized"):
         print("lifecycle_state.json: MISSING")
     if data.get("lifecycle_status") == "stopped":
@@ -91,18 +113,30 @@ def _print(data: dict) -> None:
     elif data.get("next_stage") is None:
         print("Next stage: none — lifecycle complete")
     else:
-        title = STAGE_BY_KEY[data["next_stage"]]["title"]
+        title = by_key[data["next_stage"]]["title"]
         human = " [HUMAN]" if data.get("human_checkpoint") else ""
         print(f"Next stage: {data['next_stage']} — {title}{human} "
               f"({data.get('status')})")
+        if data.get("next_gate"):
+            print(f"Stage gate: {data['next_gate']} "
+                  f"({GATE_TITLES[data['next_gate']]})")
+    if v2:
+        print("Gates:")
+        for key in GATE_KEYS:
+            gate = (data.get("gates") or {}).get(key) or {}
+            print(f"  Gate {key}: {gate.get('status', 'pending')} "
+                  f"({GATE_TITLES[key]})")
     blockers = data.get("blockers") or []
     print("Blockers:" if blockers else "Blockers: none")
     for blocker in blockers:
         print(f"  - {blocker}")
     if data.get("stage_statuses"):
         print("Stages:")
-        for key in STAGE_KEYS:
+        for key in keys:
             print(f"  {key:24} {data['stage_statuses'].get(key, 'pending')}")
+    if v2 and data.get("bank"):
+        bank = data["bank"]
+        print("Bank: " + ", ".join(f"{k}={v}" for k, v in bank.items()))
     unsure = data.get("unsure") or []
     if unsure:
         print(f"Open unsure items: {len(unsure)}")

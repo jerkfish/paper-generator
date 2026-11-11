@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import re
 import shutil
 import subprocess
 from pathlib import Path
@@ -20,6 +19,16 @@ from src import config
 from src.assemble.pdf_export import export_pdf
 from src.subjects import forbidden
 from src.subjects.csc429 import pure_config, pure_guard
+from src.assemble.recycle import (
+    REF_RE,
+    ROMAN_LABELS,
+    asset_mapping as _asset_mapping,
+    caption_text as _caption_text,
+    clean_question_text as _clean_question_text,
+    display_width as _display_width,
+    rewrite_references as _rewrite_refs,
+    split_subparts as _split_subparts,
+)
 from src.subjects.csc429 import seed_pilot as pilot
 
 TRACKING = config.TRACKING_DIR / "csc429"
@@ -32,9 +41,6 @@ TEMPLATES = TRACKING / "templates"
 PAPER_TEMPLATE = TEMPLATES / "paper_template_good_example_recreational.docx"
 SCHEME_TEMPLATE = TEMPLATES / "scheme_template_fix_wide_content.docx"
 OUT = config.PROJECT_ROOT / "outputs" / "pure_extraction" / "CSC429_all_seeds"
-
-REF_RE = re.compile(r"\b(Figure|Table)\s+(\d+)\b", re.I)
-
 
 def _load(path: Path, default):
     try:
@@ -140,28 +146,6 @@ def _question_heading(document, label, marks: int) -> None:
     mark.font.size = Pt(11)
 
 
-def _display_width(asset: dict, config_data: dict) -> float:
-    width = float(asset.get("width_px") or 0)
-    height = float(asset.get("height_px") or 0)
-    minimum = float(config_data.get("figure_min_width_cm", 6.0))
-    maximum = float(config_data.get("figure_max_width_cm", 16.2))
-    max_height = 18.0 if asset.get("kind") == "picture" else float(
-        config_data.get("figure_max_height_cm", 18.0))
-    if width <= 0 or height <= 0:
-        return minimum
-    aspect = width / height
-    area = width * height
-    chosen = 8.0 if area < 300_000 else 12.0
-    if aspect >= 4.5:
-        chosen = maximum
-    if asset.get("kind") == "table":
-        chosen = 12.0
-    chosen = max(minimum, min(maximum, chosen))
-    if chosen * height / width > max_height:
-        chosen = max_height * width / height
-    return round(max(minimum, chosen), 2)
-
-
 def _picture(document, path: Path, width_cm: float) -> None:
     paragraph = document.add_paragraph()
     paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -231,113 +215,6 @@ def _table(document, table_spec: dict, caption: str) -> None:
             for index, width in enumerate(widths[:columns]):
                 table.rows[r_index].cells[index].width = Cm(float(width))
     _para(document, "", after=4)
-
-
-def _inside(bbox: list, box: list) -> bool:
-    cx = (float(bbox[0]) + float(bbox[2])) / 2
-    cy = (float(bbox[1]) + float(bbox[3])) / 2
-    return box[0] <= cx <= box[2] and box[1] <= cy <= box[3]
-
-
-def _clean_question_text(question: dict, assets: dict[str, dict]) -> str:
-    spans = (question.get("native_text_blocks") or [{}])[0].get("spans") or []
-    if not spans:
-        return str((question.get("native_text_blocks") or [{}])[0].get(
-            "text", ""))
-    boxes = []
-    for aid in question.get("assets") or []:
-        asset = assets.get(aid)
-        if not asset:
-            continue
-        page = int(asset.get("page", 0))
-        for key in ("content_bbox", "caption_bbox"):
-            box = asset.get(key)
-            if box and len(box) == 4:
-                boxes.append((page, [float(value) for value in box]))
-    kept = []
-    for span in spans:
-        bbox = span.get("bbox")
-        page = int(span.get("page", 0))
-        if bbox and any(page == box_page and _inside(bbox, box)
-                        for box_page, box in boxes):
-            continue
-        text = str(span.get("text", "")).strip()
-        if text:
-            kept.append(text)
-    return chr(10).join(kept)
-
-
-def _rewrite_refs(text: str, mapping: dict[str, str]) -> str:
-    def replace(match):
-        old = f"{match.group(1).title()} {int(match.group(2))}"
-        return mapping.get(old, match.group(0))
-    return REF_RE.sub(replace, str(text or ""))
-
-
-def _caption_text(asset: dict, new_label: str) -> str:
-    caption = " ".join(str(asset.get("caption") or "").split())
-    old = str(asset.get("label") or "")
-    if old and caption.lower().startswith(old.lower()):
-        caption = new_label + caption[len(old):]
-    elif caption:
-        caption = f"{new_label}: {caption}"
-    else:
-        caption = new_label
-    return caption
-
-
-def _asset_mapping(question: dict, assets: dict[str, dict],
-                   fig_counter: list[int], table_counter: list[int]):
-    mapping = {}
-    ordered = []
-    for aid in question.get("assets") or []:
-        asset = assets.get(aid)
-        if not asset:
-            raise RuntimeError(f"missing asset {aid}")
-        if asset.get("kind") == "table":
-            table_counter[0] += 1
-            new = f"Table {table_counter[0]}"
-        else:
-            fig_counter[0] += 1
-            new = f"Figure {fig_counter[0]}"
-        old = str(asset.get("label") or "")
-        if old in mapping:
-            raise RuntimeError(f"duplicate asset label {old} in {question['id']}")
-        mapping[old] = new
-        ordered.append((asset, new))
-    return mapping, ordered
-
-
-ROMAN_LABELS = {"i", "ii", "iii", "iv", "v", "vi", "vii"}
-
-
-def _split_subparts(text: str, subparts: list[dict]) -> list[tuple[str, str]]:
-    labels = [str(part.get("label", "")).lower()
-              for part in subparts or []
-              if str(part.get("label", "")).lower() not in ("", "main")]
-    if not labels:
-        return [("", str(text or "").strip())]
-    ordered = sorted(set(labels), key=len, reverse=True)
-    alternatives = "|".join(re.escape(label) for label in ordered)
-    pattern = re.compile(
-        r"(?:(?<=\n)|^|(?<=[.!?]))\s*(?:\((?P<paren>"
-        + alternatives
-        + r")\)|(?P<close>" + alternatives + r")\))\s*",
-        re.I | re.M)
-    matches = list(pattern.finditer(text or ""))
-    if not matches:
-        return [("", str(text or "").strip())]
-    segments: list[tuple[str, str]] = []
-    preamble = (text or "")[:matches[0].start()].strip()
-    if preamble:
-        segments.append(("", preamble))
-    for index, match in enumerate(matches):
-        label = (match.group("paren") or match.group("close")).lower()
-        start = match.end()
-        end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
-        body = (text or "")[start:end].strip()
-        segments.append((label, body))
-    return segments
 
 
 def _add_question_text(document, question: dict) -> None:

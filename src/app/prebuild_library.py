@@ -20,6 +20,7 @@ from src import config
 from src.app.filenames import utc_year
 from src.app.jobs import cache_path
 from src.assemble.generic_build import build_paper, build_scheme
+from src.bank.gates import require_seed_gate
 from src.subjects.plugins import plugin_for, require_plugin
 from src.subjects.registry import (Subject, SubjectNotFound,
                                    default_subject_code, get_subject)
@@ -38,9 +39,15 @@ def build_scheme_only(seed: int,
                       subject: str | Subject | None = None) -> dict:
     """Rebuild only the scheme from stored plan/theory/cache paper."""
     record = _record(subject)
+    require_seed_gate(record.code, seed)
     plugin = plugin_for(record, "prebuild")
     if plugin is not None:
         return plugin(seed, scheme_only=True)
+    if record.strategy == "recycle":
+        raise SystemExit(
+            f"{record.code}: no recycle assembler is registered; a recycle "
+            "subject must build through its bank/assembler, not the LLM "
+            "prebuild path")
     inputs = require_plugin(record, "plan_inputs")(seed)
     plan = Path(inputs["plan"])
     theory = Path(inputs["theory"])
@@ -63,9 +70,15 @@ def build_scheme_only(seed: int,
 def build_seed(seed: int, force: bool = False,
                subject: str | Subject | None = None) -> dict:
     record = _record(subject)
+    require_seed_gate(record.code, seed)
     plugin = plugin_for(record, "prebuild")
     if plugin is not None:
         return plugin(seed, force=force)
+    if record.strategy == "recycle":
+        raise SystemExit(
+            f"{record.code}: no recycle assembler is registered; a recycle "
+            "subject must build through its bank/assembler, not the LLM "
+            "prebuild path")
     return _build_llm_seed(seed, force=force, record=record)
 
 

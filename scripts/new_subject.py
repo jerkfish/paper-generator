@@ -7,8 +7,12 @@ Worker.  Human checkpoints in ``docs/SUBJECT_PLAYBOOK.md`` still apply.
 
 Examples:
 
-    uv run python -m scripts.new_subject TEST000 --type C --dry-run
+    uv run python -m scripts.new_subject TEST000 --dry-run
+    uv run python -m scripts.new_subject TEST000 --title "Database Systems"
     uv run python -m scripts.new_subject CSC402 --type C --title "Programming I"
+
+Type D (the default) creates a schema-v2 lifecycle and an empty question bank;
+it never generates questions.
 """
 from __future__ import annotations
 
@@ -18,15 +22,16 @@ import re
 from pathlib import Path
 
 from src import config
-from src.subjects.lifecycle import new_state, save_state
+from src.subjects.lifecycle import new_state, new_state_v2, save_state
 from src.subjects.registry import load_subjects
 
-VALID_TYPES = {"A", "B", "C"}
+VALID_TYPES = {"A", "B", "C", "D"}
 CODE_RE = re.compile(r"^[A-Z][A-Z0-9]{2,9}$")
 TYPE_DESCRIPTION = {
     "A": "lecture slides + LLM theory",
     "B": "deterministic computed papers (no LLM)",
     "C": "hybrid: deterministic generators + LLM theory",
+    "D": "asset-first recycle of real past-paper questions (default)",
 }
 
 
@@ -47,6 +52,21 @@ def _permissions() -> dict:
 
 
 def _capabilities(subject_type: str) -> dict:
+    if subject_type == "D":
+        return {
+            "subject_type": "D",
+            "generation": "recycle",
+            "prebuild": "recycle_assembler",
+            "public_documents": "copy_cached",
+            "needs_llm": False,
+            "uses_slides": False,
+            "uses_past_papers": True,
+            "deterministic": True,
+            "practice_mode": False,
+            "placeholders": False,
+            "public_scheme_requires_quote_marker": False,
+            "planner_style": "modern",
+        }
     deterministic = subject_type == "B"
     return {
         "subject_type": subject_type,
@@ -77,6 +97,10 @@ def _plugins(code: str, subject_type: str) -> dict:
         "generator_labels": f"{base}:generator_labels",
         "topic_labels": f"{base}:topic_labels",
     }
+    if subject_type == "D":
+        # Recycle subjects use the shared bank/assembler; the subject module
+        # only carries labels and later subject-specific bank rules.
+        return plugins
     if subject_type in {"A", "C"}:
         plugins.update({
             "plan": f"{base}:plan",
@@ -92,8 +116,8 @@ def _plugins(code: str, subject_type: str) -> dict:
 
 def _subject_json(code: str, title: str, subject_type: str,
                   order: int) -> dict:
-    deterministic = subject_type == "B"
-    return {
+    deterministic = subject_type in {"B", "D"}
+    data = {
         "code": code,
         "title": title,
         "status": "coming_soon",
@@ -111,6 +135,20 @@ def _subject_json(code: str, title: str, subject_type: str,
         "permissions": _permissions(),
         "plugins": _plugins(code, subject_type),
     }
+    if subject_type == "D":
+        data.update({
+            "strategy": "recycle",
+            "variants": {"enabled": False},
+            "library": {"size_policy": "min(20, feasible)"},
+            "answers": {"sources": ["model_unofficial", "solver_verified"]},
+            "extraction": {
+                "method": "mineru",
+                "model": "vlm",
+                "keep_full_zip": True,
+                "fallback": "page_crop",
+            },
+        })
+    return data
 
 
 def _plugin_source(code: str, subject_type: str) -> str:
@@ -122,7 +160,19 @@ def _plugin_source(code: str, subject_type: str) -> str:
         '"""\n'
         "from __future__ import annotations\n\n"
     ) % code
-    if subject_type == "A":
+    if subject_type == "D":
+        body = '''
+# Recycle subjects keep their questions in the shared bank.  Subject-specific
+# extraction/normalisation rules may be added here later; generators are off.
+
+def generator_labels() -> dict:
+    return {}
+
+
+def topic_labels() -> dict:
+    return {}
+'''
+    elif subject_type == "A":
         body = '''
 
 def plan(mode: str, style: str, computed_marks: int | None, seed: int):
@@ -181,6 +231,37 @@ def topic_labels() -> dict:
 
 def _docs(code: str, title: str, subject_type: str,
           paths: list[str]) -> str:
+    if subject_type == "D":
+        lifecycle = """The first work item is **V0 intake and permissions**. The playbook has
+three human gates: **A** (bank approved), **B** (first seeds approved) and
+**C** (publish). Do not set the registry status to `available`, publish,
+upload or deploy until Gate C is recorded.
+
+Every question in a generated paper must be an approved real past-paper
+question from the bank. Generators are off (`variants.enabled` is false)."""
+        first = """# V0: record permissions and subject identity first
+uv run python -m scripts.lifecycle_status {code}
+
+# V1: MinerU dossier (per paper, full ZIP + page-crop fallback)
+# V2: build and review the bank; stop at Gate A
+
+# every stage: gates
+uv run python -m src.app.safety --check
+uv run pytest -q
+cd cloudflare/worker && bun test""".format(code=code)
+    else:
+        lifecycle = """The first work item is stage 0 intake. Do not set the registry status to
+`available`, publish, upload or deploy until every [HUMAN] gate is recorded."""
+        first = """# stage 1: register/dedupe/OCR working papers (no rename by default)
+uv run python -m src.subjects.preprocess --subject {code} --register --corpus
+
+# stage 3: inventory the template
+uv run python -m src.subjects.templates --subject {code} --check
+
+# every stage: gates
+uv run python -m src.app.safety --check
+uv run pytest -q
+cd cloudflare/worker && bun test""".format(code=code)
     return f"""# {code} — {title}
 
 Status: **coming_soon** (scaffolded, not onboarded).
@@ -196,13 +277,13 @@ Read `docs/SUBJECT_PLAYBOOK.md` before changing this subject, then
 uv run python -m scripts.lifecycle_status {code}
 ```
 
-The first work item is stage 0 intake. Do not set the registry status to
-`available`, publish, upload or deploy until every [HUMAN] gate is recorded.
+{lifecycle}
 
 ## Inputs
 
 - Working papers: `data/papers/{code}/` (originals are read-only)
 - Tracking artifacts: `data/tracking/{code.lower()}/`
+- Question bank (type D): `data/tracking/{code.lower()}/bank/`
 - Reference template: `data/reference/{code}/` (not created yet)
 - Lecture slides (type A/C): `data/lecturedecks/{code}/` (not created yet)
 
@@ -211,7 +292,8 @@ The first work item is stage 0 intake. Do not set the registry status to
 Subject-specific pipeline code belongs only in
 `src/subjects/{code.lower()}/`. Shared preprocessing is in
 `src/subjects/preprocess.py`, `src/subjects/templates.py` and
-`src/subjects/forbidden.py`.
+`src/subjects/forbidden.py`. Shared bank/assembler code is in `src/bank/`
+and `src/assemble/recycle.py`.
 
 ## Scaffold files
 
@@ -220,16 +302,7 @@ Subject-specific pipeline code belongs only in
 ## First commands after intake approval
 
 ```bash
-# stage 1: register/dedupe/OCR working papers (no rename by default)
-uv run python -m src.subjects.preprocess --subject {code} --register --corpus
-
-# stage 3: inventory the template
-uv run python -m src.subjects.templates --subject {code} --check
-
-# every stage: gates
-uv run python -m src.app.safety --check
-uv run pytest -q
-cd cloudflare/worker && bun test
+{first}
 ```
 """
 
@@ -242,21 +315,22 @@ def _plan(root: Path, code: str, title: str, subject_type: str,
     if order is None:
         order = max((s.order for s in subjects.values()), default=0) + 1
     subject = _subject_json(code, title, subject_type, order)
-    state = new_state(code, subject_type)
+    state = (new_state_v2(code, subject_type, title)
+             if subject_type == "D" else new_state(code, subject_type))
     package = root / "src" / "subjects" / code.lower()
+    scaffold_paths = [
+        f"subjects/{code}/subject.json",
+        f"subjects/{code}/lifecycle_state.json",
+        f"docs/{code}.md",
+        f"src/subjects/{code.lower()}/__init__.py",
+        f"src/subjects/{code.lower()}/plugin.py",
+        f"data/papers/{code}/",
+        f"data/tracking/{code.lower()}/",
+    ]
     files = {
         f"subjects/{code}/subject.json": json.dumps(subject, indent=2) + "\n",
         f"subjects/{code}/lifecycle_state.json": json.dumps(state, indent=2) + "\n",
-        f"docs/{code}.md": _docs(
-            code, title, subject_type, [
-                f"subjects/{code}/subject.json",
-                f"subjects/{code}/lifecycle_state.json",
-                f"docs/{code}.md",
-                f"src/subjects/{code.lower()}/__init__.py",
-                f"src/subjects/{code.lower()}/plugin.py",
-                f"data/papers/{code}/",
-                f"data/tracking/{code.lower()}/",
-            ]),
+        f"docs/{code}.md": _docs(code, title, subject_type, scaffold_paths),
         f"src/subjects/{code.lower()}/__init__.py": "",
         f"src/subjects/{code.lower()}/plugin.py": _plugin_source(
             code, subject_type),
@@ -268,6 +342,17 @@ def _plan(root: Path, code: str, title: str, subject_type: str,
     }
     directories = [str(package), str(root / "data" / "papers" / code),
                    str(root / "data" / "tracking" / code.lower())]
+    if subject_type == "D":
+        bank_root = root / "data" / "tracking" / code.lower() / "bank"
+        for name in ("questions", "assets", "plans", "review", "inbox"):
+            directories.append(str(bank_root / name))
+        files[f"data/tracking/{code.lower()}/bank/README.md"] = (
+            f"# {code} question bank\n\n"
+            "Questions, assets and plans live here. The bank is built from\n"
+            "MinerU extraction and reviewed at Gate A. Do not hand-write a\n"
+            "question that is not traceable to a source paper.\n")
+        files[f"data/tracking/{code.lower()}/bank/approvals.json"] = (
+            '{\n  "schema_version": 1,\n  "by_qid": {}\n}\n')
     return {
         "root": str(root),
         "code": code,
@@ -316,15 +401,19 @@ def _print_plan(plan: dict) -> None:
     print(json.dumps(plan["subject"], indent=2))
     print("\nsubjects/%s/lifecycle_state.json" % plan["code"])
     print(json.dumps(plan["lifecycle_state"], indent=2))
-    print("\nlifecycle: stage 0_intake is pending; all [HUMAN] gates unapproved")
+    if plan["type"] == "D":
+        print("\nlifecycle: schema v2, V0_intake in progress; Gates A/B/C pending")
+    else:
+        print("\nlifecycle: stage 0_intake is pending; all [HUMAN] gates unapproved")
     print("status remains coming_soon; no onboarding, LLM call, upload or deploy")
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("code")
-    ap.add_argument("--type", dest="subject_type", required=True,
-                    choices=sorted(VALID_TYPES))
+    ap.add_argument("--type", dest="subject_type", default="D",
+                    choices=sorted(VALID_TYPES),
+                    help="subject type; defaults to D (recycle)")
     ap.add_argument("--title", default="")
     ap.add_argument("--order", type=int, default=None)
     ap.add_argument("--dry-run", action="store_true")
