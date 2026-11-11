@@ -68,7 +68,7 @@
       "notes": "60/60 questions approved. 7 assets use original, 31 use approved recreations; A14+A15 combined. Gate A approved by owner on 2026-11-11."
     },
     "V3_format": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "data/tracking/ict450/v2/format_profile.json",
         "data/tracking/ict450/v2/template_check.json",
@@ -88,10 +88,10 @@
         "on": "",
         "note": ""
       },
-      "notes": "Owner supplied two docx files. They were CSC429-generated layouts with the cover fields already patched to ICT450. Clean templates were produced by replacing CSC429 with ICT450, changing the instructions to five questions, and removing the CSC429 body. Template check: xml_valid, 47 paragraphs, 2 sections, 4 images, no problems. Cover and page-2 transition rendered for owner review."
+      "notes": "Owner approved the clean cover and page-2 transition on 2026-11-11. Template check xml_valid, 47 paragraphs, 2 sections, 4 images, no problems. 38 assets scaled with 0 warnings."
     },
     "V4_answers": {
-      "status": "pending",
+      "status": "blocked",
       "evidence": [],
       "llm_cost_usd": 0.0,
       "blockers": [
@@ -104,13 +104,28 @@
         "on": "",
         "note": ""
       },
-      "notes": "Owner decision 2026-11-11: defer V4 until after the new template and format profile are settled."
+      "notes": "No scheme or answers are built in this phase."
     },
     "V5_seeds_1_3": {
-      "status": "pending",
-      "evidence": [],
+      "status": "in_progress",
+      "evidence": [
+        "outputs/ict450_pilot/seed_01/plan.json",
+        "outputs/ict450_pilot/seed_01/qa.json",
+        "outputs/ict450_pilot/seed_01/paper.pdf",
+        "outputs/ict450_pilot/seed_02/plan.json",
+        "outputs/ict450_pilot/seed_02/qa.json",
+        "outputs/ict450_pilot/seed_02/paper.pdf",
+        "outputs/ict450_pilot/seed_03/plan.json",
+        "outputs/ict450_pilot/seed_03/qa.json",
+        "outputs/ict450_pilot/seed_03/paper.pdf",
+        "docs/ICT450_QUESTION_PATTERN.md",
+        "data/tracking/ict450/v2/question_pattern.json"
+      ],
       "llm_cost_usd": 0.0,
-      "blockers": [],
+      "blockers": [
+        "V4 answers are deferred, so no marking scheme is built.",
+        "Gate B is not approved."
+      ],
       "human_approval": {
         "required": false,
         "approved": false,
@@ -118,7 +133,7 @@
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "Seeds rebuilt with the past-paper slot order: Q1 concepts, Q2 design theory, Q3 normalization, Q4 SQL, Q5 ERD. Three seeds, 100 marks each, five distinct source papers per seed, attachments audited 1/1, 3/3 and 2/2, QA clean. Formatting: one question per page (six pages per seed), Q4 relational schema in Consolas 10 pt with spaced captions, Q5 dash rules with space before the first and after the last. Gate B pending; V4 deferred."
     },
     "V6_library": {
       "status": "pending",
@@ -288,15 +303,6 @@
       "page": 1,
       "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2019-JUN\\vlm_c51270358e\\full.md",
       "note": "Dossier complete; month stays provisional"
-    },
-    {
-      "stage": "V3_format",
-      "code": "TEMPLATE_UNVERIFIED",
-      "item": "Owner-supplied templates were cleaned to ICT450; owner must approve the rendered cover and page-2 transition.",
-      "blocking": true,
-      "opened": "2026-11-11",
-      "path": "data/reference/ICT450/ICT450 TEMPLATE.docx",
-      "note": "Supplied files contained CSC429 body/header; cleaned copies are in data/reference/ICT450/*_CLEAN.docx."
     }
   ],
   "parser_provenance": [

@@ -14,7 +14,7 @@ from typing import Any
 
 QUESTION_STATUSES = {"extracted", "needs_fix", "approved", "rejected"}
 ASSET_KINDS = {
-    "picture", "figure", "diagram", "table", "equation",
+    "picture", "figure", "diagram", "table", "equation", "page_crop",
 }
 ANSWER_PROVENANCE = {
     "official", "solver_verified", "model_unofficial", "human_checked",

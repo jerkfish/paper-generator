@@ -1,0 +1,32 @@
+{
+  "subject": "ICT450",
+  "seed": 3,
+  "mode": "paper_only",
+  "v4_answers": "deferred",
+  "paper_pages": 6,
+  "questions": [
+    "ICT450-2026-FEB-Q1",
+    "ICT450-2025-JUL-Q2",
+    "ICT450-2018-DEC-Q4",
+    "ICT450-2019-DEC-Q3",
+    "ICT450-2018-JUN-Q5"
+  ],
+  "source_papers": [
+    "ICT450-2018-DEC",
+    "ICT450-2018-JUN",
+    "ICT450-2019-DEC",
+    "ICT450-2025-JUL",
+    "ICT450-2026-FEB"
+  ],
+  "files": {
+    "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\ict450_pilot\\seed_03\\paper.docx",
+    "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\ict450_pilot\\seed_03\\paper.pdf"
+  },
+  "assets": {
+    "expected": 2,
+    "inserted": 2,
+    "skipped": [],
+    "missing": []
+  },
+  "marks_total": 100
+}

@@ -138,5 +138,34 @@ Template check: `xml_valid`, 47 paragraphs, 2 sections, 4 images, cover text
 `CS/NOV 2026/ICT450`, five questions, no problems. Rendered previews:
 `outputs/review/ICT450/templates/` (cover, page-2 transition, scheme cover).
 
-V4 is **deferred**; no answer source has been selected. No paper or scheme
-document has been generated.
+V4 is **deferred**; no answer source has been selected.
+
+## V5 — paper-only seeds 1–3
+
+Three question-paper proofs were assembled from the approved bank using the
+clean template and the V3 display sizes:
+
+| Seed | Questions | Source papers | Pages | Images | QA |
+|---|---:|---:|---:|---:|---|
+| 1 | 5 × 20 marks | 5 distinct | 6 | 4 | clean |
+| 2 | 5 × 20 marks | 5 distinct | 6 | 4 | clean |
+| 3 | 5 × 20 marks | 5 distinct | 6 | 4 | clean |
+
+Each paper is six pages: the cover/instructions page plus one page per
+question. Q4 relational schemas are set in Consolas 10 pt with 6 pt between
+captions; Q5 dash lists have 10 pt of space before the first and after the last
+rule, with bullets normalised to `-`.
+
+- 56 of the 60 approved questions carry the 20-mark slot size.
+- Four approved questions (`2018-JUN-Q4`, `2023-FEB-Q1`, `2024-JAN-Q2`,
+  `2025-JUL-Q1`) have 14 or 16 extracted marks and are not selectable for a
+  20-mark slot without an owner tolerance.
+- The `TERDUKA` watermark picture and the duplicate 2025-JUL Table 1 fallback
+  are not inserted.
+- **No marking scheme was built** because V4 is deferred.
+
+PDFs: `outputs/review/ICT450/seeds_v2/seed_01.pdf`, `seed_02.pdf`,
+`seed_03.pdf` (the older wrong-order proofs in `seeds/` are superseded).
+Full report: `docs/ICT450_SEEDS_REPORT.md`.
+
+**Gate B is pending.** It cannot close while V4 (answers/scheme) is deferred.

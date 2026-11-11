@@ -147,10 +147,13 @@ def build_plans(questions: list[dict], requirements: list[SlotRequirement],
             topic_counts = Counter(
                 str(row.get("topic_primary") or row.get("topic") or "")
                 for row in chosen)
+            paper_counts = Counter(
+                str(row.get("source_paper") or "") for row in chosen)
 
             def score(row: dict):
                 qid = str(row.get("id"))
                 return (
+                    paper_counts[str(row.get("source_paper") or "")],
                     topic_counts[str(row.get("topic_primary")
                                      or row.get("topic") or "")],
                     uses[qid],
