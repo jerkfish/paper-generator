@@ -71,10 +71,10 @@ renumbered figure/table references.
 11. **Do not change finished subjects for a new onboarding task.** CSC402,
     CSC413, CSC429, CSC662 and MAT133 keep their current generation/Library
     behaviour unless the owner explicitly requests a migration.
-12. **New subject, new branch.** Before V0, create `subject/<CODE>` from
+12. **New subject, new branch.** Before V0, create `<CODE>` from
     `main`. All subject work happens on that branch. Merge into `main` only
     after the subject is marked complete (V8 close-out and Gate C). Use
-    `subject/<CODE>/exp-<topic>` or `subject/<CODE>/backup-<date>` for
+    `<CODE>/exp-<topic>` or `<CODE>/backup-<date>` for
     experiments and backups; sub-branches never merge directly into `main`.
 
 ## The three layers
@@ -313,15 +313,15 @@ any conditions. “Continue” is not an approval.
 
 ## Branching
 
-- **New subject:** create `subject/<CODE>` from `main` before V0. Put every
+- **New subject:** create `<CODE>` from `main` before V0. Put every
   subject-specific change — docs, `subject.json`, lifecycle state, bank,
   extraction artifacts that are tracked, subject code and tests — on that
   branch.
 - **Merge to main:** only after the subject is complete. Completion means V8
   close-out is done, Gate C is recorded, evidence exists and
   `lifecycle_status <CODE>` has no open stage.
-- **Sub-branches:** use `subject/<CODE>/exp-<topic>` for experiments or
-  `subject/<CODE>/backup-<date>` for backups. They branch from the subject
+- **Sub-branches:** use `<CODE>/exp-<topic>` for experiments or
+  `<CODE>/backup-<date>` for backups. They branch from the subject
   branch, never from `main`, and merge back into the subject branch after
   validation. A sub-branch never merges directly into `main`.
 - **No subject-specific commits on `main`.** Shared documentation or shared
@@ -358,7 +358,7 @@ a clean `main` branch.
 - All four permissions are present. None is `allowed: true` without a recorded
   basis.
 - `status` is still `coming_soon`.
-- The work is on `subject/<CODE>`, not on `main`.
+- The work is on `<CODE>`, not on `main`.
 - No original file is modified.
 - The owner has supplied or confirmed the paper/scheme/slide inputs.
 

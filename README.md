@@ -361,10 +361,10 @@ These rules apply to every contributor and every automated agent.
   and Gate C are the review points.
 - **No hard-coded subject lists.** Application code reads the registry or the
   generated `subjects.json`.
-- **New subject, new branch.** Create `subject/<CODE>` from `main` before V0;
+- **New subject, new branch.** Create `<CODE>` from `main` before V0;
   keep all subject work on that branch. Merge into `main` only after the
   subject is complete (V8 close-out + Gate C). Use
-  `subject/<CODE>/exp-<topic>` or `subject/<CODE>/backup-<date>` for
+  `<CODE>/exp-<topic>` or `<CODE>/backup-<date>` for
   experiments and backups; sub-branches never merge directly into `main`.
 - **Git commits follow the repository identity.** Commit as
   `konata1998 <jerkfish123@gmail.com>`. Do not push or pull; a human operator

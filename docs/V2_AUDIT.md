@@ -346,11 +346,11 @@ inventories the v1 material so the archive is complete.
 
 ### Phase 2b — archive ICT450 v1 (after Phase 1 approval, before the pilot)
 
-0. **Branch first.** Create `subject/ICT450` from `main`. Keep the archive,
+0. **Branch first.** Create `ICT450` from `main`. Keep the archive,
    reset, rejected registry and all later ICT450 work on that branch; merge
    into `main` only after ICT450 is complete (V8 + Gate C). Use
-   `subject/ICT450/exp-<topic>` or `subject/ICT450/backup-<date>` for
-   experiments/backups and merge those back into `subject/ICT450`, never
+   `ICT450/exp-<topic>` or `ICT450/backup-<date>` for
+   experiments/backups and merge those back into `ICT450`, never
    directly into `main`.
 1. **Move, do not delete.** Move all ICT450 v1 work to:
    - `docs/archive/ict450_v1/`
