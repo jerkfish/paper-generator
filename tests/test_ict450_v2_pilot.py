@@ -157,6 +157,34 @@ def test_review_decisions_update_statuses_and_keep_recreations_pending(
     assert saved_asset["recreation_status"] == "pending_review"
     assert (tmp_path / "bank" / "approvals.json").is_file()
 
+    fix = tmp_path / "fix_decisions.json"
+    fix.write_text(json.dumps({
+        "round": "fix_review",
+        "questions": {"ICT450-2023-FEB-Q1": {
+            "verdict": "approved",
+            "assets": {"ICT450-2023-FEB-A01": {
+                "choice": "use_recreation", "notes": "looks correct"}},
+        }}}), encoding="utf-8")
+    review.apply_decisions(fix)
+    saved_asset = bank.load_asset("ICT450-2023-FEB-A01")
+    assert saved_asset["verdict"] == "approved"
+    assert saved_asset["recreation_status"] == "approved"
+    assert saved_asset["review_notes"] == "looks correct"
+
+    more = tmp_path / "more_work.json"
+    more.write_text(json.dumps({
+        "round": "fix_review",
+        "questions": {"ICT450-2023-FEB-Q1": {
+            "verdict": "approved",
+            "assets": {"ICT450-2023-FEB-A01": {
+                "choice": "needs_more_work", "notes": "column width"}},
+        }}}), encoding="utf-8")
+    review.apply_decisions(more)
+    assert bank.load_question("ICT450-2023-FEB-Q1")["status"] == "needs_fix"
+    saved_asset = bank.load_asset("ICT450-2023-FEB-A01")
+    assert saved_asset["verdict"] == "pending"
+    assert saved_asset["recreation_status"] == "needs_more_work"
+
 
 def test_manual_recreations_cover_the_assets_without_mineru_html():
     from src.subjects.ict450 import review

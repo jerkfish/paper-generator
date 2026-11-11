@@ -88,13 +88,15 @@ The owner reviewed the bank on **2026-11-11**:
 - 25 questions need a second look (23 needs-fix plus 2 approved questions with
   recreation assets).
 
-A print pack with only those 25 questions is at
-`outputs/review/ICT450/needs_fix.pdf` (and `needs_fix.html`). It shows the
-original crop beside the HTML recreation, with a printed
-use / keep / needs-more-work line for each asset. Five assets had no MinerU
-table HTML and were transcribed into HTML from the source crop: the AB Bistro
-receipt, the database-design flowchart, the Sasa eStore invoice, Table 3 of
-2025-JUL, and Table 4 of 2025-JUL.
+An interactive review sheet with only those 25 questions is at
+`outputs/review/ICT450/needs_fix.html` (printed copy:
+`needs_fix.pdf`). Each asset has working
+use recreation / keep original / needs more work buttons and a notes field;
+**Export decisions JSON** downloads a `fix_review` file that can be applied
+back to the bank. Five assets had no MinerU table HTML and were transcribed
+into HTML from the source crop: the AB Bistro receipt, the database-design
+flowchart, the Sasa eStore invoice, Table 3 of 2025-JUL, and Table 4 of
+2025-JUL.
 
 ## Gate A
 

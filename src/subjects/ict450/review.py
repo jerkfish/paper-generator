@@ -47,12 +47,15 @@ def apply_decisions(path: Path = DECISIONS) -> dict:
     """Apply question/asset verdicts; recreations stay pending until reviewed."""
     payload = json.loads(Path(path).read_text(encoding="utf-8"))
     decisions = payload.get("questions") or {}
+    # The first review asks for a recreation.  The fix review accepts it.
+    fix_round = payload.get("round") == "fix_review"
     store = _store()
     approvals = load_json(store.approvals_path, {"schema_version": 1,
                                                  "by_qid": {}})
     approvals.setdefault("by_qid", {})
     counts = {"approved": 0, "needs_fix": 0, "rejected": 0,
-              "use_original": 0, "use_recreation": 0}
+              "use_original": 0, "use_recreation": 0,
+              "needs_more_work": 0}
     updated_questions = []
     for qid, decision in decisions.items():
         question = store.load_question(qid)
@@ -61,37 +64,61 @@ def apply_decisions(path: Path = DECISIONS) -> dict:
         verdict = str(decision.get("verdict") or "").strip()
         if verdict not in {"approved", "needs_fix", "rejected"}:
             raise SystemExit(f"{qid}: invalid verdict {verdict!r}")
-        question["status"] = verdict
         question["review_verdict"] = verdict
+        question["review_notes"] = str(decision.get("notes") or "")
         question["reviewed_on"] = REVIEWED_ON
         question["review_warnings"] = list(question.get("review_flags") or [])
         asset_decisions = dict(decision.get("assets") or {})
-        for aid, choice in asset_decisions.items():
+        needs_work = False
+        for aid, value in asset_decisions.items():
+            if isinstance(value, dict):
+                choice = str(value.get("choice") or "")
+                notes = str(value.get("notes") or "")
+            else:
+                choice = str(value or "")
+                notes = ""
             asset = store.load_asset(aid)
             if not asset:
                 raise SystemExit(f"{qid}: missing asset {aid}")
-            if choice not in {"use_original", "use_recreation"}:
+            if choice not in {"use_original", "use_recreation",
+                              "needs_more_work"}:
                 raise SystemExit(f"{aid}: invalid choice {choice!r}")
             asset["review_choice"] = choice
+            asset["review_notes"] = notes
             asset["reviewed_on"] = REVIEWED_ON
             counts[choice] += 1
             if choice == "use_original":
                 asset["verdict"] = "approved"
                 asset["selected_treatment"] = "crop"
                 asset["recreation_status"] = "not_needed"
-            else:
+            elif choice == "needs_more_work":
+                needs_work = True
                 asset["verdict"] = "pending"
+                asset["selected_treatment"] = "pending"
+                asset["recreation_status"] = "needs_more_work"
+            else:
                 asset["selected_treatment"] = (
                     "native_table" if asset.get("kind") == "table"
                     else "html_recreation")
-                asset["recreation_status"] = "pending_review"
+                if fix_round:
+                    asset["verdict"] = "approved"
+                    asset["recreation_status"] = "approved"
+                else:
+                    asset["verdict"] = "pending"
+                    asset["recreation_status"] = "pending_review"
             save_json(store.asset_path(aid), asset)
+        if needs_work:
+            verdict = "needs_fix"
+            question["review_verdict"] = "needs_fix"
+        question["status"] = verdict
         save_json(store.question_path(qid), question)
         approvals["by_qid"][qid] = {
             "verdict": verdict,
+            "notes": question["review_notes"],
             "assets": asset_decisions,
             "reviewed_on": REVIEWED_ON,
             "source": str(Path(path)),
+            "round": "fix_review" if fix_round else "bank_review",
         }
         counts[verdict] += 1
         updated_questions.append(qid)
@@ -115,8 +142,8 @@ def refresh_report() -> dict:
     choices = Counter(str(row.get("review_choice") or "unreviewed")
                       for row in assets)
     pending = [row["id"] for row in assets
-               if row.get("review_choice") == "use_recreation"
-               and row.get("recreation_status") == "pending_review"]
+               if row.get("recreation_status") in {"pending_review",
+                                                   "needs_more_work"}]
     index = load_json(BANK / "index.json", {})
     index.update({
         "status": dict(sorted(statuses.items())),
@@ -354,8 +381,9 @@ def _question_section(question: dict, assets: list[dict]) -> str:
         aid = html.escape(str(asset.get("id")))
         label = html.escape(str(asset.get("label") or asset.get("id")))
         choice = html.escape(str(asset.get("review_choice") or ""))
+        checked = "checked" if choice != "needs_more_work" else ""
         blocks.append(f"""
-        <div class="asset">
+        <div class="asset" data-aid="{aid}">
           <div class="asset-title">{label}
             <span class="tag">{qid}</span>
             <span class="tag">{html.escape(str(asset.get('kind')))}</span>
@@ -369,26 +397,43 @@ def _question_section(question: dict, assets: list[dict]) -> str:
               <div class="recreation">{_recreation_html(asset)}</div></div>
           </div>
           <div class="verdict-line">
-            Recreation review:
-            <span class="box"></span> use recreation
-            <span class="box"></span> keep original
-            <span class="box"></span> needs more work
-            &nbsp;&nbsp; Notes: ______________________________________
+            <label class="pick"><input type="radio"
+              name="choice-{qid}-{aid}" value="use_recreation" {checked}>
+              use recreation</label>
+            <label class="pick"><input type="radio"
+              name="choice-{qid}-{aid}" value="use_original">
+              keep original</label>
+            <label class="pick"><input type="radio"
+              name="choice-{qid}-{aid}" value="needs_more_work">
+              needs more work</label>
+            <textarea class="asset-notes" rows="2"
+              placeholder="Notes for this recreation"></textarea>
           </div>
         </div>
         """)
     warning_line = (
         f"<p class='warn'>Bank warnings: {html.escape('; '.join(warnings))}</p>"
         if warnings else "")
+    current = str(question.get("review_verdict") or "needs_fix")
+    options = "".join(
+        f'<option value="{value}"{" selected" if value == current else ""}>'
+        f"{value}</option>"
+        for value in ("approved", "needs_fix", "rejected"))
     return f"""
-    <section class="question">
+    <section class="question" data-qid="{qid}">
       <h2>{qid} <span class="marks">({question.get('marks')} marks)</span></h2>
       <p class="meta">Source: {html.escape(str(question.get('source_paper')))}
         · page {', '.join(str(page) for page in pages)}
-        · owner verdict: {html.escape(str(question.get('review_verdict')))}</p>
+        · previous verdict: {html.escape(current)}</p>
       {warning_line}
       <pre class="qtext">{text}</pre>
       {''.join(blocks) if blocks else "<p class='missing'>No recreation assets.</p>"}
+      <div class="question-verdict">
+        <label>Question verdict
+          <select class="question-choice">{options}</select></label>
+        <textarea class="question-notes" rows="2"
+          placeholder="Question notes (optional)"></textarea>
+      </div>
     </section>
     """
 
@@ -453,17 +498,82 @@ tr.total td {{ font-weight: bold; border-top: 2px solid #000; }}
 .flow-row .box.round {{ border-radius: 3mm; font-size: 8.5pt; }}
 .arrow {{ font-size: 18pt; text-align: center; }}
 .flow-down {{ text-align: center; font-size: 18pt; }}
-.verdict-line {{ margin-top: 2mm; font-size: 9pt; }}
-.box {{ display: inline-block; width: 3.5mm; height: 3.5mm;
-        border: 1px solid #000; vertical-align: -0.5mm; margin-left: 3mm; }}
+.verdict-line {{ margin-top: 2mm; font-size: 9pt;
+                 display: flex; flex-wrap: wrap; gap: 2mm 5mm;
+                 align-items: center; }}
+.pick {{ white-space: nowrap; }}
+textarea {{ width: 100%; font-family: Arial, sans-serif; font-size: 9pt;
+           margin-top: 1mm; }}
+.asset-notes {{ flex-basis: 100%; }}
+.question-verdict {{ border-top: 1px solid #999; margin-top: 3mm;
+                     padding-top: 2mm; }}
+.question-verdict label {{ font-weight: bold; }}
+select {{ font-size: 10pt; margin-left: 2mm; }}
+.toolbar {{ position: sticky; top: 0; background: #fff; padding: 3mm 0;
+            border-bottom: 1px solid #999; z-index: 10; }}
+.toolbar button {{ font-size: 11pt; padding: 2mm 5mm; cursor: pointer; }}
+#status {{ margin-left: 4mm; font-weight: bold; color: #1f6b1f; }}
 .missing {{ color: #8a1f1f; }}
-@media print {{ .question {{ page-break-after: always; }} }}
+@media print {{
+  .question {{ page-break-after: always; }}
+  .toolbar {{ display: none; }}
+  textarea {{ border: 1px solid #000; min-height: 8mm; }}
+}}
 </style></head><body>
+<div class="toolbar">
+  <button type="button" onclick="exportDecisions()">Export decisions JSON</button>
+  <span id="status"></span>
+</div>
 <h1>ICT450 — needs-fix review</h1>
-<p>Only questions with a needs-fix verdict or a “use recreation” asset.
-Review the HTML recreation against the original crop, mark the printed sheet,
-and return the decisions. {len(selected)} questions.</p>
+<p>Only questions with a needs-fix verdict or a “use recreation” asset. Review
+each HTML recreation against the original crop, choose a verdict, add notes,
+then press <b>Export decisions JSON</b>. {len(selected)} questions.</p>
 {sections}
+<div class="toolbar">
+  <button type="button" onclick="exportDecisions()">Export decisions JSON</button>
+  <span id="status-bottom"></span>
+</div>
+<script>
+function exportDecisions() {{
+  const questions = {{}};
+  let assetCount = 0;
+  document.querySelectorAll('section.question').forEach((node) => {{
+    const qid = node.dataset.qid;
+    const assets = {{}};
+    let needsWork = false;
+    node.querySelectorAll('.asset').forEach((asset) => {{
+      const aid = asset.dataset.aid;
+      const checked = asset.querySelector('input[type=radio]:checked');
+      const choice = checked ? checked.value : 'use_recreation';
+      if (choice === 'needs_more_work') needsWork = true;
+      assets[aid] = {{
+        choice: choice,
+        notes: asset.querySelector('.asset-notes').value.trim()
+      }};
+      assetCount += 1;
+    }});
+    const select = node.querySelector('.question-choice');
+    questions[qid] = {{
+      verdict: needsWork ? 'needs_fix' : select.value,
+      notes: node.querySelector('.question-notes').value.trim(),
+      assets: assets
+    }};
+  }});
+  const payload = {{subject: 'ICT450', round: 'fix_review',
+                    exported_on: new Date().toISOString().slice(0, 10),
+                    questions: questions}};
+  const blob = new Blob([JSON.stringify(payload, null, 2)],
+                        {{type: 'application/json'}});
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'review_decisions.json';
+  link.click();
+  const message = `Exported ${{Object.keys(questions).length}} questions, `
+    + `${{assetCount}} assets`;
+  document.getElementById('status').textContent = message;
+  document.getElementById('status-bottom').textContent = message;
+}}
+</script>
 </body></html>
 """
     out.parent.mkdir(parents=True, exist_ok=True)
