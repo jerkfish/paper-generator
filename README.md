@@ -389,6 +389,7 @@ actual LLM cost so far.
 |---|---|
 | `docs/SUBJECT_PLAYBOOK.md` | **Authoritative v2 stages V0–V8, gates A/B/C, bank/format/assembler rules** |
 | `docs/V2_AUDIT.md` | Phase 0 read-only audit of every subject, code reuse map and open decisions |
+| `docs/V2_REPORT.md` | Phase 2 shared bank/assembler/gate reports, CSC429 regression and test evidence |
 | `docs/archive/SUBJECT_PLAYBOOK_v1.md` | Archived v1 playbook, verbatim |
 | `docs/LIFECYCLE.md` | Local generation, public bundle, R2 and Worker operations |
 | `docs/<CODE>.md` | Per-subject decisions, commands, deviations and caveats |
