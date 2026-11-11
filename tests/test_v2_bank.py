@@ -231,6 +231,20 @@ def test_build_plans_refuses_when_reuse_cap_is_exhausted():
         build_plans(questions, requirements, seed_count=2, reuse_cap=1)
 
 
+def test_near_duplicate_pairs_are_reported_not_merged():
+    from src.bank.duplicates import near_duplicate_pairs
+
+    left = _question("Q1", text="Explain database normalisation and its "
+                                "normal forms with examples.")
+    right = _question("Q2", text="Explain database normalisation and its "
+                                 "normal forms using examples.")
+    other = _question("Q3", text="Write a SQL query for the loan table.")
+    pairs = near_duplicate_pairs([left, right, other])
+    assert any({pair["left"], pair["right"]} == {"Q1", "Q2"}
+               for pair in pairs)
+    assert all("Q3" not in {pair["left"], pair["right"]} for pair in pairs)
+
+
 def test_duplicate_clusters_pick_an_approved_canonical():
     same = "Explain database normalisation and its normal forms."
     questions = [

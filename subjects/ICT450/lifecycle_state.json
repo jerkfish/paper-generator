@@ -4,21 +4,21 @@
   "subject": "ICT450",
   "type": "D",
   "strategy": "recycle",
-  "lifecycle_status": "restarting_v2",
+  "lifecycle_status": "in_progress",
   "created": "2026-11-11T00:00:00Z",
   "updated": "2026-11-11T00:00:00Z",
   "stages": {
     "V0_intake": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "subjects/ICT450/subject.json",
-        "docs/archive/ict450_v1/MANIFEST.json",
-        "docs/archive/ict450_v1/UNVERIFIED_KEEP.json"
+        "docs/ICT450.md",
+        "data/tracking/ict450/v2/permissions_recheck.json",
+        "data/tracking/ict450/v2/papers_register.json",
+        "data/tracking/ict450/v2/papers_summary.json"
       ],
       "llm_cost_usd": 0.0,
-      "blockers": [
-        "Re-check papers, scheme and slides permissions before any MinerU upload."
-      ],
+      "blockers": [],
       "human_approval": {
         "required": false,
         "approved": false,
@@ -26,11 +26,15 @@
         "on": "",
         "note": "V0 owner inputs and permission re-check."
       },
-      "notes": "V1 archived; Type D recycle restart. V1 was not approved."
+      "notes": "V0 re-check complete on 2026-11-11: papers, scheme, slides and cloud processing allowed with recorded owner basis; publication still false. 13 working copies, 12 unique, 1 duplicate."
     },
     "V1_extract": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "data/tracking/ict450/v2/papers_register.json",
+        "data/tracking/ict450/v2/papers_summary.json",
+        "data/tracking/ict450/v2/extraction_status.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
@@ -40,11 +44,18 @@
         "on": "",
         "note": ""
       },
-      "notes": "MinerU-first dossier for every ICT450 paper; keep full ZIP and fallback crops."
+      "notes": "12/12 unique papers extracted with MinerU vlm; full ZIP and review/EXTRACTION_REPORT.md kept per paper; 0 failures."
     },
     "V2_bank": {
-      "status": "pending",
-      "evidence": [],
+      "status": "in_progress",
+      "evidence": [
+        "data/tracking/ict450/v2/bank/index.json",
+        "data/tracking/ict450/v2/bank/unsure.json",
+        "data/tracking/ict450/v2/bank/duplicates.json",
+        "data/tracking/ict450/v2/bank/gate1_report.json",
+        "data/tracking/ict450/v2/bank/gate1_report.md",
+        "data/tracking/ict450/v2/bank/review/index.html"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
@@ -54,7 +65,7 @@
         "on": "",
         "note": ""
       },
-      "notes": "Database-subject bank build; Gate A stops the pilot."
+      "notes": "60 questions and 40 assets built; 54 extracted, 6 needs_fix. Gate A awaiting owner review. No answers/templates/seeds built."
     },
     "V3_format": {
       "status": "pending",
@@ -162,11 +173,11 @@
     }
   },
   "bank": {
-    "questions": 0,
+    "questions": 60,
     "approved": 0,
-    "needs_fix": 0,
+    "needs_fix": 6,
     "rejected": 0,
-    "assets": 0,
+    "assets": 40,
     "duplicate_clusters": 0
   },
   "answers": {
@@ -177,21 +188,232 @@
   },
   "unsure": [
     {
-      "stage": "V0_intake",
-      "item": "Re-check papers, scheme and slides permissions before any MinerU upload; list what is allowed.",
-      "blocking": true,
-      "opened": "2026-11-11",
-      "path": "subjects/ICT450/subject.json"
-    },
-    {
-      "stage": "V0_intake",
+      "stage": "V3_format",
       "item": "Crest, cover and template files are unverified; reuse only after owner confirmation.",
       "blocking": true,
       "opened": "2026-11-11",
-      "path": "docs/archive/ict450_v1/UNVERIFIED_KEEP.json"
+      "path": "docs/archive/ict450_v1/UNVERIFIED_KEEP.json",
+      "note": "Not used in Phase 4; owner confirmation is required at V3."
+    },
+    {
+      "stage": "V2_bank",
+      "code": "MARKS_MISMATCH",
+      "item": "visible marks 14 differ from the paper's modal question total 20; a sub-part may be missing",
+      "blocking": true,
+      "opened": "2026-11-11",
+      "paper_id": "ICT450-2023-FEB",
+      "question_id": "ICT450-2023-FEB-Q1",
+      "page": 2,
+      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2023-FEB\\vlm_c51270358e\\review\\normalized.json",
+      "note": ""
+    },
+    {
+      "stage": "V2_bank",
+      "code": "MARKS_MISMATCH",
+      "item": "visible marks 16 differ from the paper's modal question total 20; a sub-part may be missing",
+      "blocking": true,
+      "opened": "2026-11-11",
+      "paper_id": "ICT450-2024-JAN",
+      "question_id": "ICT450-2024-JAN-Q2",
+      "page": 2,
+      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2024-JAN\\vlm_c51270358e\\review\\normalized.json",
+      "note": ""
+    },
+    {
+      "stage": "V2_bank",
+      "code": "REFERENCE_FALLBACK",
+      "item": "Table 1 has no MinerU asset; page crop kept",
+      "blocking": false,
+      "opened": "2026-11-11",
+      "paper_id": "ICT450-2025-JUL",
+      "question_id": null,
+      "page": 4,
+      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\bank\\assets\\ICT450-2025-JUL-F21.png",
+      "note": "Recorded fallback; no gate decision needed"
+    },
+    {
+      "stage": "V2_bank",
+      "code": "REFERENCE_FALLBACK",
+      "item": "Table 4 has no MinerU asset; page crop kept",
+      "blocking": false,
+      "opened": "2026-11-11",
+      "paper_id": "ICT450-2025-JUL",
+      "question_id": null,
+      "page": 5,
+      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\bank\\assets\\ICT450-2025-JUL-F22.png",
+      "note": "Recorded fallback; no gate decision needed"
+    },
+    {
+      "stage": "V2_bank",
+      "code": "UNRESOLVED_REFERENCE",
+      "item": "Table 1 is referenced but no linked asset carries that caption",
+      "blocking": true,
+      "opened": "2026-11-11",
+      "paper_id": "ICT450-2025-JUL",
+      "question_id": "ICT450-2025-JUL-Q3",
+      "page": 4,
+      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2025-JUL\\vlm_c51270358e\\review\\normalized.json",
+      "note": ""
+    },
+    {
+      "stage": "V2_bank",
+      "code": "UNRESOLVED_REFERENCE",
+      "item": "Table 4 is referenced but no linked asset carries that caption",
+      "blocking": true,
+      "opened": "2026-11-11",
+      "paper_id": "ICT450-2025-JUL",
+      "question_id": "ICT450-2025-JUL-Q4",
+      "page": 5,
+      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2025-JUL\\vlm_c51270358e\\review\\normalized.json",
+      "note": ""
+    },
+    {
+      "stage": "V2_bank",
+      "code": "MARKS_MISMATCH",
+      "item": "visible marks 14 differ from the paper's modal question total 20; a sub-part may be missing",
+      "blocking": true,
+      "opened": "2026-11-11",
+      "paper_id": "ICT450-2025-JUL",
+      "question_id": "ICT450-2025-JUL-Q1",
+      "page": 2,
+      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2025-JUL\\vlm_c51270358e\\review\\normalized.json",
+      "note": ""
+    },
+    {
+      "stage": "V2_bank",
+      "code": "MARKS_MISMATCH",
+      "item": "visible marks 14 differ from the paper's modal question total 20; a sub-part may be missing",
+      "blocking": true,
+      "opened": "2026-11-11",
+      "paper_id": "ICT450-2018-JUN",
+      "question_id": "ICT450-2018-JUN-Q4",
+      "page": 4,
+      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2018-JUN\\vlm_c51270358e\\review\\normalized.json",
+      "note": ""
+    },
+    {
+      "stage": "V1_extract",
+      "code": "MONTH_UNVERIFIED",
+      "item": "cover has no readable month/year; paper id ICT450-2019-JUN is provisional",
+      "blocking": false,
+      "opened": "2026-11-11",
+      "paper_id": "ICT450-2019-JUN",
+      "question_id": null,
+      "page": 1,
+      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2019-JUN\\vlm_c51270358e\\full.md",
+      "note": "Dossier complete; month stays provisional"
     }
   ],
-  "parser_provenance": [],
+  "parser_provenance": [
+    {
+      "paper_id": "ICT450-2018-DEC",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 5,
+      "task_id": "0c935fda-e8f4-4272-bfad-a18000c8c807",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2018-DEC\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2018-DEC\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "ICT450-2018-JUN",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 5,
+      "task_id": "8316e2cb-ddf2-4cdb-a1b6-e9dd40b5079b",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2018-JUN\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2018-JUN\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "ICT450-2019-DEC",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 5,
+      "task_id": "4b39b7b6-0dc6-4a69-8079-17ac3de22232",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2019-DEC\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2019-DEC\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "ICT450-2019-JUN",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "b078bb4a-e8fe-4515-b6a4-29204527c86f",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2019-JUN\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2019-JUN\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "ICT450-2022-FEB",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "71e77589-7d19-4768-b667-eb8151c90377",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2022-FEB\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2022-FEB\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "ICT450-2023-FEB",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "73d35aab-bc67-4acf-b5e4-1519264b6c26",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2023-FEB\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2023-FEB\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "ICT450-2023-JUL",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 5,
+      "task_id": "d3a6a455-ed9b-4da4-993e-95113e84f07a",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2023-JUL\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2023-JUL\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "ICT450-2024-JAN",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "4bed24a5-fc86-485c-a7d3-cedf0cf0fe12",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2024-JAN\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2024-JAN\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "ICT450-2024-JUL",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "9efe1fe0-06d7-487c-8489-f6e966ed1ca3",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2024-JUL\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2024-JUL\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "ICT450-2025-FEB",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 5,
+      "task_id": "2df28614-f268-47e1-8f17-dd9cfc905d40",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2025-FEB\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2025-FEB\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "ICT450-2025-JUL",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "5836c218-d6e6-4226-97cb-e878a12bd78d",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2025-JUL\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2025-JUL\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "ICT450-2026-FEB",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "eeb01544-3b8e-4c04-98f3-782581c99f6c",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2026-FEB\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2026-FEB\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    }
+  ],
   "llm_cost": {
     "currency": "USD",
     "total_usd": 0.0,
