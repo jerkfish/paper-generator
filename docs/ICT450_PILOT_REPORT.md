@@ -123,5 +123,6 @@ A14+A15 recreation, and record both corrections in
 `data/reference/ICT450/ICT450 TEMPLATE.docx` is a CSC662 cover
 (`CS/FEB 2026/CSC662`, PART A 10 questions, PART B 2 questions), and the
 standard cover copy is the same CSC662 file. It cannot be used for ICT450
-documents. V4 also has no official ICT450 scheme or answer source. No paper or
-scheme document has been generated.
+documents. The owner decided on 2026-11-11 to **supply a new ICT450 template**
+rather than patch the old standard cover. V4 is **deferred**; no answer source
+has been selected. No paper or scheme document has been generated.

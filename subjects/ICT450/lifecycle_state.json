@@ -77,22 +77,6 @@
         "data/tracking/ict450/v2/bank/review/scaling_check.pdf"
       ],
       "llm_cost_usd": 0.0,
-      "blockers": [
-        "The paper template at data/reference/ICT450/ICT450 TEMPLATE.docx is a CSC662 cover (CS/FEB 2026/CSC662, PART A 10 questions, PART B 2 questions). Owner must confirm the ICT450 template or authorize patching the old standard cover."
-      ],
-      "human_approval": {
-        "required": false,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": "Format profile written: A4, 16.56 cm content width, five questions x 20 marks, 3 hours. 38 approved assets scaled: 21 native tables, 17 images, 0 warnings. Template confirmation is the remaining V3 blocker before document assembly."
-    },
-    "V4_answers": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": false,
@@ -101,7 +85,23 @@
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "Format profile and 38-asset scaling check are complete (0 warnings). Owner chose a new ICT450 template instead of patching the old standard cover; document assembly waits for that file."
+    },
+    "V4_answers": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [
+        "Owner deferred V4; no answer source selected."
+      ],
+      "human_approval": {
+        "required": false,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": "Owner decision 2026-11-11: defer V4 until after the new template and format profile are settled."
     },
     "V5_seeds_1_3": {
       "status": "pending",
@@ -289,10 +289,11 @@
     {
       "stage": "V3_format",
       "code": "TEMPLATE_UNVERIFIED",
-      "item": "The paper template is a CSC662 cover, not an ICT450 paper; confirm the template or authorize patching the old standard cover.",
+      "item": "Owner will supply a new ICT450 paper template; the current template is a CSC662 cover and must not be used.",
       "blocking": true,
       "opened": "2026-11-11",
-      "path": "data/reference/ICT450/ICT450 TEMPLATE.docx"
+      "path": "data/reference/ICT450/ICT450 TEMPLATE.docx",
+      "note": "Owner decision 2026-11-11: supply a new template, do not patch the old standard cover."
     }
   ],
   "parser_provenance": [
