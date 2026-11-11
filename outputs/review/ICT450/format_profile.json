@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "subject": "ICT450",
+  "paper": {
+    "size": "A4",
+    "width_cm": 21.01,
+    "height_cm": 29.72,
+    "content_width_cm": 16.56,
+    "content_height_cm": 24.32,
+    "margins_cm": {
+      "left": 2.15,
+      "right": 2.29,
+      "top": 2.4,
+      "bottom": 3.0
+    }
+  },
+  "duration": "3 hours",
+  "sections": [
+    {
+      "key": "Q",
+      "questions": 5,
+      "marks_per_slot": 20
+    }
+  ],
+  "total_marks": 100,
+  "numbering": {
+    "question": "QUESTION n",
+    "subparts": "a), b), c)",
+    "nested": "i), ii)"
+  },
+  "assets": {
+    "min_width_cm": 6.0,
+    "max_width_cm": 16.56,
+    "max_height_cm": 18.0,
+    "source_dpi": 300.0
+  },
+  "templates": {
+    "paper": "data/reference/ICT450/ICT450 TEMPLATE.docx",
+    "scheme": "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx",
+    "status": "unverified_owner_confirmation_pending"
+  },
+  "marks_basis": "Five questions, 20 marks each. Eight of twelve papers extract exactly 100; four had a missing mark line and the owner approved the question records after review.",
+  "source": "12 ICT450 papers, V1 dossiers and the approved bank"
+}

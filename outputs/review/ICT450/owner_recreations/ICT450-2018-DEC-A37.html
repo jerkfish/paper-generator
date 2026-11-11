@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .order-form {
+            background-color: white;
+            width: 800px;
+            padding: 20px;
+            border: 1px solid #333;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            color: #333;
+            font-size: 16px;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Top Info Section */
+        .info-section {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            margin-bottom: 20px;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 160px 10px 1fr;
+            row-gap: 5px;
+        }
+
+        .date-section {
+            text-align: right;
+            align-self: start;
+        }
+
+        /* Table Section */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+        }
+
+        th {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Column specific alignment */
+        td:nth-child(1), 
+        td:nth-child(3), 
+        td:nth-child(4) {
+            text-align: right;
+        }
+        
+        td:nth-child(2) {
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        th:nth-child(2) {
+            text-align: center;
+        }
+
+        /* Footer Section */
+        .footer {
+            margin-top: 10px;
+        }
+
+        /* Replicating the typewriter spacing */
+        .label {
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="order-form">
+        <!-- Header -->
+        <div class="header">ORDER FORM</div>
+
+        <!-- Customer Info -->
+        <div class="info-section">
+            <div class="details-grid">
+                <span class="label">Order Number</span> <span>:</span> <span>1234</span>
+                <span class="label">Customer number</span> <span>:</span> <span>9876</span>
+                <span class="label">Customer name</span> <span>:</span> <span>Sufian Ghani</span>
+                <span class="label">Customer address</span> <span>:</span> <span>456, Gemersik Street</span>
+                <span class="label">City</span> <span>:</span> <span>Kuala Krai</span>
+                <span class="label">State</span> <span>:</span> <span>Kelantan</span>
+            </div>
+            
+            <div class="date-section">
+                Date: 11/04/2018
+            </div>
+        </div>
+
+        <!-- Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Number</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>A123</td>
+                    <td>Pencil</td>
+                    <td>100</td>
+                    <td>RM3.00</td>
+                </tr>
+                <tr>
+                    <td>B234</td>
+                    <td>Eraser</td>
+                    <td>200</td>
+                    <td>RM1.50</td>
+                </tr>
+                <tr>
+                    <td>C345</td>
+                    <td>Sharpener</td>
+                    <td>5</td>
+                    <td>RM8.00</td>
+                </tr>
+                <tr>
+                    <td>A333</td>
+                    <td>Ruler</td>
+                    <td>50</td>
+                    <td>RM0.50</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Footer -->
+        <div class="footer">
+            Person in-charge: S101 – Marina
+        </div>
+    </div>
+
+</body>
+</html>

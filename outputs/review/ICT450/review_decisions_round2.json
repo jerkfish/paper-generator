@@ -1,0 +1,285 @@
+{
+  "subject": "ICT450",
+  "round": "fix_review",
+  "exported_on": "2026-11-11",
+  "questions": {
+    "ICT450-2018-DEC-Q4": {
+      "verdict": "needs_fix",
+      "notes": "",
+      "assets": {
+        "ICT450-2018-DEC-A37": {
+          "choice": "needs_more_work",
+          "notes": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Order Form</title>\n    <style>\n        body {\n            font-family: 'Courier New', Courier, monospace;\n            background-color: #f4f4f4;\n            display: flex;\n            justify-content: center;\n            align-items: center;\n            min-height: 100vh;\n            margin: 0;\n        }\n\n        .order-form {\n            background-color: white;\n            width: 800px;\n            padding: 20px;\n            border: 1px solid #333;\n            box-shadow: 0 0 10px rgba(0,0,0,0.1);\n            color: #333;\n            font-size: 16px;\n        }\n\n        /* Header Section */\n        .header {\n            text-align: center;\n            font-weight: bold;\n            font-size: 20px;\n            margin-bottom: 20px;\n            text-transform: uppercase;\n        }\n\n        /* Top Info Section */\n        .info-section {\n            display: grid;\n            grid-template-columns: 1fr auto;\n            margin-bottom: 20px;\n        }\n\n        .details-grid {\n            display: grid;\n            grid-template-columns: 160px 10px 1fr;\n            row-gap: 5px;\n        }\n\n        .date-section {\n            text-align: right;\n            align-self: start;\n        }\n\n        /* Table Section */\n        table {\n            width: 100%;\n            border-collapse: collapse;\n            margin-bottom: 20px;\n        }\n\n        th, td {\n            border: 1px solid #333;\n            padding: 8px;\n        }\n\n        th {\n            font-weight: bold;\n            text-align: center;\n        }\n\n        /* Column specific alignment */\n        td:nth-child(1), \n        td:nth-child(3), \n        td:nth-child(4) {\n            text-align: right;\n        }\n        \n        td:nth-child(2) {\n            text-align: left;\n            padding-left: 20px;\n        }\n\n        th:nth-child(2) {\n            text-align: center;\n        }\n\n        /* Footer Section */\n        .footer {\n            margin-top: 10px;\n        }\n\n        /* Replicating the typewriter spacing */\n        .label {\n            white-space: pre;\n        }\n    </style>\n</head>\n<body>\n\n    <div class=\"order-form\">\n        <!-- Header -->\n        <div class=\"header\">ORDER FORM</div>\n\n        <!-- Customer Info -->\n        <div class=\"info-section\">\n            <div class=\"details-grid\">\n                <span class=\"label\">Order Number</span> <span>:</span> <span>1234</span>\n                <span class=\"label\">Customer number</span> <span>:</span> <span>9876</span>\n                <span class=\"label\">Customer name</span> <span>:</span> <span>Sufian Ghani</span>\n                <span class=\"label\">Customer address</span> <span>:</span> <span>456, Gemersik Street</span>\n                <span class=\"label\">City</span> <span>:</span> <span>Kuala Krai</span>\n                <span class=\"label\">State</span> <span>:</span> <span>Kelantan</span>\n            </div>\n            \n            <div class=\"date-section\">\n                Date: 11/04/2018\n            </div>\n        </div>\n\n        <!-- Table -->\n        <table>\n            <thead>\n                <tr>\n                    <th>Product Number</th>\n                    <th>Description</th>\n                    <th>Quantity</th>\n                    <th>Unit Price</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr>\n                    <td>A123</td>\n                    <td>Pencil</td>\n                    <td>100</td>\n                    <td>RM3.00</td>\n                </tr>\n                <tr>\n                    <td>B234</td>\n                    <td>Eraser</td>\n                    <td>200</td>\n                    <td>RM1.50</td>\n                </tr>\n                <tr>\n                    <td>C345</td>\n                    <td>Sharpener</td>\n                    <td>5</td>\n                    <td>RM8.00</td>\n                </tr>\n                <tr>\n                    <td>A333</td>\n                    <td>Ruler</td>\n                    <td>50</td>\n                    <td>RM0.50</td>\n                </tr>\n            </tbody>\n        </table>\n\n        <!-- Footer -->\n        <div class=\"footer\">\n            Person in-charge: S101 – Marina\n        </div>\n    </div>\n\n</body>\n</html>\n\nuse this one."
+        }
+      }
+    },
+    "ICT450-2018-JUN-Q1": {
+      "verdict": "approved",
+      "notes": "",
+      "assets": {
+        "ICT450-2018-JUN-A33": {
+          "choice": "use_recreation",
+          "notes": ""
+        },
+        "ICT450-2018-JUN-A34": {
+          "choice": "use_recreation",
+          "notes": ""
+        },
+        "ICT450-2018-JUN-A35": {
+          "choice": "use_recreation",
+          "notes": ""
+        }
+      }
+    },
+    "ICT450-2018-JUN-Q3": {
+      "verdict": "approved",
+      "notes": "",
+      "assets": {
+        "ICT450-2018-JUN-A36": {
+          "choice": "use_recreation",
+          "notes": ""
+        }
+      }
+    },
+    "ICT450-2019-DEC-Q4": {
+      "verdict": "needs_fix",
+      "notes": "",
+      "assets": {
+        "ICT450-2019-DEC-A40": {
+          "choice": "needs_more_work",
+          "notes": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Invoice - Doraemon Toys Park</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            background-color: #f4f4f4;\n            display: flex;\n            justify-content: center;\n            align-items: center;\n            min-height: 100vh;\n            margin: 0;\n            color: #000;\n        }\n\n        .invoice-container {\n            background-color: #fff;\n            width: 900px;\n            border: 1px solid #000;\n            font-size: 16px;\n        }\n\n        /* Common dashed border styles to mimic the image */\n        .dashed-border {\n            border-bottom: 1px dotted #000;\n        }\n        \n        .dashed-col-right {\n            border-right: 1px dotted #000;\n        }\n        \n        .dashed-col-left {\n            border-left: 1px dotted #000;\n        }\n\n        /* Header Section */\n        .header {\n            text-align: center;\n            padding: 15px 0;\n            border-bottom: 1px dotted #000;\n        }\n\n        .header h1 {\n            font-size: 20px;\n            margin: 0 0 5px 0;\n            font-weight: normal;\n        }\n\n        .header p {\n            margin: 2px 0;\n            font-size: 18px;\n        }\n\n        /* Info Section */\n        .info-section {\n            display: grid;\n            grid-template-columns: 2fr 1fr;\n            border-bottom: 1px dotted #000;\n        }\n\n        .customer-info, .invoice-info {\n            display: grid;\n            grid-template-columns: 1fr;\n        }\n\n        .row {\n            display: grid;\n            grid-template-columns: 160px 1fr;\n            border-bottom: 1px dotted #000;\n        }\n        \n        .row:last-child {\n            border-bottom: none;\n        }\n\n        .invoice-info .row {\n            grid-template-columns: 80px 1fr;\n        }\n\n        .cell {\n            padding: 6px 10px;\n        }\n\n        .cell-label {\n            border-right: 1px dotted #000;\n        }\n\n        /* Table Section */\n        table {\n            width: 100%;\n            border-collapse: collapse;\n        }\n\n        th, td {\n            border: 1px dotted #000;\n            padding: 8px;\n            text-align: center;\n            vertical-align: middle;\n        }\n\n        /* Remove outer borders since container has them */\n        table th:first-child, table td:first-child {\n            border-left: none;\n        }\n        table th:last-child, table td:last-child {\n            border-right: none;\n        }\n\n        th {\n            font-weight: normal;\n            font-size: 18px;\n        }\n\n        /* Specific column alignments */\n        td:nth-child(1) { text-align: left; padding-left: 20px; }\n        td:nth-child(2) { text-align: left; }\n        td:nth-child(3) { text-align: left; }\n        td:nth-child(4) { text-align: center; }\n        td:nth-child(5) { text-align: right; }\n        td:nth-child(6) { text-align: right; }\n\n        /* Total Row */\n        .total-row td {\n            border-bottom: none;\n            font-size: 18px;\n        }\n\n        .total-label {\n            text-align: right !important;\n            padding-right: 20px;\n        }\n        \n        .total-amount {\n            text-align: right;\n            padding-right: 20px;\n        }\n\n    </style>\n</head>\n<body>\n\n    <div class=\"invoice-container\">\n        \n        <!-- Header -->\n        <div class=\"header\">\n            <h1>DORAEMON TOYS PARK & TRADING</h1>\n            <p>2, Jalan Bunga Raya 7, Taman Tasik Jaya,</p>\n            <p>70400 Seremban, Negeri Sembilan</p>\n            <p>Malaysia</p>\n        </div>\n\n        <!-- Customer & Invoice Info -->\n        <div class=\"info-section\">\n            <div class=\"customer-info\">\n                <div class=\"row\">\n                    <div class=\"cell cell-label\">Customer No:</div>\n                    <div class=\"cell\">153</div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"cell cell-label\">Customer Name:</div>\n                    <div class=\"cell\">Puan Adriana Yusuf</div>\n                </div>\n                <div class=\"row\" style=\"border-bottom: none;\">\n                    <div class=\"cell cell-label\">Customer<br>Address:</div>\n                    <div class=\"cell\">Taman Rasah Jaya,<br>Seremban</div>\n                </div>\n            </div>\n            \n            <div class=\"invoice-info\">\n                <div class=\"row\">\n                    <div class=\"cell\" style=\"font-size: 18px;\">INVOICE</div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"cell cell-label\">No:</div>\n                    <div class=\"cell\">2088</div>\n                </div>\n                <div class=\"row\" style=\"border-bottom: none;\">\n                    <div class=\"cell cell-label\">Date:</div>\n                    <div class=\"cell\">26 August 2019</div>\n                </div>\n            </div>\n        </div>\n\n        <!-- Item Table -->\n        <table>\n            <thead>\n                <tr>\n                    <th>Item No</th>\n                    <th>Item Name</th>\n                    <th>Model</th>\n                    <th>Quantity</th>\n                    <th>Item<br>Price</th>\n                    <th>Total</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr>\n                    <td>CRB101</td>\n                    <td>Electric Kids Car</td>\n                    <td>Buggati</td>\n                    <td>1</td>\n                    <td>559.00</td>\n                    <td>559.00</td>\n                </tr>\n                <tr>\n                    <td>LEG101</td>\n                    <td>City Fire Ladder<br>Truck</td>\n                    <td>LEGO</td>\n                    <td>1</td>\n                    <td>184.00</td>\n                    <td>184.00</td>\n                </tr>\n                <tr>\n                    <td>LEG102</td>\n                    <td>City ATV Race<br>Team</td>\n                    <td>LEGO</td>\n                    <td>2</td>\n                    <td>79.99</td>\n                    <td>159.98</td>\n                </tr>\n                <!-- Total Row -->\n                <tr class=\"total-row\">\n                    <td colspan=\"4\" style=\"border: 1px dotted #000; border-left: none; border-bottom: none;\"></td>\n                    <td class=\"total-label\" style=\"border-right: 1px dotted #000; border-top: 1px dotted #000;\">Total Amount:</td>\n                    <td class=\"total-amount\" style=\"border-top: 1px dotted #000;\">902.95</td>\n                </tr>\n            </tbody>\n        </table>\n\n    </div>\n\n</body>\n</html>\n\nuse this"
+        }
+      }
+    },
+    "ICT450-2019-JUN-Q4": {
+      "verdict": "approved",
+      "notes": "",
+      "assets": {
+        "ICT450-2019-JUN-A42": {
+          "choice": "use_recreation",
+          "notes": ""
+        }
+      }
+    },
+    "ICT450-2022-FEB-Q1": {
+      "verdict": "approved",
+      "notes": "",
+      "assets": {
+        "ICT450-2022-FEB-A28": {
+          "choice": "use_recreation",
+          "notes": ""
+        },
+        "ICT450-2022-FEB-A29": {
+          "choice": "use_recreation",
+          "notes": ""
+        }
+      }
+    },
+    "ICT450-2022-FEB-Q2": {
+      "verdict": "approved",
+      "notes": "",
+      "assets": {
+        "ICT450-2022-FEB-A30": {
+          "choice": "use_recreation",
+          "notes": ""
+        }
+      }
+    },
+    "ICT450-2022-FEB-Q3": {
+      "verdict": "approved",
+      "notes": "",
+      "assets": {
+        "ICT450-2022-FEB-A32": {
+          "choice": "use_recreation",
+          "notes": ""
+        }
+      }
+    },
+    "ICT450-2023-FEB-Q2": {
+      "verdict": "approved",
+      "notes": "",
+      "assets": {
+        "ICT450-2023-FEB-A02": {
+          "choice": "use_recreation",
+          "notes": ""
+        }
+      }
+    },
+    "ICT450-2023-FEB-Q4": {
+      "verdict": "approved",
+      "notes": "",
+      "assets": {
+        "ICT450-2023-FEB-A04": {
+          "choice": "use_recreation",
+          "notes": ""
+        }
+      }
+    },
+    "ICT450-2023-JUL-Q1": {
+      "verdict": "approved",
+      "notes": "",
+      "assets": {
+        "ICT450-2023-JUL-A05": {
+          "choice": "use_recreation",
+          "notes": ""
+        }
+      }
+    },
+    "ICT450-2023-JUL-Q3": {
+      "verdict": "needs_fix",
+      "notes": "",
+      "assets": {
+        "ICT450-2023-JUL-A06": {
+          "choice": "needs_more_work",
+          "notes": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Banquet Reservation Form</title>\n    <style>\n        body {\n            font-family: \"Times New Roman\", Times, serif;\n            background-color: #f4f4f4;\n            display: flex;\n            justify-content: center;\n            padding: 20px;\n        }\n\n        .form-container {\n            background-color: white;\n            width: 800px;\n            padding: 40px;\n            box-shadow: 0 0 10px rgba(0,0,0,0.1);\n            color: #000;\n        }\n\n        /* Header Section */\n        .header {\n            display: flex;\n            justify-content: space-between;\n            align-items: flex-start;\n            margin-bottom: 30px;\n        }\n\n        .header-left h1 {\n            font-family: \"Brush Script MT\", \"Comic Sans MS\", cursive; /* Mimicking the script font */\n            font-size: 36px;\n            margin: 0;\n            font-weight: bold;\n        }\n\n        .header-left p {\n            font-size: 18px;\n            margin: 5px 0 0 0;\n        }\n\n        .header-right {\n            text-align: left;\n            font-size: 18px;\n            margin-top: 10px;\n        }\n\n        .header-right p {\n            margin: 5px 0;\n        }\n\n        .line-input {\n            border-bottom: 1px solid black;\n            display: inline-block;\n            width: 180px;\n        }\n\n        /* Details Section */\n        h3 {\n            font-size: 18px;\n            margin-bottom: 10px;\n            margin-top: 20px;\n        }\n\n        table {\n            width: 100%;\n            border-collapse: collapse;\n            margin-bottom: 20px;\n            font-size: 18px;\n        }\n\n        th, td {\n            border: 1.5px solid black;\n            padding: 8px 10px;\n            text-align: left;\n            vertical-align: top;\n        }\n\n        /* Specific Table Styles */\n        .details-table td:first-child {\n            width: 30%;\n        }\n\n        .details-table td {\n            height: 25px; /* Gives the rows some height */\n        }\n\n        .menu-table th {\n            text-align: center;\n            font-weight: normal;\n        }\n\n        .menu-table td {\n            height: 40px;\n        }\n\n        .menu-table .row-num {\n            width: 30px;\n            text-align: center;\n            vertical-align: top;\n        }\n        \n        .menu-table .col-qty {\n            width: 20%;\n        }\n\n        .facility-header {\n            text-align: center !important;\n            vertical-align: middle !important;\n            font-weight: normal;\n        }\n        \n        .facility-desc-header {\n            text-align: center !important;\n            vertical-align: middle !important;\n            font-weight: normal;\n        }\n\n        /* Footer Section */\n        .footer {\n            margin-top: 30px;\n            font-size: 18px;\n        }\n\n        .footer p {\n            margin-bottom: 10px;\n        }\n        \n        .total-payment {\n            font-weight: bold;\n        }\n\n        .payment-options {\n            display: flex;\n            align-items: center;\n            gap: 15px;\n            margin-top: 5px;\n        }\n\n        .payment-options label {\n            display: flex;\n            align-items: center;\n            cursor: pointer;\n        }\n\n        .payment-options input[type=\"checkbox\"] {\n            margin-right: 5px;\n            width: 15px;\n            height: 15px;\n        }\n\n        .thank-you {\n            text-align: center;\n            font-weight: bold;\n            margin-top: 50px;\n            font-size: 20px;\n            letter-spacing: 1px;\n        }\n\n        /* Utility */\n        .bold {\n            font-weight: bold;\n        }\n    </style>\n</head>\n<body>\n\n    <div class=\"form-container\">\n        \n        <!-- Header -->\n        <div class=\"header\">\n            <div class=\"header-left\">\n                <h1>Banquet Reservation Form</h1>\n                <p>Dewan Cempaka</p>\n            </div>\n            <div class=\"header-right\">\n                <p>Reservation ID : 12345</p>\n                <p>Reservation Date : <span class=\"line-input\"></span></p>\n            </div>\n        </div>\n\n        <!-- Details Table -->\n        <h3>Details:</h3>\n        <table class=\"details-table\">\n            <tr>\n                <td>Name :</td>\n                <td></td>\n            </tr>\n            <tr>\n                <td>Email :</td>\n                <td></td>\n            </tr>\n            <tr>\n                <td>Address :</td>\n                <td></td>\n            </tr>\n            <tr>\n                <td>Phone Number :</td>\n                <td></td>\n            </tr>\n            <tr>\n                <td>Date of Banquet</td>\n                <td></td>\n            </tr>\n            <tr>\n                <td>Type of Event :</td>\n                <td></td>\n            </tr>\n            <tr>\n                <td>Number of Guests :</td>\n                <td></td>\n            </tr>\n            <tr>\n                <td>Arrival Time :</td>\n                <td></td>\n            </tr>\n            <tr>\n                <td>Food Service Time :</td>\n                <td></td>\n            </tr>\n        </table>\n\n        <!-- Menu and Facilities Table -->\n        <h3>Banquet Menu and Facilities:</h3>\n        <table class=\"menu-table\">\n            <thead>\n                <tr>\n                    <th style=\"width: 30%;\">Menu Code and Name</th>\n                    <th>Menu Description</th>\n                    <th class=\"col-qty\">Quantity</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr>\n                    <td>1.</td>\n                    <td></td>\n                    <td></td>\n                </tr>\n                <tr>\n                    <td style=\"border-bottom: none;\">2.</td>\n                    <td style=\"border-bottom: none;\"></td>\n                    <td style=\"border-bottom: none;\"></td>\n                </tr>\n            </tbody>\n            <tbody>\n                <tr>\n                    <td class=\"facility-header\" colspan=\"2\" style=\"width: 80%;\">\n                        Facility Code and Name<br>\n                        <span style=\"font-size: 16px;\">(You can only choose one facility)</span>\n                    </td>\n                    <td class=\"facility-desc-header\">Facility Description</td>\n                </tr>\n                <tr>\n                    <td colspan=\"2\">1.</td>\n                    <td></td>\n                </tr>\n            </tbody>\n        </table>\n\n        <!-- Footer -->\n        <div class=\"footer\">\n            <p class=\"total-payment\">Total Payment : <span class=\"line-input\"></span></p>\n            \n            <div class=\"payment-options\">\n                <span>Payment Type (Choose one):</span>\n                <label><input type=\"checkbox\"> Cash</label>\n                <label><input type=\"checkbox\"> Credit Card</label>\n                <label><input type=\"checkbox\"> Check</label>\n            </div>\n        </div>\n\n        <div class=\"thank-you\">\n            THANK YOU!\n        </div>\n\n    </div>\n\n</body>\n</html>\n\nuse this"
+        }
+      }
+    },
+    "ICT450-2023-JUL-Q4": {
+      "verdict": "approved",
+      "notes": "",
+      "assets": {
+        "ICT450-2023-JUL-A07": {
+          "choice": "use_recreation",
+          "notes": ""
+        }
+      }
+    },
+    "ICT450-2024-JAN-Q2": {
+      "verdict": "approved",
+      "notes": "",
+      "assets": {
+        "ICT450-2024-JAN-A09": {
+          "choice": "use_recreation",
+          "notes": ""
+        },
+        "ICT450-2024-JAN-A10": {
+          "choice": "use_recreation",
+          "notes": ""
+        },
+        "ICT450-2024-JAN-A11": {
+          "choice": "use_recreation",
+          "notes": ""
+        }
+      }
+    },
+    "ICT450-2024-JAN-Q3": {
+      "verdict": "needs_fix",
+      "notes": "",
+      "assets": {
+        "ICT450-2024-JAN-A12": {
+          "choice": "needs_more_work",
+          "notes": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Employee Monthly Evaluation Result</title>\n    <style>\n        body {\n            font-family: Arial, Helvetica, sans-serif;\n            background-color: #f0f0f0;\n            display: flex;\n            justify-content: center;\n            padding: 20px;\n            margin: 0;\n        }\n\n        .document-container {\n            background-color: #ffffff;\n            width: 900px;\n            padding: 40px 50px;\n            box-shadow: 0 0 10px rgba(0,0,0,0.1);\n            color: #000;\n        }\n\n        /* Header Section */\n        .header {\n            text-align: center;\n            margin-bottom: 40px;\n            margin-top: 10px;\n        }\n\n        .header h1 {\n            font-size: 20px;\n            margin: 0;\n            font-weight: bold;\n            letter-spacing: 0.5px;\n        }\n\n        .header h2 {\n            font-size: 20px;\n            margin: 5px 0;\n            font-weight: bold;\n            letter-spacing: 0.5px;\n        }\n\n        .header h3 {\n            font-size: 18px;\n            margin: 5px 0;\n            font-weight: bold;\n            letter-spacing: 0.5px;\n        }\n\n        /* Employee Details Section */\n        .employee-details {\n            margin-bottom: 30px;\n            font-size: 18px;\n        }\n\n        .detail-row {\n            display: flex;\n            margin-bottom: 15px;\n        }\n\n        .detail-label {\n            width: 220px;\n            flex-shrink: 0;\n        }\n\n        .detail-colon {\n            width: 20px;\n            flex-shrink: 0;\n            text-align: left;\n        }\n\n        .detail-value {\n            flex-grow: 1;\n        }\n\n        /* Table Section */\n        table {\n            width: 100%;\n            border-collapse: collapse;\n            font-size: 16px;\n        }\n\n        th, td {\n            border: 1px solid #000;\n            padding: 10px 8px;\n            text-align: center;\n            vertical-align: middle;\n        }\n\n        th {\n            font-weight: bold;\n            background-color: #fff;\n        }\n\n        /* Specific Column Widths to match image */\n        th:nth-child(1) { width: 12%; }\n        th:nth-child(2) { width: 18%; }\n        th:nth-child(3) { width: 18%; }\n        th:nth-child(4) { width: 10%; }\n        th:nth-child(5) { width: 20%; }\n        th:nth-child(6) { width: 22%; }\n\n    </style>\n</head>\n<body>\n\n    <div class=\"document-container\">\n        \n        <!-- Header -->\n        <div class=\"header\">\n            <h1>IT CREATIVE SOLUTIONS SDN. BHD.</h1>\n            <h2>EMPLOYEE MONTHLY EVALUATION RESULT</h2>\n            <h3>(FEBRUARY 2024)</h3>\n        </div>\n\n        <!-- Employee Details -->\n        <div class=\"employee-details\">\n            <div class=\"detail-row\">\n                <div class=\"detail-label\">Employee ID</div>\n                <div class=\"detail-colon\">:</div>\n                <div class=\"detail-value\">303303</div>\n            </div>\n            <div class=\"detail-row\">\n                <div class=\"detail-label\">Employee Name</div>\n                <div class=\"detail-colon\">:</div>\n                <div class=\"detail-value\">Siti Nur Fadilah</div>\n            </div>\n            <div class=\"detail-row\">\n                <div class=\"detail-label\">Employment Year</div>\n                <div class=\"detail-colon\">:</div>\n                <div class=\"detail-value\">2000</div>\n            </div>\n            <div class=\"detail-row\">\n                <div class=\"detail-label\">Department</div>\n                <div class=\"detail-colon\">:</div>\n                <div class=\"detail-value\">S1 - Software Development</div>\n            </div>\n            <div class=\"detail-row\">\n                <div class=\"detail-label\">Phone Number</div>\n                <div class=\"detail-colon\">:</div>\n                <div class=\"detail-value\">017</div>\n            </div>\n            <div class=\"detail-row\">\n                <div class=\"detail-label\">Permanent Address</div>\n                <div class=\"detail-colon\">:</div>\n                <div class=\"detail-value\">JC 1234, Bandar Jasin Bestari Seksyen 7, Melaka</div>\n            </div>\n        </div>\n\n        <!-- Evaluation Table -->\n        <table>\n            <thead>\n                <tr>\n                    <th>Project<br>Code</th>\n                    <th>Project<br>Name</th>\n                    <th>Location</th>\n                    <th>Grade</th>\n                    <th>Supervisor ID &<br>Name</th>\n                    <th>Supervisor<br>Department</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr>\n                    <td>MD01</td>\n                    <td>Mobile Apps<br>Development</td>\n                    <td>Kuala<br>Terengganu</td>\n                    <td>A</td>\n                    <td>123123 - Willy</td>\n                    <td>Mobile<br>Application<br>Development</td>\n                </tr>\n                <tr>\n                    <td>WD01</td>\n                    <td>Website<br>Development</td>\n                    <td>Machang</td>\n                    <td>A+</td>\n                    <td>101101 - Mawar</td>\n                    <td>Software<br>Development</td>\n                </tr>\n                <tr>\n                    <td>ST01</td>\n                    <td>Software<br>Integration</td>\n                    <td>Seremban</td>\n                    <td>A-</td>\n                    <td>101101 - Mawar</td>\n                    <td>Software<br>Development</td>\n                </tr>\n                <tr>\n                    <td>ST01</td>\n                    <td>Software<br>Integration</td>\n                    <td>Tapah</td>\n                    <td>A</td>\n                    <td>101101 - Mawar</td>\n                    <td>Software<br>Development</td>\n                </tr>\n            </tbody>\n        </table>\n\n    </div>\n\n</body>\n</html>\n\nuse this one"
+        }
+      }
+    },
+    "ICT450-2024-JUL-Q1": {
+      "verdict": "approved",
+      "notes": "",
+      "assets": {
+        "ICT450-2024-JUL-A13": {
+          "choice": "use_recreation",
+          "notes": ""
+        }
+      }
+    },
+    "ICT450-2024-JUL-Q2": {
+      "verdict": "needs_fix",
+      "notes": "these two images are related combined them as one.",
+      "assets": {
+        "ICT450-2024-JUL-A14": {
+          "choice": "needs_more_work",
+          "notes": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Side-by-Side Forms</title>\n    <style>\n        body {\n            font-family: Arial, Helvetica, sans-serif;\n            background-color: #f4f4f4;\n            display: flex;\n            justify-content: center;\n            align-items: flex-start;\n            min-height: 100vh;\n            margin: 0;\n            padding: 40px;\n        }\n\n        .container {\n            display: flex;\n            gap: 40px; /* Space between the two tables */\n            background-color: white;\n            padding: 40px;\n            box-shadow: 0 0 15px rgba(0,0,0,0.1);\n        }\n\n        /* --- Shared Styles --- */\n        table {\n            border-collapse: collapse;\n            font-size: 24px;\n            letter-spacing: 0.5px;\n        }\n\n        td {\n            border: 2px solid black;\n            padding: 12px 15px;\n            vertical-align: middle;\n        }\n\n        /* Custom Radio Button Styling to mimic hand-drawn circles */\n        .custom-radio {\n            width: 20px;\n            height: 20px;\n            border: 2px solid black;\n            border-radius: 50%;\n            display: inline-block;\n            box-sizing: border-box;\n            flex-shrink: 0; /* Prevents squishing */\n        }\n\n        /* --- Left Image Styles (Options) --- */\n        .left-table {\n            width: 320px;\n            flex-shrink: 0;\n        }\n\n        .left-table td.option-text {\n            border-right: 2px solid black;\n            height: 70px; \n        }\n\n        .left-table td.radio-cell {\n            border: none; /* Removes border from the radio column cell itself */\n            padding-left: 15px;\n            width: 40px;\n            vertical-align: middle;\n        }\n\n        /* --- Right Image Styles (Statements) --- */\n        .right-table {\n            width: 650px;\n            flex-shrink: 0;\n        }\n\n        .right-table td {\n            line-height: 1.3;\n            padding: 15px;\n        }\n\n        .right-table td.radio-cell {\n            border-right: none;\n            padding: 15px 10px 15px 15px;\n            width: 40px;\n            vertical-align: top; /* Aligns radio to top of text */\n            padding-top: 20px;\n        }\n        \n        .right-table td.text-cell {\n            border-left: none;\n            padding-left: 5px;\n        }\n\n    </style>\n</head>\n<body>\n\n    <div class=\"container\">\n        \n        <!-- Left Image Recreation -->\n        <table class=\"left-table\">\n            <tr>\n                <td class=\"option-text\">Hierarchical</td>\n                <td class=\"radio-cell\"><span class=\"custom-radio\"></span></td>\n            </tr>\n            <tr>\n                <td class=\"option-text\">Network</td>\n                <td class=\"radio-cell\"><span class=\"custom-radio\"></span></td>\n            </tr>\n            <tr>\n                <td class=\"option-text\">Relational</td>\n                <td class=\"radio-cell\"><span class=\"custom-radio\"></span></td>\n            </tr>\n            <tr>\n                <td class=\"option-text\">Entity<br>Relationship</td>\n                <td class=\"radio-cell\"><span class=\"custom-radio\"></span></td>\n            </tr>\n        </table>\n\n        <!-- Right Image Recreation -->\n        <table class=\"right-table\">\n            <tr>\n                <td class=\"radio-cell\"><span class=\"custom-radio\"></span></td>\n                <td class=\"text-cell\">\n                    Visual representation makes it an effective communication tool.\n                </td>\n            </tr>\n            <tr>\n                <td class=\"radio-cell\"><span class=\"custom-radio\"></span></td>\n                <td class=\"text-cell\">\n                    It may promote islands of information problems as individuals and departments can easily develop their own applications.\n                </td>\n            </tr>\n            <tr>\n                <td class=\"radio-cell\"><span class=\"custom-radio\"></span></td>\n                <td class=\"text-cell\">\n                    Parent/child relationship promotes data integrity.\n                </td>\n            </tr>\n            <tr>\n                <td class=\"radio-cell\"><span class=\"custom-radio\"></span></td>\n                <td class=\"text-cell\">\n                    It handles more relationship types, such as M:N and multiparent\n                </td>\n            </tr>\n        </table>\n\n    </div>\n\n</body>\n</html>"
+        },
+        "ICT450-2024-JUL-A15": {
+          "choice": "needs_more_work",
+          "notes": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Side-by-Side Forms</title>\n    <style>\n        body {\n            font-family: Arial, Helvetica, sans-serif;\n            background-color: #f4f4f4;\n            display: flex;\n            justify-content: center;\n            align-items: flex-start;\n            min-height: 100vh;\n            margin: 0;\n            padding: 40px;\n        }\n\n        .container {\n            display: flex;\n            gap: 40px; /* Space between the two tables */\n            background-color: white;\n            padding: 40px;\n            box-shadow: 0 0 15px rgba(0,0,0,0.1);\n        }\n\n        /* --- Shared Styles --- */\n        table {\n            border-collapse: collapse;\n            font-size: 24px;\n            letter-spacing: 0.5px;\n        }\n\n        td {\n            border: 2px solid black;\n            padding: 12px 15px;\n            vertical-align: middle;\n        }\n\n        /* Custom Radio Button Styling to mimic hand-drawn circles */\n        .custom-radio {\n            width: 20px;\n            height: 20px;\n            border: 2px solid black;\n            border-radius: 50%;\n            display: inline-block;\n            box-sizing: border-box;\n            flex-shrink: 0; /* Prevents squishing */\n        }\n\n        /* --- Left Image Styles (Options) --- */\n        .left-table {\n            width: 320px;\n            flex-shrink: 0;\n        }\n\n        .left-table td.option-text {\n            border-right: 2px solid black;\n            height: 70px; \n        }\n\n        .left-table td.radio-cell {\n            border: none; /* Removes border from the radio column cell itself */\n            padding-left: 15px;\n            width: 40px;\n            vertical-align: middle;\n        }\n\n        /* --- Right Image Styles (Statements) --- */\n        .right-table {\n            width: 650px;\n            flex-shrink: 0;\n        }\n\n        .right-table td {\n            line-height: 1.3;\n            padding: 15px;\n        }\n\n        .right-table td.radio-cell {\n            border-right: none;\n            padding: 15px 10px 15px 15px;\n            width: 40px;\n            vertical-align: top; /* Aligns radio to top of text */\n            padding-top: 20px;\n        }\n        \n        .right-table td.text-cell {\n            border-left: none;\n            padding-left: 5px;\n        }\n\n    </style>\n</head>\n<body>\n\n    <div class=\"container\">\n        \n        <!-- Left Image Recreation -->\n        <table class=\"left-table\">\n            <tr>\n                <td class=\"option-text\">Hierarchical</td>\n                <td class=\"radio-cell\"><span class=\"custom-radio\"></span></td>\n            </tr>\n            <tr>\n                <td class=\"option-text\">Network</td>\n                <td class=\"radio-cell\"><span class=\"custom-radio\"></span></td>\n            </tr>\n            <tr>\n                <td class=\"option-text\">Relational</td>\n                <td class=\"radio-cell\"><span class=\"custom-radio\"></span></td>\n            </tr>\n            <tr>\n                <td class=\"option-text\">Entity<br>Relationship</td>\n                <td class=\"radio-cell\"><span class=\"custom-radio\"></span></td>\n            </tr>\n        </table>\n\n        <!-- Right Image Recreation -->\n        <table class=\"right-table\">\n            <tr>\n                <td class=\"radio-cell\"><span class=\"custom-radio\"></span></td>\n                <td class=\"text-cell\">\n                    Visual representation makes it an effective communication tool.\n                </td>\n            </tr>\n            <tr>\n                <td class=\"radio-cell\"><span class=\"custom-radio\"></span></td>\n                <td class=\"text-cell\">\n                    It may promote islands of information problems as individuals and departments can easily develop their own applications.\n                </td>\n            </tr>\n            <tr>\n                <td class=\"radio-cell\"><span class=\"custom-radio\"></span></td>\n                <td class=\"text-cell\">\n                    Parent/child relationship promotes data integrity.\n                </td>\n            </tr>\n            <tr>\n                <td class=\"radio-cell\"><span class=\"custom-radio\"></span></td>\n                <td class=\"text-cell\">\n                    It handles more relationship types, such as M:N and multiparent\n                </td>\n            </tr>\n        </table>\n\n    </div>\n\n</body>\n</html>"
+        }
+      }
+    },
+    "ICT450-2024-JUL-Q3": {
+      "verdict": "approved",
+      "notes": "",
+      "assets": {
+        "ICT450-2024-JUL-A16": {
+          "choice": "use_recreation",
+          "notes": ""
+        }
+      }
+    },
+    "ICT450-2025-FEB-Q3": {
+      "verdict": "approved",
+      "notes": "",
+      "assets": {
+        "ICT450-2025-FEB-A17": {
+          "choice": "use_recreation",
+          "notes": ""
+        }
+      }
+    },
+    "ICT450-2025-JUL-Q1": {
+      "verdict": "approved",
+      "notes": "",
+      "assets": {
+        "ICT450-2025-JUL-A18": {
+          "choice": "use_recreation",
+          "notes": ""
+        }
+      }
+    },
+    "ICT450-2025-JUL-Q2": {
+      "verdict": "approved",
+      "notes": "",
+      "assets": {
+        "ICT450-2025-JUL-A19": {
+          "choice": "use_recreation",
+          "notes": ""
+        }
+      }
+    },
+    "ICT450-2025-JUL-Q3": {
+      "verdict": "approved",
+      "notes": "",
+      "assets": {
+        "ICT450-2025-JUL-A20": {
+          "choice": "use_recreation",
+          "notes": ""
+        },
+        "ICT450-2025-JUL-F21": {
+          "choice": "use_recreation",
+          "notes": ""
+        }
+      }
+    },
+    "ICT450-2025-JUL-Q4": {
+      "verdict": "approved",
+      "notes": "",
+      "assets": {
+        "ICT450-2025-JUL-F22": {
+          "choice": "use_recreation",
+          "notes": ""
+        }
+      }
+    },
+    "ICT450-2026-FEB-Q3": {
+      "verdict": "approved",
+      "notes": "",
+      "assets": {
+        "ICT450-2026-FEB-A24": {
+          "choice": "use_recreation",
+          "notes": ""
+        }
+      }
+    },
+    "ICT450-2026-FEB-Q4": {
+      "verdict": "approved",
+      "notes": "",
+      "assets": {
+        "ICT450-2026-FEB-A26": {
+          "choice": "use_recreation",
+          "notes": ""
+        }
+      }
+    }
+  }
+}

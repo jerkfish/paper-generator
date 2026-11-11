@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banquet Reservation Form</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: white;
+            width: 800px;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            color: #000;
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .header-left h1 {
+            font-family: "Brush Script MT", "Comic Sans MS", cursive; /* Mimicking the script font */
+            font-size: 36px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .header-left p {
+            font-size: 18px;
+            margin: 5px 0 0 0;
+        }
+
+        .header-right {
+            text-align: left;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .header-right p {
+            margin: 5px 0;
+        }
+
+        .line-input {
+            border-bottom: 1px solid black;
+            display: inline-block;
+            width: 180px;
+        }
+
+        /* Details Section */
+        h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        th, td {
+            border: 1.5px solid black;
+            padding: 8px 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        /* Specific Table Styles */
+        .details-table td:first-child {
+            width: 30%;
+        }
+
+        .details-table td {
+            height: 25px; /* Gives the rows some height */
+        }
+
+        .menu-table th {
+            text-align: center;
+            font-weight: normal;
+        }
+
+        .menu-table td {
+            height: 40px;
+        }
+
+        .menu-table .row-num {
+            width: 30px;
+            text-align: center;
+            vertical-align: top;
+        }
+        
+        .menu-table .col-qty {
+            width: 20%;
+        }
+
+        .facility-header {
+            text-align: center !important;
+            vertical-align: middle !important;
+            font-weight: normal;
+        }
+        
+        .facility-desc-header {
+            text-align: center !important;
+            vertical-align: middle !important;
+            font-weight: normal;
+        }
+
+        /* Footer Section */
+        .footer {
+            margin-top: 30px;
+            font-size: 18px;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+        
+        .total-payment {
+            font-weight: bold;
+        }
+
+        .payment-options {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .payment-options label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .payment-options input[type="checkbox"] {
+            margin-right: 5px;
+            width: 15px;
+            height: 15px;
+        }
+
+        .thank-you {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 50px;
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+
+        /* Utility */
+        .bold {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <h1>Banquet Reservation Form</h1>
+                <p>Dewan Cempaka</p>
+            </div>
+            <div class="header-right">
+                <p>Reservation ID : 12345</p>
+                <p>Reservation Date : <span class="line-input"></span></p>
+            </div>
+        </div>
+
+        <!-- Details Table -->
+        <h3>Details:</h3>
+        <table class="details-table">
+            <tr>
+                <td>Name :</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Email :</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Address :</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Phone Number :</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Date of Banquet</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Type of Event :</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Number of Guests :</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Arrival Time :</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Food Service Time :</td>
+                <td></td>
+            </tr>
+        </table>
+
+        <!-- Menu and Facilities Table -->
+        <h3>Banquet Menu and Facilities:</h3>
+        <table class="menu-table">
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Menu Code and Name</th>
+                    <th>Menu Description</th>
+                    <th class="col-qty">Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1.</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: none;">2.</td>
+                    <td style="border-bottom: none;"></td>
+                    <td style="border-bottom: none;"></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="facility-header" colspan="2" style="width: 80%;">
+                        Facility Code and Name<br>
+                        <span style="font-size: 16px;">(You can only choose one facility)</span>
+                    </td>
+                    <td class="facility-desc-header">Facility Description</td>
+                </tr>
+                <tr>
+                    <td colspan="2">1.</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p class="total-payment">Total Payment : <span class="line-input"></span></p>
+            
+            <div class="payment-options">
+                <span>Payment Type (Choose one):</span>
+                <label><input type="checkbox"> Cash</label>
+                <label><input type="checkbox"> Credit Card</label>
+                <label><input type="checkbox"> Check</label>
+            </div>
+        </div>
+
+        <div class="thank-you">
+            THANK YOU!
+        </div>
+
+    </div>
+
+</body>
+</html>
