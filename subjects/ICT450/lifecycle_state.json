@@ -65,7 +65,7 @@
         "on": "",
         "note": ""
       },
-      "notes": "60 questions and 40 assets built; 54 extracted, 6 needs_fix. Gate A awaiting owner review. No answers/templates/seeds built."
+      "notes": "Owner review imported: 37 approved, 23 needs_fix; 32 assets requested as recreations, 7 as originals. HTML/PDF fix sheet built for 25 questions. Recreations pending review; Gate A still pending."
     },
     "V3_format": {
       "status": "pending",
@@ -174,8 +174,8 @@
   },
   "bank": {
     "questions": 60,
-    "approved": 0,
-    "needs_fix": 6,
+    "approved": 37,
+    "needs_fix": 23,
     "rejected": 0,
     "assets": 40,
     "duplicate_clusters": 0

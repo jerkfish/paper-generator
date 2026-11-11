@@ -121,6 +121,58 @@ def test_native_check_accepts_an_exact_typed_table(tmp_path):
     assert check["columns"] == 2
 
 
+def test_review_decisions_update_statuses_and_keep_recreations_pending(
+        tmp_path, monkeypatch):
+    from src.bank.store import BankStore
+    from src.subjects.ict450 import review
+
+    bank = BankStore(tmp_path / "bank").ensure()
+    question = {
+        "id": "ICT450-2023-FEB-Q1", "source_paper": "ICT450-2023-FEB",
+        "marks": 20, "status": "extracted", "review_flags": [],
+        "native_text_blocks": [{"text": "Question text"}],
+    }
+    asset = {
+        "id": "ICT450-2023-FEB-A01", "source_paper": "ICT450-2023-FEB",
+        "kind": "table", "label": "Table 1", "verdict": "pending",
+        "mineru_table_html": "<table><tr><td>A</td></tr></table>",
+    }
+    bank.save_question(question)
+    bank.save_asset(asset)
+    decisions = tmp_path / "decisions.json"
+    decisions.write_text(json.dumps({"questions": {
+        "ICT450-2023-FEB-Q1": {
+            "verdict": "approved",
+            "assets": {"ICT450-2023-FEB-A01": "use_recreation"},
+        }}}), encoding="utf-8")
+    monkeypatch.setattr(review, "BANK", tmp_path / "bank")
+    result = review.apply_decisions(decisions)
+    assert result["counts"]["approved"] == 1
+    assert result["counts"]["use_recreation"] == 1
+    saved_question = bank.load_question("ICT450-2023-FEB-Q1")
+    saved_asset = bank.load_asset("ICT450-2023-FEB-A01")
+    assert saved_question["status"] == "approved"
+    assert saved_asset["review_choice"] == "use_recreation"
+    assert saved_asset["verdict"] == "pending"
+    assert saved_asset["recreation_status"] == "pending_review"
+    assert (tmp_path / "bank" / "approvals.json").is_file()
+
+
+def test_manual_recreations_cover_the_assets_without_mineru_html():
+    from src.subjects.ict450 import review
+
+    expected = {
+        "ICT450-2019-JUN-A42",
+        "ICT450-2024-JAN-A11",
+        "ICT450-2024-JUL-A16",
+        "ICT450-2025-JUL-F21",
+        "ICT450-2025-JUL-F22",
+    }
+    assert expected <= set(review.MANUAL_RECREATIONS)
+    for fragment in review.MANUAL_RECREATIONS.values():
+        assert "<" in fragment and len(fragment) > 100
+
+
 def test_bank_build_links_assets_and_reports_unresolved_reference(
         tmp_path, monkeypatch):
     tracking = tmp_path / "tracking"

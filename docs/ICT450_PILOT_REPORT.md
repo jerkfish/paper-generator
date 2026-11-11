@@ -28,10 +28,12 @@ month on the cover, so its paper id remains provisional and is recorded as
 | Item | Count |
 |---|---:|
 | Questions | 60 |
-| `extracted` | 54 |
-| `needs_fix` | 6 |
-| `approved` | 0 |
+| `approved` | 37 |
+| `needs_fix` | 23 |
+| `extracted` after the owner review | 0 |
 | Assets | 40 |
+| Assets: use original | 7 |
+| Assets: use recreation, pending review | 32 |
 | Tables | 25 |
 | Figures | 10 |
 | Diagrams | 1 |
@@ -77,13 +79,27 @@ report.
 | MinerU cost | $0.00 |
 | LLM cost | $0.00 |
 
+## Owner review import
+
+The owner reviewed the bank on **2026-11-11**:
+
+- 37 questions approved, 23 needs-fix.
+- 7 assets use the original crop; 32 assets request an HTML recreation.
+- 25 questions need a second look (23 needs-fix plus 2 approved questions with
+  recreation assets).
+
+A print pack with only those 25 questions is at
+`outputs/review/ICT450/needs_fix.pdf` (and `needs_fix.html`). It shows the
+original crop beside the HTML recreation, with a printed
+use / keep / needs-more-work line for each asset. Five assets had no MinerU
+table HTML and were transcribed into HTML from the source crop: the AB Bistro
+receipt, the database-design flowchart, the Sasa eStore invoice, Table 3 of
+2025-JUL, and Table 4 of 2025-JUL.
+
 ## Gate A
 
-Status: **awaiting owner review**.
+Status: **awaiting owner review of the 32 recreations**.
 
-Review `data/tracking/ict450/v2/bank/review/index.html`. The review sheet keeps
-the CSC429 workflow: original crop | extracted native content | recreation,
-with “use original” / “use recreation” verdicts for every asset and
-approve / needs-fix / reject for every question.
-
-Gate A is not approved. Seeds, answers and templates remain blocked.
+The 37 approved questions are accepted. The 23 needs-fix questions remain
+unapproved until their recreation sheet is reviewed. Gate A is not approved;
+seeds, answers and templates remain blocked.
