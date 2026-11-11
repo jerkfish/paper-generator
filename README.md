@@ -1,19 +1,20 @@
 # Mock Paper Generator
 
-A local-first study tool that learns the structure of past exam papers and
-generates new mock papers and marking schemes. Generation runs on your machine;
-the public site is a **library-only** deployment that serves pre-built papers
-through Cloudflare.
+A local-first study tool that recycles real past-paper questions into new mock
+papers and marking schemes. Generation runs on your machine; the public site is
+a **library-only** deployment that serves pre-built papers through Cloudflare.
 
-The project is built around one idea: every generated paper must be traceable
-to real source material, an explicit subject contract, and a human-approved
-stage. It is not a generic question generator.
+The project follows one rule: **recycle, don’t invent.** A generated paper is
+assembled from approved real past-paper questions, laid out in the current exam
+format, with answers whose provenance is recorded.
 
 ## Contents
 
 - [At a glance](#at-a-glance)
 - [How it fits together](#how-it-fits-together)
-- [The subject lifecycle](#the-subject-lifecycle)
+- [The three layers](#the-three-layers)
+- [The v2 lifecycle](#the-v2-lifecycle)
+- [Subject types](#subject-types)
 - [How a paper is made](#how-a-paper-is-made)
 - [Quick start](#quick-start)
 - [Subject status](#subject-status)
@@ -28,7 +29,8 @@ stage. It is not a generic question generator.
 
 | Item | Value |
 |---|---|
-| Purpose | Generate mock exam papers and marking schemes from past-paper structure |
+| Purpose | Recycle past papers into new mock papers and marking schemes |
+| Core model | Question bank + current format profile + deterministic assembler |
 | Local runtime | Python 3.12+, FastAPI, `uv` |
 | Subjects | 44 registry entries: 5 `available`, 39 `coming_soon` |
 | Available locally | CSC402, CSC413, CSC429, CSC662, MAT133 |
@@ -37,40 +39,48 @@ stage. It is not a generic question generator.
 | Public runtime | Cloudflare Worker + R2 + D1; no Python and no LLM |
 | Local UI | <http://127.0.0.1:8000> |
 | Worker | `cloudflare/worker/` |
-| Tests | `uv run pytest -q` and `cd cloudflare/worker && bun test` |
 | Contact | auzair1990@gmail.com |
 | Repository | <https://github.com/jerkfish/paper-generator> |
+
+**Current migration status:** the v2 playbook and audit are in place. The
+shared `src/bank/` and `src/assemble/recycle.py` code is the next phase; until
+it lands, CSC429 is the reference implementation and finished subjects keep
+their current behaviour. ICT450 v1 is not approved; Phase 2b archives it, then
+the Phase 4 pilot rebuilds it as Type D and stops at Gate A. See
+`docs/V2_AUDIT.md`.
 
 ## How it fits together
 
 The project has two deliberately separate environments.
 
-- **Local generator** — reads past papers, lecture decks and subject plugins,
-  optionally calls MinerU or an LLM, builds papers and schemes, and writes a
-  private cache under `outputs/web_cache/<CODE>/`.
-- **Public site** — serves a pre-built bundle from Cloudflare R2. It never
-  runs Python, never makes an LLM call, and cannot generate new questions.
+- **Local generator** — reads past papers, builds a question bank, assembles
+  approved questions into the current format, optionally uses MinerU or an LLM,
+  and writes a private cache under `outputs/web_cache/<CODE>/`.
+- **Public site** — serves a pre-built bundle from Cloudflare R2. It never runs
+  Python, never makes an LLM call, and cannot generate new questions.
 
 ```mermaid
 flowchart LR
   subgraph LOCAL["Local machine — Python 3.12 / uv"]
     UI["FastAPI study UI"]
     REG["Subject registry<br/>subjects/*/subject.json"]
-    PRE["Stage 1 preprocessing<br/>legacy OCR or MinerU"]
-    LOG["Taxonomy + question log"]
-    PLAN["Planner"]
-    GEN["Generators or grounded theory"]
+    EXTRACT["V1 extract<br/>MinerU / legacy OCR"]
+    BANK[("Question bank<br/>approved real questions")]
+    FORMAT["Format profile<br/>current era"]
+    ASSEMBLE["Deterministic assembler<br/>seeded, reuse-capped"]
     BUILD["DOCX/PDF builder + QA"]
     CACHE[("outputs/web_cache")]
   end
 
-  PAPERS[("data/papers")] --> PRE
-  DECKS[("data/lecturedecks")] --> GEN
-  MINERU[["MinerU Cloud<br/>optional"]] --> PRE
-  LLM[["LLM providers<br/>optional"]] --> GEN
-
+  PAPERS[("data/papers")] --> EXTRACT
+  DECKS[("data/lecturedecks")] --> VARIANTS["Optional variants<br/>A/B/C only"]
+  MINERU[["MinerU Cloud<br/>optional"]] --> EXTRACT
+  EXTRACT --> BANK
+  BANK --> ASSEMBLE
+  FORMAT --> ASSEMBLE
+  VARIANTS --> ASSEMBLE
   REG --> UI
-  PRE --> LOG --> PLAN --> GEN --> BUILD --> CACHE
+  ASSEMBLE --> BUILD --> CACHE
   CACHE --> BUNDLE["Public bundle<br/>outputs/public_bundle"]
   BUNDLE --> R2[("Cloudflare R2")]
   R2 --> WORKER["Cloudflare Worker"]
@@ -83,10 +93,12 @@ flowchart LR
 | Layer | Key paths | Responsibility |
 |---|---|---|
 | Local UI | `src/app/` | Subject pages, generation jobs, Library, health and safety checks |
-| Subject contract | `subjects/<CODE>/subject.json`, `src/subjects/registry.py`, `src/subjects/plugins.py` | Registry-driven subject metadata, capabilities and plugin loading |
-| Subject implementations | `src/subjects/<code>/` | Planner, generators, builders and subject-specific rules |
+| Subject contract | `subjects/<CODE>/subject.json`, `src/subjects/registry.py`, `src/subjects/plugins.py` | Registry-driven metadata, strategy, capabilities and plugins |
+| Bank | `src/bank/` (v2 target; CSC429 `pure_*` reference) | Bank schema, store, validators, duplicate clusters, quality and review |
+| Assembler | `src/assemble/recycle.py` (v2 target; CSC429 `pure_assembly.py` reference) | Approved-only selection, feasibility, reuse cap, reference renumbering |
+| Subject implementations | `src/subjects/<code>/` | Subject-specific extraction, format profile and templates |
 | Preprocessing | `src/subjects/preprocess.py`, `src/ingest/`, `src/subjects/parsers/` | Paper register, OCR, MinerU extraction and normalization |
-| Theory | `src/theory/` | Lecture-deck retrieval and grounded question drafting for type A/C subjects |
+| Theory / variants | `src/theory/` | Optional grounded theory for existing A/C subjects |
 | Shared assembly | `src/assemble/`, `src/subjects/templates.py`, `src/subjects/forbidden.py` | DOCX assembly, PDF export, templates and forbidden-token checks |
 | Public bundle | `scripts/build_public_bundle.py` | Builds the static public site from the private cache |
 | Public Worker | `cloudflare/worker/` | R2 document serving, generated routes and D1-backed gallery |
@@ -95,115 +107,125 @@ The registry is the single source of truth for subject routes, cache folders,
 Library manifests and public pages. A hard-coded subject list in application
 code is treated as a bug.
 
-## The subject lifecycle
+## The three layers
 
-Every subject is onboarded through the same 11-stage playbook. Each stage has
-a **[HUMAN]** gate: a person must review the evidence and approve the stage
-before the lifecycle state moves to `done`.
+### 1. Question bank — era-independent
+
+One record per real question: id, source paper, marks and sub-part marks,
+native text, native tables, assets, topic tags, duplicate cluster, status
+(`extracted | needs_fix | approved | rejected`), quality score and answer
+objects. The bank is the source of truth; re-extraction never overwrites
+corrections or approvals.
+
+### 2. Format profile — current era
+
+The format profile records sections, questions per section, marks per slot,
+total marks, duration, numbering style and cover/scheme templates. “Current”
+means the newest papers that define the format the subject uses now. A question
+is not tied to the section it originally appeared in.
+
+### 3. Assembler — seeded and deterministic
+
+The assembler fills the current format profile from **approved** questions only.
+It enforces mark fit, no repeats inside a paper, a configurable reuse cap across
+papers, topic coverage, figure/table reference renumbering and rejected-item
+exclusion. It reports **“N distinct papers possible”** and the feasible Library
+size.
+
+## The v2 lifecycle
+
+Every subject moves through V0–V8. There are exactly **three human gates**:
+Gate A (bank approved), Gate B (first seeds approved), Gate C (publish).
 
 ```mermaid
 flowchart TD
-  S0["0 · Intake and permissions<br/>[HUMAN]"] --> S1["1 · Paper preprocessing<br/>[HUMAN]"]
-  S1 --> S1A["1a · MinerU extraction<br/>optional, additive<br/>[HUMAN]"]
-  S1A --> S2["2 · Scheme and slides<br/>[HUMAN]"]
-  S1 --> S2
-  S2 --> S3["3 · Template and cover<br/>[HUMAN]"]
-  S3 --> S4["4 · Taxonomy and question log<br/>[HUMAN]"]
-  S4 --> S5["5 · Fingerprint and planner<br/>[HUMAN]"]
-  S5 --> S6["6 · Generators<br/>[HUMAN]"]
-  S6 --> S7["7 · Builders and QA<br/>[HUMAN]"]
-  S7 --> S8["8 · Library prebuild<br/>[HUMAN]"]
-  S8 --> S9["9 · Publish<br/>HARD STOP [HUMAN]"]
-  S9 --> S10["10 · Close-out<br/>[HUMAN]"]
+  V0["V0 · Intake and permissions"] --> V1["V1 · Extract<br/>MinerU-first dossier"]
+  V1 --> V2["V2 · Bank build<br/>assets, topics, duplicates"]
+  V2 --> GA{"GATE A<br/>bank approved"}
+  GA --> V3["V3 · Format profile and templates"]
+  V3 --> V4["V4 · Answers<br/>provenance and verification"]
+  V4 --> V5["V5 · Assemble seeds 1–3 + QA"]
+  V5 --> GB{"GATE B<br/>first seeds approved"}
+  GB --> V6["V6 · Remaining seeds<br/>feasibility-sized Library"]
+  V6 --> V7["V7 · Publish"]
+  V7 --> GC{"GATE C<br/>publish hard stop"}
+  GC --> V8["V8 · Close-out"]
 ```
 
 ### Stage reference
 
 | Stage | Purpose | Main evidence |
 |---|---|---|
-| **0 · Intake** | Confirm code, title, curriculum order, subject type and permissions | `subjects/<CODE>/subject.json`, `lifecycle_state.json` |
-| **1 · Paper preprocessing** | Register working copies, remove duplicate copies, extract text/OCR | `papers_register.json`, `papers_summary.json`, `paper_text/` |
-| **1a · MinerU** | Optional figure/table/equation extraction for figure-heavy subjects | Full ZIP cache and `EXTRACTION_REPORT.md` per paper |
-| **2 · Scheme and slides** | Confirm scheme/slide availability and permissions | `permissions`, deck inventory, deck map |
-| **3 · Template and cover** | Install and approve the paper and scheme templates | `template_check.json`, approved template DOCX |
-| **4 · Taxonomy and question log** | Derive topics, marks and traceable question metadata | `taxonomy.json`, `question_log.json` |
-| **5 · Fingerprint and planner** | Turn the question log into a repeatable paper plan | Planner JSON / deterministic plan |
-| **6 · Generators** | Implement every slot type the planner can emit | Generator modules, validation report |
-| **7 · Builders and QA** | Assemble paper and scheme DOCX/PDF and run structural checks | `qa.json`, `meta.json`, rendered samples |
-| **8 · Library prebuild** | Build the fixed 20-seed Library | `outputs/web_cache/<CODE>/` |
-| **9 · Publish** | Build the public bundle, upload and deploy | Public bundle, R2 ledger, Worker deployment |
-| **10 · Close-out** | Record final cost, evidence and unresolved items | Strict lifecycle status and `docs/<CODE>.md` |
+| **V0 · Intake** | Confirm identity, type, strategy, permissions and inputs | `subject.json`, `lifecycle_state.json` |
+| **V1 · Extract** | Deduplicate papers and build a full page/block/asset dossier | `papers_summary.json`, MinerU cache, `EXTRACTION_REPORT.md` |
+| **V2 · Bank build** | Segment questions, link assets, tag topics, cluster duplicates, review sheet | `bank/questions/`, `bank/assets/`, `bank/review/` |
+| **Gate A** | Owner approves the bank | Gate A record in `lifecycle_state.json` |
+| **V3 · Format** | Define current sections, marks, numbering and templates | `format_profile.json`, `template_check.json` |
+| **V4 · Answers** | Attach answers with provenance and verification | `bank/answers.json`, `answers_report.json` |
+| **V5 · Seeds 1–3** | Assemble first seeds, render and QA | seed `plan.json`, `qa.json`, PDFs |
+| **Gate B** | Owner approves the first seeds | Gate B record |
+| **V6 · Library** | Build `min(20, feasible)` seeds with automated QA | Library manifest, reuse-cap report |
+| **V7 · Publish** | Build and validate the public bundle | Bundle validation, R2 ledger, deployment |
+| **Gate C** | Owner approves upload/deploy | Gate C record |
+| **V8 · Close-out** | Record evidence, gates, bank counts and cost | Strict lifecycle status, `docs/<CODE>.md` |
 
-A stage is not complete just because a file or cache folder exists. It needs:
+A stage is complete only when its evidence exists, its gate (if any) is
+recorded, and no blocking `unsure` item remains. A chat message such as
+“continue” is not a gate approval.
 
-1. a recorded status in `subjects/<CODE>/lifecycle_state.json`;
-2. evidence paths that exist;
-3. the required `[HUMAN]` approval;
-4. no blocking `unsure` item;
-5. the stage gates passing.
+## Subject types
 
-### Subject types
+Type **D** is the default for every new subject. Types A/B/C remain valid for
+existing subjects and for optional variants where a solver can verify answers.
 
-| Type | Meaning | Example | Generation |
+| Type | Meaning | Default strategy | Example |
 |---|---|---|---|
-| **A** | Slides + LLM theory | CSC662 | LLM drafts grounded theory questions from lecture decks; computed questions use deterministic plugins |
-| **B** | Deterministic computed | CSC402, CSC413, MAT133 | Every question comes from a subject plugin; no LLM |
-| **C** | Hybrid | ICT450 | Deterministic and/or grounded theory, depending on the subject contract |
-| **D** | Asset-first assembly | CSC429 | Approved real-paper questions and assets; generators disabled |
+| **A** | Slides + LLM theory | Generate + verify | CSC662 |
+| **B** | Deterministic computed | Generate | CSC402, CSC413, MAT133 |
+| **C** | Hybrid | Generate and/or recycle | Existing hybrid subjects only |
+| **D** | Asset-first recycle | Recycle approved real questions | CSC429 |
 
-The type is a contract in `subject.json`: `capabilities`, `plugins` and
-`permissions` determine what the app may do. The app reads that contract at
-runtime; it does not branch on a subject name.
+A subject contract records `strategy` (`recycle` or `generate`),
+`variants.enabled` (default `false`), `library.size_policy`
+(`min(20, feasible)`), `answers.sources` and `extraction.method`.
 
-### Lifecycle state
+### Answers and provenance
 
-Each subject has a machine-readable state file:
+Every answer is labelled `official`, `solver_verified`, `model_unofficial` or
+`human_checked`. Numeric answers are verified by code where possible. The
+scheme shows the provenance; a model answer is never presented as an official
+UTM marking scheme.
 
-```text
-subjects/<CODE>/lifecycle_state.json
-```
+### Assets
 
-It records the current stage, status, evidence, blockers, human approvals,
-`unsure` items and the actual LLM cost per stage. Query it with:
-
-```bash
-uv run python -m scripts.lifecycle_status <CODE>
-```
-
-If the file is missing, do not guess progress. Start at stage 0.
+Pictures use the original crop. A table may become a native Word table only
+when it matches the original; otherwise the crop is kept. Figures and diagrams
+are crops unless simple, verified and approved. Equations are LaTeX or crops.
+No diagram is redrawn.
 
 ## How a paper is made
 
 ```mermaid
 flowchart LR
-  A["Past papers<br/>data/papers/<CODE>"] --> B["Register + OCR / MinerU"]
-  B --> C["Question log + taxonomy"]
-  C --> D["Planner"]
-  D --> E{"Subject type"}
-  E -->|A / C| F["Grounded theory<br/>+ verification"]
-  E -->|B / C / D| G["Deterministic or<br/>asset-first generators"]
-  F --> H["Paper + scheme builder"]
-  G --> H
-  H --> I["DOCX/PDF + QA"]
-  I --> J["Private cache<br/>outputs/web_cache"]
-  J --> K["Public bundle"]
-  K --> L["R2 + Worker"]
+  A["Past papers<br/>data/papers/<CODE>"] --> B["V1 extract<br/>MinerU / legacy OCR"]
+  B --> C["V2 bank<br/>approved real questions"]
+  C --> D["V3 format profile"]
+  C --> E["V4 answers + provenance"]
+  D --> F["V5 assembler<br/>seeds 1–3"]
+  E --> F
+  F --> G{"Gate B"}
+  G --> H["V6 Library<br/>min(20, feasible)"]
+  H --> I["V7 public bundle<br/>Gate C"]
 ```
 
 The important properties are:
 
-- **Traceability** — every question, asset and mark points back to a source
-  paper or an approved generator rule.
-- **Determinism** — a seed reproduces the same paper. Type-B subjects make no
-  LLM calls and cost $0.
-- **Caching** — a cache key covers subject, mode, seed, computed marks, model
-  and build settings. A cache hit costs $0.
-- **Asset reuse** — figure-heavy subjects reuse real past-paper figures and
-  tables. MinerU table HTML is rendered as a native Word table; figures use
-  the extracted image crop.
-- **Human review** — a plausible paper is not an approved paper. Stage 7
-  requires a visual check of the cover, question layout, tables, marks and
-  marking scheme.
+- **Traceability** — every question has a source paper, page and content hash.
+- **Determinism** — the same seed produces the same paper; cached builds cost $0.
+- **No repeats** — inside a paper, and within a measured reuse cap across papers.
+- **No invented questions** — a shortage reduces the Library, never pads it.
+- **Human review** — Gate A checks the bank, Gate B checks the first seeds,
+  Gate C checks publication.
 
 ## Quick start
 
@@ -211,12 +233,6 @@ The important properties are:
 uv sync
 uv run python -m src.app.main
 # open http://127.0.0.1:8000
-```
-
-Or run the app directly with Uvicorn:
-
-```bash
-uv run uvicorn src.app.main:app --host 127.0.0.1 --port 8000
 ```
 
 Type-B subjects (CSC402, CSC413, MAT133) work without an API key. CSC662 live
@@ -229,8 +245,7 @@ GEMINI_API_KEY=...
 ```
 
 `GEMINI_API_KEY=REPLACE_WITH_GEMINI_API_KEY` in `.env.example` is a placeholder.
-Public builds fail closed if the real key is missing; generation does not
-silently fall back to another provider.
+Public builds fail closed if the real key is missing.
 
 ### Local routes
 
@@ -245,30 +260,32 @@ silently fall back to another provider.
 
 ## Subject status
 
-| Subject | Title | Type | Local | Public | Notes |
+| Subject | Title | Type | Local | Public | v2 state |
 |---|---|---|---|---|---|
-| CSC402 | Programming I | B | Available | **Not published** | Stage 9 pending; publication permission is not granted |
-| CSC413 | Introduction to Interactive Multimedia | B | Available | Published | 20-paper deterministic Library |
-| CSC429 | Computer Organization and Architecture | D | Available | Published | Approved real-paper question/asset assembly |
-| CSC662 | Computer Security | A | Available | Published | LLM theory + computed generators; 20-paper Library |
-| MAT133 | Pre-Calculus | B | Available | Published | 57 deterministic generators; 20-paper Library |
-| ICT450 | Database Design and Development | C | In onboarding | Not published | Stage 7 revision 3 awaiting visual approval |
+| CSC402 | Programming I | B | Available | Not published | Stages 0–8 done; Gate/publish pending |
+| CSC413 | Introduction to Interactive Multimedia | B | Available | Published | Complete; open MinerU owner-choice `unsure` |
+| CSC429 | Computer Organization and Architecture | D | Available | Published | **Reference recycle implementation** |
+| CSC662 | Computer Security | A | Available | Published | Stage 10 cost backfill in progress |
+| MAT133 | Pre-Calculus | B | Available | Published | Complete |
+| ICT450 | Database Design and Development | C→D | Restarting under v2 | Not published | **v1 not approved; archive in Phase 2b; pilot stops at Gate A** |
 
-The remaining 38 registry entries are `coming_soon` curriculum stubs with no
-papers, templates or Library cache yet.
+The remaining 38 registry entries are empty `coming_soon` stubs. Under v2 they
+default to recycle (type D) when onboarding starts.
 
 ## Repository map
 
 ```text
-subjects/<CODE>/subject.json       Subject contract and permissions
-subjects/<CODE>/lifecycle_state.json Stage, evidence, blockers and cost
-src/subjects/<code>/               Subject planner, generators and builders
+subjects/<CODE>/subject.json       Subject contract: type, strategy, permissions
+subjects/<CODE>/lifecycle_state.json Stage/gate status, evidence, unsure, cost
+src/bank/                          Shared v2 bank (Phase 2 target)
+src/assemble/recycle.py            Shared v2 assembler (Phase 2 target)
+src/subjects/<code>/               Subject extraction, format profile and templates
 src/subjects/registry.py           Registry loader
 src/subjects/preprocess.py         Shared paper register/corpus stage
 src/subjects/parsers/              MinerU client and normalizer
 src/subjects/templates.py          Template install/check
 src/subjects/forbidden.py          Forbidden-token and private-path checks
-src/theory/                        Lecture retrieval and grounded theory
+src/theory/                        Optional lecture retrieval and grounded theory
 src/assemble/                      Shared DOCX/PDF assembly
 src/app/                           FastAPI local UI and job runner
 scripts/                           Onboarding, bundle, R2 and lifecycle tools
@@ -276,10 +293,10 @@ cloudflare/worker/                 Library-only Worker and gallery
 data/papers/<CODE>/                Read-only working copies of past papers
 data/reference/<CODE>/             Templates, crests and cover assets
 data/lecturedecks/<CODE>/          Lecture decks, where used
-data/tracking/<code>/              Extraction, taxonomy and planner artifacts
+data/tracking/<code>/              Extraction, bank, answers and planner artifacts
 outputs/web_cache/<CODE>/          Private pre-built Library
 outputs/public_bundle/             Public static bundle
-docs/                              Playbook, lifecycle and per-subject reports
+docs/                              Playbook, audit and per-subject reports
 ```
 
 ## Common commands
@@ -291,16 +308,17 @@ docs/                              Playbook, lifecycle and per-subject reports
 | Run Worker tests | `cd cloudflare/worker && bun test` |
 | Check for leaked secrets | `uv run python -m src.app.safety --check` |
 | Show subject progress | `uv run python -m scripts.lifecycle_status <CODE>` |
-| Scaffold a subject | `uv run python -m scripts.new_subject <CODE> --type A|B|C --dry-run` |
+| Scaffold a subject | `uv run python -m scripts.new_subject <CODE> --type D --dry-run` |
 | Register papers | `uv run python -m src.subjects.preprocess --subject <CODE> --register --corpus` |
 | Check a template | `uv run python -m src.subjects.templates --subject <CODE> --check` |
-| Build one sample seed | `uv run python -m src.app.prebuild_library --seeds 1 --subject <CODE> --force` |
-| Build the 20-seed Library | `uv run python -m src.app.prebuild_library --seeds 1-20 --subject <CODE>` |
+| Build review seeds | `uv run python -m src.app.prebuild_library --seeds 1-3 --subject <CODE>` |
+| Build the Library | `uv run python -m src.app.prebuild_library --seeds 1-20 --subject <CODE>` |
 | Build the public bundle | `uv run python -m scripts.build_public_bundle --out outputs/public_bundle` |
 | R2 dry run | `uv run python -m scripts.r2_sync --bundle outputs/public_bundle` |
 
-Stage 9 is a hard stop. The R2 upload and Worker deploy commands are documented
-in `docs/LIFECYCLE.md`; never run them without explicit publication approval.
+Type-D scaffolding and the shared bank/assembler CLI arrive with the Phase 2
+code migration; the current `new_subject.py` accepts A/B/C only. Gate C is a
+hard stop: never upload or deploy without explicit publication approval.
 
 ## Public deployment
 
@@ -316,17 +334,14 @@ in `docs/LIFECYCLE.md`; never run them without explicit publication approval.
 | R2 bucket | `exampapers` |
 | Worker source | `cloudflare/worker/` |
 
-The Worker:
-
-- serves static pages and documents from R2;
-- resolves subject routes from the generated `subjects.json`;
-- exposes a D1-backed gallery with 7-day share expiry;
-- has no Python runtime, no API key and no live generation.
+The Worker serves static pages and documents from R2, resolves subject routes
+from the generated `subjects.json`, and exposes a D1-backed gallery with 7-day
+share expiry. It has no Python runtime, no API key and no live generation.
 
 The public bundle is built locally, validated on forbidden paths and missing
-manifests, then uploaded only after stage 9 approval. The live container mode
-is scaffolded in `cloudflare/container-worker/` but **not deployed**; it
-requires Cloudflare Workers Paid and Docker. See `docs/DEPLOY_LIVE.md`.
+manifests, then uploaded only after Gate C approval. The live container mode is
+scaffolded in `cloudflare/container-worker/` but **not deployed**; it requires
+Cloudflare Workers Paid and Docker. See `docs/DEPLOY_LIVE.md`.
 
 ## Safety and contribution rules
 
@@ -334,26 +349,24 @@ These rules apply to every contributor and every automated agent.
 
 - **Originals are read-only.** Never edit, rename, move or delete supplied
   papers in `CSC662/`, `data/papers/<CODE>/` source files,
-  `data/reference/<CODE>/` or `data/lecturedecks/<CODE>/`. Stage 1 works on
-  copies under `data/papers/<CODE>/`.
-- **Never publish without an explicit human instruction.** Building a local
-  bundle is not publishing. R2 upload and Worker deploy are stage 9 only.
-- **No secrets in the repository.** Read keys from the environment; never
-  print, log or commit key values.
-- **Record uncertainty.** Noisy covers, missing assets, unconfirmed
-  permissions and unvalidated generators go into `unsure` in
-  `lifecycle_state.json`. Never invent a month, mark, answer or test result.
-- **Every stage has a [HUMAN] gate.** Do not mark a stage `done` without
-  evidence and approval.
+  `data/reference/<CODE>/` or `data/lecturedecks/<CODE>/`.
+- **Recycle, don’t invent.** Do not add generated prose to a recycle paper or
+  pad a Library with invented questions.
+- **Never publish without Gate C.** Building a local bundle is not publishing.
+- **No secrets in the repository.** Read keys from the environment; never print,
+  log or commit key values.
+- **Record uncertainty.** Noisy covers, missing assets, unconfirmed permissions
+  and unvalidated answers go into `unsure` in `lifecycle_state.json`.
+- **Only three gates.** Do not invent per-stage human approvals; Gate A, Gate B
+  and Gate C are the review points.
 - **No hard-coded subject lists.** Application code reads the registry or the
   generated `subjects.json`.
-- **A human operator owns git.** Automated agents must not run `git commit`,
-  `git push`, `git pull` or any other repository mutation. A human operator
-  reviews and commits changes.
+- **Git commits follow the repository identity.** Commit as
+  `konata1998 <jerkfish123@gmail.com>`. Do not push or pull; a human operator
+  handles remotes. Commit messages must not add `Co-Authored-By`,
+  `Generated with`, or any agent/tool attribution.
 
 ### Gate checklist
-
-Run these at every stage:
 
 ```bash
 uv run python -m src.app.safety --check
@@ -362,19 +375,21 @@ cd cloudflare/worker && bun test
 uv run python -m scripts.lifecycle_status <CODE>
 ```
 
-Stop at the stage's `[HUMAN]` gate and report the evidence, `unsure` items and
+Stop at Gate A, Gate B or Gate C and report the evidence, `unsure` items and
 actual LLM cost so far.
 
 ## Documentation index
 
 | Document | Read it for |
 |---|---|
-| `docs/SUBJECT_PLAYBOOK.md` | The authoritative 11-stage onboarding procedure, evidence rules and [HUMAN] gates |
-| `docs/LIFECYCLE.md` | Local generation, public bundle, R2 upload, Worker serving and gallery lifecycle |
+| `docs/SUBJECT_PLAYBOOK.md` | **Authoritative v2 stages V0–V8, gates A/B/C, bank/format/assembler rules** |
+| `docs/V2_AUDIT.md` | Phase 0 read-only audit of every subject, code reuse map and open decisions |
+| `docs/archive/SUBJECT_PLAYBOOK_v1.md` | Archived v1 playbook, verbatim |
+| `docs/LIFECYCLE.md` | Local generation, public bundle, R2 and Worker operations |
 | `docs/<CODE>.md` | Per-subject decisions, commands, deviations and caveats |
-| `docs/CSC429.md` | Type-D asset-first assembly example |
-| `docs/ICT450.md` | Current type-C onboarding report and Stage 7 status |
-| `docs/MAT133.md`, `docs/MAT133_TAXONOMY.md` | Deterministic paper-derived generator and taxonomy example |
+| `docs/CSC429.md` | Reference Type-D recycle implementation |
+| `docs/ICT450.md` | v1 type-C report; not approved, archive pending Phase 2b |
+| `docs/MAT133.md`, `docs/MAT133_TAXONOMY.md` | Deterministic paper-derived generator example |
 | `docs/DEPLOY_LIVE.md` | Optional live container mode, cost and secrets |
 | `AGENTS.md` | Repository rules for automated agents |
 | `design/` | Public page design and public-bundle allowlist |
@@ -386,10 +401,14 @@ uv run pytest -q
 cd cloudflare/worker && bun test
 ```
 
+Baseline recorded for the v2 audit:
+
+```text
+Python:  352 passed, 0 failed, 12 skipped
+Worker:  6 passed, 0 failed
+```
+
 Coverage includes the planner/verifier, job lifecycle, cost-cap abort, cache
 hits, subject discovery, Library rendering, public-bundle validation, secret
 scanning, private-path guards, R2 quota guards, MinerU normalization, the
 deterministic MAT133 generators, the ICT450 builders and the Worker API.
-
-Current suite: **366 passed, 12 skipped** Python tests and **6 passed** Worker
-tests. Counts are a snapshot; run the commands above for the current result.
