@@ -71,6 +71,11 @@ renumbered figure/table references.
 11. **Do not change finished subjects for a new onboarding task.** CSC402,
     CSC413, CSC429, CSC662 and MAT133 keep their current generation/Library
     behaviour unless the owner explicitly requests a migration.
+12. **New subject, new branch.** Before V0, create `subject/<CODE>` from
+    `main`. All subject work happens on that branch. Merge into `main` only
+    after the subject is marked complete (V8 close-out and Gate C). Use
+    `subject/<CODE>/exp-<topic>` or `subject/<CODE>/backup-<date>` for
+    experiments and backups; sub-branches never merge directly into `main`.
 
 ## The three layers
 
@@ -306,6 +311,23 @@ Gate approvals are recorded in `lifecycle_state.json`. A gate is not approved by
 a chat message alone; the approval must name the owner, date, evidence paths and
 any conditions. “Continue” is not an approval.
 
+## Branching
+
+- **New subject:** create `subject/<CODE>` from `main` before V0. Put every
+  subject-specific change — docs, `subject.json`, lifecycle state, bank,
+  extraction artifacts that are tracked, subject code and tests — on that
+  branch.
+- **Merge to main:** only after the subject is complete. Completion means V8
+  close-out is done, Gate C is recorded, evidence exists and
+  `lifecycle_status <CODE>` has no open stage.
+- **Sub-branches:** use `subject/<CODE>/exp-<topic>` for experiments or
+  `subject/<CODE>/backup-<date>` for backups. They branch from the subject
+  branch, never from `main`, and merge back into the subject branch after
+  validation. A sub-branch never merges directly into `main`.
+- **No subject-specific commits on `main`.** Shared documentation or shared
+  infrastructure fixes may go on `main` when they are not part of a subject’s
+  in-progress work.
+
 ## Stages V0–V8
 
 The v2 stages replace the v1 stages `0_intake`…`10_close_out`. V1 lifecycle
@@ -314,9 +336,11 @@ states remain valid and are mapped in the compatibility table below.
 ### V0 — Intake and permissions
 
 **Purpose.** Confirm the subject identity, type, curriculum order and the legal
-basis for using papers, scheme, slides and cloud processing.
+basis for using papers, scheme, slides and cloud processing. Create the
+subject branch before any subject file is written.
 
-**Inputs.** Subject code/title, owner instruction, existing registry order.
+**Inputs.** Subject code/title, owner instruction, existing registry order and
+a clean `main` branch.
 
 **Outputs.**
 
@@ -334,6 +358,7 @@ basis for using papers, scheme, slides and cloud processing.
 - All four permissions are present. None is `allowed: true` without a recorded
   basis.
 - `status` is still `coming_soon`.
+- The work is on `subject/<CODE>`, not on `main`.
 - No original file is modified.
 - The owner has supplied or confirmed the paper/scheme/slide inputs.
 
