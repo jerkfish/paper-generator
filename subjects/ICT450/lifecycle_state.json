@@ -71,9 +71,12 @@
       "status": "in_progress",
       "evidence": [
         "data/tracking/ict450/v2/format_profile.json",
+        "data/tracking/ict450/v2/template_check.json",
+        "data/tracking/ict450/v2/templates_preview/ICT450_PAPER_TEMPLATE_CLEAN_page_1.png",
+        "data/tracking/ict450/v2/templates_preview/ICT450_PAPER_TEMPLATE_CLEAN_page_2.png",
+        "data/tracking/ict450/v2/templates_preview/ICT450_SCHEME_TEMPLATE_CLEAN_page_1.png",
         "data/tracking/ict450/v2/bank/asset_scaling.json",
         "data/tracking/ict450/v2/bank/asset_scaling.md",
-        "data/tracking/ict450/v2/bank/review/scaling_check.html",
         "data/tracking/ict450/v2/bank/review/scaling_check.pdf"
       ],
       "llm_cost_usd": 0.0,
@@ -85,7 +88,7 @@
         "on": "",
         "note": ""
       },
-      "notes": "Format profile and 38-asset scaling check are complete (0 warnings). Owner chose a new ICT450 template instead of patching the old standard cover; document assembly waits for that file."
+      "notes": "Owner supplied two docx files. They were CSC429-generated layouts with the cover fields already patched to ICT450. Clean templates were produced by replacing CSC429 with ICT450, changing the instructions to five questions, and removing the CSC429 body. Template check: xml_valid, 47 paragraphs, 2 sections, 4 images, no problems. Cover and page-2 transition rendered for owner review."
     },
     "V4_answers": {
       "status": "pending",
@@ -289,11 +292,11 @@
     {
       "stage": "V3_format",
       "code": "TEMPLATE_UNVERIFIED",
-      "item": "Owner will supply a new ICT450 paper template; the current template is a CSC662 cover and must not be used.",
+      "item": "Owner-supplied templates were cleaned to ICT450; owner must approve the rendered cover and page-2 transition.",
       "blocking": true,
       "opened": "2026-11-11",
       "path": "data/reference/ICT450/ICT450 TEMPLATE.docx",
-      "note": "Owner decision 2026-11-11: supply a new template, do not patch the old standard cover."
+      "note": "Supplied files contained CSC429 body/header; cleaned copies are in data/reference/ICT450/*_CLEAN.docx."
     }
   ],
   "parser_provenance": [

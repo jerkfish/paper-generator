@@ -119,10 +119,24 @@ A14+A15 recreation, and record both corrections in
 - `review/scaling_check.pdf`: one page per asset with the A4 content box and
   the asset at its final size.
 
-**V3 is still open.** The paper template at
-`data/reference/ICT450/ICT450 TEMPLATE.docx` is a CSC662 cover
-(`CS/FEB 2026/CSC662`, PART A 10 questions, PART B 2 questions), and the
-standard cover copy is the same CSC662 file. It cannot be used for ICT450
-documents. The owner decided on 2026-11-11 to **supply a new ICT450 template**
-rather than patch the old standard cover. V4 is **deferred**; no answer source
-has been selected. No paper or scheme document has been generated.
+**V3 is still open for cover approval.** The owner supplied two docx files on
+2026-11-11. They were CSC429-generated layouts with the cover fields already
+patched to ICT450, so clean copies were produced by:
+
+- replacing every remaining `CSC429` with `ICT450` (header/footer and text
+  boxes);
+- changing the instructions to “five (5) questions”;
+- removing the CSC429 body and tables;
+- replacing the scheme’s CSC429 notes with the ICT450 five-question format.
+
+Clean templates:
+
+- `data/reference/ICT450/ICT450_PAPER_TEMPLATE_CLEAN.docx`
+- `data/reference/ICT450/ICT450_SCHEME_TEMPLATE_CLEAN.docx`
+
+Template check: `xml_valid`, 47 paragraphs, 2 sections, 4 images, cover text
+`CS/NOV 2026/ICT450`, five questions, no problems. Rendered previews:
+`outputs/review/ICT450/templates/` (cover, page-2 transition, scheme cover).
+
+V4 is **deferred**; no answer source has been selected. No paper or scheme
+document has been generated.

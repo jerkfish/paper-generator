@@ -12,9 +12,9 @@
   "order": 6,
   "playbook_version": "2.0",
   "header_text": "ICT450 DATABASE DESIGN AND DEVELOPMENT",
-  "template_path": "data/reference/ICT450/ICT450 TEMPLATE.docx",
-  "template_source": "data/reference/standard/UTM_STANDARD_COVER.docx",
-  "scheme_template_path": "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx",
+  "template_path": "data/reference/ICT450/ICT450_PAPER_TEMPLATE_CLEAN.docx",
+  "template_source": "owner-supplied ict450 paper template.docx (2026-11-11)",
+  "scheme_template_path": "data/reference/ICT450/ICT450_SCHEME_TEMPLATE_CLEAN.docx",
   "strategy": "recycle",
   "variants": {
     "enabled": false
@@ -98,5 +98,9 @@
     "v1_manifest": "docs/archive/ict450_v1/MANIFEST.json",
     "v1_rejected_registry": "docs/archive/ict450_v1/rejected_registry.json",
     "status": "v1 archived 2026-11-11; v1 was not approved"
-  }
+  },
+  "scheme_template_source": "owner-supplied scheme_ict450 template.docx (2026-11-11)",
+  "template_sha256": "e528dd83e965441631a04dd842469c1c229f375097efe15b7f08959071fc408f",
+  "scheme_template_sha256": "ebf18688a580a09bc35b1ac6b54b9f2b92475bdd04beadab36ccbd005ced6cf3",
+  "template_status": "clean_v3_preview_pending_owner"
 }
