@@ -163,8 +163,10 @@ inventories what exists so the v1 archive is complete.
   created 2026-11-04, with every stage `pending` and five blocking `unsure`
   items. It says the next stage is `0_intake`. It does not record the later v1
   work.
-- **V1 work artifacts on disk:** `docs/ICT450.md` and
-  `data/tracking/ict450/` contain work that is not reflected in the state file:
+- **V1 work artifacts (before Phase 2b):** `docs/ICT450.md` and
+  `data/tracking/ict450/` contained work that is not reflected in the state
+  file. Those artifacts are now under `docs/archive/ict450_v1/` and
+  `data/tracking/ict450_v1/`; see §11.
   - 13 supplied PDFs, 12 unique papers; paper register and working copies.
   - 60 logged questions across 8 topics; taxonomy and question log built from
     the type-C planner/generators.
@@ -306,8 +308,9 @@ default for a new subject is **D recycle**.
 ## 10. Migration risks and open decisions
 
 1. **ICT450 restart is decided (blocking for v1 work).** Type D recycle is the
-   target. Phase 2b archives all v1 artifacts; Phase 4 pilots the new bank and
-   stops at Gate A. Do not build answers, templates or seeds for v1.
+   target. Phase 2b is complete: v1 is archived and the active subject is at
+   V0. Phase 4 pilots the new bank and stops at Gate A. Do not build answers,
+   templates or seeds for v1.
 2. **CSC429 docs inconsistency (non-blocking).** Correct the stale
    “Stage 9 pending” line in a later docs pass; do not reopen the lifecycle.
 3. **CSC413 MinerU `unsure` (non-blocking for v2).** The deterministic Library
@@ -377,6 +380,14 @@ inventories the v1 material so the archive is complete.
 6. **Reset the lifecycle.** Create a schema-v2
    `subjects/ICT450/lifecycle_state.json` at **V0** with the v2 stage skeleton,
    gate records and bank/answer counts empty.
+
+**Phase 2b executed 2026-11-11.** 539 files / 131,632,029 bytes were moved;
+21 kept files and 16 retained source files were recorded; seeds
+`[1, 2, 3, 10]` and 55 rejected hashes were written. See
+`docs/archive/ict450_v1/MANIFEST.json`,
+`docs/archive/ict450_v1/UNVERIFIED_KEEP.json` and
+`docs/archive/ict450_v1/rejected_registry.json`. The active subject is Type D
+at V0; no answers, templates or seeds were built.
 
 ### Phase 4 — ICT450 pilot (after Phase 3 report approval; stop at Gate A)
 

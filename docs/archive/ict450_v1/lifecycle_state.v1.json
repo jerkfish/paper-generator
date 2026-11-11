@@ -1,0 +1,664 @@
+{
+  "schema_version": 1,
+  "subject": "ICT450",
+  "type": "C",
+  "template_path": "data/reference/ICT450/ICT450 TEMPLATE.docx",
+  "created": "2026-11-04T06:27:42Z",
+  "updated": "2026-11-09T09:58:00Z",
+  "stages": {
+    "0_intake": {
+      "status": "done",
+      "evidence": [
+        "subjects/ICT450/subject.json",
+        "subjects/ICT450/lifecycle_state.json",
+        "data/tracking/ict450/intake_inventory.json",
+        "docs/ICT450.md"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-09",
+        "note": "Owner supplied the ICT200/ICT450 knowledge base, approved the standard scheme format and publication permission. Type C and order 6 were retained from the existing scaffold."
+      },
+      "notes": "Stage 0 approved. 13 supplied PDFs copied as working copies: 12 unique papers, 1 duplicate (2018 JUN). Title Database Design and Development and ICT450/ITS432 aliases confirmed from covers. Papers, standard scheme, ICT200/ICT450 knowledge base and publication permissions recorded."
+    },
+    "1_preprocess": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/ict450/papers_register.json",
+        "data/tracking/ict450/papers_summary.json",
+        "data/tracking/ict450/cover_text.json",
+        "data/tracking/ict450/cover_confirmations.json",
+        "data/tracking/ict450/paper_text/index.json",
+        "data/tracking/ict450/preprocess_stage1.log",
+        "docs/ICT450.md"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-09",
+        "note": "Owner selected VLM as the default and approved processing the remaining nine papers."
+      },
+      "notes": "Stage 1 complete. Register/corpus: 13 files, 12 unique, 1 duplicate. MinerU VLM default selected; all 12 unique papers processed (67 pages). Totals: 10 figures, 29 tables, 1 equation, 26/28 references resolved, 3 fallbacks. Full extraction reports generated for all 12 papers."
+    },
+    "2_scheme_slides": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/ict450/scheme_slides.json",
+        "data/tracking/ict450/deck_inventory.json",
+        "data/lecturedecks/ICT450/",
+        "subjects/ICT450/subject.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-09",
+        "note": "Owner instructed export of the ICT200/ICT450 decks to data/lecturedecks/ICT450/. The 8 PDFs and Markdown sidecars were exported; the deck loader now accepts PDF/Markdown as well as PPTX."
+      },
+      "notes": "Scheme uses the standard UTM template; no supplied answer scheme. The 8 ICT200/ICT450 knowledge-base PDFs and Markdown sidecars are exported to data/lecturedecks/ICT450/ and load as 511 chunks across 8 decks. Subject deck_map and topic_deck_allowlist are populated."
+    },
+    "3_template": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/ict450/template_install.log",
+        "data/tracking/ict450/template_check.json",
+        "data/reference/ICT450/ICT450 TEMPLATE.docx",
+        "docs/ICT450.md"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-09",
+        "note": "Owner initially approved the v2 cover, then rejected the Stage 7 output and instructed use of the old (non-v2) standard cover. The old UTM_STANDARD_COVER.docx is installed as the ICT450 template; the scheme uses UTM_STANDARD_MARKING_SCHEME.docx."
+      },
+      "notes": "Stage 3 revised: UTM_STANDARD_COVER.docx installed (v2 withdrawn by owner instruction). Structural check passes; the old cover carries CSC662 reference tokens that are patched during assembly. Scheme template is UTM_STANDARD_MARKING_SCHEME.docx."
+    },
+    "4_taxonomy_question_log": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/ict450/question_log.json",
+        "data/tracking/ict450/taxonomy.json",
+        "scripts/build_ict450_question_log.py",
+        "docs/ICT450.md"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-09",
+        "note": "Owner approved continuation. Marks-total mismatches remain review flags in question_log.json; they do not block the fixed 5x20 planner."
+      },
+      "notes": "Stage 4 question log/taxonomy approved. 12 papers, 60 questions, 0 missing per-question marks, 4 papers with detected totals 94/96 flagged, 3 fallback assets, 13 topic-review flags."
+    },
+    "5_fingerprint_planner": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/ict450/planner_seed_01.json",
+        "src/subjects/ict450/planner.py",
+        "src/subjects/ict450/plugin.py",
+        "tests/test_ict450_planner.py",
+        "docs/ICT450.md"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-09",
+        "note": "Owner approved the five-slot, 20-marks-each planner and the ict450.theory resolver."
+      },
+      "notes": "Deterministic 5-slot x 20-mark planner (100 marks). Seed 1 topics: Database Concept, Relational Data Model, ERD, Normalization, Database Design. Topic order is a seeded weighted sample without replacement from 60 questions. No LLM cost."
+    },
+    "6_generators": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/ict450/generator_sample_seed_01.json",
+        "data/tracking/ict450/generator_validation.json",
+        "src/subjects/ict450/generators.py",
+        "tests/test_ict450_generators.py",
+        "docs/ICT450.md"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-09",
+        "note": "Owner approved continuation after reviewing the Stage 6 sample/validation."
+      },
+      "notes": "Seven deterministic topic generators. Seeds 1-20 validated: 20/20 pass, five questions and 100 marks each, subpart marks reconcile, answers and marking points non-empty. No LLM cost."
+    },
+    "7_builders_qa": {
+      "status": "in_progress",
+      "evidence": [
+        "outputs/web_cache/ICT450/1be6b100db081989909a/meta.json",
+        "outputs/web_cache/ICT450/1be6b100db081989909a/qa.json",
+        "outputs/web_cache/ICT450/1be6b100db081989909a/paper.json",
+        "outputs/web_cache/ICT450/1be6b100db081989909a/ICT450 Seed 01 2026.pdf",
+        "outputs/web_cache/ICT450/1be6b100db081989909a/ICT450 Seed 01 2026 - Marking Scheme.pdf",
+        "outputs/web_cache/ICT450/1be6b100db081989909a/assets/",
+        "data/tracking/ict450/qa_pages/rev10_paper_page_1.png",
+        "data/tracking/ict450/qa_pages/rev10_scheme_page_1.png",
+        "src/subjects/ict450/assets.py",
+        "src/subjects/ict450/build_docx.py",
+        "docs/ICT450.md"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [
+        "[HUMAN] Stage 7 visual approval pending"
+      ],
+      "human_approval": {
+        "required": true,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": "Revision 3 is awaiting visual approval. The previous v2-template build was rejected for template, question format and missing repurposed assets."
+      },
+      "notes": "Stage 7 revision 3 after two owner rejections. Uses the old non-v2 cover and marking-scheme templates. Questions follow the real ICT450 layout: no separate stem, lettered subparts with right-aligned marks, roman sub-subparts, and continuous flow. Six repurposed past-paper assets are embedded: Q1 spreadsheet Table 1, Q2 STUDENT and COURSE Tables 1-2, Q3 ERD Figure 1 (supplier/product question text), Q4 college-course Table 1 (college question text) and Q5 database-design-process Figure 1. Tables are rendered as native Word tables from MinerU table_html; figures use the image crops. Seed 1: paper 5 pages, scheme 6 pages, QA 0 problems, 4 native tables and 2 figures embedded. Awaiting visual approval."
+    },
+    "8_library_prebuild": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": ""
+    },
+    "9_publish": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": ""
+    },
+    "10_close_out": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": ""
+    }
+  },
+  "unsure": [
+    {
+      "stage": "0_intake",
+      "item": "Type C and curriculum order 6 were retained from the existing scaffold; confirm before Stage 5 if either is wrong.",
+      "blocking": false,
+      "opened": "2026-11-09",
+      "path": "docs/ICT450.md"
+    },
+    {
+      "stage": "4_taxonomy_question_log",
+      "item": "Detected marks do not sum to 100 for ICT450-2023-FEB (94), ICT450-2024-JAN (96), ICT450-2025-JUL (94) and ICT450-2018-JUN (94). Retained as review flags; owner approved continuation.",
+      "blocking": false,
+      "opened": "2026-11-09",
+      "path": "data/tracking/ict450/question_log.json"
+    },
+    {
+      "stage": "4_taxonomy_question_log",
+      "item": "13 questions have low/medium topic confidence; review the keyword topic tags in taxonomy.json.",
+      "blocking": false,
+      "opened": "2026-11-09",
+      "path": "data/tracking/ict450/taxonomy.json"
+    },
+    {
+      "stage": "4_taxonomy_question_log",
+      "item": "Three referenced assets remain unresolved/fallback: ICT450-2023-JUL Table 1, ICT450-2025-JUL Table 1 and Table 4.",
+      "blocking": false,
+      "opened": "2026-11-09",
+      "path": "data/tracking/ict450/mineru/EXTRACTION_INDEX.md"
+    },
+    {
+      "stage": "7_builders_qa",
+      "item": "The local prebuild command refuses ICT450 because registry status is coming_soon. Stage 8 needs either an explicit local prebuild override or an approved status change; do not publish yet.",
+      "blocking": false,
+      "opened": "2026-11-09",
+      "path": "docs/ICT450.md"
+    },
+    {
+      "stage": "7_builders_qa",
+      "item": "The repurposed 2019-DEC ERD figure is a scanned past-paper crop; it is readable but low resolution. Confirm it is acceptable during the Stage 7 visual gate.",
+      "blocking": false,
+      "opened": "2026-11-09",
+      "path": "data/tracking/ict450/qa_pages/rev10_paper_page_4.png"
+    }
+  ],
+  "llm_cost": {
+    "currency": "USD",
+    "total_usd": 0.0,
+    "by_stage": {
+      "0_intake": 0.0,
+      "1_preprocess": 0.0,
+      "2_scheme_slides": 0.0,
+      "3_template": 0.0,
+      "4_taxonomy_question_log": 0.0,
+      "5_fingerprint_planner": 0.0,
+      "6_generators": 0.0,
+      "7_builders_qa": 0.0,
+      "8_library_prebuild": 0.0,
+      "9_publish": 0.0,
+      "10_close_out": 0.0
+    }
+  },
+  "parser_provenance": [
+    {
+      "paper_id": "ICT450-2023-FEB",
+      "parser": "mineru",
+      "model": "pipeline",
+      "pages": 6,
+      "task_id": "8671f891-a213-4567-a3f4-1a1d68210760",
+      "status": "done",
+      "cache_path": "data/tracking/ict450/mineru/ICT450-2023-FEB/pipeline_92339dffc4",
+      "counts": {
+        "pages": 6,
+        "questions": 5,
+        "figures": 1,
+        "tables": 3,
+        "equations": 0,
+        "assets": 4,
+        "referenced_figures_tables": 3,
+        "resolved_references": 3,
+        "fallback_assets": 0
+      },
+      "contact_sheet": "data/tracking/ict450/mineru/ICT450-2023-FEB/pipeline_92339dffc4/review/contact_sheet.png",
+      "report": "data/tracking/ict450/mineru/ICT450-2023-FEB/EXTRACTION_REPORT.md",
+      "error": ""
+    },
+    {
+      "paper_id": "ICT450-2023-FEB",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "22c77ac9-c9bf-4413-a6e9-953e79da774f",
+      "status": "done",
+      "cache_path": "data/tracking/ict450/mineru/ICT450-2023-FEB/vlm_c51270358e",
+      "counts": {
+        "pages": 6,
+        "questions": 5,
+        "figures": 1,
+        "tables": 3,
+        "equations": 0,
+        "assets": 4,
+        "referenced_figures_tables": 3,
+        "resolved_references": 3,
+        "fallback_assets": 0
+      },
+      "contact_sheet": "data/tracking/ict450/mineru/ICT450-2023-FEB/vlm_c51270358e/review/contact_sheet.png",
+      "report": "data/tracking/ict450/mineru/ICT450-2023-FEB/EXTRACTION_REPORT.md",
+      "error": ""
+    },
+    {
+      "paper_id": "ICT450-2023-JUL",
+      "parser": "mineru",
+      "model": "pipeline",
+      "pages": 5,
+      "task_id": "585c364e-e551-4000-96e0-969fac42d4bb",
+      "status": "done",
+      "cache_path": "data/tracking/ict450/mineru/ICT450-2023-JUL/pipeline_92339dffc4",
+      "counts": {
+        "pages": 5,
+        "questions": 4,
+        "figures": 0,
+        "tables": 3,
+        "equations": 0,
+        "assets": 3,
+        "referenced_figures_tables": 1,
+        "resolved_references": 0,
+        "fallback_assets": 1
+      },
+      "contact_sheet": "data/tracking/ict450/mineru/ICT450-2023-JUL/pipeline_92339dffc4/review/contact_sheet.png",
+      "report": "data/tracking/ict450/mineru/ICT450-2023-JUL/EXTRACTION_REPORT.md",
+      "error": ""
+    },
+    {
+      "paper_id": "ICT450-2023-JUL",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 5,
+      "task_id": "cc2a1665-ed58-4d3d-bbff-dd126e44729e",
+      "status": "done",
+      "cache_path": "data/tracking/ict450/mineru/ICT450-2023-JUL/vlm_c51270358e",
+      "counts": {
+        "pages": 5,
+        "questions": 4,
+        "figures": 0,
+        "tables": 3,
+        "equations": 0,
+        "assets": 3,
+        "referenced_figures_tables": 1,
+        "resolved_references": 0,
+        "fallback_assets": 1
+      },
+      "contact_sheet": "data/tracking/ict450/mineru/ICT450-2023-JUL/vlm_c51270358e/review/contact_sheet.png",
+      "report": "data/tracking/ict450/mineru/ICT450-2023-JUL/EXTRACTION_REPORT.md",
+      "error": ""
+    },
+    {
+      "paper_id": "ICT450-2019-JUN",
+      "parser": "mineru",
+      "model": "pipeline",
+      "pages": 6,
+      "task_id": "d921435c-c24c-4b9c-83a2-f20db1f0d1f8",
+      "status": "done",
+      "cache_path": "data/tracking/ict450/mineru/ICT450-2019-JUN/pipeline_92339dffc4",
+      "counts": {
+        "pages": 6,
+        "questions": 4,
+        "figures": 2,
+        "tables": 0,
+        "equations": 0,
+        "assets": 2,
+        "referenced_figures_tables": 2,
+        "resolved_references": 2,
+        "fallback_assets": 0
+      },
+      "contact_sheet": "data/tracking/ict450/mineru/ICT450-2019-JUN/pipeline_92339dffc4/review/contact_sheet.png",
+      "report": "data/tracking/ict450/mineru/ICT450-2019-JUN/EXTRACTION_REPORT.md",
+      "error": ""
+    },
+    {
+      "paper_id": "ICT450-2019-JUN",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "703f3e19-ae29-428f-a1c7-ff50dff722c2",
+      "status": "done",
+      "cache_path": "data/tracking/ict450/mineru/ICT450-2019-JUN/vlm_c51270358e",
+      "counts": {
+        "pages": 6,
+        "questions": 4,
+        "figures": 2,
+        "tables": 0,
+        "equations": 0,
+        "assets": 2,
+        "referenced_figures_tables": 2,
+        "resolved_references": 2,
+        "fallback_assets": 0
+      },
+      "contact_sheet": "data/tracking/ict450/mineru/ICT450-2019-JUN/vlm_c51270358e/review/contact_sheet.png",
+      "report": "data/tracking/ict450/mineru/ICT450-2019-JUN/EXTRACTION_REPORT.md",
+      "error": ""
+    },
+    {
+      "paper_id": "ICT450-2018-DEC",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 5,
+      "task_id": "e78847e8-a817-431c-98c6-462ce62cbfe0",
+      "status": "done",
+      "cache_path": "data/tracking/ict450/mineru/ICT450-2018-DEC/vlm_c51270358e",
+      "counts": {
+        "pages": 5,
+        "questions": 5,
+        "figures": 0,
+        "tables": 1,
+        "equations": 0,
+        "assets": 1,
+        "referenced_figures_tables": 1,
+        "resolved_references": 1,
+        "fallback_assets": 0
+      },
+      "contact_sheet": "data/tracking/ict450/mineru/ICT450-2018-DEC/vlm_c51270358e/review/contact_sheet.png",
+      "report": "data/tracking/ict450/mineru/ICT450-2018-DEC/EXTRACTION_REPORT.md",
+      "error": ""
+    },
+    {
+      "paper_id": "ICT450-2018-JUN",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 5,
+      "task_id": "d5e77801-d6ec-463e-b1b0-94c3faa1886d",
+      "status": "done",
+      "cache_path": "data/tracking/ict450/mineru/ICT450-2018-JUN/vlm_c51270358e",
+      "counts": {
+        "pages": 5,
+        "questions": 5,
+        "figures": 0,
+        "tables": 4,
+        "equations": 1,
+        "assets": 4,
+        "referenced_figures_tables": 1,
+        "resolved_references": 1,
+        "fallback_assets": 0
+      },
+      "contact_sheet": "data/tracking/ict450/mineru/ICT450-2018-JUN/vlm_c51270358e/review/contact_sheet.png",
+      "report": "data/tracking/ict450/mineru/ICT450-2018-JUN/EXTRACTION_REPORT.md",
+      "error": ""
+    },
+    {
+      "paper_id": "ICT450-2019-DEC",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 5,
+      "task_id": "86707e19-0f5b-49b7-aabc-c77bdd21af31",
+      "status": "done",
+      "cache_path": "data/tracking/ict450/mineru/ICT450-2019-DEC/vlm_c51270358e",
+      "counts": {
+        "pages": 5,
+        "questions": 5,
+        "figures": 2,
+        "tables": 1,
+        "equations": 0,
+        "assets": 3,
+        "referenced_figures_tables": 3,
+        "resolved_references": 3,
+        "fallback_assets": 0
+      },
+      "contact_sheet": "data/tracking/ict450/mineru/ICT450-2019-DEC/vlm_c51270358e/review/contact_sheet.png",
+      "report": "data/tracking/ict450/mineru/ICT450-2019-DEC/EXTRACTION_REPORT.md",
+      "error": ""
+    },
+    {
+      "paper_id": "ICT450-2022-FEB",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "dbef743b-237b-412b-9bb2-4133a4322e9f",
+      "status": "done",
+      "cache_path": "data/tracking/ict450/mineru/ICT450-2022-FEB/vlm_c51270358e",
+      "counts": {
+        "pages": 6,
+        "questions": 5,
+        "figures": 0,
+        "tables": 5,
+        "equations": 0,
+        "assets": 5,
+        "referenced_figures_tables": 3,
+        "resolved_references": 3,
+        "fallback_assets": 0
+      },
+      "contact_sheet": "data/tracking/ict450/mineru/ICT450-2022-FEB/vlm_c51270358e/review/contact_sheet.png",
+      "report": "data/tracking/ict450/mineru/ICT450-2022-FEB/EXTRACTION_REPORT.md",
+      "error": ""
+    },
+    {
+      "paper_id": "ICT450-2024-JAN",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "c82201d6-0e49-4b5e-b2c9-468bed69a783",
+      "status": "done",
+      "cache_path": "data/tracking/ict450/mineru/ICT450-2024-JAN/vlm_c51270358e",
+      "counts": {
+        "pages": 6,
+        "questions": 5,
+        "figures": 1,
+        "tables": 3,
+        "equations": 0,
+        "assets": 4,
+        "referenced_figures_tables": 4,
+        "resolved_references": 4,
+        "fallback_assets": 0
+      },
+      "contact_sheet": "data/tracking/ict450/mineru/ICT450-2024-JAN/vlm_c51270358e/review/contact_sheet.png",
+      "report": "data/tracking/ict450/mineru/ICT450-2024-JAN/EXTRACTION_REPORT.md",
+      "error": ""
+    },
+    {
+      "paper_id": "ICT450-2024-JUL",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "e82d84b7-f435-4e55-829d-ed021b0f4758",
+      "status": "done",
+      "cache_path": "data/tracking/ict450/mineru/ICT450-2024-JUL/vlm_c51270358e",
+      "counts": {
+        "pages": 6,
+        "questions": 5,
+        "figures": 1,
+        "tables": 3,
+        "equations": 0,
+        "assets": 4,
+        "referenced_figures_tables": 2,
+        "resolved_references": 2,
+        "fallback_assets": 0
+      },
+      "contact_sheet": "data/tracking/ict450/mineru/ICT450-2024-JUL/vlm_c51270358e/review/contact_sheet.png",
+      "report": "data/tracking/ict450/mineru/ICT450-2024-JUL/EXTRACTION_REPORT.md",
+      "error": ""
+    },
+    {
+      "paper_id": "ICT450-2025-FEB",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 5,
+      "task_id": "403be0d2-c8d9-49b1-b9e8-fe8736901659",
+      "status": "done",
+      "cache_path": "data/tracking/ict450/mineru/ICT450-2025-FEB/vlm_c51270358e",
+      "counts": {
+        "pages": 5,
+        "questions": 5,
+        "figures": 0,
+        "tables": 1,
+        "equations": 0,
+        "assets": 1,
+        "referenced_figures_tables": 1,
+        "resolved_references": 1,
+        "fallback_assets": 0
+      },
+      "contact_sheet": "data/tracking/ict450/mineru/ICT450-2025-FEB/vlm_c51270358e/review/contact_sheet.png",
+      "report": "data/tracking/ict450/mineru/ICT450-2025-FEB/EXTRACTION_REPORT.md",
+      "error": ""
+    },
+    {
+      "paper_id": "ICT450-2025-JUL",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "3e2dea81-3723-4eac-9b1f-8f108dd7d723",
+      "status": "done",
+      "cache_path": "data/tracking/ict450/mineru/ICT450-2025-JUL/vlm_c51270358e",
+      "counts": {
+        "pages": 6,
+        "questions": 5,
+        "figures": 0,
+        "tables": 3,
+        "equations": 0,
+        "assets": 3,
+        "referenced_figures_tables": 5,
+        "resolved_references": 4,
+        "fallback_assets": 2
+      },
+      "contact_sheet": "data/tracking/ict450/mineru/ICT450-2025-JUL/vlm_c51270358e/review/contact_sheet.png",
+      "report": "data/tracking/ict450/mineru/ICT450-2025-JUL/EXTRACTION_REPORT.md",
+      "error": ""
+    },
+    {
+      "paper_id": "ICT450-2026-FEB",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "99de8088-f363-4a41-aae5-d56381d3bd28",
+      "status": "done",
+      "cache_path": "data/tracking/ict450/mineru/ICT450-2026-FEB/vlm_c51270358e",
+      "counts": {
+        "pages": 6,
+        "questions": 4,
+        "figures": 3,
+        "tables": 2,
+        "equations": 0,
+        "assets": 5,
+        "referenced_figures_tables": 2,
+        "resolved_references": 2,
+        "fallback_assets": 0
+      },
+      "contact_sheet": "data/tracking/ict450/mineru/ICT450-2026-FEB/vlm_c51270358e/review/contact_sheet.png",
+      "report": "data/tracking/ict450/mineru/ICT450-2026-FEB/EXTRACTION_REPORT.md",
+      "error": ""
+    }
+  ],
+  "extraction": {
+    "parser": "mineru",
+    "status": "complete_vlm_default",
+    "pilot_dir": "data/tracking/ict450/mineru",
+    "models": [
+      "vlm"
+    ],
+    "pages_requested": 67,
+    "pages_submitted": 67,
+    "totals": {
+      "figures": 10,
+      "tables": 29,
+      "equations": 1,
+      "referenced_figures_tables": 28,
+      "resolved_references": 26,
+      "fallback_assets": 3
+    },
+    "contact_sheets": 12,
+    "reports": [
+      "data/tracking/ict450/mineru/ICT450-2018-DEC/EXTRACTION_REPORT.md",
+      "data/tracking/ict450/mineru/ICT450-2018-JUN/EXTRACTION_REPORT.md",
+      "data/tracking/ict450/mineru/ICT450-2019-DEC/EXTRACTION_REPORT.md",
+      "data/tracking/ict450/mineru/ICT450-2019-JUN/EXTRACTION_REPORT.md",
+      "data/tracking/ict450/mineru/ICT450-2022-FEB/EXTRACTION_REPORT.md",
+      "data/tracking/ict450/mineru/ICT450-2023-FEB/EXTRACTION_REPORT.md",
+      "data/tracking/ict450/mineru/ICT450-2023-JUL/EXTRACTION_REPORT.md",
+      "data/tracking/ict450/mineru/ICT450-2024-JAN/EXTRACTION_REPORT.md",
+      "data/tracking/ict450/mineru/ICT450-2024-JUL/EXTRACTION_REPORT.md",
+      "data/tracking/ict450/mineru/ICT450-2025-FEB/EXTRACTION_REPORT.md",
+      "data/tracking/ict450/mineru/ICT450-2025-JUL/EXTRACTION_REPORT.md",
+      "data/tracking/ict450/mineru/ICT450-2026-FEB/EXTRACTION_REPORT.md"
+    ],
+    "report_standard": "full_markdown",
+    "report_glob": "data/tracking/ict450/mineru/*/EXTRACTION_REPORT.md",
+    "default_model": "vlm",
+    "owner_choice_pending": false,
+    "daily_limit_documents": 5000
+  }
+}

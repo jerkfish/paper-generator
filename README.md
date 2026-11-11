@@ -45,8 +45,8 @@ format, with answers whose provenance is recorded.
 **Current migration status:** the v2 playbook and audit are in place. The
 shared `src/bank/` and `src/assemble/recycle.py` code is the next phase; until
 it lands, CSC429 is the reference implementation and finished subjects keep
-their current behaviour. ICT450 v1 is not approved; Phase 2b archives it, then
-the Phase 4 pilot rebuilds it as Type D and stops at Gate A. See
+their current behaviour. ICT450 v1 is archived; the subject is reset to Type D
+at V0. The Phase 4 pilot will build the new bank and stop at Gate A. See
 `docs/V2_AUDIT.md`.
 
 ## How it fits together
@@ -267,7 +267,7 @@ Public builds fail closed if the real key is missing.
 | CSC429 | Computer Organization and Architecture | D | Available | Published | **Reference recycle implementation** |
 | CSC662 | Computer Security | A | Available | Published | Stage 10 cost backfill in progress |
 | MAT133 | Pre-Calculus | B | Available | Published | Complete |
-| ICT450 | Database Design and Development | C→D | Restarting under v2 | Not published | **v1 not approved; archive in Phase 2b; pilot stops at Gate A** |
+| ICT450 | Database Design and Development | D | V0 reset | Not published | **v1 archived; V0 permission re-check; pilot stops at Gate A** |
 
 The remaining 38 registry entries are empty `coming_soon` stubs. Under v2 they
 default to recycle (type D) when onboarding starts.
@@ -393,7 +393,7 @@ actual LLM cost so far.
 | `docs/LIFECYCLE.md` | Local generation, public bundle, R2 and Worker operations |
 | `docs/<CODE>.md` | Per-subject decisions, commands, deviations and caveats |
 | `docs/CSC429.md` | Reference Type-D recycle implementation |
-| `docs/ICT450.md` | v1 type-C report; not approved, archive pending Phase 2b |
+| `docs/archive/ict450_v1/ICT450.md` | Archived v1 type-C report; not approved |
 | `docs/MAT133.md`, `docs/MAT133_TAXONOMY.md` | Deterministic paper-derived generator example |
 | `docs/DEPLOY_LIVE.md` | Optional live container mode, cost and secrets |
 | `AGENTS.md` | Repository rules for automated agents |

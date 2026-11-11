@@ -8,230 +8,95 @@
     "ICT200"
   ],
   "status": "coming_soon",
-  "type": "C",
+  "type": "D",
   "order": 6,
+  "playbook_version": "2.0",
   "header_text": "ICT450 DATABASE DESIGN AND DEVELOPMENT",
   "template_path": "data/reference/ICT450/ICT450 TEMPLATE.docx",
-  "fingerprint": {
-    "source": "data/tracking/ict450/question_log.json",
-    "paper_count": 12,
-    "question_count": 60,
-    "topics": 8,
-    "marks_total_mismatch": 4,
-    "unresolved_refs": 3,
-    "fallback_assets": 3,
-    "model": "mineru-vlm",
-    "era": "2018-2026",
-    "slot_structure": {
-      "questions": 5,
-      "marks": 100,
-      "slot_marks": [
-        20,
-        20,
-        20,
-        20,
-        20
-      ]
-    },
-    "planner_version": 1,
-    "planner_seed_01": "data/tracking/ict450/planner_seed_01.json",
-    "generator_count": 7,
-    "generator_validation": "data/tracking/ict450/generator_validation.json"
+  "template_source": "data/reference/standard/UTM_STANDARD_COVER.docx",
+  "scheme_template_path": "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx",
+  "strategy": "recycle",
+  "variants": {
+    "enabled": false
   },
-  "deck_map": {
-    "Database Concept": [
-      "TOPIC 1 DATABASE CONCEPT (1)"
-    ],
-    "Data Model": [
-      "TOPIC 2 DATA MODEL (1)"
-    ],
-    "Relational Data Model": [
-      "TOPIC 3 RELATIONAL DATA MODELstu"
-    ],
-    "ERD": [
-      "TOPIC 4 ERD_stu (2)"
-    ],
-    "Normalization": [
-      "TOPIC 5 NORMALIZATION  (1)"
-    ],
-    "Database Design": [
-      "TOPIC 6 DATABASE DESIGN (1)"
-    ],
-    "SQL": [
-      "TOPIC 7 SQL"
-    ],
-    "DB2 SQL": [
-      "DB2 SQL Workshop IBM"
+  "library": {
+    "size_policy": "min(20, feasible)"
+  },
+  "answers": {
+    "sources": [
+      "model_unofficial",
+      "solver_verified"
     ]
   },
-  "topic_deck_allowlist": {
-    "Database Concept": [
-      "TOPIC 1 DATABASE CONCEPT (1)"
-    ],
-    "Data Model": [
-      "TOPIC 2 DATA MODEL (1)"
-    ],
-    "Relational Data Model": [
-      "TOPIC 3 RELATIONAL DATA MODELstu"
-    ],
-    "ERD": [
-      "TOPIC 4 ERD_stu (2)"
-    ],
-    "Normalization": [
-      "TOPIC 5 NORMALIZATION  (1)"
-    ],
-    "Database Design": [
-      "TOPIC 6 DATABASE DESIGN (1)"
-    ],
-    "SQL": [
-      "TOPIC 7 SQL"
-    ],
-    "DB2 SQL": [
-      "DB2 SQL Workshop IBM"
-    ]
+  "extraction": {
+    "method": "mineru",
+    "parser": "mineru",
+    "status": "pending_v2_pilot",
+    "report_standard": "full_markdown",
+    "pilot_dir": "data/tracking/ict450/mineru"
   },
-  "enabled_computed_generators": [
-    "ict450.database_concept",
-    "ict450.data_model",
-    "ict450.relational_model",
-    "ict450.erd",
-    "ict450.normalization",
-    "ict450.database_design",
-    "ict450.sql"
-  ],
+  "fingerprint": {},
+  "deck_map": {},
+  "topic_deck_allowlist": {},
+  "enabled_computed_generators": [],
+  "has_practice_mode": false,
+  "has_placeholders": false,
+  "capabilities": {
+    "subject_type": "D",
+    "generation": "deterministic",
+    "prebuild": "plugin",
+    "public_documents": "copy_cached",
+    "needs_llm": false,
+    "uses_slides": false,
+    "uses_past_papers": true,
+    "deterministic": true,
+    "practice_mode": false,
+    "placeholders": false,
+    "public_scheme_requires_quote_marker": false,
+    "asset_first": true,
+    "parametric_variants": false
+  },
+  "plugins": {},
   "permissions": {
     "papers": {
       "allowed": true,
       "basis": "owner supplied 13 PDFs (12 unique) on 2026-11-09 for ICT450/ITS432 onboarding",
       "confirmed_by": "owner",
       "confirmed_on": "2026-11-09",
-      "notes": "Working copies only under data/papers/ICT450; the supplied PDFs remain read-only."
+      "notes": "V1 grant retained. Re-check at V0 before any upload. Working copies only under data/papers/ICT450; supplied originals remain read-only."
     },
     "scheme": {
       "allowed": true,
       "basis": "owner instructed use of the standard marking-scheme format",
       "confirmed_by": "owner",
       "confirmed_on": "2026-11-09",
-      "notes": "Use data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx; patch fields, do not create a bespoke cover."
+      "notes": "V1 grant retained. Re-check at V0. Use data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx; patch fields, do not create a bespoke cover."
     },
     "slides": {
       "allowed": true,
       "basis": "owner supplied the ICT200/ICT450 knowledge base (id 39367590-f20f-4383-8adf-721753d49e1c)",
       "confirmed_by": "owner",
       "confirmed_on": "2026-11-09",
-      "notes": "8 documents: Topic 1 Database Concept, Topic 2 Data Model, Topic 3 Relational Data Model, Topic 4 ERD, Topic 5 Normalization, Topic 6 Database Design, Topic 7 SQL, DB2 SQL Workshop IBM."
+      "notes": "V1 grant retained. Re-check at V0. Type D recycle does not require slides; the supplied decks remain source material only."
     },
     "publication": {
-      "allowed": true,
-      "basis": "owner confirmed publication permission on 2026-11-09",
-      "confirmed_by": "owner",
-      "confirmed_on": "2026-11-09",
-      "notes": "Publication permission granted. R2 upload and Worker deployment remain a separate Stage 9 instruction; no publish in this onboarding run."
+      "allowed": false,
+      "basis": "Reset for the v2 restart; Gate C has not been granted",
+      "confirmed_by": "",
+      "confirmed_on": "",
+      "notes": "Do not publish, upload to R2 or deploy the Worker until the owner grants Gate C."
     },
     "cloud_processing": {
       "allowed": true,
-      "basis": "owner instructed use MinerU, not local OCR, for ICT450 on 2026-11-09",
+      "basis": "owner instructed MinerU for ICT450 on 2026-11-09",
       "confirmed_by": "owner",
       "confirmed_on": "2026-11-09",
-      "notes": "MinerU Stage 1a only. Working copies under data/papers/ICT450; supplied originals are read-only. Do not upload files without this permission."
+      "notes": "V1 grant retained. Re-check at V0 before any upload. MinerU only; working copies under data/papers/ICT450; originals are read-only."
     }
   },
-  "knowledge_base": {
-    "base_id": "39367590-f20f-4383-8adf-721753d49e1c",
-    "title": "ICT200/ICT450",
-    "documents": 8,
-    "topics": [
-      "Database Concept",
-      "Data Model",
-      "Relational Data Model",
-      "ERD",
-      "Normalization",
-      "Database Design",
-      "SQL",
-      "DB2 SQL Workshop IBM"
-    ]
-  },
-  "extraction": {
-    "parser": "mineru",
-    "status": "complete_vlm_default",
-    "model_version": "vlm (owner-selected default)",
-    "pilot_dir": "data/tracking/ict450/mineru",
-    "report_standard": "full_markdown",
-    "report_glob": "data/tracking/ict450/mineru/*/EXTRACTION_REPORT.md",
-    "reports": [
-      "data/tracking/ict450/mineru/ICT450-2018-DEC/EXTRACTION_REPORT.md",
-      "data/tracking/ict450/mineru/ICT450-2018-JUN/EXTRACTION_REPORT.md",
-      "data/tracking/ict450/mineru/ICT450-2019-DEC/EXTRACTION_REPORT.md",
-      "data/tracking/ict450/mineru/ICT450-2019-JUN/EXTRACTION_REPORT.md",
-      "data/tracking/ict450/mineru/ICT450-2022-FEB/EXTRACTION_REPORT.md",
-      "data/tracking/ict450/mineru/ICT450-2023-FEB/EXTRACTION_REPORT.md",
-      "data/tracking/ict450/mineru/ICT450-2023-JUL/EXTRACTION_REPORT.md",
-      "data/tracking/ict450/mineru/ICT450-2024-JAN/EXTRACTION_REPORT.md",
-      "data/tracking/ict450/mineru/ICT450-2024-JUL/EXTRACTION_REPORT.md",
-      "data/tracking/ict450/mineru/ICT450-2025-FEB/EXTRACTION_REPORT.md",
-      "data/tracking/ict450/mineru/ICT450-2025-JUL/EXTRACTION_REPORT.md",
-      "data/tracking/ict450/mineru/ICT450-2026-FEB/EXTRACTION_REPORT.md"
-    ],
-    "page_budget": 200,
-    "pages_requested": 67,
-    "pages_submitted": 67,
-    "contact_sheets": 12,
-    "totals": {
-      "figures": 10,
-      "tables": 29,
-      "equations": 1,
-      "referenced_figures_tables": 28,
-      "resolved_references": 26,
-      "fallback_assets": 3
-    },
-    "fallbacks": [
-      "ICT450-2023-JUL Table 1",
-      "ICT450-2025-JUL Table 1",
-      "ICT450-2025-JUL Table 4"
-    ],
-    "default_model": "vlm",
-    "owner_choice_pending": false,
-    "daily_limit_documents": 5000,
-    "notes": "Owner selected VLM and approved processing the remaining papers. Local OCR was used only for the initial Stage 1 register/corpus before the MinerU directive; MinerU is the document parser for all 12 unique papers."
-  },
-  "scheme_template_path": "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx",
-  "template_source": "data/reference/standard/UTM_STANDARD_COVER.docx",
-  "asset_bank": {
-    "module": "src/subjects/ict450/assets.py",
-    "topics": 7,
-    "assets": 9,
-    "source": "data/tracking/ict450/mineru/*/vlm_*/review/normalized.json",
-    "note": "Past-paper tables are rendered from MinerU table_html as native Word tables; figures reuse the MinerU image crops. No diagrams are redrawn."
-  },
-  "topic_labels": {
-    "database_concept": "CON",
-    "data_model": "MOD",
-    "relational": "REL",
-    "erd": "ERD",
-    "normalization": "NRM",
-    "database_design": "DES",
-    "sql": "SQL",
-    "other": "OTH"
-  },
-  "capabilities": {
-    "subject_type": "C",
-    "generation": "hybrid",
-    "prebuild": "plugin",
-    "public_documents": "rebuild_scheme",
-    "needs_llm": false,
-    "uses_slides": true,
-    "uses_past_papers": true,
-    "deterministic": false,
-    "practice_mode": true,
-    "placeholders": true,
-    "public_scheme_requires_quote_marker": false,
-    "generator_mode": "deterministic_templates"
-  },
-  "plugins": {
-    "plan": "src.subjects.ict450.plugin:plan",
-    "plan_markdown": "src.subjects.ict450.plugin:plan_markdown",
-    "plan_inputs": "src.subjects.ict450.plugin:plan_inputs",
-    "generator_labels": "src.subjects.ict450.plugin:generator_labels",
-    "prebuild": "src.subjects.ict450.build_docx:build_seed"
+  "archive": {
+    "v1_manifest": "docs/archive/ict450_v1/MANIFEST.json",
+    "v1_rejected_registry": "docs/archive/ict450_v1/rejected_registry.json",
+    "status": "v1 archived 2026-11-11; v1 was not approved"
   }
 }
