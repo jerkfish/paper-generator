@@ -186,6 +186,54 @@ def test_review_decisions_update_statuses_and_keep_recreations_pending(
     assert saved_asset["recreation_status"] == "needs_more_work"
 
 
+def test_owner_html_is_extracted_and_identical_recreations_merge(
+        tmp_path, monkeypatch):
+    from src.bank.store import BankStore
+    from src.subjects.ict450 import review
+
+    bank = BankStore(tmp_path / "bank").ensure()
+    bank.save_question({
+        "id": "ICT450-2024-JUL-Q2", "source_paper": "ICT450-2024-JUL",
+        "marks": 20, "status": "needs_fix", "review_flags": [],
+        "native_text_blocks": [{"text": "Question text"}],
+        "assets": ["A14", "A15"],
+    })
+    for aid in ("A14", "A15"):
+        bank.save_asset({
+            "id": aid, "source_paper": "ICT450-2024-JUL", "kind": "table",
+            "label": "", "verdict": "pending", "mineru_table_html": "",
+        })
+    document = ("<!DOCTYPE html>\n<html><body><p>combined</p></body></html>"
+                "\n\nuse this")
+    decisions = tmp_path / "decisions.json"
+    decisions.write_text(json.dumps({
+        "round": "fix_review",
+        "questions": {"ICT450-2024-JUL-Q2": {
+            "verdict": "needs_fix",
+            "notes": "these two images are related combined them as one.",
+            "assets": {
+                "A14": {"choice": "needs_more_work", "notes": document},
+                "A15": {"choice": "needs_more_work", "notes": document},
+            },
+        }}}), encoding="utf-8")
+    monkeypatch.setattr(review, "BANK", tmp_path / "bank")
+    monkeypatch.setattr(review, "OWNER_DIR",
+                        tmp_path / "bank" / "review" / "owner_recreations")
+    review.apply_decisions(decisions)
+    question = bank.load_question("ICT450-2024-JUL-Q2")
+    assert question["assets"] == ["A14"]
+    a14 = bank.load_asset("A14")
+    a15 = bank.load_asset("A15")
+    assert a14["combined_from"] == ["A14", "A15"]
+    assert a14["recreation_status"] == "updated"
+    assert a14["owner_recreation_file"] == "A14.html"
+    assert a15["merged_into"] == "A14"
+    assert a15["recreation_status"] == "merged"
+    document_only, note = review.extract_owner_html(document)
+    assert document_only.endswith("</html>")
+    assert note == ""
+
+
 def test_manual_recreations_cover_the_assets_without_mineru_html():
     from src.subjects.ict450 import review
 

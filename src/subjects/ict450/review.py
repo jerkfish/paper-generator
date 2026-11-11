@@ -13,8 +13,10 @@ Run:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import html
 import json
+import re
 import subprocess
 from collections import Counter
 from pathlib import Path
@@ -28,10 +30,32 @@ from src.subjects.ict450.papers import SUBJECT
 TRACKING = config.TRACKING_DIR / "ict450" / "v2"
 BANK = TRACKING / "bank"
 REVIEW = BANK / "review"
+OWNER_DIR = REVIEW / "owner_recreations"
 DECISIONS = REVIEW / "review_decisions.json"
 SHEET_HTML = REVIEW / "needs_fix.html"
 SHEET_PDF = REVIEW / "needs_fix.pdf"
 REVIEWED_ON = "2026-11-11"
+HTML_DOC_RE = re.compile(r"<!DOCTYPE\s+html[\s\S]*?</html\s*>", re.I)
+HTML_TAG_RE = re.compile(r"<html[\s\S]*?</html\s*>", re.I)
+
+
+def extract_owner_html(text: str) -> tuple[str, str]:
+    """Split an owner note into ``(html_document, plain_note)``."""
+    raw = str(text or "")
+    match = HTML_DOC_RE.search(raw) or HTML_TAG_RE.search(raw)
+    if not match:
+        return "", raw.strip()
+    document = match.group(0).strip()
+    note = (raw[:match.start()] + raw[match.end():]).strip()
+    note = re.sub(r"^\s*use this\s*$", "", note, flags=re.I).strip()
+    return document, note
+
+
+def save_owner_html(asset_id: str, document: str) -> Path:
+    OWNER_DIR.mkdir(parents=True, exist_ok=True)
+    path = OWNER_DIR / f"{asset_id}.html"
+    path.write_text(document + "\n", encoding="utf-8")
+    return path
 
 EDGE_CANDIDATES = (
     Path(r"C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"),
@@ -64,12 +88,14 @@ def apply_decisions(path: Path = DECISIONS) -> dict:
         verdict = str(decision.get("verdict") or "").strip()
         if verdict not in {"approved", "needs_fix", "rejected"}:
             raise SystemExit(f"{qid}: invalid verdict {verdict!r}")
+        _, question_note = extract_owner_html(decision.get("notes"))
         question["review_verdict"] = verdict
-        question["review_notes"] = str(decision.get("notes") or "")
+        question["review_notes"] = question_note
         question["reviewed_on"] = REVIEWED_ON
         question["review_warnings"] = list(question.get("review_flags") or [])
         asset_decisions = dict(decision.get("assets") or {})
         needs_work = False
+        asset_records = []
         for aid, value in asset_decisions.items():
             if isinstance(value, dict):
                 choice = str(value.get("choice") or "")
@@ -77,6 +103,7 @@ def apply_decisions(path: Path = DECISIONS) -> dict:
             else:
                 choice = str(value or "")
                 notes = ""
+            owner_html, note = extract_owner_html(notes)
             asset = store.load_asset(aid)
             if not asset:
                 raise SystemExit(f"{qid}: missing asset {aid}")
@@ -84,9 +111,14 @@ def apply_decisions(path: Path = DECISIONS) -> dict:
                               "needs_more_work"}:
                 raise SystemExit(f"{aid}: invalid choice {choice!r}")
             asset["review_choice"] = choice
-            asset["review_notes"] = notes
+            asset["review_notes"] = note
             asset["reviewed_on"] = REVIEWED_ON
             counts[choice] += 1
+            if owner_html:
+                owner_path = save_owner_html(aid, owner_html)
+                asset["owner_recreation_file"] = owner_path.name
+                asset["owner_recreation_sha256"] = hashlib.sha256(
+                    owner_html.encode("utf-8")).hexdigest()
             if choice == "use_original":
                 asset["verdict"] = "approved"
                 asset["selected_treatment"] = "crop"
@@ -94,8 +126,9 @@ def apply_decisions(path: Path = DECISIONS) -> dict:
             elif choice == "needs_more_work":
                 needs_work = True
                 asset["verdict"] = "pending"
-                asset["selected_treatment"] = "pending"
-                asset["recreation_status"] = "needs_more_work"
+                asset["selected_treatment"] = "html_recreation"
+                asset["recreation_status"] = (
+                    "updated" if owner_html else "needs_more_work")
             else:
                 asset["selected_treatment"] = (
                     "native_table" if asset.get("kind") == "table"
@@ -107,6 +140,43 @@ def apply_decisions(path: Path = DECISIONS) -> dict:
                     asset["verdict"] = "pending"
                     asset["recreation_status"] = "pending_review"
             save_json(store.asset_path(aid), asset)
+            asset_records.append(asset)
+        # Identical owner recreations in one question are one combined asset.
+        by_hash: dict[str, list[dict]] = {}
+        for asset in asset_records:
+            if asset.get("owner_recreation_sha256"):
+                by_hash.setdefault(asset["owner_recreation_sha256"],
+                                   []).append(asset)
+        merged_out = set()
+        if "combine" in question_note.lower():
+            for group in by_hash.values():
+                if len(group) < 2:
+                    continue
+                group = sorted(group, key=lambda row: str(row["id"]))
+                primary = group[0]
+                primary["combined_from"] = [str(row["id"]) for row in group]
+                save_json(store.asset_path(primary["id"]), primary)
+                for other in group[1:]:
+                    other["merged_into"] = primary["id"]
+                    other["verdict"] = "approved"
+                    other["recreation_status"] = "merged"
+                    save_json(store.asset_path(other["id"]), other)
+                    merged_out.add(other["id"])
+        if merged_out:
+            question["assets"] = [aid for aid in question.get("assets") or []
+                                  if aid not in merged_out]
+        labels = set()
+        for linked_id in question.get("assets") or []:
+            linked = store.load_asset(str(linked_id))
+            if linked.get("label"):
+                labels.add(str(linked["label"]).lower())
+        question["refs_unresolved"] = [
+            ref for ref in question.get("refs") or []
+            if str(ref).lower() not in labels]
+        if not question["refs_unresolved"]:
+            question["review_flags"] = [
+                flag for flag in question.get("review_flags") or []
+                if flag != "unresolved reference"]
         if needs_work:
             verdict = "needs_fix"
             question["review_verdict"] = "needs_fix"
@@ -123,7 +193,7 @@ def apply_decisions(path: Path = DECISIONS) -> dict:
         counts[verdict] += 1
         updated_questions.append(qid)
     save_json(store.approvals_path, approvals)
-    summary = refresh_report()
+    summary = refresh_report(source=Path(path).name)
     return {
         "subject": SUBJECT,
         "questions": len(updated_questions),
@@ -133,17 +203,19 @@ def apply_decisions(path: Path = DECISIONS) -> dict:
     }
 
 
-def refresh_report() -> dict:
+def refresh_report(source: str = "review_decisions.json") -> dict:
     """Recompute bank counts after a review import, without rebuilding."""
     store = _store()
     questions = list(store.questions())
-    assets = [row for row in store.assets() if not row.get("superseded_by")]
+    assets = [row for row in store.assets()
+              if not row.get("superseded_by") and not row.get("merged_into")]
     statuses = Counter(str(row.get("status")) for row in questions)
     choices = Counter(str(row.get("review_choice") or "unreviewed")
                       for row in assets)
     pending = [row["id"] for row in assets
                if row.get("recreation_status") in {"pending_review",
-                                                   "needs_more_work"}]
+                                                   "needs_more_work",
+                                                   "updated"}]
     index = load_json(BANK / "index.json", {})
     index.update({
         "status": dict(sorted(statuses.items())),
@@ -177,7 +249,7 @@ def refresh_report() -> dict:
     lines = [
         "# ICT450 — owner review import",
         "",
-        f"Imported on **{REVIEWED_ON}** from `review_decisions.json`.",
+        f"Imported on **{REVIEWED_ON}** from `{source}`.",
         "",
         "## Questions",
         "",
@@ -360,7 +432,58 @@ def _thumb(asset: dict) -> str:
     return f"thumbs/{aid}.jpg"
 
 
+def render_owner_pngs(assets: list[dict]) -> None:
+    """Render owner HTML files to full-page PNGs for a clean print layout."""
+    sources = [asset for asset in assets
+               if asset.get("owner_recreation_file")]
+    if not sources:
+        return
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        return
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch(channel="msedge", headless=True)
+        try:
+            for asset in sources:
+                source = OWNER_DIR / str(asset["owner_recreation_file"])
+                target = source.with_suffix(".png")
+                if not source.is_file():
+                    continue
+                if (target.is_file()
+                        and target.stat().st_mtime >= source.stat().st_mtime):
+                    continue
+                page = browser.new_page(viewport={"width": 1000,
+                                                  "height": 900},
+                                        device_scale_factor=2)
+                page.goto(source.resolve().as_uri())
+                page.wait_for_timeout(200)
+                written = False
+                for selector in (".order-form", ".invoice-container",
+                                 ".form-container", ".document-container",
+                                 ".container"):
+                    locator = page.locator(selector)
+                    if locator.count():
+                        locator.first.screenshot(path=str(target))
+                        written = True
+                        break
+                if not written:
+                    page.screenshot(path=str(target), full_page=True)
+                page.close()
+        finally:
+            browser.close()
+
+
 def _recreation_html(asset: dict) -> str:
+    owner = str(asset.get("owner_recreation_file") or "")
+    if owner:
+        shot = Path(owner).with_suffix(".png").as_posix()
+        if (OWNER_DIR / shot).is_file():
+            return (f'<img class="owner-shot" '
+                    f'src="owner_recreations/{html.escape(shot)}" '
+                    f'alt="owner HTML recreation">')
+        return (f'<iframe class="owner-frame" '
+                f'src="owner_recreations/{html.escape(owner)}"></iframe>')
     aid = str(asset.get("id"))
     if aid in MANUAL_RECREATIONS:
         return MANUAL_RECREATIONS[aid]
@@ -381,21 +504,10 @@ def _question_section(question: dict, assets: list[dict]) -> str:
         aid = html.escape(str(asset.get("id")))
         label = html.escape(str(asset.get("label") or asset.get("id")))
         choice = html.escape(str(asset.get("review_choice") or ""))
-        checked = "checked" if choice != "needs_more_work" else ""
-        blocks.append(f"""
-        <div class="asset" data-aid="{aid}">
-          <div class="asset-title">{label}
-            <span class="tag">{qid}</span>
-            <span class="tag">{html.escape(str(asset.get('kind')))}</span>
-            <span class="tag">{choice}</span>
-            <span class="tag">page {asset.get('page')}</span>
-          </div>
-          <div class="compare">
-            <div><div class="cap">Original crop</div>
-              <img class="original" src="{_thumb(asset)}" alt="{aid}"></div>
-            <div><div class="cap">HTML recreation</div>
-              <div class="recreation">{_recreation_html(asset)}</div></div>
-          </div>
+        status = str(asset.get("recreation_status") or "")
+        checked = "checked" if status != "needs_more_work" else ""
+        owner_file = str(asset.get("owner_recreation_file") or "")
+        controls = f"""
           <div class="verdict-line">
             <label class="pick"><input type="radio"
               name="choice-{qid}-{aid}" value="use_recreation" {checked}>
@@ -409,6 +521,39 @@ def _question_section(question: dict, assets: list[dict]) -> str:
             <textarea class="asset-notes" rows="2"
               placeholder="Notes for this recreation"></textarea>
           </div>
+        """
+        title = f"""
+          <div class="asset-title">{label}
+            <span class="tag">{qid}</span>
+            <span class="tag">{html.escape(str(asset.get('kind')))}</span>
+            <span class="tag">{choice}</span>
+            <span class="tag">page {asset.get('page')}</span>
+          </div>
+        """
+        if owner_file:
+            shot = Path(owner_file).with_suffix(".png").as_posix()
+            blocks.append(f"""
+            <div class="asset owner-asset" data-aid="{aid}">
+              {title}
+              <div class="cap">Updated HTML recreation (owner-supplied)</div>
+              <img class="owner-shot" src="owner_recreations/{html.escape(shot)}"
+                   alt="updated recreation {aid}">
+              <div class="cap small">Original crop (reference)</div>
+              <img class="original thumb" src="{_thumb(asset)}" alt="{aid}">
+              {controls}
+            </div>
+            """)
+            continue
+        blocks.append(f"""
+        <div class="asset" data-aid="{aid}">
+          {title}
+          <div class="compare">
+            <div><div class="cap">Original crop</div>
+              <img class="original" src="{_thumb(asset)}" alt="{aid}"></div>
+            <div><div class="cap">HTML recreation</div>
+              <div class="recreation">{_recreation_html(asset)}</div></div>
+          </div>
+          {controls}
         </div>
         """)
     warning_line = (
@@ -447,10 +592,12 @@ def build_sheet(out: Path = SHEET_HTML) -> Path:
                   for aid in question.get("assets") or []]
         linked = [asset for asset in linked if asset]
         recreation = [asset for asset in linked
-                      if asset.get("review_choice") == "use_recreation"]
+                      if asset.get("recreation_status") in {
+                          "pending_review", "needs_more_work", "updated"}]
         if question.get("review_verdict") == "needs_fix" or recreation:
             selected.append((question, recreation))
     selected.sort(key=lambda item: str(item[0].get("id")))
+    render_owner_pngs([asset for _, assets in selected for asset in assets])
     sections = "".join(_question_section(question, assets)
                        for question, assets in selected)
     page = f"""<!doctype html>
@@ -475,6 +622,14 @@ h2 {{ font-size: 13pt; margin: 0 0 2mm; }}
 .cap {{ font-weight: bold; margin-bottom: 1mm; }}
 img.original {{ max-width: 100%; max-height: 95mm; border: 1px solid #ccc; }}
 .recreation {{ border: 1px solid #ccc; padding: 3mm; min-height: 40mm; }}
+iframe.owner-frame {{ width: 100%; height: 120mm; border: 1px solid #ccc;
+                      background: #fff; }}
+img.owner-shot {{ display: block; margin: 0 auto; max-width: 100%;
+                  max-height: 210mm; width: auto; border: 1px solid #ccc; }}
+img.original.thumb {{ display: block; max-width: 100%; max-height: 45mm;
+                      border: 1px solid #ccc; }}
+.cap.small {{ font-size: 8pt; color: #555; margin-top: 2mm; }}
+.tag.owner {{ background: #d9ead3; }}
 .rec-html table, table.rec-table {{ border-collapse: collapse;
   width: 100%; font-size: 8pt; }}
 .rec-html td, .rec-html th, table.rec-table td, table.rec-table th {{

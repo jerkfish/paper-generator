@@ -28,12 +28,13 @@ month on the cover, so its paper id remains provisional and is recorded as
 | Item | Count |
 |---|---:|
 | Questions | 60 |
-| `approved` | 37 |
-| `needs_fix` | 23 |
+| `approved` | 55 |
+| `needs_fix` | 5 |
 | `extracted` after the owner review | 0 |
 | Assets | 40 |
 | Assets: use original | 7 |
-| Assets: use recreation, pending review | 32 |
+| Assets: use recreation, approved | 26 |
+| Updated recreations pending review | 5 |
 | Tables | 25 |
 | Figures | 10 |
 | Diagrams | 1 |
@@ -81,27 +82,25 @@ report.
 
 ## Owner review import
 
-The owner reviewed the bank on **2026-11-11**:
+The owner reviewed the bank in two rounds on **2026-11-11**:
 
-- 37 questions approved, 23 needs-fix.
-- 7 assets use the original crop; 32 assets request an HTML recreation.
-- 25 questions need a second look (23 needs-fix plus 2 approved questions with
-  recreation assets).
+- First round: 37 questions approved, 23 needs-fix; 7 assets use the original
+  crop and 32 requested an HTML recreation.
+- Second round: 20 more questions approved; 5 remain. The owner supplied
+  replacement HTML for the five remaining recreations:
+  `2018-DEC-A37`, `2019-DEC-A40`, `2023-JUL-A06`, `2024-JAN-A12`, and the
+  combined `2024-JUL-A14` (A14 + A15 are one figure).
 
-An interactive review sheet with only those 25 questions is at
-`outputs/review/ICT450/needs_fix.html` (printed copy:
-`needs_fix.pdf`). Each asset has working
-use recreation / keep original / needs more work buttons and a notes field;
-**Export decisions JSON** downloads a `fix_review` file that can be applied
-back to the bank. Five assets had no MinerU table HTML and were transcribed
-into HTML from the source crop: the AB Bistro receipt, the database-design
-flowchart, the Sasa eStore invoice, Table 3 of 2025-JUL, and Table 4 of
-2025-JUL.
+The final review sheet with only those 5 questions is at
+`outputs/review/ICT450/needs_fix.html` (printed copy: `needs_fix.pdf`).
+Each asset has working use recreation / keep original / needs more work
+buttons and a notes field; **Export decisions JSON** downloads a `fix_review`
+file that can be applied back to the bank.
 
 ## Gate A
 
-Status: **awaiting owner review of the 32 recreations**.
+Status: **awaiting owner review of the 5 updated recreations**.
 
-The 37 approved questions are accepted. The 23 needs-fix questions remain
-unapproved until their recreation sheet is reviewed. Gate A is not approved;
-seeds, answers and templates remain blocked.
+55 questions are accepted. The 5 needs-fix questions remain unapproved until
+their updated recreation sheet is reviewed. Gate A is not approved; seeds,
+answers and templates remain blocked.

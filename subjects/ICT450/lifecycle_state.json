@@ -65,7 +65,7 @@
         "on": "",
         "note": ""
       },
-      "notes": "Owner review imported: 37 approved, 23 needs_fix; 32 assets requested as recreations, 7 as originals. HTML/PDF fix sheet built for 25 questions. Recreations pending review; Gate A still pending."
+      "notes": "Owner review round 2 imported: 55 approved, 5 needs_fix. Five owner-supplied HTML recreations are pending review; A14+A15 are combined. Gate A still pending."
     },
     "V3_format": {
       "status": "pending",
@@ -174,8 +174,8 @@
   },
   "bank": {
     "questions": 60,
-    "approved": 37,
-    "needs_fix": 23,
+    "approved": 55,
+    "needs_fix": 5,
     "rejected": 0,
     "assets": 40,
     "duplicate_clusters": 0
@@ -199,25 +199,25 @@
       "stage": "V2_bank",
       "code": "MARKS_MISMATCH",
       "item": "visible marks 14 differ from the paper's modal question total 20; a sub-part may be missing",
-      "blocking": true,
+      "blocking": false,
       "opened": "2026-11-11",
       "paper_id": "ICT450-2023-FEB",
       "question_id": "ICT450-2023-FEB-Q1",
       "page": 2,
       "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2023-FEB\\vlm_c51270358e\\review\\normalized.json",
-      "note": ""
+      "note": "Owner approved the question after review; the marks warning is retained in review_warnings."
     },
     {
       "stage": "V2_bank",
       "code": "MARKS_MISMATCH",
       "item": "visible marks 16 differ from the paper's modal question total 20; a sub-part may be missing",
-      "blocking": true,
+      "blocking": false,
       "opened": "2026-11-11",
       "paper_id": "ICT450-2024-JAN",
       "question_id": "ICT450-2024-JAN-Q2",
       "page": 2,
       "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2024-JAN\\vlm_c51270358e\\review\\normalized.json",
-      "note": ""
+      "note": "Owner approved the question after review; the marks warning is retained in review_warnings."
     },
     {
       "stage": "V2_bank",
@@ -245,51 +245,27 @@
     },
     {
       "stage": "V2_bank",
-      "code": "UNRESOLVED_REFERENCE",
-      "item": "Table 1 is referenced but no linked asset carries that caption",
-      "blocking": true,
-      "opened": "2026-11-11",
-      "paper_id": "ICT450-2025-JUL",
-      "question_id": "ICT450-2025-JUL-Q3",
-      "page": 4,
-      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2025-JUL\\vlm_c51270358e\\review\\normalized.json",
-      "note": ""
-    },
-    {
-      "stage": "V2_bank",
-      "code": "UNRESOLVED_REFERENCE",
-      "item": "Table 4 is referenced but no linked asset carries that caption",
-      "blocking": true,
-      "opened": "2026-11-11",
-      "paper_id": "ICT450-2025-JUL",
-      "question_id": "ICT450-2025-JUL-Q4",
-      "page": 5,
-      "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2025-JUL\\vlm_c51270358e\\review\\normalized.json",
-      "note": ""
-    },
-    {
-      "stage": "V2_bank",
       "code": "MARKS_MISMATCH",
       "item": "visible marks 14 differ from the paper's modal question total 20; a sub-part may be missing",
-      "blocking": true,
+      "blocking": false,
       "opened": "2026-11-11",
       "paper_id": "ICT450-2025-JUL",
       "question_id": "ICT450-2025-JUL-Q1",
       "page": 2,
       "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2025-JUL\\vlm_c51270358e\\review\\normalized.json",
-      "note": ""
+      "note": "Owner approved the question after review; the marks warning is retained in review_warnings."
     },
     {
       "stage": "V2_bank",
       "code": "MARKS_MISMATCH",
       "item": "visible marks 14 differ from the paper's modal question total 20; a sub-part may be missing",
-      "blocking": true,
+      "blocking": false,
       "opened": "2026-11-11",
       "paper_id": "ICT450-2018-JUN",
       "question_id": "ICT450-2018-JUN-Q4",
       "page": 4,
       "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2018-JUN\\vlm_c51270358e\\review\\normalized.json",
-      "note": ""
+      "note": "Owner approved the question after review; the marks warning is retained in review_warnings."
     },
     {
       "stage": "V1_extract",
@@ -302,6 +278,14 @@
       "page": 1,
       "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\ict450\\v2\\mineru\\ICT450-2019-JUN\\vlm_c51270358e\\full.md",
       "note": "Dossier complete; month stays provisional"
+    },
+    {
+      "stage": "V2_bank",
+      "code": "FIX_REVIEW_PENDING",
+      "item": "5 owner-supplied HTML recreations are awaiting final review.",
+      "blocking": true,
+      "opened": "2026-11-11",
+      "path": "data/tracking/ict450/v2/bank/review/needs_fix.html"
     }
   ],
   "parser_provenance": [
