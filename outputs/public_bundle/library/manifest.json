@@ -1,19 +1,19 @@
 {
-  "generated": "2026-11-08T12:27:12Z",
+  "generated": "2026-11-14T06:35:30Z",
   "subjects": [
     {
       "code": "CSC402",
       "title": "Programming I",
       "status": "available",
-      "papers": 0,
-      "manifest": null
+      "papers": 20,
+      "manifest": "/library/CSC402/manifest.json"
     },
     {
       "code": "CSC413",
       "title": "Introduction to Interactive Multimedia",
       "status": "available",
-      "papers": 0,
-      "manifest": null
+      "papers": 20,
+      "manifest": "/library/CSC413/manifest.json"
     },
     {
       "code": "CSC429",
@@ -23,18 +23,25 @@
       "manifest": "/library/CSC429/manifest.json"
     },
     {
+      "code": "ICT450",
+      "title": "Database Design and Development",
+      "status": "available",
+      "papers": 20,
+      "manifest": "/library/ICT450/manifest.json"
+    },
+    {
       "code": "CSC662",
       "title": "Computer Security",
       "status": "available",
-      "papers": 0,
-      "manifest": null
+      "papers": 20,
+      "manifest": "/library/CSC662/manifest.json"
     },
     {
       "code": "MAT133",
       "title": "Pre-Calculus",
       "status": "available",
-      "papers": 0,
-      "manifest": null
+      "papers": 20,
+      "manifest": "/library/MAT133/manifest.json"
     },
     {
       "code": "CTU552",
@@ -46,13 +53,6 @@
     {
       "code": "HBU111",
       "title": "National Kesatria I",
-      "status": "coming_soon",
-      "papers": 0,
-      "manifest": null
-    },
-    {
-      "code": "ICT450",
-      "title": "Database Design and Development",
       "status": "coming_soon",
       "papers": 0,
       "manifest": null

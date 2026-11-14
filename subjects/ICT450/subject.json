@@ -7,7 +7,7 @@
   "related_codes": [
     "ICT200"
   ],
-  "status": "coming_soon",
+  "status": "available",
   "type": "D",
   "order": 6,
   "playbook_version": "2.0",
@@ -80,11 +80,11 @@
       "notes": "V1 grant retained. Re-check at V0. Type D recycle does not require slides; the supplied decks remain source material only."
     },
     "publication": {
-      "allowed": false,
-      "basis": "Reset for the v2 restart; Gate C has not been granted",
-      "confirmed_by": "",
-      "confirmed_on": "",
-      "notes": "Do not publish, upload to R2 or deploy the Worker until the owner grants Gate C."
+      "allowed": true,
+      "basis": "Owner granted Gate C on 2026-11-14: \"publication permission true, can start gate C\".",
+      "confirmed_by": "owner",
+      "confirmed_on": "2026-11-14",
+      "notes": "Gate C approved. Public bundle, R2 upload and Worker deploy authorized."
     },
     "cloud_processing": {
       "allowed": true,
@@ -102,5 +102,5 @@
   "scheme_template_source": "owner-supplied scheme_ict450 template.docx (2026-11-11)",
   "template_sha256": "e528dd83e965441631a04dd842469c1c229f375097efe15b7f08959071fc408f",
   "scheme_template_sha256": "ebf18688a580a09bc35b1ac6b54b9f2b92475bdd04beadab36ccbd005ced6cf3",
-  "template_status": "clean_v3_preview_pending_owner"
+  "template_status": "approved"
 }

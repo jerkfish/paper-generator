@@ -185,4 +185,5 @@ V4 was completed, a scheme was attached to every seed cache and registered in
 the manifest. See `docs/ICT450_LIBRARY_REPORT.md`,
 `docs/ICT450_SCHEMES_REPORT.md` and the cache manifests.
 
-Gate C remains pending; nothing was published, uploaded or deployed.
+Gate C was **approved on 2026-11-14**; the public bundle was uploaded and the
+Worker was deployed. See `docs/ICT450_PUBLICATION_REPORT.md`.

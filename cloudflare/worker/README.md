@@ -15,9 +15,9 @@ The optional Phase 4.2 live mode is a separate Worker in
 - workers.dev fallback: https://papergen.jerkfish123.workers.dev
 - D1: `papergen` (`9d99c331-d8ba-495e-9a8d-35e295bb882c`), schema applied.
 - R2: `exampapers`, the public bundle (all available subjects) plus shared
-  gallery objects. Current bucket: 221 objects, 52,424,641 bytes; the old
-  shared entries expired after their 7-day TTL. Subject routes and share
-  validation come from the generated `subjects.json`, not a Worker list.
+  gallery objects. Current bucket: 562 objects, 157,012,467 bytes after the
+  2026-11-14 ICT450 upload; subject routes and share validation come from the
+  generated `subjects.json`, not a Worker list.
 - Lifecycle: read-only check works; adding the rule needs
   `Workers R2 Storage Write` on the API token (or the dashboard).
 

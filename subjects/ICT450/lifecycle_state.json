@@ -4,9 +4,9 @@
   "subject": "ICT450",
   "type": "D",
   "strategy": "recycle",
-  "lifecycle_status": "in_progress",
+  "lifecycle_status": "complete",
   "created": "2026-11-11T00:00:00Z",
-  "updated": "2026-11-11T00:00:00Z",
+  "updated": "2026-11-14T00:00:00Z",
   "stages": {
     "V0_intake": {
       "status": "done",
@@ -169,22 +169,35 @@
       "notes": "20-seed Library built at min(20, feasible). Every seed has Q1 concepts, Q2 design theory, Q3 normalization, Q4 SQL, Q5 ERD; 100 marks, six pages, five distinct source papers, one question per page. Attachments audited with no missing assets; reuse max 2 of cap 4. Four approved questions were not selected because their extracted marks do not reconcile (2018-JUN-Q4, 2023-FEB-Q1, 2024-JAN-Q2, 2025-JUL-Q1); no marks were invented. LLM cost $0. Paper and scheme files are now attached for all 20 seeds."
     },
     "V7_publish": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "outputs/public_bundle",
+        "outputs/r2_quota_ledger.json",
+        "outputs/r2_sync_state.json",
+        "docs/ICT450_PUBLICATION_REPORT.md",
+        "cloudflare/worker/README.md"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
-        "required": false,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-14",
+        "note": "Owner granted Gate C: publication permission true; public bundle, R2 upload and Worker deploy authorized."
       },
-      "notes": "Gate C hard stop."
+      "notes": "Public bundle validated with 0 problems; 562 objects / 149.74 MiB. R2 upload 151 changed / 411 unchanged, Class A 668/10000. Worker papergen deployed version 78c22e17-c81e-48e2-9cab-d92463264833 at https://uitmpapergen.download. Public routes and seed 1/20 paper and scheme downloads return 200."
     },
     "V8_close_out": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "docs/ICT450.md",
+        "docs/ICT450_ANSWERS_REPORT.md",
+        "docs/ICT450_SCHEMES_REPORT.md",
+        "docs/ICT450_LIBRARY_REPORT.md",
+        "docs/ICT450_PUBLICATION_REPORT.md",
+        "subjects/ICT450/lifecycle_state.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
@@ -192,9 +205,9 @@
         "approved": false,
         "by": "",
         "on": "",
-        "note": ""
+        "note": "Close-out evidence recorded; Gate C is the publish approval."
       },
-      "notes": ""
+      "notes": "V0–V8 complete. 60/60 answers, 20/20 schemes, 20-seed Library, public bundle published and Worker deployed. All non-blocking unsure items remain recorded and accepted. Final safety and test suites pass."
     }
   },
   "gates": {
@@ -227,10 +240,16 @@
       ]
     },
     "C": {
-      "status": "pending",
-      "by": "",
-      "on": "",
-      "evidence": []
+      "status": "approved",
+      "by": "owner",
+      "on": "2026-11-14",
+      "evidence": [
+        "outputs/public_bundle",
+        "outputs/r2_quota_ledger.json",
+        "outputs/r2_sync_state.json",
+        "docs/ICT450_PUBLICATION_REPORT.md",
+        "cloudflare/worker/README.md"
+      ]
     }
   },
   "bank": {

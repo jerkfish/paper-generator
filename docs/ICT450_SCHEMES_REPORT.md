@@ -46,4 +46,5 @@ The first 15 answers (seeds 1–3) were owner-approved. The remaining answers us
 
 ## Gate C
 
-Gate C remains **pending**. No public bundle, R2 upload or Worker deploy was performed.
+Gate C was **approved on 2026-11-14**. The public bundle was validated, uploaded
+to R2 and the Worker was deployed; see `docs/ICT450_PUBLICATION_REPORT.md`.

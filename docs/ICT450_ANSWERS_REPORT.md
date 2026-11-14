@@ -119,7 +119,8 @@ headings present. See `docs/ICT450_SCHEMES_REPORT.md` for the seed table.
 - `outputs/review/ICT450/schemes_v1/seed_03_scheme.docx` / `.pdf`
 - `outputs/review/ICT450/schemes_v1/seed_*_qa.json`
 
-## Next stage
+## Publication
 
-V4 is **done**. V7 publication remains blocked at **Gate C**: no public bundle,
-R2 upload or Worker deploy has been performed. V8 close-out waits for Gate C.
+V4 is **done**, and the owner granted **Gate C** on 2026-11-14. The public
+bundle, R2 upload and Worker deployment are complete; see
+`docs/ICT450_PUBLICATION_REPORT.md`. V8 close-out is done.

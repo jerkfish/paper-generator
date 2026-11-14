@@ -79,5 +79,6 @@ Scheme column and `docs/ICT450_SCHEMES_REPORT.md` lists every seed.
 
 ## Gate C
 
-Gate C remains **pending**. Publication permission is still false; no
-public bundle, upload or deploy was performed. LLM cost: **$0.00**.
+Gate C was **approved on 2026-11-14**. The public bundle was validated, uploaded
+to R2 and the Worker was deployed. See `docs/ICT450_PUBLICATION_REPORT.md`.
+LLM cost: **$0.00**.

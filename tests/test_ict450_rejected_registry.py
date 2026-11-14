@@ -64,7 +64,7 @@ def test_active_contract_is_v2_recycle():
     assert subject["strategy"] == "recycle"
     assert subject["variants"]["enabled"] is False
     assert subject["extraction"]["method"] == "mineru"
-    assert subject["permissions"]["publication"]["allowed"] is False
+    assert subject["permissions"]["publication"]["allowed"] is True
     assert subject["archive"]["v1_manifest"] == (
         "docs/archive/ict450_v1/MANIFEST.json")
 
@@ -74,10 +74,10 @@ def test_active_contract_is_v2_recycle():
     assert lifecycle["strategy"] == "recycle"
     assert "V0_intake" in lifecycle["stages"]
     assert lifecycle["lifecycle_status"] in {
-        "restarting_v2", "in_progress", "blocked"}
+        "restarting_v2", "in_progress", "blocked", "complete"}
     assert lifecycle["gates"]["A"]["status"] in {"pending", "approved"}
     assert lifecycle["gates"]["B"]["status"] == "approved"
-    assert lifecycle["gates"]["C"]["status"] == "pending"
+    assert lifecycle["gates"]["C"]["status"] == "approved"
     assert int(lifecycle["bank"]["questions"]) >= 0
     assert lifecycle["answers"]["official"] == 0
 
