@@ -62,6 +62,11 @@ def _today() -> str:
 
 MATH_RE = re.compile(
     r"\$\$(.+?)\$\$|\$([^$]+?)\$|\\\((.+?)\\\)|\\\[(.+?)\\\]", re.S)
+PROSE_RE = re.compile(
+    r"\b(the|and|so|then|thus|need|denominator|cannot|where|with|for|"
+    r"is|are|or|hence|since|if|let|from|gives|remainder|quotient|vertex|"
+    r"center|centre|radius|sketch|domain|intercepts|answer|mark|marks)\b",
+    re.I)
 LATEX_ALIASES = {
     r"\dfrac": r"\frac", r"\tfrac": r"\frac",
     r"\leq": r"\leq", r"\ge": r"\geq", r"\le": r"\le",
@@ -71,6 +76,21 @@ LATEX_ALIASES = {
 
 def _plain_math(latex: str) -> str:
     value = str(latex or "")
+    symbols = {
+        r"\ne": "≠", r"\neq": "≠", r"\le": "≤", r"\leq": "≤",
+        r"\ge": "≥", r"\geq": "≥", r"\Rightarrow": "⇒",
+        r"\rightarrow": "→", r"\times": "×", r"\cdot": "·",
+        r"\pi": "π", r"\theta": "θ", r"\alpha": "α", r"\beta": "β",
+        r"\circ": "°", r"\pm": "±", r"\infty": "∞", r"\sqrt": "√",
+    }
+    for old, new in symbols.items():
+        value = re.sub(re.escape(old) + r"(?![A-Za-z])", new, value)
+    value = re.sub(
+        r"\\(?:d|t)?frac\{([^{}]*)\}\{([^{}]*)\}",
+        lambda match: f"({match.group(1)})/({match.group(2)})", value)
+    value = re.sub(
+        r"\\sqrt\{([^{}]*)\}",
+        lambda match: "√(" + match.group(1) + ")", value)
     value = re.sub(r"\\(mathrm|text|operatorname)\{([^{}]*)\}", r"\2", value)
     value = value.replace("\\left", "").replace("\\right", "")
     value = value.replace("\\,", " ").replace("\\;", " ")
@@ -166,6 +186,15 @@ def _add_rich_text(p, text: str, cache: Path, key: str,
                    size: float = 10.5) -> None:
     """Add text with inline ``$...$`` maths rendered as small images."""
     value = str(text or "")
+    value = value.replace("\\\\quad", " ").replace("\\\\", " ")
+    if ("$" not in value and "\\(" not in value and "\\[" not in value
+            and re.search(r"\\[A-Za-z]+", value)):
+        if PROSE_RE.search(value):
+            run = p.add_run(_plain_math(value))
+            _set_run_font(run, size)
+        else:
+            _add_math(p, value.strip(), cache, key)
+        return
     position = 0
     for match in MATH_RE.finditer(value):
         plain = value[position:match.start()]
@@ -957,16 +986,30 @@ def _gate_b_report(results: list[dict]) -> Path:
     for result in results:
         seed = result["seed"]
         qa = result["qa"]
+        plan = load_json(Path(result["plan"]), {})
         lines += [
             f"### Seed {seed}",
             "",
             f"- Paper: `{result['paper_pdf']}`",
             f"- Scheme: `{result['scheme_pdf']}`",
+            f"- Marks: {plan.get('total_marks')}",
             f"- QA problems: {len(qa['problems'])}",
+            "",
+            "| Slot | Question | Marks | Topic | Source | Pages | Assets |",
+            "|---|---|---|---|---|---|---|",
         ]
-        for problem in qa["problems"]:
-            lines.append(f"  - {problem}")
+        for slot in plan.get("slots") or []:
+            lines.append(
+                f"| {slot['slot']} | {slot['question_id']} | "
+                f"{slot['marks']} | {', '.join(slot.get('topic_tags') or [slot.get('topic') or ''])} | "
+                f"{slot.get('source_paper') or ''} | "
+                f"{', '.join(str(page) for page in slot.get('pages') or [])} | "
+                f"{len(slot.get('assets') or [])} |")
         lines.append("")
+        for problem in qa["problems"]:
+            lines.append(f"- QA problem: {problem}")
+        if qa["problems"]:
+            lines.append("")
     Path(OUT / "Gate_B_report.md").write_text("\n".join(lines) + "\n",
                                               encoding="utf-8")
     return OUT / "Gate_B_report.md"
@@ -976,12 +1019,19 @@ def _index(results: list[dict]) -> Path:
     rows = []
     for result in results:
         seed = result["seed"]
+        plan = load_json(Path(result["plan"]), {})
+        items = "".join(
+            f"<li><strong>{slot['slot']}</strong> "
+            f"{slot['question_id']} ({slot['marks']} marks) — "
+            f"{', '.join(slot.get('topic_tags') or [slot.get('topic') or ''])}, {slot.get('source_paper') or ''}</li>"
+            for slot in plan.get("slots") or [])
         rows.append(
             f"<h2>Seed {seed}</h2>"
             f"<p><a href=\"seed_{seed:02d}/paper.pdf\">paper.pdf</a> · "
             f"<a href=\"seed_{seed:02d}/scheme.pdf\">scheme.pdf</a> · "
             f"<a href=\"seed_{seed:02d}/qa.json\">qa.json</a> · "
             f"<a href=\"seed_{seed:02d}/evidence.json\">evidence.json</a></p>"
+            f"<ul>{items}</ul>"
             f"<p>QA problems: {len(result['qa']['problems'])}</p>")
     html = ("<!doctype html><meta charset=\"utf-8\">"
             "<title>MAT133 V5 Gate B</title>"

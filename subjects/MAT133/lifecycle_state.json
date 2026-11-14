@@ -7,7 +7,7 @@
   "strategy": "recycle",
   "lifecycle_status": "in_progress",
   "created": "2026-11-14T00:00:00Z",
-  "updated": "2026-11-14T14:11:48Z",
+  "updated": "2026-11-14T15:47:54Z",
   "stages": {
     "V0_intake": {
       "status": "done",
@@ -93,9 +93,23 @@
       "notes": "Current format from MAT133-2026-FEB (55 marks) and MAT133-2025-JUL (four questions, 2 hours; 50-mark variant). Exact slot marks, no tolerance."
     },
     "V4_answers": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
+      "status": "done",
+      "evidence": [
+        "data/tracking/mat133/v2/bank/answers.json",
+        "data/tracking/mat133/v2/bank/answers_report.json",
+        "data/tracking/mat133/v2/bank/answers_flash.json",
+        "data/tracking/mat133/v2/bank/answers_flash_report.json",
+        "data/tracking/mat133/v2/bank/answers_think.json",
+        "data/tracking/mat133/v2/bank/answers_think_report.json",
+        "data/tracking/mat133/v2/bank/answer_overrides.json",
+        "data/tracking/mat133/v2/bank/answer_exclusions.json",
+        "data/tracking/mat133/v2/bank/answers_compare.json",
+        "data/tracking/mat133/v2/bank/answers_compare.md",
+        "data/tracking/mat133/v2/answers/sample_review.md",
+        "data/tracking/mat133/v2/answers/cost_ledger_flash.json",
+        "data/tracking/mat133/v2/answers/cost_ledger_think.json"
+      ],
+      "llm_cost_usd": 1.920671,
       "blockers": [],
       "human_approval": {
         "required": false,
@@ -104,21 +118,46 @@
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "187 approved questions have an answer object. Primary draft: deepseek-flash with thinking enabled ($1.609138); secondary draft without thinking ($0.311533); total $1.920671. 140 answers are usable after consistency review; 47 are unusable because the printed question is incomplete or the figure is unresolved. Fourteen answer fields were corrected in answer_overrides.json; MAT133-2026-FEB-Q4 is excluded in answer_exclusions.json. All answers remain model_unofficial. Sample review: data/tracking/mat133/v2/answers/sample_review.md."
     },
     "V5_seeds_1_3": {
-      "status": "pending",
-      "evidence": [],
+      "status": "in_progress",
+      "evidence": [
+        "outputs/review/mat133_v2/seeds/Gate_B_report.md",
+        "outputs/review/mat133_v2/seeds/index.html",
+        "outputs/review/mat133_v2/seeds/build_summary.json",
+        "outputs/review/mat133_v2/seeds/feasibility.json",
+        "outputs/review/mat133_v2/seeds/seed_01/plan.json",
+        "outputs/review/mat133_v2/seeds/seed_01/qa.json",
+        "outputs/review/mat133_v2/seeds/seed_01/meta.json",
+        "outputs/review/mat133_v2/seeds/seed_01/evidence.json",
+        "outputs/review/mat133_v2/seeds/seed_01/paper.pdf",
+        "outputs/review/mat133_v2/seeds/seed_01/scheme.pdf",
+        "outputs/review/mat133_v2/seeds/seed_02/plan.json",
+        "outputs/review/mat133_v2/seeds/seed_02/qa.json",
+        "outputs/review/mat133_v2/seeds/seed_02/meta.json",
+        "outputs/review/mat133_v2/seeds/seed_02/evidence.json",
+        "outputs/review/mat133_v2/seeds/seed_02/paper.pdf",
+        "outputs/review/mat133_v2/seeds/seed_02/scheme.pdf",
+        "outputs/review/mat133_v2/seeds/seed_03/plan.json",
+        "outputs/review/mat133_v2/seeds/seed_03/qa.json",
+        "outputs/review/mat133_v2/seeds/seed_03/meta.json",
+        "outputs/review/mat133_v2/seeds/seed_03/evidence.json",
+        "outputs/review/mat133_v2/seeds/seed_03/paper.pdf",
+        "outputs/review/mat133_v2/seeds/seed_03/scheme.pdf"
+      ],
       "llm_cost_usd": 0.0,
-      "blockers": [],
+      "blockers": [
+        "Gate B: owner review of seeds 1-3 is pending."
+      ],
       "human_approval": {
-        "required": false,
+        "required": true,
         "approved": false,
         "by": "",
         "on": "",
-        "note": ""
+        "note": "Gate B is pending owner review of the three seeds."
       },
-      "notes": ""
+      "notes": "Seeds 1-3 assembled from approved questions with usable answers: 4 questions, 10+10+10+25 = 55 marks, 2 HOURS. QA reports 0 problems for all three seeds. Built under outputs/review/mat133_v2/seeds/. No LLM spend at this stage."
     },
     "V6_library": {
       "status": "pending",
@@ -217,7 +256,7 @@
   "answers": {
     "official": 0,
     "solver_verified": 0,
-    "model_unofficial": 0,
+    "model_unofficial": 187,
     "human_checked": 0
   },
   "unsure": [
@@ -228,14 +267,20 @@
       "opened": "2026-11-14"
     },
     {
-      "stage": "V4_answers",
-      "item": "The supplied 2024 scheme covers one assessment only; answer coverage for the remaining papers will be assessed at V4.",
+      "stage": "V2_bank",
+      "item": "MAT133-2014-MAR-Q5: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
       "blocking": false,
       "opened": "2026-11-14"
     },
     {
-      "stage": "V2_bank",
-      "item": "MAT133-2014-MAR-Q5: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
+      "stage": "V4_answers",
+      "item": "47 of 187 model answers are unusable because the printed question is incomplete or a figure is unresolved; they are excluded from assembly until the owner supplies corrected source text.",
+      "blocking": false,
+      "opened": "2026-11-14"
+    },
+    {
+      "stage": "V5_seeds_1_3",
+      "item": "The seeded answers remain model_unofficial and were checked for consistency, not marked by the owner. Gate B is the owner review.",
       "blocking": false,
       "opened": "2026-11-14"
     }
@@ -577,21 +622,21 @@
   ],
   "llm_cost": {
     "currency": "USD",
-    "total_usd": 0.0,
+    "total_usd": 1.920671,
     "by_stage": {
       "V0_intake": 0.0,
       "V1_extract": 0.0,
       "V2_bank": 0.0,
       "V3_format": 0.0,
-      "V4_answers": 0.0,
+      "V4_answers": 1.920671,
       "V5_seeds_1_3": 0.0,
       "V6_library": 0.0,
       "V7_publish": 0.0,
       "V8_close_out": 0.0
     },
-    "notes": "V0 is deterministic registry/intake work: $0.00. MinerU page cost is recorded per run at V1."
+    "notes": "V0-V3 deterministic ($0.00). V4 used two DeepSeek drafts: $1.609138 thinking-enabled and $0.311533 thinking-disabled. MinerU page cost is recorded per V1 run."
   },
-  "stop_reason": "V4 answers.",
+  "stop_reason": "Gate B: seeds 1-3 built and awaiting owner review.",
   "migration_mode": "full_v2_from_raw_papers",
   "migration_started_on": "2026-11-14",
   "branch": "MAT133",
@@ -608,7 +653,7 @@
       1
     ],
     "v1_state": "subjects/MAT133/lifecycle_state_v1.json",
-    "v2_status": "V3_done",
-    "v2_note": "v2 documents do not exist yet. They are built only after Gate A (bank) and Gate B (seeds 1-3)."
+    "v2_status": "V5_seeds_built_gate_B_pending",
+    "v2_note": "v2 paper and scheme documents exist for seeds 1-3 under outputs/review/mat133_v2/seeds/ and are awaiting Gate B. They are not in the public bundle; public_versions remains [1]."
   }
 }

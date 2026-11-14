@@ -2,7 +2,7 @@
   "schema_version": 1,
   "subject": "MAT133",
   "seed": 2,
-  "built_on": "2026-11-14T14:40:28Z",
+  "built_on": "2026-11-14T15:53:09Z",
   "format_profile": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\format_profile.json",
   "total_marks": 55,
   "slots": [
@@ -21,7 +21,7 @@
       "answer": {
         "answer_id": "ANS-MAT133-2025-JUL-Q2",
         "provenance": "model_unofficial",
-        "confidence": "medium",
+        "confidence": "high",
         "usable": true,
         "subparts": 2
       }
@@ -41,7 +41,7 @@
       "answer": {
         "answer_id": "ANS-MAT133-2021-JUL-Q1-2",
         "provenance": "model_unofficial",
-        "confidence": "medium",
+        "confidence": "high",
         "usable": true,
         "subparts": 2
       }
@@ -68,32 +68,20 @@
     },
     {
       "slot": "Q4",
-      "question_id": "MAT133-2026-FEB-Q4",
+      "question_id": "MAT133-2023-JUL-Q3",
       "marks": 25,
-      "source_paper": "MAT133-2026-FEB",
+      "source_paper": "MAT133-2023-JUL",
       "pages": [
-        3,
-        4
+        3
       ],
       "topic_tags": [
-        "trigonometry"
+        "functions"
       ],
-      "assets": [
-        {
-          "id": "A-MAT133-2026-FEB-Q4-F1",
-          "label": "Figure 1",
-          "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\bank\\assets\\A-MAT133-2026-FEB-Q4-F1.png"
-        },
-        {
-          "id": "A-MAT133-2026-FEB-Q4-F2",
-          "label": "Figure 2",
-          "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\bank\\assets\\A-MAT133-2026-FEB-Q4-F2.png"
-        }
-      ],
+      "assets": [],
       "answer": {
-        "answer_id": "ANS-MAT133-2026-FEB-Q4",
+        "answer_id": "ANS-MAT133-2023-JUL-Q3",
         "provenance": "model_unofficial",
-        "confidence": "low",
+        "confidence": "high",
         "usable": true,
         "subparts": 4
       }

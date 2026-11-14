@@ -1,0 +1,179 @@
+{
+  "approved_questions": 132,
+  "reuse_cap": 4,
+  "max_seeds_requested": 20,
+  "slots_per_seed": 4,
+  "pools": {
+    "Q:10": 11,
+    "Q:11": 3,
+    "Q:12": 1,
+    "Q:13": 1,
+    "Q:14": 4,
+    "Q:15": 15,
+    "Q:16": 3,
+    "Q:17": 3,
+    "Q:18": 11,
+    "Q:19": 4,
+    "Q:20": 41,
+    "Q:21": 1,
+    "Q:22": 4,
+    "Q:23": 16,
+    "Q:25": 12,
+    "Q:6": 1,
+    "Q:9": 1
+  },
+  "required_per_seed": {
+    "Q:10": 3,
+    "Q:25": 1
+  },
+  "missing_classes": [],
+  "distinct_seeds_without_reuse": 3,
+  "max_seeds_with_cap": 14,
+  "feasible_seeds": 14,
+  "requested_seeds_feasible": false,
+  "library_size": 14,
+  "structural_excluded": [
+    {
+      "question_id": "MAT133-2008-OCT-Q3",
+      "marks": 12,
+      "issues": [
+        "part b has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2009-APR-Q1",
+      "marks": 12,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2009-OCT-Q1",
+      "marks": 14,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2012-MAR-Q3",
+      "marks": 13,
+      "issues": [
+        "part b has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2012-OCT-Q3",
+      "marks": 20,
+      "issues": [
+        "part ? has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2014-SEP-Q1",
+      "marks": 4,
+      "issues": [
+        "part a has no marks",
+        "part c has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2016-MAR-Q3",
+      "marks": 19,
+      "issues": [
+        "part c has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2016-MAR-Q4",
+      "marks": 9,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2017-MAR-Q1",
+      "marks": 10,
+      "issues": [
+        "part b has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2018-DEC-Q4",
+      "marks": 9,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2018-JAN-Q4",
+      "marks": 9,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2018-JUN-Q4",
+      "marks": 10,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2019-DEC-Q4",
+      "marks": 9,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2019-JUN-Q4",
+      "marks": 9,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2023-FEB-Q4",
+      "marks": 10,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2023-JUL-Q4",
+      "marks": 9,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2024-JAN-Q4",
+      "marks": 9,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2024-JUL-Q4",
+      "marks": 9,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2025-JUL-Q3",
+      "marks": 5,
+      "issues": [
+        "part a has no marks"
+      ]
+    }
+  ],
+  "structural_excluded_count": 19,
+  "answer_excluded": [
+    {
+      "question_id": "MAT133-2026-FEB-Q4",
+      "reason": "Part (a) answer contradicts its own working (cos x = -3/4), and parts (b) and (d) depend on figure details the extraction did not settle. The answer is marked usable low by the model but is not trusted for a reviewed seed."
+    }
+  ],
+  "answer_excluded_count": 1
+}

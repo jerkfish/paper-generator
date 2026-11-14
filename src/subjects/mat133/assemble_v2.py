@@ -48,6 +48,11 @@ def structural_issues(question: dict) -> list[str]:
     return issues
 
 
+def answer_exclusions() -> list[dict]:
+    data = load_json(BANK / "answer_exclusions.json", {})
+    return list(data.get("excluded") or [])
+
+
 def structural_exclusions() -> list[dict]:
     store = BankStore(BANK)
     rows = []
@@ -65,9 +70,12 @@ def structural_exclusions() -> list[dict]:
 def usable_questions() -> list[dict]:
     store = BankStore(BANK)
     answers = load_json(BANK / "answers.json", {}).get("by_qid") or {}
+    excluded = {str(row.get("question_id")) for row in answer_exclusions()}
     rows = []
     for question in store.questions():
         if question.get("status") != "approved":
+            continue
+        if question["id"] in excluded:
             continue
         if structural_issues(question):
             continue
@@ -100,6 +108,8 @@ def feasibility_report() -> dict:
         max_seeds=20)
     report["structural_excluded"] = structural_exclusions()
     report["structural_excluded_count"] = len(report["structural_excluded"])
+    report["answer_excluded"] = answer_exclusions()
+    report["answer_excluded_count"] = len(report["answer_excluded"])
     return report
 
 

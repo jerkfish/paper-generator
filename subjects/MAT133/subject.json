@@ -153,7 +153,7 @@
   "extraction": {
     "method": "mineru",
     "parser": "mineru",
-    "status": "v2_pilot_pending",
+    "status": "v2_extracted",
     "report_standard": "full_markdown",
     "pilot_dir": "data/tracking/mat133/v2/mineru"
   },
@@ -170,9 +170,14 @@
       "2": "v2"
     },
     "v2_playbook_version": "2.0",
-    "v2_status": "V0_in_progress",
-    "v2_built_seeds": [],
-    "v2_publication": "not published; Gate C required"
+    "v2_status": "V5_seeds_built_gate_B_pending",
+    "v2_built_seeds": [
+      1,
+      2,
+      3
+    ],
+    "v2_publication": "not published; Gate B and Gate C required",
+    "v2_build_dir": "outputs/review/mat133_v2/seeds"
   },
   "scheme_template_path": "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx",
   "legacy_state": "subjects/MAT133/lifecycle_state_v1.json",
