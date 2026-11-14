@@ -7,7 +7,7 @@
   "strategy": "recycle",
   "lifecycle_status": "awaiting_gate_a",
   "created": "2026-11-14T00:00:00Z",
-  "updated": "2026-11-14T10:26:25Z",
+  "updated": "2026-11-14T13:59:02Z",
   "stages": {
     "V0_intake": {
       "status": "done",
@@ -72,7 +72,7 @@
         "on": "",
         "note": ""
       },
-      "notes": "188 questions from 37 papers; 139 extracted, 49 needs fix. Gate A review is pending."
+      "notes": "188 questions from 37 papers; 187 approved, 0 needs fix, 1 rejected. Gate A review is pending."
     },
     "V3_format": {
       "status": "pending",
@@ -173,7 +173,7 @@
         "data/tracking/mat133/v2/bank/unsure.json",
         "data/tracking/mat133/v2/bank/duplicates.json"
       ],
-      "note": "188 questions in 37 papers; 49 needs fix; 0 missing papers."
+      "note": "188 questions in 37 papers; 187 approved, 0 needs fix; 0 missing papers."
     },
     "B": {
       "status": "pending",
@@ -190,14 +190,17 @@
   },
   "bank": {
     "questions": 188,
-    "approved": 0,
-    "needs_fix": 49,
-    "rejected": 0,
-    "extracted": 139,
+    "approved": 187,
+    "needs_fix": 0,
+    "rejected": 1,
+    "extracted": 0,
     "assets": 73,
+    "assets_approved": 70,
+    "assets_pending": 0,
+    "assets_rejected": 3,
     "duplicate_clusters": 0,
-    "near_duplicate_pairs": 99,
-    "references": 58,
+    "near_duplicate_pairs": 98,
+    "references": 57,
     "unresolved_references": 0,
     "papers": 37,
     "papers_expected": 37,
@@ -224,344 +227,8 @@
     },
     {
       "stage": "V2_bank",
-      "item": "MAT133-2004-MAR: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2004-MAR-Q4: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2006-APR-Q5: 4 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2007-APR: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2007-APR-Q3: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2007-APR-Q5: 2 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2008-OCT-Q3: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2008-OCT-Q4: 3 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2009-APR-Q1: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2009-APR-Q3: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2009-OCT-Q1: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2010-OCT-Q3: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2011-SEP-Q1: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2011-SEP-Q3: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2012-MAR-Q2: 2 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2012-MAR-Q3: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2012-OCT-Q3: 2 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2013-MAR-Q1: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2013-SEP: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2013-SEP-Q1: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2013-SEP-Q2: 4 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2014-MAR: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2014-MAR-Q1: 3 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2014-MAR-Q2: 2 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
       "item": "MAT133-2014-MAR-Q5: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2014-SEP-Q1: 2 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2015-MAR-Q5: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2015-SEP-Q3: 4 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2015-SEP-Q5: 2 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2016-MAR-Q3: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2016-MAR-Q4: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2017-MAR-Q1: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2017-MAR-Q3: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2018-DEC: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2018-DEC-Q4: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2018-JAN-Q3: 2 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2018-JAN-Q4: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2018-JUN-Q3: 3 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2018-JUN-Q4: 2 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2019-DEC-Q4: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2019-JUN-Q4: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2021-JUL-Q4-2: 4 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2021-JUL-Q5-2: 2 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2022-FEB-Q3: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2023-FEB-Q3: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2023-FEB-Q4: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2023-FEB-Q5: 2 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2023-JUL: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2023-JUL-Q4: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2024-JAN: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2024-JAN-Q4: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2024-JUL-Q2: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2024-JUL-Q3: 2 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2024-JUL-Q4: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2025-JUL-Q3: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2026-FEB: 2 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
-      "opened": "2026-11-14"
-    },
-    {
-      "stage": "V2_bank",
-      "item": "MAT133-2026-FEB-Q3: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
-      "blocking": true,
+      "blocking": false,
       "opened": "2026-11-14"
     }
   ],

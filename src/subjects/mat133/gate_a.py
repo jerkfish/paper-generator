@@ -83,17 +83,21 @@ def record() -> dict:
         v2["notes"] = (
             f"{counts.get('questions', 0)} questions from "
             f"{counts.get('papers', 0)} papers; "
-            f"{counts.get('extracted', 0)} extracted, "
-            f"{counts.get('needs_fix', 0)} needs fix. Gate A review is "
+            f"{counts.get('approved', 0)} approved, "
+            f"{counts.get('needs_fix', 0)} needs fix, "
+            f"{counts.get('rejected', 0)} rejected. Gate A review is "
             "pending.")
         v2["blockers"] = ["Gate A approval is pending owner review."]
         state["bank"] = {
             "questions": int(counts.get("questions", 0)),
-            "approved": 0,
+            "approved": int(counts.get("approved", 0)),
             "needs_fix": int(counts.get("needs_fix", 0)),
-            "rejected": 0,
+            "rejected": int(counts.get("rejected", 0)),
             "extracted": int(counts.get("extracted", 0)),
             "assets": int(counts.get("assets", 0)),
+            "assets_approved": int(counts.get("assets_approved", 0)),
+            "assets_pending": int(counts.get("assets_pending", 0)),
+            "assets_rejected": int(counts.get("assets_rejected", 0)),
             "duplicate_clusters": int(counts.get("duplicate_clusters", 0)),
             "near_duplicate_pairs": int(
                 counts.get("near_duplicate_pairs", 0)),
@@ -120,6 +124,7 @@ def record() -> dict:
             "note": (
                 f"{counts.get('questions', 0)} questions in "
                 f"{counts.get('papers', 0)} papers; "
+                f"{counts.get('approved', 0)} approved, "
                 f"{counts.get('needs_fix', 0)} needs fix; "
                 f"{counts.get('papers_missing', 0)} missing papers."),
         }

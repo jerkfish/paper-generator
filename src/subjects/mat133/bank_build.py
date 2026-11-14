@@ -759,14 +759,20 @@ def _write_marks_csv(questions: list[dict], review_dir: Path) -> Path:
     return path
 
 
-def _write_paper_index(index: dict, review_dir: Path) -> Path:
+def _write_paper_index(index: dict, review_dir: Path, *,
+                       filename: str = "index_by_paper.html",
+                       sheet: str = "index.html",
+                       statuses: set[str] | None = None,
+                       heading: str = "MAT133 v2 bank — by paper") -> Path:
     groups: dict[str, list[dict]] = {}
     for question in index.get("questions") or []:
+        if statuses is not None and question.get("status") not in statuses:
+            continue
         groups.setdefault(question["source_paper"], []).append(question)
     rows = []
     for paper, questions in sorted(groups.items()):
         links = ", ".join(
-            f"<a href='index.html#{question['id']}'>{question['id']}</a>"
+            f"<a href='{sheet}#{question['id']}'>{question['id']}</a>"
             for question in questions)
         marks = sum(int(question.get("marks") or 0) for question in questions)
         needs_fix = sum(1 for question in questions
@@ -774,22 +780,22 @@ def _write_paper_index(index: dict, review_dir: Path) -> Path:
         rows.append(
             f"<tr><td>{paper}</td><td>{len(questions)}</td>"
             f"<td>{marks}</td><td>{needs_fix}</td><td>{links}</td></tr>")
-    page = """<!doctype html>
+    page = f"""<!doctype html>
 <html><head><meta charset="utf-8">
-<title>MAT133 v2 bank — by paper</title>
+<title>{heading}</title>
 <style>
-body { font-family: Arial, sans-serif; margin: 2rem; }
-table { border-collapse: collapse; }
-td, th { border: 1px solid #aaa; padding: .3rem .5rem; }
+body {{ font-family: Arial, sans-serif; margin: 2rem; }}
+table {{ border-collapse: collapse; }}
+td, th {{ border: 1px solid #aaa; padding: .3rem .5rem; }}
 </style></head><body>
-<h1>MAT133 v2 bank — by paper</h1>
-<p><a href="index.html">Open the full review sheet</a></p>
+<h1>{heading}</h1>
+<p><a href="{sheet}">Open the review sheet</a></p>
 <table><tr><th>Paper</th><th>Questions</th><th>Marks</th>
 <th>Needs fix</th><th>Questions</th></tr>
-""" + "\n".join(rows) + """
+{chr(10).join(rows)}
 </table></body></html>
 """
-    path = review_dir / "index_by_paper.html"
+    path = review_dir / filename
     path.write_text(page, encoding="utf-8")
     return path
 
@@ -849,7 +855,9 @@ def _gate_report_md(report: dict, questions: list[dict]) -> str:
         f"{counts['papers_expected']} "
         f"({counts['papers_missing']} missing a V1 dossier)",
         f"- Questions: {counts['questions']} "
-        f"({counts['extracted']} extracted, {counts['needs_fix']} needs fix)",
+        f"({counts.get('approved', 0)} approved, "
+        f"{counts['needs_fix']} needs fix, "
+        f"{counts.get('rejected', 0)} rejected)",
         f"- Marks captured: {counts['marks_total']}",
         f"- Assets: {counts['assets']} "
         f"({counts['fallback_assets']} page-crop fallbacks)",

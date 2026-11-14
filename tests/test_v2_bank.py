@@ -299,6 +299,28 @@ def test_review_sheet_is_html_and_exports_decisions(tmp_path):
     assert "unassigned_assets" in page
 
 
+def test_review_sheet_prefills_applied_decisions(tmp_path):
+    from src.bank.review import build_review_sheet
+
+    store = _store(tmp_path)
+    question = _question("Q1", assets=["A1"], refs=["Figure 1"],
+                         status="needs_fix")
+    question["review_verdict"] = "needs_fix"
+    question["review_note_text"] = "owner note: fix part a"
+    store.save_question(question)
+    asset = _asset("A1", "Figure 1")
+    asset["review_choice"] = "use_recreation"
+    asset["review_note_text"] = "owner recreation applied"
+    asset["owner_recreation_file"] = "A1.png"
+    store.save_asset(asset)
+    page = build_review_sheet(store, store.review_dir,
+                              subject="TESTD").read_text(encoding="utf-8")
+    assert 'value="needs_fix" selected' in page
+    assert "owner note: fix part a" in page
+    assert 'value="use_recreation" selected' in page
+    assert "owner recreation applied" in page
+
+
 def _write_gate_subject(root: Path, tracking: Path) -> None:
     subject_dir = root / "subjects" / "TESTD"
     subject_dir.mkdir(parents=True)
