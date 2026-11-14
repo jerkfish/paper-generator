@@ -67,10 +67,21 @@ class Subject:
     library: dict = field(default_factory=dict)
     answers: dict = field(default_factory=dict)
     extraction: dict = field(default_factory=dict)
+    documents: dict = field(default_factory=dict)
 
     @property
     def available(self) -> bool:
         return self.status == "available"
+
+    @property
+    def public_document_versions(self) -> set[str]:
+        """Document versions the public bundle may expose.
+
+        Defaults to the original version only; a new document version is not
+        public until the subject contract and Gate C record it.
+        """
+        values = (self.documents or {}).get("public_versions") or [1]
+        return {str(value) for value in values}
 
     @property
     def route(self) -> str:
@@ -124,6 +135,10 @@ class Subject:
             "variants": dict(self.variants),
             "library": dict(self.library),
             "answers": dict(self.answers),
+            "documents": {
+                "versions": list((self.documents or {}).get("versions") or [1]),
+                "public_versions": sorted(self.public_document_versions),
+            },
         }
 
 
@@ -239,6 +254,8 @@ def _load_one(path: Path) -> Subject:
     answers = {"sources": []}
     answers.update(dict(data.get("answers") or {}))
     extraction = dict(data.get("extraction") or {})
+    documents = {"versions": [1], "public_versions": [1]}
+    documents.update(dict(data.get("documents") or {}))
 
     return Subject(
         code=code,
@@ -266,6 +283,7 @@ def _load_one(path: Path) -> Subject:
         library=library,
         answers=answers,
         extraction=extraction,
+        documents=documents,
     )
 
 

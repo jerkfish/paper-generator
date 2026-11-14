@@ -292,6 +292,11 @@ def test_review_sheet_is_html_and_exports_decisions(tmp_path):
     assert "question bank review" in page
     assert 'data-qid="Q1"' in page
     assert "exportDecisions" in page
+    assert 'class="question-comment"' in page
+    assert 'class="asset-comment"' in page
+    assert "assetComment" in page
+    assert "comment: comment" in page
+    assert "unassigned_assets" in page
 
 
 def _write_gate_subject(root: Path, tracking: Path) -> None:

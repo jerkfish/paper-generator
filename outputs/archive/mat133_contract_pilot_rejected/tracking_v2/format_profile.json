@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "playbook_version": "2.0",
+  "subject": "MAT133",
+  "era": "current",
+  "strategy": "generate",
+  "sources": {
+    "papers": "data/papers/MAT133",
+    "paper_count": 41,
+    "fingerprint": "data/tracking/mat133/scheme_fingerprint.json",
+    "question_log": "data/tracking/mat133/question_log.json"
+  },
+  "sections": [
+    {
+      "key": "Q",
+      "questions": 5,
+      "parts_per_question": "3 (fixed)",
+      "marks_per_slot": "variable by generator"
+    }
+  ],
+  "parts_per_paper": 15,
+  "total_marks": {
+    "observed": "64-72",
+    "policy": "sum of generated part marks; no fixed 100-mark total"
+  },
+  "duration": "2 HOURS",
+  "numbering": {
+    "question": "QUESTION n",
+    "subparts": "a), b), c)",
+    "scheme_table": "NO | SOLUTION | MARK"
+  },
+  "templates": {
+    "paper": "data/reference/MAT133/MAT133 TEMPLATE.docx",
+    "scheme": "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx"
+  },
+  "answers": {
+    "source": "deterministic generator",
+    "provenance": "solver_verified"
+  },
+  "basis": "Mapped from the approved v1 MAT133 planner and question log. The five-question, fifteen-part structure and 64-72 mark range are the observed paper-derived format; v2 keeps that contract."
+}

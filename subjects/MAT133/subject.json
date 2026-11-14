@@ -76,7 +76,7 @@
   "taxonomy_path": "data/tracking/mat133/taxonomy.json",
   "question_log_path": "data/tracking/mat133/question_log.json",
   "generator_count": 57,
-  "type": "B",
+  "type": "D",
   "capabilities": {
     "subject_type": "B",
     "generation": "deterministic",
@@ -88,7 +88,8 @@
     "deterministic": true,
     "practice_mode": false,
     "placeholders": false,
-    "public_scheme_requires_quote_marker": false
+    "public_scheme_requires_quote_marker": false,
+    "asset_first": true
   },
   "plugins": {
     "prebuild": "src.subjects.mat133.plugin:build_seed",
@@ -123,7 +124,119 @@
       "basis": "project owner requested public deployment",
       "confirmed_by": "project owner",
       "confirmed_on": "2026-11-04",
-      "notes": "library-only public bundle"
+      "notes": "v1 library-only public bundle. v2 publication requires Gate C."
+    },
+    "cloud_processing": {
+      "allowed": true,
+      "basis": "Owner allowed MinerU for MAT133 V1 at V0 on 2026-11-14.",
+      "confirmed_by": "owner",
+      "confirmed_on": "2026-11-14",
+      "notes": "MinerU only; working copies under data/papers/MAT133; supplied originals remain read-only."
     }
+  },
+  "playbook_version": "2.0",
+  "strategy": "recycle",
+  "variants": {
+    "enabled": false
+  },
+  "library": {
+    "size_policy": "min(20, feasible)"
+  },
+  "answers": {
+    "sources": [
+      "official",
+      "solver_verified",
+      "model_unofficial"
+    ],
+    "basis": "The 2024 published scheme is official for its assessment; other answers are solver-verified or model-drafted with provenance and confidence recorded."
+  },
+  "extraction": {
+    "method": "mineru",
+    "parser": "mineru",
+    "status": "v2_pilot_pending",
+    "report_standard": "full_markdown",
+    "pilot_dir": "data/tracking/mat133/v2/mineru"
+  },
+  "documents": {
+    "versions": [
+      1,
+      2
+    ],
+    "public_versions": [
+      1
+    ],
+    "labels": {
+      "1": "v1",
+      "2": "v2"
+    },
+    "v2_playbook_version": "2.0",
+    "v2_status": "V0_in_progress",
+    "v2_built_seeds": [],
+    "v2_publication": "not published; Gate C required"
+  },
+  "scheme_template_path": "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx",
+  "legacy_state": "subjects/MAT133/lifecycle_state_v1.json",
+  "legacy_generators": {
+    "status": "v1_only",
+    "enabled_computed_generators": [
+      "absolute_value.equation",
+      "absolute_value.graph",
+      "absolute_value.inequality",
+      "circles.diameter_endpoints",
+      "circles.general_to_standard",
+      "circles.graph",
+      "circles.standard_form",
+      "circular_measure.arc_length",
+      "circular_measure.perimeter",
+      "circular_measure.radians",
+      "circular_measure.sector_area",
+      "complex_numbers.arithmetic",
+      "complex_numbers.division",
+      "complex_numbers.modulus_argument",
+      "complex_numbers.powers",
+      "exponential_logarithmic.exponential_equation",
+      "exponential_logarithmic.log_equation",
+      "exponential_logarithmic.log_laws",
+      "functions.composition",
+      "functions.domain_range",
+      "functions.even_odd",
+      "functions.function_arithmetic",
+      "functions.graph",
+      "functions.inverse",
+      "functions.piecewise",
+      "functions.transformations",
+      "inequalities.compound",
+      "inequalities.interval_notation",
+      "inequalities.linear",
+      "inequalities.quadratic",
+      "inequalities.rational",
+      "lines.intercepts",
+      "lines.parallel_perpendicular",
+      "lines.through_points",
+      "parabolas.graph",
+      "parabolas.standard_form",
+      "parabolas.vertex_focus_directrix",
+      "polynomials.factor_theorem",
+      "polynomials.factorization",
+      "polynomials.long_division",
+      "polynomials.remainder_theorem",
+      "polynomials.synthetic_division",
+      "systems_of_equations.linear_2var",
+      "systems_of_equations.linear_3var",
+      "systems_of_equations.nonlinear",
+      "systems_of_inequalities.graph_feasible_region",
+      "systems_of_inequalities.write_from_region",
+      "triangle_geometry.area",
+      "triangle_geometry.combined_figures",
+      "triangle_geometry.cosine_rule",
+      "triangle_geometry.sine_rule",
+      "triangle_geometry.solve_triangle",
+      "trigonometry.compound_double_angle",
+      "trigonometry.equation",
+      "trigonometry.exact_value",
+      "trigonometry.graph",
+      "trigonometry.identity"
+    ],
+    "note": "Retained so the published v1 Library and generator labels keep working. v2 Type D recycling does not select these generators."
   }
 }

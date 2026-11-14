@@ -17,6 +17,7 @@ from src.subjects.lifecycle import (
     STAGE_BY_KEY_V2,
     STAGE_KEYS,
     STAGE_KEYS_V2,
+    gate_approved,
     gate_status,
     is_v2,
     load_state,
@@ -87,8 +88,7 @@ def report(root: Path, code: str) -> dict:
             data["gates"] = {key: gate_status(state, key)
                              for key in GATE_KEYS}
             data["gates_open"] = [key for key in GATE_KEYS
-                                  if not gate_status(state, key).get(
-                                      "status") == "approved"]
+                                  if not gate_approved(state, key)]
             data["bank"] = dict(state.get("bank") or {})
             data["answers"] = dict(state.get("answers") or {})
     return data
@@ -100,7 +100,8 @@ def _print(data: dict) -> None:
     keys = STAGE_KEYS_V2 if v2 else STAGE_KEYS
     print(f"{data['subject']} type {data.get('type', '?')} "
           f"registry={data.get('registry_status', '?')}"
-          + (" — schema v2 / recycle" if v2 else ""))
+          + (f" — schema v2 / {data.get('strategy') or 'recycle'}"
+             if v2 else ""))
     if not data.get("initialized"):
         print("lifecycle_state.json: MISSING")
     if data.get("lifecycle_status") == "stopped":

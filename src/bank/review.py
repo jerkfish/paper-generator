@@ -34,8 +34,10 @@ def _native_table_preview(table: dict | None) -> str:
 
 def _asset_block(store: BankStore, asset: dict) -> str:
     aid = str(asset.get("id") or "")
-    image_rel = f"../assets/{aid}.png"
-    image_path = store.assets_dir / f"{aid}.png"
+    image_rel = asset.get("review_path") or f"../assets/{aid}.png"
+    image_path = (store.review_dir.parent / str(image_rel).replace(
+        "../", "", 1)) if asset.get("review_path") else (
+        store.assets_dir / f"{aid}.png")
     image = (
         f"<a href='{image_rel}' target='_blank'>"
         f"<img src='{image_rel}' alt='{_esc(aid)}'></a>"
@@ -47,7 +49,7 @@ def _asset_block(store: BankStore, asset: dict) -> str:
       <div class="asset-head">
         <b>{_esc(asset.get('label') or aid)}</b>
         <span class="badge">{_esc(asset.get('kind'))}</span>
-        <span class="badge">page {_esc(asset.get('page'))}</span>
+        <span class="badge">page {_esc(asset.get('page') or asset.get('source_page') or '?')}</span>
         <span class="badge">{_esc(asset.get('treatment'))}</span>
       </div>
       <div class="asset-grid">
@@ -60,6 +62,10 @@ def _asset_block(store: BankStore, asset: dict) -> str:
           <option value="use_original">Use original</option>
           <option value="use_recreation">Use recreation</option>
         </select>
+      </label>
+      <label>Comment
+        <textarea class="asset-comment" rows="3"
+          placeholder="Comment for this figure / table / crop"></textarea>
       </label>
     </div>
     """
@@ -74,7 +80,7 @@ def _question_block(store: BankStore, question: dict,
         _asset_block(store, assets[aid])
         for aid in question.get("assets") or [] if aid in assets)
     return f"""
-    <section class="question" data-qid="{_esc(qid)}"
+    <section class="question" id="{_esc(qid)}" data-qid="{_esc(qid)}"
              data-hash="{_esc(question.get('content_hash'))}">
       <h2>QUESTION {_esc(question.get('slot') or qid)}
         <span class="marks">({_esc(question.get('marks'))} marks)</span></h2>
@@ -90,19 +96,37 @@ def _question_block(store: BankStore, question: dict,
           <option value="rejected">Reject</option>
         </select>
       </label>
+      <label>Comment
+        <textarea class="question-comment" rows="3"
+          placeholder="Comment for this question"></textarea>
+      </label>
     </section>
     """
 
 
 def build_review_sheet(store: BankStore, out_dir: Path,
-                       *, subject: str, title: str = "") -> Path:
-    """Write ``index.html`` and return its path."""
+                       *, subject: str, title: str = "",
+                       extra_assets: list[dict] | None = None) -> Path:
+    """Write ``index.html`` and return its path.
+
+    ``extra_assets`` renders assets that are not linked to a question (for
+    example an unassigned MinerU crop) with their own comment boxes.
+    """
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     questions = list(store.questions())
     assets = {str(asset.get("id")): asset for asset in store.assets()}
     sections = "".join(
         _question_block(store, question, assets) for question in questions)
+    unassigned = ""
+    if extra_assets:
+        unassigned = (
+            "<section class='unassigned'><h2>Unassigned assets</h2>"
+            "<p>These MinerU crops are not linked to a question yet. "
+            "Comment on any that belong to a question or should be "
+            "discarded.</p>"
+            + "".join(_asset_block(store, asset) for asset in extra_assets)
+            + "</section>")
     page = f"""<!doctype html>
 <html><head><meta charset="utf-8">
 <title>{_esc(title or subject)} — bank review</title>
@@ -119,28 +143,56 @@ table.native {{ border-collapse: collapse; width: 100%; }}
 table.native td {{ border: 1px solid #999; padding: .25rem; font-size: 12px; }}
 .muted {{ color: #777; }}
 .marks {{ font-weight: normal; }}
+textarea {{ width: 100%; font-family: Arial, sans-serif; font-size: 10pt;
+  margin-top: .25rem; }}
 </style></head><body>
 <h1>{_esc(title or subject)} — question bank review</h1>
 <p>Review each question and asset. Export the decisions as JSON before
 updating approvals.</p>
 <button onclick="exportDecisions()">Export decisions JSON</button>
 {sections}
+{unassigned}
 <script>
 function exportDecisions() {{
   const questions = {{}};
   document.querySelectorAll('.question').forEach((node) => {{
     const qid = node.dataset.qid;
+    const comment = node.querySelector('.question-comment')?.value || '';
     questions[qid] = {{
       verdict: node.querySelector('.question-choice').value,
+      comment: comment,
+      notes: comment,
       assets: {{}}
     }};
     node.querySelectorAll('.asset').forEach((asset) => {{
-      questions[qid].assets[asset.dataset.aid] =
-        asset.querySelector('.asset-choice').value;
+      const assetComment =
+        asset.querySelector('.asset-comment')?.value || '';
+      questions[qid].assets[asset.dataset.aid] = {{
+        choice: asset.querySelector('.asset-choice').value,
+        comment: assetComment,
+        notes: assetComment
+      }};
     }});
   }});
-  const blob = new Blob([JSON.stringify({{subject: {json.dumps(subject)},
-    questions}}, null, 2)], {{type: 'application/json'}});
+  const unassignedAssets = {{}};
+  document.querySelectorAll('.unassigned .asset').forEach((asset) => {{
+    const assetComment =
+      asset.querySelector('.asset-comment')?.value || '';
+    unassignedAssets[asset.dataset.aid] = {{
+      choice: asset.querySelector('.asset-choice').value,
+      comment: assetComment,
+      notes: assetComment
+    }};
+  }});
+  const payload = {{
+    schema: 'bank.review-decisions.v1',
+    subject: {json.dumps(subject)},
+    exported_on: new Date().toISOString().slice(0, 10),
+    questions: questions,
+    unassigned_assets: unassignedAssets
+  }};
+  const blob = new Blob([JSON.stringify(payload, null, 2)],
+    {{type: 'application/json'}});
   const link = document.createElement('a');
   link.href = URL.createObjectURL(blob);
   link.download = 'review_decisions.json';

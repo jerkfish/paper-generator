@@ -1,0 +1,385 @@
+{
+  "schema_version": 2,
+  "subject": "MAT133",
+  "seed": 1,
+  "playbook_version": "2.0",
+  "count": 15,
+  "parts": [
+    {
+      "question": "MAT133-S01-Q1a",
+      "paper_seed": 1,
+      "question_no": 1,
+      "label": "a",
+      "marks": 5.0,
+      "topic": "inequalities",
+      "subtopic": "quadratic",
+      "answer": "[-2, 4]",
+      "answer_latex": "\\left[-2, 4\\right]",
+      "solution_latex": [
+        "\\left(x - 4\\right) \\left(2 x + 4\\right) = 0",
+        "x = -2 \\quad \\mathrm{or} \\quad x = 4",
+        "\\left[-2, 4\\right]"
+      ],
+      "marking_notes": [
+        "M1 factor",
+        "A1 critical values",
+        "A1 intervals"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S01-Q1b",
+      "paper_seed": 1,
+      "question_no": 1,
+      "label": "b",
+      "marks": 5.0,
+      "topic": "absolute_value",
+      "subtopic": "inequality",
+      "answer": "(-\u221e, -5/2] \u222a [3/2, \u221e)",
+      "answer_latex": "\\left(-\\infty, - \\frac{5}{2}\\right] \\cup \\left[\\frac{3}{2}, \\infty\\right)",
+      "solution_latex": [
+        "\\left|{4 x + 2}\\right| - 8 \\geq 0",
+        "- 4 x - 2 \\geq 8\\;\\mathrm{or}\\; - 4 x - 2 \\leq -8",
+        "\\left(-\\infty, - \\frac{5}{2}\\right] \\cup \\left[\\frac{3}{2}, \\infty\\right)"
+      ],
+      "marking_notes": [
+        "M1 compound inequality",
+        "A1 endpoints",
+        "A1 interval"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S01-Q1c",
+      "paper_seed": 1,
+      "question_no": 1,
+      "label": "c",
+      "marks": 5.0,
+      "topic": "absolute_value",
+      "subtopic": "graph",
+      "answer": "Vertex (-2, -2); y-intercept (0, 2); x-intercept(s): -3, -1.",
+      "answer_latex": "\\mathrm{vertex}\\;(-2,-2);\\quad y(0)=2",
+      "solution_latex": [
+        "y = 2 \\left|{x + 2}\\right| - 2",
+        "\\mathrm{vertex}\\;(-2,-2)",
+        "\\left|{x + 2}\\right| = 1"
+      ],
+      "marking_notes": [
+        "B1 V-shape",
+        "A1 vertex",
+        "A1 intercepts"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S01-Q2a",
+      "paper_seed": 1,
+      "question_no": 2,
+      "label": "a",
+      "marks": 5.0,
+      "topic": "functions",
+      "subtopic": "piecewise",
+      "answer": "f(-2) = 5, f(0) = -2, f(3) = 8.",
+      "answer_latex": "f(-2)=5,\\quad f(0)=-2,\\quad f(3)=8",
+      "solution_latex": [
+        "f(x) = 3 - x,\\quad x < -1",
+        "f(x) = -2,\\quad -1 \\leq x \\leq 2",
+        "f(x) = x^{2} - 1,\\quad x > 2",
+        "f(-2) = 5,\\quad f(0) = -2,\\quad f(3) = 8"
+      ],
+      "marking_notes": [
+        "B1 each piece",
+        "A1 values"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S01-Q2b",
+      "paper_seed": 1,
+      "question_no": 2,
+      "label": "b",
+      "marks": 4.0,
+      "topic": "functions",
+      "subtopic": "graph",
+      "answer": "Domain [-2, 6]; range [1, 5].",
+      "answer_latex": "\\mathrm{domain}\\; [-2,6];\\quad \\mathrm{range}\\; [1, 5]",
+      "solution_latex": [
+        "y = \\left|{x - 2}\\right| + 1",
+        "\\mathrm{domain}\\; [-2,6]",
+        "\\mathrm{range}\\; [1, 5]"
+      ],
+      "marking_notes": [
+        "B1 shape",
+        "B1 key points",
+        "A1 domain",
+        "A1 range"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S01-Q2c",
+      "paper_seed": 1,
+      "question_no": 2,
+      "label": "c",
+      "marks": 5.0,
+      "topic": "circles",
+      "subtopic": "diameter_endpoints",
+      "answer": "Centre (11/2, 4), radius\u00b2 = 9/4; equation (x - 11/2)\u00b2 + (y - 4)\u00b2 = 9/4.",
+      "answer_latex": "\\left(x - \\frac{11}{2}\\right)^{2} + \\left(y - 4\\right)^{2} = \\frac{9}{4}",
+      "solution_latex": [
+        "\\left(\\frac{11}{2},4\\right)",
+        "r^2 = \\frac{9}{4}",
+        "\\left(x - \\frac{11}{2}\\right)^{2} + \\left(y - 4\\right)^{2} = \\frac{9}{4}"
+      ],
+      "marking_notes": [
+        "M1 midpoint",
+        "M1 radius",
+        "A1 equation"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S01-Q3a",
+      "paper_seed": 1,
+      "question_no": 3,
+      "label": "a",
+      "marks": 5.0,
+      "topic": "complex_numbers",
+      "subtopic": "division",
+      "answer": "28/29 + 12/29i",
+      "answer_latex": "\\frac{28}{29} + \\frac{12 i}{29}",
+      "solution_latex": [
+        "\\frac{4 - 4 i}{2 - 5 i}",
+        "= \\frac{\\left(4 - 4 i\\right)\\left(2 + 5 i\\right)}{\\left(2 - 5 i\\right)\\left(2 + 5 i\\right)}",
+        "= \\frac{28 + 12 i}{29}",
+        "\\frac{28}{29} + \\frac{12 i}{29}"
+      ],
+      "marking_notes": [
+        "M1 conjugate",
+        "M1 numerator",
+        "A1 denominator",
+        "A1 standard form"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S01-Q3b",
+      "paper_seed": 1,
+      "question_no": 3,
+      "label": "b",
+      "marks": 3.0,
+      "topic": "complex_numbers",
+      "subtopic": "powers",
+      "answer": "1",
+      "answer_latex": "i^{20} = 1",
+      "solution_latex": [
+        "i^{20} = i^{4(5) + 0}",
+        "= \\left(i^4\\right)^{5} i^{0} = 1^{5} i^{0}",
+        "= 1"
+      ],
+      "marking_notes": [
+        "M1 cycle",
+        "A1 remainder",
+        "A1 result"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S01-Q3c",
+      "paper_seed": 1,
+      "question_no": 3,
+      "label": "c",
+      "marks": 5.0,
+      "topic": "polynomials",
+      "subtopic": "factor_theorem",
+      "answer": "f(3) = 0, so x - 3 is a factor; f(x) = (x - 3)(3x\u00b2 + 4x - 5).",
+      "answer_latex": "3 x^{3} - 5 x^{2} - 17 x + 15 = \\left(x - 3\\right) \\left(3 x^{2} + 4 x - 5\\right)",
+      "solution_latex": [
+        "f(3) = 0",
+        "3 x^{3} - 5 x^{2} - 17 x + 15 = \\left(x - 3\\right) \\left(3 x^{2} + 4 x - 5\\right)"
+      ],
+      "marking_notes": [
+        "M1 evaluate",
+        "A1 zero",
+        "M1 division",
+        "A1 factors"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S01-Q4a",
+      "paper_seed": 1,
+      "question_no": 4,
+      "label": "a",
+      "marks": 5.0,
+      "topic": "systems_of_inequalities",
+      "subtopic": "write_from_region",
+      "answer": "x \u2265 0, y \u2265 0, 6x + 7y \u2264 42.",
+      "answer_latex": "x \\geq 0,\\quad y \\geq 0,\\quad 6x + 7y \\leq 42",
+      "solution_latex": [
+        "\\frac{x}{7} + \\frac{y}{6} = 1",
+        "x \\geq 0,\\quad y \\geq 0,\\quad 6x + 7y \\leq 42"
+      ],
+      "marking_notes": [
+        "M1 line equation",
+        "A1 boundaries",
+        "A1 inequality directions"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S01-Q4b",
+      "paper_seed": 1,
+      "question_no": 4,
+      "label": "b",
+      "marks": 4.0,
+      "topic": "systems_of_equations",
+      "subtopic": "linear_2var",
+      "answer": "x = -1, y = -4.",
+      "answer_latex": "x = -1,\\quad y = -4",
+      "solution_latex": [
+        "- 4 x + y = 0",
+        "- x - 2 y = 9",
+        "x = -1,\\quad y = -4"
+      ],
+      "marking_notes": [
+        "M1 eliminate",
+        "A1 x",
+        "A1 y"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S01-Q4c",
+      "paper_seed": 1,
+      "question_no": 4,
+      "label": "c",
+      "marks": 5.0,
+      "topic": "parabolas",
+      "subtopic": "vertex_focus_directrix",
+      "answer": "(x - 2)\u00b2 = 8(y - 5); vertex (2, 5).",
+      "answer_latex": "\\left(x - 2\\right)^{2} = 8 y - 40",
+      "solution_latex": [
+        "\\mathrm{vertex}\\;(2,5)",
+        "p = 2",
+        "\\left(x - 2\\right)^{2} = 8 y - 40"
+      ],
+      "marking_notes": [
+        "M1 vertex",
+        "M1 focal length",
+        "A1 equation"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S01-Q5a",
+      "paper_seed": 1,
+      "question_no": 5,
+      "label": "a",
+      "marks": 4.0,
+      "topic": "trigonometry",
+      "subtopic": "exact_value",
+      "answer": "cos A = 15/17, tan A = 8/15, sec A = 17/15.",
+      "answer_latex": "\\cos A = \\frac{15}{17},\\quad \\tan A = \\frac{8}{15},\\quad \\sec A = \\frac{17}{15}",
+      "solution_latex": [
+        "\\sin^2 A + \\cos^2 A = 1",
+        "\\cos A = \\frac{15}{17}",
+        "\\tan A = \\frac{8}{15}",
+        "\\sec A = \\frac{17}{15}"
+      ],
+      "marking_notes": [
+        "M1 Pythagorean identity",
+        "A1 sign",
+        "A1 ratios"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S01-Q5b",
+      "paper_seed": 1,
+      "question_no": 5,
+      "label": "b",
+      "marks": 4.0,
+      "topic": "circular_measure",
+      "subtopic": "arc_length",
+      "answer": "s = 8\u03c0 cm \u2248 25.13 cm.",
+      "answer_latex": "s = 8 \\pi\\ \\mathrm{cm}",
+      "solution_latex": [
+        "\\theta = 180^\\circ \\times \\frac{\\pi}{180} = \\pi",
+        "s = r\\theta = 8\\left(\\pi\\right) = 8 \\pi"
+      ],
+      "marking_notes": [
+        "M1 radians",
+        "M1 arc formula",
+        "A1 exact value"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S01-Q5c",
+      "paper_seed": 1,
+      "question_no": 5,
+      "label": "c",
+      "marks": 4.0,
+      "topic": "triangle_geometry",
+      "subtopic": "area",
+      "answer": "Area = 63/2 cm\u00b2 \u2248 31.50 cm\u00b2.",
+      "answer_latex": "\\mathrm{Area} = \\frac{63}{2}",
+      "solution_latex": [
+        "\\mathrm{Area} = \\frac{1}{2}ab\\sin C",
+        "\\mathrm{Area} = \\frac{1}{2}(7)(9)\\sin 90^\\circ = \\frac{63}{2}"
+      ],
+      "marking_notes": [
+        "M1 formula",
+        "M1 substitution",
+        "A1 area"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    }
+  ]
+}

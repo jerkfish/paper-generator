@@ -28,8 +28,13 @@ def utc_year(timestamp: float | None = None) -> int:
 
 def download_filename(subject: str, seed: int, year: int, ext: str,
                       scheme: bool = False,
-                      practice_marks: int | None = None) -> str:
-    """Build the user-facing filename (without any folder)."""
+                      practice_marks: int | None = None,
+                      version: int | None = None) -> str:
+    """Build the user-facing filename (without any folder).
+
+    ``version`` is omitted for the original (v1) documents.  A versioned
+    document adds ``(v2)`` so it cannot overwrite or be confused with v1.
+    """
     subject = str(subject).strip().upper()
     if not re.fullmatch(r"[A-Z0-9]+", subject):
         raise ValueError("subject code must be letters and digits")
@@ -50,6 +55,12 @@ def download_filename(subject: str, seed: int, year: int, ext: str,
         if marks < 0:
             raise ValueError("practice computed marks cannot be negative")
         base += f" (practice {marks})"
+    if version is not None:
+        number = int(version)
+        if number < 1:
+            raise ValueError("document version must be a positive integer")
+        if number > 1:
+            base += f" (v{number})"
     return f"{base}.{ext}"
 
 

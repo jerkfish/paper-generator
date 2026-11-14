@@ -376,7 +376,14 @@ def gate_status(state: dict[str, Any], gate: str) -> dict[str, Any]:
 
 
 def gate_approved(state: dict[str, Any], gate: str) -> bool:
-    return str(gate_status(state, gate).get("status", "")).lower() == "approved"
+    """True when the gate is approved or does not apply to this subject.
+
+    Gate A is not applicable to a deterministic Type-B subject that has no
+    recycled question bank.  ``not_applicable`` must be recorded with a basis;
+    it is never a silent pass.
+    """
+    return str(gate_status(state, gate).get("status", "")).lower() in {
+        "approved", "not_applicable"}
 
 
 def next_stage(state: dict[str, Any]) -> str | None:

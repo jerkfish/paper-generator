@@ -14,7 +14,8 @@ from fastapi.templating import Jinja2Templates
 from src import config
 from src.app.filenames import content_disposition
 from src.app.jobs import (filter_library, library_count, library_file,
-                          library_item, library_items, manager,
+                          library_item, library_items, library_version_columns,
+                          manager,
                           topic_legend)
 from src.app.safety import (ForbiddenPathError, assert_no_secret_leaks,
                             ensure_servable)
@@ -211,6 +212,7 @@ def library(request: Request, code: str, q: str = "", computed: str = "any",
                        total=len(items), q=q, computed=computed, topic=topic,
                        placeholders=placeholders, topics=topics,
                        computed_options=computed_options,
+                       version_columns=library_version_columns(items),
                        topic_legend=topic_legend(subject.code))
     name = ("_library.html"
             if request.headers.get("HX-Request") == "true" else "library.html")

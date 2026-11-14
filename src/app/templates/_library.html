@@ -6,7 +6,10 @@
   <p class="muted">No prebuilt papers match the filter.</p>
 {% else %}
   {% set urls = item_urls|default({}) %}
+  {% set columns = version_columns|default([]) %}
+  {% set versioned = columns|length > 1 %}
   <p class="small" id="library-count">Showing {{ items|length }} of {{ total }}.</p>
+  {% if versioned %}<p class="small">Document versions: <strong>v1</strong> is the legacy build; <strong>v2</strong> is the playbook-v2 build. Each version has its own Docs (paper) and Scheme downloads.</p>{% endif %}
   <p class="small">{{ topic_legend|default('Topic abbreviations are shown in the Topic mix column. Click a column title to sort ascending/descending.') }}</p>
   <div class="table-scroll">
   <table id="library-table">
@@ -17,8 +20,15 @@
       <th data-sort="computed" aria-sort="none"><button type="button" class="sort" data-sort="computed" data-type="number">{% if subject.has_practice_mode %}Computed<br>marks{% else %}Total<br>marks{% endif %}<span class="sort-mark"></span></button></th>
       <th data-sort="topics" aria-sort="none"><button type="button" class="sort" data-sort="topics">Topic mix (marks)<span class="sort-mark"></span></button></th>
       <th data-sort="placeholders" aria-sort="none"><button type="button" class="sort" data-sort="placeholders" data-type="number">Place-<br>holders<span class="sort-mark"></span></button></th>
+      {% if versioned %}
+      {% for column in columns %}
+      <th data-sort="paper" aria-sort="none">{% if loop.first %}<button type="button" class="sort" data-sort="paper">{% endif %}Docs {{ column.label }}{% if loop.first %}<span class="sort-mark"></span></button>{% endif %}</th>
+      <th data-sort="scheme" aria-sort="none">{% if loop.first %}<button type="button" class="sort" data-sort="scheme">{% endif %}Scheme {{ column.label }}{% if loop.first %}<span class="sort-mark"></span></button>{% endif %}</th>
+      {% endfor %}
+      {% else %}
       <th data-sort="paper" aria-sort="none"><button type="button" class="sort" data-sort="paper">Paper<span class="sort-mark"></span></button></th>
       <th data-sort="scheme" aria-sort="none"><button type="button" class="sort" data-sort="scheme">Scheme<span class="sort-mark"></span></button></th>
+      {% endif %}
       {% if gallery_enabled|default(false) %}<th>Share</th>{% endif %}
     </tr>
     </thead>
@@ -37,6 +47,31 @@
       <td>{{ item.marks_value|default(item.computed_display) }}</td>
       <td class="mono nowrap">{{ item.topic_mix }}</td>
       <td>{% if item.has_placeholders|default(true) %}{% if item.placeholders %}<span class="warn">{{ item.placeholders }}</span>{% else %}0{% endif %}{% else %}&mdash;{% endif %}</td>
+      {% if versioned %}
+      {% for column in columns %}
+      {% set version = item.version_map.get(column.version|string) if item.version_map is defined else none %}
+      <td class="nowrap">
+        {% if version %}
+        {% set paper_urls = urls.get(item.seed|string, {}) %}
+        {% set paper_kind = version.kinds.get('paper_docx') %}
+        {% set paper_pdf_kind = version.kinds.get('paper_pdf') %}
+        {% if version.files.paper_docx %}<a href="{{ paper_urls.get(paper_kind) or '/' ~ subject.route ~ '/library/' ~ item.seed ~ '/' ~ paper_kind }}" title="{{ version.downloads.get(paper_kind) }}">DOCX</a>{% endif %}
+        {% if version.files.paper_docx and version.files.paper_pdf %} / {% endif %}
+        {% if version.files.paper_pdf %}<a href="{{ paper_urls.get(paper_pdf_kind) or '/' ~ subject.route ~ '/library/' ~ item.seed ~ '/' ~ paper_pdf_kind }}" title="{{ version.downloads.get(paper_pdf_kind) }}">PDF</a>{% endif %}
+        {% else %}&mdash;{% endif %}
+      </td>
+      <td class="nowrap">
+        {% if version %}
+        {% set scheme_urls = urls.get(item.seed|string, {}) %}
+        {% set scheme_kind = version.kinds.get('scheme_docx') %}
+        {% set scheme_pdf_kind = version.kinds.get('scheme_pdf') %}
+        {% if version.files.scheme_docx %}<a href="{{ scheme_urls.get(scheme_kind) or '/' ~ subject.route ~ '/library/' ~ item.seed ~ '/' ~ scheme_kind }}" title="{{ version.downloads.get(scheme_kind) }}">DOCX</a>{% endif %}
+        {% if version.files.scheme_docx and version.files.scheme_pdf %} / {% endif %}
+        {% if version.files.scheme_pdf %}<a href="{{ scheme_urls.get(scheme_pdf_kind) or '/' ~ subject.route ~ '/library/' ~ item.seed ~ '/' ~ scheme_pdf_kind }}" title="{{ version.downloads.get(scheme_pdf_kind) }}">PDF</a>{% endif %}
+        {% else %}&mdash;{% endif %}
+      </td>
+      {% endfor %}
+      {% else %}
       <td class="nowrap">
         {% set paper_urls = urls.get(item.seed|string, {}) %}
         {% if item.files.paper_docx %}<a href="{{ paper_urls.get('paper_docx') or '/' ~ subject.route ~ '/library/' ~ item.seed ~ '/paper_docx' }}" title="{{ item.downloads.paper_docx }}">DOCX</a>{% endif %}
@@ -49,6 +84,7 @@
         {% if item.files.scheme_docx and item.files.scheme_pdf %} / {% endif %}
         {% if item.files.scheme_pdf %}<a href="{{ scheme_urls.get('scheme_pdf') or '/' ~ subject.route ~ '/library/' ~ item.seed ~ '/scheme_pdf' }}" title="{{ item.downloads.scheme_pdf }}">PDF</a>{% endif %}
       </td>
+      {% endif %}
       {% if gallery_enabled|default(false) %}
       <td class="nowrap">
         <button type="button" class="share" data-subject="{{ subject.code }}" data-seed="{{ item.seed }}" data-mode="{{ item.mode }}">Share</button>
