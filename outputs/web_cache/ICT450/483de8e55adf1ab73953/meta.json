@@ -2,8 +2,8 @@
   "subject": "ICT450",
   "seed": 14,
   "mode": "realistic",
-  "paper_only": true,
-  "v4_answers": "deferred",
+  "paper_only": false,
+  "v4_answers": "approved_model_unofficial",
   "created": 1794385657.961914,
   "year": 2026,
   "total_marks": 100,
@@ -38,12 +38,18 @@
   "paper_pages": 6,
   "files": {
     "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\ICT450\\483de8e55adf1ab73953\\paper.docx",
-    "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\ICT450\\483de8e55adf1ab73953\\paper.pdf"
+    "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\ICT450\\483de8e55adf1ab73953\\paper.pdf",
+    "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\ICT450\\483de8e55adf1ab73953\\scheme.docx",
+    "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\ICT450\\483de8e55adf1ab73953\\scheme.pdf"
   },
   "assets": {
     "expected": 3,
     "inserted": 3,
     "skipped": [],
     "missing": []
-  }
+  },
+  "answers_approved": true,
+  "answers_approved_on": "2026-11-11",
+  "scheme_provenance": "model_unofficial",
+  "scheme_pages": 7
 }

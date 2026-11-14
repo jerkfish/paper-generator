@@ -1,26 +1,31 @@
-# ICT450 — V4 answer report (seed 1–3 pilot)
+# ICT450 — V4 answer report
 
-Date: **2026-11-11**
+Date: **2026-11-14**
 
-Scope: start V4 by building complete reference answers for the 15 distinct
-questions used by seeds 1–3, then render marking schemes for those seeds.
+Scope: build reference answers for every approved question and render a
+marking scheme for every Library seed.
 
-Status: the owner **approved these V4 model answers on 2026-11-11**. The
-seed 1–3 schemes are attached to the local Library cache, and the 45 remaining
-questions are still open.
+Status: **V4 complete — 60/60 approved questions answered.** The owner
+approved the first 15 models (seeds 1–3) on 2026-11-11; the remaining 45 use
+the same structured format. All 20 seed schemes are built and attached to the
+local Library cache.
 
 ## Coverage
 
 | Item | Value |
 |---|---:|
 | Approved questions in bank | 60 |
-| Questions answered | **15** |
-| Questions still to answer | **45** |
-| Provenance | `model_unofficial` for all 15 |
-| Confidence high / medium | 10 / 5 |
-| Answer mark totals reconciled | 15/15 |
-| ERD answer diagrams | 3 |
+| Questions answered | **60** |
+| Questions still to answer | **0** |
+| Provenance | `model_unofficial` for all 60 |
+| Answer mark totals reconciled | 60/60 |
+| ERD answer diagrams | 14 (12 Q5 ERDs + 2 concept ERDs) |
+| Marking schemes built | **20** |
 | LLM calls / cost | 0 / **$0.00** |
+
+Four questions (`2018-JUN-Q4`, `2023-FEB-Q1`, `2024-JAN-Q2`, `2025-JUL-Q1`)
+are answered but not used in Library seeds because their extracted marks do not
+reconcile. No mark was invented.
 
 No official ICT450 marking scheme or published answer set was supplied. Every
 answer is therefore a model answer, labelled `model_unofficial` and not an
@@ -94,17 +99,12 @@ list.
 
 ## Marking schemes
 
-| Seed | Pages | Images | Right/bottom overflow | Forbidden tokens | QA |
-|---|---:|---:|---|---|---|
-| 1 | 8 | 4 | none | none | clean |
-| 2 | 9 | 4 | none | none | clean |
-| 3 | 8 | 4 | none | none | clean |
-
-Each scheme starts from the approved clean scheme template, patches the notes,
-clears the template body and renders every question from the V4 answer bank
-with the marking guide, provenance, knowledge-base basis and assumptions. The
-DOCX and PDF files are copied into the seed library cache and registered in
-`meta.json` and `library_manifest.json`.
+All **20 seeds** have a scheme built from the approved clean scheme template.
+The DOCX/PDF files are in `outputs/review/ICT450/schemes_v1/` and are copied
+into each seed's library cache and registered in `meta.json` and
+`library_manifest.json`. Scheme pages range from 6 to 9; every scheme passes
+QA with no right/bottom overflow, no forbidden tokens and all question
+headings present. See `docs/ICT450_SCHEMES_REPORT.md` for the seed table.
 
 ## Evidence
 
@@ -119,9 +119,7 @@ DOCX and PDF files are copied into the seed library cache and registered in
 - `outputs/review/ICT450/schemes_v1/seed_03_scheme.docx` / `.pdf`
 - `outputs/review/ICT450/schemes_v1/seed_*_qa.json`
 
-## Remaining work
+## Next stage
 
-V4 is **in progress**: the seed 1–3 pilot is complete, but 45 approved
-questions still need answers before V4 can be marked done. After that, the
-remaining Library schemes can be built and the library cache can carry paper
-and scheme files. Gate C and publication remain untouched.
+V4 is **done**. V7 publication remains blocked at **Gate C**: no public bundle,
+R2 upload or Worker deploy has been performed. V8 close-out waits for Gate C.

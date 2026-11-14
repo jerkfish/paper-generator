@@ -2,9 +2,10 @@
 
 Date: **2026-11-11**
 
-These are the approved question-paper proofs. V4 is now in progress, so
-marking schemes for seeds 1–3 have since been built separately under
-`outputs/review/ICT450/schemes_v1/`; see `docs/ICT450_ANSWERS_REPORT.md`.
+These are the approved question-paper proofs. V4 is complete, so every seed
+now has a marking scheme under `outputs/review/ICT450/schemes_v1/` and in its
+library cache; see `docs/ICT450_ANSWERS_REPORT.md` and
+`docs/ICT450_SCHEMES_REPORT.md`.
 
 The seeds follow the past-paper slot order: **Q1 concepts → Q2 design theory → Q3 normalization → Q4 SQL → Q5 ERD**. Marks are not a hard selection constraint; the planner prefers 20-mark questions and all three seeds total 100.
 

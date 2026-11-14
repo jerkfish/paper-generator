@@ -491,9 +491,19 @@ def attach_to_library(seeds: list[int]) -> dict:
         attached.append(seed)
     manifest["schemes_attached"] = sorted(
         set(manifest.get("schemes_attached") or []) | set(attached))
-    manifest["scheme_status"] = (
-        "seeds 1–3 attached from owner-approved V4 models; seeds 4–20 "
-        "remain paper-only until V4 is complete")
+    all_seeds = [int(row["seed"]) for row in manifest.get("seeds") or []]
+    attached_all = sorted(set(manifest["schemes_attached"]))
+    if all_seeds and set(all_seeds) <= set(attached_all):
+        manifest["scheme_status"] = (
+            "all 20 seeds carry V4 model_unofficial marking schemes; "
+            "the first 15 answers were owner-approved")
+    else:
+        missing = sorted(set(all_seeds) - set(attached_all))
+        manifest["scheme_status"] = (
+            "schemes attached for seeds " +
+            ", ".join(str(seed) for seed in attached_all) +
+            "; missing schemes for seeds " +
+            ", ".join(str(seed) for seed in missing))
     save_json(manifest_path, manifest)
     (manifest_path.parent / "library_manifest.md").write_text(
         _library_markdown(manifest), encoding="utf-8")

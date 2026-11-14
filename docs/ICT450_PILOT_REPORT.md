@@ -138,9 +138,10 @@ Template check: `xml_valid`, 47 paragraphs, 2 sections, 4 images, cover text
 `CS/NOV 2026/ICT450`, five questions, no problems. Rendered previews:
 `outputs/review/ICT450/templates/` (cover, page-2 transition, scheme cover).
 
-V4 is **in progress**: 15 of the 60 approved questions (the seeds 1–3 set) now
-have model answers and seed 1–3 marking schemes; 45 questions remain. See
-`docs/ICT450_ANSWERS_REPORT.md`.
+V4 is **done**: all 60 approved questions have model answers, and all 20 seed
+schemes are built and attached. The first 15 answers (seeds 1–3) were
+owner-approved. See `docs/ICT450_ANSWERS_REPORT.md` and
+`docs/ICT450_SCHEMES_REPORT.md`.
 
 ## V5 — paper-only seeds 1–3
 
@@ -165,8 +166,8 @@ rule, with bullets normalised to `-`.
   by the V6 planner; no mark was invented.
 - The `TERDUKA` watermark picture and the duplicate 2025-JUL Table 1 fallback
   are not inserted.
-- **Marking schemes for seeds 1–3** are now built from the V4 answers; the
-  remaining Library schemes wait for the other 45 answers.
+- **Marking schemes for all 20 seeds** are now built from the V4 answers and
+  attached to the Library cache.
 
 PDFs: `outputs/review/ICT450/seeds_v2/seed_01.pdf`, `seed_02.pdf`,
 `seed_03.pdf` (the older wrong-order proofs in `seeds/` are superseded).
@@ -180,8 +181,8 @@ The Library was built to `min(20, feasible)` = **20 seeds** at
 `outputs/web_cache/ICT450/`. Each seed has the same five-slot category order,
 100 marks, six pages, five distinct source papers and audited attachments.
 Reuse stays at **2 of the 4-use cap**. All 20 seeds pass automated QA. After
-the owner approved the seed 1–3 V4 models, their schemes were attached to the
-seed cache and registered in the manifest; seeds 4–20 remain paper-only. See
-`docs/ICT450_LIBRARY_REPORT.md` and the cache manifests.
+V4 was completed, a scheme was attached to every seed cache and registered in
+the manifest. See `docs/ICT450_LIBRARY_REPORT.md`,
+`docs/ICT450_SCHEMES_REPORT.md` and the cache manifests.
 
 Gate C remains pending; nothing was published, uploaded or deployed.

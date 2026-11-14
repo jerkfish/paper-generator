@@ -11,7 +11,8 @@ def test_seed_1_3_answer_content_reconciles_to_question_marks():
         pytest.skip("ICT450 bank is not present")
     approved = {str(question["id"]): question
                 for question in BankStore(BANK).approved_questions()}
-    assert len(ANSWERS) == 15
+    assert len(ANSWERS) == 60
+    assert set(ANSWERS) == set(approved)
     for question_id, content in ANSWERS.items():
         question = approved.get(question_id)
         assert question is not None, question_id

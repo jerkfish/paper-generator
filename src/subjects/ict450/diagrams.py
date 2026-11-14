@@ -121,6 +121,7 @@ def erd_svg(spec: dict) -> tuple[str, int, int]:
                     default=800) + 40
     height = max([height] + [box["y"] + box["height"] + 40
                            for box in boxes.values()])
+    labels: list[str] = []
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" '
         f'width="{width}" height="{height}" viewBox="0 0 {width} {height}" '
@@ -152,11 +153,11 @@ def erd_svg(spec: dict) -> tuple[str, int, int]:
         lx, ly = _label_point(path)
         label = html.escape(str(relationship.get("label") or ""))
         if label:
-            parts.append(
+            labels.append(
                 f'<rect x="{lx - 4 - len(label) * 3.1:.1f}" '
                 f'y="{ly - 9:.1f}" width="{8 + len(label) * 6.2:.1f}" '
                 'height="16" rx="3" fill="#ffffff" fill-opacity="0.92"/>')
-            parts.append(
+            labels.append(
                 f'<text x="{lx:.1f}" y="{ly + 4:.1f}" text-anchor="middle" '
                 'font-size="10" fill="#1f3864" font-weight="600">'
                 f'{label}</text>')

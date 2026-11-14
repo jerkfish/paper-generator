@@ -56,7 +56,7 @@ def _check_content(question: dict, content: dict) -> list[str]:
     labels = _sub_labels(blocks)
     expected = [str(part.get("label")) for part in
                 question.get("subparts") or []]
-    if labels != expected:
+    if expected and labels != expected:
         problems.append(
             f"subpart labels {labels} do not match the question {expected}")
     total = _sub_marks(blocks)

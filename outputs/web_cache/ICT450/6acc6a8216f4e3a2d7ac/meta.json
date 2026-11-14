@@ -2,8 +2,8 @@
   "subject": "ICT450",
   "seed": 12,
   "mode": "realistic",
-  "paper_only": true,
-  "v4_answers": "deferred",
+  "paper_only": false,
+  "v4_answers": "approved_model_unofficial",
   "created": 1794385630.141842,
   "year": 2026,
   "total_marks": 100,
@@ -38,7 +38,9 @@
   "paper_pages": 6,
   "files": {
     "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\ICT450\\6acc6a8216f4e3a2d7ac\\paper.docx",
-    "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\ICT450\\6acc6a8216f4e3a2d7ac\\paper.pdf"
+    "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\ICT450\\6acc6a8216f4e3a2d7ac\\paper.pdf",
+    "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\ICT450\\6acc6a8216f4e3a2d7ac\\scheme.docx",
+    "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\ICT450\\6acc6a8216f4e3a2d7ac\\scheme.pdf"
   },
   "assets": {
     "expected": 2,
@@ -51,5 +53,9 @@
       }
     ],
     "missing": []
-  }
+  },
+  "answers_approved": true,
+  "answers_approved_on": "2026-11-11",
+  "scheme_provenance": "model_unofficial",
+  "scheme_pages": 8
 }

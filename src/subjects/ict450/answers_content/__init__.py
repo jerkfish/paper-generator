@@ -1,7 +1,18 @@
 """Content for the ICT450 V4 model answers."""
 from __future__ import annotations
 
-from . import concepts, design, erd, normalization, sql
+from . import (
+    concepts,
+    concepts_more,
+    design,
+    design_more,
+    erd,
+    erd_more,
+    normalization,
+    normalization_more,
+    sql,
+    sql_more,
+)
 
 KB_SOURCES = {
     "concepts": [
@@ -24,10 +35,15 @@ KB_SOURCES = {
 ANSWERS: dict[str, dict] = {}
 for module, keys in (
         (concepts, "concepts"),
+        (concepts_more, "concepts"),
         (design, "design"),
+        (design_more, "design"),
         (sql, "sql"),
+        (sql_more, "sql"),
         (normalization, "normalization"),
-        (erd, "erd")):
+        (normalization_more, "normalization"),
+        (erd, "erd"),
+        (erd_more, "erd")):
     for answer in module.ANSWERS.values():
         answer["kb_sources"] = list(KB_SOURCES[keys])
     ANSWERS.update(module.ANSWERS)

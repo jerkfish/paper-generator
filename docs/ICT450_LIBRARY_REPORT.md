@@ -2,12 +2,12 @@
 
 Date: **2026-11-11**
 
-The Library was built while V4 was deferred, so its cache initially carried
-question papers only. V4 is now in progress: the owner approved the 15 seed 1–3
-model answers, and their marking schemes are attached to the seed cache and
-registered in `meta.json` / `library_manifest.json`. Seeds 4–20 remain
-paper-only until the other 45 answers are written. No public bundle, R2 upload
-or Worker deploy was built.
+The Library cache now carries **paper and scheme files for all 20 seeds**.
+V4 is complete: 60/60 approved questions have model_unofficial answers, and
+every seed's scheme is registered in `meta.json` / `library_manifest.json`.
+The first 15 answers (seeds 1–3) were owner-approved; the others use the same
+format and knowledge-base grounding. No public bundle, R2 upload or Worker
+deploy was built.
 
 ## Size and feasibility
 
@@ -57,10 +57,10 @@ Every seed has five distinct source papers and six pages: the cover and
 instructions page plus one page per question. All 20 seeds pass QA with
 no missing attachments, no forbidden tokens and no page overflow.
 
-Seeds 1–3 now also carry owner-approved V4 marking schemes in the cache
-(8, 9 and 8 pages). Seeds 4–20 have no scheme yet because their questions are
-not in the approved 15-question V4 model set. The machine-readable
-`library_manifest.md` includes a Scheme column.
+All 20 seeds now carry V4 marking schemes in the cache, ranging from 6 to 9
+pages. The first three were owner-approved; the rest use the same
+model_unofficial format. The machine-readable `library_manifest.md` includes a
+Scheme column and `docs/ICT450_SCHEMES_REPORT.md` lists every seed.
 
 ## Reuse
 
