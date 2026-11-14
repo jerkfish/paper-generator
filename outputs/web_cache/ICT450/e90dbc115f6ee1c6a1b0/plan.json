@@ -1,0 +1,98 @@
+{
+  "schema_version": 2,
+  "seed": 18,
+  "reuse_cap": 4,
+  "total_marks": 100,
+  "slots": [
+    {
+      "slot": "Q1",
+      "category": "concepts",
+      "part": "",
+      "marks": 20,
+      "question_id": "ICT450-2019-DEC-Q1",
+      "source_paper": "ICT450-2019-DEC",
+      "pages": [
+        2
+      ],
+      "topic": "unclassified",
+      "topic_tags": [],
+      "assets": [
+        "ICT450-2019-DEC-A38"
+      ],
+      "refs": [
+        "Figure 1"
+      ],
+      "content_hash": "fbf71e797318b8cdccc762b16283f21a6ea2dd7de58456fbbe124e72bc6e1532"
+    },
+    {
+      "slot": "Q2",
+      "category": "design_theory",
+      "part": "",
+      "marks": 20,
+      "question_id": "ICT450-2019-JUN-Q2",
+      "source_paper": "ICT450-2019-JUN",
+      "pages": [
+        3
+      ],
+      "topic": "unclassified",
+      "topic_tags": [],
+      "assets": [],
+      "refs": [],
+      "content_hash": "8853a0c6b4d2f6a584c2d304fcab399c3d4699a9892e16a23cdd169689d17feb"
+    },
+    {
+      "slot": "Q3",
+      "category": "normalization",
+      "part": "",
+      "marks": 20,
+      "question_id": "ICT450-2018-JUN-Q3",
+      "source_paper": "ICT450-2018-JUN",
+      "pages": [
+        3,
+        4
+      ],
+      "topic": "unclassified",
+      "topic_tags": [],
+      "assets": [
+        "ICT450-2018-JUN-A36"
+      ],
+      "refs": [
+        "Table 1"
+      ],
+      "content_hash": "0fff87acae5d43bbaea71ef7236250686e6c6e9c3844b4d6c65d071c2543b250"
+    },
+    {
+      "slot": "Q4",
+      "category": "sql",
+      "part": "",
+      "marks": 20,
+      "question_id": "ICT450-2022-FEB-Q4",
+      "source_paper": "ICT450-2022-FEB",
+      "pages": [
+        5,
+        6
+      ],
+      "topic": "unclassified",
+      "topic_tags": [],
+      "assets": [],
+      "refs": [],
+      "content_hash": "f396aa3b9f115d8d89175bbe47c28d006055d569484f84e6f7a97c6cfb08de28"
+    },
+    {
+      "slot": "Q5",
+      "category": "erd",
+      "part": "",
+      "marks": 20,
+      "question_id": "ICT450-2023-FEB-Q5",
+      "source_paper": "ICT450-2023-FEB",
+      "pages": [
+        6
+      ],
+      "topic": "unclassified",
+      "topic_tags": [],
+      "assets": [],
+      "refs": [],
+      "content_hash": "548f5fe7da71ecd00812c550e896b7eca6c7d45591a8111022d619fd8534fce5"
+    }
+  ]
+}

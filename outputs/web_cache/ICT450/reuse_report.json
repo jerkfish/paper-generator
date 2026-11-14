@@ -1,0 +1,444 @@
+{
+  "subject": "ICT450",
+  "reuse_cap": 4,
+  "max_uses": 2,
+  "within_cap": true,
+  "questions": [
+    {
+      "question_id": "ICT450-2018-DEC-Q1",
+      "uses": 2,
+      "seeds": [
+        1,
+        13
+      ]
+    },
+    {
+      "question_id": "ICT450-2018-DEC-Q2",
+      "uses": 2,
+      "seeds": [
+        10,
+        20
+      ]
+    },
+    {
+      "question_id": "ICT450-2018-DEC-Q3",
+      "uses": 1,
+      "seeds": [
+        8
+      ]
+    },
+    {
+      "question_id": "ICT450-2018-DEC-Q4",
+      "uses": 2,
+      "seeds": [
+        3,
+        15
+      ]
+    },
+    {
+      "question_id": "ICT450-2018-DEC-Q5",
+      "uses": 2,
+      "seeds": [
+        5,
+        17
+      ]
+    },
+    {
+      "question_id": "ICT450-2018-JUN-Q1",
+      "uses": 2,
+      "seeds": [
+        6,
+        11
+      ]
+    },
+    {
+      "question_id": "ICT450-2018-JUN-Q2",
+      "uses": 2,
+      "seeds": [
+        1,
+        13
+      ]
+    },
+    {
+      "question_id": "ICT450-2018-JUN-Q3",
+      "uses": 2,
+      "seeds": [
+        8,
+        18
+      ]
+    },
+    {
+      "question_id": "ICT450-2018-JUN-Q5",
+      "uses": 2,
+      "seeds": [
+        3,
+        15
+      ]
+    },
+    {
+      "question_id": "ICT450-2019-DEC-Q1",
+      "uses": 2,
+      "seeds": [
+        8,
+        18
+      ]
+    },
+    {
+      "question_id": "ICT450-2019-DEC-Q2",
+      "uses": 1,
+      "seeds": [
+        6
+      ]
+    },
+    {
+      "question_id": "ICT450-2019-DEC-Q3",
+      "uses": 2,
+      "seeds": [
+        3,
+        15
+      ]
+    },
+    {
+      "question_id": "ICT450-2019-DEC-Q4",
+      "uses": 2,
+      "seeds": [
+        1,
+        13
+      ]
+    },
+    {
+      "question_id": "ICT450-2019-DEC-Q5",
+      "uses": 2,
+      "seeds": [
+        10,
+        20
+      ]
+    },
+    {
+      "question_id": "ICT450-2019-JUN-Q1",
+      "uses": 2,
+      "seeds": [
+        4,
+        16
+      ]
+    },
+    {
+      "question_id": "ICT450-2019-JUN-Q2",
+      "uses": 2,
+      "seeds": [
+        11,
+        18
+      ]
+    },
+    {
+      "question_id": "ICT450-2019-JUN-Q3",
+      "uses": 2,
+      "seeds": [
+        1,
+        13
+      ]
+    },
+    {
+      "question_id": "ICT450-2019-JUN-Q4",
+      "uses": 2,
+      "seeds": [
+        6,
+        20
+      ]
+    },
+    {
+      "question_id": "ICT450-2019-JUN-Q5",
+      "uses": 1,
+      "seeds": [
+        8
+      ]
+    },
+    {
+      "question_id": "ICT450-2022-FEB-Q1",
+      "uses": 2,
+      "seeds": [
+        9,
+        14
+      ]
+    },
+    {
+      "question_id": "ICT450-2022-FEB-Q2",
+      "uses": 2,
+      "seeds": [
+        4,
+        16
+      ]
+    },
+    {
+      "question_id": "ICT450-2022-FEB-Q3",
+      "uses": 1,
+      "seeds": [
+        10
+      ]
+    },
+    {
+      "question_id": "ICT450-2022-FEB-Q4",
+      "uses": 2,
+      "seeds": [
+        6,
+        18
+      ]
+    },
+    {
+      "question_id": "ICT450-2022-FEB-Q5",
+      "uses": 1,
+      "seeds": [
+        1
+      ]
+    },
+    {
+      "question_id": "ICT450-2023-FEB-Q2",
+      "uses": 2,
+      "seeds": [
+        2,
+        12
+      ]
+    },
+    {
+      "question_id": "ICT450-2023-FEB-Q3",
+      "uses": 2,
+      "seeds": [
+        4,
+        14
+      ]
+    },
+    {
+      "question_id": "ICT450-2023-FEB-Q4",
+      "uses": 2,
+      "seeds": [
+        9,
+        16
+      ]
+    },
+    {
+      "question_id": "ICT450-2023-FEB-Q5",
+      "uses": 2,
+      "seeds": [
+        6,
+        18
+      ]
+    },
+    {
+      "question_id": "ICT450-2023-JUL-Q1",
+      "uses": 2,
+      "seeds": [
+        2,
+        19
+      ]
+    },
+    {
+      "question_id": "ICT450-2023-JUL-Q2",
+      "uses": 2,
+      "seeds": [
+        7,
+        14
+      ]
+    },
+    {
+      "question_id": "ICT450-2023-JUL-Q3",
+      "uses": 2,
+      "seeds": [
+        9,
+        16
+      ]
+    },
+    {
+      "question_id": "ICT450-2023-JUL-Q4",
+      "uses": 1,
+      "seeds": [
+        4
+      ]
+    },
+    {
+      "question_id": "ICT450-2023-JUL-Q5",
+      "uses": 1,
+      "seeds": [
+        11
+      ]
+    },
+    {
+      "question_id": "ICT450-2024-JAN-Q1",
+      "uses": 2,
+      "seeds": [
+        7,
+        12
+      ]
+    },
+    {
+      "question_id": "ICT450-2024-JAN-Q3",
+      "uses": 2,
+      "seeds": [
+        2,
+        19
+      ]
+    },
+    {
+      "question_id": "ICT450-2024-JAN-Q4",
+      "uses": 2,
+      "seeds": [
+        10,
+        14
+      ]
+    },
+    {
+      "question_id": "ICT450-2024-JAN-Q5",
+      "uses": 2,
+      "seeds": [
+        4,
+        16
+      ]
+    },
+    {
+      "question_id": "ICT450-2024-JUL-Q1",
+      "uses": 2,
+      "seeds": [
+        5,
+        17
+      ]
+    },
+    {
+      "question_id": "ICT450-2024-JUL-Q2",
+      "uses": 2,
+      "seeds": [
+        9,
+        19
+      ]
+    },
+    {
+      "question_id": "ICT450-2024-JUL-Q3",
+      "uses": 1,
+      "seeds": [
+        7
+      ]
+    },
+    {
+      "question_id": "ICT450-2024-JUL-Q4",
+      "uses": 2,
+      "seeds": [
+        2,
+        12
+      ]
+    },
+    {
+      "question_id": "ICT450-2024-JUL-Q5",
+      "uses": 1,
+      "seeds": [
+        13
+      ]
+    },
+    {
+      "question_id": "ICT450-2025-FEB-Q1",
+      "uses": 2,
+      "seeds": [
+        10,
+        20
+      ]
+    },
+    {
+      "question_id": "ICT450-2025-FEB-Q2",
+      "uses": 2,
+      "seeds": [
+        5,
+        17
+      ]
+    },
+    {
+      "question_id": "ICT450-2025-FEB-Q3",
+      "uses": 1,
+      "seeds": [
+        11
+      ]
+    },
+    {
+      "question_id": "ICT450-2025-FEB-Q4",
+      "uses": 2,
+      "seeds": [
+        7,
+        19
+      ]
+    },
+    {
+      "question_id": "ICT450-2025-FEB-Q5",
+      "uses": 2,
+      "seeds": [
+        2,
+        14
+      ]
+    },
+    {
+      "question_id": "ICT450-2025-JUL-Q2",
+      "uses": 2,
+      "seeds": [
+        3,
+        15
+      ]
+    },
+    {
+      "question_id": "ICT450-2025-JUL-Q3",
+      "uses": 2,
+      "seeds": [
+        5,
+        17
+      ]
+    },
+    {
+      "question_id": "ICT450-2025-JUL-Q4",
+      "uses": 2,
+      "seeds": [
+        11,
+        20
+      ]
+    },
+    {
+      "question_id": "ICT450-2025-JUL-Q5",
+      "uses": 2,
+      "seeds": [
+        7,
+        12
+      ]
+    },
+    {
+      "question_id": "ICT450-2026-FEB-Q1",
+      "uses": 2,
+      "seeds": [
+        3,
+        15
+      ]
+    },
+    {
+      "question_id": "ICT450-2026-FEB-Q2",
+      "uses": 1,
+      "seeds": [
+        8
+      ]
+    },
+    {
+      "question_id": "ICT450-2026-FEB-Q3",
+      "uses": 1,
+      "seeds": [
+        12
+      ]
+    },
+    {
+      "question_id": "ICT450-2026-FEB-Q4",
+      "uses": 2,
+      "seeds": [
+        5,
+        17
+      ]
+    },
+    {
+      "question_id": "ICT450-2026-FEB-Q5",
+      "uses": 2,
+      "seeds": [
+        9,
+        19
+      ]
+    }
+  ]
+}

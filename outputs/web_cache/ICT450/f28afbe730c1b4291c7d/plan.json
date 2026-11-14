@@ -1,0 +1,92 @@
+{
+  "schema_version": 2,
+  "seed": 13,
+  "reuse_cap": 4,
+  "total_marks": 100,
+  "slots": [
+    {
+      "slot": "Q1",
+      "category": "concepts",
+      "part": "",
+      "marks": 20,
+      "question_id": "ICT450-2018-DEC-Q1",
+      "source_paper": "ICT450-2018-DEC",
+      "pages": [
+        2
+      ],
+      "topic": "unclassified",
+      "topic_tags": [],
+      "assets": [],
+      "refs": [],
+      "content_hash": "1ae780a956ae10a18e88cff71e76733c73ae6080d8a4e50bf1261d5e3c3170a8"
+    },
+    {
+      "slot": "Q2",
+      "category": "design_theory",
+      "part": "",
+      "marks": 20,
+      "question_id": "ICT450-2018-JUN-Q2",
+      "source_paper": "ICT450-2018-JUN",
+      "pages": [
+        3
+      ],
+      "topic": "unclassified",
+      "topic_tags": [],
+      "assets": [],
+      "refs": [],
+      "content_hash": "8ac51b29244ee219f5ec6ea40d44e1ca8732e3d83817b29ee3d6359cfde051da"
+    },
+    {
+      "slot": "Q3",
+      "category": "normalization",
+      "part": "",
+      "marks": 20,
+      "question_id": "ICT450-2019-DEC-Q4",
+      "source_paper": "ICT450-2019-DEC",
+      "pages": [
+        4
+      ],
+      "topic": "unclassified",
+      "topic_tags": [],
+      "assets": [
+        "ICT450-2019-DEC-A40"
+      ],
+      "refs": [
+        "Figure 3"
+      ],
+      "content_hash": "616101629840271fce07c8a428b4e821eaef8954b86275d1e606e0ac0d2e2a31"
+    },
+    {
+      "slot": "Q4",
+      "category": "sql",
+      "part": "",
+      "marks": 20,
+      "question_id": "ICT450-2019-JUN-Q3",
+      "source_paper": "ICT450-2019-JUN",
+      "pages": [
+        4
+      ],
+      "topic": "unclassified",
+      "topic_tags": [],
+      "assets": [],
+      "refs": [],
+      "content_hash": "18e31d50d897635e2e9d0133bd0e66d2acc36ea929bd17798fe286a456abb38b"
+    },
+    {
+      "slot": "Q5",
+      "category": "erd",
+      "part": "",
+      "marks": 20,
+      "question_id": "ICT450-2024-JUL-Q5",
+      "source_paper": "ICT450-2024-JUL",
+      "pages": [
+        6
+      ],
+      "topic": "unclassified",
+      "topic_tags": [],
+      "assets": [],
+      "refs": [],
+      "content_hash": "29e7dafb8b83233cadd5be56c6f6cc48fbe86ae899a7dc7cd8c68d5545d7a682"
+    }
+  ]
+}

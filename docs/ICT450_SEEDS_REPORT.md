@@ -2,7 +2,9 @@
 
 Date: **2026-11-11**
 
-V4 answers are deferred, so these are question-paper proofs only. No marking scheme has been built.
+These are the approved question-paper proofs. V4 is now in progress, so
+marking schemes for seeds 1–3 have since been built separately under
+`outputs/review/ICT450/schemes_v1/`; see `docs/ICT450_ANSWERS_REPORT.md`.
 
 The seeds follow the past-paper slot order: **Q1 concepts → Q2 design theory → Q3 normalization → Q4 SQL → Q5 ERD**. Marks are not a hard selection constraint; the planner prefers 20-mark questions and all three seeds total 100.
 
@@ -71,5 +73,7 @@ wrong-order proofs in `outputs/review/ICT450/seeds/` are superseded.
 
 ## Gate B
 
-Three paper-only seeds are ready for review. Gate B remains pending while V4 (answers/scheme) is deferred.
+Gate B is **approved** by the owner (2026-11-11) after the formatting review.
+The seed papers remain the approved artefacts; the new schemes are V4 answer
+outputs and do not change the papers.
 

@@ -1,0 +1,93 @@
+{
+  "schema_version": 2,
+  "seed": 10,
+  "reuse_cap": 4,
+  "total_marks": 100,
+  "slots": [
+    {
+      "slot": "Q1",
+      "category": "concepts",
+      "part": "",
+      "marks": 20,
+      "question_id": "ICT450-2025-FEB-Q1",
+      "source_paper": "ICT450-2025-FEB",
+      "pages": [
+        2
+      ],
+      "topic": "unclassified",
+      "topic_tags": [],
+      "assets": [],
+      "refs": [],
+      "content_hash": "8ec3430d6c7c60390d2ce02c69fa7d331b1fe5b8072fd9fde9ac0bb870fe0a6c"
+    },
+    {
+      "slot": "Q2",
+      "category": "design_theory",
+      "part": "",
+      "marks": 20,
+      "question_id": "ICT450-2018-DEC-Q2",
+      "source_paper": "ICT450-2018-DEC",
+      "pages": [
+        2
+      ],
+      "topic": "unclassified",
+      "topic_tags": [],
+      "assets": [],
+      "refs": [],
+      "content_hash": "818bbbf80c4ca64c24ed77e7f1c51106a502ada8de8e4d2775c162f7adc06f94"
+    },
+    {
+      "slot": "Q3",
+      "category": "normalization",
+      "part": "",
+      "marks": 20,
+      "question_id": "ICT450-2022-FEB-Q3",
+      "source_paper": "ICT450-2022-FEB",
+      "pages": [
+        4,
+        5
+      ],
+      "topic": "unclassified",
+      "topic_tags": [],
+      "assets": [
+        "ICT450-2022-FEB-A32"
+      ],
+      "refs": [
+        "Table 4"
+      ],
+      "content_hash": "42d534bb093b0e840fa5780bf59aff4b165dca318457a43d68f5b48006204659"
+    },
+    {
+      "slot": "Q4",
+      "category": "sql",
+      "part": "",
+      "marks": 20,
+      "question_id": "ICT450-2024-JAN-Q4",
+      "source_paper": "ICT450-2024-JAN",
+      "pages": [
+        5
+      ],
+      "topic": "unclassified",
+      "topic_tags": [],
+      "assets": [],
+      "refs": [],
+      "content_hash": "c04a40c58f649ec3fa14fe2182d9c8cd6e398a52257aee257ce9975ec259c864"
+    },
+    {
+      "slot": "Q5",
+      "category": "erd",
+      "part": "",
+      "marks": 20,
+      "question_id": "ICT450-2019-DEC-Q5",
+      "source_paper": "ICT450-2019-DEC",
+      "pages": [
+        5
+      ],
+      "topic": "unclassified",
+      "topic_tags": [],
+      "assets": [],
+      "refs": [],
+      "content_hash": "0b3794222701bb6f7f08de0bd750b8fdbb02c5d1e3bd7a6644daadd8abf91b31"
+    }
+  ]
+}

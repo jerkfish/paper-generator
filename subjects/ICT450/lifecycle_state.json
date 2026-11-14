@@ -91,23 +91,40 @@
       "notes": "Owner approved the clean cover and page-2 transition on 2026-11-11. Template check xml_valid, 47 paragraphs, 2 sections, 4 images, no problems. 38 assets scaled with 0 warnings."
     },
     "V4_answers": {
-      "status": "blocked",
-      "evidence": [],
+      "status": "in_progress",
+      "evidence": [
+        "data/tracking/ict450/v2/bank/answers.json",
+        "data/tracking/ict450/v2/bank/answers_report.json",
+        "data/tracking/ict450/v2/bank/review/answers.html",
+        "outputs/review/ICT450/answers_v1/answers.html",
+        "outputs/review/ICT450/answers_v1/answers_report.json",
+        "data/tracking/ict450/v2/bank/answers/media/ICT450-2018-JUN-Q5_1.png",
+        "data/tracking/ict450/v2/bank/answers/media/ICT450-2022-FEB-Q5_1.png",
+        "data/tracking/ict450/v2/bank/answers/media/ICT450-2025-FEB-Q5_1.png",
+        "outputs/review/ICT450/schemes_v1/seed_01_scheme.docx",
+        "outputs/review/ICT450/schemes_v1/seed_01_scheme.pdf",
+        "outputs/review/ICT450/schemes_v1/seed_02_scheme.docx",
+        "outputs/review/ICT450/schemes_v1/seed_02_scheme.pdf",
+        "outputs/review/ICT450/schemes_v1/seed_03_scheme.docx",
+        "outputs/review/ICT450/schemes_v1/seed_03_scheme.pdf",
+        "outputs/web_cache/ICT450/library_manifest.json",
+        "docs/ICT450_ANSWERS_REPORT.md"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [
-        "Owner deferred V4; no answer source selected."
+        "45 of the 60 approved questions still need answers before V4 is complete."
       ],
       "human_approval": {
         "required": false,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-11",
+        "note": "Owner approved the 15 seed 1–3 V4 model answers; their schemes are attached to the library cache. The remaining 45 answers are still open."
       },
-      "notes": "No scheme or answers are built in this phase."
+      "notes": "15/60 questions answered (the distinct seeds 1–3 set), all model_unofficial. The owner approved these models on 2026-11-11 and their schemes are attached to the library cache for seeds 1–3. Answers were checked against the attached ICT200/ICT450 knowledge base (id 39367590-f20f-4383-8adf-721753d49e1c): TOPIC 1–7 cover concepts, data models, relational model, ERD, normalization, database design and SQL. Every answer reconciles to its question marks. SQL answers use Consolas code blocks, normalization answers use relation blocks and bordered tables, and three ERD answers use generated HTML/SVG Crow's Foot diagrams rendered to PNG. No official ICT450 marking scheme was supplied. Marking schemes for seeds 1–3 are 8, 9 and 8 pages with clean QA. LLM cost $0.00."
     },
     "V5_seeds_1_3": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "outputs/ict450_pilot/seed_01/plan.json",
         "outputs/ict450_pilot/seed_01/qa.json",
@@ -118,26 +135,36 @@
         "outputs/ict450_pilot/seed_03/plan.json",
         "outputs/ict450_pilot/seed_03/qa.json",
         "outputs/ict450_pilot/seed_03/paper.pdf",
+        "outputs/review/ICT450/seeds_v2/seed_01.docx",
+        "outputs/review/ICT450/seeds_v2/seed_01.pdf",
+        "outputs/review/ICT450/seeds_v2/seed_02.docx",
+        "outputs/review/ICT450/seeds_v2/seed_02.pdf",
+        "outputs/review/ICT450/seeds_v2/seed_03.docx",
+        "outputs/review/ICT450/seeds_v2/seed_03.pdf",
+        "outputs/review/ICT450/seeds_v2/report.md",
+        "docs/ICT450_SEEDS_REPORT.md",
         "docs/ICT450_QUESTION_PATTERN.md",
         "data/tracking/ict450/v2/question_pattern.json"
       ],
       "llm_cost_usd": 0.0,
-      "blockers": [
-        "V4 answers are deferred, so no marking scheme is built.",
-        "Gate B is not approved."
-      ],
+      "blockers": [],
       "human_approval": {
-        "required": false,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-11",
+        "note": "Gate B approved after formatting review: one question per page, Q4 relational schema in Consolas, Q5 dash spacing."
       },
-      "notes": "Seeds rebuilt with the past-paper slot order: Q1 concepts, Q2 design theory, Q3 normalization, Q4 SQL, Q5 ERD. Three seeds, 100 marks each, five distinct source papers per seed, attachments audited 1/1, 3/3 and 2/2, QA clean. Formatting: one question per page (six pages per seed), Q4 relational schema in Consolas 10 pt with spaced captions, Q5 dash rules with space before the first and after the last. Gate B pending; V4 deferred."
+      "notes": "Seeds rebuilt with the past-paper slot order: Q1 concepts, Q2 design theory, Q3 normalization, Q4 SQL, Q5 ERD. Three seeds, 100 marks each, five distinct source papers per seed, attachments audited 1/1, 3/3 and 2/2, QA clean. Formatting: one question per page (six pages per seed), Q4 relational schema in Consolas 10 pt with spaced captions, Q5 dash rules with space before the first and after the last. V4 answers remain deferred, so the seeds are paper-only."
     },
     "V6_library": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "outputs/web_cache/ICT450/library_manifest.json",
+        "outputs/web_cache/ICT450/library_manifest.md",
+        "outputs/web_cache/ICT450/reuse_report.json",
+        "docs/ICT450_LIBRARY_REPORT.md"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
@@ -145,9 +172,9 @@
         "approved": false,
         "by": "",
         "on": "",
-        "note": ""
+        "note": "No human gate required for V6; automated QA passed."
       },
-      "notes": ""
+      "notes": "20-seed Library built at min(20, feasible). Every seed has Q1 concepts, Q2 design theory, Q3 normalization, Q4 SQL, Q5 ERD; 100 marks, six pages, five distinct source papers, one question per page. Attachments audited with no missing assets; reuse max 2 of cap 4. Four approved questions were not selected because their extracted marks do not reconcile (2018-JUN-Q4, 2023-FEB-Q1, 2024-JAN-Q2, 2025-JUL-Q1); no marks were invented. LLM cost $0."
     },
     "V7_publish": {
       "status": "pending",
@@ -193,10 +220,19 @@
       ]
     },
     "B": {
-      "status": "pending",
-      "by": "",
-      "on": "",
-      "evidence": []
+      "status": "approved",
+      "by": "owner",
+      "on": "2026-11-11",
+      "evidence": [
+        "outputs/review/ICT450/seeds_v2/seed_01.docx",
+        "outputs/review/ICT450/seeds_v2/seed_02.docx",
+        "outputs/review/ICT450/seeds_v2/seed_03.docx",
+        "outputs/review/ICT450/seeds_v2/report.md",
+        "docs/ICT450_SEEDS_REPORT.md",
+        "outputs/ict450_pilot/seed_01/qa.json",
+        "outputs/ict450_pilot/seed_02/qa.json",
+        "outputs/ict450_pilot/seed_03/qa.json"
+      ]
     },
     "C": {
       "status": "pending",
@@ -216,7 +252,7 @@
   "answers": {
     "official": 0,
     "solver_verified": 0,
-    "model_unofficial": 0,
+    "model_unofficial": 15,
     "human_checked": 0
   },
   "unsure": [

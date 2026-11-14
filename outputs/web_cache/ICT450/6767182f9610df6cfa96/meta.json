@@ -1,0 +1,49 @@
+{
+  "subject": "ICT450",
+  "seed": 11,
+  "mode": "realistic",
+  "paper_only": true,
+  "v4_answers": "deferred",
+  "created": 1794385616.4481637,
+  "year": 2026,
+  "total_marks": 100,
+  "marks_total": 100,
+  "has_practice_mode": false,
+  "has_placeholders": false,
+  "accepted": 5,
+  "placeholders": 0,
+  "cost_usd": 0.0,
+  "model": "recycled-bank",
+  "topic_marks": {
+    "concepts": 20,
+    "design_theory": 20,
+    "normalization": 20,
+    "sql": 20,
+    "erd": 20
+  },
+  "questions": [
+    "ICT450-2018-JUN-Q1",
+    "ICT450-2019-JUN-Q2",
+    "ICT450-2025-FEB-Q3",
+    "ICT450-2025-JUL-Q4",
+    "ICT450-2023-JUL-Q5"
+  ],
+  "source_papers": [
+    "ICT450-2018-JUN",
+    "ICT450-2019-JUN",
+    "ICT450-2023-JUL",
+    "ICT450-2025-FEB",
+    "ICT450-2025-JUL"
+  ],
+  "paper_pages": 6,
+  "files": {
+    "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\ICT450\\6767182f9610df6cfa96\\paper.docx",
+    "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\ICT450\\6767182f9610df6cfa96\\paper.pdf"
+  },
+  "assets": {
+    "expected": 5,
+    "inserted": 5,
+    "skipped": [],
+    "missing": []
+  }
+}

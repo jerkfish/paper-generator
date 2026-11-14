@@ -1,0 +1,19 @@
+{
+  "pages": 6,
+  "images": 3,
+  "marks_total": 100,
+  "problems": [],
+  "forbidden_hits": [],
+  "assets": {
+    "expected": 2,
+    "inserted": 2,
+    "skipped": [
+      {
+        "id": "ICT450-2026-FEB-A25",
+        "question_id": "ICT450-2026-FEB-Q3",
+        "reason": "decorative page watermark"
+      }
+    ],
+    "missing": []
+  }
+}

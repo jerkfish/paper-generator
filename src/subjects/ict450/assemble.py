@@ -14,6 +14,8 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import shutil
+import time
 from collections import Counter
 from pathlib import Path
 
@@ -75,7 +77,10 @@ def build_category_plans(questions: list[dict], *, seed_count: int = 3,
     by_category: dict[str, list[dict]] = {category: [] for category in CATEGORIES}
     for question in questions:
         category = categories.get(str(question.get("id")))
-        if "subpart label gap" in (question.get("review_flags") or []):
+        flags = [str(flag) for flag in (question.get("review_flags") or [])]
+        if "subpart label gap" in flags:
+            continue
+        if any(flag.lower().startswith("marks ") for flag in flags):
             continue
         if category in by_category:
             by_category[category].append(question)
@@ -474,8 +479,39 @@ def _qa(pdf_path: Path, plan: dict, images_expected: int) -> dict:
     }
 
 
-def build_seed(seed: int, plan: dict, *, force: bool = False) -> dict:
-    out = OUT / f"seed_{seed:02d}"
+def _library_meta(seed: int, plan: dict, qa: dict,
+                  paper_docx: Path, paper_pdf: Path) -> dict:
+    return {
+        "subject": SUBJECT,
+        "seed": seed,
+        "mode": "realistic",
+        "paper_only": True,
+        "v4_answers": "deferred",
+        "created": time.time(),
+        "year": time.gmtime().tm_year,
+        "total_marks": qa["marks_total"],
+        "marks_total": qa["marks_total"],
+        "has_practice_mode": False,
+        "has_placeholders": False,
+        "accepted": len(plan["slots"]),
+        "placeholders": 0,
+        "cost_usd": 0.0,
+        "model": "recycled-bank",
+        "topic_marks": {str(slot.get("category")): int(slot.get("marks") or 0)
+                        for slot in plan["slots"]},
+        "questions": [slot["question_id"] for slot in plan["slots"]],
+        "source_papers": sorted({slot["source_paper"]
+                                 for slot in plan["slots"]}),
+        "paper_pages": qa["pages"],
+        "files": {"paper_docx": str(paper_docx),
+                  "paper_pdf": str(paper_pdf)},
+        "assets": qa.get("assets", {}),
+    }
+
+
+def build_seed(seed: int, plan: dict, *, force: bool = False,
+               out_dir: Path | None = None) -> dict:
+    out = Path(out_dir) if out_dir is not None else OUT / f"seed_{seed:02d}"
     if out.exists() and not force:
         return {"seed": seed, "cached": True, "path": str(out)}
     out.mkdir(parents=True, exist_ok=True)
@@ -586,36 +622,207 @@ def build_seed(seed: int, plan: dict, *, force: bool = False) -> dict:
             "missing attachments: " + ", ".join(missing_assets))
     save_json(out / "plan.json", plan)
     save_json(out / "qa.json", qa)
-    save_json(out / "meta.json", {
-        "subject": SUBJECT,
-        "seed": seed,
-        "mode": "paper_only",
-        "v4_answers": "deferred",
-        "paper_pages": pages,
-        "questions": [slot["question_id"] for slot in plan["slots"]],
-        "source_papers": sorted({slot["source_paper"]
-                                 for slot in plan["slots"]}),
-        "files": {"paper_docx": str(paper_docx),
-                  "paper_pdf": str(paper_pdf)},
-        "assets": qa["assets"],
-        "marks_total": qa["marks_total"],
-    })
+    save_json(out / "meta.json",
+              _library_meta(seed, plan, qa, paper_docx, paper_pdf))
     if qa["problems"]:
         raise RuntimeError(f"seed {seed} QA failed: {qa['problems']}")
     return {"seed": seed, "pages": pages, "images": qa["images"],
             "path": str(out)}
 
 
+def _library_markdown(manifest: dict) -> str:
+    lines = [
+        "# ICT450 — V6 Library",
+        "",
+        f"Date: **{time.strftime('%Y-%m-%d', time.gmtime())}**",
+        "",
+        f"Library size: **{manifest['library_size']}** "
+        f"(policy `{manifest['size_policy']}`); "
+        f"reuse cap **{manifest['reuse_cap']}**.",
+        "",
+        "| Seed | Q1 | Q2 | Q3 | Q4 | Q5 | Marks | Pages | Attachments | Scheme |",
+        "|---|---|---|---|---|---|---:|---:|---:|---:|",
+    ]
+    for row in manifest["seeds"]:
+        cells = [row["question_id"] for row in row["questions"]]
+        scheme = (f"{row['scheme_pages']} pages"
+                  if row.get("scheme_pages") else "—")
+        lines.append(
+            f"| {row['seed']} | " + " | ".join(cells) +
+            f" | {row['marks']} | {row['pages']} | "
+            f"{row['assets_inserted']}/{row['assets_expected']} | "
+            f"{scheme} |")
+    lines += [
+        "",
+        "## Feasibility",
+        "",
+        f"- Approved questions: {manifest['feasibility']['approved_questions']}.",
+        f"- Usable questions: {manifest['feasibility']['usable_questions']}.",
+        f"- Excluded from selection: "
+        f"{len(manifest['feasibility']['excluded_questions'])} "
+        "(subpart label gap or marks do not reconcile).",
+        "- By category: " + ", ".join(
+            f"{key} {value}" for key, value in
+            manifest["feasibility"]["by_category"].items()) + ".",
+        f"- Distinct seeds without reuse: "
+        f"{manifest['feasibility']['distinct_seeds_without_reuse']}.",
+        f"- Capacity with reuse cap: "
+        f"{manifest['feasibility']['capacity_with_reuse_cap']}.",
+        "",
+        "## Reuse",
+        "",
+        f"- Maximum uses of one question: "
+        f"{manifest['reuse']['max_uses']} (cap {manifest['reuse_cap']}).",
+    ]
+    return "\n".join(lines) + "\n"
+
+
+def build_library(seed_count: int = 20, *, reuse_cap: int = 4,
+                  force: bool = False) -> dict:
+    """Build the V6 Library cache and its feasibility/reuse manifests."""
+    store = BankStore(BANK)
+    questions = list(store.approved_questions())
+    categories = _category_map()
+    def _excluded(question: dict) -> list[str]:
+        flags = [str(flag) for flag in (question.get("review_flags") or [])]
+        reasons = []
+        if "subpart label gap" in flags:
+            reasons.append("subpart label gap")
+        if any(flag.lower().startswith("marks ") for flag in flags):
+            reasons.append("marks do not reconcile")
+        return reasons
+
+    usable = [question for question in questions
+              if categories.get(str(question.get("id"))) in CATEGORIES
+              and not _excluded(question)]
+    excluded = [{"question_id": question["id"],
+                 "reasons": _excluded(question)}
+                for question in questions if _excluded(question)]
+    cat_counts = Counter(str(categories[str(question["id"])])
+                         for question in usable)
+    capacity = min(cat_counts[category] * reuse_cap
+                   for category in CATEGORIES)
+    requested = min(int(seed_count), capacity)
+    while requested > 0:
+        try:
+            plans = build_category_plans(questions, seed_count=requested,
+                                         reuse_cap=reuse_cap)
+        except ValueError:
+            requested -= 1
+            continue
+        break
+    if requested == 0:
+        raise SystemExit("ICT450: no feasible seed plan")
+    for plan in plans:
+        validate_seed_plan(plan, store, expected_slots=5,
+                           require_assets=True, require_content_hash=True,
+                           check_part=True)
+    cache_root = config.WEB_CACHE_DIR / SUBJECT
+    cache_root.mkdir(parents=True, exist_ok=True)
+    from src.app.jobs import cache_path
+    rows = []
+    reuse: Counter[str] = Counter()
+    for seed, plan in enumerate(plans, start=1):
+        seed_ids = [str(slot["question_id"]) for slot in plan["slots"]]
+        reuse.update(seed_ids)
+        out = cache_path("realistic", seed, None, subject=SUBJECT)
+        if seed <= 3 and (OUT / f"seed_{seed:02d}" /
+                          "paper.docx").exists():
+            source = OUT / f"seed_{seed:02d}"
+            out.mkdir(parents=True, exist_ok=True)
+            for name in ("paper.docx", "paper.pdf", "plan.json", "qa.json"):
+                shutil.copy2(source / name, out / name)
+            qa = json.loads((out / "qa.json").read_text(encoding="utf-8"))
+            save_json(out / "meta.json", _library_meta(
+                seed, plan, qa, out / "paper.docx", out / "paper.pdf"))
+            result = {"seed": seed, "cached": True, "path": str(out)}
+        else:
+            result = build_seed(seed, plan, force=force, out_dir=out)
+        qa = json.loads((out / "qa.json").read_text(encoding="utf-8"))
+        meta = json.loads((out / "meta.json").read_text(encoding="utf-8"))
+        rows.append({
+            "seed": seed,
+            "marks": qa["marks_total"],
+            "pages": qa["pages"],
+            "source_questions": len(plan["slots"]),
+            "assets_expected": qa.get("assets", {}).get("expected", 0),
+            "assets_inserted": qa.get("assets", {}).get("inserted", 0),
+            "assets_missing": qa.get("assets", {}).get("missing", []),
+            "source_papers": meta["source_papers"],
+            "questions": [
+                {"slot": slot["slot"], "category": slot["category"],
+                 "question_id": slot["question_id"],
+                 "source_paper": slot["source_paper"],
+                 "marks": slot["marks"]}
+                for slot in plan["slots"]],
+            "files": meta["files"],
+            "qa_problems": qa.get("problems", []),
+        })
+        print(result, flush=True)
+    reuse_rows = []
+    for question_id, uses in sorted(reuse.items()):
+        reuse_rows.append({
+            "question_id": question_id,
+            "uses": uses,
+            "seeds": [row["seed"] for row in rows
+                      if any(question["question_id"] == question_id
+                             for question in row["questions"])],
+        })
+    reuse_payload = {
+        "subject": SUBJECT,
+        "reuse_cap": reuse_cap,
+        "max_uses": max(reuse.values()),
+        "within_cap": max(reuse.values()) <= reuse_cap,
+        "questions": reuse_rows,
+    }
+    manifest = {
+        "schema_version": 1,
+        "subject": SUBJECT,
+        "generated": time.time(),
+        "library_size": len(plans),
+        "size_policy": "min(20, feasible)",
+        "reuse_cap": reuse_cap,
+        "feasibility": {
+            "approved_questions": len(questions),
+            "usable_questions": len(usable),
+            "excluded_questions": excluded,
+            "by_category": dict(sorted(cat_counts.items())),
+            "distinct_seeds_without_reuse": min(
+                cat_counts[category] for category in CATEGORIES),
+            "capacity_with_reuse_cap": capacity,
+            "library_size": len(plans),
+        },
+        "reuse": {
+            "reuse_cap": reuse_cap,
+            "max_uses": max(reuse.values()),
+            "within_cap": max(reuse.values()) <= reuse_cap,
+        },
+        "seeds": rows,
+    }
+    save_json(cache_root / "library_manifest.json", manifest)
+    save_json(cache_root / "reuse_report.json", reuse_payload)
+    (cache_root / "library_manifest.md").write_text(
+        _library_markdown(manifest), encoding="utf-8")
+    return manifest
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--seeds", default="1-3")
     parser.add_argument("--force", action="store_true")
+    parser.add_argument("--library", action="store_true")
     args = parser.parse_args()
     if "-" in args.seeds:
         first, last = args.seeds.split("-")
         seeds = list(range(int(first), int(last) + 1))
     else:
         seeds = [int(value) for value in args.seeds.split(",")]
+    if args.library:
+        manifest = build_library(seed_count=max(seeds), force=args.force)
+        print({"library_size": manifest["library_size"],
+               "reuse_max": manifest["reuse"]["max_uses"],
+               "within_cap": manifest["reuse"]["within_cap"]}, flush=True)
+        return
     store = BankStore(BANK)
     questions = list(store.approved_questions())
     plans = build_category_plans(questions, seed_count=max(seeds),

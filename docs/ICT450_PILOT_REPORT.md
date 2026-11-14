@@ -138,7 +138,9 @@ Template check: `xml_valid`, 47 paragraphs, 2 sections, 4 images, cover text
 `CS/NOV 2026/ICT450`, five questions, no problems. Rendered previews:
 `outputs/review/ICT450/templates/` (cover, page-2 transition, scheme cover).
 
-V4 is **deferred**; no answer source has been selected.
+V4 is **in progress**: 15 of the 60 approved questions (the seeds 1–3 set) now
+have model answers and seed 1–3 marking schemes; 45 questions remain. See
+`docs/ICT450_ANSWERS_REPORT.md`.
 
 ## V5 — paper-only seeds 1–3
 
@@ -156,16 +158,30 @@ question. Q4 relational schemas are set in Consolas 10 pt with 6 pt between
 captions; Q5 dash lists have 10 pt of space before the first and after the last
 rule, with bullets normalised to `-`.
 
-- 56 of the 60 approved questions carry the 20-mark slot size.
+- 56 of the 60 approved questions carry a reconciliable 20-mark total.
 - Four approved questions (`2018-JUN-Q4`, `2023-FEB-Q1`, `2024-JAN-Q2`,
-  `2025-JUL-Q1`) have 14 or 16 extracted marks and are not selectable for a
-  20-mark slot without an owner tolerance.
+  `2025-JUL-Q1`) have 14 or 16 extracted marks because a sub-part mark is
+  missing or a label is skipped. They remain in the bank but are not selected
+  by the V6 planner; no mark was invented.
 - The `TERDUKA` watermark picture and the duplicate 2025-JUL Table 1 fallback
   are not inserted.
-- **No marking scheme was built** because V4 is deferred.
+- **Marking schemes for seeds 1–3** are now built from the V4 answers; the
+  remaining Library schemes wait for the other 45 answers.
 
 PDFs: `outputs/review/ICT450/seeds_v2/seed_01.pdf`, `seed_02.pdf`,
 `seed_03.pdf` (the older wrong-order proofs in `seeds/` are superseded).
 Full report: `docs/ICT450_SEEDS_REPORT.md`.
 
-**Gate B is pending.** It cannot close while V4 (answers/scheme) is deferred.
+**Gate B is approved** (owner, 2026-11-11) after the formatting review.
+
+## V6 — Library
+
+The Library was built to `min(20, feasible)` = **20 seeds** at
+`outputs/web_cache/ICT450/`. Each seed has the same five-slot category order,
+100 marks, six pages, five distinct source papers and audited attachments.
+Reuse stays at **2 of the 4-use cap**. All 20 seeds pass automated QA. After
+the owner approved the seed 1–3 V4 models, their schemes were attached to the
+seed cache and registered in the manifest; seeds 4–20 remain paper-only. See
+`docs/ICT450_LIBRARY_REPORT.md` and the cache manifests.
+
+Gate C remains pending; nothing was published, uploaded or deployed.

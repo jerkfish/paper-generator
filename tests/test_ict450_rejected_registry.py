@@ -76,7 +76,7 @@ def test_active_contract_is_v2_recycle():
     assert lifecycle["lifecycle_status"] in {
         "restarting_v2", "in_progress", "blocked"}
     assert lifecycle["gates"]["A"]["status"] in {"pending", "approved"}
-    assert lifecycle["gates"]["B"]["status"] == "pending"
+    assert lifecycle["gates"]["B"]["status"] == "approved"
     assert lifecycle["gates"]["C"]["status"] == "pending"
     assert int(lifecycle["bank"]["questions"]) >= 0
     assert lifecycle["answers"]["official"] == 0
@@ -86,8 +86,16 @@ def test_active_ict450_outputs_do_not_use_rejected_hashes():
     rejected = _load(REJECTED)
     rejected_hashes = set(rejected["hashes"])
 
-    # The moved private cache must be absent from the active cache root.
-    assert not (ROOT / "outputs/web_cache/ICT450").exists()
+    # V6 builds a fresh library under the active cache root.  None of those
+    # files may be a copy of a rejected v1 artifact.
+    cache_root = ROOT / "outputs/web_cache/ICT450"
+    if cache_root.exists():
+        manifest = _load(cache_root / "library_manifest.json")
+        assert manifest["library_size"] <= 20
+        assert manifest["reuse"]["within_cap"] is True
+        for path in cache_root.rglob("*"):
+            if path.is_file():
+                assert _sha(path) not in rejected_hashes, path
 
     # Kept paper-register files may remain under data/tracking/ict450, but no
     # bank output may match a rejected v1 artifact.  The raw MinerU cache is

@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>ICT450 V4 answers — review</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #eef2f7; color: #0f172a;
+       font-family: Arial, Helvetica, sans-serif; }
+main { max-width: 1100px; margin: 0 auto; padding: 28px 22px 60px; }
+header { background: #1f3864; color: #fff; padding: 26px 30px;
+          border-radius: 12px; margin-bottom: 22px; }
+header h1 { margin: 0 0 6px; font-size: 24px; }
+header p { margin: 4px 0; color: #dbe5f3; font-size: 13px; }
+.answer { background: #fff; padding: 22px 26px 26px; margin: 20px 0;
+           border-radius: 10px; border: 1px solid #d7dfeb; }
+h2 { font-size: 17px; margin: 0 0 10px; color: #1f3864; }
+h2 .meta { font-size: 12px; color: #64748b; font-weight: normal; }
+h3 { font-size: 13px; margin: 16px 0 6px; color: #1f3864; }
+h4 { font-size: 13px; margin: 12px 0 4px; color: #1f3864; }
+.question { background: #f8fafc; border-left: 4px solid #94a3b8;
+             padding: 10px 14px; margin: 8px 0 12px; white-space: pre-wrap;
+             font-size: 12px; color: #334155; }
+.provenance { font-size: 11px; color: #64748b; margin: 8px 0; }
+p { font-size: 13px; line-height: 1.55; margin: 7px 0; }
+ul { margin: 4px 0 8px 20px; padding: 0; }
+li { font-size: 13px; line-height: 1.5; margin: 3px 0; }
+.subhead { display: flex; gap: 8px; align-items: baseline; margin: 14px 0 4px;
+            font-size: 13px; font-weight: 700; color: #1f3864; }
+.subtext { font-weight: 600; }
+.marks { margin-left: auto; font-size: 11px; color: #b45309; font-weight: 700; }
+.caption { font-size: 11px; color: #64748b; text-align: center;
+            margin: 8px 0 4px; }
+pre.sql { background: #0f172a; color: #e2e8f0; padding: 14px 16px;
+           border-radius: 8px; overflow-x: auto; font-size: 12px;
+           line-height: 1.45; font-family: Consolas, "Courier New", monospace; }
+pre.schema { background: #f1f5f9; color: #0f172a; padding: 12px 14px;
+              border-radius: 6px; font-size: 12px; line-height: 1.55;
+              font-family: Consolas, "Courier New", monospace;
+              white-space: pre-wrap; }
+table { border-collapse: collapse; width: 100%; margin: 6px 0 12px;
+         font-size: 11px; }
+th, td { border: 1px solid #cbd5e1; padding: 5px 7px; text-align: left;
+          vertical-align: top; }
+th { background: #1f3864; color: #fff; font-weight: 700; }
+tr:nth-child(even) td { background: #f8fafc; }
+.erd { background: #fff; border: 1px solid #cbd5e1; border-radius: 8px;
+        padding: 8px; margin: 10px 0 4px; overflow: auto; }
+.erd svg { display: block; width: 100%; height: auto; }
+.callout { background: #fff7ed; border-left: 4px solid #f59e0b;
+            padding: 10px 14px; font-size: 12px; margin: 10px 0; }
+.marking, .assumptions { margin-top: 14px; padding-top: 10px;
+                          border-top: 1px solid #e2e8f0; }
+.marking li { color: #334155; font-style: italic; }
+.assumptions li { color: #7c2d12; }
+</style></head><body><main>
+<header>
+<h1>ICT450 — V4 model answers</h1>
+<p>Unofficial reference answers for the 15 distinct questions used in seeds 1–3.</p>
+<p>Provenance: model_unofficial. Generated from the approved question text and
+supplied source assets. No official marking scheme was supplied.</p>
+<p>LLM cost: $0.00 · 15 answered questions</p>
+</header>
+<section class='answer'><h2>ICT450-2018-DEC-Q1 <span class='meta'>ICT450-2018-DEC · 20 marks</span></h2><div class='question'>a) Briefly describe any FOUR (4) components of database system environment.
+b) Millions of people all over the world access the internet and connect to databases via web browsers or data services. For example, they can use a smartphone application to get weather or traffic information. Briefly describe FOUR (4) characteristics of successful &quot;Internet age&quot; databases.
+c) Briefly describe each of TWO (2) advantages and disadvantages of Entity Relationship Diagram (ERD).</div><div class='provenance'>Provenance: model_unofficial · confidence high</div><p>Model-authored from the approved question text, the supplied source assets and the ICT200/ICT450 knowledge base; no official ICT450 marking scheme was supplied.</p><p>A database system environment is made up of the people, procedures, data, hardware and software that work together to manage and use a database.</p><div class='subhead'><span>(a)</span><span class='subtext'>Four components of a database system environment.</span><span class='marks'>(8 marks)</span></div><ul><li>Hardware — the physical devices on which the database runs, including servers, storage, network equipment and user terminals.</li><li>Software — the DBMS, application programs, utilities and development tools that let users define, access and manage the data.</li><li>People — the database administrator, designers, analysts, programmers and end users who use or manage the database.</li><li>Data — the raw facts stored in the database, together with the metadata that describes their structure and meaning.</li><li>Procedures — the written instructions and policies for using, backing up, securing and recovering the database.</li></ul><div class='subhead'><span>(b)</span><span class='subtext'>Four characteristics of successful Internet-age databases.</span><span class='marks'>(8 marks)</span></div><ul><li>Ubiquitous connectivity — users can reach the database from web browsers, mobile apps and data services at any time and from any location.</li><li>Scalability and performance — the system can handle growing volumes of users, transactions and data without unacceptable response times.</li><li>High availability and reliability — the database remains accessible through failures, with replication, backup and recovery facilities.</li><li>Security and privacy — authentication, authorisation, encryption and auditing protect data that is exposed over public networks.</li><li>Manageability — the database can be monitored, tuned and administered centrally with minimal disruption.</li></ul><div class='subhead'><span>(c)</span><span class='subtext'>Two advantages and two disadvantages of an ERD.</span><span class='marks'>(4 marks)</span></div><ul><li>Advantage: an ERD gives designers, programmers and users a clear visual model of the entities, attributes and relationships before implementation.</li><li>Advantage: it is independent of any DBMS, so the same conceptual design can be reviewed and implemented on different platforms.</li><li>Disadvantage: a large ERD can become crowded and difficult to read, especially when many relationships and weak entities are involved.</li><li>Disadvantage: an ERD does not show every business rule, process or physical implementation detail, so it must be supported by other documentation.</li></ul><div class='marking'><h3>Marking guide</h3><ul><li>a) 2 marks for each of four components named and explained (4 × 2 = 8).</li><li>b) 2 marks for each of four characteristics named and explained (4 × 2 = 8).</li><li>c) 1 mark for each advantage and each disadvantage, correctly explained (4 × 1 = 4).</li></ul></div><div class='assumptions'><h3>Assumptions</h3><ul><li>The question asks for four components; five are listed so the answer remains complete if the marker expects a different set.</li></ul></div></section><section class='answer'><h2>ICT450-2018-DEC-Q4 <span class='meta'>ICT450-2018-DEC · 20 marks</span></h2><div class='question'>The following questions will be based on order form in Table 1.0.
+a) Convert the order form in Table 1.0 into a relational schema format.
+b) State the primary key(s) in (a).
+c) Normalize the table until third normal form (3NF). Show all your work.</div><div class='provenance'>Provenance: model_unofficial · confidence high</div><p>Model-authored from the approved question text, the supplied source assets and the ICT200/ICT450 knowledge base; no official ICT450 marking scheme was supplied.</p><p>The order form contains order, customer, product and staff data, with a repeating group of product lines.</p><div class='subhead'><span>(a)</span><span class='subtext'>Relational schema for the order form.</span><span class='marks'>(2 marks)</span></div><ul></ul><div class='caption'>Order-form relation in 1NF (one row per product line).</div><pre class='schema'>ORDER_FORM (OrderNo, OrderDate, CustomerNo, CustomerName, CustomerAddress, City, State, ProductNo, Description, Quantity, UnitPrice, StaffID, StaffName)</pre><div class='caption'>Order header data</div><table><thead><tr><th>OrderNo</th><th>OrderDate</th><th>CustomerNo</th><th>Customer</th><th>Address</th><th>City</th><th>State</th></tr></thead><tbody><tr><td>1234</td><td>11-Apr-2018</td><td>9876</td><td>Sufian Ghani</td><td>456, Gemersik Street</td><td>Kuala Krai</td><td>Kelantan</td></tr></tbody></table><p>Person in charge: S101 – Marina.</p><div class='caption'>Item lines</div><table><thead><tr><th>OrderNo</th><th>ProductNo</th><th>Description</th><th>Qty</th><th>UnitPrice</th></tr></thead><tbody><tr><td>1234</td><td>A123</td><td>Pencil</td><td>100</td><td>3.00</td></tr><tr><td>1234</td><td>B234</td><td>Eraser</td><td>200</td><td>1.50</td></tr><tr><td>1234</td><td>C345</td><td>Sharpener</td><td>5</td><td>8.00</td></tr><tr><td>1234</td><td>A333</td><td>Ruler</td><td>50</td><td>0.50</td></tr></tbody></table><div class='subhead'><span>(b)</span><span class='subtext'>Primary key of the relation.</span><span class='marks'>(2 marks)</span></div><ul></ul><p>The primary key is (OrderNo, ProductNo). One order has many products, and a product can appear on many orders, so neither attribute alone is unique.</p><div class='subhead'><span>(c)</span><span class='subtext'>Normalise the order form to 3NF.</span><span class='marks'>(16 marks)</span></div><ul></ul><p>Step 1 — 1NF: one row per order-product line; all values atomic. Key: (OrderNo, ProductNo).</p><p>Step 2 — 2NF: remove partial dependencies. Order data depends on OrderNo; product data depends on ProductNo; staff data depends on StaffID.</p><div class='caption'>2NF relations.</div><pre class='schema'>ORDER (OrderNo, OrderDate, CustomerNo, CustomerName, CustomerAddress, City, State, StaffID, StaffName)
+PRODUCT (ProductNo, Description, UnitPrice)
+ORDER_ITEM (OrderNo, ProductNo, Quantity)</pre><p>Step 3 — 3NF: remove transitive dependencies. CustomerNo determines customer details; City determines State; StaffID determines StaffName.</p><div class='caption'>3NF relations.</div><pre class='schema'>CUSTOMER (CustomerNo, CustomerName, Address, City)
+CITY (City, State)
+STAFF (StaffID, StaffName)
+ORDER (OrderNo, OrderDate, CustomerNo, StaffID)
+PRODUCT (ProductNo, Description, UnitPrice)
+ORDER_ITEM (OrderNo, ProductNo, Quantity)</pre><div class='caption'>3NF sample data: CUSTOMER</div><table><thead><tr><th>CustomerNo</th><th>CustomerName</th><th>Address</th><th>City</th></tr></thead><tbody><tr><td>9876</td><td>Sufian Ghani</td><td>456, Gemersik Street</td><td>Kuala Krai</td></tr></tbody></table><div class='caption'>3NF sample data: CITY</div><table><thead><tr><th>City</th><th>State</th></tr></thead><tbody><tr><td>Kuala Krai</td><td>Kelantan</td></tr></tbody></table><div class='caption'>3NF sample data: ORDER</div><table><thead><tr><th>OrderNo</th><th>OrderDate</th><th>CustomerNo</th><th>StaffID</th></tr></thead><tbody><tr><td>1234</td><td>11-Apr-2018</td><td>9876</td><td>S101</td></tr></tbody></table><div class='caption'>3NF sample data: STAFF</div><table><thead><tr><th>StaffID</th><th>StaffName</th></tr></thead><tbody><tr><td>S101</td><td>Marina</td></tr></tbody></table><div class='caption'>3NF sample data: PRODUCT</div><table><thead><tr><th>ProductNo</th><th>Description</th><th>UnitPrice</th></tr></thead><tbody><tr><td>A123</td><td>Pencil</td><td>3.00</td></tr><tr><td>B234</td><td>Eraser</td><td>1.50</td></tr><tr><td>C345</td><td>Sharpener</td><td>8.00</td></tr><tr><td>A333</td><td>Ruler</td><td>0.50</td></tr></tbody></table><div class='caption'>3NF sample data: ORDER_ITEM</div><table><thead><tr><th>OrderNo</th><th>ProductNo</th><th>Quantity</th></tr></thead><tbody><tr><td>1234</td><td>A123</td><td>100</td></tr><tr><td>1234</td><td>B234</td><td>200</td></tr><tr><td>1234</td><td>C345</td><td>5</td></tr><tr><td>1234</td><td>A333</td><td>50</td></tr></tbody></table><div class='marking'><h3>Marking guide</h3><ul><li>a) 2 marks: relation containing the order, customer, product and staff data.</li><li>b) 2 marks: composite key (OrderNo, ProductNo) with a reason.</li><li>c) 16 marks: 1NF order relation stated with atomic rows (4), 2NF partial dependencies removed into ORDER, PRODUCT and ORDER_ITEM (6), 3NF transitive dependencies removed into CUSTOMER, CITY and STAFF (6).</li></ul></div><div class='assumptions'><h3>Assumptions</h3><ul><li>One order can contain many products; the same product appears once per order.</li><li>City determines State for this data, so CITY is separated in 3NF.</li></ul></div></section><section class='answer'><h2>ICT450-2018-JUN-Q2 <span class='meta'>ICT450-2018-JUN · 20 marks</span></h2><div class='question'>a) The database life cycle (DBLC) process moves through a series of well-defined phases.
+i) Briefly explain what the implementation and loading phase do.
+ii) Describe the THREE (3) levels of backup that used in database recovery management in this phase.
+b) Briefly describe big data and THREE (3) technologies for managing and analyzing the big data.
+c) Briefly describe the key difference between unstructured and structured data. Provide an example for each answer.</div><div class='provenance'>Provenance: model_unofficial · confidence high</div><p>Model-authored from the approved question text, the supplied source assets and the ICT200/ICT450 knowledge base; no official ICT450 marking scheme was supplied.</p><div class='subhead'><span>(a)</span><span class='subtext'>Database life cycle phases.</span><span class='marks'>(8 marks)</span></div><ul><li>i) Implementation and loading: the physical database is created from the design — tables, keys, constraints, views, indexes and security are defined; existing data is converted and loaded; backup and recovery arrangements are put in place and the database is tested before release.</li><li>ii) Three backup levels:</li><li>Full backup — a complete copy of the whole database; it is the baseline for recovery but takes the most time and space.</li><li>Differential backup — copies only data changed since the last full backup; recovery needs the last full backup plus the latest differential backup.</li><li>Transaction-log backup — copies the transaction log, allowing point-in-time recovery and recovery of changes made after the last full or differential backup.</li><li>Incremental backup may be accepted in place of differential backup: it copies changes since the last backup of any type.</li></ul><div class='subhead'><span>(b)</span><span class='subtext'>Big data and three technologies for managing it.</span><span class='marks'>(8 marks)</span></div><ul><li>Big data is data that is too large, fast-changing or varied for traditional relational systems to capture and process within an acceptable time. Its core characteristics are volume, velocity and variety; veracity and value are often added as extended characteristics.</li><li>Hadoop and HDFS — Hadoop is a Java-based, open-source, fault-tolerant distributed framework; HDFS is its distributed file system for storing very large files across a cluster.</li><li>MapReduce — an open-source programming API that processes large datasets in parallel and provides fast data-analytic services.</li><li>NoSQL — a large-scale distributed database system that stores structured and unstructured data efficiently, with high scalability, availability and fault tolerance.</li></ul><div class='subhead'><span>(c)</span><span class='subtext'>Structured versus unstructured data.</span><span class='marks'>(4 marks)</span></div><ul><li>Structured data has a predefined schema and is stored in rows and columns with consistent data types; it is easy to query with SQL. Example: a student table containing StudID, Name and CGPA.</li><li>Unstructured data has no predefined relational schema and cannot be stored naturally in rows and columns. Example: images, video, audio, free-text documents or social-media posts.</li></ul><div class='marking'><h3>Marking guide</h3><ul><li>a)(i) 2 marks for a correct description of implementation and loading.</li><li>a)(ii) 2 marks for each of three backup levels correctly described (3 × 2 = 6).</li><li>b) 2 marks for the definition of big data; 2 marks for each of three technologies (2 + 3 × 2 = 8).</li><li>c) 2 marks for structured data with an example and 2 marks for unstructured data with an example (2 + 2 = 4).</li></ul></div><div class='assumptions'><h3>Assumptions</h3><ul><li>The three backup levels are interpreted as full, differential and transaction-log backup, the standard DBLC recovery model.</li></ul></div></section><section class='answer'><h2>ICT450-2018-JUN-Q5 <span class='meta'>ICT450-2018-JUN · 20 marks</span></h2><div class='question'>Smile Dental and Orthodontic Clinic has decided to build their own dental database system. The clinic has wisely chosen to hire you as a database designer and has offered to give you a free lifetime dental treatment if you design its database. You are given the following requirements:
+- Dentists are identified by Dentist_ID. For each dentist, the name, address, telephone number, specialty, email address and years of experience must be recorded.
+- Patients are identified by Patient_ID, and their names, addresses, phone number, date of birth, marital status and gender must be recorded.
+• Every patient belongs to only one dentist. Every dentist has at least one patient.
+- Each patient can have more than treatment for more than one teeth. On the other hand, one treatment can be done for more than one patient. Number of tooth and diagnosis are recorded.
+- The input of treatment is Treatment_ID, treatment name, price, image for each treatment and tooth number.
+- The dentist can do more than one treatment and one treatment is done by one dentist.
+- Patient can have many appointments with several dates, start time and end time. Each appointment also will have an Appointment_ID.
+- There are two types of treatments available in this dental system; disease treatment and orthodontic treatment. Disease treatment will allow dentist to check whether that patient has some specific disease. Attribute for orthodontic treatment is types of braces.
+Based on the given information:
+a) Construct an Entity Relationship Diagram (ERD) complete with all the required tables, attributes, relationships as well as the cardinalities using the Crow&#x27;s Foot notation that reflects all of the given business rules.
+b) Briefly explain TWO (2) examples of reports that can be generated from ERD in above.
+END OF QUESTION PAPER</div><div class='provenance'>Provenance: model_unofficial · confidence medium</div><p>Model-authored from the approved question text, the supplied source assets and the ICT200/ICT450 knowledge base; no official ICT450 marking scheme was supplied.</p><p>The ERD models dentists, patients, treatments and appointments. The many-to-many treatment history is resolved by PATIENT_TREATMENT, which carries the tooth number and diagnosis. TREATMENT is specialised into disease and orthodontic subtypes.</p><div class='subhead'><span>(a)</span><span class='subtext'>Construct the ERD with Crow&#x27;s Foot notation.</span><span class='marks'>(16 marks)</span></div><ul></ul><div class='erd' style='max-width:52px'><svg xmlns="http://www.w3.org/2000/svg" width="1160" height="764" viewBox="0 0 1160 764" font-family="Arial, Helvetica, sans-serif">
+<rect width="1160" height="764" fill="#ffffff"/>
+<polyline points="152.5,273.0 152.5,263.0" fill="none" stroke="#334155" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="152.5" y1="263.0" x2="160.5" y2="278.0" stroke="#334155" stroke-width="1.5"/><line x1="152.5" y1="263.0" x2="144.5" y2="278.0" stroke="#334155" stroke-width="1.5"/><line x1="152.5" y1="263.0" x2="152.5" y2="278.0" stroke="#334155" stroke-width="1.5"/>
+<text x="162.5" y="289.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">1</text>
+<text x="162.5" y="257.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">M</text>
+<rect x="129.9" y="259.0" width="45.2" height="16" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="152.5" y="272.0" text-anchor="middle" font-size="10" fill="#1f3864" font-weight="600">treats</text>
+<polyline points="262.0,158.0 350.0,126.0 350.0,108.0 443.0,132.0" fill="none" stroke="#334155" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="443.0" y1="132.0" x2="426.5" y2="136.0" stroke="#334155" stroke-width="1.5"/><line x1="443.0" y1="132.0" x2="430.5" y2="120.5" stroke="#334155" stroke-width="1.5"/><line x1="443.0" y1="132.0" x2="428.5" y2="128.3" stroke="#334155" stroke-width="1.5"/>
+<text x="276.0" y="154.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">1</text>
+<text x="429.0" y="128.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">M</text>
+<rect x="367.7" y="111.0" width="57.6" height="16" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="396.5" y="124.0" text-anchor="middle" font-size="10" fill="#1f3864" font-weight="600">performs</text>
+<polyline points="262.0,391.0 350.0,355.0 350.0,319.0 443.0,339.0" fill="none" stroke="#334155" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="443.0" y1="339.0" x2="426.7" y2="343.7" stroke="#334155" stroke-width="1.5"/><line x1="443.0" y1="339.0" x2="430.0" y2="328.0" stroke="#334155" stroke-width="1.5"/><line x1="443.0" y1="339.0" x2="428.3" y2="335.8" stroke="#334155" stroke-width="1.5"/>
+<text x="276.0" y="387.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">1</text>
+<text x="429.0" y="335.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">M</text>
+<rect x="367.7" y="320.0" width="57.6" height="16" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="396.5" y="333.0" text-anchor="middle" font-size="10" fill="#1f3864" font-weight="600">receives</text>
+<polyline points="552.5,221.0 552.5,263.0" fill="none" stroke="#334155" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="552.5" y1="263.0" x2="544.5" y2="248.0" stroke="#334155" stroke-width="1.5"/><line x1="552.5" y1="263.0" x2="560.5" y2="248.0" stroke="#334155" stroke-width="1.5"/><line x1="552.5" y1="263.0" x2="552.5" y2="248.0" stroke="#334155" stroke-width="1.5"/>
+<text x="562.5" y="237.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">1</text>
+<text x="562.5" y="257.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">M</text>
+<rect x="523.7" y="233.0" width="57.6" height="16" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="552.5" y="246.0" text-anchor="middle" font-size="10" fill="#1f3864" font-weight="600">given in</text>
+<polyline points="152.5,519.0 152.5,553.0" fill="none" stroke="#334155" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="152.5" y1="553.0" x2="144.5" y2="538.0" stroke="#334155" stroke-width="1.5"/><line x1="152.5" y1="553.0" x2="160.5" y2="538.0" stroke="#334155" stroke-width="1.5"/><line x1="152.5" y1="553.0" x2="152.5" y2="538.0" stroke="#334155" stroke-width="1.5"/>
+<text x="162.5" y="535.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">1</text>
+<text x="162.5" y="547.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">M</text>
+<rect x="133.0" y="527.0" width="39.0" height="16" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="152.5" y="540.0" text-anchor="middle" font-size="10" fill="#1f3864" font-weight="600">books</text>
+<polyline points="662.0,132.0 760.0,108.0 760.0,81.0 853.0,93.0" fill="none" stroke="#334155" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="846.3" y1="98.2" x2="847.8" y2="86.3" stroke="#334155" stroke-width="1.8"/>
+<text x="676.0" y="128.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">1</text>
+<text x="839.0" y="89.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">1</text>
+<rect x="685.3" y="111.0" width="51.4" height="16" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="711.0" y="124.0" text-anchor="middle" font-size="10" fill="#1f3864" font-weight="600">disease</text>
+<polyline points="662.0,132.0 780.0,108.0 780.0,221.0 853.0,233.0" fill="none" stroke="#334155" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="846.1" y1="237.9" x2="848.1" y2="226.1" stroke="#334155" stroke-width="1.8"/>
+<text x="676.0" y="128.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">1</text>
+<text x="839.0" y="229.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">1</text>
+<rect x="682.9" y="111.0" width="76.2" height="16" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="721.0" y="124.0" text-anchor="middle" font-size="10" fill="#1f3864" font-weight="600">orthodontic</text>
+<rect x="50" y="50" width="205" height="216" rx="4" fill="#ffffff" stroke="#1f3864" stroke-width="1.5"/>
+<rect x="50" y="50" width="205" height="34" rx="4" fill="#1f3864"/>
+<rect x="50" y="80" width="205" height="4" fill="#1f3864"/>
+<text x="152.5" y="72" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="0.4">DENTIST</text>
+<text x="60" y="99" font-size="12" font-weight="700" fill="#b45309">PK</text>
+<text x="98" y="99" font-size="16" fill="#0f172a" text-decoration="underline" font-weight="700">DentistID</text>
+<line x1="58" y1="110" x2="247" y2="110" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="125" font-size="16" fill="#0f172a"  >Name</text>
+<line x1="58" y1="136" x2="247" y2="136" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="151" font-size="16" fill="#0f172a"  >Address</text>
+<line x1="58" y1="162" x2="247" y2="162" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="177" font-size="16" fill="#0f172a"  >Phone</text>
+<line x1="58" y1="188" x2="247" y2="188" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="203" font-size="16" fill="#0f172a"  >Specialty</text>
+<line x1="58" y1="214" x2="247" y2="214" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="229" font-size="16" fill="#0f172a"  >Email</text>
+<line x1="58" y1="240" x2="247" y2="240" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="255" font-size="16" fill="#0f172a"  >YearsExperience</text>
+<rect x="50" y="270" width="205" height="242" rx="4" fill="#ffffff" stroke="#1f3864" stroke-width="1.5"/>
+<rect x="50" y="270" width="205" height="34" rx="4" fill="#1f3864"/>
+<rect x="50" y="300" width="205" height="4" fill="#1f3864"/>
+<text x="152.5" y="292" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="0.4">PATIENT</text>
+<text x="60" y="319" font-size="12" font-weight="700" fill="#b45309">PK</text>
+<text x="98" y="319" font-size="16" fill="#0f172a" text-decoration="underline" font-weight="700">PatientID</text>
+<line x1="58" y1="330" x2="247" y2="330" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="345" font-size="16" fill="#0f172a"  >Name</text>
+<line x1="58" y1="356" x2="247" y2="356" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="371" font-size="16" fill="#0f172a"  >Address</text>
+<line x1="58" y1="382" x2="247" y2="382" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="397" font-size="16" fill="#0f172a"  >Phone</text>
+<line x1="58" y1="408" x2="247" y2="408" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="423" font-size="16" fill="#0f172a"  >DOB</text>
+<line x1="58" y1="434" x2="247" y2="434" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="449" font-size="16" fill="#0f172a"  >MaritalStatus</text>
+<line x1="58" y1="460" x2="247" y2="460" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="475" font-size="16" fill="#0f172a"  >Gender</text>
+<line x1="58" y1="486" x2="247" y2="486" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="501" font-size="12" font-weight="700" fill="#b45309">FK</text>
+<text x="96" y="501" font-size="16" fill="#0f172a"  font-style="italic">DentistID</text>
+<rect x="50" y="560" width="205" height="164" rx="4" fill="#ffffff" stroke="#1f3864" stroke-width="1.5"/>
+<rect x="50" y="560" width="205" height="34" rx="4" fill="#1f3864"/>
+<rect x="50" y="590" width="205" height="4" fill="#1f3864"/>
+<text x="152.5" y="582" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="0.4">APPOINTMENT</text>
+<text x="60" y="609" font-size="12" font-weight="700" fill="#b45309">PK</text>
+<text x="98" y="609" font-size="16" fill="#0f172a" text-decoration="underline" font-weight="700">AppointmentID</text>
+<line x1="58" y1="620" x2="247" y2="620" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="635" font-size="12" font-weight="700" fill="#b45309">FK</text>
+<text x="96" y="635" font-size="16" fill="#0f172a"  font-style="italic">PatientID</text>
+<line x1="58" y1="646" x2="247" y2="646" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="661" font-size="16" fill="#0f172a"  >Date</text>
+<line x1="58" y1="672" x2="247" y2="672" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="687" font-size="16" fill="#0f172a"  >StartTime</text>
+<line x1="58" y1="698" x2="247" y2="698" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="713" font-size="16" fill="#0f172a"  >EndTime</text>
+<rect x="450" y="50" width="205" height="164" rx="4" fill="#ffffff" stroke="#1f3864" stroke-width="1.5"/>
+<rect x="450" y="50" width="205" height="34" rx="4" fill="#1f3864"/>
+<rect x="450" y="80" width="205" height="4" fill="#1f3864"/>
+<text x="552.5" y="72" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="0.4">TREATMENT</text>
+<text x="460" y="99" font-size="12" font-weight="700" fill="#b45309">PK</text>
+<text x="498" y="99" font-size="16" fill="#0f172a" text-decoration="underline" font-weight="700">TreatmentID</text>
+<line x1="458" y1="110" x2="647" y2="110" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="460" y="125" font-size="16" fill="#0f172a"  >TreatmentName</text>
+<line x1="458" y1="136" x2="647" y2="136" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="460" y="151" font-size="16" fill="#0f172a"  >Price</text>
+<line x1="458" y1="162" x2="647" y2="162" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="460" y="177" font-size="16" fill="#0f172a"  >Image</text>
+<line x1="458" y1="188" x2="647" y2="188" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="460" y="203" font-size="12" font-weight="700" fill="#b45309">FK</text>
+<text x="496" y="203" font-size="16" fill="#0f172a"  font-style="italic">DentistID</text>
+<rect x="450" y="270" width="205" height="138" rx="4" fill="#ffffff" stroke="#1f3864" stroke-width="1.5"/>
+<rect x="450" y="270" width="205" height="34" rx="4" fill="#1f3864"/>
+<rect x="450" y="300" width="205" height="4" fill="#1f3864"/>
+<text x="552.5" y="292" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="0.4">PATIENT_TREATMENT</text>
+<text x="460" y="319" font-size="12" font-weight="700" fill="#b45309">PK/FK</text>
+<text x="516" y="319" font-size="16" fill="#0f172a"  >PatientID</text>
+<line x1="458" y1="330" x2="647" y2="330" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="460" y="345" font-size="12" font-weight="700" fill="#b45309">PK/FK</text>
+<text x="516" y="345" font-size="16" fill="#0f172a"  >TreatmentID</text>
+<line x1="458" y1="356" x2="647" y2="356" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="460" y="371" font-size="16" fill="#0f172a"  >ToothNumber</text>
+<line x1="458" y1="382" x2="647" y2="382" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="460" y="397" font-size="16" fill="#0f172a"  >Diagnosis</text>
+<rect x="860" y="50" width="205" height="86" rx="4" fill="#ffffff" stroke="#1f3864" stroke-width="1.5"/>
+<rect x="860" y="50" width="205" height="34" rx="4" fill="#1f3864"/>
+<rect x="860" y="80" width="205" height="4" fill="#1f3864"/>
+<text x="962.5" y="72" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="0.4">DISEASE_TREATMENT</text>
+<text x="870" y="99" font-size="12" font-weight="700" fill="#b45309">PK/FK</text>
+<text x="926" y="99" font-size="16" fill="#0f172a"  >TreatmentID</text>
+<line x1="868" y1="110" x2="1057" y2="110" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="870" y="125" font-size="16" fill="#0f172a"  >DiseaseName</text>
+<rect x="860" y="190" width="205" height="86" rx="4" fill="#ffffff" stroke="#1f3864" stroke-width="1.5"/>
+<rect x="860" y="190" width="205" height="34" rx="4" fill="#1f3864"/>
+<rect x="860" y="220" width="205" height="4" fill="#1f3864"/>
+<text x="962.5" y="212" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="0.4">ORTHODONTIC_TREATMENT</text>
+<text x="870" y="239" font-size="12" font-weight="700" fill="#b45309">PK/FK</text>
+<text x="926" y="239" font-size="16" fill="#0f172a"  >TreatmentID</text>
+<line x1="868" y1="250" x2="1057" y2="250" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="870" y="265" font-size="16" fill="#0f172a"  >TypesOfBraces</text>
+</svg></div><div class='caption'>Crow&#x27;s Foot ERD for the dental clinic.</div><div class='subhead'><span>(b)</span><span class='subtext'>Two reports from the ERD.</span><span class='marks'>(4 marks)</span></div><ul><li>Patient treatment history — list each patient&#x27;s treatments, tooth numbers, diagnoses and treating dentist.</li><li>Dentist workload report — count patients, appointments and treatments performed by each dentist.</li><li>Orthodontic case report — list orthodontic treatments with the type of braces and the patients concerned.</li></ul><div class='marking'><h3>Marking guide</h3><ul><li>a) 16 marks: DENTIST and PATIENT with attributes and the 1:N relationship (4); TREATMENT and PATIENT_TREATMENT with tooth number and diagnosis (4); APPOINTMENT (2); disease and orthodontic subtypes (3); keys and Crow&#x27;s Foot cardinalities (3).</li><li>b) 2 marks for each of two relevant reports explained (2 × 2 = 4).</li></ul></div><div class='assumptions'><h3>Assumptions</h3><ul><li>A treatment is a treatment type performed by one dentist; the patient-treatment relationship stores the tooth number and diagnosis for each patient.</li><li>APPOINTMENT belongs to a patient; the requirements do not list a dentist attribute for an appointment, so none is invented.</li><li>DISEASE_TREATMENT and ORTHODONTIC_TREATMENT are subtypes of TREATMENT.</li></ul></div></section><section class='answer'><h2>ICT450-2019-DEC-Q3 <span class='meta'>ICT450-2019-DEC · 20 marks</span></h2><div class='question'>Based on the relational schema used in Aprilbank Banking System, write SQL commands for the following questions.
+BANK (bankCode, bankName, bankAddress)
+ACCOUNT (accNo, balance, accType, branchCode)
+LOAN (loanNo, amount, loanType, branchCode)
+CUSTOMER (custIC, custName, custAddress, branchCode)
+BRANCH (branchCode, branchAddress, bankCode)
+a) Create ACCOUNT table.
+b) Customer phone number is important for this system. Add customer phone number attribute and named it as &#x27;custPhone&#x27;.
+c) Find total number of customers who opened their account at Aprilbank.
+d) Find the list of customers who has more than RM 30,000 in his/her account at Melaka branch.
+e) Display customers whose loan type is either Personal or Housing. Sort the results based on the account type ascendingly.
+f) Display names of customers who have an account at the bank, and whose names are neither ‘Intan’ nor ‘Ahmad’.
+g) Find total amount of personal loan for each branch.</div><div class='provenance'>Provenance: model_unofficial · confidence medium</div><p>Model-authored from the approved question text, the supplied source assets and the ICT200/ICT450 knowledge base; no official ICT450 marking scheme was supplied.</p><div class='caption'>Relational schema used by the question.</div><pre class='schema'>BANK (bankCode, bankName, bankAddress)
+ACCOUNT (accNo, balance, accType, branchCode)
+LOAN (loanNo, amount, loanType, branchCode)
+CUSTOMER (custIC, custName, custAddress, branchCode)
+BRANCH (branchCode, branchAddress, bankCode)</pre><div class='callout'>Schema note: the printed ACCOUNT and LOAN relations do not show a customer identifier. The answers below assume ACCOUNT.custIC and LOAN.custIC as foreign keys to CUSTOMER (custIC), which is required to link a customer to an account or loan.</div><div class='subhead'><span>(a)</span><span class='subtext'>Create the ACCOUNT table.</span><span class='marks'>(3 marks)</span></div><ul></ul><pre class='sql'><code>CREATE TABLE ACCOUNT (
+    accNo       VARCHAR(20) NOT NULL,
+    balance     DECIMAL(12,2),
+    accType     VARCHAR(20),
+    branchCode  VARCHAR(10),
+    custIC      VARCHAR(20),
+    PRIMARY KEY (accNo),
+    FOREIGN KEY (branchCode) REFERENCES BRANCH (branchCode),
+    FOREIGN KEY (custIC)     REFERENCES CUSTOMER (custIC)
+);</code></pre><div class='subhead'><span>(b)</span><span class='subtext'>Add the customer phone number attribute.</span><span class='marks'>(2 marks)</span></div><ul></ul><pre class='sql'><code>ALTER TABLE CUSTOMER
+ADD custPhone VARCHAR(20);</code></pre><div class='subhead'><span>(c)</span><span class='subtext'>Total number of customers who opened an account at Aprilbank.</span><span class='marks'>(2 marks)</span></div><ul></ul><pre class='sql'><code>SELECT COUNT(DISTINCT c.custIC) AS &quot;
+                          &quot;total_customers
+FROM CUSTOMER c
+JOIN ACCOUNT a ON a.custIC = c.custIC
+JOIN BRANCH b  ON b.branchCode = a.branchCode
+JOIN BANK bk   ON bk.bankCode = b.bankCode
+WHERE bk.bankName = &#x27;Aprilbank&#x27;;</code></pre><div class='subhead'><span>(d)</span><span class='subtext'>Customers with more than RM 30,000 in an account at the Melaka branch.</span><span class='marks'>(3 marks)</span></div><ul></ul><pre class='sql'><code>SELECT DISTINCT c.custIC, c.custName
+FROM CUSTOMER c
+JOIN ACCOUNT a ON a.custIC = c.custIC
+JOIN BRANCH b  ON b.branchCode = a.branchCode
+WHERE a.balance &gt; 30000
+  AND b.branchAddress LIKE &#x27;%Melaka%&#x27;;</code></pre><div class='subhead'><span>(e)</span><span class='subtext'>Customers with Personal or Housing loans, sorted by account type.</span><span class='marks'>(3 marks)</span></div><ul></ul><pre class='sql'><code>SELECT DISTINCT c.custIC, c.custName, a.accType
+FROM CUSTOMER c
+JOIN LOAN l    ON l.custIC = c.custIC
+JOIN ACCOUNT a ON a.custIC = c.custIC
+WHERE l.loanType IN (&#x27;Personal&#x27;, &#x27;Housing&#x27;)
+ORDER BY a.accType ASC;</code></pre><div class='subhead'><span>(f)</span><span class='subtext'>Customers with an account whose names are neither Intan nor Ahmad.</span><span class='marks'>(3 marks)</span></div><ul></ul><pre class='sql'><code>SELECT DISTINCT c.custName
+FROM CUSTOMER c
+JOIN ACCOUNT a ON a.custIC = c.custIC
+WHERE c.custName NOT IN (&#x27;Intan&#x27;, &#x27;Ahmad&#x27;);</code></pre><div class='subhead'><span>(g)</span><span class='subtext'>Total amount of personal loan for each branch.</span><span class='marks'>(4 marks)</span></div><ul></ul><pre class='sql'><code>SELECT branchCode,
+       SUM(amount) AS total_personal_loan
+FROM LOAN
+WHERE loanType = &#x27;Personal&#x27;
+GROUP BY branchCode;</code></pre><div class='marking'><h3>Marking guide</h3><ul><li>a) 3 marks: CREATE TABLE (1), primary key (1), branch foreign key (1); the assumed customer foreign key is acceptable.</li><li>b) 2 marks: ALTER TABLE (1) and custPhone attribute (1).</li><li>c) 2 marks: COUNT with the Aprilbank join/filter.</li><li>d) 3 marks: balance &gt; 30000 (1), Melaka branch (1), correct customer output (1).</li><li>e) 3 marks: loan-type predicate (1), customer join (1), ORDER BY account type (1).</li><li>f) 3 marks: account join (1), NOT IN both names (2).</li><li>g) 4 marks: Personal filter (1), SUM(amount) (1), GROUP BY branch (1), correct output (1).</li></ul></div><div class='assumptions'><h3>Assumptions</h3><ul><li>The printed schema has no customer identifier in ACCOUNT or LOAN. The answer assumes ACCOUNT.custIC and LOAN.custIC are the foreign keys to CUSTOMER; without such a link the customer-level questions cannot be answered.</li><li>“Melaka branch” is matched from BRANCH.branchAddress.</li><li>The loan branch is the branch recorded in LOAN.branchCode.</li></ul></div></section><section class='answer'><h2>ICT450-2019-DEC-Q4 <span class='meta'>ICT450-2019-DEC · 20 marks</span></h2><div class='question'>Based on order form shown in Figure 3.0, answer the following questions:
+a) Convert the data in Figure 3.0 into a relational schema format.
+b) State the primary key(s) based on (a).
+c) Normalize the table until third normal form (3NF). Show all the steps taken.</div><div class='provenance'>Provenance: model_unofficial · confidence high</div><p>Model-authored from the approved question text, the supplied source assets and the ICT200/ICT450 knowledge base; no official ICT450 marking scheme was supplied.</p><p>The invoice in Figure 3.0 contains customer, invoice and item data in one form. The item lines repeat for the same invoice, so the form is first flattened to a one-row-per-item relation in 1NF.</p><div class='subhead'><span>(a)</span><span class='subtext'>Relational schema for the order form.</span><span class='marks'>(2 marks)</span></div><ul></ul><div class='caption'>Order-form relation in 1NF (one row per item line).</div><pre class='schema'>INVOICE_ITEM (InvoiceNo, InvoiceDate, CustomerNo, CustomerName, CustomerAddress, ItemNo, ItemName, Model, Quantity, ItemPrice, LineTotal, TotalAmount)</pre><div class='caption'>Invoice header data</div><table><thead><tr><th>InvoiceNo</th><th>InvoiceDate</th><th>CustomerNo</th><th>CustomerName</th><th>Address</th><th>TotalAmount</th></tr></thead><tbody><tr><td>2088</td><td>26-Aug-2019</td><td>153</td><td>Puan Adriana Yusuf</td><td>Taman Rasah Jaya, Seremban</td><td>902.95</td></tr></tbody></table><div class='caption'>Item lines</div><table><thead><tr><th>InvoiceNo</th><th>ItemNo</th><th>ItemName</th><th>Model</th><th>Qty</th><th>ItemPrice</th><th>LineTotal</th></tr></thead><tbody><tr><td>2088</td><td>CRB101</td><td>Electric Kids Car</td><td>Buggati</td><td>1</td><td>559.00</td><td>559.00</td></tr><tr><td>2088</td><td>LEG101</td><td>City Fire Ladder Truck</td><td>LEGO</td><td>1</td><td>184.00</td><td>184.00</td></tr><tr><td>2088</td><td>LEG102</td><td>City ATV Race Team</td><td>LEGO</td><td>2</td><td>79.99</td><td>159.98</td></tr></tbody></table><div class='subhead'><span>(b)</span><span class='subtext'>Primary key of the relation.</span><span class='marks'>(2 marks)</span></div><ul></ul><p>The primary key is the composite (InvoiceNo, ItemNo). InvoiceNo alone is not unique because one invoice has many items, and ItemNo alone is not unique because the same item can appear on many invoices.</p><div class='subhead'><span>(c)</span><span class='subtext'>Normalise the relation to 3NF.</span><span class='marks'>(16 marks)</span></div><ul></ul><p>Step 1 — First normal form (1NF): the relation in (a) already stores one item line per row and all values are atomic. Its key is (InvoiceNo, ItemNo).</p><div class='caption'>1NF — one row per invoice item.</div><pre class='schema'>INVOICE_ITEM_1NF (InvoiceNo, InvoiceDate, CustomerNo, CustomerName, CustomerAddress, ItemNo, ItemName, Model, Quantity, ItemPrice, LineTotal, TotalAmount)</pre><p>Step 2 — Second normal form (2NF): remove partial dependencies on part of the composite key.</p><div class='caption'>2NF — invoice, item and invoice-item relations.</div><pre class='schema'>INVOICE (InvoiceNo, InvoiceDate, CustomerNo, CustomerName, CustomerAddress, TotalAmount)
+ITEM (ItemNo, ItemName, Model, ItemPrice)
+INVOICE_ITEM (InvoiceNo, ItemNo, Quantity, LineTotal)</pre><p>Step 3 — Third normal form (3NF): remove transitive dependencies. CustomerNo determines CustomerName and CustomerAddress, so customer data is moved to CUSTOMER.</p><div class='caption'>3NF — customer, invoice, item and invoice-item relations.</div><pre class='schema'>CUSTOMER (CustomerNo, CustomerName, CustomerAddress)
+INVOICE (InvoiceNo, InvoiceDate, CustomerNo, TotalAmount)
+ITEM (ItemNo, ItemName, Model, ItemPrice)
+INVOICE_ITEM (InvoiceNo, ItemNo, Quantity, LineTotal)</pre><div class='caption'>3NF sample data: CUSTOMER</div><table><thead><tr><th>CustomerNo</th><th>CustomerName</th><th>CustomerAddress</th></tr></thead><tbody><tr><td>153</td><td>Puan Adriana Yusuf</td><td>Taman Rasah Jaya, Seremban</td></tr></tbody></table><div class='caption'>3NF sample data: INVOICE</div><table><thead><tr><th>InvoiceNo</th><th>InvoiceDate</th><th>CustomerNo</th><th>TotalAmount</th></tr></thead><tbody><tr><td>2088</td><td>26-Aug-2019</td><td>153</td><td>902.95</td></tr></tbody></table><div class='caption'>3NF sample data: ITEM</div><table><thead><tr><th>ItemNo</th><th>ItemName</th><th>Model</th><th>ItemPrice</th></tr></thead><tbody><tr><td>CRB101</td><td>Electric Kids Car</td><td>Buggati</td><td>559.00</td></tr><tr><td>LEG101</td><td>City Fire Ladder Truck</td><td>LEGO</td><td>184.00</td></tr><tr><td>LEG102</td><td>City ATV Race Team</td><td>LEGO</td><td>79.99</td></tr></tbody></table><div class='caption'>3NF sample data: INVOICE_ITEM</div><table><thead><tr><th>InvoiceNo</th><th>ItemNo</th><th>Quantity</th><th>LineTotal</th></tr></thead><tbody><tr><td>2088</td><td>CRB101</td><td>1</td><td>559.00</td></tr><tr><td>2088</td><td>LEG101</td><td>1</td><td>184.00</td></tr><tr><td>2088</td><td>LEG102</td><td>2</td><td>159.98</td></tr></tbody></table><div class='marking'><h3>Marking guide</h3><ul><li>a) 2 marks: a relation containing the invoice, customer and repeating item data.</li><li>b) 2 marks: composite key (InvoiceNo, ItemNo) with a reason.</li><li>c) 16 marks: 1NF item relation stated with atomic rows (4), 2NF partial dependencies removed into INVOICE, ITEM and INVOICE_ITEM (6), 3NF transitive dependency removed into CUSTOMER (6).</li></ul></div><div class='assumptions'><h3>Assumptions</h3><ul><li>LineTotal is Quantity × ItemPrice; TotalAmount is the sum of LineTotal for the invoice.</li><li>The invoice is treated as one order form with a repeating group of item lines.</li></ul></div></section><section class='answer'><h2>ICT450-2019-JUN-Q3 <span class='meta'>ICT450-2019-JUN · 20 marks</span></h2><div class='question'>Based on the relational schema used in UiTM Sport Unit, write SQL commands for the following questions.
+BRAND (brandID, brandName)
+BOOKING (bookID, equipID*, studID* bookDate, returnDate)
+STUDENT (studID, studName, studAddr, studPhone)
+EQUIPMENT (equipID, equipName, equipPrice, category, brandID*, quantity, supplier)
+a) Create BOOKING table.
+b) Increase equipment price by 10% for all equipments in the Sport Unit.
+c) Change the width of student address column to 50 characters.
+d) Display the equipments that are supplied by Al-Ikhsan which fall under the category either racket or ball. Sort the results based on the categories ascendingly.
+e) Find equipments that have not been booked by any student.
+f) Determine how many types of equipment are under each brand and display only the brand that carriers more than five types of equipment.</div><div class='provenance'>Provenance: model_unofficial · confidence high</div><p>Model-authored from the approved question text, the supplied source assets and the ICT200/ICT450 knowledge base; no official ICT450 marking scheme was supplied.</p><div class='caption'>Relational schema used by the question.</div><pre class='schema'>BRAND (brandID, brandName)
+BOOKING (bookID, equipID*, studID*, bookDate, returnDate)
+STUDENT (studID, studName, studAddr, studPhone)
+EQUIPMENT (equipID, equipName, equipPrice, category, brandID*, quantity, supplier)</pre><div class='subhead'><span>(a)</span><span class='subtext'>Create the BOOKING table.</span><span class='marks'>(3 marks)</span></div><ul></ul><pre class='sql'><code>CREATE TABLE BOOKING (
+    bookID      VARCHAR(10) NOT NULL,
+    equipID     VARCHAR(10) NOT NULL,
+    studID      VARCHAR(10) NOT NULL,
+    bookDate    DATE,
+    returnDate  DATE,
+    PRIMARY KEY (bookID),
+    FOREIGN KEY (equipID) REFERENCES EQUIPMENT (equipID),
+    FOREIGN KEY (studID)  REFERENCES STUDENT (studID)
+);</code></pre><div class='subhead'><span>(b)</span><span class='subtext'>Increase equipment prices by 10%.</span><span class='marks'>(3 marks)</span></div><ul></ul><pre class='sql'><code>UPDATE EQUIPMENT
+SET equipPrice = equipPrice * 1.10;</code></pre><div class='subhead'><span>(c)</span><span class='subtext'>Change the width of the student address column.</span><span class='marks'>(3 marks)</span></div><ul></ul><pre class='sql'><code>ALTER TABLE STUDENT
+MODIFY studAddr VARCHAR(50);</code></pre><p>For SQL Server, the equivalent statement is ALTER TABLE STUDENT ALTER COLUMN studAddr VARCHAR(50).</p><div class='subhead'><span>(d)</span><span class='subtext'>Equipments supplied by Al-Ikhsan in the racket or ball category, sorted by category.</span><span class='marks'>(3 marks)</span></div><ul></ul><pre class='sql'><code>SELECT *
+FROM EQUIPMENT
+WHERE supplier = &#x27;Al-Ikhsan&#x27;
+  AND category IN (&#x27;racket&#x27;, &#x27;ball&#x27;)
+ORDER BY category ASC;</code></pre><div class='subhead'><span>(e)</span><span class='subtext'>Equipments that have not been booked by any student.</span><span class='marks'>(4 marks)</span></div><ul></ul><pre class='sql'><code>SELECT e.*
+FROM EQUIPMENT e
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM BOOKING b
+    WHERE b.equipID = e.equipID
+);</code></pre><p>A LEFT JOIN with IS NULL is also correct: SELECT e.* FROM EQUIPMENT e LEFT JOIN BOOKING b ON e.equipID = b.equipID WHERE b.equipID IS NULL.</p><div class='subhead'><span>(f)</span><span class='subtext'>Number of equipment types under each brand; show only brands with more than five types.</span><span class='marks'>(4 marks)</span></div><ul></ul><pre class='sql'><code>SELECT brandID,
+       COUNT(DISTINCT equipID) AS number_of_types
+FROM EQUIPMENT
+GROUP BY brandID
+HAVING COUNT(DISTINCT equipID) &gt; 5;</code></pre><div class='marking'><h3>Marking guide</h3><ul><li>a) 3 marks: CREATE TABLE with columns (1), primary key (1) and both foreign keys (1).</li><li>b) 3 marks: correct UPDATE (2) and 10% calculation (1).</li><li>c) 3 marks: correct ALTER TABLE (2) and VARCHAR(50) (1).</li><li>d) 3 marks: supplier and category predicates (2), ORDER BY category (1).</li><li>e) 4 marks: correct anti-join/not-exists logic (3), correct equipment output (1).</li><li>f) 4 marks: GROUP BY brand (1), COUNT (1), HAVING &gt; 5 (2).</li></ul></div><div class='assumptions'><h3>Assumptions</h3><ul><li>The printed BOOKING schema is missing a comma between studID* and bookDate; the answer inserts the comma.</li><li>Data types and sizes are not printed, so reasonable types are chosen and stated in the CREATE TABLE answer.</li><li>The SQL is written in portable SQL; Oracle/MySQL may also accept MODIFY instead of ALTER COLUMN.</li></ul></div></section><section class='answer'><h2>ICT450-2022-FEB-Q5 <span class='meta'>ICT450-2022-FEB · 20 marks</span></h2><div class='question'>UiTM is planning to develop a volunteer management system for a better coordination and reporting for the volunteerism activities. As a database designer, you are assigned to design the database system according to the following requirements:
+ Any student or staff can be a volunteer.
+ Each student or staff can fill only one entry form. The details are volunteer ID, register date and total hours of working.
+ Volunteer can volunteer in more than one projects.
+Each assigned project will have details about start date, end date, hours, station and status. Each assigned project also will lead by one faculty.
+Each project will have their own project ID and project name such as trash clean up, money donation, animal shelter and others.
+Based on the given information:
+a) Construct an Entity Relationship Diagram (ERD) complete with all of the required tables, attributes and relationships using the Crow&#x27;s Foot notation that reflects all of the given business rules.
+b) Identify TWO (2) relevant information that you can get from the ERD you construct in (a). Briefly explain your answer.
+END OF QUESTION PAPER</div><div class='provenance'>Provenance: model_unofficial · confidence medium</div><p>Model-authored from the approved question text, the supplied source assets and the ICT200/ICT450 knowledge base; no official ICT450 marking scheme was supplied.</p><p>The ERD treats a volunteer as one entity that may be a student or a staff member. The many-to-many participation between volunteers and projects becomes the ASSIGNMENT associative entity, which carries the assignment details. Each project is led by one faculty.</p><div class='subhead'><span>(a)</span><span class='subtext'>Construct the ERD with Crow&#x27;s Foot notation.</span><span class='marks'>(16 marks)</span></div><ul></ul><div class='erd' style='max-width:52px'><svg xmlns="http://www.w3.org/2000/svg" width="1160" height="430" viewBox="0 0 1160 430" font-family="Arial, Helvetica, sans-serif">
+<rect width="1160" height="430" fill="#ffffff"/>
+<polyline points="172.5,143.0 172.5,213.0" fill="none" stroke="#334155" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="172.5" y1="213.0" x2="164.5" y2="198.0" stroke="#334155" stroke-width="1.5"/><line x1="172.5" y1="213.0" x2="180.5" y2="198.0" stroke="#334155" stroke-width="1.5"/><line x1="172.5" y1="213.0" x2="172.5" y2="198.0" stroke="#334155" stroke-width="1.5"/>
+<text x="182.5" y="159.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">1</text>
+<text x="182.5" y="207.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">M</text>
+<rect x="153.0" y="169.0" width="39.0" height="16" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="172.5" y="182.0" text-anchor="middle" font-size="10" fill="#1f3864" font-weight="600">leads</text>
+<polyline points="682.0,119.0 760.0,99.0 760.0,236.0 873.0,268.0" fill="none" stroke="#334155" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="873.0" y1="268.0" x2="856.4" y2="271.6" stroke="#334155" stroke-width="1.5"/><line x1="873.0" y1="268.0" x2="860.7" y2="256.2" stroke="#334155" stroke-width="1.5"/><line x1="873.0" y1="268.0" x2="858.6" y2="263.9" stroke="#334155" stroke-width="1.5"/>
+<text x="696.0" y="115.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">1</text>
+<text x="859.0" y="264.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">M</text>
+<rect x="746.7" y="158.5" width="26.6" height="16" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="760.0" y="171.5" text-anchor="middle" font-size="10" fill="#1f3864" font-weight="600">has</text>
+<polyline points="282.0,263.0 360.0,271.0 360.0,330.0 982.0,330.0 982.5,383.0" fill="none" stroke="#334155" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="982.5" y1="383.0" x2="974.4" y2="368.1" stroke="#334155" stroke-width="1.5"/><line x1="982.5" y1="383.0" x2="990.4" y2="367.9" stroke="#334155" stroke-width="1.5"/><line x1="982.5" y1="383.0" x2="982.4" y2="368.0" stroke="#334155" stroke-width="1.5"/>
+<text x="296.0" y="259.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">1</text>
+<text x="992.5" y="399.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">M</text>
+<rect x="642.2" y="321.0" width="57.6" height="16" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="671.0" y="334.0" text-anchor="middle" font-size="10" fill="#1f3864" font-weight="600">includes</text>
+<rect x="70" y="50" width="205" height="86" rx="4" fill="#ffffff" stroke="#1f3864" stroke-width="1.5"/>
+<rect x="70" y="50" width="205" height="34" rx="4" fill="#1f3864"/>
+<rect x="70" y="80" width="205" height="4" fill="#1f3864"/>
+<text x="172.5" y="72" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="0.4">FACULTY</text>
+<text x="80" y="99" font-size="12" font-weight="700" fill="#b45309">PK</text>
+<text x="118" y="99" font-size="16" fill="#0f172a" text-decoration="underline" font-weight="700">FacultyID</text>
+<line x1="78" y1="110" x2="267" y2="110" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="80" y="125" font-size="16" fill="#0f172a"  >FacultyName</text>
+<rect x="70" y="220" width="205" height="86" rx="4" fill="#ffffff" stroke="#1f3864" stroke-width="1.5"/>
+<rect x="70" y="220" width="205" height="34" rx="4" fill="#1f3864"/>
+<rect x="70" y="250" width="205" height="4" fill="#1f3864"/>
+<text x="172.5" y="242" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="0.4">PROJECT</text>
+<text x="80" y="269" font-size="12" font-weight="700" fill="#b45309">PK</text>
+<text x="118" y="269" font-size="16" fill="#0f172a" text-decoration="underline" font-weight="700">ProjectID</text>
+<line x1="78" y1="280" x2="267" y2="280" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="80" y="295" font-size="16" fill="#0f172a"  >ProjectName</text>
+<rect x="470" y="50" width="205" height="138" rx="4" fill="#ffffff" stroke="#1f3864" stroke-width="1.5"/>
+<rect x="470" y="50" width="205" height="34" rx="4" fill="#1f3864"/>
+<rect x="470" y="80" width="205" height="4" fill="#1f3864"/>
+<text x="572.5" y="72" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="0.4">VOLUNTEER</text>
+<text x="480" y="99" font-size="12" font-weight="700" fill="#b45309">PK</text>
+<text x="518" y="99" font-size="16" fill="#0f172a" text-decoration="underline" font-weight="700">VolunteerID</text>
+<line x1="478" y1="110" x2="667" y2="110" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="480" y="125" font-size="16" fill="#0f172a"  >VolunteerType</text>
+<line x1="478" y1="136" x2="667" y2="136" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="480" y="151" font-size="16" fill="#0f172a"  >RegisterDate</text>
+<line x1="478" y1="162" x2="667" y2="162" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="480" y="177" font-size="16" fill="#0f172a"  >TotalHours</text>
+<rect x="880" y="160" width="205" height="216" rx="4" fill="#ffffff" stroke="#1f3864" stroke-width="1.5"/>
+<rect x="880" y="160" width="205" height="34" rx="4" fill="#1f3864"/>
+<rect x="880" y="190" width="205" height="4" fill="#1f3864"/>
+<text x="982.5" y="182" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="0.4">ASSIGNMENT</text>
+<text x="890" y="209" font-size="12" font-weight="700" fill="#b45309">PK/FK</text>
+<text x="946" y="209" font-size="16" fill="#0f172a"  >VolunteerID</text>
+<line x1="888" y1="220" x2="1077" y2="220" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="890" y="235" font-size="12" font-weight="700" fill="#b45309">PK/FK</text>
+<text x="946" y="235" font-size="16" fill="#0f172a"  >ProjectID</text>
+<line x1="888" y1="246" x2="1077" y2="246" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="890" y="261" font-size="16" fill="#0f172a"  >StartDate</text>
+<line x1="888" y1="272" x2="1077" y2="272" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="890" y="287" font-size="16" fill="#0f172a"  >EndDate</text>
+<line x1="888" y1="298" x2="1077" y2="298" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="890" y="313" font-size="16" fill="#0f172a"  >Hours</text>
+<line x1="888" y1="324" x2="1077" y2="324" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="890" y="339" font-size="16" fill="#0f172a"  >Station</text>
+<line x1="888" y1="350" x2="1077" y2="350" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="890" y="365" font-size="16" fill="#0f172a"  >Status</text>
+</svg></div><div class='caption'>Crow&#x27;s Foot ERD for the volunteer management system.</div><div class='subhead'><span>(b)</span><span class='subtext'>Two reports from the ERD.</span><span class='marks'>(4 marks)</span></div><ul><li>Volunteer hours by project and faculty — join FACULTY, PROJECT and ASSIGNMENT to total Hours for each project, with the leading faculty shown.</li><li>Volunteer participation report — list each volunteer with the projects, stations, start/end dates and status, so coordinators can see who is assigned where.</li><li>Project status report — count assignments and total hours per project, grouped by status.</li></ul><div class='marking'><h3>Marking guide</h3><ul><li>a) 16 marks: VOLUNTEER (2), PROJECT (2), FACULTY (2), ASSIGNMENT with its five attributes (4), correct 1:N relationships and Crow&#x27;s Foot cardinalities (4), primary and foreign keys (2).</li><li>b) 2 marks for each of two relevant reports explained (2 × 2 = 4).</li></ul></div><div class='assumptions'><h3>Assumptions</h3><ul><li>A volunteer is recorded once with VolunteerType (Student or Staff); student- and staff-specific attributes are outside the given requirements.</li><li>The project assignment is an associative entity because it has its own attributes: start date, end date, hours, station and status.</li></ul></div></section><section class='answer'><h2>ICT450-2023-FEB-Q2 <span class='meta'>ICT450-2023-FEB · 20 marks</span></h2><div class='question'>a) Within a larger information system, the database is subject to a life cycle as well. It is known as Database Life Cycle (DBLC). A properly designed database provides you with access to up-to-date and accurate information. It consists of six phases which are database initial study, database design, implementation &amp; loading, testing &amp; evaluation, operation and maintenance &amp; evolution. Briefly explain FOUR (4) activities in the database initial study.
+b) Describe FOUR (4) limitations of mobile database. Give an example for each limitations.
+c) Table 2 consists of data about staff in Qish Boutique. Data type for StaffID, Salary and DepartmentID is a number. Data type for StaffName is a text. Salary is ranged from 3000-10000. Consider the following data.
+Based on the data, there are certain rows will certainly fail to be inserted into database. Identify the rows and give a reason according to table property, why the data cannot be inserted.</div><div class='provenance'>Provenance: model_unofficial · confidence high</div><p>Model-authored from the approved question text, the supplied source assets and the ICT200/ICT450 knowledge base; no official ICT450 marking scheme was supplied.</p><div class='subhead'><span>(a)</span><span class='subtext'>Four activities in the database initial study.</span><span class='marks'>(8 marks)</span></div><ul><li>Analyse the company situation — study the organisation&#x27;s structure, mission, operations, data handling and business environment.</li><li>Define the problems and constraints — identify weaknesses, missing or redundant data, security issues and limits such as budget, time or existing systems.</li><li>Define the objectives — state what the database must achieve and check that the objectives match the end users&#x27; needs.</li><li>Define the scope and boundaries — decide which business areas, entities, data types and users are inside the database, and what external systems or limits bound it.</li></ul><div class='subhead'><span>(b)</span><span class='subtext'>Four limitations of mobile databases, with examples.</span><span class='marks'>(8 marks)</span></div><ul><li>Limited bandwidth and intermittent connectivity — a field worker may lose the network while updating a delivery record.</li><li>Limited storage, memory and battery — a smartphone may not hold a full local copy of a large central database.</li><li>Security and privacy risks — a lost or stolen mobile device may expose cached customer data unless it is encrypted.</li><li>Synchronisation and consistency — offline edits from several devices must be merged without overwriting newer data.</li><li>Heterogeneous devices and operating systems increase development and testing effort.</li></ul><div class='subhead'><span>(c)</span><span class='subtext'>Rows that will fail insertion into the STAFF table.</span><span class='marks'>(4 marks)</span></div><ul><li>Row 3033 (Siti Ziana) will fail because Salary = 11000 is outside the allowed range 3000–10000; this violates the domain or check constraint on Salary.</li><li>Row 3034 (Ahmad Daniel) will fail because Salary = “150a” is not numeric; this violates the data type of the Salary column.</li><li>Rows 3035 and 3036 satisfy the stated data types and range, and all StaffID values are unique.</li></ul><div class='marking'><h3>Marking guide</h3><ul><li>a) 2 marks for each of four initial-study activities explained (4 × 2 = 8).</li><li>b) 2 marks for each of four mobile-database limitations with a relevant example (4 × 2 = 8).</li><li>c) 2 marks for row 3033 with the range/domain reason; 2 marks for row 3034 with the data-type reason (2 + 2 = 4).</li></ul></div><div class='assumptions'><h3>Assumptions</h3><ul><li>The staff table has StaffID as its primary key; Salary must be numeric and lie in the stated range 3000–10000; DepartmentID is numeric.</li></ul></div></section><section class='answer'><h2>ICT450-2023-JUL-Q1 <span class='meta'>ICT450-2023-JUL · 20 marks</span></h2><div class='question'>a) Explain TWO (2) limitations of the file-based approach in business environment.
+b) Data models are used as a communication tool between database designers, programmers and users. Identify and briefly explain any TWO (2) basic building blocks used in data models.
+c) Table 1 shows the sample data for an art and culture club in Jasin city.
+i) Explain THREE (3) characteristics of a relational table that have been violated in Table 1.
+ii) As a database designer, briefly explain possible courses of action to handle each problem stated in (i).</div><div class='provenance'>Provenance: model_unofficial · confidence high</div><p>Model-authored from the approved question text, the supplied source assets and the ICT200/ICT450 knowledge base; no official ICT450 marking scheme was supplied.</p><div class='subhead'><span>(a)</span><span class='subtext'>Two limitations of the file-based approach.</span><span class='marks'>(4 marks)</span></div><ul><li>Extensive programming and program-data dependence — every file needs its own management program, and changing a file structure requires the programs to be rewritten.</li><li>Complex and difficult system administration — each file has its own format, access rules and storage, so administration does not scale well.</li><li>Inadequate security and redundant data — access controls are weak, and independent files tend to store the same data more than once, causing inconsistency.</li><li>Difficult structural change and limited sharing — separate files create islands of information that are hard to change or share safely.</li></ul><div class='subhead'><span>(b)</span><span class='subtext'>Two basic building blocks of a data model.</span><span class='marks'>(4 marks)</span></div><ul><li>Entity — a distinguishable object, person, place or event about which data is kept, such as STUDENT or COURSE.</li><li>Relationship — an association between entities, such as a STUDENT enrolling in a COURSE.</li><li>Attribute — a property that describes an entity, such as StudID or StudentName.</li></ul><div class='subhead'><span>(c)</span><span class='subtext'>The art and culture club table.</span><span class='marks'>(12 marks)</span></div><ul><li>i) Three characteristics of a relational table violated by Table 1:</li><li>The table has two columns with the same name, “Name”; every column in a relation must have a unique name.</li><li>The Skill column stores several values in one cell, such as “Modern Dance, Singing”; each cell must contain a single atomic value.</li><li>The StudID column mixes numeric values with the text value 2023455abc; all entries in a column must use the same data type.</li><li>There is no clearly declared primary key and the duplicate Name headings make the structure ambiguous.</li><li>ii) Possible courses of action:</li><li>Rename the two Name columns to FirstName and LastName.</li><li>Move Skill into a separate SKILL table keyed by StudID and Skill, creating a one-to-many relationship with STUDENT.</li><li>Standardise StudID as one data type, validate input and reject values such as 2023455abc.</li><li>Declare StudID as the primary key and enforce entity integrity.</li></ul><div class='marking'><h3>Marking guide</h3><ul><li>a) 2 marks for each of two limitations named and explained (2 × 2 = 4).</li><li>b) 2 marks for each of two building blocks named and explained (2 × 2 = 4).</li><li>c)(i) 2 marks for each of three violations identified and explained (3 × 2 = 6).</li><li>c)(ii) 2 marks for each of three suitable actions linked to the violations (3 × 2 = 6).</li></ul></div><div class='assumptions'><h3>Assumptions</h3><ul><li>Table 1 is treated as a single relation with the columns shown: StudID, Name, Name and Skill.</li><li>A StudID is assumed to be a numeric identifier; the value 2023455abc is therefore an inconsistent data-type entry.</li></ul></div></section><section class='answer'><h2>ICT450-2024-JAN-Q3 <span class='meta'>ICT450-2024-JAN · 20 marks</span></h2><div class='question'>Figure 2 shows a report of an employee evaluation result in IT Creative Solutions Sdn. Bhd. in Shah Alam. The report contains all information related to one of the employees in this company. Each employee has been assigned to several projects. Meanwhile, each project has been assigned to several employees. Each project has been supervised by one employee (Supervisor). Supervisor also manages several employees.
+Based on the information given, answer the following questions:
+a) State the normal form of the Figure 2 above. Explain your answer with reasons.
+b) Convert the report into a relational schema. Identify the primary key(s) and partial dependencies and/or transitive dependencies.
+c) Normalize the relational schema in (b) until third normal form (3NF). Show all the steps involved.</div><div class='provenance'>Provenance: model_unofficial · confidence medium</div><p>Model-authored from the approved question text, the supplied source assets and the ICT200/ICT450 knowledge base; no official ICT450 marking scheme was supplied.</p><p>Figure 2 is an employee evaluation report. One employee has several project rows, so the report is an unnormalised relation with a repeating group.</p><div class='subhead'><span>(a)</span><span class='subtext'>Normal form of Figure 2 and reasons.</span><span class='marks'>(3 marks)</span></div><ul></ul><p>The report is in unnormalised form (UNF) because the project rows repeat for the same employee. If it is flattened to one row per project, it is in 1NF, but it still contains partial and transitive dependencies. It is not in 2NF or 3NF.</p><div class='caption'>Unnormalised report relation.</div><pre class='schema'>REPORT (EmployeeID, EmployeeName, EmploymentYear, DepartmentID, DepartmentName, Phone, Address, ProjectCode, ProjectName, Location, Grade, SupervisorID, SupervisorName, SupervisorDepartment)</pre><div class='subhead'><span>(b)</span><span class='subtext'>Relational schema, primary keys and dependencies.</span><span class='marks'>(6 marks)</span></div><ul></ul><p>The repeated project code ST01 with two locations is a key trap: ProjectCode alone does not identify a project instance. The assignment key is (EmployeeID, ProjectCode, Location).</p><div class='caption'>Relational schema before 3NF.</div><pre class='schema'>EMPLOYEE (EmployeeID, EmployeeName, EmploymentYear, DepartmentID, DepartmentName, Phone, Address)
+PROJECT (ProjectCode, ProjectName)
+PROJECT_LOCATION (ProjectCode, Location)
+SUPERVISOR (SupervisorID, SupervisorName, SupervisorDepartment)
+ASSIGNMENT (EmployeeID, ProjectCode, Location, Grade, SupervisorID)</pre><p>Functional dependencies:</p><div class='caption'>Functional dependencies in the report.</div><pre class='schema'>EmployeeID → EmployeeName, EmploymentYear, DepartmentID, DepartmentName, Phone, Address
+ProjectCode → ProjectName
+SupervisorID → SupervisorName, SupervisorDepartment
+EmployeeID, ProjectCode, Location → Grade, SupervisorID
+DepartmentID → DepartmentName</pre><div class='subhead'><span>(c)</span><span class='subtext'>Normalise to 3NF, showing all steps.</span><span class='marks'>(11 marks)</span></div><ul></ul><p>Step 1 — 1NF: one row per employee-project assignment; all cells atomic. Key: (EmployeeID, ProjectCode, Location).</p><p>Step 2 — 2NF: remove partial dependencies. Employee data depends on EmployeeID; project data depends on ProjectCode; supervisor data depends on SupervisorID.</p><div class='caption'>2NF relations.</div><pre class='schema'>EMPLOYEE (EmployeeID, EmployeeName, EmploymentYear, DepartmentID, DepartmentName, Phone, Address)
+PROJECT (ProjectCode, ProjectName)
+PROJECT_LOCATION (ProjectCode, Location)
+SUPERVISOR (SupervisorID, SupervisorName, SupervisorDepartment)
+ASSIGNMENT (EmployeeID, ProjectCode, Location, Grade, SupervisorID)</pre><p>Step 3 — 3NF: remove transitive dependencies. DepartmentName depends on DepartmentID, and the supervisor&#x27;s department depends on SupervisorID.</p><div class='caption'>3NF relations.</div><pre class='schema'>DEPARTMENT (DepartmentID, DepartmentName)
+EMPLOYEE (EmployeeID, EmployeeName, EmploymentYear, DepartmentID, Phone, Address)
+PROJECT (ProjectCode, ProjectName)
+PROJECT_LOCATION (ProjectCode, Location)
+SUPERVISOR (SupervisorID, SupervisorName, DepartmentID)
+ASSIGNMENT (EmployeeID, ProjectCode, Location, Grade, SupervisorID)</pre><div class='caption'>3NF sample data: EMPLOYEE</div><table><thead><tr><th>EmployeeID</th><th>EmployeeName</th><th>EmploymentYear</th><th>DepartmentID</th><th>Phone</th><th>Address</th></tr></thead><tbody><tr><td>303303</td><td>Siti Nur Fadilah</td><td>2000</td><td>S1</td><td>017</td><td>JC 1234, Bandar Jasin Bestari Seksyen 7, Melaka</td></tr></tbody></table><div class='caption'>3NF sample data: DEPARTMENT</div><table><thead><tr><th>DepartmentID</th><th>DepartmentName</th></tr></thead><tbody><tr><td>S1</td><td>Software Development</td></tr></tbody></table><div class='caption'>3NF sample data: PROJECT and PROJECT_LOCATION</div><table><thead><tr><th>ProjectCode</th><th>ProjectName</th><th>Location</th></tr></thead><tbody><tr><td>MD01</td><td>Mobile Apps Development</td><td>Kuala Terengganu</td></tr><tr><td>WD01</td><td>Website Development</td><td>Machang</td></tr><tr><td>ST01</td><td>Software Integration</td><td>Seremban</td></tr><tr><td>ST01</td><td>Software Integration</td><td>Tapah</td></tr></tbody></table><div class='caption'>3NF sample data: SUPERVISOR</div><table><thead><tr><th>SupervisorID</th><th>SupervisorName</th><th>DepartmentID</th></tr></thead><tbody><tr><td>123123</td><td>Willy</td><td>S1</td></tr><tr><td>101101</td><td>Mawar</td><td>S1</td></tr></tbody></table><div class='caption'>3NF sample data: ASSIGNMENT</div><table><thead><tr><th>EmployeeID</th><th>ProjectCode</th><th>Location</th><th>Grade</th><th>SupervisorID</th></tr></thead><tbody><tr><td>303303</td><td>MD01</td><td>Kuala Terengganu</td><td>A</td><td>123123</td></tr><tr><td>303303</td><td>WD01</td><td>Machang</td><td>A+</td><td>101101</td></tr><tr><td>303303</td><td>ST01</td><td>Seremban</td><td>A-</td><td>101101</td></tr><tr><td>303303</td><td>ST01</td><td>Tapah</td><td>A</td><td>101101</td></tr></tbody></table><div class='marking'><h3>Marking guide</h3><ul><li>a) 3 marks: UNF/1NF identified (1), repeating group explained (1), reason why not 2NF/3NF (1).</li><li>b) 6 marks: relations (3), keys (2), dependencies (1).</li><li>c) 11 marks: 1NF (2), 2NF with partial dependencies removed (4), 3NF with transitive dependencies removed and DEPARTMENT split (5).</li></ul></div><div class='assumptions'><h3>Assumptions</h3><ul><li>The report contains a repeating group of projects for one employee.</li><li>Project code ST01 appears twice with different locations, so the project instance is identified by (ProjectCode, Location).</li><li>Supervisor department names map to DepartmentID values; this supports the 3NF split into DEPARTMENT.</li></ul></div></section><section class='answer'><h2>ICT450-2024-JUL-Q4 <span class='meta'>ICT450-2024-JUL · 20 marks</span></h2><div class='question'>The relational schema below shows the e-Voting database system for one of the local universities in Malaysia. Each student can vote up to two candidates.
+STUDENT (StudentID, FirstName, LastName, PhoneNumber, FacultyID*)
+CANDIDATE (CandidateID, StudentID*)
+VOTING (VotingID, VotingDate, StudID*)
+VOTING_DETAILS (VotingID*, CandidateID*, VotingTime)
+FACULTY (FacultyID, FacultyName)
+Write the SQL statements based on the following requirements:
+a) Calculate the total number of candidates for each faculty.
+b) Display the details of student who do not vote for any candidate.
+c) Identify the total number of voters for each faculty.
+d) Display the full name of candidates that get more than 500 votes.
+e) Identify the total number of student that vote only one candidate.</div><div class='provenance'>Provenance: model_unofficial · confidence high</div><p>Model-authored from the approved question text, the supplied source assets and the ICT200/ICT450 knowledge base; no official ICT450 marking scheme was supplied.</p><div class='caption'>Relational schema used by the question.</div><pre class='schema'>STUDENT (StudentID, FirstName, LastName, PhoneNumber, FacultyID*)
+CANDIDATE (CandidateID, StudentID*)
+VOTING (VotingID, VotingDate, StudID*)
+VOTING_DETAILS (VotingID*, CandidateID*, VotingTime)
+FACULTY (FacultyID, FacultyName)</pre><div class='subhead'><span>(a)</span><span class='subtext'>Total number of candidates for each faculty.</span><span class='marks'>(4 marks)</span></div><ul></ul><pre class='sql'><code>SELECT f.FacultyID, f.FacultyName,
+       COUNT(c.CandidateID) AS total_candidates
+FROM FACULTY f
+JOIN STUDENT s   ON s.FacultyID = f.FacultyID
+JOIN CANDIDATE c ON c.StudentID = s.StudentID
+GROUP BY f.FacultyID, f.FacultyName;</code></pre><div class='subhead'><span>(b)</span><span class='subtext'>Students who do not vote for any candidate.</span><span class='marks'>(4 marks)</span></div><ul></ul><pre class='sql'><code>SELECT s.*
+FROM STUDENT s
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM VOTING v
+    JOIN VOTING_DETAILS vd ON vd.VotingID = v.VotingID
+    WHERE v.StudID = s.StudentID
+);</code></pre><div class='subhead'><span>(c)</span><span class='subtext'>Total number of voters for each faculty.</span><span class='marks'>(4 marks)</span></div><ul></ul><pre class='sql'><code>SELECT f.FacultyID, f.FacultyName,
+       COUNT(DISTINCT v.StudID) AS total_voters
+FROM FACULTY f
+JOIN STUDENT s ON s.FacultyID = f.FacultyID
+JOIN VOTING v  ON v.StudID = s.StudentID
+GROUP BY f.FacultyID, f.FacultyName;</code></pre><div class='subhead'><span>(d)</span><span class='subtext'>Full name of candidates with more than 500 votes.</span><span class='marks'>(4 marks)</span></div><ul></ul><pre class='sql'><code>SELECT c.CandidateID,
+       CONCAT(s.FirstName, &#x27; &#x27;, s.LastName) AS full_name,
+       COUNT(vd.VotingID) AS total_votes
+FROM CANDIDATE c
+JOIN STUDENT s       ON s.StudentID = c.StudentID
+JOIN VOTING_DETAILS vd ON vd.CandidateID = c.CandidateID
+GROUP BY c.CandidateID, s.FirstName, s.LastName
+HAVING COUNT(vd.VotingID) &gt; 500;</code></pre><p>In Oracle, replace CONCAT(...) with s.FirstName || &#x27; &#x27; || s.LastName.</p><div class='subhead'><span>(e)</span><span class='subtext'>Total number of students who vote for only one candidate.</span><span class='marks'>(4 marks)</span></div><ul></ul><pre class='sql'><code>SELECT COUNT(*) AS students_voting_once
+FROM (
+    SELECT v.StudID
+    FROM VOTING v
+    JOIN VOTING_DETAILS vd ON vd.VotingID = v.VotingID
+    GROUP BY v.StudID
+    HAVING COUNT(DISTINCT vd.CandidateID) = 1
+) AS single_vote;</code></pre><div class='marking'><h3>Marking guide</h3><ul><li>a) 4 marks: candidate-student-faculty join (2), COUNT per faculty (2).</li><li>b) 4 marks: anti-join/not-exists on voting details (3), correct student output (1).</li><li>c) 4 marks: faculty-student-voting join (2), COUNT DISTINCT voters (2).</li><li>d) 4 marks: candidate vote join (2), GROUP BY and HAVING &gt; 500 (2).</li><li>e) 4 marks: group votes by student (2), HAVING count = 1 and outer COUNT (2).</li></ul></div><div class='assumptions'><h3>Assumptions</h3><ul><li>A candidate&#x27;s faculty is the faculty of the student who is the candidate.</li><li>A vote is represented by a VOTING row plus its VOTING_DETAILS rows; a student who has no VOTING_DETAILS row has not voted for a candidate.</li></ul></div></section><section class='answer'><h2>ICT450-2025-FEB-Q5 <span class='meta'>ICT450-2025-FEB · 20 marks</span></h2><div class='question'>Excellent Art is a company that provide art training for children who are interested in it. The company mission is to promote creative and innovative thinking in children&#x27;s life.
+- There are about 15 Excellent Art studios around Malaysia. To uniquely identify each art studio, they had been assigned with a unique studio id. Other important information that needs to be kept in the database are studio name, address, phone number, email, and GPS coordinate.
+• Each studio deals with many suppliers, which supply a variety of art materials. Art material information need to be recorded are art material id, name, description, and price. The information about the supplier that must be recorded is its unique id, name, address, and email.
+- One art studio provides many programs. Each program will uniquely have identified by program id, name, description, and price. The programs are classified to Visual Art, Glass Painting and Handicraft. Each of the program will have their own additional information, such as, Visual Art program will have class type, Glass Painting program will have program level, with value 1 to 5 as it will indicate the technique in glass painting and Handicraft program will need craft data.
+- There are about 100 employees all together in the Excellent Art company. Each employee has a unique employee number, first name, last name, job titles and date of birth and is allocated to only one art studio. Each studio has several employees. However, each employee only can work in one studio.
+- If an employee currently married to another employee of the same studio, the spouse&#x27;s employee number and date of marriage is also recorded.
+- To be creative, many employees in the studio acquire many skills. Skills data to be recorded are skill type and skill description.
+a) Construct an Entity Relationship Diagram (ERD) complete with all the required tables, attributes, relationships as well as the cardinalities using the Crow&#x27;s Foot notation that reflects all the given business rules.
+b) List TWO (2) example of reports that can be produced from this database system.
+END OF QUESTION PAPER</div><div class='provenance'>Provenance: model_unofficial · confidence medium</div><p>Model-authored from the approved question text, the supplied source assets and the ICT200/ICT450 knowledge base; no official ICT450 marking scheme was supplied.</p><p>The ERD separates studios, employees, programs, suppliers, materials and skills. The many-to-many relationships are drawn directly between entities. At implementation they become junction tables: STUDIO_SUPPLIER, SUPPLIER_MATERIAL and EMPLOYEE_SKILL. The PROGRAM subtype attributes are listed below the diagram.</p><div class='subhead'><span>(a)</span><span class='subtext'>Construct the ERD with Crow&#x27;s Foot notation.</span><span class='marks'>(16 marks)</span></div><ul></ul><div class='erd' style='max-width:34px'><svg xmlns="http://www.w3.org/2000/svg" width="1180" height="826" viewBox="0 0 1180 826" font-family="Arial, Helvetica, sans-serif">
+<rect width="1180" height="826" fill="#ffffff"/>
+<polyline points="152.5,257.0 152.5,293.0" fill="none" stroke="#334155" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="152.5" y1="293.0" x2="144.5" y2="278.0" stroke="#334155" stroke-width="1.5"/><line x1="152.5" y1="293.0" x2="160.5" y2="278.0" stroke="#334155" stroke-width="1.5"/><line x1="152.5" y1="293.0" x2="152.5" y2="278.0" stroke="#334155" stroke-width="1.5"/>
+<text x="162.5" y="273.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">1</text>
+<text x="162.5" y="287.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">M</text>
+<rect x="126.8" y="266.0" width="51.4" height="16" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="152.5" y="279.0" text-anchor="middle" font-size="10" fill="#1f3864" font-weight="600">employs</text>
+<polyline points="152.5,53.0 152.0,20.0 850.0,20.0 850.0,108.0 873.0,142.0" fill="none" stroke="#334155" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="873.0" y1="142.0" x2="858.0" y2="134.1" stroke="#334155" stroke-width="1.5"/><line x1="873.0" y1="142.0" x2="871.2" y2="125.1" stroke="#334155" stroke-width="1.5"/><line x1="873.0" y1="142.0" x2="864.6" y2="129.6" stroke="#334155" stroke-width="1.5"/>
+<text x="162.5" y="47.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">1</text>
+<text x="859.0" y="138.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">M</text>
+<rect x="478.4" y="11.0" width="45.2" height="16" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="501.0" y="24.0" text-anchor="middle" font-size="10" fill="#1f3864" font-weight="600">offers</text>
+<polyline points="262.0,155.0 473.0,129.0" fill="none" stroke="#334155" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="473.0" y1="129.0" x2="459.1" y2="138.8" stroke="#334155" stroke-width="1.5"/><line x1="473.0" y1="129.0" x2="457.1" y2="122.9" stroke="#334155" stroke-width="1.5"/><line x1="473.0" y1="129.0" x2="458.1" y2="130.8" stroke="#334155" stroke-width="1.5"/>
+<line x1="262.0" y1="155.0" x2="275.9" y2="145.2" stroke="#334155" stroke-width="1.5"/><line x1="262.0" y1="155.0" x2="277.9" y2="161.1" stroke="#334155" stroke-width="1.5"/><line x1="262.0" y1="155.0" x2="276.9" y2="153.2" stroke="#334155" stroke-width="1.5"/>
+<text x="276.0" y="151.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">M</text>
+<text x="459.0" y="125.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">M</text>
+<rect x="332.5" y="133.0" width="70.0" height="16" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="367.5" y="146.0" text-anchor="middle" font-size="10" fill="#1f3864" font-weight="600">deals with</text>
+<polyline points="582.5,205.0 582.5,253.0" fill="none" stroke="#334155" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="582.5" y1="253.0" x2="574.5" y2="238.0" stroke="#334155" stroke-width="1.5"/><line x1="582.5" y1="253.0" x2="590.5" y2="238.0" stroke="#334155" stroke-width="1.5"/><line x1="582.5" y1="253.0" x2="582.5" y2="238.0" stroke="#334155" stroke-width="1.5"/>
+<line x1="582.5" y1="205.0" x2="590.5" y2="220.0" stroke="#334155" stroke-width="1.5"/><line x1="582.5" y1="205.0" x2="574.5" y2="220.0" stroke="#334155" stroke-width="1.5"/><line x1="582.5" y1="205.0" x2="582.5" y2="220.0" stroke="#334155" stroke-width="1.5"/>
+<text x="592.5" y="221.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">M</text>
+<text x="592.5" y="247.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">M</text>
+<rect x="553.7" y="220.0" width="57.6" height="16" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="582.5" y="233.0" text-anchor="middle" font-size="10" fill="#1f3864" font-weight="600">supplies</text>
+<polyline points="262.0,395.0 43.0,586.0" fill="none" stroke="#334155" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="43.0" y1="586.0" x2="49.0" y2="570.1" stroke="#334155" stroke-width="1.5"/><line x1="43.0" y1="586.0" x2="59.6" y2="582.2" stroke="#334155" stroke-width="1.5"/><line x1="43.0" y1="586.0" x2="54.3" y2="576.1" stroke="#334155" stroke-width="1.5"/>
+<text x="276.0" y="391.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">1</text>
+<text x="29.0" y="582.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">M</text>
+<rect x="123.7" y="481.5" width="57.6" height="16" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="152.5" y="494.5" text-anchor="middle" font-size="10" fill="#1f3864" font-weight="600">spouse 1</text>
+<polyline points="262.0,395.0 340.0,367.0 340.0,570.0 262.0,586.0" fill="none" stroke="#334155" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="262.0" y1="586.0" x2="275.1" y2="575.1" stroke="#334155" stroke-width="1.5"/><line x1="262.0" y1="586.0" x2="278.3" y2="590.8" stroke="#334155" stroke-width="1.5"/><line x1="262.0" y1="586.0" x2="276.7" y2="583.0" stroke="#334155" stroke-width="1.5"/>
+<text x="276.0" y="391.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">1</text>
+<text x="276.0" y="582.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">M</text>
+<rect x="311.2" y="459.5" width="57.6" height="16" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="340.0" y="472.5" text-anchor="middle" font-size="10" fill="#1f3864" font-weight="600">spouse 2</text>
+<polyline points="152.5,497.0 152.0,470.0 300.0,470.0 300.0,680.0 152.0,680.0 152.5,693.0" fill="none" stroke="#334155" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="152.5" y1="693.0" x2="143.9" y2="678.3" stroke="#334155" stroke-width="1.5"/><line x1="152.5" y1="693.0" x2="159.9" y2="677.7" stroke="#334155" stroke-width="1.5"/><line x1="152.5" y1="693.0" x2="151.9" y2="678.0" stroke="#334155" stroke-width="1.5"/>
+<line x1="152.5" y1="497.0" x2="144.2" y2="482.2" stroke="#334155" stroke-width="1.5"/><line x1="152.5" y1="497.0" x2="160.2" y2="481.9" stroke="#334155" stroke-width="1.5"/><line x1="152.5" y1="497.0" x2="152.2" y2="482.0" stroke="#334155" stroke-width="1.5"/>
+<text x="162.5" y="513.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">M</text>
+<text x="162.5" y="687.0" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">M</text>
+<rect x="271.2" y="566.0" width="57.6" height="16" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+<text x="300.0" y="579.0" text-anchor="middle" font-size="10" fill="#1f3864" font-weight="600">acquires</text>
+<rect x="50" y="60" width="205" height="190" rx="4" fill="#ffffff" stroke="#1f3864" stroke-width="1.5"/>
+<rect x="50" y="60" width="205" height="34" rx="4" fill="#1f3864"/>
+<rect x="50" y="90" width="205" height="4" fill="#1f3864"/>
+<text x="152.5" y="82" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="0.4">STUDIO</text>
+<text x="60" y="109" font-size="12" font-weight="700" fill="#b45309">PK</text>
+<text x="98" y="109" font-size="16" fill="#0f172a" text-decoration="underline" font-weight="700">StudioID</text>
+<line x1="58" y1="120" x2="247" y2="120" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="135" font-size="16" fill="#0f172a"  >StudioName</text>
+<line x1="58" y1="146" x2="247" y2="146" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="161" font-size="16" fill="#0f172a"  >Address</text>
+<line x1="58" y1="172" x2="247" y2="172" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="187" font-size="16" fill="#0f172a"  >Phone</text>
+<line x1="58" y1="198" x2="247" y2="198" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="213" font-size="16" fill="#0f172a"  >Email</text>
+<line x1="58" y1="224" x2="247" y2="224" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="239" font-size="16" fill="#0f172a"  >GPS</text>
+<rect x="50" y="300" width="205" height="190" rx="4" fill="#ffffff" stroke="#1f3864" stroke-width="1.5"/>
+<rect x="50" y="300" width="205" height="34" rx="4" fill="#1f3864"/>
+<rect x="50" y="330" width="205" height="4" fill="#1f3864"/>
+<text x="152.5" y="322" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="0.4">EMPLOYEE</text>
+<text x="60" y="349" font-size="12" font-weight="700" fill="#b45309">PK</text>
+<text x="98" y="349" font-size="16" fill="#0f172a" text-decoration="underline" font-weight="700">EmployeeID</text>
+<line x1="58" y1="360" x2="247" y2="360" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="375" font-size="16" fill="#0f172a"  >FirstName</text>
+<line x1="58" y1="386" x2="247" y2="386" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="401" font-size="16" fill="#0f172a"  >LastName</text>
+<line x1="58" y1="412" x2="247" y2="412" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="427" font-size="16" fill="#0f172a"  >JobTitle</text>
+<line x1="58" y1="438" x2="247" y2="438" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="453" font-size="16" fill="#0f172a"  >DOB</text>
+<line x1="58" y1="464" x2="247" y2="464" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="479" font-size="12" font-weight="700" fill="#b45309">FK</text>
+<text x="96" y="479" font-size="16" fill="#0f172a"  font-style="italic">StudioID</text>
+<rect x="50" y="530" width="205" height="112" rx="4" fill="#ffffff" stroke="#1f3864" stroke-width="1.5"/>
+<rect x="50" y="530" width="205" height="34" rx="4" fill="#1f3864"/>
+<rect x="50" y="560" width="205" height="4" fill="#1f3864"/>
+<text x="152.5" y="552" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="0.4">MARRIAGE</text>
+<text x="60" y="579" font-size="12" font-weight="700" fill="#b45309">PK/FK</text>
+<text x="116" y="579" font-size="16" fill="#0f172a"  >EmployeeID</text>
+<line x1="58" y1="590" x2="247" y2="590" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="605" font-size="12" font-weight="700" fill="#b45309">PK/FK</text>
+<text x="116" y="605" font-size="16" fill="#0f172a"  >SpouseEmployeeID</text>
+<line x1="58" y1="616" x2="247" y2="616" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="631" font-size="16" fill="#0f172a"  >MarriageDate</text>
+<rect x="50" y="700" width="205" height="86" rx="4" fill="#ffffff" stroke="#1f3864" stroke-width="1.5"/>
+<rect x="50" y="700" width="205" height="34" rx="4" fill="#1f3864"/>
+<rect x="50" y="730" width="205" height="4" fill="#1f3864"/>
+<text x="152.5" y="722" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="0.4">SKILL</text>
+<text x="60" y="749" font-size="12" font-weight="700" fill="#b45309">PK</text>
+<text x="98" y="749" font-size="16" fill="#0f172a" text-decoration="underline" font-weight="700">SkillType</text>
+<line x1="58" y1="760" x2="247" y2="760" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="60" y="775" font-size="16" fill="#0f172a"  >SkillDescription</text>
+<rect x="480" y="60" width="205" height="138" rx="4" fill="#ffffff" stroke="#1f3864" stroke-width="1.5"/>
+<rect x="480" y="60" width="205" height="34" rx="4" fill="#1f3864"/>
+<rect x="480" y="90" width="205" height="4" fill="#1f3864"/>
+<text x="582.5" y="82" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="0.4">SUPPLIER</text>
+<text x="490" y="109" font-size="12" font-weight="700" fill="#b45309">PK</text>
+<text x="528" y="109" font-size="16" fill="#0f172a" text-decoration="underline" font-weight="700">SupplierID</text>
+<line x1="488" y1="120" x2="677" y2="120" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="490" y="135" font-size="16" fill="#0f172a"  >SupplierName</text>
+<line x1="488" y1="146" x2="677" y2="146" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="490" y="161" font-size="16" fill="#0f172a"  >Address</text>
+<line x1="488" y1="172" x2="677" y2="172" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="490" y="187" font-size="16" fill="#0f172a"  >Email</text>
+<rect x="480" y="260" width="205" height="138" rx="4" fill="#ffffff" stroke="#1f3864" stroke-width="1.5"/>
+<rect x="480" y="260" width="205" height="34" rx="4" fill="#1f3864"/>
+<rect x="480" y="290" width="205" height="4" fill="#1f3864"/>
+<text x="582.5" y="282" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="0.4">ART_MATERIAL</text>
+<text x="490" y="309" font-size="12" font-weight="700" fill="#b45309">PK</text>
+<text x="528" y="309" font-size="16" fill="#0f172a" text-decoration="underline" font-weight="700">MaterialID</text>
+<line x1="488" y1="320" x2="677" y2="320" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="490" y="335" font-size="16" fill="#0f172a"  >MaterialName</text>
+<line x1="488" y1="346" x2="677" y2="346" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="490" y="361" font-size="16" fill="#0f172a"  >Description</text>
+<line x1="488" y1="372" x2="677" y2="372" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="490" y="387" font-size="16" fill="#0f172a"  >Price</text>
+<rect x="880" y="60" width="205" height="164" rx="4" fill="#ffffff" stroke="#1f3864" stroke-width="1.5"/>
+<rect x="880" y="60" width="205" height="34" rx="4" fill="#1f3864"/>
+<rect x="880" y="90" width="205" height="4" fill="#1f3864"/>
+<text x="982.5" y="82" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="0.4">PROGRAM</text>
+<text x="890" y="109" font-size="12" font-weight="700" fill="#b45309">PK</text>
+<text x="928" y="109" font-size="16" fill="#0f172a" text-decoration="underline" font-weight="700">ProgramID</text>
+<line x1="888" y1="120" x2="1077" y2="120" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="890" y="135" font-size="16" fill="#0f172a"  >ProgramName</text>
+<line x1="888" y1="146" x2="1077" y2="146" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="890" y="161" font-size="16" fill="#0f172a"  >Description</text>
+<line x1="888" y1="172" x2="1077" y2="172" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="890" y="187" font-size="16" fill="#0f172a"  >Price</text>
+<line x1="888" y1="198" x2="1077" y2="198" stroke="#e2e8f0" stroke-width="0.7"/>
+<text x="890" y="213" font-size="16" fill="#0f172a"  >ProgramType</text>
+</svg></div><div class='caption'>Crow&#x27;s Foot ERD for the Excellent Art database.</div><div class='caption'>PROGRAM subtype attributes</div><table><thead><tr><th>Program type</th><th>Subtype attribute</th></tr></thead><tbody><tr><td>Visual Art</td><td>ClassType</td></tr><tr><td>Glass Painting</td><td>ProgramLevel (1–5)</td></tr><tr><td>Handicraft</td><td>CraftData</td></tr></tbody></table><div class='subhead'><span>(b)</span><span class='subtext'>Two reports from the ERD.</span><span class='marks'>(4 marks)</span></div><ul><li>Studio programme report — list each studio with its programmes, programme type and subtype-specific details such as class type, program level or craft data.</li><li>Supplier and material report — show each studio&#x27;s suppliers and the art materials each supplier provides, with prices.</li><li>Employee skills report — list employees by studio with their acquired skills.</li></ul><div class='marking'><h3>Marking guide</h3><ul><li>a) 16 marks: STUDIO, EMPLOYEE, PROGRAM and SUPPLIER (4); ART_MATERIAL, SKILL and MARRIAGE (3); PROGRAM subtype attributes (2); direct many-to-many relationships and their junction tables (3); keys and Crow&#x27;s Foot cardinalities (4).</li><li>b) 2 marks for each of two relevant reports explained (2 × 2 = 4).</li></ul></div><div class='assumptions'><h3>Assumptions</h3><ul><li>PROGRAM subtypes share the ProgramID key. Their subtype attributes are listed below the diagram rather than drawn as separate boxes, keeping the ERD readable.</li><li>A marriage is represented as an associative entity linking two EMPLOYEE rows, because it has a marriage date and involves two employees.</li><li>STUDIO deals with many SUPPLIERs, and SUPPLIER supplies many ART_MATERIALs; both many-to-many relationships are drawn directly and become junction tables at implementation.</li></ul></div></section><section class='answer'><h2>ICT450-2025-JUL-Q2 <span class='meta'>ICT450-2025-JUL · 20 marks</span></h2><div class='question'>a) The network model was created to represent complex data relationships more effectively than the hierarchical model. However, as information needs grew and more sophisticated databases and applications were required, the network model became too cumbersome. Describe TWO (2) disadvantages of network model.
+b) Table 2 shows the data from a publishing company. Briefly explain TWO (2) reasons why this table violates the characteristics of a relational table.
+c) In a database design process, there are two views of data within the system, which are the business view and the designer&#x27;s view. Briefly explain THREE (3) views for the designer.
+d) Describe THREE (3) benefits of big data to companies.</div><div class='provenance'>Provenance: model_unofficial · confidence high</div><p>Model-authored from the approved question text, the supplied source assets and the ICT200/ICT450 knowledge base; no official ICT450 marking scheme was supplied.</p><div class='subhead'><span>(a)</span><span class='subtext'>Two disadvantages of the network model.</span><span class='marks'>(4 marks)</span></div><ul><li>It is cumbersome — the set and pointer structures make the database difficult to design, understand and use.</li><li>It lacks ad hoc query capability, so programmers must write code for every report instead of issuing a query.</li><li>A structural change in the database can produce havoc in all application programs, showing poor data independence.</li></ul><div class='subhead'><span>(b)</span><span class='subtext'>Two reasons the books table violates relational-table characteristics.</span><span class='marks'>(4 marks)</span></div><ul><li>The ISBN 978-981-4824-24-7 appears in two rows, so the declared primary key is not unique and entity integrity is violated.</li><li>The Authors column stores several authors in one cell, such as “Ahmad Rostam, Rozaniza, Alizi Alias”; a relational table requires each cell to be atomic.</li><li>Publisher Name is repeated for the same Publisher ID, which also creates redundancy, although that is a normalization issue rather than a table-characteristic violation.</li></ul><div class='subhead'><span>(c)</span><span class='subtext'>Three views of data for the designer.</span><span class='marks'>(6 marks)</span></div><ul><li>Data structure view — how the data is organised: entities, attributes, relationships and the resulting tables.</li><li>Data access view — how users and programs retrieve and update the data: queries, access paths, indexes and security.</li><li>Activities view — the business processes, transactions and reports that transform the stored data into information.</li><li>The business view, by contrast, sees data as an information source rather than as structures and processes.</li></ul><div class='subhead'><span>(d)</span><span class='subtext'>Three benefits of big data to companies.</span><span class='marks'>(6 marks)</span></div><ul><li>Better decision-making — large and varied datasets reveal patterns, trends and customer behaviour that small samples cannot show.</li><li>More personalised products and marketing — companies can tailor offers, recommendations and service levels to individual customers.</li><li>Operational efficiency and cost reduction — analysing transactions, logs and supply-chain data can expose waste, bottlenecks and fraud.</li><li>New revenue and innovation — data can support new services, predictive maintenance and data-driven business models.</li></ul><div class='marking'><h3>Marking guide</h3><ul><li>a) 2 marks for each of two disadvantages explained (2 × 2 = 4).</li><li>b) 2 marks for each of two violations correctly linked to the table data (2 × 2 = 4).</li><li>c) 2 marks for each of three designer views explained (3 × 2 = 6).</li><li>d) 2 marks for each of three benefits explained (3 × 2 = 6).</li></ul></div><div class='assumptions'><h3>Assumptions</h3><ul><li>The publishing table is read as ISBN, BookTitle, Authors, Publisher ID and Publisher Name.</li></ul></div></section><section class='answer'><h2>ICT450-2026-FEB-Q1 <span class='meta'>ICT450-2026-FEB · 20 marks</span></h2><div class='question'>a) Data is essential to organizations for business operations. Identify FOUR (4) examples of data that exist in a student registration database system.
+b) The transition from manual data management to the computerized file processing system marked a significant milestone in organizational efficiency. Nonetheless, this approach presented several inherent challenges that limited its long-term viability. State FOUR (4) limitations associated with the traditional computerized file system approach.
+c) A data dictionary is a crucial component of any robust database system. Describe THREE (3) features that are important in a data dictionary.
+d) The Database Life Cycle (DBLC) is a cycle that traces the history of a database within an information system. Indicate SIX (6) phases of the DBLC.</div><div class='provenance'>Provenance: model_unofficial · confidence high</div><p>Model-authored from the approved question text, the supplied source assets and the ICT200/ICT450 knowledge base; no official ICT450 marking scheme was supplied.</p><div class='subhead'><span>(a)</span><span class='subtext'>Four examples of data in a student registration database system.</span><span class='marks'>(4 marks)</span></div><ul><li>Student identification data — student number, name, date of birth, gender and contact details.</li><li>Programme data — programme code, programme name, faculty and study level.</li><li>Course registration data — course code, course name, semester, section and registration date.</li><li>Academic record data — coursework marks, final examination marks and grades.</li><li>Other valid examples: address, telephone number, scholarship status or adviser details.</li></ul><div class='subhead'><span>(b)</span><span class='subtext'>Four limitations of the traditional computerized file system.</span><span class='marks'>(4 marks)</span></div><ul><li>It requires extensive programming, and file layouts are embedded in programs, creating program-data dependence.</li><li>System administration is complex and difficult because each file has its own format, access rules and storage.</li><li>Changing existing file structures is difficult and can require rewriting the application programs.</li><li>Security features are likely inadequate, with little central control over who can read or change each file.</li><li>Independent files tend to contain redundant data, causing inconsistency and structural dependency.</li></ul><div class='subhead'><span>(c)</span><span class='subtext'>Three important features of a data dictionary.</span><span class='marks'>(6 marks)</span></div><ul><li>It gives a detailed description of all tables in the database, including every attribute name, characteristic, data type, size and constraint.</li><li>It stores metadata — data about data — and is sometimes called the database designer&#x27;s database because it records the design decisions about tables and their structures.</li><li>It provides a central, consistent reference for designers, programmers and users, so definitions do not diverge and changes can be controlled.</li></ul><div class='subhead'><span>(d)</span><span class='subtext'>Six phases of the Database Life Cycle (DBLC).</span><span class='marks'>(6 marks)</span></div><ul><li>Database initial study.</li><li>Database design.</li><li>Implementation and loading.</li><li>Testing and evaluation.</li><li>Operation.</li><li>Maintenance and evolution.</li></ul><div class='marking'><h3>Marking guide</h3><ul><li>a) 1 mark for each of four valid examples (4 × 1 = 4).</li><li>b) 1 mark for each of four limitations stated correctly (4 × 1 = 4).</li><li>c) 2 marks for each of three data-dictionary features explained (3 × 2 = 6).</li><li>d) 1 mark for each of the six DBLC phases in the correct order (6 × 1 = 6).</li></ul></div></section>
+</main></body></html>
