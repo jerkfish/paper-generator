@@ -1,4 +1,4 @@
-# Mock Paper Generatord
+# Mock Paper Generator
 
 A local-first study tool that recycles real past-paper questions into new mock
 papers and marking schemes. Generation runs on your machine; the public site is
