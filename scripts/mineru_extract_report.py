@@ -116,8 +116,9 @@ class ReportBuilder:
         self.source = source
         self.attached = attached
         self.out = out
-        self.pipeline = load_model(paper_dir, "pipeline")
         self.vlm = load_model(paper_dir, "vlm")
+        self.pipeline = (load_model(paper_dir, "pipeline")
+                         if any(paper_dir.glob("pipeline_*")) else None)
         self.lines: list[str] = []
 
     def rel(self, path: Path) -> str:
@@ -153,11 +154,13 @@ class ReportBuilder:
             self.add(f"- Attached and repository copies match: "
                      f"**{attached_sha == source_sha}**")
         self.add(f"- Pages: {self.vlm['manifest'].get('page_count')}")
-        self.add(f"- Pipeline batch: `{self.pipeline['manifest'].get('batch_id')}` "
-                 f"({self.pipeline['manifest'].get('duration_seconds')} s)")
+        if self.pipeline:
+            self.add(f"- Pipeline batch: `{self.pipeline['manifest'].get('batch_id')}` "
+                     f"({self.pipeline['manifest'].get('duration_seconds')} s)")
         self.add(f"- VLM batch: `{self.vlm['manifest'].get('batch_id')}` "
                  f"({self.vlm['manifest'].get('duration_seconds')} s)")
-        self.add(f"- Pipeline cache: `{self.rel(self.pipeline['cache'])}`")
+        if self.pipeline:
+            self.add(f"- Pipeline cache: `{self.rel(self.pipeline['cache'])}`")
         self.add(f"- VLM cache: `{self.rel(self.vlm['cache'])}`")
         self.add("- MinerU result reuse: the attached file is byte-identical to "
                  "the pilot source, so both verified caches were reused. No new "
@@ -168,7 +171,7 @@ class ReportBuilder:
         self.add("## Counts", "")
         self.add("| Model | Figures | Tables | Equations | Assets | Referenced | Resolved | Fallback | Questions |")
         self.add("|---|---:|---:|---:|---:|---:|---:|---:|---:|")
-        for model in (self.pipeline, self.vlm):
+        for model in (item for item in (self.pipeline, self.vlm) if item):
             counts = model["normalized"]["counts"]
             self.add(
                 f"| {model['model']} | {counts['figures']} | {counts['tables']} | "
@@ -236,7 +239,7 @@ class ReportBuilder:
                 if image_path:
                     image = model["cache"] / str(image_path)
                     self.add(f"![Equation image]({self.rel(image)})", "")
-                if model["model"] == "vlm" and page_idx == 5:
+                if self.pipeline and model["model"] == "vlm" and page_idx == 5:
                     pipeline_eq = next(
                         (item for item in self.pipeline["blocks"]
                          if item.get("type") == "equation"
@@ -362,7 +365,7 @@ class ReportBuilder:
         self.add("")
 
     def raw_markdown(self) -> None:
-        for model in (self.vlm, self.pipeline):
+        for model in (item for item in (self.vlm, self.pipeline) if item):
             label = model["model"]
             self.add(f"## Raw MinerU Markdown — {label}", "")
             text = model["full"].replace(
@@ -390,18 +393,29 @@ class ReportBuilder:
         self.metadata()
         self.counts()
         self.add("## Full extraction — VLM (primary)", "")
-        self.add("The VLM result is used as the primary text because it "
-                 "reconstructs inline mathematics as LaTeX. Page furniture and "
-                 "block provenance are retained. A pipeline-only Figure 3 image "
-                 "is inserted on page 6.")
+        if self.pipeline:
+            self.add("The VLM result is used as the primary text because it "
+                     "reconstructs inline mathematics as LaTeX. Page furniture "
+                     "and block provenance are retained. A pipeline-only "
+                     "Figure 3 image is inserted on page 6.")
+        else:
+            self.add("VLM-only report: the owner selected VLM as the default "
+                     "model, so the pipeline model was not run for this paper. "
+                     "Page furniture and block provenance are retained.")
         self.add("")
         for page_idx in range(int(self.vlm["manifest"].get("page_count", 0))):
             self.render_page(self.vlm, page_idx)
         self.question_table(self.vlm)
         self.asset_table(self.vlm)
         self.fallback_table(self.vlm)
-        self.figure3_note()
-        self.diff()
+        if self.pipeline:
+            self.figure3_note()
+            self.diff()
+        else:
+            self.add("## Pipeline comparison", "")
+            self.add("Pipeline was not run for this paper because VLM is the "
+                     "selected default model. This report is VLM-only.")
+            self.add("")
         self.raw_markdown()
         self.provenance()
         self.out.parent.mkdir(parents=True, exist_ok=True)

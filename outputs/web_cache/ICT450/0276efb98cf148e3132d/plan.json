@@ -1,0 +1,101 @@
+{
+  "schema_version": 2,
+  "seed": 2,
+  "reuse_cap": 4,
+  "total_marks": 100,
+  "slots": [
+    {
+      "slot": "Q1",
+      "category": "concepts",
+      "part": "",
+      "marks": 20,
+      "question_id": "ICT450-2023-JUL-Q1",
+      "source_paper": "ICT450-2023-JUL",
+      "pages": [
+        2
+      ],
+      "topic": "unclassified",
+      "topic_tags": [],
+      "assets": [
+        "ICT450-2023-JUL-A05"
+      ],
+      "refs": [
+        "Table 1"
+      ],
+      "content_hash": "8f9e0472fb9d4467da818ee8a98e70be1b2091ad134fcb6b8d20c0bec76fd715"
+    },
+    {
+      "slot": "Q2",
+      "category": "design_theory",
+      "part": "",
+      "marks": 20,
+      "question_id": "ICT450-2023-FEB-Q2",
+      "source_paper": "ICT450-2023-FEB",
+      "pages": [
+        3
+      ],
+      "topic": "unclassified",
+      "topic_tags": [],
+      "assets": [
+        "ICT450-2023-FEB-A02"
+      ],
+      "refs": [
+        "Table 2"
+      ],
+      "content_hash": "53fcf76da1d51156383f0abb8d9f49c268c5d606da63636bf8dcef5cc47b19e1"
+    },
+    {
+      "slot": "Q3",
+      "category": "normalization",
+      "part": "",
+      "marks": 20,
+      "question_id": "ICT450-2024-JAN-Q3",
+      "source_paper": "ICT450-2024-JAN",
+      "pages": [
+        4,
+        5
+      ],
+      "topic": "unclassified",
+      "topic_tags": [],
+      "assets": [
+        "ICT450-2024-JAN-A12"
+      ],
+      "refs": [
+        "Figure 2"
+      ],
+      "content_hash": "9ad5613445c13cc98aed86e2cb9ee8ffd576ca5ac7ee1a708638567c364a8c81"
+    },
+    {
+      "slot": "Q4",
+      "category": "sql",
+      "part": "",
+      "marks": 20,
+      "question_id": "ICT450-2024-JUL-Q4",
+      "source_paper": "ICT450-2024-JUL",
+      "pages": [
+        5
+      ],
+      "topic": "unclassified",
+      "topic_tags": [],
+      "assets": [],
+      "refs": [],
+      "content_hash": "13fe732813922304da707aa213091a859e0d3ffb6c9518740118489743157321"
+    },
+    {
+      "slot": "Q5",
+      "category": "erd",
+      "part": "",
+      "marks": 20,
+      "question_id": "ICT450-2025-FEB-Q5",
+      "source_paper": "ICT450-2025-FEB",
+      "pages": [
+        5
+      ],
+      "topic": "unclassified",
+      "topic_tags": [],
+      "assets": [],
+      "refs": [],
+      "content_hash": "83d4f33acdf956df44e4e23d0638a8497544d54542e335696e7a7e7c00251778"
+    }
+  ]
+}

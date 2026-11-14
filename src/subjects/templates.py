@@ -7,7 +7,9 @@ and ``--check`` writes a structural report to the tracking folder.
 from __future__ import annotations
 
 import argparse
+import html
 import json
+import re
 import shutil
 import zipfile
 from pathlib import Path
@@ -75,6 +77,20 @@ def check_template(path: Path) -> dict:
             result["images"] = len([
                 name for name in archive.namelist()
                 if name.startswith("word/media/")])
+            if result["headers"] == 0 and result["footers"] == 0:
+                # Some Word templates keep header/footer text in VML/drawing
+                # parts that python-docx does not expose as paragraphs.
+                for name in archive.namelist():
+                    if not (name.startswith("word/header")
+                            or name.startswith("word/footer")):
+                        continue
+                    xml = archive.read(name).decode("utf-8", errors="replace")
+                    texts = re.findall(r"<w:t[^>]*>(.*?)</w:t>", xml)
+                    if any(html.unescape(text).strip() for text in texts):
+                        if name.startswith("word/header"):
+                            result["headers"] += 1
+                        else:
+                            result["footers"] += 1
         result["xml_valid"] = True
     except Exception as error:
         result["problems"].append(f"invalid DOCX archive: {error}")

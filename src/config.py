@@ -51,7 +51,9 @@ def subject_lecture_decks_dir(subject: str) -> Path:
     if override:
         return Path(override)
     local = LECTURE_DECKS_ROOT / code
-    if local.is_dir() and any(local.glob("*.pptx")):
+    if local.is_dir() and any(
+            path.suffix.lower() in {".pptx", ".pdf", ".md"}
+            for path in local.iterdir()):
         return local
     return Path.home() / "Desktop" / code
 

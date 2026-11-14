@@ -23,5 +23,15 @@
     "placeholders": true,
     "public_scheme_requires_quote_marker": true
   },
+  "strategy": "generate",
+  "variants": {
+    "enabled": false
+  },
+  "library": {
+    "size_policy": "min(20, feasible)"
+  },
+  "answers": {
+    "sources": []
+  },
   "paper_count": 0
 }

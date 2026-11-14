@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice - Doraemon Toys Park</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #000;
+        }
+
+        .invoice-container {
+            background-color: #fff;
+            width: 900px;
+            border: 1px solid #000;
+            font-size: 16px;
+        }
+
+        /* Common dashed border styles to mimic the image */
+        .dashed-border {
+            border-bottom: 1px dotted #000;
+        }
+        
+        .dashed-col-right {
+            border-right: 1px dotted #000;
+        }
+        
+        .dashed-col-left {
+            border-left: 1px dotted #000;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 15px 0;
+            border-bottom: 1px dotted #000;
+        }
+
+        .header h1 {
+            font-size: 20px;
+            margin: 0 0 5px 0;
+            font-weight: normal;
+        }
+
+        .header p {
+            margin: 2px 0;
+            font-size: 18px;
+        }
+
+        /* Info Section */
+        .info-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            border-bottom: 1px dotted #000;
+        }
+
+        .customer-info, .invoice-info {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            border-bottom: 1px dotted #000;
+        }
+        
+        .row:last-child {
+            border-bottom: none;
+        }
+
+        .invoice-info .row {
+            grid-template-columns: 80px 1fr;
+        }
+
+        .cell {
+            padding: 6px 10px;
+        }
+
+        .cell-label {
+            border-right: 1px dotted #000;
+        }
+
+        /* Table Section */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px dotted #000;
+            padding: 8px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        /* Remove outer borders since container has them */
+        table th:first-child, table td:first-child {
+            border-left: none;
+        }
+        table th:last-child, table td:last-child {
+            border-right: none;
+        }
+
+        th {
+            font-weight: normal;
+            font-size: 18px;
+        }
+
+        /* Specific column alignments */
+        td:nth-child(1) { text-align: left; padding-left: 20px; }
+        td:nth-child(2) { text-align: left; }
+        td:nth-child(3) { text-align: left; }
+        td:nth-child(4) { text-align: center; }
+        td:nth-child(5) { text-align: right; }
+        td:nth-child(6) { text-align: right; }
+
+        /* Total Row */
+        .total-row td {
+            border-bottom: none;
+            font-size: 18px;
+        }
+
+        .total-label {
+            text-align: right !important;
+            padding-right: 20px;
+        }
+        
+        .total-amount {
+            text-align: right;
+            padding-right: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="invoice-container">
+        
+        <!-- Header -->
+        <div class="header">
+            <h1>DORAEMON TOYS PARK & TRADING</h1>
+            <p>2, Jalan Bunga Raya 7, Taman Tasik Jaya,</p>
+            <p>70400 Seremban, Negeri Sembilan</p>
+            <p>Malaysia</p>
+        </div>
+
+        <!-- Customer & Invoice Info -->
+        <div class="info-section">
+            <div class="customer-info">
+                <div class="row">
+                    <div class="cell cell-label">Customer No:</div>
+                    <div class="cell">153</div>
+                </div>
+                <div class="row">
+                    <div class="cell cell-label">Customer Name:</div>
+                    <div class="cell">Puan Adriana Yusuf</div>
+                </div>
+                <div class="row" style="border-bottom: none;">
+                    <div class="cell cell-label">Customer<br>Address:</div>
+                    <div class="cell">Taman Rasah Jaya,<br>Seremban</div>
+                </div>
+            </div>
+            
+            <div class="invoice-info">
+                <div class="row">
+                    <div class="cell" style="font-size: 18px;">INVOICE</div>
+                </div>
+                <div class="row">
+                    <div class="cell cell-label">No:</div>
+                    <div class="cell">2088</div>
+                </div>
+                <div class="row" style="border-bottom: none;">
+                    <div class="cell cell-label">Date:</div>
+                    <div class="cell">26 August 2019</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Item No</th>
+                    <th>Item Name</th>
+                    <th>Model</th>
+                    <th>Quantity</th>
+                    <th>Item<br>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CRB101</td>
+                    <td>Electric Kids Car</td>
+                    <td>Buggati</td>
+                    <td>1</td>
+                    <td>559.00</td>
+                    <td>559.00</td>
+                </tr>
+                <tr>
+                    <td>LEG101</td>
+                    <td>City Fire Ladder<br>Truck</td>
+                    <td>LEGO</td>
+                    <td>1</td>
+                    <td>184.00</td>
+                    <td>184.00</td>
+                </tr>
+                <tr>
+                    <td>LEG102</td>
+                    <td>City ATV Race<br>Team</td>
+                    <td>LEGO</td>
+                    <td>2</td>
+                    <td>79.99</td>
+                    <td>159.98</td>
+                </tr>
+                <!-- Total Row -->
+                <tr class="total-row">
+                    <td colspan="4" style="border: 1px dotted #000; border-left: none; border-bottom: none;"></td>
+                    <td class="total-label" style="border-right: 1px dotted #000; border-top: 1px dotted #000;">Total Amount:</td>
+                    <td class="total-amount" style="border-top: 1px dotted #000;">902.95</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+</html>

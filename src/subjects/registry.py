@@ -62,6 +62,11 @@ class Subject:
     permissions: dict = field(default_factory=dict)
     plugins: dict = field(default_factory=dict)
     topic_labels: dict = field(default_factory=dict)
+    strategy: str = ""
+    variants: dict = field(default_factory=dict)
+    library: dict = field(default_factory=dict)
+    answers: dict = field(default_factory=dict)
+    extraction: dict = field(default_factory=dict)
 
     @property
     def available(self) -> bool:
@@ -115,6 +120,10 @@ class Subject:
             "has_past_papers": self.has_past_papers,
             "highlight_no_past_papers": self.highlight_no_past_papers,
             "capabilities": capabilities,
+            "strategy": self.strategy,
+            "variants": dict(self.variants),
+            "library": dict(self.library),
+            "answers": dict(self.answers),
         }
 
 
@@ -221,6 +230,16 @@ def _load_one(path: Path) -> Subject:
     permissions = _default_permissions()
     permissions.update(dict(data.get("permissions") or {}))
 
+    strategy = str(data.get("strategy") or (
+        "recycle" if subject_type == "D" else "generate")).lower()
+    variants = {"enabled": False}
+    variants.update(dict(data.get("variants") or {}))
+    library = {"size_policy": "min(20, feasible)"}
+    library.update(dict(data.get("library") or {}))
+    answers = {"sources": []}
+    answers.update(dict(data.get("answers") or {}))
+    extraction = dict(data.get("extraction") or {})
+
     return Subject(
         code=code,
         title=title,
@@ -242,6 +261,11 @@ def _load_one(path: Path) -> Subject:
         permissions=permissions,
         plugins=dict(data.get("plugins") or {}),
         topic_labels=dict(data.get("topic_labels") or {}),
+        strategy=strategy,
+        variants=variants,
+        library=library,
+        answers=answers,
+        extraction=extraction,
     )
 
 

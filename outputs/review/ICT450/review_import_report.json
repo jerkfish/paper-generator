@@ -1,0 +1,21 @@
+{
+  "subject": "ICT450",
+  "questions": 60,
+  "status": {
+    "approved": 55,
+    "needs_fix": 5
+  },
+  "asset_choices": {
+    "needs_more_work": 5,
+    "use_original": 7,
+    "use_recreation": 26
+  },
+  "pending_recreations": 5,
+  "pending_ids": [
+    "ICT450-2018-DEC-A37",
+    "ICT450-2019-DEC-A40",
+    "ICT450-2023-JUL-A06",
+    "ICT450-2024-JAN-A12",
+    "ICT450-2024-JUL-A14"
+  ]
+}

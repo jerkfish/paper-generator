@@ -1,0 +1,19 @@
+{
+  "pages": 6,
+  "images": 3,
+  "marks_total": 100,
+  "problems": [],
+  "forbidden_hits": [],
+  "assets": {
+    "expected": 3,
+    "inserted": 3,
+    "skipped": [
+      {
+        "id": "ICT450-2025-JUL-F21",
+        "question_id": "ICT450-2025-JUL-Q3",
+        "reason": "duplicate page-crop fallback; the table recreation is already inserted"
+      }
+    ],
+    "missing": []
+  }
+}

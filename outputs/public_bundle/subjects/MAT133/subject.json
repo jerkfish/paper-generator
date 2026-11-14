@@ -81,5 +81,21 @@
     "placeholders": false,
     "public_scheme_requires_quote_marker": false
   },
-  "paper_count": 0
+  "strategy": "generate",
+  "variants": {
+    "enabled": false
+  },
+  "library": {
+    "size_policy": "min(20, feasible)"
+  },
+  "answers": {
+    "sources": []
+  },
+  "paper_count": 20,
+  "library_manifest": "/library/MAT133/manifest.json",
+  "routes": {
+    "home": "/mat133",
+    "library": "/mat133/library",
+    "generate": "/mat133/generate"
+  }
 }

@@ -28,5 +28,21 @@
     "placeholders": false,
     "public_scheme_requires_quote_marker": false
   },
-  "paper_count": 0
+  "strategy": "generate",
+  "variants": {
+    "enabled": false
+  },
+  "library": {
+    "size_policy": "min(20, feasible)"
+  },
+  "answers": {
+    "sources": []
+  },
+  "paper_count": 20,
+  "library_manifest": "/library/CSC413/manifest.json",
+  "routes": {
+    "home": "/csc413",
+    "library": "/csc413/library",
+    "generate": "/csc413/generate"
+  }
 }

@@ -1,0 +1,768 @@
+{
+  "schema_version": 1,
+  "subject": "ICT450",
+  "stage": "V4_answers",
+  "generated_at": "2026-11-14T05:35:02.327808+00:00",
+  "official_scheme_used": false,
+  "provenance": "model_unofficial",
+  "approved_questions": 60,
+  "answered_questions": 60,
+  "missing_questions": [],
+  "media": [
+    "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2018-DEC-Q5_1.png",
+    "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2018-JUN-Q1_1.png",
+    "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2018-JUN-Q5_1.png",
+    "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2019-DEC-Q5_1.png",
+    "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2019-JUN-Q5_1.png",
+    "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2022-FEB-Q5_1.png",
+    "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2023-FEB-Q5_1.png",
+    "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2023-JUL-Q5_1.png",
+    "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2024-JAN-Q1_1.png",
+    "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2024-JAN-Q5_1.png",
+    "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2024-JUL-Q5_1.png",
+    "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2025-FEB-Q5_1.png",
+    "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2025-JUL-Q5_1.png",
+    "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2026-FEB-Q5_1.png"
+  ],
+  "problems": [],
+  "cost_usd": 0.0,
+  "llm_calls": 0,
+  "answers": [
+    {
+      "question_id": "ICT450-2018-DEC-Q1",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 1 DATABASE CONCEPT (1).pdf",
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2018-DEC-Q2",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 6 DATABASE DESIGN (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2018-DEC-Q3",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 7 SQL.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2018-DEC-Q4",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 5 NORMALIZATION  (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2018-DEC-Q5",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [
+        "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2018-DEC-Q5_1.png"
+      ],
+      "kb_sources": [
+        "TOPIC 4 ERD_stu (2).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2018-JUN-Q1",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [
+        "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2018-JUN-Q1_1.png"
+      ],
+      "kb_sources": [
+        "TOPIC 1 DATABASE CONCEPT (1).pdf",
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2018-JUN-Q2",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 6 DATABASE DESIGN (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2018-JUN-Q3",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 5 NORMALIZATION  (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2018-JUN-Q4",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 14,
+      "answer_marks": 14,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 7 SQL.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2018-JUN-Q5",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [
+        "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2018-JUN-Q5_1.png"
+      ],
+      "kb_sources": [
+        "TOPIC 4 ERD_stu (2).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2019-DEC-Q1",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 1 DATABASE CONCEPT (1).pdf",
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2019-DEC-Q2",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 6 DATABASE DESIGN (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2019-DEC-Q3",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 7 SQL.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2019-DEC-Q4",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 5 NORMALIZATION  (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2019-DEC-Q5",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [
+        "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2019-DEC-Q5_1.png"
+      ],
+      "kb_sources": [
+        "TOPIC 4 ERD_stu (2).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2019-JUN-Q1",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 1 DATABASE CONCEPT (1).pdf",
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2019-JUN-Q2",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 6 DATABASE DESIGN (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2019-JUN-Q3",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 7 SQL.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2019-JUN-Q4",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 5 NORMALIZATION  (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2019-JUN-Q5",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [
+        "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2019-JUN-Q5_1.png"
+      ],
+      "kb_sources": [
+        "TOPIC 4 ERD_stu (2).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2022-FEB-Q1",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 1 DATABASE CONCEPT (1).pdf",
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2022-FEB-Q2",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 6 DATABASE DESIGN (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2022-FEB-Q3",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 5 NORMALIZATION  (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2022-FEB-Q4",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 7 SQL.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2022-FEB-Q5",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [
+        "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2022-FEB-Q5_1.png"
+      ],
+      "kb_sources": [
+        "TOPIC 4 ERD_stu (2).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2023-FEB-Q1",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 14,
+      "answer_marks": 14,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 1 DATABASE CONCEPT (1).pdf",
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2023-FEB-Q2",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 6 DATABASE DESIGN (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2023-FEB-Q3",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 5 NORMALIZATION  (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2023-FEB-Q4",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 7 SQL.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2023-FEB-Q5",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [
+        "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2023-FEB-Q5_1.png"
+      ],
+      "kb_sources": [
+        "TOPIC 4 ERD_stu (2).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2023-JUL-Q1",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 1 DATABASE CONCEPT (1).pdf",
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2023-JUL-Q2",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 6 DATABASE DESIGN (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2023-JUL-Q3",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 5 NORMALIZATION  (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2023-JUL-Q4",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 7 SQL.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2023-JUL-Q5",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [
+        "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2023-JUL-Q5_1.png"
+      ],
+      "kb_sources": [
+        "TOPIC 4 ERD_stu (2).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2024-JAN-Q1",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [
+        "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2024-JAN-Q1_1.png"
+      ],
+      "kb_sources": [
+        "TOPIC 1 DATABASE CONCEPT (1).pdf",
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2024-JAN-Q2",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 16,
+      "answer_marks": 16,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 6 DATABASE DESIGN (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2024-JAN-Q3",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 5 NORMALIZATION  (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2024-JAN-Q4",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 7 SQL.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2024-JAN-Q5",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [
+        "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2024-JAN-Q5_1.png"
+      ],
+      "kb_sources": [
+        "TOPIC 4 ERD_stu (2).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2024-JUL-Q1",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 1 DATABASE CONCEPT (1).pdf",
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2024-JUL-Q2",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 6 DATABASE DESIGN (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2024-JUL-Q3",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 5 NORMALIZATION  (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2024-JUL-Q4",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 7 SQL.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2024-JUL-Q5",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [
+        "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2024-JUL-Q5_1.png"
+      ],
+      "kb_sources": [
+        "TOPIC 4 ERD_stu (2).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2025-FEB-Q1",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 1 DATABASE CONCEPT (1).pdf",
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2025-FEB-Q2",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 6 DATABASE DESIGN (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2025-FEB-Q3",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 5 NORMALIZATION  (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2025-FEB-Q4",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 7 SQL.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2025-FEB-Q5",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [
+        "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2025-FEB-Q5_1.png"
+      ],
+      "kb_sources": [
+        "TOPIC 4 ERD_stu (2).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2025-JUL-Q1",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 14,
+      "answer_marks": 14,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 1 DATABASE CONCEPT (1).pdf",
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2025-JUL-Q2",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 6 DATABASE DESIGN (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2025-JUL-Q3",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 5 NORMALIZATION  (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2025-JUL-Q4",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 7 SQL.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2025-JUL-Q5",
+      "provenance": "model_unofficial",
+      "confidence": "medium",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [
+        "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2025-JUL-Q5_1.png"
+      ],
+      "kb_sources": [
+        "TOPIC 4 ERD_stu (2).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2026-FEB-Q1",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 1 DATABASE CONCEPT (1).pdf",
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2026-FEB-Q2",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 2 DATA MODEL (1).pdf",
+        "TOPIC 6 DATABASE DESIGN (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2026-FEB-Q3",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 5 NORMALIZATION  (1).pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2026-FEB-Q4",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [],
+      "kb_sources": [
+        "TOPIC 7 SQL.pdf"
+      ]
+    },
+    {
+      "question_id": "ICT450-2026-FEB-Q5",
+      "provenance": "model_unofficial",
+      "confidence": "high",
+      "marks": 20,
+      "answer_marks": 20,
+      "media": [
+        "data\\tracking\\ict450\\v2\\bank\\answers\\media\\ICT450-2026-FEB-Q5_1.png"
+      ],
+      "kb_sources": [
+        "TOPIC 4 ERD_stu (2).pdf",
+        "TOPIC 3 RELATIONAL DATA MODELstu.pdf"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side-by-Side Forms</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            display: flex;
+            gap: 40px; /* Space between the two tables */
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        /* --- Shared Styles --- */
+        table {
+            border-collapse: collapse;
+            font-size: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            border: 2px solid black;
+            padding: 12px 15px;
+            vertical-align: middle;
+        }
+
+        /* Custom Radio Button Styling to mimic hand-drawn circles */
+        .custom-radio {
+            width: 20px;
+            height: 20px;
+            border: 2px solid black;
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            flex-shrink: 0; /* Prevents squishing */
+        }
+
+        /* --- Left Image Styles (Options) --- */
+        .left-table {
+            width: 320px;
+            flex-shrink: 0;
+        }
+
+        .left-table td.option-text {
+            border-right: 2px solid black;
+            height: 70px; 
+        }
+
+        .left-table td.radio-cell {
+            border: none; /* Removes border from the radio column cell itself */
+            padding-left: 15px;
+            width: 40px;
+            vertical-align: middle;
+        }
+
+        /* --- Right Image Styles (Statements) --- */
+        .right-table {
+            width: 650px;
+            flex-shrink: 0;
+        }
+
+        .right-table td {
+            line-height: 1.3;
+            padding: 15px;
+        }
+
+        .right-table td.radio-cell {
+            border-right: none;
+            padding: 15px 10px 15px 15px;
+            width: 40px;
+            vertical-align: top; /* Aligns radio to top of text */
+            padding-top: 20px;
+        }
+        
+        .right-table td.text-cell {
+            border-left: none;
+            padding-left: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Left Image Recreation -->
+        <table class="left-table">
+            <tr>
+                <td class="option-text">Hierarchical</td>
+                <td class="radio-cell"><span class="custom-radio"></span></td>
+            </tr>
+            <tr>
+                <td class="option-text">Network</td>
+                <td class="radio-cell"><span class="custom-radio"></span></td>
+            </tr>
+            <tr>
+                <td class="option-text">Relational</td>
+                <td class="radio-cell"><span class="custom-radio"></span></td>
+            </tr>
+            <tr>
+                <td class="option-text">Entity<br>Relationship</td>
+                <td class="radio-cell"><span class="custom-radio"></span></td>
+            </tr>
+        </table>
+
+        <!-- Right Image Recreation -->
+        <table class="right-table">
+            <tr>
+                <td class="radio-cell"><span class="custom-radio"></span></td>
+                <td class="text-cell">
+                    Visual representation makes it an effective communication tool.
+                </td>
+            </tr>
+            <tr>
+                <td class="radio-cell"><span class="custom-radio"></span></td>
+                <td class="text-cell">
+                    It may promote islands of information problems as individuals and departments can easily develop their own applications.
+                </td>
+            </tr>
+            <tr>
+                <td class="radio-cell"><span class="custom-radio"></span></td>
+                <td class="text-cell">
+                    Parent/child relationship promotes data integrity.
+                </td>
+            </tr>
+            <tr>
+                <td class="radio-cell"><span class="custom-radio"></span></td>
+                <td class="text-cell">
+                    It handles more relationship types, such as M:N and multiparent
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+</body>
+</html>

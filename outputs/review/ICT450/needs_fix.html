@@ -1,0 +1,385 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>ICT450 — needs-fix review</title>
+<style>
+@page { size: A4 portrait; margin: 12mm; }
+body { font-family: Arial, sans-serif; color: #111; font-size: 10pt; }
+h1 { font-size: 18pt; margin: 0 0 4mm; }
+h2 { font-size: 13pt; margin: 0 0 2mm; }
+.meta, .warn { color: #444; margin: 1mm 0; }
+.warn { color: #8a1f1f; }
+.question { page-break-after: always; }
+.qtext { white-space: pre-wrap; background: #f4f4f4; padding: 3mm;
+          font-family: "Courier New", monospace; font-size: 8.5pt; }
+.asset { border: 1px solid #999; padding: 3mm; margin: 3mm 0;
+          page-break-inside: avoid; }
+.asset-title { font-weight: bold; margin-bottom: 2mm; }
+.tag { background: #e8e8e8; font-weight: normal; padding: 0 2mm;
+        margin-left: 2mm; font-size: 8pt; }
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.cap { font-weight: bold; margin-bottom: 1mm; }
+img.original { max-width: 100%; max-height: 95mm; border: 1px solid #ccc; }
+.recreation { border: 1px solid #ccc; padding: 3mm; min-height: 40mm; }
+iframe.owner-frame { width: 100%; height: 120mm; border: 1px solid #ccc;
+                      background: #fff; }
+img.owner-shot { display: block; margin: 0 auto; max-width: 100%;
+                  max-height: 210mm; width: auto; border: 1px solid #ccc; }
+img.original.thumb { display: block; max-width: 100%; max-height: 45mm;
+                      border: 1px solid #ccc; }
+.cap.small { font-size: 8pt; color: #555; margin-top: 2mm; }
+.tag.owner { background: #d9ead3; }
+.rec-html table, table.rec-table { border-collapse: collapse;
+  width: 100%; font-size: 8pt; }
+.rec-html td, .rec-html th, table.rec-table td, table.rec-table th {
+  border: 1px solid #000; padding: 1mm; vertical-align: top; }
+table.rec-table.small { font-size: 7.5pt; }
+.center { text-align: center; }
+.right { text-align: right; }
+.receipt { font-family: "Courier New", monospace; font-size: 8.5pt; }
+.logo { font-size: 16pt; }
+hr.dashed { border: 0; border-top: 1px dashed #000; }
+tr.total td { font-weight: bold; border-top: 2px solid #000; }
+.schema { border: 1px solid #000; padding: 4mm; font-family: "Courier New",
+           monospace; font-size: 9pt; }
+.flow { width: 100%; }
+.flow-head { display: grid; grid-template-columns: 1fr 1fr;
+              font-weight: bold; text-align: center; margin-bottom: 3mm; }
+.flow-row { display: grid; grid-template-columns: 55% 6% 39%;
+             align-items: center; margin: 2mm 0; }
+.flow-row .box { border: 2px solid #000; min-height: 14mm;
+                  padding: 2mm; box-sizing: border-box; width: 100%; }
+.flow-row .box.round { border-radius: 3mm; font-size: 8.5pt; }
+.arrow { font-size: 18pt; text-align: center; }
+.flow-down { text-align: center; font-size: 18pt; }
+.verdict-line { margin-top: 2mm; font-size: 9pt;
+                 display: flex; flex-wrap: wrap; gap: 2mm 5mm;
+                 align-items: center; }
+.pick { white-space: nowrap; }
+textarea { width: 100%; font-family: Arial, sans-serif; font-size: 9pt;
+           margin-top: 1mm; }
+.asset-notes { flex-basis: 100%; }
+.question-verdict { border-top: 1px solid #999; margin-top: 3mm;
+                     padding-top: 2mm; }
+.question-verdict label { font-weight: bold; }
+select { font-size: 10pt; margin-left: 2mm; }
+.toolbar { position: sticky; top: 0; background: #fff; padding: 3mm 0;
+            border-bottom: 1px solid #999; z-index: 10; }
+.toolbar button { font-size: 11pt; padding: 2mm 5mm; cursor: pointer; }
+#status { margin-left: 4mm; font-weight: bold; color: #1f6b1f; }
+.missing { color: #8a1f1f; }
+@media print {
+  .question { page-break-after: always; }
+  .toolbar { display: none; }
+  textarea { border: 1px solid #000; min-height: 8mm; }
+}
+</style></head><body>
+<div class="toolbar">
+  <button type="button" onclick="exportDecisions()">Export decisions JSON</button>
+  <span id="status"></span>
+</div>
+<h1>ICT450 — needs-fix review</h1>
+<p>Only questions with a needs-fix verdict or a “use recreation” asset. Review
+each HTML recreation against the original crop, choose a verdict, add notes,
+then press <b>Export decisions JSON</b>. 5 questions.</p>
+
+    <section class="question" data-qid="ICT450-2018-DEC-Q4">
+      <h2>ICT450-2018-DEC-Q4 <span class="marks">(20 marks)</span></h2>
+      <p class="meta">Source: ICT450-2018-DEC
+        · page 3, 4
+        · previous verdict: needs_fix</p>
+      
+      <pre class="qtext">The following questions will be based on order form in Table 1.0.
+a) Convert the order form in Table 1.0 into a relational schema format.
+b) State the primary key(s) in (a).
+c) Normalize the table until third normal form (3NF). Show all your work.</pre>
+      
+            <div class="asset owner-asset" data-aid="ICT450-2018-DEC-A37">
+              
+          <div class="asset-title">Table 1
+            <span class="tag">ICT450-2018-DEC-Q4</span>
+            <span class="tag">table</span>
+            <span class="tag">needs_more_work</span>
+            <span class="tag">page 3</span>
+          </div>
+        
+              <div class="cap">Updated HTML recreation (owner-supplied)</div>
+              <img class="owner-shot" src="owner_recreations/ICT450-2018-DEC-A37.png"
+                   alt="updated recreation ICT450-2018-DEC-A37">
+              <div class="cap small">Original crop (reference)</div>
+              <img class="original thumb" src="thumbs/ICT450-2018-DEC-A37.jpg" alt="ICT450-2018-DEC-A37">
+              
+          <div class="verdict-line">
+            <label class="pick"><input type="radio"
+              name="choice-ICT450-2018-DEC-Q4-ICT450-2018-DEC-A37" value="use_recreation" checked>
+              use recreation</label>
+            <label class="pick"><input type="radio"
+              name="choice-ICT450-2018-DEC-Q4-ICT450-2018-DEC-A37" value="use_original">
+              keep original</label>
+            <label class="pick"><input type="radio"
+              name="choice-ICT450-2018-DEC-Q4-ICT450-2018-DEC-A37" value="needs_more_work">
+              needs more work</label>
+            <textarea class="asset-notes" rows="2"
+              placeholder="Notes for this recreation"></textarea>
+          </div>
+        
+            </div>
+            
+      <div class="question-verdict">
+        <label>Question verdict
+          <select class="question-choice"><option value="approved">approved</option><option value="needs_fix" selected>needs_fix</option><option value="rejected">rejected</option></select></label>
+        <textarea class="question-notes" rows="2"
+          placeholder="Question notes (optional)"></textarea>
+      </div>
+    </section>
+    
+    <section class="question" data-qid="ICT450-2019-DEC-Q4">
+      <h2>ICT450-2019-DEC-Q4 <span class="marks">(20 marks)</span></h2>
+      <p class="meta">Source: ICT450-2019-DEC
+        · page 4
+        · previous verdict: needs_fix</p>
+      
+      <pre class="qtext">Based on order form shown in Figure 3.0, answer the following questions:
+a) Convert the data in Figure 3.0 into a relational schema format.
+b) State the primary key(s) based on (a).
+c) Normalize the table until third normal form (3NF). Show all the steps taken.</pre>
+      
+            <div class="asset owner-asset" data-aid="ICT450-2019-DEC-A40">
+              
+          <div class="asset-title">Figure 3
+            <span class="tag">ICT450-2019-DEC-Q4</span>
+            <span class="tag">figure</span>
+            <span class="tag">needs_more_work</span>
+            <span class="tag">page 4</span>
+          </div>
+        
+              <div class="cap">Updated HTML recreation (owner-supplied)</div>
+              <img class="owner-shot" src="owner_recreations/ICT450-2019-DEC-A40.png"
+                   alt="updated recreation ICT450-2019-DEC-A40">
+              <div class="cap small">Original crop (reference)</div>
+              <img class="original thumb" src="thumbs/ICT450-2019-DEC-A40.jpg" alt="ICT450-2019-DEC-A40">
+              
+          <div class="verdict-line">
+            <label class="pick"><input type="radio"
+              name="choice-ICT450-2019-DEC-Q4-ICT450-2019-DEC-A40" value="use_recreation" checked>
+              use recreation</label>
+            <label class="pick"><input type="radio"
+              name="choice-ICT450-2019-DEC-Q4-ICT450-2019-DEC-A40" value="use_original">
+              keep original</label>
+            <label class="pick"><input type="radio"
+              name="choice-ICT450-2019-DEC-Q4-ICT450-2019-DEC-A40" value="needs_more_work">
+              needs more work</label>
+            <textarea class="asset-notes" rows="2"
+              placeholder="Notes for this recreation"></textarea>
+          </div>
+        
+            </div>
+            
+      <div class="question-verdict">
+        <label>Question verdict
+          <select class="question-choice"><option value="approved">approved</option><option value="needs_fix" selected>needs_fix</option><option value="rejected">rejected</option></select></label>
+        <textarea class="question-notes" rows="2"
+          placeholder="Question notes (optional)"></textarea>
+      </div>
+    </section>
+    
+    <section class="question" data-qid="ICT450-2023-JUL-Q3">
+      <h2>ICT450-2023-JUL-Q3 <span class="marks">(20 marks)</span></h2>
+      <p class="meta">Source: ICT450-2023-JUL
+        · page 3, 4
+        · previous verdict: needs_fix</p>
+      
+      <pre class="qtext">Based on the given reservation form, answer the following questions:
+a) Define normalization and explain the purpose of having normalization in a database table. (3 marks)
+b) Describe THREE (3) effects of a poor database design.
+c) Show all the steps to normalize the structure until third normal form (3NF). The primary key(s), partial dependencies and/or transitive dependencies need to be clearly identified.</pre>
+      
+            <div class="asset owner-asset" data-aid="ICT450-2023-JUL-A06">
+              
+          <div class="asset-title">Figure 1
+            <span class="tag">ICT450-2023-JUL-Q3</span>
+            <span class="tag">figure</span>
+            <span class="tag">needs_more_work</span>
+            <span class="tag">page 3</span>
+          </div>
+        
+              <div class="cap">Updated HTML recreation (owner-supplied)</div>
+              <img class="owner-shot" src="owner_recreations/ICT450-2023-JUL-A06.png"
+                   alt="updated recreation ICT450-2023-JUL-A06">
+              <div class="cap small">Original crop (reference)</div>
+              <img class="original thumb" src="thumbs/ICT450-2023-JUL-A06.jpg" alt="ICT450-2023-JUL-A06">
+              
+          <div class="verdict-line">
+            <label class="pick"><input type="radio"
+              name="choice-ICT450-2023-JUL-Q3-ICT450-2023-JUL-A06" value="use_recreation" checked>
+              use recreation</label>
+            <label class="pick"><input type="radio"
+              name="choice-ICT450-2023-JUL-Q3-ICT450-2023-JUL-A06" value="use_original">
+              keep original</label>
+            <label class="pick"><input type="radio"
+              name="choice-ICT450-2023-JUL-Q3-ICT450-2023-JUL-A06" value="needs_more_work">
+              needs more work</label>
+            <textarea class="asset-notes" rows="2"
+              placeholder="Notes for this recreation"></textarea>
+          </div>
+        
+            </div>
+            
+      <div class="question-verdict">
+        <label>Question verdict
+          <select class="question-choice"><option value="approved">approved</option><option value="needs_fix" selected>needs_fix</option><option value="rejected">rejected</option></select></label>
+        <textarea class="question-notes" rows="2"
+          placeholder="Question notes (optional)"></textarea>
+      </div>
+    </section>
+    
+    <section class="question" data-qid="ICT450-2024-JAN-Q3">
+      <h2>ICT450-2024-JAN-Q3 <span class="marks">(20 marks)</span></h2>
+      <p class="meta">Source: ICT450-2024-JAN
+        · page 4, 5
+        · previous verdict: needs_fix</p>
+      
+      <pre class="qtext">Figure 2 shows a report of an employee evaluation result in IT Creative Solutions Sdn. Bhd. in Shah Alam. The report contains all information related to one of the employees in this company. Each employee has been assigned to several projects. Meanwhile, each project has been assigned to several employees. Each project has been supervised by one employee (Supervisor). Supervisor also manages several employees.
+Based on the information given, answer the following questions:
+a) State the normal form of the Figure 2 above. Explain your answer with reasons.
+b) Convert the report into a relational schema. Identify the primary key(s) and partial dependencies and/or transitive dependencies.
+c) Normalize the relational schema in (b) until third normal form (3NF). Show all the steps involved.</pre>
+      
+            <div class="asset owner-asset" data-aid="ICT450-2024-JAN-A12">
+              
+          <div class="asset-title">Figure 2
+            <span class="tag">ICT450-2024-JAN-Q3</span>
+            <span class="tag">figure</span>
+            <span class="tag">needs_more_work</span>
+            <span class="tag">page 4</span>
+          </div>
+        
+              <div class="cap">Updated HTML recreation (owner-supplied)</div>
+              <img class="owner-shot" src="owner_recreations/ICT450-2024-JAN-A12.png"
+                   alt="updated recreation ICT450-2024-JAN-A12">
+              <div class="cap small">Original crop (reference)</div>
+              <img class="original thumb" src="thumbs/ICT450-2024-JAN-A12.jpg" alt="ICT450-2024-JAN-A12">
+              
+          <div class="verdict-line">
+            <label class="pick"><input type="radio"
+              name="choice-ICT450-2024-JAN-Q3-ICT450-2024-JAN-A12" value="use_recreation" checked>
+              use recreation</label>
+            <label class="pick"><input type="radio"
+              name="choice-ICT450-2024-JAN-Q3-ICT450-2024-JAN-A12" value="use_original">
+              keep original</label>
+            <label class="pick"><input type="radio"
+              name="choice-ICT450-2024-JAN-Q3-ICT450-2024-JAN-A12" value="needs_more_work">
+              needs more work</label>
+            <textarea class="asset-notes" rows="2"
+              placeholder="Notes for this recreation"></textarea>
+          </div>
+        
+            </div>
+            
+      <div class="question-verdict">
+        <label>Question verdict
+          <select class="question-choice"><option value="approved">approved</option><option value="needs_fix" selected>needs_fix</option><option value="rejected">rejected</option></select></label>
+        <textarea class="question-notes" rows="2"
+          placeholder="Question notes (optional)"></textarea>
+      </div>
+    </section>
+    
+    <section class="question" data-qid="ICT450-2024-JUL-Q2">
+      <h2>ICT450-2024-JUL-Q2 <span class="marks">(20 marks)</span></h2>
+      <p class="meta">Source: ICT450-2024-JUL
+        · page 3
+        · previous verdict: needs_fix</p>
+      
+      <pre class="qtext">a) The evolution of data models has been driven by the increasing complexity of data storage, management, and analysis needs over time. Match the suitable data models with their correct statements.
+b) The following relational schema provides a basic structure for managing pet sales in a pet shop system. It includes customer information, pet information and purchase transactions.
+PETS (PetID, Name, Species, Age, Price, PurchaseID*)
+CUSTOMERS (CustomerID, Name, Address, Phone, Email)
+PURCHASES (PurchaseID, CustomerID*, PurchaseDate)
+Based on the relational schema above, describe TWO (2) related business rules.
+c) Security is a crucial aspect of DBMS. Describe THREE (3) reasons for protecting data from unauthorized users.
+d) Briefly explain THREE (3) challenges in handling multimedia data compared to traditional structured data.</pre>
+      
+            <div class="asset owner-asset" data-aid="ICT450-2024-JUL-A14">
+              
+          <div class="asset-title">ICT450-2024-JUL-A14
+            <span class="tag">ICT450-2024-JUL-Q2</span>
+            <span class="tag">table</span>
+            <span class="tag">needs_more_work</span>
+            <span class="tag">page 3</span>
+          </div>
+        
+              <div class="cap">Updated HTML recreation (owner-supplied)</div>
+              <img class="owner-shot" src="owner_recreations/ICT450-2024-JUL-A14.png"
+                   alt="updated recreation ICT450-2024-JUL-A14">
+              <div class="cap small">Original crop (reference)</div>
+              <img class="original thumb" src="thumbs/ICT450-2024-JUL-A14.jpg" alt="ICT450-2024-JUL-A14">
+              
+          <div class="verdict-line">
+            <label class="pick"><input type="radio"
+              name="choice-ICT450-2024-JUL-Q2-ICT450-2024-JUL-A14" value="use_recreation" checked>
+              use recreation</label>
+            <label class="pick"><input type="radio"
+              name="choice-ICT450-2024-JUL-Q2-ICT450-2024-JUL-A14" value="use_original">
+              keep original</label>
+            <label class="pick"><input type="radio"
+              name="choice-ICT450-2024-JUL-Q2-ICT450-2024-JUL-A14" value="needs_more_work">
+              needs more work</label>
+            <textarea class="asset-notes" rows="2"
+              placeholder="Notes for this recreation"></textarea>
+          </div>
+        
+            </div>
+            
+      <div class="question-verdict">
+        <label>Question verdict
+          <select class="question-choice"><option value="approved">approved</option><option value="needs_fix" selected>needs_fix</option><option value="rejected">rejected</option></select></label>
+        <textarea class="question-notes" rows="2"
+          placeholder="Question notes (optional)"></textarea>
+      </div>
+    </section>
+    
+<div class="toolbar">
+  <button type="button" onclick="exportDecisions()">Export decisions JSON</button>
+  <span id="status-bottom"></span>
+</div>
+<script>
+function exportDecisions() {
+  const questions = {};
+  let assetCount = 0;
+  document.querySelectorAll('section.question').forEach((node) => {
+    const qid = node.dataset.qid;
+    const assets = {};
+    let needsWork = false;
+    node.querySelectorAll('.asset').forEach((asset) => {
+      const aid = asset.dataset.aid;
+      const checked = asset.querySelector('input[type=radio]:checked');
+      const choice = checked ? checked.value : 'use_recreation';
+      if (choice === 'needs_more_work') needsWork = true;
+      assets[aid] = {
+        choice: choice,
+        notes: asset.querySelector('.asset-notes').value.trim()
+      };
+      assetCount += 1;
+    });
+    const select = node.querySelector('.question-choice');
+    questions[qid] = {
+      verdict: needsWork ? 'needs_fix' : select.value,
+      notes: node.querySelector('.question-notes').value.trim(),
+      assets: assets
+    };
+  });
+  const payload = {subject: 'ICT450', round: 'fix_review',
+                    exported_on: new Date().toISOString().slice(0, 10),
+                    questions: questions};
+  const blob = new Blob([JSON.stringify(payload, null, 2)],
+                        {type: 'application/json'});
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'review_decisions.json';
+  link.click();
+  const message = `Exported ${Object.keys(questions).length} questions, `
+    + `${assetCount} assets`;
+  document.getElementById('status').textContent = message;
+  document.getElementById('status-bottom').textContent = message;
+}
+</script>
+</body></html>

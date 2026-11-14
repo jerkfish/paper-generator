@@ -15,6 +15,8 @@ import pymupdf
 from PIL import Image, ImageDraw, ImageFont
 
 QUESTION_RE = re.compile(r"\bQUESTION\s+([0-9OIl]{1,3})\b", re.I)
+HEADER_QUESTION_RE = re.compile(
+    r"(?m)^\s*(QUESTION\s+[0-9OIl]{1,3})\s*$", re.I)
 MARKS_RE = re.compile(r"\(?\s*([0-9OIl]{1,2})\s*marks?\s*\)?", re.I)
 SUBPART_RE = re.compile(r"^\(?([a-h]|[ivx]{1,4})\)\s*", re.I | re.M)
 REF_RE = re.compile(r"\b(Figure|Table)\s*(\d+)\b", re.I)
@@ -246,6 +248,17 @@ def normalize(*, paper_id: str, pdf_path: Path, cache_dir: Path,
         block = dict(block)
         block["_block_id"] = f"B{index + 1:04d}"
         kind = str(block.get("type", "")).lower()
+        # MinerU sometimes classifies a question heading as a header, either
+        # alone or combined with the page header. Extract the "QUESTION n"
+        # line as a text block so the question is not lost or merged into the
+        # previous one.
+        if kind == "header":
+            heading_match = HEADER_QUESTION_RE.search(
+                str(block.get("text", "") or ""))
+            if heading_match:
+                block["text"] = heading_match.group(1)
+                block["type"] = "text"
+                kind = "text"
         if kind == "text":
             text_blocks.append(block)
         elif kind in {"image", "table"}:

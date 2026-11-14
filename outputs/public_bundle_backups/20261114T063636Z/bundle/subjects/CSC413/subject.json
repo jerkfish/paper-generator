@@ -1,0 +1,48 @@
+{
+  "code": "CSC413",
+  "title": "Introduction to Interactive Multimedia",
+  "status": "available",
+  "type": "B",
+  "header_text": "CSC413 INTRODUCTION TO INTERACTIVE MULTIMEDIA",
+  "enabled_computed_generators": [
+    "csc413.true_false",
+    "csc413.matching",
+    "csc413.mcq",
+    "csc413.structured"
+  ],
+  "has_practice_mode": false,
+  "has_placeholders": false,
+  "order": 2,
+  "has_past_papers": true,
+  "highlight_no_past_papers": false,
+  "capabilities": {
+    "subject_type": "B",
+    "generation": "deterministic",
+    "prebuild": "plugin",
+    "public_documents": "copy_cached",
+    "needs_llm": false,
+    "uses_slides": false,
+    "uses_past_papers": true,
+    "deterministic": true,
+    "practice_mode": false,
+    "placeholders": false,
+    "public_scheme_requires_quote_marker": false
+  },
+  "strategy": "generate",
+  "variants": {
+    "enabled": false
+  },
+  "library": {
+    "size_policy": "min(20, feasible)"
+  },
+  "answers": {
+    "sources": []
+  },
+  "paper_count": 20,
+  "library_manifest": "/library/CSC413/manifest.json",
+  "routes": {
+    "home": "/csc413",
+    "library": "/csc413/library",
+    "generate": "/csc413/generate"
+  }
+}

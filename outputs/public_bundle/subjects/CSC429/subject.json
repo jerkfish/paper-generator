@@ -23,6 +23,16 @@
     "placeholders": false,
     "public_scheme_requires_quote_marker": false
   },
+  "strategy": "pure_extraction",
+  "variants": {
+    "enabled": false
+  },
+  "library": {
+    "size_policy": "min(20, feasible)"
+  },
+  "answers": {
+    "sources": []
+  },
   "paper_count": 20,
   "library_manifest": "/library/CSC429/manifest.json",
   "routes": {

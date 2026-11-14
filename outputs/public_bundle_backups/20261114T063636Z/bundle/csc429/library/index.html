@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSC429 Library</title>
+  <script src="/assets/htmx.min.js?v=1794139258" defer></script>
+  <script src="/assets/library.js?v=1794139258" defer></script>
+  
+  <link rel="stylesheet" href="/assets/style.css?v=1794139258">
+</head>
+<body>
+<h1>Mock Paper Generator</h1>
+<div class="nav">
+  <a href="/">Subjects</a>
+  
+    
+    <a href="/csc402">CSC402</a>
+    <!--  -->
+    
+  
+    
+    <a href="/csc413">CSC413</a>
+    <!--  -->
+    
+  
+    
+    <a href="/csc429">CSC429</a>
+    <!--  -->
+    
+  
+    
+    <a href="/ict450">ICT450</a>
+    <!--  -->
+    
+  
+    
+    <a href="/csc662">CSC662</a>
+    <!--  -->
+    
+  
+    
+    <a href="/mat133">MAT133</a>
+    <!--  -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  <a href="/gallery">Gallery</a>
+</div>
+<hr>
+
+
+<div class="notice">Public bundle: papers keep the original local-build cover;
+public schemes omit verbatim slide quotes. The Library contains PUBLIC_BUILD
+files only.</div>
+
+
+
+<p class="small"><a href="/">Subjects</a> &gt;
+  <a href="/csc429">CSC429</a> &gt; Library</p>
+<h2>CSC429 Library</h2>
+<p>20 prebuilt papers. Cached; no API key and no LLM call.
+  Downloads are paper and scheme in DOCX/PDF.</p>
+
+
+<form id="library-filter" action="/csc429/library" method="get">
+  <fieldset>
+    <legend>Filter</legend>
+    <label for="q">Text:</label>
+    <input type="text" id="q" name="q" size="24" value="">
+    <label for="computed">Total marks:</label>
+    <select id="computed" name="computed">
+      <option value="any">any</option>
+      
+      <option value="100" >100</option>
+      
+    </select>
+    <label for="topic">Topic:</label>
+    <select id="topic" name="topic">
+      <option value="any">any</option>
+      
+      <option value="assembly_programming" >assembly_programming</option>
+      
+      <option value="computer_architecture" >computer_architecture</option>
+      
+      <option value="computer_generations" >computer_generations</option>
+      
+      <option value="data_representation" >data_representation</option>
+      
+      <option value="instruction_set_addressing" >instruction_set_addressing</option>
+      
+      <option value="io_system" >io_system</option>
+      
+      <option value="memory_system" >memory_system</option>
+      
+      <option value="parallel_architecture" >parallel_architecture</option>
+      
+    </select>
+    
+    <input type="submit" value="Apply">
+    <a href="/csc429/library">Reset</a>
+  </fieldset>
+</form>
+
+
+<div id="library-results">
+
+  
+  <p class="small" id="library-count">Showing 20 of 20.</p>
+  <p class="small">Topic abbreviations: ASM assembly_programming, ARC computer_architecture, GEN computer_generations, DAT data_representation, ADR instruction_set_addressing, I/O io_system, MEM memory_system, OTH other, PAR parallel_architecture. Numbers are marks. Click a column title to sort ascending/descending.</p>
+  <div class="table-scroll">
+  <table id="library-table">
+    <thead>
+    <tr>
+      <th data-sort="seed" aria-sort="none"><button type="button" class="sort" data-sort="seed" data-type="number">Seed<span class="sort-mark"></span></button></th>
+      <th data-sort="mode" aria-sort="none"><button type="button" class="sort" data-sort="mode">Mode<span class="sort-mark"></span></button></th>
+      <th data-sort="computed" aria-sort="none"><button type="button" class="sort" data-sort="computed" data-type="number">Total<br>marks<span class="sort-mark"></span></button></th>
+      <th data-sort="topics" aria-sort="none"><button type="button" class="sort" data-sort="topics">Topic mix (marks)<span class="sort-mark"></span></button></th>
+      <th data-sort="placeholders" aria-sort="none"><button type="button" class="sort" data-sort="placeholders" data-type="number">Place-<br>holders<span class="sort-mark"></span></button></th>
+      <th data-sort="paper" aria-sort="none"><button type="button" class="sort" data-sort="paper">Paper<span class="sort-mark"></span></button></th>
+      <th data-sort="scheme" aria-sort="none"><button type="button" class="sort" data-sort="scheme">Scheme<span class="sort-mark"></span></button></th>
+      <th>Share</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    <tr data-seed="1"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="assembly_programming|computer_architecture|computer_generations|data_representation|instruction_set_addressing|io_system|memory_system|parallel_architecture"
+        data-placeholders=""
+        data-paper="CSC429 Seed 01 2026.pdf"
+        data-scheme="CSC429 Seed 01 2026 - Marking Scheme.pdf"
+        data-text="1 realistic 2026 100 ASM 30 ARC 15 GEN 15 I/O 10 MEM 10 PAR 10 DAT 5 ADR 5 assembly_programming computer_architecture computer_generations data_representation instruction_set_addressing io_system memory_system parallel_architecture">
+      <td class="nowrap">01</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ASM 30 ARC 15 GEN 15 I/O 10 MEM 10 PAR 10 DAT 5 ADR 5</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/papers/CSC429%20Seed%2001%202026.docx?v=1794135834" title="CSC429 Seed 01 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/papers/CSC429%20Seed%2001%202026.pdf?v=1794135834" title="CSC429 Seed 01 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2001%202026%20-%20Marking%20Scheme.docx?v=1794135834" title="CSC429 Seed 01 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2001%202026%20-%20Marking%20Scheme.pdf?v=1794135834" title="CSC429 Seed 01 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC429" data-seed="1" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="2"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="assembly_programming|computer_architecture|computer_generations|data_representation|io_system|memory_system|parallel_architecture"
+        data-placeholders=""
+        data-paper="CSC429 Seed 02 2026.pdf"
+        data-scheme="CSC429 Seed 02 2026 - Marking Scheme.pdf"
+        data-text="2 realistic 2026 100 ASM 30 ARC 15 GEN 15 DAT 15 MEM 10 PAR 10 I/O 5 assembly_programming computer_architecture computer_generations data_representation io_system memory_system parallel_architecture">
+      <td class="nowrap">02</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ASM 30 ARC 15 GEN 15 DAT 15 MEM 10 PAR 10 I/O 5</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/papers/CSC429%20Seed%2002%202026.docx?v=1794135834" title="CSC429 Seed 02 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/papers/CSC429%20Seed%2002%202026.pdf?v=1794135834" title="CSC429 Seed 02 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2002%202026%20-%20Marking%20Scheme.docx?v=1794135834" title="CSC429 Seed 02 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2002%202026%20-%20Marking%20Scheme.pdf?v=1794135834" title="CSC429 Seed 02 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC429" data-seed="2" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="3"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="assembly_programming|computer_architecture|computer_generations|data_representation|io_system|memory_system|parallel_architecture"
+        data-placeholders=""
+        data-paper="CSC429 Seed 03 2026.pdf"
+        data-scheme="CSC429 Seed 03 2026 - Marking Scheme.pdf"
+        data-text="3 realistic 2026 100 ASM 30 ARC 15 DAT 15 I/O 15 MEM 10 PAR 10 GEN 5 assembly_programming computer_architecture computer_generations data_representation io_system memory_system parallel_architecture">
+      <td class="nowrap">03</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ASM 30 ARC 15 DAT 15 I/O 15 MEM 10 PAR 10 GEN 5</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/papers/CSC429%20Seed%2003%202026.docx?v=1794135834" title="CSC429 Seed 03 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/papers/CSC429%20Seed%2003%202026.pdf?v=1794135834" title="CSC429 Seed 03 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2003%202026%20-%20Marking%20Scheme.docx?v=1794135834" title="CSC429 Seed 03 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2003%202026%20-%20Marking%20Scheme.pdf?v=1794135834" title="CSC429 Seed 03 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC429" data-seed="3" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="4"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="assembly_programming|computer_architecture|computer_generations|data_representation|io_system|memory_system|parallel_architecture"
+        data-placeholders=""
+        data-paper="CSC429 Seed 04 2026.pdf"
+        data-scheme="CSC429 Seed 04 2026 - Marking Scheme.pdf"
+        data-text="4 realistic 2026 100 ASM 30 ARC 15 DAT 15 I/O 15 MEM 10 PAR 10 GEN 5 assembly_programming computer_architecture computer_generations data_representation io_system memory_system parallel_architecture">
+      <td class="nowrap">04</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ASM 30 ARC 15 DAT 15 I/O 15 MEM 10 PAR 10 GEN 5</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/papers/CSC429%20Seed%2004%202026.docx?v=1794135834" title="CSC429 Seed 04 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/papers/CSC429%20Seed%2004%202026.pdf?v=1794135834" title="CSC429 Seed 04 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2004%202026%20-%20Marking%20Scheme.docx?v=1794135834" title="CSC429 Seed 04 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2004%202026%20-%20Marking%20Scheme.pdf?v=1794135834" title="CSC429 Seed 04 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC429" data-seed="4" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="5"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="assembly_programming|computer_architecture|computer_generations|data_representation|io_system|memory_system|parallel_architecture"
+        data-placeholders=""
+        data-paper="CSC429 Seed 05 2026.pdf"
+        data-scheme="CSC429 Seed 05 2026 - Marking Scheme.pdf"
+        data-text="5 realistic 2026 100 ASM 20 MEM 20 ARC 15 DAT 15 I/O 15 PAR 10 GEN 5 assembly_programming computer_architecture computer_generations data_representation io_system memory_system parallel_architecture">
+      <td class="nowrap">05</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ASM 20 MEM 20 ARC 15 DAT 15 I/O 15 PAR 10 GEN 5</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/papers/CSC429%20Seed%2005%202026.docx?v=1794135834" title="CSC429 Seed 05 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/papers/CSC429%20Seed%2005%202026.pdf?v=1794135834" title="CSC429 Seed 05 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2005%202026%20-%20Marking%20Scheme.docx?v=1794135834" title="CSC429 Seed 05 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2005%202026%20-%20Marking%20Scheme.pdf?v=1794135834" title="CSC429 Seed 05 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC429" data-seed="5" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="6"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="assembly_programming|computer_architecture|computer_generations|data_representation|io_system|memory_system|parallel_architecture"
+        data-placeholders=""
+        data-paper="CSC429 Seed 06 2026.pdf"
+        data-scheme="CSC429 Seed 06 2026 - Marking Scheme.pdf"
+        data-text="6 realistic 2026 100 ASM 20 MEM 20 ARC 15 DAT 15 I/O 15 PAR 10 GEN 5 assembly_programming computer_architecture computer_generations data_representation io_system memory_system parallel_architecture">
+      <td class="nowrap">06</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ASM 20 MEM 20 ARC 15 DAT 15 I/O 15 PAR 10 GEN 5</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/papers/CSC429%20Seed%2006%202026.docx?v=1794135834" title="CSC429 Seed 06 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/papers/CSC429%20Seed%2006%202026.pdf?v=1794135834" title="CSC429 Seed 06 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2006%202026%20-%20Marking%20Scheme.docx?v=1794135834" title="CSC429 Seed 06 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2006%202026%20-%20Marking%20Scheme.pdf?v=1794135834" title="CSC429 Seed 06 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC429" data-seed="6" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="7"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="assembly_programming|computer_architecture|computer_generations|data_representation|io_system|memory_system|parallel_architecture"
+        data-placeholders=""
+        data-paper="CSC429 Seed 07 2026.pdf"
+        data-scheme="CSC429 Seed 07 2026 - Marking Scheme.pdf"
+        data-text="7 realistic 2026 100 ASM 20 MEM 20 ARC 15 DAT 15 I/O 15 PAR 10 GEN 5 assembly_programming computer_architecture computer_generations data_representation io_system memory_system parallel_architecture">
+      <td class="nowrap">07</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ASM 20 MEM 20 ARC 15 DAT 15 I/O 15 PAR 10 GEN 5</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/papers/CSC429%20Seed%2007%202026.docx?v=1794135834" title="CSC429 Seed 07 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/papers/CSC429%20Seed%2007%202026.pdf?v=1794135834" title="CSC429 Seed 07 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2007%202026%20-%20Marking%20Scheme.docx?v=1794135834" title="CSC429 Seed 07 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2007%202026%20-%20Marking%20Scheme.pdf?v=1794135834" title="CSC429 Seed 07 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC429" data-seed="7" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="8"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="assembly_programming|computer_architecture|computer_generations|data_representation|io_system|memory_system|parallel_architecture"
+        data-placeholders=""
+        data-paper="CSC429 Seed 08 2026.pdf"
+        data-scheme="CSC429 Seed 08 2026 - Marking Scheme.pdf"
+        data-text="8 realistic 2026 100 ASM 20 MEM 20 ARC 15 DAT 15 I/O 15 PAR 10 GEN 5 assembly_programming computer_architecture computer_generations data_representation io_system memory_system parallel_architecture">
+      <td class="nowrap">08</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ASM 20 MEM 20 ARC 15 DAT 15 I/O 15 PAR 10 GEN 5</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/papers/CSC429%20Seed%2008%202026.docx?v=1794135834" title="CSC429 Seed 08 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/papers/CSC429%20Seed%2008%202026.pdf?v=1794135834" title="CSC429 Seed 08 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2008%202026%20-%20Marking%20Scheme.docx?v=1794135834" title="CSC429 Seed 08 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2008%202026%20-%20Marking%20Scheme.pdf?v=1794135834" title="CSC429 Seed 08 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC429" data-seed="8" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="9"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="assembly_programming|computer_architecture|computer_generations|data_representation|io_system|memory_system|parallel_architecture"
+        data-placeholders=""
+        data-paper="CSC429 Seed 09 2026.pdf"
+        data-scheme="CSC429 Seed 09 2026 - Marking Scheme.pdf"
+        data-text="9 realistic 2026 100 ASM 30 ARC 15 DAT 15 I/O 15 MEM 10 PAR 10 GEN 5 assembly_programming computer_architecture computer_generations data_representation io_system memory_system parallel_architecture">
+      <td class="nowrap">09</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ASM 30 ARC 15 DAT 15 I/O 15 MEM 10 PAR 10 GEN 5</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/papers/CSC429%20Seed%2009%202026.docx?v=1794135834" title="CSC429 Seed 09 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/papers/CSC429%20Seed%2009%202026.pdf?v=1794135834" title="CSC429 Seed 09 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2009%202026%20-%20Marking%20Scheme.docx?v=1794135834" title="CSC429 Seed 09 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2009%202026%20-%20Marking%20Scheme.pdf?v=1794135834" title="CSC429 Seed 09 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC429" data-seed="9" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="10"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="assembly_programming|computer_architecture|computer_generations|data_representation|io_system|memory_system|parallel_architecture"
+        data-placeholders=""
+        data-paper="CSC429 Seed 10 2026.pdf"
+        data-scheme="CSC429 Seed 10 2026 - Marking Scheme.pdf"
+        data-text="10 realistic 2026 100 ASM 30 ARC 15 DAT 15 I/O 15 MEM 10 PAR 10 GEN 5 assembly_programming computer_architecture computer_generations data_representation io_system memory_system parallel_architecture">
+      <td class="nowrap">10</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ASM 30 ARC 15 DAT 15 I/O 15 MEM 10 PAR 10 GEN 5</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/papers/CSC429%20Seed%2010%202026.docx?v=1794135834" title="CSC429 Seed 10 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/papers/CSC429%20Seed%2010%202026.pdf?v=1794135834" title="CSC429 Seed 10 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2010%202026%20-%20Marking%20Scheme.docx?v=1794135834" title="CSC429 Seed 10 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2010%202026%20-%20Marking%20Scheme.pdf?v=1794135834" title="CSC429 Seed 10 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC429" data-seed="10" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="11"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="assembly_programming|computer_architecture|computer_generations|data_representation|io_system|memory_system|parallel_architecture"
+        data-placeholders=""
+        data-paper="CSC429 Seed 11 2026.pdf"
+        data-scheme="CSC429 Seed 11 2026 - Marking Scheme.pdf"
+        data-text="11 realistic 2026 100 ASM 30 I/O 20 ARC 15 DAT 15 PAR 10 GEN 5 MEM 5 assembly_programming computer_architecture computer_generations data_representation io_system memory_system parallel_architecture">
+      <td class="nowrap">11</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ASM 30 I/O 20 ARC 15 DAT 15 PAR 10 GEN 5 MEM 5</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/papers/CSC429%20Seed%2011%202026.docx?v=1794135834" title="CSC429 Seed 11 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/papers/CSC429%20Seed%2011%202026.pdf?v=1794135834" title="CSC429 Seed 11 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2011%202026%20-%20Marking%20Scheme.docx?v=1794135834" title="CSC429 Seed 11 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2011%202026%20-%20Marking%20Scheme.pdf?v=1794135834" title="CSC429 Seed 11 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC429" data-seed="11" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="12"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="assembly_programming|computer_architecture|computer_generations|data_representation|io_system|memory_system|parallel_architecture"
+        data-placeholders=""
+        data-paper="CSC429 Seed 12 2026.pdf"
+        data-scheme="CSC429 Seed 12 2026 - Marking Scheme.pdf"
+        data-text="12 realistic 2026 100 ASM 30 I/O 20 ARC 15 DAT 15 PAR 10 GEN 5 MEM 5 assembly_programming computer_architecture computer_generations data_representation io_system memory_system parallel_architecture">
+      <td class="nowrap">12</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ASM 30 I/O 20 ARC 15 DAT 15 PAR 10 GEN 5 MEM 5</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/papers/CSC429%20Seed%2012%202026.docx?v=1794135834" title="CSC429 Seed 12 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/papers/CSC429%20Seed%2012%202026.pdf?v=1794135834" title="CSC429 Seed 12 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2012%202026%20-%20Marking%20Scheme.docx?v=1794135834" title="CSC429 Seed 12 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2012%202026%20-%20Marking%20Scheme.pdf?v=1794135834" title="CSC429 Seed 12 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC429" data-seed="12" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="13"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="assembly_programming|computer_architecture|computer_generations|data_representation|io_system|memory_system|parallel_architecture"
+        data-placeholders=""
+        data-paper="CSC429 Seed 13 2026.pdf"
+        data-scheme="CSC429 Seed 13 2026 - Marking Scheme.pdf"
+        data-text="13 realistic 2026 100 ASM 20 I/O 20 ARC 15 GEN 15 DAT 15 PAR 10 MEM 5 assembly_programming computer_architecture computer_generations data_representation io_system memory_system parallel_architecture">
+      <td class="nowrap">13</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ASM 20 I/O 20 ARC 15 GEN 15 DAT 15 PAR 10 MEM 5</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/papers/CSC429%20Seed%2013%202026.docx?v=1794135834" title="CSC429 Seed 13 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/papers/CSC429%20Seed%2013%202026.pdf?v=1794135834" title="CSC429 Seed 13 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2013%202026%20-%20Marking%20Scheme.docx?v=1794135834" title="CSC429 Seed 13 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2013%202026%20-%20Marking%20Scheme.pdf?v=1794135834" title="CSC429 Seed 13 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC429" data-seed="13" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="14"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="assembly_programming|computer_architecture|computer_generations|data_representation|io_system|memory_system|parallel_architecture"
+        data-placeholders=""
+        data-paper="CSC429 Seed 14 2026.pdf"
+        data-scheme="CSC429 Seed 14 2026 - Marking Scheme.pdf"
+        data-text="14 realistic 2026 100 ASM 20 I/O 20 ARC 15 GEN 15 DAT 15 MEM 10 PAR 5 assembly_programming computer_architecture computer_generations data_representation io_system memory_system parallel_architecture">
+      <td class="nowrap">14</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ASM 20 I/O 20 ARC 15 GEN 15 DAT 15 MEM 10 PAR 5</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/papers/CSC429%20Seed%2014%202026.docx?v=1794135834" title="CSC429 Seed 14 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/papers/CSC429%20Seed%2014%202026.pdf?v=1794135834" title="CSC429 Seed 14 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2014%202026%20-%20Marking%20Scheme.docx?v=1794135834" title="CSC429 Seed 14 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2014%202026%20-%20Marking%20Scheme.pdf?v=1794135834" title="CSC429 Seed 14 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC429" data-seed="14" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="15"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="assembly_programming|computer_architecture|computer_generations|data_representation|io_system|memory_system|parallel_architecture"
+        data-placeholders=""
+        data-paper="CSC429 Seed 15 2026.pdf"
+        data-scheme="CSC429 Seed 15 2026 - Marking Scheme.pdf"
+        data-text="15 realistic 2026 100 ASM 20 I/O 20 MEM 20 ARC 15 DAT 15 GEN 5 PAR 5 assembly_programming computer_architecture computer_generations data_representation io_system memory_system parallel_architecture">
+      <td class="nowrap">15</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ASM 20 I/O 20 MEM 20 ARC 15 DAT 15 GEN 5 PAR 5</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/papers/CSC429%20Seed%2015%202026.docx?v=1794135834" title="CSC429 Seed 15 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/papers/CSC429%20Seed%2015%202026.pdf?v=1794135834" title="CSC429 Seed 15 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2015%202026%20-%20Marking%20Scheme.docx?v=1794135834" title="CSC429 Seed 15 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2015%202026%20-%20Marking%20Scheme.pdf?v=1794135834" title="CSC429 Seed 15 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC429" data-seed="15" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="16"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="assembly_programming|computer_architecture|computer_generations|data_representation|io_system|memory_system|parallel_architecture"
+        data-placeholders=""
+        data-paper="CSC429 Seed 16 2026.pdf"
+        data-scheme="CSC429 Seed 16 2026 - Marking Scheme.pdf"
+        data-text="16 realistic 2026 100 ASM 20 I/O 20 MEM 20 ARC 15 DAT 15 GEN 5 PAR 5 assembly_programming computer_architecture computer_generations data_representation io_system memory_system parallel_architecture">
+      <td class="nowrap">16</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ASM 20 I/O 20 MEM 20 ARC 15 DAT 15 GEN 5 PAR 5</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/papers/CSC429%20Seed%2016%202026.docx?v=1794135834" title="CSC429 Seed 16 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/papers/CSC429%20Seed%2016%202026.pdf?v=1794135834" title="CSC429 Seed 16 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2016%202026%20-%20Marking%20Scheme.docx?v=1794135834" title="CSC429 Seed 16 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2016%202026%20-%20Marking%20Scheme.pdf?v=1794135834" title="CSC429 Seed 16 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC429" data-seed="16" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="17"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="assembly_programming|computer_architecture|computer_generations|data_representation|io_system|memory_system|parallel_architecture"
+        data-placeholders=""
+        data-paper="CSC429 Seed 17 2026.pdf"
+        data-scheme="CSC429 Seed 17 2026 - Marking Scheme.pdf"
+        data-text="17 realistic 2026 100 ASM 20 I/O 20 MEM 20 ARC 15 DAT 15 GEN 5 PAR 5 assembly_programming computer_architecture computer_generations data_representation io_system memory_system parallel_architecture">
+      <td class="nowrap">17</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ASM 20 I/O 20 MEM 20 ARC 15 DAT 15 GEN 5 PAR 5</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/papers/CSC429%20Seed%2017%202026.docx?v=1794135834" title="CSC429 Seed 17 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/papers/CSC429%20Seed%2017%202026.pdf?v=1794135834" title="CSC429 Seed 17 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2017%202026%20-%20Marking%20Scheme.docx?v=1794135834" title="CSC429 Seed 17 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2017%202026%20-%20Marking%20Scheme.pdf?v=1794135834" title="CSC429 Seed 17 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC429" data-seed="17" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="18"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="assembly_programming|computer_architecture|computer_generations|data_representation|io_system|memory_system|parallel_architecture"
+        data-placeholders=""
+        data-paper="CSC429 Seed 18 2026.pdf"
+        data-scheme="CSC429 Seed 18 2026 - Marking Scheme.pdf"
+        data-text="18 realistic 2026 100 ASM 20 I/O 20 MEM 20 ARC 15 DAT 15 GEN 5 PAR 5 assembly_programming computer_architecture computer_generations data_representation io_system memory_system parallel_architecture">
+      <td class="nowrap">18</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ASM 20 I/O 20 MEM 20 ARC 15 DAT 15 GEN 5 PAR 5</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/papers/CSC429%20Seed%2018%202026.docx?v=1794135834" title="CSC429 Seed 18 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/papers/CSC429%20Seed%2018%202026.pdf?v=1794135834" title="CSC429 Seed 18 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2018%202026%20-%20Marking%20Scheme.docx?v=1794135834" title="CSC429 Seed 18 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2018%202026%20-%20Marking%20Scheme.pdf?v=1794135834" title="CSC429 Seed 18 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC429" data-seed="18" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="19"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="assembly_programming|computer_architecture|computer_generations|data_representation|instruction_set_addressing|io_system|memory_system|parallel_architecture"
+        data-placeholders=""
+        data-paper="CSC429 Seed 19 2026.pdf"
+        data-scheme="CSC429 Seed 19 2026 - Marking Scheme.pdf"
+        data-text="19 realistic 2026 100 ASM 20 I/O 20 ARC 15 DAT 15 MEM 10 PAR 10 GEN 5 ADR 5 assembly_programming computer_architecture computer_generations data_representation instruction_set_addressing io_system memory_system parallel_architecture">
+      <td class="nowrap">19</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ASM 20 I/O 20 ARC 15 DAT 15 MEM 10 PAR 10 GEN 5 ADR 5</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/papers/CSC429%20Seed%2019%202026.docx?v=1794135834" title="CSC429 Seed 19 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/papers/CSC429%20Seed%2019%202026.pdf?v=1794135834" title="CSC429 Seed 19 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2019%202026%20-%20Marking%20Scheme.docx?v=1794135834" title="CSC429 Seed 19 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2019%202026%20-%20Marking%20Scheme.pdf?v=1794135834" title="CSC429 Seed 19 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC429" data-seed="19" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="20"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="assembly_programming|computer_architecture|computer_generations|data_representation|io_system|memory_system|parallel_architecture"
+        data-placeholders=""
+        data-paper="CSC429 Seed 20 2026.pdf"
+        data-scheme="CSC429 Seed 20 2026 - Marking Scheme.pdf"
+        data-text="20 realistic 2026 100 ASM 20 MEM 20 ARC 15 DAT 15 I/O 15 PAR 10 GEN 5 assembly_programming computer_architecture computer_generations data_representation io_system memory_system parallel_architecture">
+      <td class="nowrap">20</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">ASM 20 MEM 20 ARC 15 DAT 15 I/O 15 PAR 10 GEN 5</td>
+      <td>&mdash;</td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/papers/CSC429%20Seed%2020%202026.docx?v=1794135834" title="CSC429 Seed 20 2026.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/papers/CSC429%20Seed%2020%202026.pdf?v=1794135834" title="CSC429 Seed 20 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2020%202026%20-%20Marking%20Scheme.docx?v=1794135834" title="CSC429 Seed 20 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/CSC429/schemes/CSC429%20Seed%2020%202026%20-%20Marking%20Scheme.pdf?v=1794135834" title="CSC429 Seed 20 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="CSC429" data-seed="20" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    </tbody>
+  </table>
+  </div>
+
+</div>
+
+
+<div class="footer">
+  <hr>
+  <p class="small">Study aid, not an official paper. Theory answers are
+  supported by lecture slides where a subject supplies them; deterministic
+  subjects use paper-derived generators. Not lecturer-marked.
+  <a href="/gallery#takedown">Takedown contact</a>.</p>
+  <p class="small">Contact:
+  <a href="mailto:auzair1990@gmail.com">auzair1990@gmail.com</a><br>
+  Git repository:
+  <a href="https://github.com/jerkfish/paper-generator">https://github.com/jerkfish/paper-generator</a></p>
+</div>
+</body>
+</html>

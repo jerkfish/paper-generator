@@ -1,0 +1,55 @@
+{
+  "subject": "ICT450",
+  "seed": 14,
+  "mode": "realistic",
+  "paper_only": false,
+  "v4_answers": "approved_model_unofficial",
+  "created": 1794385657.961914,
+  "year": 2026,
+  "total_marks": 100,
+  "marks_total": 100,
+  "has_practice_mode": false,
+  "has_placeholders": false,
+  "accepted": 5,
+  "placeholders": 0,
+  "cost_usd": 0.0,
+  "model": "recycled-bank",
+  "topic_marks": {
+    "concepts": 20,
+    "design_theory": 20,
+    "normalization": 20,
+    "sql": 20,
+    "erd": 20
+  },
+  "questions": [
+    "ICT450-2022-FEB-Q1",
+    "ICT450-2023-JUL-Q2",
+    "ICT450-2023-FEB-Q3",
+    "ICT450-2024-JAN-Q4",
+    "ICT450-2025-FEB-Q5"
+  ],
+  "source_papers": [
+    "ICT450-2022-FEB",
+    "ICT450-2023-FEB",
+    "ICT450-2023-JUL",
+    "ICT450-2024-JAN",
+    "ICT450-2025-FEB"
+  ],
+  "paper_pages": 6,
+  "files": {
+    "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\ICT450\\483de8e55adf1ab73953\\paper.docx",
+    "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\ICT450\\483de8e55adf1ab73953\\paper.pdf",
+    "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\ICT450\\483de8e55adf1ab73953\\scheme.docx",
+    "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\ICT450\\483de8e55adf1ab73953\\scheme.pdf"
+  },
+  "assets": {
+    "expected": 3,
+    "inserted": 3,
+    "skipped": [],
+    "missing": []
+  },
+  "answers_approved": true,
+  "answers_approved_on": "2026-11-11",
+  "scheme_provenance": "model_unofficial",
+  "scheme_pages": 7
+}

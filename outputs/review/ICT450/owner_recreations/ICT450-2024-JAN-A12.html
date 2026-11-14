@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Monthly Evaluation Result</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .document-container {
+            background-color: #ffffff;
+            width: 900px;
+            padding: 40px 50px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            color: #000;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            margin-top: 10px;
+        }
+
+        .header h1 {
+            font-size: 20px;
+            margin: 0;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .header h2 {
+            font-size: 20px;
+            margin: 5px 0;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .header h3 {
+            font-size: 18px;
+            margin: 5px 0;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        /* Employee Details Section */
+        .employee-details {
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+
+        .detail-row {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .detail-label {
+            width: 220px;
+            flex-shrink: 0;
+        }
+
+        .detail-colon {
+            width: 20px;
+            flex-shrink: 0;
+            text-align: left;
+        }
+
+        .detail-value {
+            flex-grow: 1;
+        }
+
+        /* Table Section */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 16px;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 10px 8px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th {
+            font-weight: bold;
+            background-color: #fff;
+        }
+
+        /* Specific Column Widths to match image */
+        th:nth-child(1) { width: 12%; }
+        th:nth-child(2) { width: 18%; }
+        th:nth-child(3) { width: 18%; }
+        th:nth-child(4) { width: 10%; }
+        th:nth-child(5) { width: 20%; }
+        th:nth-child(6) { width: 22%; }
+
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        
+        <!-- Header -->
+        <div class="header">
+            <h1>IT CREATIVE SOLUTIONS SDN. BHD.</h1>
+            <h2>EMPLOYEE MONTHLY EVALUATION RESULT</h2>
+            <h3>(FEBRUARY 2024)</h3>
+        </div>
+
+        <!-- Employee Details -->
+        <div class="employee-details">
+            <div class="detail-row">
+                <div class="detail-label">Employee ID</div>
+                <div class="detail-colon">:</div>
+                <div class="detail-value">303303</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Employee Name</div>
+                <div class="detail-colon">:</div>
+                <div class="detail-value">Siti Nur Fadilah</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Employment Year</div>
+                <div class="detail-colon">:</div>
+                <div class="detail-value">2000</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Department</div>
+                <div class="detail-colon">:</div>
+                <div class="detail-value">S1 - Software Development</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Phone Number</div>
+                <div class="detail-colon">:</div>
+                <div class="detail-value">017</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Permanent Address</div>
+                <div class="detail-colon">:</div>
+                <div class="detail-value">JC 1234, Bandar Jasin Bestari Seksyen 7, Melaka</div>
+            </div>
+        </div>
+
+        <!-- Evaluation Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Project<br>Code</th>
+                    <th>Project<br>Name</th>
+                    <th>Location</th>
+                    <th>Grade</th>
+                    <th>Supervisor ID &<br>Name</th>
+                    <th>Supervisor<br>Department</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>MD01</td>
+                    <td>Mobile Apps<br>Development</td>
+                    <td>Kuala<br>Terengganu</td>
+                    <td>A</td>
+                    <td>123123 - Willy</td>
+                    <td>Mobile<br>Application<br>Development</td>
+                </tr>
+                <tr>
+                    <td>WD01</td>
+                    <td>Website<br>Development</td>
+                    <td>Machang</td>
+                    <td>A+</td>
+                    <td>101101 - Mawar</td>
+                    <td>Software<br>Development</td>
+                </tr>
+                <tr>
+                    <td>ST01</td>
+                    <td>Software<br>Integration</td>
+                    <td>Seremban</td>
+                    <td>A-</td>
+                    <td>101101 - Mawar</td>
+                    <td>Software<br>Development</td>
+                </tr>
+                <tr>
+                    <td>ST01</td>
+                    <td>Software<br>Integration</td>
+                    <td>Tapah</td>
+                    <td>A</td>
+                    <td>101101 - Mawar</td>
+                    <td>Software<br>Development</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+</html>

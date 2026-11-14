@@ -719,6 +719,20 @@ uv run python -m src.app.prebuild_library --seeds 1-20 --subject <CODE>
 uv run python -m scripts.build_public_bundle --out outputs/public_bundle --subject <CODE>
 ```
 
-The bank, assembler and gate entry points are the Phase 2 target modules
-(`src/bank/`, `src/assemble/recycle.py`). Until Phase 2 lands, CSC429 remains the
-reference implementation and no finished subject's behaviour is changed.
+The shared bank, assembler and gate entry points now live in `src/bank/` and
+`src/assemble/recycle.py`. Use:
+
+```bash
+# bank counts, quality, duplicates and feasibility (read-only)
+uv run python -m src.bank.cli status <CODE>
+
+# generate the HTML review sheet
+uv run python -m src.bank.cli review <CODE>
+
+# build approved-only seed plans after Gate A (and Gate B for seeds 4+)
+uv run python -m src.bank.cli plans <CODE> --sections sections.json --seeds 1-3
+```
+
+CSC429 remains the reference implementation. Its subject-specific DOCX
+renderer stays under `src/subjects/csc429/`; the shared helpers were extracted
+without changing its output.
