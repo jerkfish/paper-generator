@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "subject": "MAT133",
+  "seed": 1,
+  "built_on": "2026-11-14T14:39:58Z",
+  "format_profile": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\format_profile.json",
+  "total_marks": 55,
+  "slots": [
+    {
+      "slot": "Q1",
+      "question_id": "MAT133-2025-JUL-Q1",
+      "marks": 10,
+      "source_paper": "MAT133-2025-JUL",
+      "pages": [
+        2
+      ],
+      "topic_tags": [
+        "circles"
+      ],
+      "assets": [],
+      "answer": {
+        "answer_id": "ANS-MAT133-2025-JUL-Q1",
+        "provenance": "model_unofficial",
+        "confidence": "high",
+        "usable": true,
+        "subparts": 2
+      }
+    },
+    {
+      "slot": "Q2",
+      "question_id": "MAT133-2022-FEB-Q1",
+      "marks": 10,
+      "source_paper": "MAT133-2022-FEB",
+      "pages": [
+        2
+      ],
+      "topic_tags": [
+        "complex_numbers",
+        "inequalities"
+      ],
+      "assets": [],
+      "answer": {
+        "answer_id": "ANS-MAT133-2022-FEB-Q1",
+        "provenance": "model_unofficial",
+        "confidence": "high",
+        "usable": true,
+        "subparts": 2
+      }
+    },
+    {
+      "slot": "Q3",
+      "question_id": "MAT133-2026-FEB-Q2",
+      "marks": 10,
+      "source_paper": "MAT133-2026-FEB",
+      "pages": [
+        2
+      ],
+      "topic_tags": [
+        "functions"
+      ],
+      "assets": [],
+      "answer": {
+        "answer_id": "ANS-MAT133-2026-FEB-Q2",
+        "provenance": "model_unofficial",
+        "confidence": "medium",
+        "usable": true,
+        "subparts": 2
+      }
+    },
+    {
+      "slot": "Q4",
+      "question_id": "MAT133-2019-JUN-Q3",
+      "marks": 25,
+      "source_paper": "MAT133-2019-JUN",
+      "pages": [
+        3
+      ],
+      "topic_tags": [
+        "absolute_value",
+        "functions",
+        "polynomials"
+      ],
+      "assets": [],
+      "answer": {
+        "answer_id": "ANS-MAT133-2019-JUN-Q3",
+        "provenance": "model_unofficial",
+        "confidence": "high",
+        "usable": true,
+        "subparts": 4
+      }
+    }
+  ]
+}

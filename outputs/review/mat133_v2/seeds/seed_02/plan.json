@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "seed": 2,
+  "reuse_cap": 4,
+  "total_marks": 55,
+  "slots": [
+    {
+      "slot": "Q1",
+      "part": "Q",
+      "marks": 10,
+      "question_id": "MAT133-2025-JUL-Q2",
+      "source_paper": "MAT133-2025-JUL",
+      "pages": [
+        2
+      ],
+      "topic": "functions",
+      "topic_tags": [
+        "functions"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "a7224e8a1ebcae1aba19ae753c39776a3dea9e605d13c7eace9eada7d54fd22f"
+    },
+    {
+      "slot": "Q2",
+      "part": "Q",
+      "marks": 10,
+      "question_id": "MAT133-2021-JUL-Q1-2",
+      "source_paper": "MAT133-2021-JUL",
+      "pages": [
+        7
+      ],
+      "topic": "inequalities",
+      "topic_tags": [
+        "inequalities"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "10abdb8aaf7cc41e9cbc51a65b2e77c3a21ba976243f3063cbddfe1c9e64a62f"
+    },
+    {
+      "slot": "Q3",
+      "part": "Q",
+      "marks": 10,
+      "question_id": "MAT133-2022-FEB-Q2",
+      "source_paper": "MAT133-2022-FEB",
+      "pages": [
+        2
+      ],
+      "topic": "lines",
+      "topic_tags": [
+        "lines"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "4ae728b1a88ecf64a9e73a5b718fc565e0ff53bf6cdb12f41e658212d6cfd093"
+    },
+    {
+      "slot": "Q4",
+      "part": "Q",
+      "marks": 25,
+      "question_id": "MAT133-2026-FEB-Q4",
+      "source_paper": "MAT133-2026-FEB",
+      "pages": [
+        3,
+        4
+      ],
+      "topic": "trigonometry",
+      "topic_tags": [
+        "trigonometry"
+      ],
+      "assets": [
+        "A-MAT133-2026-FEB-Q4-F1",
+        "A-MAT133-2026-FEB-Q4-F2"
+      ],
+      "refs": [
+        "Figure 1",
+        "Figure 2"
+      ],
+      "content_hash": "4cd4c9acfc063ace59fd65b95e0a2be55dca8757c742ff15b280ea5c33177bf6"
+    }
+  ]
+}

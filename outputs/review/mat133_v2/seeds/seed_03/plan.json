@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "seed": 3,
+  "reuse_cap": 4,
+  "total_marks": 55,
+  "slots": [
+    {
+      "slot": "Q1",
+      "part": "Q",
+      "marks": 10,
+      "question_id": "MAT133-2021-JUL-Q1",
+      "source_paper": "MAT133-2021-JUL",
+      "pages": [
+        2
+      ],
+      "topic": "inequalities",
+      "topic_tags": [
+        "inequalities"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "9a3105a549bb029cc499fbb61c29b2c7a35396324921df792b571fa7ea7b2ad0"
+    },
+    {
+      "slot": "Q2",
+      "part": "Q",
+      "marks": 10,
+      "question_id": "MAT133-2026-FEB-Q1",
+      "source_paper": "MAT133-2026-FEB",
+      "pages": [
+        2
+      ],
+      "topic": "parabolas",
+      "topic_tags": [
+        "parabolas"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "a4a38242accd7492bd8200abf4e11d038f96905c9d8c3e259c74944c130c90b1"
+    },
+    {
+      "slot": "Q3",
+      "part": "Q",
+      "marks": 10,
+      "question_id": "MAT133-2023-FEB-Q4",
+      "source_paper": "MAT133-2023-FEB",
+      "pages": [
+        3
+      ],
+      "topic": "trigonometry",
+      "topic_tags": [
+        "trigonometry"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "bb3a713ba4d01999f54cd48aec3ed23981bacb20ea0a7aa5e61fb00461e2c460"
+    },
+    {
+      "slot": "Q4",
+      "part": "Q",
+      "marks": 25,
+      "question_id": "MAT133-2018-JUN-Q3",
+      "source_paper": "MAT133-2018-JUN",
+      "pages": [
+        3
+      ],
+      "topic": "functions",
+      "topic_tags": [
+        "functions"
+      ],
+      "assets": [
+        "A-MAT133-2018-JUN-Q3-F1"
+      ],
+      "refs": [
+        "Figure 1"
+      ],
+      "content_hash": "bcea4013ae5a6e27c1c7778a20eb2d5b9e597c8fc31c10f50b25a11c34b0add2"
+    }
+  ]
+}

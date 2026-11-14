@@ -5,9 +5,9 @@
   "title": "Pre-Calculus",
   "type": "D",
   "strategy": "recycle",
-  "lifecycle_status": "awaiting_gate_a",
+  "lifecycle_status": "in_progress",
   "created": "2026-11-14T00:00:00Z",
-  "updated": "2026-11-14T13:59:02Z",
+  "updated": "2026-11-14T14:11:48Z",
   "stages": {
     "V0_intake": {
       "status": "done",
@@ -50,7 +50,7 @@
       "notes": "MinerU VLM extracted 37 of 37 unique papers; 0 failed, 0 missing."
     },
     "V2_bank": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "data/tracking/mat133/v2/bank/index.json",
         "data/tracking/mat133/v2/bank/gate1_report.json",
@@ -62,31 +62,35 @@
         "data/tracking/mat133/v2/bank/duplicates.json"
       ],
       "llm_cost_usd": 0.0,
-      "blockers": [
-        "Gate A approval is pending owner review."
-      ],
+      "blockers": [],
       "human_approval": {
         "required": false,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-14",
+        "note": "Gate A approved after two review rounds."
       },
       "notes": "188 questions from 37 papers; 187 approved, 0 needs fix, 1 rejected. Gate A review is pending."
     },
     "V3_format": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "data/tracking/mat133/v2/format_profile.json",
+        "data/tracking/mat133/v2/template_check.json",
+        "data/tracking/mat133/v2/templates_preview/paper_template_page_1.png",
+        "data/tracking/mat133/v2/templates_preview/scheme_template_page_1.png",
+        "subjects/MAT133/subject.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": false,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-14",
+        "note": "V3 uses the two newest papers: four questions, 10+10+10+25 marks, 2 hours. Paper template is the approved MAT133 template; scheme template is the standard UTM marking scheme."
       },
-      "notes": ""
+      "notes": "Current format from MAT133-2026-FEB (55 marks) and MAT133-2025-JUL (four questions, 2 hours; 50-mark variant). Exact slot marks, no tolerance."
     },
     "V4_answers": {
       "status": "pending",
@@ -161,19 +165,23 @@
   },
   "gates": {
     "A": {
-      "status": "pending",
-      "by": "",
-      "on": "",
+      "status": "approved",
+      "by": "project owner",
+      "on": "2026-11-14",
       "evidence": [
         "data/tracking/mat133/v2/bank/gate1_report.json",
         "data/tracking/mat133/v2/bank/gate1_report.md",
         "data/tracking/mat133/v2/bank/review/index.html",
         "data/tracking/mat133/v2/bank/review/index_by_paper.html",
+        "data/tracking/mat133/v2/bank/review/review_decisions.json",
+        "data/tracking/mat133/v2/bank/review/review_decisions_needs_fix.json",
+        "data/tracking/mat133/v2/bank/review/review_rounds_report.md",
         "data/tracking/mat133/v2/bank/review/marks.csv",
         "data/tracking/mat133/v2/bank/unsure.json",
         "data/tracking/mat133/v2/bank/duplicates.json"
       ],
-      "note": "188 questions in 37 papers; 187 approved, 0 needs fix; 0 missing papers."
+      "note": "Approved after two review rounds: 187 questions approved, 1 rejected (MAT133-2014-MAR-Q5), 0 needs fix. The rejected question is excluded from assembly.",
+      "conditions": []
     },
     "B": {
       "status": "pending",
@@ -583,7 +591,7 @@
     },
     "notes": "V0 is deterministic registry/intake work: $0.00. MinerU page cost is recorded per run at V1."
   },
-  "stop_reason": "Gate A bank review.",
+  "stop_reason": "V4 answers.",
   "migration_mode": "full_v2_from_raw_papers",
   "migration_started_on": "2026-11-14",
   "branch": "MAT133",
@@ -600,7 +608,7 @@
       1
     ],
     "v1_state": "subjects/MAT133/lifecycle_state_v1.json",
-    "v2_status": "V2_bank_pending_gate_a",
+    "v2_status": "V3_done",
     "v2_note": "v2 documents do not exist yet. They are built only after Gate A (bank) and Gate B (seeds 1-3)."
   }
 }

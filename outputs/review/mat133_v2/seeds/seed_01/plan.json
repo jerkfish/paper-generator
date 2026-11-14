@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "seed": 1,
+  "reuse_cap": 4,
+  "total_marks": 55,
+  "slots": [
+    {
+      "slot": "Q1",
+      "part": "Q",
+      "marks": 10,
+      "question_id": "MAT133-2025-JUL-Q1",
+      "source_paper": "MAT133-2025-JUL",
+      "pages": [
+        2
+      ],
+      "topic": "circles",
+      "topic_tags": [
+        "circles"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "78f7f97ac791965abda2bd830f315081f6ebeaf9011004c171609e2daeac78ed"
+    },
+    {
+      "slot": "Q2",
+      "part": "Q",
+      "marks": 10,
+      "question_id": "MAT133-2022-FEB-Q1",
+      "source_paper": "MAT133-2022-FEB",
+      "pages": [
+        2
+      ],
+      "topic": "complex_numbers",
+      "topic_tags": [
+        "complex_numbers",
+        "inequalities"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "2df7c769226def33c58a92afb228904f2c2a6815dd6d395a26412e1820a0ced5"
+    },
+    {
+      "slot": "Q3",
+      "part": "Q",
+      "marks": 10,
+      "question_id": "MAT133-2026-FEB-Q2",
+      "source_paper": "MAT133-2026-FEB",
+      "pages": [
+        2
+      ],
+      "topic": "functions",
+      "topic_tags": [
+        "functions"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "c2a5fdf62b65df71a35b06d7ce32da872e78019e7d5d4ba5e5db107df5af2d71"
+    },
+    {
+      "slot": "Q4",
+      "part": "Q",
+      "marks": 25,
+      "question_id": "MAT133-2019-JUN-Q3",
+      "source_paper": "MAT133-2019-JUN",
+      "pages": [
+        3
+      ],
+      "topic": "absolute_value",
+      "topic_tags": [
+        "absolute_value",
+        "functions",
+        "polynomials"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "228597a1c22c2991a029358092079d2e37957cc9bcdda058e51c3ac9c7eec219"
+    }
+  ]
+}
