@@ -56,7 +56,11 @@
     "asset_first": true,
     "parametric_variants": false
   },
-  "plugins": {},
+  "plugins": {
+    "prebuild": "src.subjects.ict450.live:build_seed",
+    "seed_cap": "src.subjects.ict450.live:seed_cap",
+    "library_seeds": "src.subjects.ict450.live:library_seeds"
+  },
   "permissions": {
     "papers": {
       "allowed": true,

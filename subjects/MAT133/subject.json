@@ -92,10 +92,11 @@
     "asset_first": true
   },
   "plugins": {
-    "prebuild": "src.subjects.mat133.plugin:build_seed",
+    "prebuild": "src.subjects.mat133.live:build_seed",
     "generator_labels": "src.subjects.mat133.plugin:generator_labels",
     "topic_labels": "src.subjects.mat133.plugin:topic_labels",
-    "library_seeds": "src.subjects.mat133.plugin:library_seeds"
+    "library_seeds": "src.subjects.mat133.plugin:library_seeds",
+    "seed_cap": "src.subjects.mat133.live:seed_cap"
   },
   "permissions": {
     "papers": {

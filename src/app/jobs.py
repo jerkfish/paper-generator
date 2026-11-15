@@ -326,11 +326,15 @@ class JobManager:
             raise ValueError("mode must be realistic or practice")
         if mode == "practice" and not subject_obj.has_practice_mode:
             raise ValueError(f"{code} does not support practice mode")
+        cap = subject_seed_cap(subject_obj)
         if seed is None:
-            seed = random.SystemRandom().randint(1, 10_000)
+            seed = random.SystemRandom().randint(1, cap or 10_000)
         if int(seed) < 1:
             raise ValueError("seed must be a positive integer")
         seed = int(seed)
+        if cap is not None and seed > cap:
+            raise ValueError(
+                f"{code} can build seeds 1-{cap} from the current bank")
         if mode == "practice" and not deterministic:
             computed_marks = 22 if computed_marks is None else int(computed_marks)
             if not 0 <= computed_marks <= 80:
@@ -570,6 +574,26 @@ def _planner_data(seed: int, subject: Subject | None = None) -> dict:
         return dict(plugin(seed) or {})
     except Exception:
         return {}
+
+
+def subject_seed_cap(subject: str | Subject | None = None) -> int | None:
+    """Return the subject's deterministic seed cap, when it exposes one."""
+    record = subject if isinstance(subject, Subject) else None
+    if record is None and subject:
+        try:
+            record = get_subject(str(subject))
+        except SubjectNotFound:
+            record = None
+    if record is None:
+        return None
+    plugin = plugin_for(record, "seed_cap")
+    if plugin is None:
+        return None
+    try:
+        value = int(plugin())
+    except Exception:
+        return None
+    return value if value > 0 else None
 
 
 def _library_seeds(subject: str | Subject | None = None) -> list[int]:

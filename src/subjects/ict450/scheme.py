@@ -377,10 +377,12 @@ def _pdf_info(path: Path) -> dict:
 
 
 def build_scheme(seed: int, plan: dict, answers: dict,
-                 *, force: bool = False) -> dict:
-    OUT.mkdir(parents=True, exist_ok=True)
-    docx_path = OUT / f"seed_{seed:02d}_scheme.docx"
-    pdf_path = OUT / f"seed_{seed:02d}_scheme.pdf"
+                 *, force: bool = False,
+                 out_dir: Path | None = None) -> dict:
+    target = Path(out_dir) if out_dir is not None else OUT
+    target.mkdir(parents=True, exist_ok=True)
+    docx_path = target / f"seed_{seed:02d}_scheme.docx"
+    pdf_path = target / f"seed_{seed:02d}_scheme.pdf"
     if docx_path.exists() and not force:
         return {"seed": seed, "cached": True, "path": str(docx_path)}
     shutil.copy2(TEMPLATE, docx_path)
@@ -427,7 +429,7 @@ def build_scheme(seed: int, plan: dict, answers: dict,
         "files": {"scheme_docx": str(docx_path),
                   "scheme_pdf": str(pdf_path)},
     }
-    save_json(OUT / f"seed_{seed:02d}_qa.json", result)
+    save_json(target / f"seed_{seed:02d}_qa.json", result)
     if problems:
         raise RuntimeError(f"seed {seed} scheme QA failed: {problems}")
     return result

@@ -1031,8 +1031,9 @@ def _preview(pdf: Path, target_dir: Path, stem: str) -> list[str]:
     return paths
 
 
-def build_seed(seed: int) -> dict:
-    seed_dir = OUT / f"seed_{seed:02d}"
+def build_seed(seed: int, out_dir: Path | None = None,
+               preview: bool = True) -> dict:
+    seed_dir = Path(out_dir) if out_dir is not None else OUT / f"seed_{seed:02d}"
     if seed_dir.exists():
         shutil.rmtree(seed_dir)
     plans = [plan for plan in plans_for([seed]) if int(plan["seed"]) == seed]
@@ -1068,8 +1069,9 @@ def build_seed(seed: int) -> dict:
         "scheme_pdf": str(scheme_pdf),
     }
     save_json(seed_dir / "meta.json", meta)
-    _preview(paper_pdf, seed_dir / "preview", "paper")
-    _preview(scheme_pdf, seed_dir / "preview", "scheme")
+    if preview:
+        _preview(paper_pdf, seed_dir / "preview", "paper")
+        _preview(scheme_pdf, seed_dir / "preview", "scheme")
     return {"seed": seed, "plan": str(seed_dir / "plan.json"),
             "qa": qa, "paper_pdf": str(paper_pdf),
             "scheme_pdf": str(scheme_pdf), "meta": str(seed_dir / "meta.json")}

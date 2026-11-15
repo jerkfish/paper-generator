@@ -76,3 +76,21 @@ def test_math_is_inserted_as_native_word_equation():
 
 def test_unconvertible_formula_returns_no_equation():
     assert render_v5._omml_element(r"\frac{") is None
+
+
+def test_recycled_subjects_expose_deterministic_seed_caps():
+    from src.app.jobs import subject_seed_cap
+
+    assert subject_seed_cap("MAT133") == 64
+    assert subject_seed_cap("ICT450") == 40
+
+
+def test_seed_above_cap_is_rejected():
+    from src.app.jobs import manager
+
+    try:
+        manager.create("realistic", 65, subject="MAT133")
+    except ValueError as error:
+        assert "1-64" in str(error)
+    else:
+        raise AssertionError("seed above the MAT133 cap was accepted")

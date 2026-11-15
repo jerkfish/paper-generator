@@ -15,8 +15,7 @@ from src import config
 from src.app.filenames import content_disposition
 from src.app.jobs import (filter_library, library_count, library_file,
                           library_item, library_items, library_version_columns,
-                          manager,
-                          topic_legend)
+                          manager, subject_seed_cap, topic_legend)
 from src.app.safety import (ForbiddenPathError, assert_no_secret_leaks,
                             ensure_servable)
 from src.subjects.plugins import generator_labels as subject_generator_labels
@@ -213,6 +212,8 @@ def library(request: Request, code: str, q: str = "", computed: str = "any",
                        placeholders=placeholders, topics=topics,
                        computed_options=computed_options,
                        version_columns=library_version_columns(items),
+                       seed_cap=subject_seed_cap(subject),
+                       prebuilt_max=20,
                        topic_legend=topic_legend(subject.code))
     name = ("_library.html"
             if request.headers.get("HX-Request") == "true" else "library.html")
@@ -239,7 +240,10 @@ def generate_page(request: Request, code: str) -> HTMLResponse:
         request=request, name="generate.html",
         context=_context(request, subject=subject,
                          deterministic=subject.deterministic,
-                         needs_llm=subject.needs_llm))
+                         needs_llm=subject.needs_llm,
+                         seed_cap=subject_seed_cap(subject),
+                         prebuilt_max=20,
+                         recycle=subject.strategy == "recycle"))
 
 
 @app.post("/{code}/generate", response_class=HTMLResponse)
