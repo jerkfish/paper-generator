@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-14T06:35:30Z",
+  "generated": "2026-11-15T05:23:18Z",
   "subjects": [
     {
       "code": "CSC402",
@@ -8,13 +8,9 @@
       "route": "csc402",
       "available": true,
       "type": "B",
-      "papers": 20,
-      "library_manifest": "/library/CSC402/manifest.json",
-      "routes": {
-        "home": "/csc402",
-        "library": "/csc402/library",
-        "generate": "/csc402/generate"
-      }
+      "papers": 0,
+      "library_manifest": null,
+      "routes": null
     },
     {
       "code": "CSC413",
@@ -23,13 +19,9 @@
       "route": "csc413",
       "available": true,
       "type": "B",
-      "papers": 20,
-      "library_manifest": "/library/CSC413/manifest.json",
-      "routes": {
-        "home": "/csc413",
-        "library": "/csc413/library",
-        "generate": "/csc413/generate"
-      }
+      "papers": 0,
+      "library_manifest": null,
+      "routes": null
     },
     {
       "code": "CSC429",
@@ -38,13 +30,9 @@
       "route": "csc429",
       "available": true,
       "type": "D",
-      "papers": 20,
-      "library_manifest": "/library/CSC429/manifest.json",
-      "routes": {
-        "home": "/csc429",
-        "library": "/csc429/library",
-        "generate": "/csc429/generate"
-      }
+      "papers": 0,
+      "library_manifest": null,
+      "routes": null
     },
     {
       "code": "ICT450",
@@ -53,13 +41,9 @@
       "route": "ict450",
       "available": true,
       "type": "D",
-      "papers": 20,
-      "library_manifest": "/library/ICT450/manifest.json",
-      "routes": {
-        "home": "/ict450",
-        "library": "/ict450/library",
-        "generate": "/ict450/generate"
-      }
+      "papers": 0,
+      "library_manifest": null,
+      "routes": null
     },
     {
       "code": "CSC662",
@@ -68,13 +52,9 @@
       "route": "csc662",
       "available": true,
       "type": "A",
-      "papers": 20,
-      "library_manifest": "/library/CSC662/manifest.json",
-      "routes": {
-        "home": "/csc662",
-        "library": "/csc662/library",
-        "generate": "/csc662/generate"
-      }
+      "papers": 0,
+      "library_manifest": null,
+      "routes": null
     },
     {
       "code": "MAT133",
@@ -82,7 +62,7 @@
       "status": "available",
       "route": "mat133",
       "available": true,
-      "type": "B",
+      "type": "D",
       "papers": 20,
       "library_manifest": "/library/MAT133/manifest.json",
       "routes": {

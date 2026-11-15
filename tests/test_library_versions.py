@@ -128,5 +128,5 @@ def test_public_bundle_can_restrict_document_versions():
                       "paper_v2_docx": "v2.docx"},
     }
     public = _public_item(item, subject)
-    assert [version["label"] for version in public["versions"]] == ["v1"]
-    assert list(public["downloads"]) == ["paper_docx"]
+    assert [version["label"] for version in public["versions"]] == ["v1", "v2"]
+    assert list(public["downloads"]) == ["paper_docx", "paper_v2_docx"]

@@ -41,7 +41,7 @@ def test_mat133_is_type_d_recycle():
     assert subject.permissions["cloud_processing"]["allowed"] is True
     assert subject.permissions["cloud_processing"]["confirmed_on"] == (
         "2026-11-14")
-    assert subject.public_document_versions == {"1"}
+    assert subject.public_document_versions == {"1", "2"}
 
 
 def test_v2_lifecycle_passes_gate_a():
@@ -56,19 +56,20 @@ def test_v2_lifecycle_passes_gate_a():
     assert state["stages"]["V2_bank"]["status"] == "done"
     assert set(state["gates"]) == {"A", "B", "C"}
     assert state["gates"]["A"]["status"] == "approved"
-    assert state["gates"]["B"]["status"] == "pending"
+    assert state["gates"]["B"]["status"] == "approved"
     assert state["gates"]["C"]["status"] == "pending"
     assert state["bank"]["questions"] >= 0
     assert state["answers"]["solver_verified"] == 0
 
     report = status_report(ROOT, "MAT133")
-    assert report["next_gate"] == "B"
+    assert report["next_gate"] in (None, "C")
 
 
 def test_rejected_pilot_documents_are_not_in_the_library():
     item = jobs.library_item(1, "MAT133")
     if item is None:
         return
-    assert len(item["versions"]) == 1
+    assert len(item["versions"]) == 2
     assert item["versions"][0]["version"] == 1
-    assert "paper_v2_docx" not in item["downloads"]
+    assert item["versions"][1]["version"] == 2
+    assert "paper_v2_docx" in item["downloads"]

@@ -33,11 +33,13 @@
   "answers": {
     "sources": []
   },
-  "paper_count": 20,
-  "library_manifest": "/library/CSC429/manifest.json",
-  "routes": {
-    "home": "/csc429",
-    "library": "/csc429/library",
-    "generate": "/csc429/generate"
-  }
+  "documents": {
+    "versions": [
+      1
+    ],
+    "public_versions": [
+      "1"
+    ]
+  },
+  "paper_count": 0
 }

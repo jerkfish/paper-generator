@@ -163,20 +163,38 @@
       2
     ],
     "public_versions": [
-      1
+      1,
+      2
     ],
     "labels": {
       "1": "v1",
       "2": "v2"
     },
     "v2_playbook_version": "2.0",
-    "v2_status": "V5_seeds_built_gate_B_pending",
+    "v2_status": "V6_library_ready_gate_C",
     "v2_built_seeds": [
       1,
       2,
-      3
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
     ],
-    "v2_publication": "not published; Gate B and Gate C required",
+    "v2_publication": "public bundle prepared; Gate C approval required for upload/deploy",
     "v2_build_dir": "outputs/review/mat133_v2/seeds"
   },
   "scheme_template_path": "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx",

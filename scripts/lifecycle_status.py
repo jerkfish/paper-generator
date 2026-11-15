@@ -30,6 +30,9 @@ from src.subjects.registry import SubjectNotFound, get_subject
 def _permission_blockers(subject) -> list[str]:
     blockers = []
     for name in ("papers", "scheme", "slides", "publication"):
+        if name == "slides" and not subject.capabilities.get(
+                "uses_slides", False):
+            continue
         permission = (subject.permissions or {}).get(name) or {}
         if not permission.get("allowed"):
             basis = permission.get("basis") or "unsure"
