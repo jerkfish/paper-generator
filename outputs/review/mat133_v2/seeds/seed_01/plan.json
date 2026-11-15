@@ -1,11 +1,47 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
+  "subject": "MAT133",
   "seed": 1,
+  "selection": "role_order_no_marks",
   "reuse_cap": 4,
-  "total_marks": 55,
+  "total_marks": 88,
   "slots": [
     {
       "slot": "Q1",
+      "part": "Q",
+      "marks": 10,
+      "question_id": "MAT133-2026-FEB-Q1",
+      "source_paper": "MAT133-2026-FEB",
+      "pages": [
+        2
+      ],
+      "topic": "parabolas",
+      "topic_tags": [
+        "parabolas"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "a4a38242accd7492bd8200abf4e11d038f96905c9d8c3e259c74944c130c90b1"
+    },
+    {
+      "slot": "Q2",
+      "part": "Q",
+      "marks": 25,
+      "question_id": "MAT133-2016-OCT-Q3",
+      "source_paper": "MAT133-2016-OCT",
+      "pages": [
+        3
+      ],
+      "topic": "functions",
+      "topic_tags": [
+        "functions"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "c5ea5d41ee31dcf31769c0c0915b06c276c2a0b8a20f1aeea83dce81f3fb665d"
+    },
+    {
+      "slot": "Q3",
       "part": "Q",
       "marks": 10,
       "question_id": "MAT133-2025-JUL-Q1",
@@ -22,58 +58,45 @@
       "content_hash": "78f7f97ac791965abda2bd830f315081f6ebeaf9011004c171609e2daeac78ed"
     },
     {
-      "slot": "Q2",
-      "part": "Q",
-      "marks": 10,
-      "question_id": "MAT133-2022-FEB-Q1",
-      "source_paper": "MAT133-2022-FEB",
-      "pages": [
-        2
-      ],
-      "topic": "complex_numbers",
-      "topic_tags": [
-        "complex_numbers",
-        "inequalities"
-      ],
-      "assets": [],
-      "refs": [],
-      "content_hash": "2df7c769226def33c58a92afb228904f2c2a6815dd6d395a26412e1820a0ced5"
-    },
-    {
-      "slot": "Q3",
-      "part": "Q",
-      "marks": 10,
-      "question_id": "MAT133-2026-FEB-Q2",
-      "source_paper": "MAT133-2026-FEB",
-      "pages": [
-        2
-      ],
-      "topic": "functions",
-      "topic_tags": [
-        "functions"
-      ],
-      "assets": [],
-      "refs": [],
-      "content_hash": "c2a5fdf62b65df71a35b06d7ce32da872e78019e7d5d4ba5e5db107df5af2d71"
-    },
-    {
       "slot": "Q4",
       "part": "Q",
-      "marks": 25,
-      "question_id": "MAT133-2019-JUN-Q3",
-      "source_paper": "MAT133-2019-JUN",
+      "marks": 23,
+      "question_id": "MAT133-2017-MAR-Q5",
+      "source_paper": "MAT133-2017-MAR",
       "pages": [
-        3
+        4,
+        5
       ],
-      "topic": "absolute_value",
+      "topic": "trigonometry",
       "topic_tags": [
-        "absolute_value",
-        "functions",
-        "polynomials"
+        "trigonometry"
+      ],
+      "assets": [
+        "A-MAT133-2017-MAR-Q5-F1",
+        "A-MAT133-2017-MAR-Q5-F2"
+      ],
+      "refs": [
+        "Figure 1",
+        "Figure 2"
+      ],
+      "content_hash": "35f210db04d0cfda806abeb7ff010e4c43b071b912492275ee97088cbf8bd952"
+    },
+    {
+      "slot": "Q5",
+      "part": "Q",
+      "marks": 20,
+      "question_id": "MAT133-2008-OCT-Q5",
+      "source_paper": "MAT133-2008-OCT",
+      "pages": [
+        6
+      ],
+      "topic": "trigonometry",
+      "topic_tags": [
+        "trigonometry"
       ],
       "assets": [],
       "refs": [],
-      "content_hash": "228597a1c22c2991a029358092079d2e37957cc9bcdda058e51c3ac9c7eec219"
+      "content_hash": "a5845a069293ba0f1bd0a4bf6e82a1d61f00ba54d5d02d46bfd094ff31d06068"
     }
   ]
 }

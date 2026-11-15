@@ -49,12 +49,22 @@ def format_profile() -> dict:
         "source_papers": ["MAT133-2026-FEB", "MAT133-2025-JUL"],
         "sections": [{
             "key": "Q",
-            "questions": 4,
-            "marks_per_slot": [10, 10, 10, 25],
-            "numbering": "QUESTION 1..4; a), b), c), d); i., ii.",
+            "questions": 5,
+            "marks_per_slot": [],
+            "marks_selection": "ignored",
+            "numbering": "QUESTION 1..5; a), b), c), d); i., ii.",
         }],
-        "total_marks": 55,
-        "duration": "2 HOURS",
+        "total_marks": None,
+        "duration": "3 HOURS",
+        "slot_roles": {
+            "Q1": ["inequalities", "circles", "complex_numbers", "parabolas"],
+            "Q2": ["coordinate geometry", "functions", "lines", "circles",
+                   "parabolas"],
+            "Q3": ["functions", "or another Q2 topic when Q2 used functions"],
+            "Q4": ["systems of equations", "systems of inequalities",
+                   "trigonometry", "circular measure"],
+            "Q5": ["trigonometry"],
+        },
         "numbering": {
             "question": "QUESTION n",
             "subparts": "a), b), c), d)",
@@ -64,16 +74,17 @@ def format_profile() -> dict:
         "scheme_template": ("data/reference/standard/"
                             "UTM_STANDARD_MARKING_SCHEME.docx"),
         "slot_policy": {
-            "marks_tolerance": 0,
+            "marks_selection": "ignored",
             "question_reuse_within_paper": "never",
-            "topic_policy": ("no fixed quota; prefer distinct topics across "
-                             "the four selected questions"),
+            "topic_policy": ("fixed role order Q1-Q5; marks are printed from "
+                             "the source question but are not a selection "
+                             "constraint"),
         },
         "marks_basis": (
-            "The two newest papers define the current format. Both have four "
-            "questions and a 2-hour duration. Feb 2026 is 10+10+10+25 = 55; "
-            "Jul 2025 is 50 because its Q3 is a 5-mark variant. V3 uses the "
-            "full 55-mark shape with exact slot marks and no tolerance."),
+            "The owner ruled that marks are not a selection parameter for "
+            "MAT133 v2. The five-question role order follows the past-paper "
+            "arrangement analysis; marks are printed as they appear on the "
+            "recycled question."),
         "older_era": {
             "note": ("Five-question, 3-hour papers remain in the bank for "
                      "topic choice and provenance, but are not the current "

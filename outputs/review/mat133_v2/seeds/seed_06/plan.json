@@ -1,0 +1,99 @@
+{
+  "schema_version": 2,
+  "subject": "MAT133",
+  "seed": 6,
+  "selection": "role_order_no_marks",
+  "reuse_cap": 4,
+  "total_marks": 100,
+  "slots": [
+    {
+      "slot": "Q1",
+      "part": "Q",
+      "marks": 14,
+      "question_id": "MAT133-2019-JUN-Q1",
+      "source_paper": "MAT133-2019-JUN",
+      "pages": [
+        2
+      ],
+      "topic": "inequalities",
+      "topic_tags": [
+        "inequalities"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "6134f97a8bea69fb1e31d06fd2a92037b9ccff6a99c31d65eebcc5065a8dd059"
+    },
+    {
+      "slot": "Q2",
+      "part": "Q",
+      "marks": 20,
+      "question_id": "MAT133-2004-MAR-Q5",
+      "source_paper": "MAT133-2004-MAR",
+      "pages": [
+        5
+      ],
+      "topic": "functions",
+      "topic_tags": [
+        "functions"
+      ],
+      "assets": [
+        "A-MAT133-2004-MAR-Q5-F1"
+      ],
+      "refs": [],
+      "content_hash": "4ed402c0640fe1764fc52eb3d273d77d4c9b87f8efc0ec4db1e540945be84208"
+    },
+    {
+      "slot": "Q3",
+      "part": "Q",
+      "marks": 20,
+      "question_id": "MAT133-2011-APR-Q3",
+      "source_paper": "MAT133-2011-APR",
+      "pages": [
+        4
+      ],
+      "topic": "circles",
+      "topic_tags": [
+        "circles"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "5799c6f3a87a294a53bce091c176b7287d86c283f75c913d3ead5732c57e4257"
+    },
+    {
+      "slot": "Q4",
+      "part": "Q",
+      "marks": 23,
+      "question_id": "MAT133-2013-SEP-Q5",
+      "source_paper": "MAT133-2013-SEP",
+      "pages": [
+        4
+      ],
+      "topic": "trigonometry",
+      "topic_tags": [
+        "trigonometry"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "7c095d07c87c0b88115fffe3e9980607674b14ac32e2a14ff3588c976c0e37d1"
+    },
+    {
+      "slot": "Q5",
+      "part": "Q",
+      "marks": 23,
+      "question_id": "MAT133-2024-JAN-Q5",
+      "source_paper": "MAT133-2024-JAN",
+      "pages": [
+        4
+      ],
+      "topic": "trigonometry",
+      "topic_tags": [
+        "trigonometry"
+      ],
+      "assets": [
+        "A-MAT133-2024-JAN-Q5-F1"
+      ],
+      "refs": [],
+      "content_hash": "50d03fcf0b4a6ab61efb6f394559f50b8b97eafdcb30dd8e11e9b44055c8a077"
+    }
+  ]
+}

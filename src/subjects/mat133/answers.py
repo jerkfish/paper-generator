@@ -218,7 +218,12 @@ def _answer_unusable(value) -> bool:
         "assumed the missing", "missing inequality", "missing equation",
         "missing function", "not fully printed", "is not printed",
         "not printed in", "not provided", "not supplied",
-        "not fully readable", "unreadable",
+        "not fully readable", "unreadable", "cannot specify",
+        "not included in the supplied", "assuming the equation",
+        "assuming the system", "assuming the inequality",
+        "assuming the printed", "assuming the function",
+        "assuming the unshaded", "depending on figure",
+        "requires figure", "requires the figure",
     ))
 
 

@@ -1,34 +1,19 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
+  "subject": "MAT133",
   "seed": 2,
+  "selection": "role_order_no_marks",
   "reuse_cap": 4,
-  "total_marks": 55,
+  "total_marks": 96,
   "slots": [
     {
       "slot": "Q1",
       "part": "Q",
-      "marks": 10,
-      "question_id": "MAT133-2025-JUL-Q2",
-      "source_paper": "MAT133-2025-JUL",
+      "marks": 18,
+      "question_id": "MAT133-2024-JAN-Q1",
+      "source_paper": "MAT133-2024-JAN",
       "pages": [
         2
-      ],
-      "topic": "functions",
-      "topic_tags": [
-        "functions"
-      ],
-      "assets": [],
-      "refs": [],
-      "content_hash": "a7224e8a1ebcae1aba19ae753c39776a3dea9e605d13c7eace9eada7d54fd22f"
-    },
-    {
-      "slot": "Q2",
-      "part": "Q",
-      "marks": 10,
-      "question_id": "MAT133-2021-JUL-Q1-2",
-      "source_paper": "MAT133-2021-JUL",
-      "pages": [
-        7
       ],
       "topic": "inequalities",
       "topic_tags": [
@@ -36,7 +21,28 @@
       ],
       "assets": [],
       "refs": [],
-      "content_hash": "10abdb8aaf7cc41e9cbc51a65b2e77c3a21ba976243f3063cbddfe1c9e64a62f"
+      "content_hash": "393175426439ff566acc2fe9438829ce7c02347644a8ee5c196a5ffaf994a7ea"
+    },
+    {
+      "slot": "Q2",
+      "part": "Q",
+      "marks": 25,
+      "question_id": "MAT133-2018-JUN-Q3",
+      "source_paper": "MAT133-2018-JUN",
+      "pages": [
+        3
+      ],
+      "topic": "functions",
+      "topic_tags": [
+        "functions"
+      ],
+      "assets": [
+        "A-MAT133-2018-JUN-Q3-F1"
+      ],
+      "refs": [
+        "Figure 1"
+      ],
+      "content_hash": "bcea4013ae5a6e27c1c7778a20eb2d5b9e597c8fc31c10f50b25a11c34b0add2"
     },
     {
       "slot": "Q3",
@@ -58,19 +64,49 @@
     {
       "slot": "Q4",
       "part": "Q",
-      "marks": 25,
-      "question_id": "MAT133-2023-JUL-Q3",
-      "source_paper": "MAT133-2023-JUL",
+      "marks": 23,
+      "question_id": "MAT133-2016-OCT-Q5",
+      "source_paper": "MAT133-2016-OCT",
       "pages": [
-        3
+        4,
+        5
       ],
-      "topic": "functions",
+      "topic": "trigonometry",
       "topic_tags": [
-        "functions"
+        "trigonometry"
       ],
-      "assets": [],
-      "refs": [],
-      "content_hash": "4b029fe0e50a4c7be149643125f88ca5764ac487118648065737c70b3ce82252"
+      "assets": [
+        "A-MAT133-2016-OCT-Q5-F1",
+        "A-MAT133-2016-OCT-Q5-F2"
+      ],
+      "refs": [
+        "Figure 1",
+        "Figure 2"
+      ],
+      "content_hash": "8209ee890ecf2622e2382ca9ea177847629a7b59bd425905c08925ca44e64f95"
+    },
+    {
+      "slot": "Q5",
+      "part": "Q",
+      "marks": 20,
+      "question_id": "MAT133-2012-OCT-Q5",
+      "source_paper": "MAT133-2012-OCT",
+      "pages": [
+        6
+      ],
+      "topic": "trigonometry",
+      "topic_tags": [
+        "trigonometry"
+      ],
+      "assets": [
+        "A-MAT133-2012-OCT-Q5-F1",
+        "A-MAT133-2012-OCT-Q5-F2"
+      ],
+      "refs": [
+        "Figure 2",
+        "Figure 3"
+      ],
+      "content_hash": "dbf08cf9137ae571559dd4d1992f85b5f90cf9e112aefd0a7197a8d62acb0779"
     }
   ]
 }

@@ -1,0 +1,108 @@
+{
+  "schema_version": 2,
+  "subject": "MAT133",
+  "seed": 17,
+  "selection": "role_order_no_marks",
+  "reuse_cap": 4,
+  "total_marks": 81,
+  "slots": [
+    {
+      "slot": "Q1",
+      "part": "Q",
+      "marks": 10,
+      "question_id": "MAT133-2022-FEB-Q1",
+      "source_paper": "MAT133-2022-FEB",
+      "pages": [
+        2
+      ],
+      "topic": "complex_numbers",
+      "topic_tags": [
+        "complex_numbers",
+        "inequalities"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "2df7c769226def33c58a92afb228904f2c2a6815dd6d395a26412e1820a0ced5"
+    },
+    {
+      "slot": "Q2",
+      "part": "Q",
+      "marks": 23,
+      "question_id": "MAT133-2015-SEP-Q3",
+      "source_paper": "MAT133-2015-SEP",
+      "pages": [
+        3
+      ],
+      "topic": "functions",
+      "topic_tags": [
+        "functions"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "a43ea3aa545d5620f56558ea5f7493924d2d5fa8d5c24398206fcc0332f34bf2"
+    },
+    {
+      "slot": "Q3",
+      "part": "Q",
+      "marks": 15,
+      "question_id": "MAT133-2016-OCT-Q2",
+      "source_paper": "MAT133-2016-OCT",
+      "pages": [
+        2
+      ],
+      "topic": "circles",
+      "topic_tags": [
+        "circles",
+        "lines",
+        "parabolas"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "1612a841ad35aa96549dbc0204225d0600ce3792fbe8cc5535c6a6e611824754"
+    },
+    {
+      "slot": "Q4",
+      "part": "Q",
+      "marks": 23,
+      "question_id": "MAT133-2025-FEB-Q5",
+      "source_paper": "MAT133-2025-FEB",
+      "pages": [
+        4
+      ],
+      "topic": "trigonometry",
+      "topic_tags": [
+        "trigonometry"
+      ],
+      "assets": [
+        "A-MAT133-2025-FEB-Q5-F1"
+      ],
+      "refs": [
+        "Figure 1"
+      ],
+      "content_hash": "7bdbdad090edc291e20a8b3e4b9de741f5c1ee6b9e908edcc93c0862e4b31e32"
+    },
+    {
+      "slot": "Q5",
+      "part": "Q",
+      "marks": 10,
+      "question_id": "MAT133-2021-JUL-Q5-2",
+      "source_paper": "MAT133-2021-JUL",
+      "pages": [
+        9
+      ],
+      "topic": "trigonometry",
+      "topic_tags": [
+        "trigonometry"
+      ],
+      "assets": [
+        "A-MAT133-2021-JUL-Q5-2-C1",
+        "A-MAT133-2021-JUL-Q5-2-C2"
+      ],
+      "refs": [
+        "Figure 2",
+        "Figure 3"
+      ],
+      "content_hash": "c963f7ae28e8d7248ade6a728396f3164743565ef10038b71aa81709fc5dc9f0"
+    }
+  ]
+}

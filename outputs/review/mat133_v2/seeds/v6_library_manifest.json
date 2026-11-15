@@ -1,0 +1,434 @@
+{
+  "schema_version": 1,
+  "subject": "MAT133",
+  "seeds": 20,
+  "approved_seeds": [
+    1,
+    2,
+    3
+  ],
+  "gate_b": "approved",
+  "selection": "role_order_no_marks",
+  "rows": [
+    {
+      "seed": 1,
+      "total_marks": 88,
+      "question_ids": [
+        "MAT133-2026-FEB-Q1",
+        "MAT133-2016-OCT-Q3",
+        "MAT133-2025-JUL-Q1",
+        "MAT133-2017-MAR-Q5",
+        "MAT133-2008-OCT-Q5"
+      ],
+      "source_papers": [
+        "MAT133-2026-FEB",
+        "MAT133-2016-OCT",
+        "MAT133-2025-JUL",
+        "MAT133-2017-MAR",
+        "MAT133-2008-OCT"
+      ],
+      "paper_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_01\\paper.pdf",
+      "scheme_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_01\\scheme.pdf",
+      "qa_problems": []
+    },
+    {
+      "seed": 2,
+      "total_marks": 96,
+      "question_ids": [
+        "MAT133-2024-JAN-Q1",
+        "MAT133-2018-JUN-Q3",
+        "MAT133-2022-FEB-Q2",
+        "MAT133-2016-OCT-Q5",
+        "MAT133-2012-OCT-Q5"
+      ],
+      "source_papers": [
+        "MAT133-2024-JAN",
+        "MAT133-2018-JUN",
+        "MAT133-2022-FEB",
+        "MAT133-2016-OCT",
+        "MAT133-2012-OCT"
+      ],
+      "paper_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_02\\paper.pdf",
+      "scheme_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_02\\scheme.pdf",
+      "qa_problems": []
+    },
+    {
+      "seed": 3,
+      "total_marks": 97,
+      "question_ids": [
+        "MAT133-2023-JUL-Q1",
+        "MAT133-2010-OCT-Q2",
+        "MAT133-2011-SEP-Q2",
+        "MAT133-2024-JUL-Q5",
+        "MAT133-2013-MAR-Q5"
+      ],
+      "source_papers": [
+        "MAT133-2023-JUL",
+        "MAT133-2010-OCT",
+        "MAT133-2011-SEP",
+        "MAT133-2024-JUL",
+        "MAT133-2013-MAR"
+      ],
+      "paper_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_03\\paper.pdf",
+      "scheme_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_03\\scheme.pdf",
+      "qa_problems": []
+    },
+    {
+      "seed": 4,
+      "total_marks": 80,
+      "question_ids": [
+        "MAT133-2019-DEC-Q1",
+        "MAT133-2021-JUL-Q3",
+        "MAT133-2018-JUN-Q2",
+        "MAT133-2018-JAN-Q5",
+        "MAT133-2014-SEP-Q5"
+      ],
+      "source_papers": [
+        "MAT133-2019-DEC",
+        "MAT133-2021-JUL",
+        "MAT133-2018-JUN",
+        "MAT133-2018-JAN",
+        "MAT133-2014-SEP"
+      ],
+      "paper_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_04\\paper.pdf",
+      "scheme_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_04\\scheme.pdf",
+      "qa_problems": []
+    },
+    {
+      "seed": 5,
+      "total_marks": 89,
+      "question_ids": [
+        "MAT133-2018-DEC-Q2",
+        "MAT133-2023-FEB-Q3",
+        "MAT133-2012-MAR-Q1",
+        "MAT133-2025-FEB-Q5",
+        "MAT133-2021-JUL-Q5"
+      ],
+      "source_papers": [
+        "MAT133-2018-DEC",
+        "MAT133-2023-FEB",
+        "MAT133-2012-MAR",
+        "MAT133-2025-FEB",
+        "MAT133-2021-JUL"
+      ],
+      "paper_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_05\\paper.pdf",
+      "scheme_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_05\\scheme.pdf",
+      "qa_problems": []
+    },
+    {
+      "seed": 6,
+      "total_marks": 100,
+      "question_ids": [
+        "MAT133-2019-JUN-Q1",
+        "MAT133-2004-MAR-Q5",
+        "MAT133-2011-APR-Q3",
+        "MAT133-2013-SEP-Q5",
+        "MAT133-2024-JAN-Q5"
+      ],
+      "source_papers": [
+        "MAT133-2019-JUN",
+        "MAT133-2004-MAR",
+        "MAT133-2011-APR",
+        "MAT133-2013-SEP",
+        "MAT133-2024-JAN"
+      ],
+      "paper_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_06\\paper.pdf",
+      "scheme_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_06\\scheme.pdf",
+      "qa_problems": []
+    },
+    {
+      "seed": 7,
+      "total_marks": 86,
+      "question_ids": [
+        "MAT133-2018-JAN-Q1",
+        "MAT133-2007-APR-Q2",
+        "MAT133-2021-JUL-Q2-2",
+        "MAT133-2018-DEC-Q5",
+        "MAT133-2009-OCT-Q5"
+      ],
+      "source_papers": [
+        "MAT133-2018-JAN",
+        "MAT133-2007-APR",
+        "MAT133-2021-JUL",
+        "MAT133-2018-DEC",
+        "MAT133-2009-OCT"
+      ],
+      "paper_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_07\\paper.pdf",
+      "scheme_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_07\\scheme.pdf",
+      "qa_problems": []
+    },
+    {
+      "seed": 8,
+      "total_marks": 90,
+      "question_ids": [
+        "MAT133-2021-JUL-Q1",
+        "MAT133-2007-OCT-Q3",
+        "MAT133-2006-APR-Q1",
+        "MAT133-2010-OCT-Q5",
+        "MAT133-2015-MAR-Q5"
+      ],
+      "source_papers": [
+        "MAT133-2021-JUL",
+        "MAT133-2007-OCT",
+        "MAT133-2006-APR",
+        "MAT133-2010-OCT",
+        "MAT133-2015-MAR"
+      ],
+      "paper_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_08\\paper.pdf",
+      "scheme_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_08\\scheme.pdf",
+      "qa_problems": []
+    },
+    {
+      "seed": 9,
+      "total_marks": 101,
+      "question_ids": [
+        "MAT133-2023-FEB-Q1",
+        "MAT133-2014-MAR-Q3",
+        "MAT133-2011-SEP-Q1",
+        "MAT133-2018-JUN-Q5",
+        "MAT133-2016-MAR-Q5"
+      ],
+      "source_papers": [
+        "MAT133-2023-FEB",
+        "MAT133-2014-MAR",
+        "MAT133-2011-SEP",
+        "MAT133-2018-JUN",
+        "MAT133-2016-MAR"
+      ],
+      "paper_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_09\\paper.pdf",
+      "scheme_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_09\\scheme.pdf",
+      "qa_problems": []
+    },
+    {
+      "seed": 10,
+      "total_marks": 84,
+      "question_ids": [
+        "MAT133-2025-FEB-Q1",
+        "MAT133-2018-DEC-Q3",
+        "MAT133-2023-JUL-Q2",
+        "MAT133-2021-JUL-Q5-2",
+        "MAT133-2012-MAR-Q5"
+      ],
+      "source_papers": [
+        "MAT133-2025-FEB",
+        "MAT133-2018-DEC",
+        "MAT133-2023-JUL",
+        "MAT133-2021-JUL",
+        "MAT133-2012-MAR"
+      ],
+      "paper_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_10\\paper.pdf",
+      "scheme_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_10\\scheme.pdf",
+      "qa_problems": []
+    },
+    {
+      "seed": 11,
+      "total_marks": 91,
+      "question_ids": [
+        "MAT133-2018-JUN-Q1",
+        "MAT133-2012-MAR-Q2",
+        "MAT133-2017-MAR-Q2",
+        "MAT133-2010-APR-Q4",
+        "MAT133-2005-NOV-Q5"
+      ],
+      "source_papers": [
+        "MAT133-2018-JUN",
+        "MAT133-2012-MAR",
+        "MAT133-2017-MAR",
+        "MAT133-2010-APR",
+        "MAT133-2005-NOV"
+      ],
+      "paper_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_11\\paper.pdf",
+      "scheme_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_11\\scheme.pdf",
+      "qa_problems": []
+    },
+    {
+      "seed": 12,
+      "total_marks": 109,
+      "question_ids": [
+        "MAT133-2024-JUL-Q1",
+        "MAT133-2024-JAN-Q3",
+        "MAT133-2009-APR-Q4",
+        "MAT133-2023-FEB-Q5",
+        "MAT133-2019-JUN-Q5"
+      ],
+      "source_papers": [
+        "MAT133-2024-JUL",
+        "MAT133-2024-JAN",
+        "MAT133-2009-APR",
+        "MAT133-2023-FEB",
+        "MAT133-2019-JUN"
+      ],
+      "paper_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_12\\paper.pdf",
+      "scheme_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_12\\scheme.pdf",
+      "qa_problems": []
+    },
+    {
+      "seed": 13,
+      "total_marks": 84,
+      "question_ids": [
+        "MAT133-2021-JUL-Q1-2",
+        "MAT133-2022-FEB-Q3",
+        "MAT133-2014-MAR-Q2",
+        "MAT133-2009-APR-Q5",
+        "MAT133-2015-SEP-Q5"
+      ],
+      "source_papers": [
+        "MAT133-2021-JUL",
+        "MAT133-2022-FEB",
+        "MAT133-2014-MAR",
+        "MAT133-2009-APR",
+        "MAT133-2015-SEP"
+      ],
+      "paper_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_13\\paper.pdf",
+      "scheme_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_13\\scheme.pdf",
+      "qa_problems": []
+    },
+    {
+      "seed": 14,
+      "total_marks": 81,
+      "question_ids": [
+        "MAT133-2016-MAR-Q1",
+        "MAT133-2021-JUL-Q3-2",
+        "MAT133-2019-DEC-Q2",
+        "MAT133-2011-SEP-Q5",
+        "MAT133-2011-APR-Q5"
+      ],
+      "source_papers": [
+        "MAT133-2016-MAR",
+        "MAT133-2021-JUL",
+        "MAT133-2019-DEC",
+        "MAT133-2011-SEP",
+        "MAT133-2011-APR"
+      ],
+      "paper_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_14\\paper.pdf",
+      "scheme_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_14\\scheme.pdf",
+      "qa_problems": []
+    },
+    {
+      "seed": 15,
+      "total_marks": 82,
+      "question_ids": [
+        "MAT133-2016-MAR-Q2",
+        "MAT133-2026-FEB-Q2",
+        "MAT133-2025-FEB-Q2",
+        "MAT133-2014-SEP-Q4",
+        "MAT133-2006-APR-Q5"
+      ],
+      "source_papers": [
+        "MAT133-2016-MAR",
+        "MAT133-2026-FEB",
+        "MAT133-2025-FEB",
+        "MAT133-2014-SEP",
+        "MAT133-2006-APR"
+      ],
+      "paper_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_15\\paper.pdf",
+      "scheme_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_15\\scheme.pdf",
+      "qa_problems": []
+    },
+    {
+      "seed": 16,
+      "total_marks": 76,
+      "question_ids": [
+        "MAT133-2019-JUN-Q2",
+        "MAT133-2011-SEP-Q3",
+        "MAT133-2024-JUL-Q2",
+        "MAT133-2023-JUL-Q5",
+        "MAT133-2025-FEB-Q4"
+      ],
+      "source_papers": [
+        "MAT133-2019-JUN",
+        "MAT133-2011-SEP",
+        "MAT133-2024-JUL",
+        "MAT133-2023-JUL",
+        "MAT133-2025-FEB"
+      ],
+      "paper_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_16\\paper.pdf",
+      "scheme_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_16\\scheme.pdf",
+      "qa_problems": []
+    },
+    {
+      "seed": 17,
+      "total_marks": 81,
+      "question_ids": [
+        "MAT133-2022-FEB-Q1",
+        "MAT133-2015-SEP-Q3",
+        "MAT133-2016-OCT-Q2",
+        "MAT133-2025-FEB-Q5",
+        "MAT133-2021-JUL-Q5-2"
+      ],
+      "source_papers": [
+        "MAT133-2022-FEB",
+        "MAT133-2015-SEP",
+        "MAT133-2016-OCT",
+        "MAT133-2025-FEB",
+        "MAT133-2021-JUL"
+      ],
+      "paper_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_17\\paper.pdf",
+      "scheme_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_17\\scheme.pdf",
+      "qa_problems": []
+    },
+    {
+      "seed": 18,
+      "total_marks": 91,
+      "question_ids": [
+        "MAT133-2015-SEP-Q1",
+        "MAT133-2013-SEP-Q3",
+        "MAT133-2012-MAR-Q1",
+        "MAT133-2009-APR-Q5",
+        "MAT133-2010-OCT-Q5"
+      ],
+      "source_papers": [
+        "MAT133-2015-SEP",
+        "MAT133-2013-SEP",
+        "MAT133-2012-MAR",
+        "MAT133-2009-APR",
+        "MAT133-2010-OCT"
+      ],
+      "paper_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_18\\paper.pdf",
+      "scheme_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_18\\scheme.pdf",
+      "qa_problems": []
+    },
+    {
+      "seed": 19,
+      "total_marks": 80,
+      "question_ids": [
+        "MAT133-2015-SEP-Q2",
+        "MAT133-2025-JUL-Q2",
+        "MAT133-2018-DEC-Q2",
+        "MAT133-2014-SEP-Q4",
+        "MAT133-2011-SEP-Q5"
+      ],
+      "source_papers": [
+        "MAT133-2015-SEP",
+        "MAT133-2025-JUL",
+        "MAT133-2018-DEC",
+        "MAT133-2014-SEP",
+        "MAT133-2011-SEP"
+      ],
+      "paper_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_19\\paper.pdf",
+      "scheme_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_19\\scheme.pdf",
+      "qa_problems": []
+    },
+    {
+      "seed": 20,
+      "total_marks": 89,
+      "question_ids": [
+        "MAT133-2018-JUN-Q2",
+        "MAT133-2023-JUL-Q3",
+        "MAT133-2025-JUL-Q1",
+        "MAT133-2013-MAR-Q5",
+        "MAT133-2016-OCT-Q5"
+      ],
+      "source_papers": [
+        "MAT133-2018-JUN",
+        "MAT133-2023-JUL",
+        "MAT133-2025-JUL",
+        "MAT133-2013-MAR",
+        "MAT133-2016-OCT"
+      ],
+      "paper_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_20\\paper.pdf",
+      "scheme_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_20\\scheme.pdf",
+      "qa_problems": []
+    }
+  ]
+}

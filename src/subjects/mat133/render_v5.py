@@ -10,6 +10,7 @@ Run:
 from __future__ import annotations
 
 import argparse
+import copy
 import hashlib
 import json
 import re
@@ -25,16 +26,19 @@ import docx
 import pymupdf
 from docx.enum.section import WD_SECTION
 from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_TAB_ALIGNMENT
+from docx.oxml import parse_xml
 from docx.oxml.ns import qn
 from docx.shared import Cm, Inches, Pt
+from latex2mathml.converter import convert as latex_to_mathml
+from mathml2omml import convert as mathml_to_omml
 
 from src import config
 from src.assemble.pdf_export import export_pdf
 from src.assemble.recycle import display_width, rewrite_references
 from src.bank.store import load_json, save_json
-from src.render.mathfig import formula_png
-from src.subjects.mat133.assemble_v2 import (BANK, FORMAT, OUT, TRACKING,
-                                             plans_for)
+from src.subjects.mat133.assemble_v2 import (BANK, FORMAT, OUT, Q1_TAGS,
+                                             Q2_GEOMETRY, Q2_TAGS, Q4_TAGS,
+                                             Q5_TAGS, TRACKING, plans_for)
 
 TEMPLATE = config.subject_reference_dir("MAT133") / "MAT133 TEMPLATE.docx"
 SCHEME_TEMPLATE = (config.REFERENCE_DIR / "standard" /
@@ -43,7 +47,7 @@ SUBJECT = "MAT133"
 MONTH = "NOV"
 YEAR = 2026
 MONTH_FULL = "NOVEMBER"
-DURATION = "2 HOURS"
+DURATION = "3 HOURS"
 FORBIDDEN = ("CSC662", "COMPUTER SECURITY", "MAT133-20", "TODO",
              "placeholder", "data/reference")
 
@@ -76,6 +80,8 @@ LATEX_ALIASES = {
 
 def _plain_math(latex: str) -> str:
     value = str(latex or "")
+    value = re.sub(r"\\{1,2}(begin|end)\{(cases|array)\}", "", value)
+    value = value.replace("\\\\", " ; ").replace("&", " ")
     symbols = {
         r"\ne": "≠", r"\neq": "≠", r"\le": "≤", r"\leq": "≤",
         r"\ge": "≥", r"\geq": "≥", r"\Rightarrow": "⇒",
@@ -141,16 +147,33 @@ def _sanitise_latex(latex: str) -> str:
     return value.strip()
 
 
-def _math_png(latex: str, cache: Path, key: str) -> Path | None:
-    try:
-        digest = hashlib.sha1(
-            f"{latex}|{key}".encode("utf-8")).hexdigest()[:16]
-        path = cache / f"{digest}.png"
-        if not path.is_file():
-            formula_png(_sanitise_latex(latex), path, fontsize=12, dpi=300)
-        return path
-    except Exception:
-        return None
+OMML_NS = "http://schemas.openxmlformats.org/officeDocument/2006/math"
+_OMML_CACHE: dict[str, object] = {}
+
+
+def _omml_element(latex: str):
+    """Convert a LaTeX fragment to a native Word equation (OMML).
+
+    The raw fragment is tried first because latex2mathml accepts the printed
+    notation directly.  The mathtext-oriented sanitiser is only a fallback.
+    """
+    key = hashlib.sha1(str(latex).encode("utf-8")).hexdigest()
+    if key in _OMML_CACHE:
+        return _OMML_CACHE[key]
+    element = None
+    for candidate in (str(latex or ""), _sanitise_latex(latex)):
+        try:
+            mathml = latex_to_mathml(candidate)
+            omml = mathml_to_omml(mathml)
+            if "xmlns:m" not in omml:
+                omml = omml.replace(
+                    "<m:oMath>", f'<m:oMath xmlns:m="{OMML_NS}">', 1)
+            element = parse_xml(omml)
+            break
+        except Exception:
+            element = None
+    _OMML_CACHE[key] = element
+    return element
 
 
 def _set_run_font(run, size: float = 10.5, *, bold: bool = False,
@@ -163,35 +186,39 @@ def _set_run_font(run, size: float = 10.5, *, bold: bool = False,
 
 def _add_math(p, latex: str, cache: Path, key: str, *,
               display: bool = False, max_width_cm: float = 6.0) -> None:
-    path = _math_png(latex, cache, key)
-    if path is None:
+    """Insert a native Word equation, never an equation image."""
+    if re.search(r"\\{1,2}begin\{(cases|array)\}", str(latex)):
         run = p.add_run(_plain_math(latex))
         _set_run_font(run)
         return
-    from PIL import Image
-    with Image.open(path) as image:
-        pixels_w, pixels_h = image.size
-    tall = re.search(r"\\(frac|dfrac|tfrac|sqrt|overline|bar|sum|int)\b",
-                     latex) is not None
-    height_cm = 0.72 if display else (0.68 if tall else 0.50)
-    width_cm = height_cm * pixels_w / max(1, pixels_h)
-    if width_cm > max_width_cm:
-        width_cm = max_width_cm
-        height_cm = width_cm * pixels_h / max(1, pixels_w)
-    run = p.add_run()
-    run.add_picture(str(path), width=Cm(width_cm), height=Cm(height_cm))
+    element = _omml_element(latex)
+    if element is None:
+        run = p.add_run(_plain_math(latex))
+        _set_run_font(run)
+        return
+    p._p.append(copy.deepcopy(element))
 
 
 def _add_rich_text(p, text: str, cache: Path, key: str,
-                   size: float = 10.5) -> None:
-    """Add text with inline ``$...$`` maths rendered as small images."""
+                   size: float = 10.5, *, bold: bool = False,
+                   italic: bool = False) -> None:
+    """Add text with inline ``$...$`` maths as native Word equations."""
     value = str(text or "")
     value = value.replace("\\\\quad", " ").replace("\\\\", " ")
+    bullet = ""
+    stripped = value.lstrip()
+    if stripped.startswith("•"):
+        bullet = "• "
+        while stripped.startswith("•"):
+            stripped = stripped[1:].lstrip()
+        value = stripped
+        run = p.add_run(bullet)
+        _set_run_font(run, size, bold=bold, italic=italic)
     if ("$" not in value and "\\(" not in value and "\\[" not in value
             and re.search(r"\\[A-Za-z]+", value)):
         if PROSE_RE.search(value):
             run = p.add_run(_plain_math(value))
-            _set_run_font(run, size)
+            _set_run_font(run, size, bold=bold, italic=italic)
         else:
             _add_math(p, value.strip(), cache, key)
         return
@@ -200,7 +227,7 @@ def _add_rich_text(p, text: str, cache: Path, key: str,
         plain = value[position:match.start()]
         if plain:
             run = p.add_run(plain)
-            _set_run_font(run, size)
+            _set_run_font(run, size, bold=bold, italic=italic)
         latex = next(group for group in match.groups()
                      if group is not None)
         _add_math(p, latex, cache, key)
@@ -208,19 +235,21 @@ def _add_rich_text(p, text: str, cache: Path, key: str,
     tail = value[position:]
     if tail:
         run = p.add_run(tail)
-        _set_run_font(run, size)
+        _set_run_font(run, size, bold=bold, italic=italic)
 
 
 def _para(doc, text: str = "", *, cache: Path, key: str,
           size: float = 10.5, bold: bool = False, italic: bool = False,
           align=None, before: float = 0, after: float = 2,
-          indent: float = 0, hanging: float = 0, keep: bool = False):
+          indent: float = 0, hanging: float = 0, keep: bool = False,
+          keep_together: bool = True):
     p = doc.add_paragraph()
     pf = p.paragraph_format
     pf.space_before = Pt(before)
     pf.space_after = Pt(after)
     pf.line_spacing = 1.05
     pf.keep_with_next = keep
+    pf.keep_together = keep_together
     if align is not None:
         p.alignment = align
     if indent:
@@ -228,7 +257,7 @@ def _para(doc, text: str = "", *, cache: Path, key: str,
     if hanging:
         pf.first_line_indent = Inches(-hanging)
     if text:
-        _add_rich_text(p, text, cache, key, size)
+        _add_rich_text(p, text, cache, key, size, bold=bold, italic=italic)
     return p
 
 
@@ -281,7 +310,7 @@ def _patch_paper_cover(doc) -> None:
         elif text.strip().startswith("This question paper consists of"):
             _set_paragraph_text(
                 paragraph,
-                "This question paper consists of four (4) questions.")
+                "This question paper consists of five (5) questions.")
     for box in doc.element.body.iter(qn("w:txbxContent")):
         for paragraph in box.findall(qn("w:p")):
             texts = [(node.text or "") for node in
@@ -298,6 +327,10 @@ def _patch_paper_cover(doc) -> None:
                     size.set(qn("w:val"), "21")
                 for size in paragraph.findall(".//" + qn("w:szCs")):
                     size.set(qn("w:val"), "21")
+            if "HOURS" in texts:
+                for node in paragraph.findall(".//" + qn("w:t")):
+                    if (node.text or "").strip() == "2":
+                        node.text = "3"
 
 
 def _paper_section(doc):
@@ -382,6 +415,34 @@ def _question_assets(question: dict, assets: dict[str, dict]) -> list[dict]:
     return chosen
 
 
+def _align_asset_labels(question: dict, rows: list[dict]) -> list[dict]:
+    """Prefer the figure numbers printed in the question text.
+
+    Some 2021-JUL second-set assets carry the first set's numbers. When the
+    question names exactly as many figures as it has assets, relabel the
+    assets in textual order so the captions and references agree.
+    """
+    text = "\n".join(str(part.get("text") or "")
+                     for part in question.get("parts") or [])
+    refs = []
+    for match in re.finditer(r"\bFigure\s+(\d+)\b", text, re.I):
+        number = match.group(1)
+        if number not in refs:
+            refs.append(number)
+    if not refs or len(refs) != len(rows):
+        return rows
+    aligned = []
+    for asset, number in zip(rows, refs):
+        row = dict(asset)
+        old = str(row.get("label") or "").strip()
+        caption = str(row.get("caption") or "").strip()
+        row["label"] = f"Figure {number}"
+        if not caption or caption == old:
+            row["caption"] = row["label"]
+        aligned.append(row)
+    return aligned
+
+
 def _label_assets(rows: list[dict], fig_counter: list[int],
                   table_counter: list[int]) -> tuple[dict[str, str], list[dict]]:
     mapping: dict[str, str] = {}
@@ -436,16 +497,51 @@ def _attach_assets(question: dict, rows: list[dict]) -> dict[int, list[dict]]:
 def _add_figure(doc, asset: dict, caption: str, width_cm: float) -> None:
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p.paragraph_format.space_before = Pt(4)
-    p.paragraph_format.space_after = Pt(2)
+    p.paragraph_format.space_before = Pt(6)
+    p.paragraph_format.space_after = Pt(6)
     p.add_run().add_picture(str(_asset_path(asset)), width=Cm(width_cm))
     if caption:
         p.paragraph_format.keep_with_next = True
         cap = doc.add_paragraph()
         cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        cap.paragraph_format.space_after = Pt(3)
+        cap.paragraph_format.space_before = Pt(2)
+        cap.paragraph_format.space_after = Pt(10)
         run = cap.add_run(caption)
         _set_run_font(run, 8.5, italic=True)
+
+
+MARKS_AT_END_RE = re.compile(r"\((\d+)\s*marks?\)\s*$", re.I)
+
+
+def _add_part_text(doc, part: dict, cache: Path, key: str,
+                   label: str, keep_next: bool) -> None:
+    """Render a part line by line with every printed marks line right-aligned."""
+    text = str(part.get("text") or "")
+    lines = text.split("\n")
+    found_marks = False
+    for index, line in enumerate(lines):
+        match = MARKS_AT_END_RE.search(line)
+        body = line[:match.start()].rstrip() if match else line
+        p = doc.add_paragraph()
+        pf = p.paragraph_format
+        pf.left_indent = Inches(0.28)
+        pf.first_line_indent = Inches(-0.28 if index == 0 else 0)
+        pf.space_before = Pt(4 if index == 0 else 0)
+        pf.space_after = Pt(0)
+        pf.line_spacing = 1.05
+        pf.keep_with_next = keep_next or bool(match)
+        if index == 0 and label:
+            run = p.add_run(f"{label})")
+            _set_run_font(run, 10.5, bold=True)
+            run = p.add_run("\t")
+            _set_run_font(run, 10.5)
+        if body:
+            _add_rich_text(p, body, cache, key)
+        if match:
+            _marks_line(doc, int(match.group(1)))
+            found_marks = True
+    if not found_marks and part.get("marks"):
+        _marks_line(doc, int(part["marks"]))
 
 
 def build_paper(plan: dict, out_dir: Path) -> Path:
@@ -461,32 +557,20 @@ def build_paper(plan: dict, out_dir: Path) -> Path:
         if number >= 3:
             doc.add_page_break()
         question = questions[slot["question_id"]]
-        rows = _question_assets(question, assets)
+        rows = _align_asset_labels(
+            question, _question_assets(question, assets))
         mapping, ordered = _label_assets(rows, fig_counter, table_counter)
         attachments = _attach_assets(question, ordered)
         _para(doc, f"QUESTION {number}", cache=cache,
               key=f"seed{plan['seed']}-q{number}",
               size=11.5, bold=True, before=14, after=5, keep=True)
         for index, part in enumerate(question.get("parts") or []):
-            p = doc.add_paragraph()
-            pf = p.paragraph_format
-            pf.left_indent = Inches(0.28)
-            pf.first_line_indent = Inches(-0.28)
-            pf.space_before = Pt(4)
-            pf.space_after = Pt(0)
-            pf.line_spacing = 1.05
-            pf.keep_with_next = bool(attachments.get(index))
             label = str(part.get("label") or "")
-            if label:
-                run = p.add_run(f"{label})")
-                _set_run_font(run, 10.5, bold=True)
-                run = p.add_run("\t")
-                _set_run_font(run, 10.5)
             text = rewrite_references(part.get("text") or "", mapping)
-            _add_rich_text(p, text, cache,
-                           f"seed{plan['seed']}-q{number}-{label}")
-            if not re.search(r"\(\d+\s*marks?\)", text, re.I):
-                _marks_line(doc, int(part.get("marks") or 0))
+            _add_part_text(
+                doc, {**part, "text": text}, cache,
+                f"seed{plan['seed']}-q{number}-{label}", label,
+                bool(attachments.get(index)))
             for asset in attachments.get(index, []):
                 new_label = asset.get("_display_label") or ""
                 caption = _caption(asset, new_label)
@@ -534,9 +618,11 @@ def _add_appendix(doc, cache: Path, seed: int) -> None:
         cell = table.cell(index, 0)
         cell.text = ""
         paragraph = cell.paragraphs[0]
+        paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
         paragraph.paragraph_format.space_after = Pt(4)
-        numbered = f"{index + 1}.\\quad {latex}"
-        _add_math(paragraph, numbered, cache,
+        run = paragraph.add_run(f"{index + 1}. ")
+        _set_run_font(run, 9.5)
+        _add_math(paragraph, latex, cache,
                   f"seed{seed}-appendix-{index}", display=True,
                   max_width_cm=15.5)
 
@@ -610,7 +696,7 @@ def _patch_scheme_notes(doc, plan: dict) -> None:
         elif text.startswith("Part A ="):
             _set_paragraph_text(
                 paragraph,
-                "Four questions: 10 + 10 + 10 + 25 marks; total = 55 marks.")
+                "Five questions in the fixed role order Q1-Q5; marks are printed from the recycled question and are not a selection constraint.")
         elif text.startswith("Computed:"):
             _set_paragraph_text(
                 paragraph,
@@ -636,8 +722,8 @@ def _patch_scheme_cover(doc) -> None:
         for paragraph in box.findall(qn("w:p")):
             for node in paragraph.findall(".//" + qn("w:t")):
                 value = node.text or ""
-                if value == "3 HOURS":
-                    node.text = "2 HOURS"
+                if value == "2 HOURS":
+                    node.text = "3 HOURS"
                 elif value == "NOVEMBER 2026 (MOCK)":
                     node.text = f"{MONTH_FULL} {YEAR}"
 
@@ -673,10 +759,14 @@ def _scheme_body(doc, plan: dict, questions: dict, answers: dict) -> None:
         for part in question.get("parts") or []:
             label = str(part.get("label") or "")
             marks = int(part.get("marks") or 0)
-            _para(doc, f"{label}) {part.get('text') or ''}",
+            part_text = re.sub(r"\(\d+\s*marks?\)\s*$", "",
+                               str(part.get("text") or "")).strip()
+            _para(doc, f"{label}) {part_text}",
                   cache=OUT / "_math",
                   key=f"scheme{plan['seed']}-{number}-{label}-q",
                   size=9.5, after=2)
+            if marks:
+                _marks_line(doc, marks)
             subpart = next(
                 (row for row in answer.get("subparts") or []
                  if str(row.get("label") or "").lower() == label.lower()),
@@ -695,9 +785,7 @@ def _scheme_body(doc, plan: dict, questions: dict, answers: dict) -> None:
                       cache=OUT / "_math",
                       key=f"scheme{plan['seed']}-{number}-{label}-none",
                       size=9, italic=True, after=1)
-            if not re.search(r"\(\d+\s*marks?\)",
-                             part.get("text") or "", re.I):
-                _marks_line(doc, marks)
+
         if answer.get("assumptions"):
             _para(doc, f"Assumptions: {answer['assumptions']}",
                   cache=OUT / "_math",
@@ -731,6 +819,8 @@ def build_scheme(plan: dict, out_dir: Path) -> Path:
         _rewrite_scheme_xml(SCHEME_TEMPLATE, prepared)
         doc = docx.Document(str(prepared))
         _clear_after_section_break(doc)
+        section = doc.sections[-1]
+        section.bottom_margin = Inches(1.5)
         _patch_scheme_cover(doc)
         _patch_scheme_notes(doc, plan)
         _scheme_body(doc, plan, questions, answers)
@@ -780,15 +870,14 @@ def _qa(plan: dict, paper_docx: Path, paper_pdf: Path,
         except Exception as error:
             problems.append(f"{name} DOCX is invalid: {error}")
     slots = plan["slots"]
-    if len(slots) != 4:
-        problems.append(f"expected 4 slots, got {len(slots)}")
-    if sum(int(slot["marks"]) for slot in slots) != 55:
-        problems.append("slot marks do not total 55")
+    if len(slots) != 5:
+        problems.append(f"expected 5 slots, got {len(slots)}")
+
     ids = [slot["question_id"] for slot in slots]
     if len(set(ids)) != len(ids):
         problems.append("duplicate question inside the paper")
-    if len({slot["source_paper"] for slot in slots}) < 4:
-        problems.append("fewer than 4 distinct source papers")
+    if len({slot["source_paper"] for slot in slots}) < 5:
+        problems.append("fewer than 5 distinct source papers")
     for slot in slots:
         question = questions.get(slot["question_id"]) or {}
         answer = answers.get(slot["question_id"]) or {}
@@ -822,17 +911,40 @@ def _qa(plan: dict, paper_docx: Path, paper_pdf: Path,
             if asset and asset.get("verdict") == "approved" \
                     and not _asset_path(asset).is_file():
                 problems.append(f"missing asset file {aid}")
+    role_tags = []
+    for slot in slots:
+        question = questions.get(slot["question_id"]) or {}
+        role_tags.append(set(question.get("topic_tags") or []))
+    if len(role_tags) == 5:
+        if not (role_tags[0] & Q1_TAGS):
+            problems.append("Q1 does not match the Q1 topic roles")
+        if role_tags[0] & {"circles", "parabolas"}:
+            if not (role_tags[1] & {"functions"}):
+                problems.append(
+                    "Q2 must be functions when Q1 used circles/parabolas")
+        elif not (role_tags[1] & Q2_TAGS):
+            problems.append("Q2 does not match the Q2 topic roles")
+        if role_tags[1] & {"functions"}:
+            if not (role_tags[2] & Q2_GEOMETRY):
+                problems.append(
+                    "Q3 must be another Q2 topic when Q2 used functions")
+        elif not (role_tags[2] & {"functions"}):
+            problems.append("Q3 must be functions")
+        if not (role_tags[3] & Q4_TAGS):
+            problems.append("Q4 does not match the Q4 topic roles")
+        if not (role_tags[4] & Q5_TAGS):
+            problems.append("Q5 must be trigonometry")
     def _headings(path: Path) -> int:
         document = docx.Document(str(path))
         return sum(
             1 for paragraph in document.paragraphs
-            if re.match(r"^QUESTION\s+[1-4](?!\d)", paragraph.text.strip()))
+            if re.match(r"^QUESTION\s+[1-5](?!\d)", paragraph.text.strip()))
 
     paper_headings = _headings(paper_docx)
     scheme_headings = _headings(scheme_docx)
-    if paper_headings != 4:
+    if paper_headings != 5:
         problems.append(f"paper headings: {paper_headings}")
-    if scheme_headings != 4:
+    if scheme_headings != 5:
         problems.append(f"scheme headings: {scheme_headings}")
     for token in FORBIDDEN:
         if token.lower() in paper_text.lower():
@@ -970,7 +1082,8 @@ def _gate_b_report(results: list[dict]) -> Path:
         f"Built: {_today()}",
         "Subject: MAT133 (Type D recycle, playbook v2.0)",
         "",
-        "Format: 4 questions, 10 + 10 + 10 + 25 = 55 marks, 2 HOURS.",
+        "Format: five questions in the fixed role order Q1-Q5. Marks are",
+        "printed from the recycled questions but are not used for selection.",
         "Every question is an approved real past-paper question with a usable",
         "unofficial model answer. The scheme uses the standard UTM marking",
         "scheme cover.",

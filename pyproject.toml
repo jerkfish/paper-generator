@@ -25,6 +25,8 @@ dependencies = [
     "matplotlib>=3.11.2",
     "sympy>=1.14.0",
     "graphviz>=0.21",
+    "latex2mathml>=3.81.1",
+    "mathml2omml>=0.0.2",
 ]
 
 [dependency-groups]

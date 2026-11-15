@@ -1,0 +1,103 @@
+{
+  "schema_version": 2,
+  "subject": "MAT133",
+  "seed": 16,
+  "selection": "role_order_no_marks",
+  "reuse_cap": 4,
+  "total_marks": 76,
+  "slots": [
+    {
+      "slot": "Q1",
+      "part": "Q",
+      "marks": 15,
+      "question_id": "MAT133-2019-JUN-Q2",
+      "source_paper": "MAT133-2019-JUN",
+      "pages": [
+        2
+      ],
+      "topic": "lines",
+      "topic_tags": [
+        "lines",
+        "parabolas"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "6d8a5913556da664b34a94aa93d9cad384c7f7137ede563ff85888973254e167"
+    },
+    {
+      "slot": "Q2",
+      "part": "Q",
+      "marks": 20,
+      "question_id": "MAT133-2011-SEP-Q3",
+      "source_paper": "MAT133-2011-SEP",
+      "pages": [
+        4
+      ],
+      "topic": "functions",
+      "topic_tags": [
+        "functions"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "ad06e78dbe19c10c24133ec7395021cbee472c6f56ee3d988bb873dd37d5f3fa"
+    },
+    {
+      "slot": "Q3",
+      "part": "Q",
+      "marks": 15,
+      "question_id": "MAT133-2024-JUL-Q2",
+      "source_paper": "MAT133-2024-JUL",
+      "pages": [
+        2
+      ],
+      "topic": "lines",
+      "topic_tags": [
+        "lines",
+        "parabolas"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "4dd4dde0676172b3087f81c968462621c95b47071765fc8b5c62ad10b9949aa6"
+    },
+    {
+      "slot": "Q4",
+      "part": "Q",
+      "marks": 12,
+      "question_id": "MAT133-2023-JUL-Q5",
+      "source_paper": "MAT133-2023-JUL",
+      "pages": [
+        4
+      ],
+      "topic": "circular_measure",
+      "topic_tags": [
+        "circular_measure"
+      ],
+      "assets": [
+        "A-MAT133-2023-JUL-Q5-F1"
+      ],
+      "refs": [
+        "Figure 1"
+      ],
+      "content_hash": "494f764d5e19ee3dfcd81caff669ca255910c9fe5c3eee557b71266a617727a6"
+    },
+    {
+      "slot": "Q5",
+      "part": "Q",
+      "marks": 14,
+      "question_id": "MAT133-2025-FEB-Q4",
+      "source_paper": "MAT133-2025-FEB",
+      "pages": [
+        3
+      ],
+      "topic": "systems_of_equations",
+      "topic_tags": [
+        "systems_of_equations",
+        "systems_of_inequalities",
+        "trigonometry"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "14520ae5df55a09772806d05b6d92dfef7a31a91e494d1e4f008d379da41ee09"
+    }
+  ]
+}

@@ -15,7 +15,7 @@ def test_structural_issues_flags_missing_marks():
     question = {
         "id": "Q1",
         "parts": [
-            {"label": "a", "text": "Solve the equation.", "marks": None},
+            {"label": "a", "text": "Solve $x=2$.", "marks": None},
             {"label": "b", "text": "Find the value.", "marks": 5},
         ],
     }
@@ -66,3 +66,13 @@ def test_compare_accepts_equivalent_answers():
         r"$-\frac{20}{13}-\frac{17}{13}i$",
         r"\(-\frac{20}{13}-\frac{17}{13}i\)")
     assert not answers_compare._agree("$x=3$", "$x=4$")
+
+
+def test_math_is_inserted_as_native_word_equation():
+    element = render_v5._omml_element(r"\frac{2x-5}{x-2}\leq 1")
+    assert element is not None
+    assert element.tag.endswith("}oMath")
+
+
+def test_unconvertible_formula_returns_no_equation():
+    assert render_v5._omml_element(r"\frac{") is None

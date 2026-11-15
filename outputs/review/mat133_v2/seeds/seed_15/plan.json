@@ -1,0 +1,105 @@
+{
+  "schema_version": 2,
+  "subject": "MAT133",
+  "seed": 15,
+  "selection": "role_order_no_marks",
+  "reuse_cap": 4,
+  "total_marks": 82,
+  "slots": [
+    {
+      "slot": "Q1",
+      "part": "Q",
+      "marks": 15,
+      "question_id": "MAT133-2016-MAR-Q2",
+      "source_paper": "MAT133-2016-MAR",
+      "pages": [
+        2
+      ],
+      "topic": "circles",
+      "topic_tags": [
+        "circles",
+        "parabolas"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "40ac592c325288fd57640ed6c8f3320184afc1f41f7794b42cfb2925f73ab857"
+    },
+    {
+      "slot": "Q2",
+      "part": "Q",
+      "marks": 10,
+      "question_id": "MAT133-2026-FEB-Q2",
+      "source_paper": "MAT133-2026-FEB",
+      "pages": [
+        2
+      ],
+      "topic": "functions",
+      "topic_tags": [
+        "functions"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "c2a5fdf62b65df71a35b06d7ce32da872e78019e7d5d4ba5e5db107df5af2d71"
+    },
+    {
+      "slot": "Q3",
+      "part": "Q",
+      "marks": 15,
+      "question_id": "MAT133-2025-FEB-Q2",
+      "source_paper": "MAT133-2025-FEB",
+      "pages": [
+        2
+      ],
+      "topic": "lines",
+      "topic_tags": [
+        "lines",
+        "parabolas"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "8cd77b6e018af6e463797338ce7b3dd8bcd84b2847b00edfdf5b585292f6223c"
+    },
+    {
+      "slot": "Q4",
+      "part": "Q",
+      "marks": 22,
+      "question_id": "MAT133-2014-SEP-Q4",
+      "source_paper": "MAT133-2014-SEP",
+      "pages": [
+        4
+      ],
+      "topic": "circular_measure",
+      "topic_tags": [
+        "circular_measure"
+      ],
+      "assets": [
+        "A-MAT133-2014-SEP-Q4-F1"
+      ],
+      "refs": [
+        "Figure 1"
+      ],
+      "content_hash": "f30189718fba1581c2379fe0c9396163ac7401c3ebcbb83d782a31a0ce6c6a61"
+    },
+    {
+      "slot": "Q5",
+      "part": "Q",
+      "marks": 20,
+      "question_id": "MAT133-2006-APR-Q5",
+      "source_paper": "MAT133-2006-APR",
+      "pages": [
+        5
+      ],
+      "topic": "circular_measure",
+      "topic_tags": [
+        "circular_measure",
+        "inequalities",
+        "trigonometry"
+      ],
+      "assets": [
+        "A-MAT133-2006-APR-Q5-F1"
+      ],
+      "refs": [],
+      "content_hash": "6054f9c6a463e0a966b72d4623125b27c9f3e1d004a51eb2fa4cd5699bd9eb84"
+    }
+  ]
+}
