@@ -44,5 +44,11 @@
       "1"
     ]
   },
-  "paper_count": 0
+  "paper_count": 20,
+  "library_manifest": "/library/ICT450/manifest.json",
+  "routes": {
+    "home": "/ict450",
+    "library": "/ict450/library",
+    "generate": "/ict450/generate"
+  }
 }

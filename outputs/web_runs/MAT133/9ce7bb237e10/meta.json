@@ -1,0 +1,113 @@
+{
+  "subject": "MAT133",
+  "seed": 22,
+  "mode": "realistic",
+  "model": "mat133-v2-role-recycle",
+  "cost_usd": 0.0,
+  "accepted": 5,
+  "placeholders": 0,
+  "created": 1794785673.0304296,
+  "total_marks": 99,
+  "question_count": 5,
+  "source_papers": [
+    "MAT133-2018-JAN",
+    "MAT133-2009-OCT",
+    "MAT133-2011-SEP",
+    "MAT133-2024-JAN",
+    "MAT133-2010-APR"
+  ],
+  "question_ids": [
+    "MAT133-2018-JAN-Q1",
+    "MAT133-2009-OCT-Q2",
+    "MAT133-2011-SEP-Q1",
+    "MAT133-2024-JAN-Q5",
+    "MAT133-2010-APR-Q4"
+  ],
+  "qa_problems": 0,
+  "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_runs\\MAT133\\9ce7bb237e10\\paper.pdf",
+  "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_runs\\MAT133\\9ce7bb237e10\\scheme.pdf",
+  "total_slots": 5,
+  "has_practice_mode": false,
+  "has_placeholders": false,
+  "year": 2026,
+  "topic_marks": {
+    "inequalities": 18,
+    "functions": 18,
+    "lines": 20,
+    "trigonometry": 43
+  },
+  "summary": {
+    "total_marks": 99
+  },
+  "files": {
+    "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_runs\\MAT133\\9ce7bb237e10\\paper.docx",
+    "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_runs\\MAT133\\9ce7bb237e10\\paper.pdf",
+    "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_runs\\MAT133\\9ce7bb237e10\\scheme.docx",
+    "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_runs\\MAT133\\9ce7bb237e10\\scheme.pdf"
+  },
+  "progress": [
+    {
+      "question": "Q1",
+      "slot": "Q1",
+      "status": "accepted",
+      "message": "inequalities",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "Q2",
+      "slot": "Q2",
+      "status": "accepted",
+      "message": "functions",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "Q3",
+      "slot": "Q3",
+      "status": "accepted",
+      "message": "lines",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "Q4",
+      "slot": "Q4",
+      "status": "accepted",
+      "message": "trigonometry",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "Q5",
+      "slot": "Q5",
+      "status": "accepted",
+      "message": "trigonometry",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    }
+  ],
+  "document_versions": {
+    "2": {
+      "label": "v2",
+      "playbook_version": "2.0",
+      "built": "2026-11-15T23:34:33Z",
+      "files": {
+        "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_runs\\MAT133\\9ce7bb237e10\\paper.docx",
+        "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_runs\\MAT133\\9ce7bb237e10\\paper.pdf",
+        "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_runs\\MAT133\\9ce7bb237e10\\scheme.docx",
+        "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_runs\\MAT133\\9ce7bb237e10\\scheme.pdf"
+      }
+    }
+  }
+}

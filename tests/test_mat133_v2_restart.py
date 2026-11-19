@@ -44,7 +44,7 @@ def test_mat133_is_type_d_recycle():
     assert subject.public_document_versions == {"1", "2"}
 
 
-def test_v2_lifecycle_passes_gate_a():
+def test_v2_lifecycle_is_complete():
     state = _load(LIFECYCLE)
     assert state["schema_version"] == 2
     assert state["playbook_version"] == "2.0"
@@ -57,12 +57,20 @@ def test_v2_lifecycle_passes_gate_a():
     assert set(state["gates"]) == {"A", "B", "C"}
     assert state["gates"]["A"]["status"] == "approved"
     assert state["gates"]["B"]["status"] == "approved"
-    assert state["gates"]["C"]["status"] == "pending"
+    assert state["gates"]["C"]["status"] == "approved"
+    assert state["gates"]["C"]["by"] == "owner"
+    assert state["gates"]["C"]["on"] == "2026-11-16"
+    assert state["lifecycle_status"] == "complete"
+    assert state["stages"]["V7_publish"]["status"] == "done"
+    assert state["stages"]["V8_close_out"]["status"] == "done"
+    assert state["stages"]["V7_publish"]["blockers"] == []
+    assert state["stages"]["V8_close_out"]["blockers"] == []
     assert state["bank"]["questions"] >= 0
     assert state["answers"]["solver_verified"] == 0
 
     report = status_report(ROOT, "MAT133")
-    assert report["next_gate"] in (None, "C")
+    assert report["next_stage"] is None
+    assert report.get("next_gate") is None
 
 
 def test_rejected_pilot_documents_are_not_in_the_library():

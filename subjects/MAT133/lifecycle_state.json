@@ -5,9 +5,9 @@
   "title": "Pre-Calculus",
   "type": "D",
   "strategy": "recycle",
-  "lifecycle_status": "in_progress",
+  "lifecycle_status": "complete",
   "created": "2026-11-14T00:00:00Z",
-  "updated": "2026-11-15T05:27:47Z",
+  "updated": "2026-11-15T23:48:06Z",
   "stages": {
     "V0_intake": {
       "status": "done",
@@ -177,30 +177,42 @@
       "notes": "20 role-ordered seeds built; v2 documents attached to the v1 library cache metas; the application Library now exposes v1 and v2 columns for all 20 MAT133 seeds. The deterministic seed cap is 64, computed by the role planner. Seeds 21-64 can be built on demand by the local Generate page from the approved bank, with no LLM key and $0 cost; seeds 1-20 remain the only prebuilt Library entries."
     },
     "V7_publish": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "data/tracking/mat133/v2/GATE_C_REPORT.md",
+        "data/tracking/mat133/v2/publication.json",
+        "docs/MAT133_PUBLICATION_REPORT.md",
         "outputs/public_bundle/library/MAT133/manifest.json",
         "outputs/public_bundle/mat133/library/index.html",
+        "outputs/public_bundle/subjects.json",
         "outputs/public_bundle",
-        "data/tracking/mat133/v2/public_bundle_build.log"
+        "data/tracking/mat133/v2/public_bundle_build.log",
+        "outputs/r2_quota_ledger.json",
+        "outputs/r2_sync_state.json",
+        "cloudflare/worker/wrangler.toml"
       ],
       "llm_cost_usd": 0.0,
-      "blockers": [
-        "Gate C approval for R2 upload and Worker deployment."
-      ],
+      "blockers": [],
       "human_approval": {
-        "required": false,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-16",
+        "note": "Owner instructed: \"okay deploy this to live, gate C pass\"."
       },
-      "notes": "Local public bundle built with 20 MAT133 seeds and v1/v2 documents; bundle validation reports 0 problems. No R2 upload or Worker deployment has been performed."
+      "notes": "Bundle validation: 558 entries, 0 forbidden/missing. R2 upload: 138 changed, 504 unchanged, 139 Class A this run (807/10000 month). Worker papergen version 399b5696-9d80-4764-bd28-17c2465b56b5 deployed at https://uitmpapergen.download. All 160 MAT133 v1/v2 document URLs and the other subject routes return 200."
     },
     "V8_close_out": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "docs/MAT133.md",
+        "docs/MAT133_PUBLICATION_REPORT.md",
+        "data/tracking/mat133/v2/GATE_C_REPORT.md",
+        "data/tracking/mat133/v2/publication.json",
+        "subjects/MAT133/lifecycle_state.json",
+        "outputs/r2_quota_ledger.json",
+        "outputs/r2_sync_state.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
@@ -208,9 +220,9 @@
         "approved": false,
         "by": "",
         "on": "",
-        "note": ""
+        "note": "V8 is close-out; Gate C is the publication approval."
       },
-      "notes": ""
+      "notes": "V0-V8 complete. 187 approved bank questions, 128 usable answers, 20 published seeds with v1/v2 documents, bundle validated, R2 uploaded and Worker deployed. Final pytest 431 passed / 0 failed / 12 skipped; safety scan 382 text files; Worker tests 6 passed."
     }
   },
   "gates": {
@@ -251,15 +263,16 @@
       "conditions": []
     },
     "C": {
-      "status": "pending",
-      "by": "",
-      "on": "",
+      "status": "approved",
+      "by": "owner",
+      "on": "2026-11-16",
       "evidence": [
         "data/tracking/mat133/v2/GATE_C_REPORT.md",
         "outputs/public_bundle/library/MAT133/manifest.json",
-        "outputs/public_bundle/mat133/library/index.html"
+        "outputs/public_bundle/mat133/library/index.html",
+        "outputs/public_bundle/subjects.json"
       ],
-      "note": "Local bundle is ready; publication requires owner Gate C approval."
+      "note": "Owner instructed: \"okay deploy this to live, gate C pass\". Bundle validation reports 0 forbidden/missing paths; R2 dry run is within quota."
     }
   },
   "bank": {
@@ -663,7 +676,7 @@
     },
     "notes": "V0-V3 deterministic ($0.00). V4 used two DeepSeek drafts: $1.609138 thinking-enabled and $0.311533 thinking-disabled. MinerU page cost is recorded per V1 run."
   },
-  "stop_reason": "Gate C: public bundle ready, upload/deploy awaiting approval.",
+  "stop_reason": "V0-V8 complete; v1 and v2 published at https://uitmpapergen.download.",
   "migration_mode": "full_v2_from_raw_papers",
   "migration_started_on": "2026-11-14",
   "branch": "MAT133",
@@ -681,8 +694,8 @@
       2
     ],
     "v1_state": "subjects/MAT133/lifecycle_state_v1.json",
-    "v2_status": "V7_bundle_ready_gate_C",
-    "v2_note": "20 role-ordered v2 seeds are in the local public bundle together with v1. R2 upload and Worker deployment await Gate C.",
+    "v2_status": "published",
+    "v2_note": "20 role-ordered v2 seeds are published together with v1 at https://uitmpapergen.download/mat133. Gate C approved and executed on 2026-11-16.",
     "v2_publication": "local public bundle ready; Gate C pending"
   }
 }
