@@ -1,0 +1,130 @@
+================================================================================
+MAT133-2016-OCT-Q3 25 ['functions']
+Q a 9 Given $f(x) = \frac{x^2 - 4}{9}$ and $g(x) = \frac{3}{x} + 4$ . | i) State the domain of $f(x)$ and $g(x)$ . | (2 marks) | ii) Find $g^{-1}(x)$ . | (3 marks) | iii) Hence, find $(f \circ g^{-1})(-2)$ . | (4 marks)
+Q b 5 The function $h(x)=2x^{3}+px^{2}-8x+12$ has a factor $(x-2)$ . Use synthetic division to find the value of p. Hence, factorize the function completely. | (5 marks)
+Q c 6 Find the value of $x$ if $\frac{4^x + 8(4^{-x})}{2} = 3$ . | (6 marks)
+Q d 5 Based on the graph of $f(x) = \sqrt{x}$ , sketch the graph of $g(x) = 2 - \sqrt{x - 1}$ using transformation techniques. Hence, state the $x$ and $y$ intercepts (if any). | (5 marks)
+A a :: i) Domain of $f$: $x\in\mathbb{R}$ (all reals); Domain of $g$: $x\neq 0$ (i.e. $(-\infty,0)\cup(0,\infty)$). ii) $g^{-1}(x)=\dfrac{3}{x-4}$, $x\neq 4$. iii) $(f\circ g^{-1})(-2)=-\dfrac{1}{12}$
+A b :: $p=-3$; $h(x)=(x-2)(2x-3)(x+2)$
+A c :: $x=\dfrac{\ln 2}{\ln 4}=\dfrac12$
+A d :: $x$-intercept: $(5,0)$; $y$-intercept: $(0,1)$
+================================================================================
+MAT133-2017-MAR-Q3 25 ['functions']
+Q  9 Given $g(x)=\frac{1}{x}+2$ and $h(x)=\sqrt{3x+6}$ . | i) State the domain of $g(x)$ and $h(x)$ . | (2 marks) | ii) Find $h^{-1}(x)$ . | (3 marks) | iii) Hence, find $(g \circ h^{-1})(2)$ . | (4 marks)
+Q b 5 The function $f(x) = x^{3} - 19x + 30$ has a factor $(x + 5)$ . Use long division method to find the quotient. Hence, factorize the function completely. | (5 marks)
+Q c 6 Find the value of x if $\log_{2}(x-1)=\log_{4}(x+5)$ . | (6 marks)
+Q d 5 Based on the graph of $f(x)=|x|$ , sketch the graph of $g(x)=-|x+3|-3$ using transformation techniques. Hence, state the y intercept (if any). | (5 marks)
+A  :: Domain of $g$: $x\neq 0$ (i.e. $(-\infty,0)\cup(0,\infty)$); Domain of $h$: $x\ge -2$ (i.e. $[-2,\infty)$) | $h^{-1}(x)=\dfrac{x^2-6}{3}$, $x\ge 0$ | $(g\circ h^{-1})(2)=\dfrac{7}{2}$
+A b :: Quotient $x^2-5x+6$; $f(x)=(x+5)(x-2)(x-3)$
+A c :: $x=3$
+A d :: $g(x)=-|x+3|-3$: shift $|x|$ left 3, reflect in $x$-axis, shift down 3; vertex $(-3,-3)$, opens downward; $y$-intercept $=-6$
+================================================================================
+MAT133-2018-DEC-Q3 25 ['functions']
+Q a 9 Given $f(x) = 7x^{2} - 5$ , $g(x) = \sqrt{x + 2}$ and $h(x) = \frac{3 - x}{x + 1}$ . Find | i) the domain of $f(x)$ and $g(x)$ | (2 marks) | ii) $\frac{f}{h} (x)$ | (3 marks) | iii) $(f \circ g)^{-1}(3)$ | (4 marks)
+Q b 5 Find the value of m if $(x+1)$ is a factor of $f(x)=2x^{3}+x^{2}+mx+3$ . Hence, use synthetic division to determine quotient and remainder when $f(x)$ is divided by $(x+1)$ . (5 marks)
+Q c 6 Solve the equation $e^x - 8e^{-x} = 2$ . | (6 marks)
+Q d 5 Based on the graph $y = x^2$ , sketch the graph of $y = -(x - 6)^2 + 4$ by using transformation technique. Hence, state the $x$ and $y$ -intercepts (if any). | (5 marks)
+A a :: i) dom(f)=$\mathbb{R}$, dom(g)=$[-2,\infty)$; ii) $\dfrac{f}{h}(x)=\dfrac{(7x^2-5)(x+1)}{3-x}$, $x\neq 3,-1$; iii) $(f\circ g)^{-1}(3)=\pm\sqrt{2}$
+A b :: $m=-4$; quotient $2x^2-x-3$, remainder $0$
+A c :: $x=\ln 4$
+A d :: $y$-intercept: $(0,-32)$; $x$-intercepts: $(4,0)$ and $(8,0)$
+================================================================================
+MAT133-2018-JUN-Q3 25 ['functions']
+Q a 9 Given $f(x) = \frac{x + 2}{x - 1}$ and $g(x) = 1 + 4x$ . Determine | i) the domain of $f(x)$ and $g(x)$ . | (2 marks) | ii) $(f + g)(x)$ . | (3 marks) | iii) $f^{-1}(5)$ . | (4 marks)
+Q b 5 Use long division to show that x - 1 is not a factor of $P(x) = 2x^{3} - x^{2} + 1$ . Hence, state the quotient and remainder of $P(x)$ . | (5 marks)
+Q c 6 Solve the equation $\log_{3}x + 4\log_{x}3 = 5$ . | (6 marks)
+Q d 5 Figure 1 shows a graph with a function $f(x)$ . Use the transformation of graphs to illustrate the function $g(x) = -f(x + 4) + 5$ . Hence, state the y-intercept (if any). | (5 marks)
+A a :: i) dom $f = (-\infty,1)\cup(1,\infty)$; dom $g=\mathbb{R}$. ii) $(f+g)(x)=\dfrac{x+2}{x-1}+1+4x=\dfrac{4x^{2}+2x+1}{x-1}$, $x\neq 1$. iii) $f^{-1}(5)=\dfrac{7}{4}$.
+A b :: $P(x)=(x-1)(2x^{2}+x+1)+2$; quotient $2x^{2}+x+1$, remainder $2\neq0$, so $x-1$ is not a factor.
+A c :: $x=3$ or $x=81$.
+A d :: $g$ is $f$ shifted left 4, reflected in the $x$-axis, then shifted up 5. y-intercept: $g(0)=5-f(4)$ (value depends on Figure 1).
+================================================================================
+MAT133-2019-DEC-Q3 25 ['functions']
+Q a 9 Given $f(x) = x^2 - 5$ , $g(x) = \frac{x + 3}{2 - x}$ and $h(x) = 3x - 4$ . Find | i) the domain of $f(x)$ and $g(x)$ | (2 marks) | ii) $f^{-1}(x)$ | (3 marks) | iii) $\left(h\circ g\circ f^{-i}\right)(4)$ | (4 marks)
+Q b 5 The function $h(x) = 3x^{3} - x^{2} + px + 1$ has a factor $(x + 1)$ . Use synthetic division to find the value of $p$ . Hence, factorize the function completely. | (5 marks)
+Q c 6 Solve the equation $\log_3 x + 6\log_x 3 = 5$ . | (6 marks)
+Q d 5 Based on the graph $y = \sqrt{x}$ , sketch the graph of $y = 4 - \sqrt{x - 3}$ by using transformation technique. Hence, state the $x$ -intercept(s) (if any). | (5 marks)
+A a :: Domain of $f$: $x\in\mathbb{R}$ (i.e. $(-\infty,\infty)$); Domain of $g$: $x\in\mathbb{R},\ x\neq 2$ (i.e. $(-\infty,2)\cup(2,\infty)$) | $f^{-1}(x)=\sqrt{x+5}$ (taking the principal branch, $x\ge -5$) | $\left(h\circ g\circ f^{-1}\right)(4)=\dfrac{23}{5}$
+A b :: $p=-3$; $h(x)=(x+1)(3x-1)(x-1)$
+A c :: $x=3$ or $x=3^{2}=9$
+A d :: $x$-intercept: $x=19$ (point $(19,0)$)
+================================================================================
+MAT133-2019-JUN-Q3 25 ['absolute_value', 'functions', 'polynomials']
+Q a 9 Given $f(x) = \sqrt{x - 9}$ , $x \geq h$ and $g(x) = \frac{3 - 2x}{5 + x}$ , $x \neq k$ . Find | i) the values of $h$ and $k$ | (2 marks) | ii) $(f\circ g)(x)$ | (3 marks) | iii) $g^{-1}(2)$ | (4 marks)
+Q b 5 Use long division to find the quotient and remainder when $P(x) = 2x^3 - x$ is divided by $(x - 3)$ . | (5 marks)
+Q c 6 Solve the equation $5^{x + 1} - 5^{2x} = 4$ . | (6 marks)
+Q d 5 Sketch the graph of $y = |x|$ . Hence, sketch the graph of $y = 5 - |x - 5|$ by using transformation techniques. | (5 marks)
+A a :: i) $h=9,\ k=-5$; ii) $(f\circ g)(x)=\sqrt{\dfrac{-7x-42}{5+x}}$; iii) $g^{-1}(2)=-1$
+A b :: Quotient $=2x^2+6x+17$, remainder $=51$
+A c :: $x=0$
+A d :: $y=|x|$: V-shape vertex $(0,0)$ through $(1,1),(-1,1)$. $y=5-|x-5|$: shift right 5, reflect in $x$-axis, shift up 5; vertex $(5,5)$, passes $(0,0)$ and $(10,0)$, downward V.
+================================================================================
+MAT133-2023-FEB-Q3 25 ['functions']
+Q a 9 Given $f(x) = x^2 - 2x + 1$ , $g(x) = \sqrt{3x - 5}$ and $h(x) = \frac{x - 3}{x + 2}$ . Find | i) the domain of $f(x)$ and $g(x)$ | (2 marks) | ii) $g^{-1}(x)$ | (3 marks) | iii) $\left(h\circ f\circ g^{-1}\right)(1)$ | (4 marks)
+Q b 5 When the expression $x^{3} + 2x^{2} + ax - 7$ is divided by $(x + 3)$ , the remainder is -4. By using long division, find the value of $a$ . | (5 marks)
+Q c 6 Solve the equation $\log_3(x^2 + 5x + 6) - \log_3(x^2 + 3x) = 4$ . | (6 marks)
+Q d 5 Based on the graph $y = x$ , sketch the graph of $y = -(2x + 7)$ by using transformation technique. Hence, state the y-intercept(s) (if any). | (5 marks)
+A a :: i) dom $f=\mathbb{R}$ (or $(-\infty,\infty)$); dom $g=\left[\tfrac{5}{3},\infty\right)$. ii) $g^{-1}(x)=\dfrac{x^{2}+5}{3}$, $x\ge 0$. iii) $\left(h\circ f\circ g^{-1}\right)(1)=-\dfrac{2}{3}$.
+A b :: $a=3$
+A c :: $x=-\dfrac{160}{13}$
+A d :: $y$-intercept: $(0,-7)$ (only one).
+================================================================================
+MAT133-2023-JUL-Q3 25 ['functions']
+Q a 9 Given that $f(x) = x + 7$ and $g(x) = \frac{x + 3}{x - 4}$ . | i) State the domain of $f(x)$ and $g(x)$ | (2 marks) | ii) Determine $(g\circ f)(x)$ . Hence, find $(g\circ f)(4)$ . | (3 marks) | iii) Find the value of $x$ if $(g \circ f)^{-1}(x) = 2$ | (4 marks)
+Q b 5 Use synthetic division to show that $(x - 1)$ is not a factor of $f(x) = 2x^{3} - x^{2} + 1$ . Hence, state the quotient and remainder of $f(x)$ . | (5 marks)
+Q c 6 Find the value of $x$ if $\frac{3^x - 9(3^{-x})}{2} = 4$ . | (6 marks)
+Q d 5 Based on the graph of $y = x^2$ , sketch the graph of $y = -\left[(x + 2)^2 - 1\right]$ by using transformation technique. Hence, state the $x$ and $y$ -intercept(s) (if any). | (5 marks)
+A a :: i) Domain of $f$: $x\in\mathbb{R}$; domain of $g$: $x\in\mathbb{R},\ x\neq 4$. ii) $(g\circ f)(x)=\dfrac{x+10}{x+3}$, $(g\circ f)(4)=\dfrac{14}{7}=2$. iii) $x=\dfrac{16}{3}$
+A b :: Quotient $=2x^2+x+1$, remainder $=2\neq0$, so $(x-1)$ is not a factor.
+A c :: $x=2$
+A d :: $y=-[(x+2)^2-1]=-(x+2)^2+1$; vertex $(-2,1)$, opens downward. $y$-intercept: $(0,-3)$. $x$-intercepts: $(-3,0)$ and $(-1,0)$.
+================================================================================
+MAT133-2024-JAN-Q3 25 ['functions']
+Q a 9 Given two functions $f(x) = \frac{x + 1}{2x - 3}$ and $g(x) = \sqrt{6x + 5}$ . Find | i) the domain of $f(x)$ and $g(x)$ . | (2 marks) | ii) the inverse function, $f^{-1}(x)$ . | (3 marks) | iii) $(g\circ f)(0)$ | (4 marks)
+Q b 5 Show that $(x - 4)$ is not a factor of $P(x) = 3x^{3} - 2x + 8$ . Hence, use the synthetic division method to find its quotient and remainder. | (5 marks)
+Q c 6 Solve the exponential equation $81^{x}\left(3^{2x + 1}\right) = 12$ . | (6 marks)
+Q d 5 Based on the graph $y = x^2$ , sketch the graph of $y = -(x - 2)^2 - 3$ by using transformation techniques. Hence, state the $y$ -intercept of the graph $y = -(x - 2)^2 - 3$ .
+A a :: i) Domain of $f$: $x\neq \tfrac{3}{2}$, i.e. $(-\infty,\tfrac32)\cup(\tfrac32,\infty)$; domain of $g$: $x\ge -\tfrac56$, i.e. $[-\tfrac56,\infty)$. ii) $f^{-1}(x)=\dfrac{3x+1}{2x-1}$. iii) $(g\circ f)(0)=\sqrt{\tfrac{13}{3}}=\dfrac{\sqrt{39}}{3}$
+A b :: $P(4)=192\neq 0$, so $(x-4)$ is not a factor. Quotient $=3x^2+12x+46$, remainder $=192$.
+A c :: $x=\dfrac{\log_3 4}{4}=\dfrac{\ln 4}{4\ln 3}$
+A d :: $y$-intercept $=-7$
+================================================================================
+MAT133-2024-JUL-Q3 25 ['functions']
+Q a 9 Given $f(x) = \sqrt{2x + 5}$ and $g(x) = \frac{4 - x}{3x - 1}$ . | i) State the domain of $f(x)$ and $g(x)$ | (2 marks) | ii) Find $f^{-1}(x)$ | (3 marks) | iii) Find the value of $\left(g\circ f^{-1}\right)(1)$ . | (4 marks)
+Q b 5 By using long division, find the value of $m$ if $(x - 2)$ is a factor of $f(x) = 2x^{3} + x^{2} - mx - 6$ . | (5 marks)
+Q c 6 Solve the exponential equation $25^{x} - 3(5^{x}) - 4 = 0$ . | (6 marks)
+Q d 5 Based on the graph $y = \sqrt{x}$ , sketch the graph of $y = 3 - \sqrt{1 + x}$ by using transformation technique. Hence, state the y-intercept(s) (if any). | (5 marks)
+A a :: i) dom $f=[-\tfrac52,\infty)$, dom $g=\mathbb{R}\setminus\{\tfrac13\}$; ii) $f^{-1}(x)=\dfrac{x^2-5}{2}$, $x\ge 0$; iii) $(g\circ f^{-1})(1)=-1$
+A b :: $m=9$
+A c :: $x=\log_5 4=\dfrac{\ln 4}{\ln 5}\approx 0.861$
+A d :: $y$-intercept: $(0,2)$
+================================================================================
+MAT133-2025-FEB-Q3 25 ['functions']
+Q a 9 Given that $f(x) = 1 - 3x$ and $g(x) = \sqrt{x + 5}$ . | i) State the domain of $f(x)$ and $g(x)$ . | (2 marks) | ii) Find $(g\circ f)(x)$ . | (3 marks) | iii) Find the value of $x$ if $(g \circ f)(x) = 3$ . | (4 marks)
+Q b 5 Using synthetic division, find the value of $m$ if $f(x) = 2x^3 - mx + 10$ has a remainder of 18 when $f(x)$ is divided by $(x - 2)$ . | (5 marks)
+Q c 6 Find the value of $x$ if $\log_4(3 + x) = 2 + \log_4(x + 1)$ . | (6 marks)
+Q d 5 Based on the graph $y = |x|$ , sketch the graph for $y = -\left[ |x - 2| - 2 \right]$ using transformation technique. Hence, state the $y$ -intercept(s) (if any). | (5 marks)
+A a :: i) Domain of $f$: $x\in\mathbb{R}$; domain of $g$: $x\ge -5$ (i.e. $[-5,\infty)$). ii) $(g\circ f)(x)=\sqrt{4-3x}$. iii) $x=-\dfrac{5}{3}$.
+A b :: $m=1$
+A c :: $x=-\dfrac{13}{15}$
+A d :: $y$-intercept: $(0,-4)$ (i.e. $y=-4$).
+================================================================================
+MAT133-2025-JUL-Q4 25 ['trigonometry']
+Q a 5 Find all angles between $0^{\circ}$ and $360^{\circ}$ that satisfy the equation $2 \sin^{2} \theta + \cos \theta = 1$ . (5 marks)
+Q b 8 Figure 1 below shows sector $ABC$ with center $B$ and sector $DEF$ with center $E$ . Given that the area of sector $ABC$ is $12\pi \mathrm{cm}^2$ , arc length of $DF$ is $\frac{5}{3}\pi \mathrm{cm}$ , the angle $\angle ABC = 120^\circ$ , and the length of $DE$ is $1 \mathrm{~cm}$ shorter than the le
+Q c 6 Given $\sin A = \frac{\sqrt{3}}{2}$ and $\sec B = \frac{13}{12}$ where $A$ is an angle in quadrant 2 and $B$ is an angle in quadrant 4. Find: | i) $\sin 2 A$ | (3 marks) | ii) $\cos (A - B)$ | (3 marks)
+Q d 6 Figure 2 below shows an equilateral triangle QRS and right-angle triangle RSP with the angle $\angle RSP$ is $90^{\circ}$ . | Find: | i) the length of side $PS$ given that the length of $QS$ is 6 cm. | (3 marks) | ii) the area of shaded region. | (3 marks)
+A a :: $\theta = 60^\circ,\ 300^\circ$
+A b :: $BC = 6\ \text{cm}$ | $\angle DEF = 150^\circ$ | Area of shaded region $= 12\pi - \frac{25\pi}{6} = \frac{47\pi}{6}\ \text{cm}^2$ (if shaded is difference of sectors)
+A c :: $\sin 2A = -\frac{\sqrt{3}}{2}$ | $\cos(A-B) = \frac{12+5\sqrt{3}}{26}$
+A d :: $PS = 3\sqrt{3}\ \text{cm}$ | Area of shaded region $= 9\sqrt{3}\ \text{cm}^2$ (if shaded is difference between equilateral and right triangle)
+================================================================================
+MAT133-2026-FEB-Q4 25 ['trigonometry']
+Q a 5 Find all angles between $0^{\circ}$ and $360^{\circ}$ that satisfy the equation $1 - \cos x = 4\sin^{2}x$ . | (5 marks)
+Q b 8 Figure 1 below shows the arc BCD and EFGA sharing the same center at O. Given that OB = 27cm, OA = 15cm, and $\angle AOG = \angle EOF = 60^{\circ}$ . | Find: | i) the length of arc FG. | (2 marks) | ii) the area of the shaded region. | (3 marks) | iii) the perimeter of ABCDEFG in Figure 1. | (3 mark
+Q c 6 Given $\cos A = \frac{2}{\sqrt{6}}$ and $\tan B = 2$ where $A$ is an angle in quadrant IV and $B$ is an angle in quadrant III. Find: | i) $\sin 2 A$ | (3 marks) | ii) $\cos(A+B)$ | (3 marks)
+Q d 6 Figure 2 below shows triangles ABD, ACD, and right-angle triangle BAC, where $\angle BAC$ is $90^{\circ}$ and $\angle BAD$ is $60^{\circ}$ . | Find: | i) the length of side $CD$ given that the length of $AC$ is 8 cm and $AB$ is 10 cm. (3 marks) | ii) the area of shaded region. | (3 marks)
+A a :: $x=60^{\circ},\ 300^{\circ}$
+A b :: arc $FG = 5\pi \approx 15.71$ cm | Area $=84\pi \approx 263.9$ cm$^2$ | Perimeter $=42+14\pi \approx 85.98$ cm
+A c :: $\sin 2A=-\dfrac{2\sqrt{2}}{3}$ | $\cos(A+B)=\dfrac{2\sqrt{30}+2}{15}$
+A d :: $CD=\sqrt{244-80\sqrt3}\approx 9.6$ cm (assumption: $\angle CAD=30^{\circ}$) | Shaded area $\approx 6.4$ cm$^2$ (depends on figure)

@@ -1,0 +1,604 @@
+{
+  "approved_questions": 98,
+  "selection": "role_order_no_marks",
+  "reuse_cap": 4,
+  "pools": {
+    "Q1": {
+      "count": 33,
+      "questions": [
+        "MAT133-2006-APR-Q5",
+        "MAT133-2009-APR-Q4",
+        "MAT133-2010-OCT-Q2",
+        "MAT133-2011-APR-Q3",
+        "MAT133-2014-MAR-Q2",
+        "MAT133-2015-SEP-Q1",
+        "MAT133-2015-SEP-Q2",
+        "MAT133-2016-MAR-Q1",
+        "MAT133-2016-MAR-Q2",
+        "MAT133-2016-OCT-Q2",
+        "MAT133-2017-MAR-Q2",
+        "MAT133-2018-DEC-Q2",
+        "MAT133-2018-JAN-Q1",
+        "MAT133-2018-JUN-Q1",
+        "MAT133-2018-JUN-Q2",
+        "MAT133-2019-DEC-Q1",
+        "MAT133-2019-DEC-Q2",
+        "MAT133-2019-JUN-Q1",
+        "MAT133-2019-JUN-Q2",
+        "MAT133-2021-JUL-Q1",
+        "MAT133-2021-JUL-Q1-2",
+        "MAT133-2021-JUL-Q2-2",
+        "MAT133-2022-FEB-Q1",
+        "MAT133-2023-FEB-Q1",
+        "MAT133-2023-JUL-Q1",
+        "MAT133-2023-JUL-Q2",
+        "MAT133-2024-JAN-Q1",
+        "MAT133-2024-JUL-Q1",
+        "MAT133-2024-JUL-Q2",
+        "MAT133-2025-FEB-Q1",
+        "MAT133-2025-FEB-Q2",
+        "MAT133-2025-JUL-Q1",
+        "MAT133-2026-FEB-Q1"
+      ]
+    },
+    "Q2": {
+      "count": 53,
+      "questions": [
+        "MAT133-2004-MAR-Q5",
+        "MAT133-2005-NOV-Q1",
+        "MAT133-2006-APR-Q1",
+        "MAT133-2007-APR-Q2",
+        "MAT133-2007-OCT-Q2",
+        "MAT133-2007-OCT-Q3",
+        "MAT133-2009-APR-Q4",
+        "MAT133-2009-OCT-Q2",
+        "MAT133-2010-OCT-Q2",
+        "MAT133-2011-APR-Q3",
+        "MAT133-2011-APR-Q5",
+        "MAT133-2011-SEP-Q1",
+        "MAT133-2011-SEP-Q2",
+        "MAT133-2011-SEP-Q3",
+        "MAT133-2012-MAR-Q1",
+        "MAT133-2012-MAR-Q2",
+        "MAT133-2013-SEP-Q3",
+        "MAT133-2014-MAR-Q2",
+        "MAT133-2014-MAR-Q3",
+        "MAT133-2014-SEP-Q3",
+        "MAT133-2015-MAR-Q3",
+        "MAT133-2015-SEP-Q2",
+        "MAT133-2015-SEP-Q3",
+        "MAT133-2016-MAR-Q2",
+        "MAT133-2016-OCT-Q2",
+        "MAT133-2016-OCT-Q3",
+        "MAT133-2017-MAR-Q2",
+        "MAT133-2017-MAR-Q3",
+        "MAT133-2018-DEC-Q2",
+        "MAT133-2018-DEC-Q3",
+        "MAT133-2018-JUN-Q2",
+        "MAT133-2018-JUN-Q3",
+        "MAT133-2019-DEC-Q2",
+        "MAT133-2019-DEC-Q3",
+        "MAT133-2019-JUN-Q2",
+        "MAT133-2019-JUN-Q3",
+        "MAT133-2021-JUL-Q2-2",
+        "MAT133-2021-JUL-Q3",
+        "MAT133-2021-JUL-Q3-2",
+        "MAT133-2022-FEB-Q2",
+        "MAT133-2022-FEB-Q3",
+        "MAT133-2023-FEB-Q3",
+        "MAT133-2023-JUL-Q2",
+        "MAT133-2023-JUL-Q3",
+        "MAT133-2024-JAN-Q3",
+        "MAT133-2024-JUL-Q2",
+        "MAT133-2024-JUL-Q3",
+        "MAT133-2025-FEB-Q2",
+        "MAT133-2025-FEB-Q3",
+        "MAT133-2025-JUL-Q1",
+        "MAT133-2025-JUL-Q2",
+        "MAT133-2026-FEB-Q1",
+        "MAT133-2026-FEB-Q2"
+      ]
+    },
+    "Q3": {
+      "count": 30,
+      "questions": [
+        "MAT133-2004-MAR-Q5",
+        "MAT133-2005-NOV-Q1",
+        "MAT133-2007-APR-Q2",
+        "MAT133-2007-OCT-Q2",
+        "MAT133-2007-OCT-Q3",
+        "MAT133-2009-OCT-Q2",
+        "MAT133-2011-SEP-Q2",
+        "MAT133-2011-SEP-Q3",
+        "MAT133-2012-MAR-Q2",
+        "MAT133-2013-SEP-Q3",
+        "MAT133-2014-MAR-Q3",
+        "MAT133-2014-SEP-Q3",
+        "MAT133-2015-MAR-Q3",
+        "MAT133-2015-SEP-Q3",
+        "MAT133-2016-OCT-Q3",
+        "MAT133-2017-MAR-Q3",
+        "MAT133-2018-DEC-Q3",
+        "MAT133-2018-JUN-Q3",
+        "MAT133-2019-DEC-Q3",
+        "MAT133-2019-JUN-Q3",
+        "MAT133-2021-JUL-Q3",
+        "MAT133-2021-JUL-Q3-2",
+        "MAT133-2022-FEB-Q3",
+        "MAT133-2023-FEB-Q3",
+        "MAT133-2023-JUL-Q3",
+        "MAT133-2024-JAN-Q3",
+        "MAT133-2024-JUL-Q3",
+        "MAT133-2025-FEB-Q3",
+        "MAT133-2025-JUL-Q2",
+        "MAT133-2026-FEB-Q2"
+      ]
+    },
+    "Q4": {
+      "count": 32,
+      "questions": [
+        "MAT133-2005-NOV-Q5",
+        "MAT133-2006-APR-Q5",
+        "MAT133-2008-OCT-Q5",
+        "MAT133-2009-APR-Q5",
+        "MAT133-2009-OCT-Q5",
+        "MAT133-2010-APR-Q4",
+        "MAT133-2010-OCT-Q5",
+        "MAT133-2011-APR-Q5",
+        "MAT133-2011-SEP-Q5",
+        "MAT133-2012-MAR-Q5",
+        "MAT133-2012-OCT-Q5",
+        "MAT133-2013-MAR-Q5",
+        "MAT133-2013-SEP-Q5",
+        "MAT133-2014-SEP-Q4",
+        "MAT133-2014-SEP-Q5",
+        "MAT133-2015-MAR-Q5",
+        "MAT133-2015-SEP-Q5",
+        "MAT133-2016-MAR-Q5",
+        "MAT133-2016-OCT-Q5",
+        "MAT133-2017-MAR-Q5",
+        "MAT133-2018-DEC-Q5",
+        "MAT133-2018-JAN-Q5",
+        "MAT133-2018-JUN-Q5",
+        "MAT133-2019-JUN-Q5",
+        "MAT133-2021-JUL-Q5",
+        "MAT133-2021-JUL-Q5-2",
+        "MAT133-2023-FEB-Q5",
+        "MAT133-2023-JUL-Q5",
+        "MAT133-2024-JAN-Q5",
+        "MAT133-2024-JUL-Q5",
+        "MAT133-2025-FEB-Q4",
+        "MAT133-2025-FEB-Q5"
+      ]
+    },
+    "Q5": {
+      "count": 30,
+      "questions": [
+        "MAT133-2005-NOV-Q5",
+        "MAT133-2006-APR-Q5",
+        "MAT133-2008-OCT-Q5",
+        "MAT133-2009-APR-Q5",
+        "MAT133-2009-OCT-Q5",
+        "MAT133-2010-APR-Q4",
+        "MAT133-2010-OCT-Q5",
+        "MAT133-2011-APR-Q5",
+        "MAT133-2011-SEP-Q5",
+        "MAT133-2012-MAR-Q5",
+        "MAT133-2012-OCT-Q5",
+        "MAT133-2013-MAR-Q5",
+        "MAT133-2013-SEP-Q5",
+        "MAT133-2014-SEP-Q5",
+        "MAT133-2015-MAR-Q5",
+        "MAT133-2015-SEP-Q5",
+        "MAT133-2016-MAR-Q5",
+        "MAT133-2016-OCT-Q5",
+        "MAT133-2017-MAR-Q5",
+        "MAT133-2018-DEC-Q5",
+        "MAT133-2018-JAN-Q5",
+        "MAT133-2018-JUN-Q5",
+        "MAT133-2019-JUN-Q5",
+        "MAT133-2021-JUL-Q5",
+        "MAT133-2021-JUL-Q5-2",
+        "MAT133-2023-FEB-Q5",
+        "MAT133-2024-JAN-Q5",
+        "MAT133-2024-JUL-Q5",
+        "MAT133-2025-FEB-Q4",
+        "MAT133-2025-FEB-Q5"
+      ]
+    }
+  },
+  "structural_excluded": [
+    {
+      "question_id": "MAT133-2004-MAR-Q1",
+      "marks": 20,
+      "issues": [
+        "part a refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2004-MAR-Q3",
+      "marks": 20,
+      "issues": [
+        "part c refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2005-NOV-Q3",
+      "marks": 20,
+      "issues": [
+        "part a refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2005-NOV-Q4",
+      "marks": 20,
+      "issues": [
+        "part c refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2006-APR-Q2",
+      "marks": 22,
+      "issues": [
+        "part c refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2006-APR-Q3",
+      "marks": 18,
+      "issues": [
+        "part b refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2006-APR-Q4",
+      "marks": 20,
+      "issues": [
+        "part b refers to printed content that is missing",
+        "part c refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2007-APR-Q4",
+      "marks": 18,
+      "issues": [
+        "part b refers to printed content that is missing",
+        "part c refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2007-APR-Q5",
+      "marks": 19,
+      "issues": [
+        "part b refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2007-OCT-Q4",
+      "marks": 22,
+      "issues": [
+        "part b refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2008-OCT-Q2",
+      "marks": 18,
+      "issues": [
+        "part c refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2008-OCT-Q3",
+      "marks": 12,
+      "issues": [
+        "part b has no marks",
+        "part c defers to a definition that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2009-APR-Q1",
+      "marks": 12,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2009-APR-Q3",
+      "marks": 20,
+      "issues": [
+        "part d refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2009-OCT-Q1",
+      "marks": 14,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2009-OCT-Q3",
+      "marks": 20,
+      "issues": [
+        "part b refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2009-OCT-Q4",
+      "marks": 20,
+      "issues": [
+        "part b refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2010-APR-Q2",
+      "marks": 20,
+      "issues": [
+        "part d refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2010-APR-Q5",
+      "marks": 20,
+      "issues": [
+        "part d refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2010-OCT-Q4",
+      "marks": 20,
+      "issues": [
+        "part a refers to printed content that is missing",
+        "part b refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2011-APR-Q2",
+      "marks": 20,
+      "issues": [
+        "part b defers to a definition that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2011-APR-Q4",
+      "marks": 22,
+      "issues": [
+        "part a refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2012-MAR-Q3",
+      "marks": 13,
+      "issues": [
+        "part b has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2012-MAR-Q4",
+      "marks": 20,
+      "issues": [
+        "part a refers to printed content that is missing",
+        "part b refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2012-OCT-Q2",
+      "marks": 20,
+      "issues": [
+        "part a has a conjunction with a missing expression",
+        "part c states an equation problem without equations"
+      ]
+    },
+    {
+      "question_id": "MAT133-2012-OCT-Q3",
+      "marks": 20,
+      "issues": [
+        "part ? has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2013-MAR-Q2",
+      "marks": 17,
+      "issues": [
+        "part c refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2013-MAR-Q3",
+      "marks": 19,
+      "issues": [
+        "part c refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2014-MAR-Q4",
+      "marks": 20,
+      "issues": [
+        "part a refers to printed content that is missing",
+        "part b refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2014-SEP-Q1",
+      "marks": 4,
+      "issues": [
+        "part a has no marks",
+        "part c has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2016-MAR-Q3",
+      "marks": 19,
+      "issues": [
+        "part c has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2016-MAR-Q4",
+      "marks": 9,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2016-OCT-Q4",
+      "marks": 14,
+      "issues": [
+        "part b refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2017-MAR-Q1",
+      "marks": 10,
+      "issues": [
+        "part b has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2017-MAR-Q4",
+      "marks": 14,
+      "issues": [
+        "part b refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2018-DEC-Q4",
+      "marks": 9,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2018-JAN-Q2",
+      "marks": 15,
+      "issues": [
+        "part c refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2018-JAN-Q4",
+      "marks": 9,
+      "issues": [
+        "part a has no marks",
+        "part b refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2018-JUN-Q4",
+      "marks": 10,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2019-DEC-Q4",
+      "marks": 9,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2019-JUN-Q4",
+      "marks": 9,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2021-JUL-Q2",
+      "marks": 10,
+      "issues": [
+        "part a refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2021-JUL-Q4-2",
+      "marks": 9,
+      "issues": [
+        "part b refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2021-JUL-Q4",
+      "marks": 9,
+      "issues": [
+        "part b refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2022-FEB-Q4",
+      "marks": 9,
+      "issues": [
+        "part b refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2023-FEB-Q2",
+      "marks": 15,
+      "issues": [
+        "part c refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2023-FEB-Q4",
+      "marks": 10,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2023-JUL-Q4",
+      "marks": 9,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2024-JAN-Q2",
+      "marks": 15,
+      "issues": [
+        "part a refers to printed content that is missing"
+      ]
+    },
+    {
+      "question_id": "MAT133-2024-JAN-Q4",
+      "marks": 9,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2024-JUL-Q4",
+      "marks": 9,
+      "issues": [
+        "part a has no marks"
+      ]
+    },
+    {
+      "question_id": "MAT133-2025-JUL-Q3",
+      "marks": 5,
+      "issues": [
+        "part a has no marks"
+      ]
+    }
+  ],
+  "structural_excluded_count": 52,
+  "answer_excluded": [
+    {
+      "question_id": "MAT133-2026-FEB-Q4",
+      "reason": "Part (a) answer contradicts its own working (cos x = -3/4), and parts (b) and (d) depend on figure details the extraction did not settle. The answer is marked usable low by the model but is not trusted for a reviewed seed."
+    },
+    {
+      "question_id": "MAT133-2025-JUL-Q4",
+      "reason": "Part (a) answer says 60 deg/300 deg, but the equation 2 sin^2(theta)+cos(theta)=1 gives cos(theta)=1 or -1/2, so the exact angles are 120 deg/240 deg (plus 0/360 if the endpoints are included). The answer field contradicts the working and is not trusted."
+    },
+    {
+      "question_id": "MAT133-2006-APR-Q3",
+      "reason": "Parts (b) and (c) refer to a system of inequalities and a piecewise graph that are not present in the printed text or the captured assets. The model answer invents x=20, y=x, x+y=80 and a piecewise definition, so the question is not safe to recycle."
+    }
+  ],
+  "answer_excluded_count": 3,
+  "max_seeds_with_cap": 120,
+  "feasible_seeds": 20,
+  "distinct_seeds_without_reuse": 30
+}

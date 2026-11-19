@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "subject": "MAT133",
+  "seed": 18,
+  "built_on": "2026-11-15T02:30:48Z",
+  "format_profile": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\format_profile.json",
+  "total_marks": 91,
+  "slots": [
+    {
+      "slot": "Q1",
+      "question_id": "MAT133-2015-SEP-Q1",
+      "marks": 15,
+      "source_paper": "MAT133-2015-SEP",
+      "pages": [
+        2
+      ],
+      "topic_tags": [
+        "complex_numbers",
+        "inequalities"
+      ],
+      "assets": [],
+      "answer": {
+        "answer_id": "ANS-MAT133-2015-SEP-Q1",
+        "provenance": "model_unofficial",
+        "confidence": "medium",
+        "usable": true,
+        "subparts": 3
+      }
+    },
+    {
+      "slot": "Q2",
+      "question_id": "MAT133-2013-SEP-Q3",
+      "marks": 16,
+      "source_paper": "MAT133-2013-SEP",
+      "pages": [
+        3
+      ],
+      "topic_tags": [
+        "functions"
+      ],
+      "assets": [],
+      "answer": {
+        "answer_id": "ANS-MAT133-2013-SEP-Q3",
+        "provenance": "model_unofficial",
+        "confidence": "high",
+        "usable": true,
+        "subparts": 3
+      }
+    },
+    {
+      "slot": "Q3",
+      "question_id": "MAT133-2012-MAR-Q1",
+      "marks": 20,
+      "source_paper": "MAT133-2012-MAR",
+      "pages": [
+        2
+      ],
+      "topic_tags": [
+        "lines"
+      ],
+      "assets": [],
+      "answer": {
+        "answer_id": "ANS-MAT133-2012-MAR-Q1",
+        "provenance": "model_unofficial",
+        "confidence": "high",
+        "usable": true,
+        "subparts": 5
+      }
+    },
+    {
+      "slot": "Q4",
+      "question_id": "MAT133-2009-APR-Q5",
+      "marks": 20,
+      "source_paper": "MAT133-2009-APR",
+      "pages": [
+        6
+      ],
+      "topic_tags": [
+        "trigonometry"
+      ],
+      "assets": [
+        {
+          "id": "A-MAT133-2009-APR-Q5-F1",
+          "label": "Figure 2",
+          "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\bank\\assets\\A-MAT133-2009-APR-Q5-F1.png"
+        }
+      ],
+      "answer": {
+        "answer_id": "ANS-MAT133-2009-APR-Q5",
+        "provenance": "model_unofficial",
+        "confidence": "medium",
+        "usable": true,
+        "subparts": 3
+      }
+    },
+    {
+      "slot": "Q5",
+      "question_id": "MAT133-2010-OCT-Q5",
+      "marks": 20,
+      "source_paper": "MAT133-2010-OCT",
+      "pages": [
+        6
+      ],
+      "topic_tags": [
+        "trigonometry"
+      ],
+      "assets": [
+        {
+          "id": "A-MAT133-2010-OCT-Q5-F1",
+          "label": "",
+          "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\bank\\review\\owner_recreations\\A-MAT133-2010-OCT-Q5-F1.png"
+        }
+      ],
+      "answer": {
+        "answer_id": "ANS-MAT133-2010-OCT-Q5",
+        "provenance": "model_unofficial",
+        "confidence": "high",
+        "usable": true,
+        "subparts": 4
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": 2,
+  "subject": "MAT133",
+  "checked_on": "2026-11-14",
+  "paper": {
+    "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\MAT133\\f6169cfad3d36fbaea4e\\paper_v2.docx",
+    "xml_valid": true,
+    "has_cover_text": true,
+    "has_header": true,
+    "header_parts": [
+      "word/header1.xml",
+      "word/header2.xml"
+    ],
+    "has_crest": true,
+    "cover_render": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\review\\mat133_v2\\paper_v2_cover_p1.png"
+  },
+  "scheme": {
+    "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\MAT133\\f6169cfad3d36fbaea4e\\scheme_v2.docx",
+    "xml_valid": true,
+    "has_cover_text": true,
+    "has_header": true,
+    "header_parts": [
+      "word/header1.xml",
+      "word/header2.xml"
+    ],
+    "has_crest": true,
+    "cover_render": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\review\\mat133_v2\\scheme_v2_cover_p1.png"
+  },
+  "templates": {
+    "paper": "data/reference/MAT133/MAT133 TEMPLATE.docx",
+    "scheme": "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx"
+  },
+  "notes": "The paper template is the approved MAT133 v1 template. The v2 scheme uses the standard UTM marking-scheme cover required by AGENTS.md; its fields are patched from the standard template, not a bespoke cover."
+}

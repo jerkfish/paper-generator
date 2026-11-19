@@ -1,0 +1,107 @@
+{
+  "schema_version": 2,
+  "subject": "MAT133",
+  "seed": 11,
+  "selection": "role_order_no_marks",
+  "reuse_cap": 4,
+  "total_marks": 91,
+  "slots": [
+    {
+      "slot": "Q1",
+      "part": "Q",
+      "marks": 18,
+      "question_id": "MAT133-2018-JUN-Q1",
+      "source_paper": "MAT133-2018-JUN",
+      "pages": [
+        2
+      ],
+      "topic": "inequalities",
+      "topic_tags": [
+        "inequalities"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "47f97c7a494e212d2352036e21a10e0ea8f08a2d19c694b1e54d13d753711af5"
+    },
+    {
+      "slot": "Q2",
+      "part": "Q",
+      "marks": 18,
+      "question_id": "MAT133-2012-MAR-Q2",
+      "source_paper": "MAT133-2012-MAR",
+      "pages": [
+        3
+      ],
+      "topic": "functions",
+      "topic_tags": [
+        "functions"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "e9ef2eeff30af7c98b4003026599d739286a3f0fc4e02b0455553c6200e72478"
+    },
+    {
+      "slot": "Q3",
+      "part": "Q",
+      "marks": 15,
+      "question_id": "MAT133-2017-MAR-Q2",
+      "source_paper": "MAT133-2017-MAR",
+      "pages": [
+        2
+      ],
+      "topic": "lines",
+      "topic_tags": [
+        "lines",
+        "parabolas"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "7becb200fee8db2091eb7774077c7b46ef5cfab1f8e0910db558faa8bb4ad19b"
+    },
+    {
+      "slot": "Q4",
+      "part": "Q",
+      "marks": 20,
+      "question_id": "MAT133-2010-APR-Q4",
+      "source_paper": "MAT133-2010-APR",
+      "pages": [
+        5
+      ],
+      "topic": "trigonometry",
+      "topic_tags": [
+        "trigonometry"
+      ],
+      "assets": [
+        "A-MAT133-2010-APR-Q4-F1"
+      ],
+      "refs": [
+        "Figure 1"
+      ],
+      "content_hash": "ffd129cd84183c7f6ac8b46acf2efd7d68f86447f0775cf4ecd533906805ee04"
+    },
+    {
+      "slot": "Q5",
+      "part": "Q",
+      "marks": 20,
+      "question_id": "MAT133-2005-NOV-Q5",
+      "source_paper": "MAT133-2005-NOV",
+      "pages": [
+        5,
+        6
+      ],
+      "topic": "trigonometry",
+      "topic_tags": [
+        "trigonometry"
+      ],
+      "assets": [
+        "A-MAT133-2005-NOV-Q5-F1",
+        "A-MAT133-2005-NOV-Q5-F2"
+      ],
+      "refs": [
+        "Figure 3",
+        "Figure 4"
+      ],
+      "content_hash": "8b9b0f1e20fb8faf5ffa31ee959fa38908ddf48a0cba2e63f2f9a5e57c2e22e3"
+    }
+  ]
+}

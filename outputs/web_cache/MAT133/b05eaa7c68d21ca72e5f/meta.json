@@ -365,5 +365,18 @@
     "problems": []
   },
   "has_practice_mode": false,
-  "has_placeholders": false
+  "has_placeholders": false,
+  "document_versions": {
+    "2": {
+      "label": "v2",
+      "playbook_version": "2.0",
+      "built": "2026-11-15T05:22:15Z",
+      "files": {
+        "paper_docx": "outputs\\review\\mat133_v2\\seeds\\seed_09\\paper.docx",
+        "paper_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_09\\paper.pdf",
+        "scheme_docx": "outputs\\review\\mat133_v2\\seeds\\seed_09\\scheme.docx",
+        "scheme_pdf": "outputs\\review\\mat133_v2\\seeds\\seed_09\\scheme.pdf"
+      }
+    }
+  }
 }

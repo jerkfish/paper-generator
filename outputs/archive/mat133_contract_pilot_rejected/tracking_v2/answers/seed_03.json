@@ -1,0 +1,390 @@
+{
+  "schema_version": 2,
+  "subject": "MAT133",
+  "seed": 3,
+  "playbook_version": "2.0",
+  "count": 15,
+  "parts": [
+    {
+      "question": "MAT133-S03-Q1a",
+      "paper_seed": 3,
+      "question_no": 1,
+      "label": "a",
+      "marks": 3.0,
+      "topic": "inequalities",
+      "subtopic": "interval_notation",
+      "answer": "(0, \u221e)",
+      "answer_latex": "\\left(0, \\infty\\right)",
+      "solution_latex": [
+        "- 3 x - 4 < -4",
+        "- 3 x < 0",
+        "\\left(0, \\infty\\right)"
+      ],
+      "marking_notes": [
+        "M1 solve",
+        "A1 interval"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S03-Q1b",
+      "paper_seed": 3,
+      "question_no": 1,
+      "label": "b",
+      "marks": 5.0,
+      "topic": "absolute_value",
+      "subtopic": "inequality",
+      "answer": "(1/4, 9/4)",
+      "answer_latex": "\\left(\\frac{1}{4}, \\frac{9}{4}\\right)",
+      "solution_latex": [
+        "\\left|{4 x - 5}\\right| - 4 < 0",
+        "-4 < 4 x - 5 < 4",
+        "\\left(\\frac{1}{4}, \\frac{9}{4}\\right)"
+      ],
+      "marking_notes": [
+        "M1 compound inequality",
+        "A1 endpoints",
+        "A1 interval"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S03-Q1c",
+      "paper_seed": 3,
+      "question_no": 1,
+      "label": "c",
+      "marks": 5.0,
+      "topic": "absolute_value",
+      "subtopic": "graph",
+      "answer": "Vertex (2, -5); y-intercept (0, -9); x-intercept(s): none.",
+      "answer_latex": "\\mathrm{vertex}\\;(2,-5);\\quad y(0)=-9",
+      "solution_latex": [
+        "y = - 2 \\left|{x - 2}\\right| - 5",
+        "\\mathrm{vertex}\\;(2,-5)",
+        "\\mathrm{no\\ real\\ intercepts}"
+      ],
+      "marking_notes": [
+        "B1 V-shape",
+        "A1 vertex",
+        "A1 intercepts"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S03-Q2a",
+      "paper_seed": 3,
+      "question_no": 2,
+      "label": "a",
+      "marks": 5.0,
+      "topic": "functions",
+      "subtopic": "transformations",
+      "answer": "Vertex (-5, 6); y-intercept (0, 56).",
+      "answer_latex": "\\mathrm{vertex}\\;(-5,6);\\quad y(0)=56",
+      "solution_latex": [
+        "y = 2 \\left(x + 5\\right)^{2} + 6",
+        "\\mathrm{vertex}\\;(-5,6)",
+        "y(0) = 56"
+      ],
+      "marking_notes": [
+        "B1 shape/reflection",
+        "B1 shifts",
+        "A1 vertex",
+        "A1 intercept"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S03-Q2b",
+      "paper_seed": 3,
+      "question_no": 2,
+      "label": "b",
+      "marks": 4.0,
+      "topic": "functions",
+      "subtopic": "even_odd",
+      "answer": "f(-x) = -f(x), so f is odd; the graph is symmetric about the origin.",
+      "answer_latex": "f(-x)=-f(x)",
+      "solution_latex": [
+        "f(x) = x^{5} - 3 x^{3} - 6 x",
+        "f(-x) = - x^{5} + 3 x^{3} + 6 x",
+        "-f(x) = - x^{5} + 3 x^{3} + 6 x",
+        "f(-x)=-f(x)"
+      ],
+      "marking_notes": [
+        "M1 substitute -x",
+        "A1 comparison",
+        "A1 symmetry"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S03-Q2c",
+      "paper_seed": 3,
+      "question_no": 2,
+      "label": "c",
+      "marks": 5.0,
+      "topic": "circles",
+      "subtopic": "general_to_standard",
+      "answer": "(x - 1)\u00b2 + (y + 5)\u00b2 = 36; centre (1, -5), radius 6.",
+      "answer_latex": "\\left(x - 1\\right)^{2} + \\left(y + 5\\right)^{2} = 36",
+      "solution_latex": [
+        "x^{2} - 2 x + y^{2} + 10 y = 10",
+        "\\left(x - 1\\right)^{2} + \\left(y + 5\\right)^{2} - 26 = 10",
+        "\\left(x - 1\\right)^{2} + \\left(y + 5\\right)^{2} = 36"
+      ],
+      "marking_notes": [
+        "M1 group",
+        "M1 complete square",
+        "A1 centre",
+        "A1 radius"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S03-Q3a",
+      "paper_seed": 3,
+      "question_no": 3,
+      "label": "a",
+      "marks": 5.0,
+      "topic": "complex_numbers",
+      "subtopic": "division",
+      "answer": "-3",
+      "answer_latex": "-3",
+      "solution_latex": [
+        "\\frac{-3 + 3 i}{1 - i}",
+        "= \\frac{\\left(-3 + 3 i\\right)\\left(1 + i\\right)}{\\left(1 - i\\right)\\left(1 + i\\right)}",
+        "= \\frac{-6}{2}",
+        "-3"
+      ],
+      "marking_notes": [
+        "M1 conjugate",
+        "M1 numerator",
+        "A1 denominator",
+        "A1 standard form"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S03-Q3b",
+      "paper_seed": 3,
+      "question_no": 3,
+      "label": "b",
+      "marks": 5.0,
+      "topic": "complex_numbers",
+      "subtopic": "modulus_argument",
+      "answer": "|z| = 17; arg(z) \u2248 61.9\u00b0.",
+      "answer_latex": "|z| = 17,\\quad \\arg(z) = 61.9^\\circ",
+      "solution_latex": [
+        "|z| = \\sqrt{8^2 + 15^2} = 17",
+        "\\tan\\theta = \\frac{15}{8},\\quad \\theta = 61.9^\\circ"
+      ],
+      "marking_notes": [
+        "M1 modulus",
+        "A1 modulus",
+        "M1 argument",
+        "A1 angle"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S03-Q3c",
+      "paper_seed": 3,
+      "question_no": 3,
+      "label": "c",
+      "marks": 5.0,
+      "topic": "polynomials",
+      "subtopic": "synthetic_division",
+      "answer": "Quotient: -3x\u00b2 + 7x - 27; remainder: 111.",
+      "answer_latex": "q(x) = - 3 x^{2} + 7 x - 27,\\quad r = 111",
+      "solution_latex": [
+        "- 3 x^{3} - 5 x^{2} + x + 3 = \\left(x + 4\\right) \\left(- 3 x^{2} + 7 x - 27\\right) + 111",
+        "q(x) = - 3 x^{2} + 7 x - 27,\\quad r = 111"
+      ],
+      "marking_notes": [
+        "M1 setup",
+        "M1 synthetic steps",
+        "A1 quotient",
+        "A1 remainder"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S03-Q4a",
+      "paper_seed": 3,
+      "question_no": 4,
+      "label": "a",
+      "marks": 5.0,
+      "topic": "systems_of_inequalities",
+      "subtopic": "write_from_region",
+      "answer": "x \u2265 0, y \u2265 0, 8x + 3y \u2264 24.",
+      "answer_latex": "x \\geq 0,\\quad y \\geq 0,\\quad 8x + 3y \\leq 24",
+      "solution_latex": [
+        "\\frac{x}{3} + \\frac{y}{8} = 1",
+        "x \\geq 0,\\quad y \\geq 0,\\quad 8x + 3y \\leq 24"
+      ],
+      "marking_notes": [
+        "M1 line equation",
+        "A1 boundaries",
+        "A1 inequality directions"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S03-Q4b",
+      "paper_seed": 3,
+      "question_no": 4,
+      "label": "b",
+      "marks": 5.0,
+      "topic": "systems_of_equations",
+      "subtopic": "nonlinear",
+      "answer": "(-4, 12) and (-2, 0).",
+      "answer_latex": "(-4,12),\\quad (-2,0)",
+      "solution_latex": [
+        "- 6 x - 12 = x^{2} - 4",
+        "x^{2} + 6 x + 8 = 0",
+        "\\left(x + 2\\right) \\left(x + 4\\right) = 0",
+        "x = -4\\;\\mathrm{or}\\; x = -2",
+        "(-4,12),\\quad (-2,0)"
+      ],
+      "marking_notes": [
+        "M1 substitute",
+        "A1 quadratic",
+        "A1 both points"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S03-Q4c",
+      "paper_seed": 3,
+      "question_no": 4,
+      "label": "c",
+      "marks": 5.0,
+      "topic": "parabolas",
+      "subtopic": "standard_form",
+      "answer": "Standard form: (x + 3)\u00b2 = 4(y + 2); vertex (-3, -2); focus (-3, -1); directrix y = -3.",
+      "answer_latex": "\\left(x + 3\\right)^{2} = 4 y + 8",
+      "solution_latex": [
+        "y = \\frac{x^{2}}{4} + \\frac{3 x}{2} + \\frac{1}{4}",
+        "y = \\frac{\\left(x + 3\\right)^{2}}{4} - 2",
+        "\\left(x + 3\\right)^{2} = 4 y + 8"
+      ],
+      "marking_notes": [
+        "M1 complete square",
+        "A1 standard form",
+        "A1 vertex",
+        "A1 focus/directrix"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S03-Q5a",
+      "paper_seed": 3,
+      "question_no": 5,
+      "label": "a",
+      "marks": 5.0,
+      "topic": "trigonometry",
+      "subtopic": "compound_double_angle",
+      "answer": "sin 2A = -120/169; cos(A + B) = -119/169.",
+      "answer_latex": "\\sin 2A = - \\frac{120}{169},\\quad \\cos(A+B) = - \\frac{119}{169}",
+      "solution_latex": [
+        "\\cos A = - \\frac{12}{13},\\quad \\sin B = - \\frac{5}{13}",
+        "\\sin 2A = 2\\sin A\\cos A = - \\frac{120}{169}",
+        "\\cos(A+B) = \\cos A\\cos B - \\sin A\\sin B = - \\frac{119}{169}"
+      ],
+      "marking_notes": [
+        "M1 cos A",
+        "M1 sin B",
+        "A1 sin 2A",
+        "A1 cos(A+B)"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S03-Q5b",
+      "paper_seed": 3,
+      "question_no": 5,
+      "label": "b",
+      "marks": 4.0,
+      "topic": "circular_measure",
+      "subtopic": "arc_length",
+      "answer": "s = 65\u03c0/6 cm \u2248 34.03 cm.",
+      "answer_latex": "s = \\frac{65 \\pi}{6}\\ \\mathrm{cm}",
+      "solution_latex": [
+        "\\theta = 150^\\circ \\times \\frac{\\pi}{180} = \\frac{5 \\pi}{6}",
+        "s = r\\theta = 13\\left(\\frac{5 \\pi}{6}\\right) = \\frac{65 \\pi}{6}"
+      ],
+      "marking_notes": [
+        "M1 radians",
+        "M1 arc formula",
+        "A1 exact value"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    },
+    {
+      "question": "MAT133-S03-Q5c",
+      "paper_seed": 3,
+      "question_no": 5,
+      "label": "c",
+      "marks": 4.0,
+      "topic": "triangle_geometry",
+      "subtopic": "sine_rule",
+      "answer": "b = 13\u221a(6)/2 cm \u2248 15.92 cm.",
+      "answer_latex": "b = \\frac{13 \\sqrt{6}}{2}",
+      "solution_latex": [
+        "\\frac{a}{\\sin A} = \\frac{b}{\\sin B}",
+        "\\frac{13}{\\sin 45^\\circ} = \\frac{b}{\\sin 60^\\circ}",
+        "b = \\frac{13\\sin 60^\\circ}{\\sin 45^\\circ} = \\frac{13 \\sqrt{6}}{2}"
+      ],
+      "marking_notes": [
+        "M1 sine rule",
+        "M1 substitution",
+        "A1 exact value"
+      ],
+      "provenance": "solver_verified",
+      "solver": "src.mat133.generators",
+      "verification": "deterministic generator; exact answer and worked solution emitted with the part",
+      "confidence": "high"
+    }
+  ]
+}

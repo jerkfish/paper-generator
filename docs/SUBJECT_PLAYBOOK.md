@@ -679,6 +679,19 @@ Fields:
 (`A`, `B` or `C`) for a v2 state. A v1 state continues to show its v1 next
 stage until the subject is migrated.
 
+### Migrated legacy subjects
+
+| Subject | Migrated | v1 preserved | v2 position |
+|---|---|---|---|
+| MAT133 | 2026-11-14 | `subjects/MAT133/lifecycle_state_v1.json` (verbatim) | Type D recycle; V0–V4 done, Gate A approved; V5 role-ordered five-question seeds rebuilt |
+
+MAT133 restarted from the raw working copies after the owner rejected a
+contract-only Type B pilot. The rejected pilot is archived under
+`outputs/archive/mat133_contract_pilot_rejected/`. v1 stays published. The v2
+bank passed Gate A on 2026-11-14. For MAT133 v2, **marks are not a selection
+parameter**: each seed follows the past-paper role order Q1–Q5. Seeds 1–3 are
+built under `outputs/review/mat133_v2/seeds/`; v2 is not in the public bundle.
+
 ## Gate checklist
 
 - [ ] Every selected question is `approved` and traceable to a source paper.

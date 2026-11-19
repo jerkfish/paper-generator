@@ -13,7 +13,12 @@
 <div class="notice">Live generation is not enabled in this deployment.
   Browse the Library for pre-generated papers.</div>
 {% else %}
-{% if deterministic %}
+{% if recycle %}
+<div class="notice">Seeds 1–{{ prebuilt_max }} are pre-generated in the Library.
+  Additional seeds{% if seed_cap %} 21–{{ seed_cap }}{% endif %} can be built
+  on demand from the approved bank: no LLM key, no token cost, and the same
+  seed always produces the same paper and scheme.</div>
+{% elif deterministic %}
 <div class="notice">{{ subject.code }} is deterministic: a seed always produces
   the same paper and marking scheme from the subject's computed generators.</div>
 {% elif not has_key %}
@@ -35,8 +40,9 @@
     </select>
     {% endif %}
     <label for="seed">Seed</label>
-    <input type="number" id="seed" name="seed" min="1" max="99999"
-           placeholder="random">
+    <input type="number" id="seed" name="seed" min="1"
+           max="{{ seed_cap or 99999 }}"
+           placeholder="{% if seed_cap %}{{ prebuilt_max + 1 }}–{{ seed_cap }} or random{% else %}random{% endif %}">
     {% if not deterministic %}
     <label for="computed_marks">Computed marks N</label>
     <input type="number" id="computed_marks" name="computed_marks"
@@ -46,6 +52,7 @@
     <button type="submit">Generate</button>
     <span class="small">{% if deterministic %}No key and no cost.
       {% else %}Per-run cap ${{ "%.2f"|format(cost_cap) }}.{% endif %}
+      {% if seed_cap %}Allowed seeds: 1–{{ seed_cap }}.{% endif %}
       A cached seed returns instantly and costs $0.</span>
   </fieldset>
 </form>

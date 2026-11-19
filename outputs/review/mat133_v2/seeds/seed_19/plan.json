@@ -1,0 +1,105 @@
+{
+  "schema_version": 2,
+  "subject": "MAT133",
+  "seed": 19,
+  "selection": "role_order_no_marks",
+  "reuse_cap": 4,
+  "total_marks": 80,
+  "slots": [
+    {
+      "slot": "Q1",
+      "part": "Q",
+      "marks": 13,
+      "question_id": "MAT133-2015-SEP-Q2",
+      "source_paper": "MAT133-2015-SEP",
+      "pages": [
+        2
+      ],
+      "topic": "circles",
+      "topic_tags": [
+        "circles",
+        "lines",
+        "parabolas"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "30679737af07354b22b5129dd9375fba21fe7d35c98db320cd114ed574eea7a1"
+    },
+    {
+      "slot": "Q2",
+      "part": "Q",
+      "marks": 10,
+      "question_id": "MAT133-2025-JUL-Q2",
+      "source_paper": "MAT133-2025-JUL",
+      "pages": [
+        2
+      ],
+      "topic": "functions",
+      "topic_tags": [
+        "functions"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "a7224e8a1ebcae1aba19ae753c39776a3dea9e605d13c7eace9eada7d54fd22f"
+    },
+    {
+      "slot": "Q3",
+      "part": "Q",
+      "marks": 15,
+      "question_id": "MAT133-2018-DEC-Q2",
+      "source_paper": "MAT133-2018-DEC",
+      "pages": [
+        2
+      ],
+      "topic": "parabolas",
+      "topic_tags": [
+        "parabolas"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "f7dc5df92b65203babaea25bd56710623d41d3d492d7a26d1092cc1905ab840e"
+    },
+    {
+      "slot": "Q4",
+      "part": "Q",
+      "marks": 22,
+      "question_id": "MAT133-2014-SEP-Q4",
+      "source_paper": "MAT133-2014-SEP",
+      "pages": [
+        4
+      ],
+      "topic": "circular_measure",
+      "topic_tags": [
+        "circular_measure"
+      ],
+      "assets": [
+        "A-MAT133-2014-SEP-Q4-F1"
+      ],
+      "refs": [
+        "Figure 1"
+      ],
+      "content_hash": "f30189718fba1581c2379fe0c9396163ac7401c3ebcbb83d782a31a0ce6c6a61"
+    },
+    {
+      "slot": "Q5",
+      "part": "Q",
+      "marks": 20,
+      "question_id": "MAT133-2011-SEP-Q5",
+      "source_paper": "MAT133-2011-SEP",
+      "pages": [
+        6
+      ],
+      "topic": "trigonometry",
+      "topic_tags": [
+        "trigonometry"
+      ],
+      "assets": [
+        "A-MAT133-2011-SEP-Q5-F1"
+      ],
+      "refs": [
+        "Figure 3"
+      ],
+      "content_hash": "97a8b55ae8259263737d83a65bb54b71d70119e826796d8f8a9331142e7a46ab"
+    }
+  ]
+}

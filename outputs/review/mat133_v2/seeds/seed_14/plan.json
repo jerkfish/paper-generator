@@ -1,0 +1,101 @@
+{
+  "schema_version": 2,
+  "subject": "MAT133",
+  "seed": 14,
+  "selection": "role_order_no_marks",
+  "reuse_cap": 4,
+  "total_marks": 81,
+  "slots": [
+    {
+      "slot": "Q1",
+      "part": "Q",
+      "marks": 15,
+      "question_id": "MAT133-2016-MAR-Q1",
+      "source_paper": "MAT133-2016-MAR",
+      "pages": [
+        2
+      ],
+      "topic": "inequalities",
+      "topic_tags": [
+        "inequalities"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "cf22f9aa7ab7b36d4ee6ac32ed8d5901dc1ad64680555d1a0a6f5118075ca2c6"
+    },
+    {
+      "slot": "Q2",
+      "part": "Q",
+      "marks": 11,
+      "question_id": "MAT133-2021-JUL-Q3-2",
+      "source_paper": "MAT133-2021-JUL",
+      "pages": [
+        7
+      ],
+      "topic": "functions",
+      "topic_tags": [
+        "functions"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "1dad36b40d9185eebd39e4bae1c1dc1cf0ca6f4c1061e8035318102a52a3cbb8"
+    },
+    {
+      "slot": "Q3",
+      "part": "Q",
+      "marks": 15,
+      "question_id": "MAT133-2019-DEC-Q2",
+      "source_paper": "MAT133-2019-DEC",
+      "pages": [
+        2
+      ],
+      "topic": "circles",
+      "topic_tags": [
+        "circles",
+        "parabolas"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "654d5daf9979a9df9d3d11cc79b548c668ac61337057cfdef20618e26d7d652c"
+    },
+    {
+      "slot": "Q4",
+      "part": "Q",
+      "marks": 20,
+      "question_id": "MAT133-2011-SEP-Q5",
+      "source_paper": "MAT133-2011-SEP",
+      "pages": [
+        6
+      ],
+      "topic": "trigonometry",
+      "topic_tags": [
+        "trigonometry"
+      ],
+      "assets": [
+        "A-MAT133-2011-SEP-Q5-F1"
+      ],
+      "refs": [
+        "Figure 3"
+      ],
+      "content_hash": "97a8b55ae8259263737d83a65bb54b71d70119e826796d8f8a9331142e7a46ab"
+    },
+    {
+      "slot": "Q5",
+      "part": "Q",
+      "marks": 20,
+      "question_id": "MAT133-2011-APR-Q5",
+      "source_paper": "MAT133-2011-APR",
+      "pages": [
+        6
+      ],
+      "topic": "lines",
+      "topic_tags": [
+        "lines",
+        "trigonometry"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "9fc81e247d76a92a28362c7aae1344ea010405ef175f4002957ada3a541de439"
+    }
+  ]
+}

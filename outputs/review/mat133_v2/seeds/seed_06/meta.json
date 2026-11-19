@@ -1,0 +1,29 @@
+{
+  "subject": "MAT133",
+  "seed": 6,
+  "mode": "recycle_v2",
+  "model": "none (deterministic assembly of real bank questions)",
+  "cost_usd": 0.0,
+  "accepted": 5,
+  "placeholders": 0,
+  "created": "2026-11-15T02:22:48Z",
+  "total_marks": 100,
+  "question_count": 5,
+  "source_papers": [
+    "MAT133-2019-JUN",
+    "MAT133-2004-MAR",
+    "MAT133-2011-APR",
+    "MAT133-2013-SEP",
+    "MAT133-2024-JAN"
+  ],
+  "question_ids": [
+    "MAT133-2019-JUN-Q1",
+    "MAT133-2004-MAR-Q5",
+    "MAT133-2011-APR-Q3",
+    "MAT133-2013-SEP-Q5",
+    "MAT133-2024-JAN-Q5"
+  ],
+  "qa_problems": 0,
+  "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\review\\mat133_v2\\seeds\\seed_06\\paper.pdf",
+  "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\review\\mat133_v2\\seeds\\seed_06\\scheme.pdf"
+}

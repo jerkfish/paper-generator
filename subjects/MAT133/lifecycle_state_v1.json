@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "subject": "MAT133",
+  "type": "B",
+  "template_path": "",
+  "created": "2026-11-04T06:27:42Z",
+  "updated": "2026-11-04T06:27:42Z",
+  "stages": {
+    "0_intake": {
+      "status": "done",
+      "evidence": [
+        "subjects/MAT133/subject.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Completed deterministic subject."
+      },
+      "notes": ""
+    },
+    "1_preprocess": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/mat133/papers_summary.json",
+        "data/tracking/mat133/papers_register.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Completed deterministic subject."
+      },
+      "notes": ""
+    },
+    "2_scheme_slides": {
+      "status": "done",
+      "evidence": [
+        "data/reference/MAT133/Answer Scheme for MAT133 Pre-Calculus 2024.pdf"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Completed deterministic subject."
+      },
+      "notes": ""
+    },
+    "3_template": {
+      "status": "done",
+      "evidence": [
+        "data/reference/MAT133/MAT133 TEMPLATE.docx"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Completed deterministic subject."
+      },
+      "notes": ""
+    },
+    "4_taxonomy_question_log": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/mat133/taxonomy.json",
+        "data/tracking/mat133/question_log.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Completed deterministic subject."
+      },
+      "notes": ""
+    },
+    "5_fingerprint_planner": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/mat133/scheme_fingerprint.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Completed deterministic subject."
+      },
+      "notes": ""
+    },
+    "6_generators": {
+      "status": "done",
+      "evidence": [
+        "src/mat133/generators"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Completed deterministic subject."
+      },
+      "notes": ""
+    },
+    "7_builders_qa": {
+      "status": "done",
+      "evidence": [
+        "src/mat133/build_docx.py",
+        "src/mat133/library.py"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Completed deterministic subject."
+      },
+      "notes": ""
+    },
+    "8_library_prebuild": {
+      "status": "done",
+      "evidence": [
+        "outputs/web_cache/MAT133"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Completed deterministic subject."
+      },
+      "notes": ""
+    },
+    "9_publish": {
+      "status": "done",
+      "evidence": [
+        "outputs/public_bundle",
+        "https://uitmpapergen.download",
+        "cloudflare/public_bundle_manifest.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Completed deterministic subject."
+      },
+      "notes": ""
+    },
+    "10_close_out": {
+      "status": "done",
+      "evidence": [
+        "docs/MAT133.md"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Completed deterministic subject."
+      },
+      "notes": ""
+    }
+  },
+  "unsure": [],
+  "llm_cost": {
+    "currency": "USD",
+    "total_usd": 0.0,
+    "by_stage": {
+      "0_intake": 0.0,
+      "1_preprocess": 0.0,
+      "2_scheme_slides": 0.0,
+      "3_template": 0.0,
+      "4_taxonomy_question_log": 0.0,
+      "5_fingerprint_planner": 0.0,
+      "6_generators": 0.0,
+      "7_builders_qa": 0.0,
+      "8_library_prebuild": 0.0,
+      "9_publish": 0.0,
+      "10_close_out": 0.0
+    }
+  }
+}

@@ -2,7 +2,7 @@
   "code": "MAT133",
   "title": "Pre-Calculus",
   "status": "available",
-  "type": "B",
+  "type": "D",
   "header_text": "MAT133 PRE-CALCULUS",
   "enabled_computed_generators": [
     "absolute_value.equation",
@@ -69,7 +69,7 @@
   "has_past_papers": true,
   "highlight_no_past_papers": false,
   "capabilities": {
-    "subject_type": "B",
+    "subject_type": "D",
     "generation": "deterministic",
     "prebuild": "plugin",
     "public_documents": "copy_cached",
@@ -81,7 +81,7 @@
     "placeholders": false,
     "public_scheme_requires_quote_marker": false
   },
-  "strategy": "generate",
+  "strategy": "recycle",
   "variants": {
     "enabled": false
   },
@@ -89,7 +89,22 @@
     "size_policy": "min(20, feasible)"
   },
   "answers": {
-    "sources": []
+    "sources": [
+      "official",
+      "solver_verified",
+      "model_unofficial"
+    ],
+    "basis": "The 2024 published scheme is official for its assessment; other answers are solver-verified or model-drafted with provenance and confidence recorded."
+  },
+  "documents": {
+    "versions": [
+      1,
+      2
+    ],
+    "public_versions": [
+      "1",
+      "2"
+    ]
   },
   "paper_count": 20,
   "library_manifest": "/library/MAT133/manifest.json",

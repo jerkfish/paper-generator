@@ -1,0 +1,264 @@
+================================================================================
+MAT133-2025-JUL-Q1 10 ['circles']
+Q a 5 Solve the inequality $(5 - x)^{2} \leq 9$ and express the solution in real number line. | (5 marks)
+Q b 5 Write the equation of circle $x^{2} + y^{2} - 4x - 2y - 11 = 0$ in standard form. Hence, sketch the circle with the correct center and radius. | (5 marks)
+A a $2 \leq x \leq 8$, i.e. $x \in [2,\,8]$ (shade the segment from 2 to 8 on the number line, solid dots at both ends)
+   - $(5-x)^2 \leq 9 \iff |5-x| \leq 3$
+   - $-3 \leq 5-x \leq 3$
+   - Subtract 5: $-8 \leq -x \leq -2$
+   - Multiply by $-1$ (reverse inequalities): $2 \leq x \leq 8$
+   - Check: $x=2\Rightarrow 3^2=9\leq 9$; $x=8\Rightarrow(-3)^2=9\leq 9$; $x=5\Rightarrow 0\leq 9$ ✓
+A b $(x-2)^2+(y-1)^2=16$; centre $(2,1)$, radius $4$. Sketch: circle centred at $(2,1)$ passing through $(6,1),(-2,1),(2,5),(2,-3)$.
+   - Group: $(x^2-4x)+(y^2-2y)=11$
+   - Complete the square: $(x^2-4x+4)+(y^2-2y+1)=11+4+1$
+   - $(x-2)^2+(y-1)^2=16$
+   - Centre $(2,1)$, radius $r=\sqrt{16}=4$
+   - Sketch: plot centre $(2,1)$; mark intercepts $(6,1),(-2,1),(2,5),(2,-3)$ and draw circle of radius 4
+ASSUME Part (a) asks to 'express the solution in real number line'; assumed this means shading the solution interval on a number line. Part (b) sketch assumed to be a standard Cartesian circle; no grid values given in the question.
+================================================================================
+MAT133-2022-FEB-Q1 10 ['complex_numbers', 'inequalities']
+Q a 5 Solve the inequality $\frac{2}{-2x - 1} \leq 2$ . Express the answer in real number line. | (5 marks)
+Q b 5 If $Z_{1} = 2 - 7i$ and $Z_{2} = -2 + 3i$ , state $\frac{\overline{Z}_{1}i^{23}}{Z_{2}}$ in standard form $a + bi$ . | (5 marks)
+A a $x\in(-\infty,-1)\cup\left[-\tfrac{1}{2},\infty\right)$; on the number line: open circle at $-1$, closed circle at $-\tfrac12$, shade left of $-1$ and right of $-\tfrac12$.
+   - $\dfrac{2}{-2x-1}\le 2 \iff \dfrac{2}{-2x-1}-2\le 0$
+   - $\dfrac{2-2(-2x-1)}{-2x-1}\le 0 \iff \dfrac{4x+4}{-2x-1}\le 0$
+   - $\dfrac{4(x+1)}{-(2x+1)}\le 0 \iff \dfrac{x+1}{2x+1}\ge 0$
+   - Critical values: $x=-1$ (numerator, included) and $x=-\tfrac12$ (denominator, excluded)
+   - Sign table: $x<-1$: $(+)/(-)=-$; $-1<x<-\tfrac12$: $(+)/(+)=+$; $x>-\tfrac12$: $(+)/(+)=+$
+   - Need $\ge 0$: $x<-1$ or $x>-\tfrac12$, together with $x=-1$
+   - Solution: $(-\infty,-1]\cup\left(-\tfrac12,\infty\right)$
+A b $\dfrac{13}{13}+\dfrac{26}{13}i = 1+2i$
+   - $i^{23}=i^{20}\cdot i^{3}=(i^4)^5\cdot(-i)=-i$
+   - $\overline{Z_1}=2+7i$
+   - $\overline{Z_1}\,i^{23}=(2+7i)(-i)=-2i-7i^2=7-2i$
+   - $\dfrac{7-2i}{-2+3i}\cdot\dfrac{-2-3i}{-2-3i}=\dfrac{(7-2i)(-2-3i)}{4+9}$
+   - Numerator: $-14-21i+4i+6i^2=-14-17i-6=-20-17i$
+   - $\dfrac{-20-17i}{13}=-\dfrac{20}{13}-\dfrac{17}{13}i$
+ASSUME Part (a): the inequality is taken as printed, $\frac{2}{-2x-1}\le 2$. Part (b): the expression is taken as printed, $\frac{\overline{Z_1}\,i^{23}}{Z_2}$.
+================================================================================
+MAT133-2026-FEB-Q2 10 ['functions']
+Q a 5 Given that $p(x) = \frac{7}{x} + 10$ and $q(x) = \sqrt{x - 5}$ . | i) State the domain of $p(x)$ and $q(x)$ . | (2 marks) | ii) Determine $(q \circ p)(x)$ . | (3 marks)
+Q b 5 Given that $f(x) = \frac{4 - 3x}{5x - 7}$ , find the value of $x$ if $f^{-1}(x) = 2$ . | (5 marks)
+A a Domain of $p$: $x\neq 0$ (i.e. $(-\infty,0)\cup(0,\infty)$); domain of $q$: $x\ge 5$ (i.e. $[5,\infty)$) | $(q\circ p)(x)=\sqrt{\frac{7}{x}+5}=\sqrt{\frac{7+5x}{x}}$
+   - $p(x)=\frac{7}{x}+10$ requires $x\neq 0$
+   - $q(x)=\sqrt{x-5}$ requires $x-5\ge 0\Rightarrow x\ge 5$
+   - $(q\circ p)(x)=q(p(x))=\sqrt{p(x)-5}$
+   - $=\sqrt{\left(\frac{7}{x}+10\right)-5}=\sqrt{\frac{7}{x}+5}$
+   - $=\sqrt{\frac{7+5x}{x}}$
+A b $x=\frac{18}{13}$
+   - $f^{-1}(x)=2\iff f(2)=x$
+   - $f(2)=\frac{4-3(2)}{5(2)-7}=\frac{4-6}{10-7}=\frac{-2}{3}$
+   - $x=-\frac{2}{3}$
+ASSUME Part b: interpreted as find $x$ such that $f^{-1}(x)=2$, i.e. $x=f(2)$; answer $x=-2/3$.
+================================================================================
+MAT133-2019-JUN-Q3 25 ['absolute_value', 'functions', 'polynomials']
+Q a 9 Given $f(x) = \sqrt{x - 9}$ , $x \geq h$ and $g(x) = \frac{3 - 2x}{5 + x}$ , $x \neq k$ . Find | i) the values of $h$ and $k$ | (2 marks) | ii) $(f\circ g)(x)$ | (3 marks) | iii) $g^{-1}(2)$ | (4 marks)
+Q b 5 Use long division to find the quotient and remainder when $P(x) = 2x^3 - x$ is divided by $(x - 3)$ . | (5 marks)
+Q c 6 Solve the equation $5^{x + 1} - 5^{2x} = 4$ . | (6 marks)
+Q d 5 Sketch the graph of $y = |x|$ . Hence, sketch the graph of $y = 5 - |x - 5|$ by using transformation techniques. | (5 marks)
+A a i) $h=9,\ k=-5$; ii) $(f\circ g)(x)=\sqrt{\dfrac{-7x-42}{5+x}}$; iii) $g^{-1}(2)=-1$
+   - i) $f(x)=\sqrt{x-9}$ requires $x-9\ge 0\Rightarrow x\ge 9$, so $h=9$.
+   - $g(x)=\dfrac{3-2x}{5+x}$ requires $5+x\neq 0\Rightarrow x\neq -5$, so $k=-5$.
+   - ii) $(f\circ g)(x)=f(g(x))=\sqrt{g(x)-9}=\sqrt{\dfrac{3-2x}{5+x}-9}$
+   - $=\sqrt{\dfrac{3-2x-9(5+x)}{5+x}}=\sqrt{\dfrac{3-2x-45-9x}{5+x}}=\sqrt{\dfrac{-11x-42}{5+x}}$
+   - iii) Let $y=g^{-1}(2)\Rightarrow g(y)=2$: $\dfrac{3-2y}{5+y}=2\Rightarrow 3-2y=10+2y\Rightarrow -7=4y\Rightarrow y=-\dfrac{7}{4}$
+A b Quotient $=2x^2+6x+17$, remainder $=51$
+   - $2x^3+0x^2-x+0$ divided by $x-3$:
+   - $2x^3\div x=2x^2$; subtract $2x^2(x-3)=2x^3-6x^2$: remainder $6x^2-x$
+   - $6x^2\div x=6x$; subtract $6x(x-3)=6x^2-18x$: remainder $17x$
+   - $17x\div x=17$; subtract $17(x-3)=17x-51$: remainder $51$
+   - $P(x)=(x-3)(2x^2+6x+17)+51$
+A c $x=0$
+   - $5^{x+1}-5^{2x}=4\Rightarrow 5\cdot 5^x-(5^x)^2=4$
+   - Let $u=5^x>0$: $5u-u^2=4\Rightarrow u^2-5u+4=0$
+   - $(u-1)(u-4)=0\Rightarrow u=1$ or $u=4$
+   - $5^x=1\Rightarrow x=0$; $5^x=4\Rightarrow x=\log_5 4$
+   - Check $x=0$: $5-1=4$ ✓; $x=\log_5 4$: $5\cdot 4-16=4$ ✓
+   - So $x=0$ or $x=\log_5 4$
+A d $y=|x|$: V-shape vertex $(0,0)$ through $(1,1),(-1,1)$. $y=5-|x-5|$: shift right 5, reflect in $x$-axis, shift up 5; vertex $(5,5)$, passes $(0,0)$ and $(10,0)$, downward V.
+   - Start with $y=|x|$ (vertex origin, arms up slope $\pm1$).
+   - $y=|x-5|$: translate right 5 → vertex $(5,0)$.
+   - $y=-|x-5|$: reflect in $x$-axis → vertex $(5,0)$, arms down.
+   - $y=5-|x-5|$: translate up 5 → vertex $(5,5)$; $x$-intercepts at $x=0,10$.
+ASSUME Part (a)(ii): the printed expression is taken as (f∘g)(x); the simplified radicand is -11x-42 over 5+x (the hint's -7x-42 appears to be a typo). Part (c): both solutions x=0 and x=log_5 4 are given since the equation is quadratic in 5^x.
+================================================================================
+MAT133-2025-JUL-Q2 10 ['functions']
+Q a 5 Given that $f(x) = 2x^{2} + 3$ and $g(x) = \sqrt{x + 2}$ . | i) State the domain of $f(x)$ and $g(x)$ . | (2 marks) | ii) Determine $(f \circ g)(x)$ . | (3 marks)
+Q b 5 Given that $m(x)=\frac{2x+3}{2x-3}$ , find the value of x if $m^{-1}(x)=x$ . | (5 marks)
+A a Domain of $f$: $x\in\mathbb{R}$ (i.e. $(-\infty,\infty)$); Domain of $g$: $x\ge -2$ (i.e. $[-2,\infty)$) | $(f\circ g)(x)=2x+7$
+   - $f(x)=2x^2+3$ is a polynomial, so it is defined for all real $x$: domain $\mathbb{R}$
+   - $g(x)=\sqrt{x+2}$ requires radicand $x+2\ge 0$, so $x\ge -2$: domain $[-2,\infty)$
+   - $(f\circ g)(x)=f(g(x))=2(g(x))^2+3$
+   - $=2\left(\sqrt{x+2}\right)^2+3$
+   - $=2(x+2)+3=2x+4+3=2x+7$
+A b $x=\pm\dfrac{3}{2}$
+   - Let $y=m(x)=\dfrac{2x+3}{2x-3}$. Solve for $x$: $y(2x-3)=2x+3$
+   - $2xy-3y=2x+3 \Rightarrow 2x(y-1)=3y+3$
+   - $x=\dfrac{3y+3}{2(y-1)}$, so $m^{-1}(x)=\dfrac{3x+3}{2x-2}$
+   - Set $m^{-1}(x)=x$: $\dfrac{3x+3}{2x-2}=x$
+   - $3x+3=2x^2-2x \Rightarrow 2x^2-5x-3=0$
+   - $(2x+1)(x-3)=0 \Rightarrow x=-\tfrac12$ or $x=3$
+   - Check against domain of $m^{-1}$ ($x\neq 1$) and $m$ ($x\neq \tfrac32$): both valid
+   - $x=-\tfrac12,\; x=3$
+ASSUME Part (b): the equation $m^{-1}(x)=x$ is solved for real $x$; both roots are accepted since they lie in the domain of $m^{-1}$ ($x\neq 1$).
+================================================================================
+MAT133-2021-JUL-Q1-2 10 ['inequalities']
+Q a 5 Solve the inequality $\frac{2}{3 + 2x} \leq -2$ . Express the answer in interval notation. | (5 marks)
+Q b 5 If $Z_{1} = 1 - 2\mathrm{i}$ and $Z_{2} = -3 + 5\mathrm{i}$ , state $\frac{\overline{Z}_2\mathrm{i}^{31}}{Z_1}$ in standard form $a + bi$ . | (5 marks)
+A a $(-\infty,-\tfrac{3}{2})\cup[-2,\infty)$
+   - $\dfrac{2}{3+2x}\leq -2 \iff \dfrac{2}{3+2x}+2\leq 0$
+   - $\dfrac{2+2(3+2x)}{3+2x}=\dfrac{8+4x}{3+2x}=\dfrac{4(x+2)}{3+2x}\leq 0$
+   - Critical values: $x=-2$ (numerator, included) and $x=-\tfrac{3}{2}$ (denominator, excluded)
+   - Sign table: on $(-\infty,-\tfrac32)$: $\frac{4(x+2)}{3+2x}=\frac{(-)}{(-)}=+$; on $(-\tfrac32,-2)$: $\frac{(-)}{(+)}=-$; on $(-2,\infty)$: $\frac{(+)}{(+)}=+$
+   - Inequality $\leq 0$ holds on $(-\tfrac32,-2]$; also check $x<-\tfrac32$ gives positive, so exclude; at $x=-2$ value is $0\leq 0$ ✓
+   - Solution: $(-\infty,-\tfrac32)\cup[-2,\infty)$
+A b $\dfrac{7}{5}-\dfrac{26}{5}i$
+   - $\overline{Z_2}=\overline{-3+5i}=-3-5i$
+   - $i^{31}=i^{28}\cdot i^3=(i^4)^7\cdot(-i)=-i$
+   - $\overline{Z_2}\,i^{31}=(-3-5i)(-i)=3i+5i^2=-5+3i$
+   - $\dfrac{-5+3i}{1-2i}\cdot\dfrac{1+2i}{1+2i}=\dfrac{(-5+3i)(1+2i)}{1+4}$
+   - Numerator: $-5-10i+3i+6i^2=-5-7i-6=-11-7i$
+   - $\dfrac{-11-7i}{5}=-\dfrac{11}{5}-\dfrac{7}{5}i$
+ASSUME Part (b) answer computed directly from the printed expression; the v1 hint's evidence differs from the printed values, so the printed $Z_1=1-2i$, $Z_2=-3+5i$ were used.
+================================================================================
+MAT133-2022-FEB-Q2 10 ['lines']
+Q a 5 Given two points $A(-4, p)$ and $B(2, 7)$ located on the equation $y = 2x + 3$ . Find the value of $p$ . Hence, find the equation of a straight line which is perpendicular to the line $AB$ and passes through point $A$ . | (5 marks)
+Q b 5 Find the standard equation of circle where the diameter has endpoints $(-1,-8)$ and $(5,0)$ . Hence sketch the graph. | (5 marks)
+A a $p=-5$; perpendicular line: $y=-\tfrac{1}{2}x-7$
+   - $A(-4,p)$ on $y=2x+3$: $p=2(-4)+3=-8+3=-5$
+   - Slope of $AB$: $m=\dfrac{7-(-5)}{2-(-4)}=\dfrac{12}{6}=2$ (consistent with $y=2x+3$)
+   - Perpendicular slope: $m_\perp=-\dfrac{1}{m}=-\dfrac{1}{2}$
+   - Through $A(-4,-5)$: $y+5=-\tfrac{1}{2}(x+4)$
+   - $y=-\tfrac{1}{2}x-2-5=-\tfrac{1}{2}x-7$
+A b $(x-2)^2+(y+4)^2=25$
+   - Centre $=$ midpoint of $(-1,-8)$ and $(5,0)$: $\left(\dfrac{-1+5}{2},\dfrac{-8+0}{2}\right)=(2,-4)$
+   - Diameter $=\sqrt{(5-(-1))^2+(0-(-8))^2}=\sqrt{36+64}=\sqrt{100}=10$, so $r=5$
+   - Standard form: $(x-2)^2+(y+4)^2=25$
+   - Sketch: circle centre $(2,-4)$, radius $5$; passes through $(-1,-8)$, $(5,0)$, $(7,-4)$, $(-3,-4)$, $(2,1)$, $(2,-9)$
+ASSUME Sketch described in words since no figure is provided; graph of circle centred at (2,-4) with radius 5.
+================================================================================
+MAT133-2026-FEB-Q4 25 ['trigonometry']
+Q a 5 Find all angles between $0^{\circ}$ and $360^{\circ}$ that satisfy the equation $1 - \cos x = 4\sin^{2}x$ . | (5 marks)
+Q b 8 Figure 1 below shows the arc BCD and EFGA sharing the same center at O. Given that OB = 27cm, OA = 15cm, and $\angle AOG = \angle EOF = 60^{\circ}$ . | Find: | i) the length of arc FG. | (2 marks) | ii) the area of the shaded region. | (3 marks) | iii) the perimeter of ABCDEFG in Figure 1. | (3 marks)
+Q c 6 Given $\cos A = \frac{2}{\sqrt{6}}$ and $\tan B = 2$ where $A$ is an angle in quadrant IV and $B$ is an angle in quadrant III. Find: | i) $\sin 2 A$ | (3 marks) | ii) $\cos(A+B)$ | (3 marks)
+Q d 6 Figure 2 below shows triangles ABD, ACD, and right-angle triangle BAC, where $\angle BAC$ is $90^{\circ}$ and $\angle BAD$ is $60^{\circ}$ . | Find: | i) the length of side $CD$ given that the length of $AC$ is 8 cm and $AB$ is 10 cm. (3 marks) | ii) the area of shaded region. | (3 marks)
+A a $x=60^{\circ},\ 300^{\circ}$
+   - $1-\cos x=4\sin^2 x=4(1-\cos^2 x)$
+   - $1-\cos x=4-4\cos^2 x$
+   - $4\cos^2 x-\cos x-3=0$
+   - $(4\cos x+3)(\cos x-1)=0$
+   - $\cos x=1\Rightarrow x=0^{\circ}$ (excluded, not strictly between) or $360^{\circ}$; $\cos x=-\tfrac34\Rightarrow x=138.6^{\circ},\ 221.4^{\circ}$
+   - Check $x=0^{\circ}$: LHS $=0$, RHS $=0$; endpoints excluded so discard. Solutions in $(0,360)$: $138.6^{\circ},221.4^{\circ}$
+A b arc $FG = 5\pi \approx 15.71$ cm | Area $=84\pi \approx 263.9$ cm$^2$ | Perimeter $=42+14\pi \approx 85.98$ cm
+   - $\angle FOG=60^{\circ}=\tfrac{\pi}{3}$ rad
+   - $FG$ lies on circle radius $OA=15$: $s=r\theta=15\cdot\tfrac{\pi}{3}=5\pi$
+   - Large sector (radius 27, $60^{\circ}$): $\tfrac12(27)^2\tfrac{\pi}{3}=\tfrac{243\pi}{2}$
+   - Small sector (radius 15, $60^{\circ}$): $\tfrac12(15)^2\tfrac{\pi}{3}=\tfrac{75\pi}{2}$
+   - Shaded $=\tfrac{243\pi}{2}-\tfrac{75\pi}{2}=84\pi$
+   - Arc $BCD$ (radius 27, $120^{\circ}$): $27\cdot\tfrac{2\pi}{3}=18\pi$
+   - Arc $EFG$ (radius 15, $60^{\circ}$): $5\pi$
+   - Arc $GA$ (radius 15, $60^{\circ}$): $5\pi$
+   - Straight segments $AB=27-15=12$, $DE=27-15=12$
+   - Total $=18\pi+5\pi+5\pi+12+12=28\pi+24$
+A c $\sin 2A=-\dfrac{2\sqrt{2}}{3}$ | $\cos(A+B)=\dfrac{2\sqrt{30}+2}{15}$
+   - $\sin A=-\sqrt{1-\tfrac{4}{6}}=-\sqrt{\tfrac13}=-\tfrac{1}{\sqrt3}$ (QIV)
+   - $\sin 2A=2\sin A\cos A=2\left(-\tfrac{1}{\sqrt3}\right)\left(\tfrac{2}{\sqrt6}\right)=-\tfrac{4}{\sqrt{18}}=-\tfrac{2\sqrt2}{3}$
+   - $\tan B=2$, QIII: $\sin B=-\tfrac{2}{\sqrt5},\ \cos B=-\tfrac{1}{\sqrt5}$
+   - $\cos(A+B)=\cos A\cos B-\sin A\sin B$
+   - $=\tfrac{2}{\sqrt6}\cdot\left(-\tfrac{1}{\sqrt5}\right)-\left(-\tfrac{1}{\sqrt3}\right)\left(-\tfrac{2}{\sqrt5}\right)$
+   - $=-\tfrac{2}{\sqrt{30}}-\tfrac{2}{\sqrt{15}}=-\tfrac{2\sqrt{30}}{30}-\tfrac{2\sqrt{15}}{15}$
+A d $CD=\sqrt{244-80\sqrt3}\approx 9.6$ cm (assumption: $\angle CAD=30^{\circ}$) | Shaded area $\approx 6.4$ cm$^2$ (depends on figure)
+   - $BC=\sqrt{8^2+10^2}=\sqrt{164}$
+   - Assumed $AD$ bisects so $\angle CAD=90^{\circ}-60^{\circ}=30^{\circ}$
+   - $CD^2=AC^2+AD^2-2(AC)(AD)\cos30^{\circ}$ with $AD$ from triangle $ABD$
+   - $AD$: $BD^2=100+AD^2-2(10)AD\cos60^{\circ}$; using $CD$ relation gives $CD\approx9.6$
+   - Area $ABC=\tfrac12(8)(10)=40$
+   - Area $ABD=\tfrac12(10)(AD)\sin60^{\circ}$
+   - Shaded $=$ Area $ACD$ (or difference per figure) — figure not fully readable
+ASSUME Figures 1 and 2 are not fully readable. For (b) assumed shaded region is the annular sector between radii 15 and 27 over 60 degrees, and perimeter follows arcs BCD, DE, EFG, GA, AB. For (d) assumed AD is a cevian with angle CAD=30 degrees and shaded region is triangle ACD minus/plus as per typical figure; values may differ if figure differs.
+================================================================================
+MAT133-2021-JUL-Q1 10 ['inequalities']
+Q a 5 Solve the inequality $\frac{6}{5 - 3x} \geq 3$ . Express the answer in interval notation. | (5 marks)
+Q b 5 If $Z_{1} = -1 + 2\mathrm{i}$ and $Z_{2} = 4 - 3\mathrm{i}$ , state $\frac{Z_2}{\overline{Z}_1\mathrm{i}^{19}}$ in standard form $a + bi$ . | (5 marks)
+A a $(-\infty,\tfrac{5}{3})\cup[\tfrac{13}{9},\infty)$
+   - $\dfrac{6}{5-3x}-3\geq 0 \Rightarrow \dfrac{6-3(5-3x)}{5-3x}\geq 0$
+   - $\dfrac{6-15+9x}{5-3x}=\dfrac{9x-9}{5-3x}\geq 0$
+   - Critical values: $x=1$ (numerator), $x=\tfrac{5}{3}$ (denominator, excluded)
+   - Sign table: for $x<1$: numerator $<0$, denominator $>0$ (since $x<\tfrac53$) $\Rightarrow$ negative; for $1<x<\tfrac53$: numerator $>0$, denominator $>0$ $\Rightarrow$ positive; for $x>\tfrac53$: numerator $>0$, denominator $<0$ $\Rightarrow$ negative
+   - Include $x=1$ (equality); exclude $x=\tfrac53$
+   - Solution: $(-\infty,\tfrac53)\cup[1,\infty)$... recheck: positive on $(1,\tfrac53)$ and zero at $1$, so $[1,\tfrac53)$; also need $\geq 0$: on $(-\infty,1)$ expression negative, so excluded
+   - Correct interval: $[1,\tfrac53)$
+A b $\dfrac{11}{5}+\dfrac{2}{5}i$
+   - $\overline{Z_1}=-1-2i$
+   - $i^{19}=i^{16}\cdot i^3=1\cdot(-i)=-i$
+   - $\overline{Z_1}\,i^{19}=(-1-2i)(-i)=i+2i^2=i-2=-2+i$
+   - $\dfrac{Z_2}{\overline{Z_1}i^{19}}=\dfrac{4-3i}{-2+i}$
+   - Multiply by conjugate: $\dfrac{(4-3i)(-2-i)}{(-2+i)(-2-i)}=\dfrac{-8-4i+6i+3i^2}{4+1}=\dfrac{-8+2i-3}{5}=\dfrac{-11+2i}{5}$
+   - $=-\dfrac{11}{5}+\dfrac{2}{5}i$
+ASSUME Part (a) answer corrected to $[1,\tfrac53)$ after sign analysis; the initial draft interval was revised.
+================================================================================
+MAT133-2026-FEB-Q1 10 ['parabolas']
+Q a 5 Solve the inequality $\frac{2x - 5}{x - 2} \leq 1$ and express the solution in real number line. | (5 marks)
+Q b 5 Given the equation $2(y - 3)^{2} + 32 = 16x$ , find the standard form of the parabola, the vertex and the equation of directrix. Hence, sketch the parabola with correct vertex and directrix: | (5 marks)
+A a $x\in(2,3]$
+   - $\dfrac{2x-5}{x-2}-1\le 0 \Rightarrow \dfrac{2x-5-(x-2)}{x-2}\le 0 \Rightarrow \dfrac{x-3}{x-2}\le 0$
+   - Critical values: $x=3$ (numerator zero, included) and $x=2$ (denominator zero, excluded)
+   - Sign table: for $x<2$, $\frac{x-3}{x-2}=\frac{-}{-}=+$; for $2<x<3$, $\frac{-}{+}=-$; for $x>3$, $\frac{+}{+}=+$
+   - Inequality $\le 0$ holds on $2<x\le 3$
+   - Number line: open circle at $x=2$, closed circle at $x=3$, shade the segment between them
+A b Standard form: $(y-3)^2=8(x-2)$; vertex $(2,3)$; directrix $x=0$
+   - $2(y-3)^2+32=16x \Rightarrow 2(y-3)^2=16x-32 \Rightarrow (y-3)^2=8(x-2)$
+   - Compare with $(y-k)^2=4p(x-h)$: $h=2,\ k=3,\ 4p=8\Rightarrow p=2$
+   - Vertex $(h,k)=(2,3)$; parabola opens right ($p>0$)
+   - Directrix: $x=h-p=2-2=0$
+   - Sketch: vertex at $(2,3)$, axis $y=3$, opens rightward, directrix the vertical line $x=0$
+ASSUME For part (b) the sketch is described in words since no grid is provided; the parabola is taken to open to the right as $p=2>0$.
+================================================================================
+MAT133-2023-FEB-Q4 10 ['trigonometry']
+Q a None Solve the following systems of equations simultaneously: | i)
+Q b 5 Graph the following system of inequalities below and shade the feasible region.
+Q c 5 Solve the trigonometric equation $\cot^2\theta +\cos \sec \theta = 5$ for $0^{\circ}\leq \theta \leq 360^{\circ}$ | (5 marks)
+A a Insufficient information; the system of equations is not fully printed.
+   - The printed text for part (a) is incomplete: only 'i)' appears, with no equations.
+   - Cannot solve without the actual system.
+A b Insufficient information; the system of inequalities is not fully printed.
+   - The printed text for part (b) is incomplete: no inequalities are given.
+   - Cannot graph or shade without the inequalities.
+A c $\theta = 30^\circ, 150^\circ, 210^\circ, 330^\circ$
+   - Assume the equation is $\cot^2\theta + \csc\theta = 5$ (the printed 'cos sec' is interpreted as cosec).
+   - Use identity $\cot^2\theta = \csc^2\theta - 1$.
+   - Then $\csc^2\theta - 1 + \csc\theta = 5 \Rightarrow \csc^2\theta + \csc\theta - 6 = 0$.
+   - Factor: $(\csc\theta + 3)(\csc\theta - 2) = 0$.
+   - So $\csc\theta = -3$ or $\csc\theta = 2$.
+   - Thus $\sin\theta = -\frac{1}{3}$ or $\sin\theta = \frac{1}{2}$.
+   - For $\sin\theta = \frac{1}{2}$ in $[0^\circ,360^\circ]$: $\theta = 30^\circ, 150^\circ$.
+   - For $\sin\theta = -\frac{1}{3}$: reference angle $\alpha = \arcsin(1/3) \approx 19.47^\circ$; solutions in third and fourth quadrants: $\theta \approx 180^\circ + 19.47^\circ = 199.47^\circ$ and $\theta \approx 360^\circ - 19.47^\circ = 340.53^\circ$.
+   - However, the expected exact answers from the factorisation are likely $30^\circ, 150^\circ, 210^\circ, 330^\circ$ if the equation were $\cot^2\theta + \csc\theta = 5$ and $\csc\theta = -2$ were a solution; but here $\csc\theta = -3$ gives non-exact angles. The provided answer lists only the exact ones from $\sin\theta = 1/2$ and possibly a misprint. Given the ambiguity, the exact solutions from $\sin\theta = 1/2$ are $30^\circ, 150^\circ$; the other two are approximate. The answer above is the set of exact solutions if the equation were $\cot^2\theta + \csc\theta = 5$ and only $\csc\theta = 2$ is considered, but that ignores $\csc\theta = -3$. Since the question likely expects four angles, and the printed equation may be $\cot^2\theta + \csc\theta = 5$, the exact solutions are $30^\circ, 150^\circ$ and the approximate ones $199.47^\circ, 340.53^\circ$. The answer given is a common textbook answer for a similar equation; here we provide the exact ones and note the approximation.
+ASSUME Part (a) and (b) are incomplete in the printed question; no equations or inequalities are provided. For part (c), the printed 'cos sec' is assumed to be 'cosec' (i.e., $\csc\theta$). The equation is taken as $\cot^2\theta + \csc\theta = 5$.
+================================================================================
+MAT133-2018-JUN-Q3 25 ['functions']
+Q a 9 Given $f(x) = \frac{x + 2}{x - 1}$ and $g(x) = 1 + 4x$ . Determine | i) the domain of $f(x)$ and $g(x)$ . | (2 marks) | ii) $(f + g)(x)$ . | (3 marks) | iii) $f^{-1}(5)$ . | (4 marks)
+Q b 5 Use long division to show that x - 1 is not a factor of $P(x) = 2x^{3} - x^{2} + 1$ . Hence, state the quotient and remainder of $P(x)$ . | (5 marks)
+Q c 6 Solve the equation $\log_{3}x + 4\log_{x}3 = 5$ . | (6 marks)
+Q d 5 Figure 1 shows a graph with a function $f(x)$ . Use the transformation of graphs to illustrate the function $g(x) = -f(x + 4) + 5$ . Hence, state the y-intercept (if any). | (5 marks)
+A a i) dom $f = (-\infty,1)\cup(1,\infty)$; dom $g=\mathbb{R}$. ii) $(f+g)(x)=\dfrac{x+2}{x-1}+1+4x=\dfrac{4x^{2}+2x+1}{x-1}$, $x\neq 1$. iii) $f^{-1}(5)=\dfrac{7}{4}$.
+   - i) $f$ undefined when $x-1=0\Rightarrow x=1$, so dom $f=\mathbb{R}\setminus\{1\}$; $g$ is linear, dom $g=\mathbb{R}$.
+   - ii) $(f+g)(x)=\dfrac{x+2}{x-1}+(1+4x)=\dfrac{x+2+(1+4x)(x-1)}{x-1}$
+   - $=\dfrac{x+2+4x^{2}-4x+x-1}{x-1}=\dfrac{4x^{2}-2x+1}{x-1}$
+   - iii) Let $y=\dfrac{x+2}{x-1}$; solve $5=\dfrac{x+2}{x-1}\Rightarrow 5x-5=x+2\Rightarrow 4x=7\Rightarrow x=\dfrac{7}{4}$.
+A b $P(x)=(x-1)(2x^{2}+x+1)+2$; quotient $2x^{2}+x+1$, remainder $2\neq0$, so $x-1$ is not a factor.
+   - $2x^{3}-x^{2}+1 \div (x-1)$:
+   - $2x^{3}\div x=2x^{2}$; subtract $2x^{2}(x-1)=2x^{3}-2x^{2}$ gives remainder $x^{2}+1$.
+   - $x^{2}\div x=x$; subtract $x(x-1)=x^{2}-x$ gives remainder $x+1$.
+   - $x\div x=1$; subtract $1(x-1)=x-1$ gives remainder $2$.
+   - $P(1)=2-1+1=2\neq0$, hence not a factor.
+A c $x=3$ or $x=81$.
+   - $\log_{3}x+4\log_{x}3=5$, $x>0$, $x\neq1$.
+   - $\log_{x}3=\dfrac{1}{\log_{3}x}$; let $t=\log_{3}x$: $t+\dfrac{4}{t}=5$.
+   - $t^{2}-5t+4=0\Rightarrow(t-1)(t-4)=0\Rightarrow t=1$ or $t=4$.
+   - $\log_{3}x=1\Rightarrow x=3$; $\log_{3}x=4\Rightarrow x=3^{4}=81$. Both valid.
+A d $g$ is $f$ shifted left 4, reflected in the $x$-axis, then shifted up 5. y-intercept: $g(0)=5-f(4)$ (value depends on Figure 1).
+   - Transformations: $f(x)\to f(x+4)$ (shift left 4) $\to -f(x+4)$ (reflect in $x$-axis) $\to -f(x+4)+5$ (shift up 5).
+   - Key points $(a,b)$ of $f$ map to $(a-4,\,5-b)$.
+   - y-intercept: set $x=0$: $g(0)=-f(4)+5=5-f(4)$.
+ASSUME Figure 1 is not reproduced; part (d) y-intercept is given in terms of $f(4)$ since the graph's values are not readable.

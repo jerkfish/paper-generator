@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import shutil
 import sys
 from datetime import datetime, timezone
@@ -36,7 +37,8 @@ if str(ROOT) not in sys.path:
 
 from src import config
 from src.app.filenames import utc_year
-from src.app.jobs import library_item, topic_legend
+from src.app.jobs import (library_item, library_version_columns,
+                          topic_legend)
 from src.assemble.build_docx_paper import export_pdf
 from src.assemble.generic_build import build_scheme
 from src.subjects.plugins import (
@@ -93,25 +95,62 @@ def _generator_labels(subject: Subject) -> list[str]:
     return subject_generator_labels(subject)
 
 
+def _public_item(item: dict, subject: Subject) -> dict:
+    """Drop document versions the subject contract does not publish yet."""
+    if not item.get("versions"):
+        return item
+    allowed = subject.public_document_versions
+    versions = [version for version in item.get("versions") or []
+                if str(version["version"]) in allowed]
+    if not versions:
+        versions = list(item.get("versions") or [])[:1]
+    downloads = {}
+    for version in versions:
+        downloads.update(version["downloads"])
+    out = dict(item)
+    out["versions"] = versions
+    out["version_map"] = {str(version["version"]): version
+                          for version in versions}
+    out["downloads"] = downloads
+    return out
+
+
 def _copy_complete(item: dict, papers: Path, schemes: Path,
                    force: bool) -> bool:
     names = item["downloads"]
-    targets = {
-        "paper_docx": papers / names["paper_docx"],
-        "paper_pdf": papers / names["paper_pdf"],
-        "scheme_docx": schemes / names["scheme_docx"],
-        "scheme_pdf": schemes / names["scheme_pdf"],
-    }
+    targets = {}
+    for version in item.get("versions") or []:
+        for canonical, vkind in (version.get("kinds") or {}).items():
+            folder = schemes if canonical.startswith("scheme") else papers
+            targets[vkind] = folder / names[vkind]
+    if not targets:
+        targets = {
+            "paper_docx": papers / names["paper_docx"],
+            "paper_pdf": papers / names["paper_pdf"],
+            "scheme_docx": schemes / names["scheme_docx"],
+            "scheme_pdf": schemes / names["scheme_pdf"],
+        }
     if not force and all(path.exists() for path in targets.values()):
         return True
-    for kind, target in targets.items():
-        source = Path(str((item.get("files") or {}).get(kind, "")))
-        if not source.exists():
+    for vkind, target in targets.items():
+        canonical = vkind
+        match = re.fullmatch(r"(paper|scheme)_v\d+_(docx|pdf)", vkind)
+        if match:
+            canonical = f"{match.group(1)}_{match.group(2)}"
+        source = ""
+        for version in item.get("versions") or []:
+            if (version.get("kinds") or {}).get(canonical) == vkind:
+                source = str((version.get("files") or {}).get(canonical, ""))
+                break
+        if not source:
+            source = str((item.get("files") or {}).get(canonical, ""))
+        source_path = Path(source)
+        if not source_path.exists():
             raise SystemExit(
-                f"missing private {kind} for {item['subject']} seed "
-                f"{item['seed']}: {source}")
+                f"missing private {vkind} for {item['subject']} seed "
+                f"{item['seed']}: {source_path}")
         target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(source, target)
+        shutil.copy2(source_path, target)
     return False
 
 
@@ -197,11 +236,14 @@ def _build_copied_documents(out: Path, seeds: list[int], force: bool,
             skipped += 1
             continue
         names = item["downloads"]
-        problems = (
-            _check_scheme(schemes / names["scheme_docx"],
-                          require_marker=require_marker)
-            + _check_scheme(schemes / names["scheme_pdf"],
-                            require_marker=require_marker))
+        problems = []
+        for version in item.get("versions") or []:
+            kinds = version.get("kinds") or {}
+            for canonical in ("scheme_docx", "scheme_pdf"):
+                vkind = kinds.get(canonical)
+                if vkind and names.get(vkind):
+                    problems.extend(_check_scheme(
+                        schemes / names[vkind], require_marker=require_marker))
         if problems:
             raise SystemExit(f"seed {seed}: " + "; ".join(problems))
         built += 1
@@ -336,7 +378,9 @@ def _render_pages(out: Path, subject_items: dict[str, list[dict]],
             "library.html", subject=subject, items=items, total=len(items),
             q="", computed="any", topic="any", placeholders="any",
             topics=topics, computed_options=computed_options,
-            item_urls=item_urls, topic_legend=topic_legend(subject))
+            item_urls=item_urls,
+            version_columns=library_version_columns(items),
+            topic_legend=topic_legend(subject))
         pages[f"{subject.route}/generate/index.html"] = render(
             "generate.html", subject=subject,
             deterministic=subject.deterministic,
@@ -384,6 +428,23 @@ def _write_manifests(out: Path, subject_items: dict[str, list[dict]],
         papers = []
         for item in items:
             urls = _urls(item, out, code)
+            files = {}
+            versions = item.get("versions") or []
+            for version in versions:
+                for canonical, vkind in (version.get("kinds") or {}).items():
+                    folder = ("schemes" if canonical.startswith("scheme")
+                              else "papers")
+                    files[vkind] = (
+                        f"library/{code}/{folder}/"
+                        f"{item['downloads'][vkind]}")
+            if not versions:
+                for canonical in ("paper_docx", "paper_pdf",
+                                  "scheme_docx", "scheme_pdf"):
+                    folder = ("schemes" if canonical.startswith("scheme")
+                              else "papers")
+                    files[canonical] = (
+                        f"library/{code}/{folder}/"
+                        f"{item['downloads'][canonical]}")
             papers.append({
                 "seed": item["seed"],
                 "mode": item["mode"],
@@ -398,12 +459,23 @@ def _write_manifests(out: Path, subject_items: dict[str, list[dict]],
                 "placeholders": item["placeholders"],
                 "topic_marks": item["topic_marks"],
                 "topic_mix": item["topic_mix"],
-                "files": {
-                    "paper_docx": f"library/{code}/papers/{item['downloads']['paper_docx']}",
-                    "paper_pdf": f"library/{code}/papers/{item['downloads']['paper_pdf']}",
-                    "scheme_docx": f"library/{code}/schemes/{item['downloads']['scheme_docx']}",
-                    "scheme_pdf": f"library/{code}/schemes/{item['downloads']['scheme_pdf']}",
-                },
+                "documents": [
+                    {
+                        "version": version["version"],
+                        "label": version["label"],
+                        "files": {
+                            vkind: (
+                                f"library/{code}/"
+                                + ("schemes" if canonical.startswith("scheme")
+                                   else "papers")
+                                + f"/{item['downloads'][vkind]}")
+                            for canonical, vkind in (
+                                version.get("kinds") or {}).items()
+                        },
+                    }
+                    for version in item.get("versions") or []
+                ],
+                "files": files,
                 "urls": urls,
             })
         lib = {
@@ -538,7 +610,9 @@ def build(out: Path, seeds: list[int], force: bool = False,
         if missing:
             raise SystemExit(
                 f"missing {code} Library cache for seeds: {missing}")
-        subject_items[code] = [item for item in items if item is not None]
+        record = get_subject(code)
+        subject_items[code] = [_public_item(item, record)
+                               for item in items if item is not None]
     doc_info = {}
     if not pages_only:
         for code in codes:

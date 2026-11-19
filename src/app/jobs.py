@@ -326,11 +326,15 @@ class JobManager:
             raise ValueError("mode must be realistic or practice")
         if mode == "practice" and not subject_obj.has_practice_mode:
             raise ValueError(f"{code} does not support practice mode")
+        cap = subject_seed_cap(subject_obj)
         if seed is None:
-            seed = random.SystemRandom().randint(1, 10_000)
+            seed = random.SystemRandom().randint(1, cap or 10_000)
         if int(seed) < 1:
             raise ValueError("seed must be a positive integer")
         seed = int(seed)
+        if cap is not None and seed > cap:
+            raise ValueError(
+                f"{code} can build seeds 1-{cap} from the current bank")
         if mode == "practice" and not deterministic:
             computed_marks = 22 if computed_marks is None else int(computed_marks)
             if not 0 <= computed_marks <= 80:
@@ -572,6 +576,26 @@ def _planner_data(seed: int, subject: Subject | None = None) -> dict:
         return {}
 
 
+def subject_seed_cap(subject: str | Subject | None = None) -> int | None:
+    """Return the subject's deterministic seed cap, when it exposes one."""
+    record = subject if isinstance(subject, Subject) else None
+    if record is None and subject:
+        try:
+            record = get_subject(str(subject))
+        except SubjectNotFound:
+            record = None
+    if record is None:
+        return None
+    plugin = plugin_for(record, "seed_cap")
+    if plugin is None:
+        return None
+    try:
+        value = int(plugin())
+    except Exception:
+        return None
+    return value if value > 0 else None
+
+
 def _library_seeds(subject: str | Subject | None = None) -> list[int]:
     """Return Library seeds from the subject plugin, else its cache folder."""
     record = subject if isinstance(subject, Subject) else None
@@ -636,6 +660,33 @@ def _cache_entry(seed: int, subject: str) -> tuple[Path, dict] | None:
     return candidates[0][3], candidates[0][4]
 
 
+LIBRARY_KINDS: tuple[tuple[str, bool, str], ...] = (
+    ("paper_docx", False, "docx"), ("paper_pdf", False, "pdf"),
+    ("scheme_docx", True, "docx"), ("scheme_pdf", True, "pdf"),
+)
+
+
+def versioned_kind(kind: str, version: int) -> str:
+    """Return the route/cache kind for a document version.
+
+    Version 1 keeps the historical kind (``paper_docx``); later versions use
+    ``paper_v2_docx`` so both documents can be served and downloaded.
+    """
+    if int(version) == 1:
+        return kind
+    stem, _, ext = kind.rpartition("_")
+    return f"{stem}_v{int(version)}_{ext}"
+
+
+def library_version_columns(items: list[dict]) -> list[dict]:
+    """Distinct document versions across a Library, newest last."""
+    seen: dict[int, dict] = {}
+    for item in items:
+        for version in item.get("versions") or []:
+            seen.setdefault(int(version["version"]), version)
+    return [seen[key] for key in sorted(seen)]
+
+
 def library_item(seed: int,
                  subject: str | Subject | None = None) -> dict | None:
     if config.PUBLIC_BUILD:
@@ -675,11 +726,48 @@ def library_item(seed: int,
     marks = computed if mode == "practice" else None
     files = dict(meta.get("files", {}))
     names = {}
-    for key, scheme, ext in (
-            ("paper_docx", False, "docx"), ("paper_pdf", False, "pdf"),
-            ("scheme_docx", True, "docx"), ("scheme_pdf", True, "pdf")):
+    for key, scheme, ext in LIBRARY_KINDS:
         names[key] = download_filename(code, seed, year, ext, scheme=scheme,
                                        practice_marks=marks)
+    downloads = dict(names)
+    versions = [{
+        "version": 1,
+        "label": "v1",
+        "files": files,
+        "downloads": names,
+        "kinds": {key: key for key, _, _ in LIBRARY_KINDS},
+    }]
+    raw_versions = meta.get("document_versions") or {}
+    for raw_key in sorted(raw_versions, key=lambda value: int(value)
+                          if str(value).isdigit() else 0):
+        try:
+            number = int(raw_key)
+        except (TypeError, ValueError):
+            continue
+        if number <= 1:
+            continue
+        version_meta = raw_versions.get(raw_key) or {}
+        version_files = dict(version_meta.get("files") or {})
+        if not version_files:
+            continue
+        version_names = {}
+        version_kinds = {}
+        for key, scheme, ext in LIBRARY_KINDS:
+            vkind = versioned_kind(key, number)
+            version_kinds[key] = vkind
+            version_names[vkind] = download_filename(
+                code, seed, year, ext, scheme=scheme,
+                practice_marks=marks, version=number)
+        versions.append({
+            "version": number,
+            "label": str(version_meta.get("label") or f"v{number}"),
+            "files": version_files,
+            "downloads": version_names,
+            "kinds": version_kinds,
+            "playbook_version": version_meta.get("playbook_version", ""),
+            "built": version_meta.get("built", ""),
+        })
+        downloads.update(version_names)
     topic_marks = dict(meta.get("topic_marks")
                        or plan.get("assigned_topic_marks") or {})
     return {
@@ -702,7 +790,9 @@ def library_item(seed: int,
         "topic_keys": "|".join(str(k) for k in topic_marks),
         "topic_mix": topic_mix_text(topic_marks, record or code),
         "files": files,
-        "downloads": names,
+        "downloads": downloads,
+        "versions": versions,
+        "version_map": {str(v["version"]): v for v in versions},
     }
 
 
@@ -771,12 +861,24 @@ def library_file(seed: int, kind: str,
                  subject: str | None = None) -> Path | None:
     if config.PUBLIC_BUILD:
         return None
-    if kind not in {"paper_pdf", "paper_docx", "scheme_pdf", "scheme_docx"}:
+    canonical = kind
+    version = 1
+    match = re.fullmatch(r"(paper|scheme)_v(\d+)_(docx|pdf)", kind)
+    if match:
+        canonical = f"{match.group(1)}_{match.group(3)}"
+        version = int(match.group(2))
+    elif kind not in {key for key, _, _ in LIBRARY_KINDS}:
         return None
     entry = _cache_entry(seed, str(subject or default_subject_code()).upper())
     if entry is None:
         return None
-    path = Path(entry[1].get("files", {}).get(kind, ""))
+    if version == 1:
+        raw = entry[1].get("files", {}).get(canonical, "")
+    else:
+        version_meta = (entry[1].get("document_versions") or {}).get(
+            str(version)) or {}
+        raw = (version_meta.get("files") or {}).get(canonical, "")
+    path = Path(str(raw or ""))
     return path if path.exists() else None
 
 

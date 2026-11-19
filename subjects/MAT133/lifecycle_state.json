@@ -1,32 +1,150 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
+  "playbook_version": "2.0",
   "subject": "MAT133",
-  "type": "B",
-  "template_path": "",
-  "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-04T06:27:42Z",
+  "title": "Pre-Calculus",
+  "type": "D",
+  "strategy": "recycle",
+  "lifecycle_status": "complete",
+  "created": "2026-11-14T00:00:00Z",
+  "updated": "2026-11-15T23:48:06Z",
   "stages": {
-    "0_intake": {
+    "V0_intake": {
       "status": "done",
       "evidence": [
+        "subjects/MAT133/subject.json",
+        "subjects/MAT133/lifecycle_state_v1.json",
+        "data/tracking/mat133/v2/papers_register.json",
+        "data/tracking/mat133/v2/papers_summary.json",
+        "data/tracking/mat133/v2/permissions_recheck.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": false,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-14",
+        "note": "Owner confirmed Type D recycle and allowed MinerU cloud processing at V0."
+      },
+      "notes": "Type D recycle confirmed by the owner. 41 working copies, 37 unique, 219 unique pages. Papers, scheme, slides waiver and MinerU cloud processing are recorded. Local branch MAT133 created; v1 remains published."
+    },
+    "V1_extract": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/mat133/v2/papers_register.json",
+        "data/tracking/mat133/v2/papers_summary.json",
+        "data/tracking/mat133/v2/V1_PILOT_REPORT.md",
+        "data/tracking/mat133/v2/V1_REPORT.md",
+        "data/tracking/mat133/v2/extraction_status.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": false,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": "MinerU VLM extracted 37 of 37 unique papers; 0 failed, 0 missing."
+    },
+    "V2_bank": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/mat133/v2/bank/index.json",
+        "data/tracking/mat133/v2/bank/gate1_report.json",
+        "data/tracking/mat133/v2/bank/gate1_report.md",
+        "data/tracking/mat133/v2/bank/review/index.html",
+        "data/tracking/mat133/v2/bank/review/index_by_paper.html",
+        "data/tracking/mat133/v2/bank/review/marks.csv",
+        "data/tracking/mat133/v2/bank/unsure.json",
+        "data/tracking/mat133/v2/bank/duplicates.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": false,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-14",
+        "note": "Gate A approved after two review rounds."
+      },
+      "notes": "188 questions from 37 papers; 187 approved, 0 needs fix, 1 rejected. Gate A review is pending."
+    },
+    "V3_format": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/mat133/v2/format_profile.json",
+        "data/tracking/mat133/v2/template_check.json",
+        "data/tracking/mat133/v2/templates_preview/paper_template_page_1.png",
+        "data/tracking/mat133/v2/templates_preview/scheme_template_page_1.png",
         "subjects/MAT133/subject.json"
       ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
-        "required": true,
+        "required": false,
         "approved": true,
         "by": "project owner",
-        "on": "2026-11-04",
-        "note": "Completed deterministic subject."
+        "on": "2026-11-14",
+        "note": "V3 uses the two newest papers: four questions, 10+10+10+25 marks, 2 hours. Paper template is the approved MAT133 template; scheme template is the standard UTM marking scheme."
       },
-      "notes": ""
+      "notes": "Current format from MAT133-2026-FEB (55 marks) and MAT133-2025-JUL (four questions, 2 hours; 50-mark variant). Exact slot marks, no tolerance."
     },
-    "1_preprocess": {
+    "V4_answers": {
       "status": "done",
       "evidence": [
-        "data/tracking/mat133/papers_summary.json",
-        "data/tracking/mat133/papers_register.json"
+        "data/tracking/mat133/v2/bank/answers.json",
+        "data/tracking/mat133/v2/bank/answers_report.json",
+        "data/tracking/mat133/v2/bank/answers_flash.json",
+        "data/tracking/mat133/v2/bank/answers_flash_report.json",
+        "data/tracking/mat133/v2/bank/answers_think.json",
+        "data/tracking/mat133/v2/bank/answers_think_report.json",
+        "data/tracking/mat133/v2/bank/answer_overrides.json",
+        "data/tracking/mat133/v2/bank/answer_exclusions.json",
+        "data/tracking/mat133/v2/bank/answers_compare.json",
+        "data/tracking/mat133/v2/bank/answers_compare.md",
+        "data/tracking/mat133/v2/answers/sample_review.md",
+        "data/tracking/mat133/v2/answers/cost_ledger_flash.json",
+        "data/tracking/mat133/v2/answers/cost_ledger_think.json"
+      ],
+      "llm_cost_usd": 1.920671,
+      "blockers": [],
+      "human_approval": {
+        "required": false,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": "187 approved questions have an answer object. Primary draft: deepseek-flash with thinking enabled ($1.609138); secondary draft without thinking ($0.311533); total $1.920671. 140 answers are usable after consistency review; 47 are unusable because the printed question is incomplete or the figure is unresolved. Fourteen answer fields were corrected in answer_overrides.json; MAT133-2026-FEB-Q4 is excluded in answer_exclusions.json. All answers remain model_unofficial. Sample review: data/tracking/mat133/v2/answers/sample_review.md."
+    },
+    "V5_seeds_1_3": {
+      "status": "done",
+      "evidence": [
+        "outputs/review/mat133_v2/seeds/Gate_B_report.md",
+        "outputs/review/mat133_v2/seeds/index.html",
+        "outputs/review/mat133_v2/seeds/build_summary.json",
+        "outputs/review/mat133_v2/seeds/feasibility.json",
+        "outputs/review/mat133_v2/seeds/seed_01/plan.json",
+        "outputs/review/mat133_v2/seeds/seed_01/qa.json",
+        "outputs/review/mat133_v2/seeds/seed_01/meta.json",
+        "outputs/review/mat133_v2/seeds/seed_01/evidence.json",
+        "outputs/review/mat133_v2/seeds/seed_01/paper.pdf",
+        "outputs/review/mat133_v2/seeds/seed_01/scheme.pdf",
+        "outputs/review/mat133_v2/seeds/seed_02/plan.json",
+        "outputs/review/mat133_v2/seeds/seed_02/qa.json",
+        "outputs/review/mat133_v2/seeds/seed_02/meta.json",
+        "outputs/review/mat133_v2/seeds/seed_02/evidence.json",
+        "outputs/review/mat133_v2/seeds/seed_02/paper.pdf",
+        "outputs/review/mat133_v2/seeds/seed_02/scheme.pdf",
+        "outputs/review/mat133_v2/seeds/seed_03/plan.json",
+        "outputs/review/mat133_v2/seeds/seed_03/qa.json",
+        "outputs/review/mat133_v2/seeds/seed_03/meta.json",
+        "outputs/review/mat133_v2/seeds/seed_03/evidence.json",
+        "outputs/review/mat133_v2/seeds/seed_03/paper.pdf",
+        "outputs/review/mat133_v2/seeds/seed_03/scheme.pdf"
       ],
       "llm_cost_usd": 0.0,
       "blockers": [],
@@ -34,176 +152,550 @@
         "required": true,
         "approved": true,
         "by": "project owner",
-        "on": "2026-11-04",
-        "note": "Completed deterministic subject."
+        "on": "2026-11-15",
+        "note": "Gate B approved after formatting review."
       },
-      "notes": ""
+      "notes": "Five questions per seed in the fixed role order Q1-Q5. Marks are printed from the recycled questions but are not a selection parameter. Three seeds built; QA reports 0 problems. Maths is native Word OMML except piecewise cases, which use a readable plain-text fallback."
     },
-    "2_scheme_slides": {
+    "V6_library": {
       "status": "done",
       "evidence": [
-        "data/reference/MAT133/Answer Scheme for MAT133 Pre-Calculus 2024.pdf"
+        "outputs/review/mat133_v2/seeds/v6_library_manifest.json",
+        "outputs/review/mat133_v2/seeds/v6_manifest.json",
+        "outputs/web_cache/MAT133",
+        "outputs/public_bundle/library/MAT133/manifest.json"
       ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
-        "required": true,
-        "approved": true,
-        "by": "project owner",
-        "on": "2026-11-04",
-        "note": "Completed deterministic subject."
+        "required": false,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
       },
-      "notes": ""
+      "notes": "20 role-ordered seeds built; v2 documents attached to the v1 library cache metas; the application Library now exposes v1 and v2 columns for all 20 MAT133 seeds. The deterministic seed cap is 64, computed by the role planner. Seeds 21-64 can be built on demand by the local Generate page from the approved bank, with no LLM key and $0 cost; seeds 1-20 remain the only prebuilt Library entries."
     },
-    "3_template": {
+    "V7_publish": {
       "status": "done",
       "evidence": [
-        "data/reference/MAT133/MAT133 TEMPLATE.docx"
-      ],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": true,
-        "by": "project owner",
-        "on": "2026-11-04",
-        "note": "Completed deterministic subject."
-      },
-      "notes": ""
-    },
-    "4_taxonomy_question_log": {
-      "status": "done",
-      "evidence": [
-        "data/tracking/mat133/taxonomy.json",
-        "data/tracking/mat133/question_log.json"
-      ],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": true,
-        "by": "project owner",
-        "on": "2026-11-04",
-        "note": "Completed deterministic subject."
-      },
-      "notes": ""
-    },
-    "5_fingerprint_planner": {
-      "status": "done",
-      "evidence": [
-        "data/tracking/mat133/scheme_fingerprint.json"
-      ],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": true,
-        "by": "project owner",
-        "on": "2026-11-04",
-        "note": "Completed deterministic subject."
-      },
-      "notes": ""
-    },
-    "6_generators": {
-      "status": "done",
-      "evidence": [
-        "src/mat133/generators"
-      ],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": true,
-        "by": "project owner",
-        "on": "2026-11-04",
-        "note": "Completed deterministic subject."
-      },
-      "notes": ""
-    },
-    "7_builders_qa": {
-      "status": "done",
-      "evidence": [
-        "src/mat133/build_docx.py",
-        "src/mat133/library.py"
-      ],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": true,
-        "by": "project owner",
-        "on": "2026-11-04",
-        "note": "Completed deterministic subject."
-      },
-      "notes": ""
-    },
-    "8_library_prebuild": {
-      "status": "done",
-      "evidence": [
-        "outputs/web_cache/MAT133"
-      ],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": true,
-        "by": "project owner",
-        "on": "2026-11-04",
-        "note": "Completed deterministic subject."
-      },
-      "notes": ""
-    },
-    "9_publish": {
-      "status": "done",
-      "evidence": [
+        "data/tracking/mat133/v2/GATE_C_REPORT.md",
+        "data/tracking/mat133/v2/publication.json",
+        "docs/MAT133_PUBLICATION_REPORT.md",
+        "outputs/public_bundle/library/MAT133/manifest.json",
+        "outputs/public_bundle/mat133/library/index.html",
+        "outputs/public_bundle/subjects.json",
         "outputs/public_bundle",
-        "https://uitmpapergen.download",
-        "cloudflare/public_bundle_manifest.json"
+        "data/tracking/mat133/v2/public_bundle_build.log",
+        "outputs/r2_quota_ledger.json",
+        "outputs/r2_sync_state.json",
+        "cloudflare/worker/wrangler.toml"
       ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
         "approved": true,
-        "by": "project owner",
-        "on": "2026-11-04",
-        "note": "Completed deterministic subject."
+        "by": "owner",
+        "on": "2026-11-16",
+        "note": "Owner instructed: \"okay deploy this to live, gate C pass\"."
       },
-      "notes": ""
+      "notes": "Bundle validation: 558 entries, 0 forbidden/missing. R2 upload: 138 changed, 504 unchanged, 139 Class A this run (807/10000 month). Worker papergen version 399b5696-9d80-4764-bd28-17c2465b56b5 deployed at https://uitmpapergen.download. All 160 MAT133 v1/v2 document URLs and the other subject routes return 200."
     },
-    "10_close_out": {
+    "V8_close_out": {
       "status": "done",
       "evidence": [
-        "docs/MAT133.md"
+        "docs/MAT133.md",
+        "docs/MAT133_PUBLICATION_REPORT.md",
+        "data/tracking/mat133/v2/GATE_C_REPORT.md",
+        "data/tracking/mat133/v2/publication.json",
+        "subjects/MAT133/lifecycle_state.json",
+        "outputs/r2_quota_ledger.json",
+        "outputs/r2_sync_state.json"
       ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
-        "required": true,
-        "approved": true,
-        "by": "project owner",
-        "on": "2026-11-04",
-        "note": "Completed deterministic subject."
+        "required": false,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": "V8 is close-out; Gate C is the publication approval."
       },
-      "notes": ""
+      "notes": "V0-V8 complete. 187 approved bank questions, 128 usable answers, 20 published seeds with v1/v2 documents, bundle validated, R2 uploaded and Worker deployed. Final pytest 431 passed / 0 failed / 12 skipped; safety scan 382 text files; Worker tests 6 passed."
     }
   },
-  "unsure": [],
+  "gates": {
+    "A": {
+      "status": "approved",
+      "by": "project owner",
+      "on": "2026-11-14",
+      "evidence": [
+        "data/tracking/mat133/v2/bank/gate1_report.json",
+        "data/tracking/mat133/v2/bank/gate1_report.md",
+        "data/tracking/mat133/v2/bank/review/index.html",
+        "data/tracking/mat133/v2/bank/review/index_by_paper.html",
+        "data/tracking/mat133/v2/bank/review/review_decisions.json",
+        "data/tracking/mat133/v2/bank/review/review_decisions_needs_fix.json",
+        "data/tracking/mat133/v2/bank/review/review_rounds_report.md",
+        "data/tracking/mat133/v2/bank/review/marks.csv",
+        "data/tracking/mat133/v2/bank/unsure.json",
+        "data/tracking/mat133/v2/bank/duplicates.json"
+      ],
+      "note": "Approved after two review rounds: 187 questions approved, 1 rejected (MAT133-2014-MAR-Q5), 0 needs fix. The rejected question is excluded from assembly.",
+      "conditions": []
+    },
+    "B": {
+      "status": "approved",
+      "by": "project owner",
+      "on": "2026-11-15",
+      "evidence": [
+        "outputs/review/mat133_v2/seeds/Gate_B_report.md",
+        "outputs/review/mat133_v2/seeds/index.html",
+        "outputs/review/mat133_v2/seeds/seed_01/qa.json",
+        "outputs/review/mat133_v2/seeds/seed_02/qa.json",
+        "outputs/review/mat133_v2/seeds/seed_03/qa.json",
+        "outputs/review/mat133_v2/seeds/seed_01/paper.pdf",
+        "outputs/review/mat133_v2/seeds/seed_02/paper.pdf",
+        "outputs/review/mat133_v2/seeds/seed_03/paper.pdf"
+      ],
+      "note": "Approved after the role-ordered five-question rebuild and the formatting pass (bold QUESTION titles, right-aligned marks, figure spacing, caption spacing, bold APPENDIX 1).",
+      "conditions": []
+    },
+    "C": {
+      "status": "approved",
+      "by": "owner",
+      "on": "2026-11-16",
+      "evidence": [
+        "data/tracking/mat133/v2/GATE_C_REPORT.md",
+        "outputs/public_bundle/library/MAT133/manifest.json",
+        "outputs/public_bundle/mat133/library/index.html",
+        "outputs/public_bundle/subjects.json"
+      ],
+      "note": "Owner instructed: \"okay deploy this to live, gate C pass\". Bundle validation reports 0 forbidden/missing paths; R2 dry run is within quota."
+    }
+  },
+  "bank": {
+    "questions": 188,
+    "approved": 187,
+    "needs_fix": 0,
+    "rejected": 1,
+    "extracted": 0,
+    "assets": 73,
+    "assets_approved": 70,
+    "assets_pending": 0,
+    "assets_rejected": 3,
+    "duplicate_clusters": 0,
+    "near_duplicate_pairs": 98,
+    "references": 57,
+    "unresolved_references": 0,
+    "papers": 37,
+    "papers_expected": 37,
+    "papers_missing": 0
+  },
+  "answers": {
+    "official": 0,
+    "solver_verified": 0,
+    "model_unofficial": 187,
+    "human_checked": 0
+  },
+  "unsure": [
+    {
+      "stage": "V0_intake",
+      "item": "The v1 lifecycle records $0.00 total LLM cost while docs/MAT133.md reports about $0.322 for the v1 question-log extraction. v1 history is preserved and not rewritten.",
+      "blocking": false,
+      "opened": "2026-11-14"
+    },
+    {
+      "stage": "V2_bank",
+      "item": "MAT133-2014-MAR-Q5: 1 unresolved bank issue(s); see data/tracking/mat133/v2/bank/gate1_report.md",
+      "blocking": false,
+      "opened": "2026-11-14"
+    },
+    {
+      "stage": "V4_answers",
+      "item": "47 of 187 model answers are unusable because the printed question is incomplete or a figure is unresolved; they are excluded from assembly until the owner supplies corrected source text.",
+      "blocking": false,
+      "opened": "2026-11-14"
+    },
+    {
+      "stage": "V5_seeds_1_3",
+      "item": "The seeded answers remain model_unofficial and were checked for consistency, not marked by the owner. Gate B is the owner review.",
+      "blocking": false,
+      "opened": "2026-11-14"
+    }
+  ],
+  "parser_provenance": [
+    {
+      "paper_id": "MAT133-2004-MAR",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 5,
+      "task_id": "b1df22a0-5586-4443-8e46-2308f6ddc300",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2004-MAR\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2004-MAR\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2005-NOV",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "a96b7200-cbcc-4b4f-af4c-510bd881eed8",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2005-NOV\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2005-NOV\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2006-APR",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 5,
+      "task_id": "750a5d20-23af-4f2c-96d2-01d15bd49c99",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2006-APR\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2006-APR\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2007-APR",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 5,
+      "task_id": "536ea357-42b3-45a8-80a0-16b8375874bd",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2007-APR\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2007-APR\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2007-OCT",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 5,
+      "task_id": "08d46680-50e6-41b2-81a9-2ec3cb1eb5c1",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2007-OCT\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2007-OCT\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2008-OCT",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "5515a661-a834-4cc7-af68-3d10703d9915",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2008-OCT\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2008-OCT\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2009-APR",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "7179107f-f827-4c5a-8347-cfc7c7688dbc",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2009-APR\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2009-APR\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2009-OCT",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "2b6164f4-b09e-4975-8689-974e2f01b5cf",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2009-OCT\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2009-OCT\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2010-APR",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "a8c90d2f-32f2-495a-8329-079d6735092c",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2010-APR\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2010-APR\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2010-OCT",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "703a6b0a-7433-4a4d-82a7-26e639659acc",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2010-OCT\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2010-OCT\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2011-APR",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "0f6406b4-a850-4c9d-8417-91b7fea5c789",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2011-APR\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2011-APR\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2011-SEP",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "42105093-0837-492e-897a-97504d1bc29d",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2011-SEP\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2011-SEP\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2012-MAR",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "f045d514-a33b-4b7d-88b5-4503c684e7e5",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2012-MAR\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2012-MAR\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2012-OCT",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 7,
+      "task_id": "e1094c79-7d55-4551-9b86-a6c52b832b71",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2012-OCT\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2012-OCT\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2013-MAR",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 5,
+      "task_id": "fa9abaad-09bf-466a-a07c-1175793445f7",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2013-MAR\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2013-MAR\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2013-SEP",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "095b17c7-eb5d-444d-a251-1d14c052ccd8",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2013-SEP\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2013-SEP\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2014-MAR",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "c33a938a-7859-4bf0-b893-d0175fd3e573",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2014-MAR\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2014-MAR\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2014-SEP",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "a0c33640-8d29-477d-b552-75b4f374e2a7",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2014-SEP\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2014-SEP\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2015-MAR",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "8ed8c646-0830-4931-bd70-adc8422946c9",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2015-MAR\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2015-MAR\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2015-SEP",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "61674e9a-3587-4853-a5d6-03951e5f98e4",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2015-SEP\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2015-SEP\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2016-MAR",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "0360ec0a-b632-4707-b651-e7f1de728b92",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2016-MAR\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2016-MAR\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2016-OCT",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "051b2208-beb9-4be0-a7cc-d331c97c5d96",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2016-OCT\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2016-OCT\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2017-MAR",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "41fd29b1-a6b5-4094-b535-149f1720c412",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2017-MAR\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2017-MAR\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2018-DEC",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "f746b24f-d1d2-4750-8446-b6278933d29a",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2018-DEC\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2018-DEC\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2018-JAN",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "547cf0a6-7898-4c9a-a2cd-18d4862be35d",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2018-JAN\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2018-JAN\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2018-JUN",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "b75165b2-da7c-409a-8d45-b1cb2668a49f",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2018-JUN\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2018-JUN\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2019-DEC",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "e38c4299-e644-47bb-bfc2-0bdcfdbf409a",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2019-DEC\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2019-DEC\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2019-JUN",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "e1f88685-13f8-4a5e-bd28-a25139cf4282",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2019-JUN\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2019-JUN\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2021-JUL",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 10,
+      "task_id": "f7331451-a295-4127-ae8d-f7048993240f",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2021-JUL\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2021-JUL\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2022-FEB",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 4,
+      "task_id": "1f438755-853c-4e34-9c9b-a78a90225fc7",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2022-FEB\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2022-FEB\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2023-FEB",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "7959d0fc-2544-4151-83d7-c44bdecd724d",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2023-FEB\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2023-FEB\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2023-JUL",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "9853b2d4-8ca3-44a8-89fc-749c0e0cc9a6",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2023-JUL\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2023-JUL\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2024-JAN",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 8,
+      "task_id": "0f6355e6-383c-4402-bd92-f268caecf0d0",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2024-JAN\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2024-JAN\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2024-JUL",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "83a69aec-d34f-4ae4-b9ba-f0c87dce45a6",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2024-JUL\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2024-JUL\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2025-FEB",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 5,
+      "task_id": "f511bf38-fc03-490c-b266-49f2940a8c82",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2025-FEB\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2025-FEB\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2025-JUL",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 5,
+      "task_id": "ba29a748-05c9-492b-bf8b-957cb639aa2b",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2025-JUL\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2025-JUL\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT133-2026-FEB",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 5,
+      "task_id": "ec1c9e50-cf49-4517-848d-3f12c34f3bbc",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2026-FEB\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\mineru\\MAT133-2026-FEB\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    }
+  ],
   "llm_cost": {
     "currency": "USD",
-    "total_usd": 0.0,
+    "total_usd": 1.920671,
     "by_stage": {
-      "0_intake": 0.0,
-      "1_preprocess": 0.0,
-      "2_scheme_slides": 0.0,
-      "3_template": 0.0,
-      "4_taxonomy_question_log": 0.0,
-      "5_fingerprint_planner": 0.0,
-      "6_generators": 0.0,
-      "7_builders_qa": 0.0,
-      "8_library_prebuild": 0.0,
-      "9_publish": 0.0,
-      "10_close_out": 0.0
-    }
+      "V0_intake": 0.0,
+      "V1_extract": 0.0,
+      "V2_bank": 0.0,
+      "V3_format": 0.0,
+      "V4_answers": 1.920671,
+      "V5_seeds_1_3": 0.0,
+      "V6_library": 0.0,
+      "V7_publish": 0.0,
+      "V8_close_out": 0.0
+    },
+    "notes": "V0-V3 deterministic ($0.00). V4 used two DeepSeek drafts: $1.609138 thinking-enabled and $0.311533 thinking-disabled. MinerU page cost is recorded per V1 run."
+  },
+  "stop_reason": "V0-V8 complete; v1 and v2 published at https://uitmpapergen.download.",
+  "migration_mode": "full_v2_from_raw_papers",
+  "migration_started_on": "2026-11-14",
+  "branch": "MAT133",
+  "legacy_state": "subjects/MAT133/lifecycle_state_v1.json",
+  "legacy_schema_version": 1,
+  "legacy_state_sha256": "8933c0929f693f3e984ba47bd62dbbffb11fe78564562ef9e1f7367796c12d5a",
+  "legacy_note": "The v1 lifecycle and v1 documents are preserved. The v2 migration starts from the raw working copies under data/papers/MAT133; no v1 generated question is used as a v2 bank source.",
+  "documents": {
+    "versions": [
+      1,
+      2
+    ],
+    "public_versions": [
+      1,
+      2
+    ],
+    "v1_state": "subjects/MAT133/lifecycle_state_v1.json",
+    "v2_status": "published",
+    "v2_note": "20 role-ordered v2 seeds are published together with v1 at https://uitmpapergen.download/mat133. Gate C approved and executed on 2026-11-16.",
+    "v2_publication": "local public bundle ready; Gate C pending"
   }
 }

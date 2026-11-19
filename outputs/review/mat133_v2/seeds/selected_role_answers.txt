@@ -1,0 +1,82 @@
+======================================================================
+SEED 1 Q1 MAT133-2025-JUL-Q1 usable True
+  a :: $x \in [2,8]$; on the real number line, place closed circles at $x=2$ and $x=8$ and shade the interval between them.
+  b :: Standard form: $(x-2)^2+(y-1)^2=16$. Center: $(2,1)$; radius: $4$. Sketch a circle centered at $(2,1)$ with radius $4$, passing through $(6,1)$, $(-2,1)$, $(2,5)$ and $(2,-3)$.
+======================================================================
+SEED 1 Q2 MAT133-2018-JAN-Q3 usable True
+  a :: i) \(\operatorname{Dom}(f)=\mathbb{R}=(-\infty,\infty)\), \(\operatorname{Dom}(g)=[1,\infty)\). ii) \((f\circ g)(x)=x+2\), \(x\ge 1\). iii) \(g^{-1}(x)=x^2+1\ (x\ge0)\), and \(x=\frac{1+\sqrt5}{2}\).
+  b :: \(P(-2)=0\), so \(x+2\) is a factor. Synthetic division gives quotient \(2x^2+x-3=(2x+3)(x-1)\). Hence \(P(x)=(x+2)(2x+3)(x-1)\).
+  c :: Assuming the equation is \(3^{2(x+1)}-10\cdot3^x+1=0\), then \(x=-2,0\).
+  d :: From \(y=x^2\): reflect in the \(x\)-axis, shift \(5\) units right, and shift \(9\) units up. The graph is a downward parabola with vertex \((5,9)\) and \(x\)-intercepts \((2,0),(8,0)\). The \(y\)-intercept is \((0,-14)\).
+======================================================================
+SEED 1 Q3 MAT133-2014-SEP-Q2 usable True
+  a :: $(y+2)^2=-4(x+3)$ | $(-3,-2)$ | $x=-2$
+  b :: $y=\frac{3}{4}x+\frac{19}{4}$ or $3x-4y+19=0$
+  c :: $(x-5)^2+(y+4)^2=10$
+  d :: Assuming the system is $(x-2)^2+(y-3)^2\le25$, $(x+1)^2+6(y-2)\le0$, $x-y\le1$, the feasible region is the intersection: inside the circle centre $(2,3)$ radius $5$, below the parabola with vertex $(-1,2)$ opening downward, and above the line $y=x-1$.
+======================================================================
+SEED 1 Q4 MAT133-2012-MAR-Q5 usable True
+  a :: $\sin\theta=\frac{3}{\sqrt{13}}=\frac{3\sqrt{13}}{13},\ \cos\theta=\frac{2}{\sqrt{13}}=\frac{2\sqrt{13}}{13},\ \tan\theta=\frac{3}{2},\ \sec\theta=\frac{\sqrt{13}}{2},\ \csc\theta=\frac{\sqrt{13}}{3}$
+  b :: $\frac{2\cot x}{1+\cot^2 x}=\sin 2x$
+  c :: $x=\frac{\pi}{2},\ \frac{3\pi}{2}$
+  d :: $A\approx 28.08^\circ,\quad B\approx 48.61^\circ,\quad C\approx 103.30^\circ$
+======================================================================
+SEED 1 Q5 MAT133-2011-APR-Q4 usable True
+  a :: \sin\theta(\cot\theta+\tan\theta)=\sec\theta
+  b :: x=60^\circ,\ 300^\circ
+  c :: y=3+\sin 2x has amplitude 1, period \pi, midline y=3, range [2,4]; two cycles for 0\le x\le 2\pi. Key points: (0,3),(\pi/4,4),(\pi/2,3),(3\pi/4,2),(\pi,3),(5\pi/4,4),(3\pi/2,3),(7\pi/4,2),(2\pi,3).
+  d :: \text{Length of arc }AB=\frac{52\pi}{9}\text{ cm}\approx18.15\text{ cm} | \text{Area of shaded minor segment}=\frac{208\pi}{9}-32\sin130^\circ\text{ cm}^2\approx48.09\text{ cm}^2 | \text{Perimeter of shaded minor segment}=\frac{52\pi}{9}+16\sin65^\circ\text{ c
+======================================================================
+SEED 2 Q1 MAT133-2018-JUN-Q1 usable True
+  a :: \((-\infty,2)\cup\left(\frac{13}{4},\infty\right)\) with open circles at \(x=2\) and \(x=\frac{13}{4}\)
+  b :: \(\left[\frac{1}{2},\frac{21}{2}\right]\) | \((-\infty,\frac{3}{5}]\cup[5,\infty)\)
+  c :: \(-\frac{1}{10}+\frac{1}{2}i\)
+======================================================================
+SEED 2 Q2 MAT133-2007-APR-Q2 usable True
+  a :: $(x+2)$ is a factor; the other two factors are $(x-2)$ and $(2x-3)$ (roots: $x=-2,2,\tfrac32$).
+  b :: $h=4,\quad k=1$ | Range of $g(x)$ is $[0,\infty)$ (i.e. $g(x)\ge0$). | $f^{-1}(x)=\dfrac{4x}{x+1},\quad x\neq -1$; range of $f^{-1}$ is $(-\infty,4)\cup(4,\infty)$ (i.e. $y\neq4$). | $(g\circ f^{-1})(3)=2$
+======================================================================
+SEED 2 Q3 MAT133-2010-OCT-Q4 usable True
+  a :: $\left(-\frac{3}{2},-\frac{1}{2}\right)$ and $(-2,0)$
+  b :: Cannot specify the numerical feasible region because the inequalities are not included in the supplied text. General method: graph each boundary line, test a point to choose the correct half-plane, then shade the common intersection.
+  c :: Vertex at $(-2,3)$, opens downward; passes through $(-5,0)$, $(1,0)$, $(0,1)$, $(-3,2)$ and $(-1,2)$.
+  d :: i) $75^\circ=\frac{5\pi}{12}$ rad. ii) Area of minor segment $=\frac{125\pi}{6}-\frac{25}{2}(\sqrt{6}+\sqrt{2})\approx17.15\ \mathrm{cm}^2$.
+======================================================================
+SEED 2 Q4 MAT133-2019-DEC-Q5 usable True
+  a :: $\theta = \dfrac{2}{3}$ rad | Perimeter $= 32$ cm | Area $= 60\ \mathrm{cm}^2$
+  b :: Amplitude $= 3$, Period $= 4\pi$, Phase shift $= \pi$ to the right; sketch over $-2\pi\le x\le 2\pi$.
+  c :: $\cos(\alpha+\beta) = -\dfrac{56}{65}$ | $\tan\alpha + \cos 2\beta = \dfrac{3}{4} + \dfrac{119}{169} = \dfrac{983}{676}$
+  d :: $\angle BCD = 30^\circ$ (or $150^\circ$ depending on figure) | Area $ABCD = 12 + \text{Area}(ABD)$ (requires Figure 2 dimensions)
+======================================================================
+SEED 2 Q5 MAT133-2013-SEP-Q5 usable True
+  a :: For assumed acute \(A,B\): \(\cos 2A+\tan B=\frac{13}{9}\). | \(\sin(A-B)=\frac{6-4\sqrt5}{15}=\frac{2(3-2\sqrt5)}{15}\).
+  b :: \(\theta=4\) radians. | \(36\pi-72\;\text{cm}^2\) or \(18(2\pi-4)\;\text{cm}^2\).
+  c :: The sides are \(6\;\text{cm},\;\frac{15}{2}\;\text{cm},\;\frac{21}{2}\;\text{cm}\).
+  d :: Assuming \(2\sin^2 x=\cos x+2\) and \(0^\circ\le x\le360^\circ\): \(x=90^\circ,120^\circ,240^\circ,270^\circ\). In radians: \(x=\frac{\pi}{2},\frac{2\pi}{3},\frac{4\pi}{3},\frac{3\pi}{2}\).
+======================================================================
+SEED 3 Q1 MAT133-2011-SEP-Q4 usable True
+  a :: $g(x)=(x^2+3)(x-5)$, so the other factor is $x-5$.
+  b :: $PQ = \dfrac{3.5}{0.5} = 7$ cm | Unshaded area $= \dfrac{25\pi}{4} - \dfrac{49}{4}\sin(0.5)\approx 13.77$ cm$^2$ (assuming the unshaded region is the part of the semicircle outside sector BPQ)
+  c :: Feasible region: points with $x>-1$, $y<-x$, $y\ge x^2-4$, $x^2+y^2\le 4$; bounded by the circle arc, the parabola arc and the line $y=-x$, lying left of $x=-1$ excluded and below $y=-x$.
+======================================================================
+SEED 3 Q2 MAT133-2010-OCT-Q2 usable True
+  a :: $P(2)=0$, so $(x-2)$ is a factor; $P(x)=(x-2)(x+1)(x+4)$.
+  b :: $r=\sqrt{101}$ | $(x-2)^2+(y+6)^2=101$
+  c :: $(y-1)^2=12(x+2)$ | Vertex: $(-2,1)$; symmetry axis: $y=1$ | Focus: $(1,1)$ | Directrix: $x=-5$
+  d :: Only symmetry about the $y$-axis; no $x$-axis symmetry and no origin symmetry.
+======================================================================
+SEED 3 Q3 MAT133-2009-OCT-Q3 usable True
+  a :: \(f^{-1}(x)=\dfrac{x^2+1}{3},\quad x\ge 0\) | \(\operatorname{Dom}(g)=\mathbb{R}\setminus\{-3,3\}\); \(\operatorname{Range}(f^{-1})=[\frac13,\infty)\) | \(x=\dfrac{23}{6}\)
+  b :: \(x=\dfrac92\)
+  c :: \((x,y)=(3,1)\)
+======================================================================
+SEED 3 Q4 MAT133-2025-JUL-Q4 usable True
+  a :: $\theta = 60^\circ,\ 300^\circ$
+  b :: $BC = 6\ \text{cm}$ | $\angle DEF = 150^\circ$ | Area of shaded region $= 12\pi - \frac{25\pi}{6} = \frac{47\pi}{6}\ \text{cm}^2$
+  c :: $\sin 2A = -\frac{\sqrt{3}}{2}$ | $\cos(A-B) = \frac{12 + 5\sqrt{3}}{26}$
+  d :: $PS = 3\sqrt{3}\ \text{cm}$ | Area of shaded region $= 18\sqrt{3} - 6\sqrt{3} = 12\sqrt{3}\ \text{cm}^2$
+======================================================================
+SEED 3 Q5 MAT133-2013-MAR-Q5 usable True
+  a :: i) $\operatorname{cosec}x=-\sqrt{3}$; ii) $\sin 2x=\dfrac{2\sqrt{2}}{3}$
+  b :: $x=30^\circ,\,150^\circ,\,210^\circ,\,330^\circ$
+  c :: i) $DB\approx 1.55$ cm; ii) perimeter $\approx 9.75$ cm

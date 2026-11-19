@@ -1,0 +1,282 @@
+{
+  "schema_version": 2,
+  "playbook_version": "2.0",
+  "subject": "MAT133",
+  "title": "Pre-Calculus",
+  "type": "B",
+  "strategy": "generate",
+  "lifecycle_status": "awaiting_gate_b",
+  "stop_reason": "Gate B review of MAT133 v2 seeds 1-3.",
+  "created": "2026-11-04T06:27:42Z",
+  "updated": "2026-11-14T07:42:36Z",
+  "migrated_on": "2026-11-14",
+  "legacy_state": "subjects/MAT133/lifecycle_state_v1.json",
+  "legacy_schema_version": 1,
+  "legacy_state_sha256": "8933c0929f693f3e984ba47bd62dbbffb11fe78564562ef9e1f7367796c12d5a",
+  "legacy_note": "The v1 lifecycle is preserved verbatim. This v2 state maps its evidence and recorded owner approvals read-only; it does not rewrite v1 history or claim a new Gate A/B/C approval.",
+  "stages": {
+    "V0_intake": {
+      "status": "done",
+      "evidence": [
+        "subjects/MAT133/subject.json",
+        "subjects/MAT133/lifecycle_state_v1.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": false,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Mapped from v1 0_intake approval (2026-11-04)."
+      },
+      "notes": "Migrated from v1 0_intake. Type B, curriculum order 44, four permissions recorded 2026-11-04."
+    },
+    "V1_extract": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/mat133/papers_register.json",
+        "data/tracking/mat133/papers_summary.json",
+        "data/tracking/mat133/question_log.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": false,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Mapped from v1 1_preprocess approval (2026-11-04)."
+      },
+      "notes": "Legacy OCR/text extraction retained from v1. Type B does not need a MinerU asset dossier because v2 keeps deterministic generation, not asset recycling."
+    },
+    "V2_bank": {
+      "status": "not_applicable",
+      "evidence": [
+        "data/tracking/mat133/taxonomy.json",
+        "data/tracking/mat133/question_log.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": false,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Mapped from v1 4_taxonomy_question_log approval (2026-11-04)."
+      },
+      "notes": "Type B deterministic subject: there is no recycled question bank. The v1 taxonomy and question log are the question metadata; no bank questions are selected."
+    },
+    "V3_format": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/mat133/v2/format_profile.json",
+        "data/tracking/mat133/v2/template_check.json",
+        "subjects/MAT133/subject.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": false,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Mapped from v1 3_template and 5_fingerprint_planner approvals (2026-11-04)."
+      },
+      "notes": "Five questions, 15 parts, 64-72 marks, 2 hours. The v2 scheme uses the standard UTM marking-scheme cover; the paper keeps the approved MAT133 template."
+    },
+    "V4_answers": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/mat133/v2/answers/seed_01.json",
+        "data/tracking/mat133/v2/answers/seed_02.json",
+        "data/tracking/mat133/v2/answers/seed_03.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": false,
+        "approved": true,
+        "by": "project owner",
+        "on": "2026-11-04",
+        "note": "Mapped from v1 2_scheme_slides approval (2026-11-04)."
+      },
+      "notes": "Answers are emitted by the deterministic generator with each part. Provenance is solver_verified; SymPy is used by generators that need an independent solve."
+    },
+    "V5_seeds_1_3": {
+      "status": "in_progress",
+      "evidence": [
+        "outputs/review/mat133_v2/GATE_B_REPORT.md",
+        "outputs/review/mat133_v2/seeds/seed_01_paper_v2.pdf",
+        "outputs/review/mat133_v2/seeds/seed_01_scheme_v2.pdf",
+        "outputs/review/mat133_v2/seeds/seed_02_paper_v2.pdf",
+        "outputs/review/mat133_v2/seeds/seed_02_scheme_v2.pdf",
+        "outputs/review/mat133_v2/seeds/seed_03_paper_v2.pdf",
+        "outputs/review/mat133_v2/seeds/seed_03_scheme_v2.pdf"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [
+        "Gate B approval is pending owner review."
+      ],
+      "human_approval": {
+        "required": false,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": "v2 seeds 1-3 are built and pass DOCX/PDF QA. v2 paper text equals v1 paper text for these seeds; the v2 scheme uses the standard marking-scheme cover. Awaiting Gate B."
+    },
+    "V6_library": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": false,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": "Seeds 4-20 are blocked until Gate B is approved."
+    },
+    "V7_publish": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": false,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": "No v2 publication. public_versions stays [1] until Gate C; v1 remains the published Library."
+    },
+    "V8_close_out": {
+      "status": "pending",
+      "evidence": [],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": false,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": "Close out after the v2 Library and publication decisions."
+    }
+  },
+  "gates": {
+    "A": {
+      "status": "not_applicable",
+      "by": "project owner",
+      "on": "2026-11-04",
+      "basis": "Type B deterministic subject with no recycled question bank. The v1 taxonomy/question-log stage was owner-approved on 2026-11-04.",
+      "evidence": [
+        "data/tracking/mat133/taxonomy.json",
+        "data/tracking/mat133/question_log.json"
+      ],
+      "note": "Mapped from the v1 stage-4 approval, not a new approval."
+    },
+    "B": {
+      "status": "pending",
+      "by": "",
+      "on": "",
+      "evidence": [
+        "outputs/review/mat133_v2/GATE_B_REPORT.md"
+      ],
+      "note": "Owner review of v2 seeds 1-3 is pending."
+    },
+    "C": {
+      "status": "pending",
+      "by": "",
+      "on": "",
+      "evidence": [],
+      "note": "No v2 upload or deploy is authorised."
+    }
+  },
+  "bank": {
+    "questions": 0,
+    "approved": 0,
+    "needs_fix": 0,
+    "rejected": 0,
+    "assets": 0,
+    "duplicate_clusters": 0,
+    "mode": "not_applicable_type_b"
+  },
+  "answers": {
+    "official": 0,
+    "solver_verified": 45,
+    "model_unofficial": 0,
+    "human_checked": 0
+  },
+  "documents": {
+    "versions": [
+      1,
+      2
+    ],
+    "public_versions": [
+      1
+    ],
+    "v2_built_seeds": [
+      1,
+      2,
+      3
+    ],
+    "v2_scheme_template": "data/reference/standard/UTM_STANDARD_MARKING_SCHEME.docx",
+    "v1_state": "subjects/MAT133/lifecycle_state_v1.json"
+  },
+  "unsure": [
+    {
+      "stage": "V0_intake",
+      "item": "The v1 lifecycle records $0.00 total LLM cost while docs/MAT133.md reports about $0.322 for the v1 question-log extraction. The v1 history is preserved and not rewritten.",
+      "blocking": false,
+      "opened": "2026-11-14"
+    },
+    {
+      "stage": "V3_format",
+      "item": "The owner has not yet reviewed the new standard marking-scheme cover for MAT133 v2; it is part of the Gate B review.",
+      "blocking": false,
+      "opened": "2026-11-14"
+    },
+    {
+      "stage": "V4_answers",
+      "item": "Generator answers are solver-verified as constructed; an independent re-solve is not run for every part.",
+      "blocking": false,
+      "opened": "2026-11-14"
+    }
+  ],
+  "parser_provenance": [
+    {
+      "paper_id": "MAT133 papers (41 files, 37 unique)",
+      "parser": "legacy_ocr+text",
+      "model": "winrt_ocr; DeepSeek Flash for the v1 question log",
+      "pages": null,
+      "task_id": "",
+      "cache_path": "data/tracking/mat133/paper_text",
+      "report": "data/tracking/mat133/papers_summary.json",
+      "note": "Mapped from v1; MinerU was not used for this Type B subject."
+    }
+  ],
+  "llm_cost": {
+    "currency": "USD",
+    "total_usd": 0.0,
+    "by_stage": {
+      "V0_intake": 0.0,
+      "V1_extract": 0.0,
+      "V2_bank": 0.0,
+      "V3_format": 0.0,
+      "V4_answers": 0.0,
+      "V5_seeds_1_3": 0.0,
+      "V6_library": 0.0,
+      "V7_publish": 0.0,
+      "V8_close_out": 0.0
+    },
+    "migrated_v1_recorded_total_usd": 0.0,
+    "notes": "All v2 stages are deterministic and cached: $0.00. v1 recorded $0.00; docs/MAT133.md reports ~$0.322 for the historical question-log extraction and is not rewritten."
+  }
+}

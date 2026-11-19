@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "subject": "MAT133",
+  "seed": 9,
+  "selection": "role_order_no_marks",
+  "reuse_cap": 4,
+  "total_marks": 101,
+  "slots": [
+    {
+      "slot": "Q1",
+      "part": "Q",
+      "marks": 18,
+      "question_id": "MAT133-2023-FEB-Q1",
+      "source_paper": "MAT133-2023-FEB",
+      "pages": [
+        2
+      ],
+      "topic": "inequalities",
+      "topic_tags": [
+        "inequalities"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "bf84b3f071ca6dbdc352358edf00e0bf9ee14735884adda457a1ea0e4f45e3ed"
+    },
+    {
+      "slot": "Q2",
+      "part": "Q",
+      "marks": 17,
+      "question_id": "MAT133-2014-MAR-Q3",
+      "source_paper": "MAT133-2014-MAR",
+      "pages": [
+        3
+      ],
+      "topic": "functions",
+      "topic_tags": [
+        "functions"
+      ],
+      "assets": [],
+      "refs": [],
+      "content_hash": "cbf41359c362e52e78c9ba0de766b7a7fe69b6c01cc3d5cc66d648489c448e7c"
+    },
+    {
+      "slot": "Q3",
+      "part": "Q",
+      "marks": 20,
+      "question_id": "MAT133-2011-SEP-Q1",
+      "source_paper": "MAT133-2011-SEP",
+      "pages": [
+        2
+      ],
+      "topic": "lines",
+      "topic_tags": [
+        "lines"
+      ],
+      "assets": [
+        "A-MAT133-2011-SEP-Q1-F1"
+      ],
+      "refs": [
+        "Figure 1"
+      ],
+      "content_hash": "66c7a602ef26363b236503b5a3901f25a05c77d27b5278ac65bb0aaeb13f940c"
+    },
+    {
+      "slot": "Q4",
+      "part": "Q",
+      "marks": 23,
+      "question_id": "MAT133-2018-JUN-Q5",
+      "source_paper": "MAT133-2018-JUN",
+      "pages": [
+        4,
+        5
+      ],
+      "topic": "trigonometry",
+      "topic_tags": [
+        "trigonometry"
+      ],
+      "assets": [
+        "A-MAT133-2018-JUN-Q5-F1",
+        "A-MAT133-2018-JUN-Q5-F2"
+      ],
+      "refs": [
+        "Figure 2",
+        "Figure 3"
+      ],
+      "content_hash": "56299ff8638a8f966c7c771357a619d9c3c9f3dad19b4cd8c370c23a1d1d6471"
+    },
+    {
+      "slot": "Q5",
+      "part": "Q",
+      "marks": 23,
+      "question_id": "MAT133-2016-MAR-Q5",
+      "source_paper": "MAT133-2016-MAR",
+      "pages": [
+        4
+      ],
+      "topic": "trigonometry",
+      "topic_tags": [
+        "trigonometry"
+      ],
+      "assets": [
+        "A-MAT133-2016-MAR-Q5-F1"
+      ],
+      "refs": [
+        "Figure 1"
+      ],
+      "content_hash": "b9a38c683065d5c29a2cf8225966de28baea9f2389f0305518b2c33144081276"
+    }
+  ]
+}

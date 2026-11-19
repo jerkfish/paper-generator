@@ -62,7 +62,8 @@ def test_registry_capabilities_are_data_driven():
     subjects = load_subjects()
     assert subjects["CSC662"].subject_type == "A"
     assert subjects["CSC662"].capabilities["generation"] == "llm_theory"
-    assert subjects["MAT133"].subject_type == "B"
+    assert subjects["MAT133"].subject_type == "D"
+    assert subjects["MAT133"].strategy == "recycle"
     assert subjects["MAT133"].capabilities["generation"] == "deterministic"
     assert subjects["MAT133"].deterministic is True
     assert subjects["MAT133"].needs_llm is False

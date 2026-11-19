@@ -126,7 +126,8 @@ class LLMResult:
 def chat_json_result(system: str, user: str, model: str | None = None,
                      temperature: float = 0.2,
                      usage: Usage | None = None,
-                     max_tokens: int = 8000) -> LLMResult:
+                     max_tokens: int = 8000,
+                     thinking: bool = False) -> LLMResult:
     """Chat completion forced into a JSON object, with retries.
 
     Token usage is accumulated in `usage` across every attempt that received
@@ -150,7 +151,8 @@ def chat_json_result(system: str, user: str, model: str | None = None,
             # of it and thinking tokens are billed as output.  Gemini's
             # OpenAI-compatible endpoint does not accept these fields.
             if provider == "deepseek":
-                kwargs["extra_body"] = {"thinking": {"type": "disabled"}}
+                kwargs["extra_body"] = {
+                    "thinking": {"type": "enabled" if thinking else "disabled"}}
             elif provider == "qwen":
                 kwargs["extra_body"] = {"enable_thinking": False}
             elif provider == "gemini" and config.GEMINI_REASONING_EFFORT:

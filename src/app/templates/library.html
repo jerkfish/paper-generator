@@ -6,6 +6,13 @@
 <h2>{{ subject.code }} Library</h2>
 <p>{{ total }} prebuilt papers. Cached; no API key and no LLM call.
   Downloads are paper and scheme in DOCX/PDF.</p>
+{% if seed_cap and seed_cap > total %}
+<div class="notice">This subject can build seeds 1–{{ seed_cap }} from its
+  approved bank. Seeds 1–{{ total }} are prebuilt here; use
+  <a href="/{{ subject.route }}/generate">Generate</a> for seeds
+  {{ total + 1 }}–{{ seed_cap }}. On-demand builds use no LLM key and cost
+  $0.</div>
+{% endif %}
 
 {% if not (library_disabled|default(public)) %}
 <form id="library-filter" action="/{{ subject.route }}/library" method="get">

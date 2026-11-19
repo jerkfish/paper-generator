@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "subject": "MAT133",
+  "seed": 2,
+  "built_on": "2026-11-15T02:17:20Z",
+  "format_profile": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\format_profile.json",
+  "total_marks": 96,
+  "slots": [
+    {
+      "slot": "Q1",
+      "question_id": "MAT133-2024-JAN-Q1",
+      "marks": 18,
+      "source_paper": "MAT133-2024-JAN",
+      "pages": [
+        2
+      ],
+      "topic_tags": [
+        "inequalities"
+      ],
+      "assets": [],
+      "answer": {
+        "answer_id": "ANS-MAT133-2024-JAN-Q1",
+        "provenance": "model_unofficial",
+        "confidence": "high",
+        "usable": true,
+        "subparts": 3
+      }
+    },
+    {
+      "slot": "Q2",
+      "question_id": "MAT133-2018-JUN-Q3",
+      "marks": 25,
+      "source_paper": "MAT133-2018-JUN",
+      "pages": [
+        3
+      ],
+      "topic_tags": [
+        "functions"
+      ],
+      "assets": [
+        {
+          "id": "A-MAT133-2018-JUN-Q3-F1",
+          "label": "Figure 1",
+          "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\bank\\review\\owner_recreations\\A-MAT133-2018-JUN-Q3-F1.png"
+        }
+      ],
+      "answer": {
+        "answer_id": "ANS-MAT133-2018-JUN-Q3",
+        "provenance": "model_unofficial",
+        "confidence": "medium",
+        "usable": true,
+        "subparts": 4
+      }
+    },
+    {
+      "slot": "Q3",
+      "question_id": "MAT133-2022-FEB-Q2",
+      "marks": 10,
+      "source_paper": "MAT133-2022-FEB",
+      "pages": [
+        2
+      ],
+      "topic_tags": [
+        "lines"
+      ],
+      "assets": [],
+      "answer": {
+        "answer_id": "ANS-MAT133-2022-FEB-Q2",
+        "provenance": "model_unofficial",
+        "confidence": "high",
+        "usable": true,
+        "subparts": 2
+      }
+    },
+    {
+      "slot": "Q4",
+      "question_id": "MAT133-2016-OCT-Q5",
+      "marks": 23,
+      "source_paper": "MAT133-2016-OCT",
+      "pages": [
+        4,
+        5
+      ],
+      "topic_tags": [
+        "trigonometry"
+      ],
+      "assets": [
+        {
+          "id": "A-MAT133-2016-OCT-Q5-F1",
+          "label": "Figure 1",
+          "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\bank\\review\\owner_recreations\\A-MAT133-2016-OCT-Q5-F1.png"
+        },
+        {
+          "id": "A-MAT133-2016-OCT-Q5-F2",
+          "label": "Figure 2",
+          "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\bank\\review\\owner_recreations\\A-MAT133-2016-OCT-Q5-F2.png"
+        }
+      ],
+      "answer": {
+        "answer_id": "ANS-MAT133-2016-OCT-Q5",
+        "provenance": "model_unofficial",
+        "confidence": "high",
+        "usable": true,
+        "subparts": 4
+      }
+    },
+    {
+      "slot": "Q5",
+      "question_id": "MAT133-2012-OCT-Q5",
+      "marks": 20,
+      "source_paper": "MAT133-2012-OCT",
+      "pages": [
+        6
+      ],
+      "topic_tags": [
+        "trigonometry"
+      ],
+      "assets": [
+        {
+          "id": "A-MAT133-2012-OCT-Q5-F1",
+          "label": "Figure 2",
+          "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\bank\\review\\owner_recreations\\A-MAT133-2012-OCT-Q5-F1.png"
+        },
+        {
+          "id": "A-MAT133-2012-OCT-Q5-F2",
+          "label": "Figure 3",
+          "path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat133\\v2\\bank\\review\\owner_recreations\\A-MAT133-2012-OCT-Q5-F2.png"
+        }
+      ],
+      "answer": {
+        "answer_id": "ANS-MAT133-2012-OCT-Q5",
+        "provenance": "model_unofficial",
+        "confidence": "low",
+        "usable": true,
+        "subparts": 3
+      }
+    }
+  ]
+}
