@@ -37,6 +37,9 @@ def _review_image(store: BankStore, rel: str, alt: str) -> str:
             if rel.startswith("../") else store.review_dir / rel)
     if not path.is_file():
         return "<p class='muted'>No image.</p>"
+    if path.suffix.lower() in {".html", ".htm"}:
+        return (f"<iframe src='{rel}' title='{_esc(alt)}' "
+                "loading='lazy'></iframe>")
     return (f"<a href='{rel}' target='_blank'>"
             f"<img src='{rel}' alt='{_esc(alt)}'></a>")
 
@@ -160,6 +163,7 @@ body {{ font-family: Arial, sans-serif; margin: 2rem; color: #222; }}
 .asset-head .badge {{ background: #eee; padding: .1rem .4rem; margin-left: .4rem; }}
 .asset-grid {{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }}
 .asset-grid img {{ max-width: 100%; max-height: 320px; }}
+.asset-grid iframe {{ width: 100%; min-height: 280px; border: 0; }}
 .label {{ font-weight: bold; margin-bottom: .3rem; }}
 pre {{ white-space: pre-wrap; background: #f7f7f7; padding: .75rem; }}
 table.native {{ border-collapse: collapse; width: 100%; }}

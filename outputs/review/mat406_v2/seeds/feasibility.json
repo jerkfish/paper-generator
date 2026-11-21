@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "subject": "MAT406",
+  "role_order": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "B1",
+    "B2",
+    "B3",
+    "B4"
+  ],
+  "target_marks": 100,
+  "reuse_cap": 4,
+  "min_distinct_papers": 6,
+  "seeds_possible": 12,
+  "exact_slot_marks_possible": 8,
+  "note": "Exact slot marks leave two questions per role (8 seeds). Role order with printed marks travelling yields 12 seeds under reuse cap 4."
+}

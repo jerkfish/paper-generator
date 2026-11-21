@@ -135,6 +135,16 @@
       "name": "CSC662 LAB1 done.pdf",
       "size": 132294,
       "mtime_ns": 1791796027031363000
+    },
+    {
+      "name": "CSC662_LAB02_done.pdf",
+      "size": 147821,
+      "mtime_ns": 1795159652046365600
+    },
+    {
+      "name": "CSC662_LAB03_done.pdf",
+      "size": 304803,
+      "mtime_ns": 1795159724879390600
     }
   ],
   "chunks": [
@@ -4385,6 +4395,134 @@
       "part": 3,
       "text": "IP/device), timestamps, and non-repudiation via digital signatures \u2014 so a customer can't plausibly deny authorizing a transaction.",
       "chars": 130
+    },
+    {
+      "chunk_id": "CSC662_LAB02_done::s01::1",
+      "deck": "CSC662_LAB02_done",
+      "slide": 1,
+      "part": 1,
+      "text": "LAB02/CSC662/NFM 1 Objective Lab02: Students can differentiate between mechanisms and policies. They are also able to define the CIA triad and understand the concepts of Security Design Principles. Question 1, APR2011 Determine whether the following statements are either a mechanism or a policy. a) Students must use Bluestem authentication to access lecture slides. Policy b) Employees must change their password every 6 months. Policy c) Internet connections on ports other than 80 (Web browsing) are blocked. Mechanism d) Students may not share solutions to the assignments. Policy e) Computer Science students must do their homework on computer. Policy Question 2, October 2010 Identify which requirements or components that deal with confidentiality, integrity and availability concerns in proposed e-voting system. Suruhanjaya Pilihanraya (SPR) Malaysia plans to introduce an e-voting system in order to accommodate 15 million voters in 2012. The proposed e-voting system is made up of the following components: \u2022 Registration of candidates Confidentiality: nomination papers and personal details kept private until officially announced.",
+      "chars": 1144
+    },
+    {
+      "chunk_id": "CSC662_LAB02_done::s01::2",
+      "deck": "CSC662_LAB02_done",
+      "slide": 1,
+      "part": 2,
+      "text": "Integrity: only eligible candidates get on the ballot, and details cannot be altered or fake candidates inserted. Availability: nomination and registration service open and online during the nomination period. \u2022 Registration of voters",
+      "chars": 234
+    },
+    {
+      "chunk_id": "CSC662_LAB02_done::s02::1",
+      "deck": "CSC662_LAB02_done",
+      "slide": 2,
+      "part": 1,
+      "text": "LAB02/CSC662/NFM 2 Confidentiality: IC numbers, addresses and personal data kept private. Integrity: one person one vote, no phantom, duplicate, dead or underage voters, and roll locked after closing. Availability: all 15 million voters can register and verify their record, and the roll is online. \u2022 Constituency, Candidate and Voter Lists preparation Confidentiality: draft lists and voter data not exposed before official publication. Integrity: lists complete, correct and unchangeable once certified, no voters shifted between constituencies. Availability: lists finalized and published before polling day, accessible to officers and voters. \u2022 Voting Confidentiality: ballot is secret, no one can link a vote to a voter. Integrity: each vote recorded exactly as cast, counted once, and cannot be modified in transit or storage. Availability: system serves 15 million voters on polling day without crashing or being taken down by DDoS. \u2022 Authentication and Auditing Confidentiality: credentials and voter identity data protected, audit data restricted to authorized officers. Integrity: only the legitimate voter can vote with no impersonation, and the audit trail is tamper evident.",
+      "chars": 1187
+    },
+    {
+      "chunk_id": "CSC662_LAB02_done::s02::2",
+      "deck": "CSC662_LAB02_done",
+      "slide": 2,
+      "part": 2,
+      "text": "Availability: authentication and logging services must stay up, or nobody can vote and nothing gets recorded. \u2022 Reviewing complaint Confidentiality: complainant identity and disputed ballot details kept secret. Integrity: complaint records and evidence accurate and unaltered, since they may decide a recount or court case.",
+      "chars": 323
+    },
+    {
+      "chunk_id": "CSC662_LAB02_done::s03::1",
+      "deck": "CSC662_LAB02_done",
+      "slide": 3,
+      "part": 1,
+      "text": "LAB02/CSC662/NFM 3 Availability: complaint channel reachable during and after polling, with a defined response time. Question 3, January 2013 Given the following scenario: After selecting your groceries, you push your cart full of goods to one of the checkout counters. The checkout sale assistant scans your groceries, totals what you owe, and upon receiving payment from you gives you an itemized receipt. However, you can't then simply exit the building with your groceries. At the exit you are required by a security officer who inspects your receipt. If the receipt looks okay (appears to match the number and types of items in your cart), the security officer wills write the time of the checkout on the receipt and hands it back to you. At this point, you can exit the building and take the groceries to your car. a) Identify TWO (2) security principles illustrated by the supermarket's approach. Separation of privilege (compartmentalization) and defense in depth. b) Discuss the above security principles. Cashier rings up and takes payment while an independent officer verifies at the exit, so no single person can release goods where collusion is needed, which is harder and",
+      "chars": 1185
+    },
+    {
+      "chunk_id": "CSC662_LAB02_done::s03::2",
+      "deck": "CSC662_LAB02_done",
+      "slide": 3,
+      "part": 2,
+      "text": "detectable and the two layers (prevention at checkout, detection at exit) mean a failure in one is caught by the other c) By writing the checkout time on the receipt, describe an attack that supermarket tries to prevent. A replay attack reusing an old genuine receipt for new unpaid goods; the checkout time provides freshness so a stale receipt is rejected, the same idea as IPSec sequence numbers and HTTP Digest nonces Modification.",
+      "chars": 435
+    },
+    {
+      "chunk_id": "CSC662_LAB02_done::s04::1",
+      "deck": "CSC662_LAB02_done",
+      "slide": 4,
+      "part": 1,
+      "text": "LAB02/CSC662/NFM \n \n4 \n \n \n \n \nQuestion 4, February 2025 \nExplain how the principles of least privilege and defense in depth can reduce risks of \ndata leakage and account hijacking. \nLeast privilege with defense in depth.  \n \nLeast privilege (\"minimum access rights necessary\", no admin-by-default) means a \nhijacked account can only reach the few resources its role needs, so leakage is \ncontained and the attacker cannot escalate to admin or disable logging.  \nDefense in depth (layered, diversified prevention,detection,recovery: MFA, \nsegmentation, DLP, encryption, IDS, audit logs, revocation) means when one control \nfails, the next still detects or blocks the takeover together reducing both what an \nattacker can reach and the chance a single failure becomes a breach",
+      "chars": 775
+    },
+    {
+      "chunk_id": "CSC662_LAB03_done::s01::1",
+      "deck": "CSC662_LAB03_done",
+      "slide": 1,
+      "part": 1,
+      "text": "LAB03/CSC662/NFM 1 Question 1, July 2020 As a technical staff, provide TWO (2) importance how internet users are dealing with Internet Security Threats 1. Confidentiality and integrity of personal data. Following good practice like (unique password, verifying links (http vs https) can prevent theft of credentials like, ic number, bank details and login details. 2. Availability to damage control Avoiding phishing links, pirated software and unsafe attachment helps prevent becoming part of a botnet or spread malware into an organisation. Question 2, October 2010 Give THREE (3) examples of subjects, objects and operations in a Hotel Management Information System. Suggest the most suitable access model for the system and give a reason for your suggestion. Subject Object Operation Receptionist Guest reservation record Create, read, update Housekeeping staff Room status record Read, update Hotel Manager Guest billing and revenue report Read, print Role Based Access Control. Hotel  has clearly defined job functions and staff change position or leave frequently. Permission assigned to roles rather than individual so if a staff member is fired, a new",
+      "chars": 1159
+    },
+    {
+      "chunk_id": "CSC662_LAB03_done::s01::2",
+      "deck": "CSC662_LAB03_done",
+      "slide": 1,
+      "part": 2,
+      "text": "staff member can assume that role exactly as the old one did. This also helps separation duties for example , a cashier should not do audit figures.",
+      "chars": 148
+    },
+    {
+      "chunk_id": "CSC662_LAB03_done::s02::1",
+      "deck": "CSC662_LAB03_done",
+      "slide": 2,
+      "part": 1,
+      "text": "LAB03/CSC662/NFM 2 Question 3, February 2026 In a hospital, doctors need access to patient medical records, but cleaners and administrative staff should not. a) Differentiate between authentication and authorization in this case. Authentication Authorization Verifies identity Decides rights: what may you do Happens first, at login Happens after identity is proven, on every access Uses credentials such as password, IC based login, smart card, biometric, MFA Uses policies, roles, ACLs, access rules Hospital case: doctor logs in and proves he is Dr Ahmad with staff ID and password plus OTP Hospital case: once verified as Dr Ahmad, the system checks he is allowed to read the medical record of ward 3 patients but not payroll files Failure means no session Failure means access denied, request blocked and logged b) Compare DAC, MAC, and RBAC for securing the hospital system. Suggest which is most suitable and justify your choice. Aspect DAC MAC RBAC Who sets access Object owner decides Central authority, system enforced labels Organization defines roles Basis of decision Owner's discretion, per user ACL Security label of subject and object, clearance vs classification Role assigned to the",
+      "chars": 1200
+    },
+    {
+      "chunk_id": "CSC662_LAB03_done::s02::2",
+      "deck": "CSC662_LAB03_done",
+      "slide": 2,
+      "part": 2,
+      "text": "user Flexibility Very high, but inconsistent Very low, rigid Medium, controlled Administrat ion effort High, owner by owner High setup, low day to day Low, change the role not each user Risk Owner error, Trojan horse, excessive sharing Over restrictive if labels poorly designed Role explosion if poorly designed Example in hospital A doctor marks his own research folder as shareable, or shares a record directly with a colleague Medical record labelled \"Highly Confidential, clinical only\", doctor has clinical clearance, cleaner has public clearance and is blocked by the system Doctor role reads and writes clinical records, cleaner role sees only room cleaning list, admin role sees billing only Role Based Access Control",
+      "chars": 726
+    },
+    {
+      "chunk_id": "CSC662_LAB03_done::s03::1",
+      "deck": "CSC662_LAB03_done",
+      "slide": 3,
+      "part": 1,
+      "text": "LAB03/CSC662/NFM 3 Hospital staff organize by job function, doctors ,nurse, lab technician, cleaner, clerk, and administrator. Access need to follow these job roles function rather than individual ownershop. RBAC will enforce least privilege by default which keep patient confidentiality consistent across all records, separation duty and easy to maintain if a staff on leave or rotate staff roles. Discrete Access Control not suitable because individual doctors or clerks could give access at their discretion which risks leaking medical records. Mandatory Access Control is fixed by classification, cannot distinguish like \u201cdoctor may write prescriptions\u201d from \u201cnurse only can read observation\u201d. ADDITIONAL QUESTION A company develops an internal insurance system used by different types of users, including employees, managers, HR staff, and system administrators. The system contains sensitive information such as employee records, payroll data, and internal reports. a) Suggest the most suitable access control policy for this system. Give ONE (1) reason. RBAC, users are grouped by job functions and the data is very sensitive,",
+      "chars": 1133
+    },
+    {
+      "chunk_id": "CSC662_LAB03_done::s03::2",
+      "deck": "CSC662_LAB03_done",
+      "slide": 3,
+      "part": 2,
+      "text": "permission must be grant by function and controlled rather than individual discretion which helps separation of duties. b) Explain how the policy can be implemented using roles and permissions. 1. Identify roles from job functions: Employee, Manager, HR Staff, System Administrator 2. Identify permissions as fine-grained operations on objects: read own record, read department records, update employee record, read payroll, process payroll, read internal report, publish report, create user, change permission, view audit log. 3. Assign permissions to roles, not to users. Use least privilege: each role gets only what its job needs. 4. Assign users to roles. A user may hold more than one role, and only one active session role at a time if separation of duties is required. 5. Use role hierarchy so a manager inherits Employee rights plus additional department rights, avoiding duplication. Keep administrator rights separate and never inherit business data rights.",
+      "chars": 968
+    },
+    {
+      "chunk_id": "CSC662_LAB03_done::s04::1",
+      "deck": "CSC662_LAB03_done",
+      "slide": 4,
+      "part": 1,
+      "text": "LAB03/CSC662/NFM 4 6. Enforce separation of duties with mutually exclusive roles, for example the person who creates a claim cannot be the person who approves payment. 7. Review and audit: periodic role review, log every role assignment and every access, disable accounts at exit. c) Construct an Access Control Matrix for the system. R = read, W = write, U = update, D = delete, X = execute , blamk = no access Subject Own Employee Record Department Employee Records Payrol l Data Internal Reports User Accounts and Audit Logs Employee R, U R R Manager R, U R R R, W HR Staff R, U R, W, U R, W R System Administrator R, W, U, D, X d) Explain how Access Control List (ACL) and Capability List (C-List) are used. Access Control List (ACL). The list is stored with the object. Each object holds a list of subjects and their permitted operations, for example the payroll file's ACL is: HR Staff read write, Manager read, Employee read own line, Administrator none. Capability List (C-List). The list is stored with the subject. Each user or role holds unforgeable tokens naming the objects and operations allowed, for example a Manager's capability list contains Read Department Employee Records, Read",
+      "chars": 1198
+    },
+    {
+      "chunk_id": "CSC662_LAB03_done::s04::2",
+      "deck": "CSC662_LAB03_done",
+      "slide": 4,
+      "part": 2,
+      "text": "Internal Reports. e) Compare RBAC with DAC and MAC. Criterion DAC MAC RBAC Basis Owner's discretion Mandatory labels and clearances set by central authority Job function via roles Who decides Data owner Security administrator or policy Organization, mapped to roles Flexibility High Low Moderate, centrally governed Admin cost High, per object per user High design cost, low running cost Low, role change handles many users Least privilege Depends on owner discipline Enforced by classification Enforced by role design Separation of duties Not supported natively Possible but coarse Native, via mutually exclusive roles",
+      "chars": 619
+    },
+    {
+      "chunk_id": "CSC662_LAB03_done::s05::1",
+      "deck": "CSC662_LAB03_done",
+      "slide": 5,
+      "part": 1,
+      "text": "LAB03/CSC662/NFM \n \n5 \n \nScalability \nfor this \nsystem \nPoor with many \nusers and objects \nPoor for fine business \noperations \nGood, matches four \nuser groups \nMain risk \nAccidental or \nmalicious over \nsharing \nOver restriction, label \nerrors \nRole explosion if \nroles are not \ndesigned well \nFit for \ninsurance \nsystem \nWeak, employees \ncould grant rights to \nothers \nPartly suitable for payroll, \ntoo rigid overall \nBest fit overall",
+      "chars": 434
     }
   ]
 }

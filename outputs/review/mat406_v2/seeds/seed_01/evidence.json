@@ -1,0 +1,102 @@
+{
+  "plan": {
+    "seed": 1,
+    "slots": [
+      {
+        "slot": "A1",
+        "question_id": "MAT406-2026-FEB-Q1",
+        "marks": 11,
+        "source_paper": "MAT406-2026-FEB",
+        "topic_tags": [
+          "coordinate_geometry"
+        ]
+      },
+      {
+        "slot": "A2",
+        "question_id": "MAT406-2025-JUL-Q2",
+        "marks": 10,
+        "source_paper": "MAT406-2025-JUL",
+        "topic_tags": [
+          "circular_measure",
+          "trigonometry",
+          "inequalities"
+        ]
+      },
+      {
+        "slot": "A3",
+        "question_id": "MAT406-2025-FEB-Q4",
+        "marks": 17,
+        "source_paper": "MAT406-2025-FEB",
+        "topic_tags": [
+          "vectors",
+          "coordinate_geometry",
+          "trigonometry"
+        ]
+      },
+      {
+        "slot": "A4",
+        "question_id": "MAT406-2023-JUL-Q6",
+        "marks": 15,
+        "source_paper": "MAT406-2023-JUL",
+        "topic_tags": [
+          "matrices",
+          "systems_of_equations",
+          "functions"
+        ]
+      },
+      {
+        "slot": "B1",
+        "question_id": "MAT406-2024-JUL-Q2",
+        "marks": 13,
+        "source_paper": "MAT406-2024-JUL",
+        "topic_tags": [
+          "circles",
+          "coordinate_geometry"
+        ]
+      },
+      {
+        "slot": "B2",
+        "question_id": "MAT406-2022-FEB-Q5",
+        "marks": 15,
+        "source_paper": "MAT406-2022-FEB",
+        "topic_tags": [
+          "circular_measure",
+          "circles",
+          "trigonometry"
+        ]
+      },
+      {
+        "slot": "B3",
+        "question_id": "MAT406-2021-JUL-Q5",
+        "marks": 5,
+        "source_paper": "MAT406-2021-JUL",
+        "topic_tags": [
+          "vectors",
+          "coordinate_geometry"
+        ]
+      },
+      {
+        "slot": "B4",
+        "question_id": "MAT406-2024-JAN-Q6",
+        "marks": 14,
+        "source_paper": "MAT406-2024-JAN",
+        "topic_tags": [
+          "matrices",
+          "systems_of_equations"
+        ]
+      }
+    ],
+    "total_marks": 100,
+    "distinct_papers": 8,
+    "reuse_cap": 4
+  },
+  "qa": {
+    "seed": 1,
+    "slots": 8,
+    "total_marks": 100,
+    "distinct_papers": 8,
+    "problems": []
+  },
+  "paper_pages": 5,
+  "scheme_pages": 7
+}
