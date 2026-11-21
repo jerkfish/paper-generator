@@ -19,7 +19,7 @@
   "capabilities": {
     "subject_type": "D",
     "generation": "recycle",
-    "prebuild": "recycle_assembler",
+    "prebuild": "plugin",
     "public_documents": "copy_cached",
     "needs_llm": false,
     "uses_slides": false,
@@ -68,6 +68,9 @@
     }
   },
   "plugins": {
+    "prebuild": "src.subjects.mat406.plugin:build_seed",
+    "library_seeds": "src.subjects.mat406.plugin:library_seeds",
+    "seed_cap": "src.subjects.mat406.plugin:seed_cap",
     "generator_labels": "src.subjects.mat406.plugin:generator_labels",
     "topic_labels": "src.subjects.mat406.plugin:topic_labels"
   },

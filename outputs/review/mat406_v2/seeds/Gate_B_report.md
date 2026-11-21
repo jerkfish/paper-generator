@@ -23,6 +23,6 @@ Exact per-slot marks from the two current papers leave only two questions per ro
 
 V4 answer bank: **$0.313748**. Gate B proofing regenerated answers for restored questions: **$0.132790**. Cumulative LLM spend: **$0.446538**.
 
-## Gate B decision requested
+## Gate B decision
 
-Approve or reject seeds 1–3, the fixed A/B role order, the printed-marks policy, the 12-seed Library size, and the 19 questions whose printed text was restored during proofing.
+**Approved** by the owner on 2026-11-21.

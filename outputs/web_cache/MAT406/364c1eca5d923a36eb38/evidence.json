@@ -1,0 +1,99 @@
+{
+  "plan": {
+    "seed": 6,
+    "slots": [
+      {
+        "slot": "A1",
+        "question_id": "MAT406-2022-FEB-Q4",
+        "marks": 14,
+        "source_paper": "MAT406-2022-FEB",
+        "topic_tags": [
+          "coordinate_geometry",
+          "circles"
+        ]
+      },
+      {
+        "slot": "A2",
+        "question_id": "MAT406-2023-FEB-Q5",
+        "marks": 17,
+        "source_paper": "MAT406-2023-FEB",
+        "topic_tags": [
+          "trigonometry",
+          "circular_measure",
+          "vectors"
+        ]
+      },
+      {
+        "slot": "A3",
+        "question_id": "MAT406-2025-JUL-Q3",
+        "marks": 8,
+        "source_paper": "MAT406-2025-JUL",
+        "topic_tags": [
+          "vectors"
+        ]
+      },
+      {
+        "slot": "A4",
+        "question_id": "MAT406-2024-JUL-Q5",
+        "marks": 15,
+        "source_paper": "MAT406-2024-JUL",
+        "topic_tags": [
+          "matrices"
+        ]
+      },
+      {
+        "slot": "B1",
+        "question_id": "MAT406-2024-JAN-Q2",
+        "marks": 13,
+        "source_paper": "MAT406-2024-JAN",
+        "topic_tags": [
+          "circles",
+          "coordinate_geometry"
+        ]
+      },
+      {
+        "slot": "B2",
+        "question_id": "MAT406-2026-FEB-Q2-2",
+        "marks": 14,
+        "source_paper": "MAT406-2026-FEB",
+        "topic_tags": [
+          "trigonometry",
+          "inequalities"
+        ]
+      },
+      {
+        "slot": "B3",
+        "question_id": "MAT406-2021-JUL-Q5",
+        "marks": 5,
+        "source_paper": "MAT406-2021-JUL",
+        "topic_tags": [
+          "vectors",
+          "coordinate_geometry"
+        ]
+      },
+      {
+        "slot": "B4",
+        "question_id": "MAT406-2025-FEB-Q6",
+        "marks": 14,
+        "source_paper": "MAT406-2025-FEB",
+        "topic_tags": [
+          "matrices",
+          "systems_of_equations",
+          "algebra"
+        ]
+      }
+    ],
+    "total_marks": 100,
+    "distinct_papers": 8,
+    "reuse_cap": 4
+  },
+  "qa": {
+    "seed": 6,
+    "slots": 8,
+    "total_marks": 100,
+    "distinct_papers": 8,
+    "problems": []
+  },
+  "paper_pages": 3,
+  "scheme_pages": 7
+}

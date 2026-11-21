@@ -45,8 +45,10 @@ def test_seed_qa_and_files_are_present():
             assert (folder / name).is_file(), f"seed {seed} missing {name}"
 
 
-def test_gate_b_is_not_approved_by_seed_build():
+def test_gate_b_is_approved_and_gate_c_is_still_pending():
     state = _load(ROOT / "subjects" / "MAT406" / "lifecycle_state.json")
     assert state["gates"]["A"]["status"] == "approved"
-    assert state["gates"]["B"]["status"] == "pending"
-    assert state["stages"]["V5_seeds_1_3"]["status"] == "in_progress"
+    assert state["gates"]["B"]["status"] == "approved"
+    assert state["gates"]["C"]["status"] == "pending"
+    assert state["stages"]["V5_seeds_1_3"]["status"] == "done"
+    assert state["stages"]["V6_library"]["status"] == "done"

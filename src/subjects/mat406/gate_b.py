@@ -20,6 +20,7 @@ SUMMARY = OUT / "build_summary.json"
 FEASIBILITY = OUT / "feasibility.json"
 INDEX = OUT / "index.html"
 CORRECTIONS = TRACKING / "text_corrections_v5.json"
+APPROVAL = TRACKING / "gate_b_approval.json"
 
 SEEDS = (1, 2, 3)
 
@@ -151,13 +152,13 @@ def build() -> dict:
         "for restored questions: **$0.132790**. Cumulative LLM spend: "
         "**$0.446538**.",
         "",
-        "## Gate B decision requested",
-        "",
-        "Approve or reject seeds 1–3, the fixed A/B role order, the "
-        "printed-marks policy, the 12-seed Library size, and the 19 "
-        "questions whose printed text was restored during proofing.",
-        "",
-    ]
+            f"## Gate B decision",
+            "",
+            ("**Approved** by the owner on 2026-11-21."
+             if (_load(APPROVAL).get("status") == "approved")
+             else "Pending owner review."),
+            "",
+        ]
     REPORT.write_text("\n".join(lines), encoding="utf-8")
 
     table = []
@@ -197,6 +198,7 @@ def build() -> dict:
         f"({corrected_parts} parts).</p>"
         "<p>Feasibility: <b>12 seeds</b> under reuse cap 4; exact slot "
         "marks alone would allow 8.</p>"
+        f"<p>Gate B: <b>{'approved' if _load(APPROVAL).get('status') == 'approved' else 'pending'}</b>.</p>"
         "</body></html>",
         encoding="utf-8")
     return summary

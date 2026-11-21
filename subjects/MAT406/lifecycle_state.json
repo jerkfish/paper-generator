@@ -7,7 +7,7 @@
   "strategy": "recycle",
   "lifecycle_status": "in_progress",
   "created": "2026-11-19T15:47:40Z",
-  "updated": "2026-11-21T14:59:29Z",
+  "updated": "2026-11-21T15:43:07Z",
   "stages": {
     "V0_intake": {
       "status": "done",
@@ -122,7 +122,7 @@
       "notes": "58/58 approved questions answered by deepseek-flash with thinking; all model_unofficial. 58 usable, 0 unusable, 0 validation errors. 14 questions had printed equations restored from source page renders before answering; one answer (2021 JUL Q1 b) corrected to m=4, p=3 via answer_overrides.json. Sample review covers 8 questions. Total model cost $0.313748. V5 Gate B proofing regenerated answers for 19 restored questions ($0.132790)."
     },
     "V5_seeds_1_3": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "outputs/review/mat406_v2/seeds/Gate_B_report.md",
         "outputs/review/mat406_v2/seeds/index.html",
@@ -147,21 +147,23 @@
         "data/tracking/mat406/v2/templates_preview/scheme_template_page_1.png"
       ],
       "llm_cost_usd": 0.13279,
-      "blockers": [
-        "Gate B owner approval of seeds 1-3 and the printed-marks policy."
-      ],
+      "blockers": [],
       "human_approval": {
-        "required": false,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-21",
+        "note": "Gate B approved after review of seeds 1-3, the A/B role order, the printed-marks policy, the 12-seed Library size and the 19 proofed questions."
       },
       "notes": "Seeds 1-3 built: 8 questions each, Part A/B role order, 100 marks, 8 distinct source papers, QA 0 problems. Paper pages 5/3/5; scheme pages 7/7/8, with printed page counts matching the PDFs. Paper uses the owner's manually fixed MAT406 cover; scheme uses the owner's fixed scheme-template-fix.docx cover. Both show the crest, the full course title and TIME 3 HOURS. Figures are placed after the referencing part at 6.5 cm with spacing above and below both image and caption; printed systems of equations/inequalities also have spacing before and after. Parts/questions are kept together. Gate B proofing restored printed systems, inequalities, equations and sub-items dropped by MinerU in 19 questions / 25 parts from page-render evidence (text_corrections_v5.json); answers for those questions were regenerated at $0.132790 (cumulative $0.446538). Feasibility is 12 seeds under reuse cap 4; exact slot marks alone would allow 8. All answers model_unofficial."
     },
     "V6_library": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "outputs/web_cache/MAT406/manifest.json",
+        "outputs/review/mat406_v2/library/V6_REPORT.md",
+        "outputs/web_cache/MAT406"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
@@ -171,7 +173,7 @@
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "12-seed Library built under reuse cap 4: each seed has 8 questions, 100 marks, QA 0 problems and 6-8 distinct source papers; maximum question reuse is 4. Cache outputs/web_cache/MAT406; manifest and V6 report retained. Deterministic recycle, $0 LLM cost. Gate C pending."
     },
     "V7_publish": {
       "status": "pending",
@@ -221,10 +223,29 @@
       "note": "Owner approved round 2 and Gate A on 2026-11-20. All 58 questions approved; 0 needs fix."
     },
     "B": {
-      "status": "pending",
-      "by": "",
-      "on": "",
-      "evidence": []
+      "status": "approved",
+      "by": "owner",
+      "on": "2026-11-21",
+      "evidence": [
+        "outputs/review/mat406_v2/seeds/Gate_B_report.md",
+        "outputs/review/mat406_v2/seeds/index.html",
+        "outputs/review/mat406_v2/seeds/build_summary.json",
+        "outputs/review/mat406_v2/seeds/feasibility.json",
+        "outputs/review/mat406_v2/seeds/seed_01/qa.json",
+        "outputs/review/mat406_v2/seeds/seed_01/paper.pdf",
+        "outputs/review/mat406_v2/seeds/seed_01/scheme.pdf",
+        "outputs/review/mat406_v2/seeds/seed_02/qa.json",
+        "outputs/review/mat406_v2/seeds/seed_02/paper.pdf",
+        "outputs/review/mat406_v2/seeds/seed_02/scheme.pdf",
+        "outputs/review/mat406_v2/seeds/seed_03/qa.json",
+        "outputs/review/mat406_v2/seeds/seed_03/paper.pdf",
+        "outputs/review/mat406_v2/seeds/seed_03/scheme.pdf",
+        "data/tracking/mat406/v2/text_corrections_v5.json",
+        "data/reference/MAT406/MAT406 TEMPLATE-manualfix.docx",
+        "data/reference/MAT406/scheme-template-fix.docx"
+      ],
+      "note": "Owner approved Gate B on 2026-11-21 after the manualfix paper cover, fixed scheme cover, spacing pass and printed-text proofing.",
+      "conditions": []
     },
     "C": {
       "status": "pending",
@@ -259,8 +280,11 @@
     {
       "stage": "V5_seeds_1_3",
       "item": "Marks policy: roles are fixed but individual printed marks travel and the assembler targets 100; exact slot marks would cap the Library at 8 seeds. Confirm at Gate B.",
-      "blocking": true,
-      "opened": "2026-11-20"
+      "blocking": false,
+      "opened": "2026-11-20",
+      "resolution": "Owner approved the printed-marks policy with Gate B on 2026-11-21.",
+      "resolved_on": "2026-11-21",
+      "resolved_by": "owner"
     }
   ],
   "parser_provenance": [
@@ -361,5 +385,5 @@
       "V8_close_out": 0.0
     }
   },
-  "stop_reason": "Gate B pending: owner approval of seeds 1-3, the printed-marks policy, the 12-seed Library size and the 19 proofed questions."
+  "stop_reason": "Gate C pending: owner approval required before public bundle, R2 upload or Worker deploy."
 }

@@ -1,0 +1,132 @@
+{
+  "subject": "MAT406",
+  "seed": 1,
+  "mode": "realistic",
+  "model": "mat406-v2-role-recycle",
+  "cost_usd": 0.0,
+  "accepted": 8,
+  "placeholders": 0,
+  "total_slots": 8,
+  "total_marks": 100,
+  "has_practice_mode": false,
+  "has_placeholders": false,
+  "created": 1795274390.4151313,
+  "year": 2026,
+  "topic_marks": {
+    "coordinate_geometry": 46,
+    "circular_measure": 25,
+    "trigonometry": 42,
+    "inequalities": 10,
+    "vectors": 22,
+    "matrices": 29,
+    "systems_of_equations": 29,
+    "functions": 15,
+    "circles": 28
+  },
+  "summary": {
+    "total_marks": 100
+  },
+  "files": {
+    "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\MAT406\\74e22a0d50bdca949abc\\paper.docx",
+    "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\MAT406\\74e22a0d50bdca949abc\\paper.pdf",
+    "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\MAT406\\74e22a0d50bdca949abc\\scheme.docx",
+    "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\MAT406\\74e22a0d50bdca949abc\\scheme.pdf"
+  },
+  "paper_pages": 5,
+  "scheme_pages": 7,
+  "progress": [
+    {
+      "question": "MAT406-2026-FEB-Q1",
+      "slot": "A1",
+      "status": "accepted",
+      "message": "coordinate_geometry",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "MAT406-2025-JUL-Q2",
+      "slot": "A2",
+      "status": "accepted",
+      "message": "circular_measure, trigonometry, inequalities",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "MAT406-2025-FEB-Q4",
+      "slot": "A3",
+      "status": "accepted",
+      "message": "vectors, coordinate_geometry, trigonometry",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "MAT406-2023-JUL-Q6",
+      "slot": "A4",
+      "status": "accepted",
+      "message": "matrices, systems_of_equations, functions",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "MAT406-2024-JUL-Q2",
+      "slot": "B1",
+      "status": "accepted",
+      "message": "circles, coordinate_geometry",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "MAT406-2022-FEB-Q5",
+      "slot": "B2",
+      "status": "accepted",
+      "message": "circular_measure, circles, trigonometry",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "MAT406-2021-JUL-Q5",
+      "slot": "B3",
+      "status": "accepted",
+      "message": "vectors, coordinate_geometry",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    },
+    {
+      "question": "MAT406-2024-JAN-Q6",
+      "slot": "B4",
+      "status": "accepted",
+      "message": "matrices, systems_of_equations",
+      "cost_usd": 0,
+      "calls": 0,
+      "accepted": 1,
+      "placeholders": 0
+    }
+  ],
+  "document_versions": {
+    "2": {
+      "label": "v2",
+      "playbook_version": "2.0",
+      "built": 1795274390.4151313,
+      "files": {
+        "paper_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\MAT406\\74e22a0d50bdca949abc\\paper.docx",
+        "paper_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\MAT406\\74e22a0d50bdca949abc\\paper.pdf",
+        "scheme_docx": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\MAT406\\74e22a0d50bdca949abc\\scheme.docx",
+        "scheme_pdf": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\outputs\\web_cache\\MAT406\\74e22a0d50bdca949abc\\scheme.pdf"
+      }
+    }
+  }
+}
