@@ -194,7 +194,7 @@
         "on": "",
         "note": ""
       },
-      "notes": "Gate C approved 2026-11-22. Public bundle 742 objects / 195.45 MiB; this run uploaded 113 changed and skipped 629 unchanged. Worker papergen deployed as version 76040446-c3be-4dcf-a5da-eb91cac08ae9 at https://uitmpapergen.download. MAT406 routes, manifest and sample downloads returned 200; existing routes remained 200. Production manifest is v2 only; v1 is legacy and unreferenced. Build/upload is scoped to MAT406; unrelated subjects' documents were not rebuilt."
+      "notes": "Gate C approved 2026-11-22. Public bundle 742 objects / 195.45 MiB; this run uploaded 113 changed and skipped 629 unchanged. Worker papergen deployed as version 31d985ce-7b4c-4f7d-99ff-a9abf4b87f5c at https://uitmpapergen.download. MAT406 routes, manifest and sample downloads returned 200; existing routes remained 200. Production manifest is v2 only; v1 is legacy and unreferenced. Build/upload is scoped to MAT406; unrelated subjects' documents were not rebuilt. Legacy /mat406/library/<seed>/<kind> download routes redirect to the current v2 files."
     },
     "V8_close_out": {
       "status": "done",

@@ -79,6 +79,30 @@ export function pageKey(pathname, subjects = []) {
   return null;
 }
 
+export function legacyLibraryKey(pathname, manifest = {}) {
+  const match = String(pathname).match(
+    /^\/[^/]+\/library\/(\d+)\/(paper|scheme)_(pdf|docx)\/?$/i);
+  if (!match) return null;
+  const seed = Number(match[1]);
+  const base = match[2].toLowerCase();
+  const ext = match[3].toLowerCase();
+  const paper = (Array.isArray(manifest.papers) ? manifest.papers : [])
+    .find((row) => Number(row.seed) === seed);
+  if (!paper) return null;
+  const files = paper.files || {};
+  const exact = `${base}_${ext}`;
+  if (files[exact]) return files[exact];
+  const prefix = `${base}_v`;
+  const candidates = Object.keys(files)
+    .filter((key) => key.startsWith(prefix) && key.endsWith(`_${ext}`))
+    .sort((a, b) => {
+      const av = Number(a.slice(prefix.length, -(`_${ext}`.length))) || 0;
+      const bv = Number(b.slice(prefix.length, -(`_${ext}`.length))) || 0;
+      return bv - av;
+    });
+  return candidates.length ? files[candidates[0]] : null;
+}
+
 export function disposition(name) {
   const ascii = name
     .normalize("NFKD")
@@ -386,7 +410,22 @@ export default {
         headers: { Allow: "GET, HEAD" },
       });
     }
-    return serveStatic(request, env, url);
+    const legacy = url.pathname.match(
+    /^\/[^/]+\/library\/\d+\/(paper|scheme)_(pdf|docx)\/?$/i);
+  if (legacy) {
+    const code = url.pathname.split("/")[1].toUpperCase();
+    const object = await env.BUCKET.get(`library/${code}/manifest.json`);
+    if (object) {
+      try {
+        const target = legacyLibraryKey(url.pathname, await object.json());
+        if (target) return Response.redirect(new URL(`/${target}`, url), 302);
+      } catch {
+        // fall through to 404 for an unreadable manifest
+      }
+    }
+    return notFound();
+  }
+  return serveStatic(request, env, url);
   },
 
   async scheduled(event, env, ctx) {

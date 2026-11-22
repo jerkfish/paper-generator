@@ -2,6 +2,7 @@ import { describe, expect, test } from "bun:test";
 import {
   contentType,
   disposition,
+  legacyLibraryKey,
   normaliseShare,
   pageKey,
   subjectEntries,
@@ -90,4 +91,22 @@ test("subject entries come from the generated list", () => {
   ]);
   expect(entries.map((entry) => entry.code)).toEqual(["TEST000", "PLAIN1"]);
   expect(entries[0].route).toBe("test000");
+});
+
+
+test("legacy library download routes resolve the public version", () => {
+  const manifest = {
+    papers: [{
+      seed: 1,
+      files: {
+        paper_v2_pdf: "library/MAT406/papers/MAT406 Seed 01 2026 (v2).pdf",
+        scheme_v2_pdf: "library/MAT406/schemes/MAT406 Seed 01 2026 - Marking Scheme (v2).pdf",
+      },
+    }],
+  };
+  expect(legacyLibraryKey("/mat406/library/1/paper_pdf", manifest))
+    .toBe("library/MAT406/papers/MAT406 Seed 01 2026 (v2).pdf");
+  expect(legacyLibraryKey("/mat406/library/1/scheme_pdf", manifest))
+    .toBe("library/MAT406/schemes/MAT406 Seed 01 2026 - Marking Scheme (v2).pdf");
+  expect(legacyLibraryKey("/mat406/library/2/paper_pdf", manifest)).toBeNull();
 });

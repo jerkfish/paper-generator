@@ -7,7 +7,7 @@
 {% else %}
   {% set urls = item_urls|default({}) %}
   {% set columns = version_columns|default([]) %}
-  {% set versioned = columns|length > 1 %}
+  {% set versioned = columns|length > 1 or (columns|length == 1 and columns[0].version|int != 1) %}
   <p class="small" id="library-count">Showing {{ items|length }} of {{ total }}.</p>
   {% if versioned %}<p class="small">Document versions: <strong>v1</strong> is the legacy build; <strong>v2</strong> is the playbook-v2 build. Each version has its own Docs (paper) and Scheme downloads.</p>{% endif %}
   <p class="small">{{ topic_legend|default('Topic abbreviations are shown in the Topic mix column. Click a column title to sort ascending/descending.') }}</p>

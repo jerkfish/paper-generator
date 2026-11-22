@@ -13,7 +13,7 @@ Gate C: **approved by owner**
   v2-only local bundle is **694 objects / 183.02 MiB**. This run uploaded
   **113 changed** objects and skipped **629 unchanged**.
 - Worker `papergen` deployed as version
-  `76040446-c3be-4dcf-a5da-eb91cac08ae9`.
+  `31d985ce-7b4c-4f7d-99ff-a9abf4b87f5c`.
 - Live site: **https://uitmpapergen.download**
 - Subject page: **https://uitmpapergen.download/mat406**
 - Library: **https://uitmpapergen.download/mat406/library**
