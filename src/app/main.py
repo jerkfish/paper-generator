@@ -78,7 +78,9 @@ def _subject_or_404(code: str) -> Subject:
 def _require_subject_page(code: str) -> Subject:
     subject = _subject_or_404(code)
     if not subject.available:
-        raise HTTPException(status_code=404, detail="subject is coming soon")
+        raise HTTPException(
+            status_code=404,
+            detail=f"subject is {subject.status.replace('_', ' ')}")
     return subject
 
 

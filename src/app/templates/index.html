@@ -10,13 +10,17 @@ lecturer-marked. This is not an official exam paper.</p>
 <table>
   <tr><th>Code</th><th>Subject</th><th>Status</th><th>Papers</th><th></th></tr>
   {% for subject in subjects %}
-  <tr class="{{ 'no-past-papers-row' if subject.highlight_no_past_papers else '' }}">
+  <tr class="{{ 'no-past-papers-row' if subject.highlight_no_past_papers or subject.status == 'not_available' else '' }}">
     <td>{{ subject.code }}</td>
     <td>{{ subject.title }}</td>
-    <td class="{{ 'ok' if subject.available else 'muted' }}">{{ subject.status.replace('_', ' ') }}</td>
+    <td class="{{ 'ok' if subject.available else 'muted' }}">
+      {{ subject.status.replace('_', ' ') }}
+      {% if subject.status_note %}<div class="small">{{ subject.status_note }}</div>{% endif %}
+    </td>
     {% set paper_count = counts.get(subject.code, 0) %}
     <td>
       {% if subject.highlight_no_past_papers %}<span class="no-past-papers-badge">no past papers</span>
+      {% elif subject.status == 'not_available' %}<span class="no-past-papers-badge">not available</span>
       {% elif not subject.available %}no data
       {% elif library_disabled|default(public) %}public bundle
       {% elif paper_count %}

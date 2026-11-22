@@ -2,7 +2,8 @@
 
 The registry is the only place the app learns which subjects exist.  A subject
 with status ``available`` may generate and browse papers; ``coming_soon``
-subjects are shown on the home page but have no data or generators.
+subjects are shown on the home page but have no data or generators;
+``not_available`` subjects are shown as unavailable and will not be built.
 
 No subject code is special-cased in application code.  Behaviour comes from
 the subject's ``type`` (A/B/C), ``capabilities`` block and the optional
@@ -23,7 +24,7 @@ from pathlib import Path
 
 from src import config
 
-VALID_STATUSES = {"available", "coming_soon"}
+VALID_STATUSES = {"available", "coming_soon", "not_available"}
 VALID_TYPES = {"A", "B", "C", "D"}
 
 PUBLIC_CAPABILITY_KEYS = (
@@ -46,6 +47,7 @@ class Subject:
     code: str
     title: str
     status: str
+    status_note: str = ""
     header_text: str = ""
     template_path: str = ""
     fingerprint: dict = field(default_factory=dict)
@@ -122,6 +124,7 @@ class Subject:
             "code": self.code,
             "title": self.title,
             "status": self.status,
+            "status_note": self.status_note,
             "type": self.subject_type,
             "header_text": self.header_text,
             "enabled_computed_generators": list(self.enabled_computed_generators),
@@ -261,6 +264,7 @@ def _load_one(path: Path) -> Subject:
         code=code,
         title=title,
         status=status,
+        status_note=str(data.get("status_note", "")),
         header_text=str(data.get("header_text", "")),
         template_path=str(data.get("template_path", "")),
         fingerprint=dict(data.get("fingerprint") or {}),

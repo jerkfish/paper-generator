@@ -6,10 +6,17 @@
 <p>Status: <span class="{{ 'ok' if subject.available else '' }}">{{ subject.status.replace('_', ' ') }}</span>
   &nbsp; Mode: {{ 'public build' if public else 'local / private' }}
   &nbsp; Cached papers: {{ paper_count }}</p>
+{% if subject.status_note %}<p class="small">{{ subject.status_note }}</p>{% endif %}
 
 {% if not subject.available %}
-<div class="notice">This subject is a registry stub. There is no paper data,
-no lecture map and no computed generator plugin yet.</div>
+<div class="notice">
+  {% if subject.status == 'not_available' %}
+  This subject is not available{% if subject.status_note %}: {{ subject.status_note }}{% endif %}.
+  {% else %}
+  This subject is a registry stub. There is no paper data, no lecture map and
+  no computed generator plugin yet.
+  {% endif %}
+</div>
 {% else %}
 <table>
   <tr><th>Path</th><th>Description</th><th>Action</th></tr>

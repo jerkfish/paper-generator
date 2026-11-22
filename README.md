@@ -32,7 +32,7 @@ format, with answers whose provenance is recorded.
 | Purpose | Recycle past papers into new mock papers and marking schemes |
 | Core model | Question bank + current format profile + deterministic assembler |
 | Local runtime | Python 3.12+, FastAPI, `uv` |
-| Subjects | 44 registry entries: 8 `available`, 36 `coming_soon` |
+| Subjects | 44 registry entries: 8 `available`, 32 `coming_soon`, 4 `not_available` |
 | Available locally | CSC402, CSC404, CSC413, CSC429, ICT450, MAT406, CSC662, MAT133 |
 | Published | CSC404, CSC413, CSC429, CSC662, MAT133, MAT406 |
 | Public site | <https://uitmpapergen.download> |
@@ -272,8 +272,10 @@ Public builds fail closed if the real key is missing.
 | MAT406 | Foundation Mathematics | D | Available | Published | **Complete V0–V8; Gate C 2026-11-22; 12 seeds** |
 | ICT450 | Database Design and Development | D | V0 reset | Not published | **v1 archived; V0 permission re-check; pilot stops at Gate A** |
 
-The remaining 36 registry entries are empty `coming_soon` stubs. Under v2 they
-default to recycle (type D) when onboarding starts.
+The remaining 32 registry entries are empty `coming_soon` stubs. Under v2 they
+default to recycle (type D) when onboarding starts. CTU552, CTU554, HBU111 and
+HBU121 are `not_available` and will not be built; CTU554 has too few past
+papers for a Library.
 
 ## Repository map
 

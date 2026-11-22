@@ -1,0 +1,55 @@
+{
+  "code": "CSC404",
+  "title": "Programming II",
+  "status": "available",
+  "type": "D",
+  "header_text": "CSC404 PROGRAMMING II",
+  "enabled_computed_generators": [],
+  "has_practice_mode": false,
+  "has_placeholders": false,
+  "order": 8,
+  "has_past_papers": true,
+  "highlight_no_past_papers": false,
+  "capabilities": {
+    "subject_type": "D",
+    "generation": "recycle",
+    "prebuild": "recycle_assembler",
+    "public_documents": "copy_cached",
+    "needs_llm": false,
+    "uses_slides": false,
+    "uses_past_papers": true,
+    "deterministic": true,
+    "practice_mode": false,
+    "placeholders": false,
+    "public_scheme_requires_quote_marker": false
+  },
+  "strategy": "recycle",
+  "variants": {
+    "enabled": false
+  },
+  "library": {
+    "size_policy": "min(20, feasible)"
+  },
+  "answers": {
+    "sources": [
+      "model_unofficial",
+      "solver_verified"
+    ],
+    "basis": "No official CSC404 scheme was supplied; answers stay model_unofficial or solver_verified with provenance recorded."
+  },
+  "documents": {
+    "versions": [
+      2
+    ],
+    "public_versions": [
+      "2"
+    ]
+  },
+  "paper_count": 20,
+  "library_manifest": "/library/CSC404/manifest.json",
+  "routes": {
+    "home": "/csc404",
+    "library": "/csc404/library",
+    "generate": "/csc404/generate"
+  }
+}

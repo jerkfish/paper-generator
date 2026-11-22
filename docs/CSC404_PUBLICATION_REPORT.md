@@ -14,7 +14,7 @@ Gate C: **approved by owner**
   uploaded 2 shared index files. Sync state: `outputs/r2_sync_state.json`;
   quota ledger: `outputs/r2_quota_ledger.json`.
 - Worker `papergen` deployed as version
-  `82c99cdb-d45c-4366-9308-3f5f0183498a`.
+  `78beafd5-9472-471f-9a1a-1d0ea987636b`.
 - Live site: **https://uitmpapergen.download**
 - Subject page: **https://uitmpapergen.download/csc404**
 - Library: **https://uitmpapergen.download/csc404/library**

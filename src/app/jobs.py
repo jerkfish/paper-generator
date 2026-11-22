@@ -312,7 +312,8 @@ class JobManager:
         except SubjectNotFound:
             raise ValueError(f"unknown subject: {subject}") from None
         if not subject_obj.available:
-            raise ValueError(f"subject {code} is coming soon")
+            raise ValueError(
+                f"subject {code} is {subject_obj.status.replace('_', ' ')}")
         generation = str(subject_obj.capabilities.get("generation") or "")
         if not generation:
             raise ValueError(f"subject {code} has no generation capability")
