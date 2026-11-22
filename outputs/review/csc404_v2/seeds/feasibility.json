@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "subject": "CSC404",
+  "role_order": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "B1",
+    "B2"
+  ],
+  "target_marks": 100,
+  "reuse_cap": 4,
+  "min_distinct_papers": 4,
+  "seeds_possible": 20,
+  "note": "Six questions per seed, one per role, printed marks travelling. With 30 approved questions and reuse cap 4, 20 seeds are feasible; every seed uses all five source papers."
+}

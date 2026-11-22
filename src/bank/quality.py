@@ -22,9 +22,10 @@ def quality_score(question: dict,
 
     marks = question.get("marks")
     parts = question.get("subpart_marks") or []
-    part_total = sum(int(part.get("marks") or 0) for part in parts)
-    marks_points = 0.15 if (isinstance(marks, int) and marks > 0
-                            and (not parts or part_total == marks)) else 0.0
+    part_total = sum(float(part.get("marks") or 0) for part in parts)
+    marks_points = 0.15 if (
+        isinstance(marks, (int, float)) and marks > 0
+        and (not parts or abs(part_total - float(marks)) < 1e-9)) else 0.0
 
     hash_points = 0.10 if question.get("content_hash") else 0.0
 

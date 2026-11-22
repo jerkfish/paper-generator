@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-22T01:09:34Z",
+  "generated": "2026-11-22T08:54:03Z",
   "subjects": [
     {
       "code": "CSC402",
@@ -77,6 +77,21 @@
       }
     },
     {
+      "code": "CSC404",
+      "title": "Programming II",
+      "status": "available",
+      "route": "csc404",
+      "available": true,
+      "type": "D",
+      "papers": 20,
+      "library_manifest": "/library/CSC404/manifest.json",
+      "routes": {
+        "home": "/csc404",
+        "library": "/csc404/library",
+        "generate": "/csc404/generate"
+      }
+    },
+    {
       "code": "CSC662",
       "title": "Computer Security",
       "status": "available",
@@ -122,17 +137,6 @@
       "title": "National Kesatria I",
       "status": "coming_soon",
       "route": "hbu111",
-      "available": false,
-      "type": "C",
-      "papers": 0,
-      "library_manifest": null,
-      "routes": null
-    },
-    {
-      "code": "CSC404",
-      "title": "Programming II",
-      "status": "coming_soon",
-      "route": "csc404",
       "available": false,
       "type": "C",
       "papers": 0,

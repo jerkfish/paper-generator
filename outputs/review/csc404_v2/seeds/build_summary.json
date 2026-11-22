@@ -1,0 +1,275 @@
+{
+  "schema_version": 2,
+  "subject": "CSC404",
+  "generated_on": "2026-11-22",
+  "seeds": [
+    {
+      "seed": 1,
+      "plan": {
+        "seed": 1,
+        "slots": [
+          {
+            "slot": "A1",
+            "question_id": "CSC404-2026-FEB-Q1",
+            "marks": 15,
+            "source_paper": "CSC404-2026-FEB",
+            "topic_tags": [
+              "pointers",
+              "arrays"
+            ]
+          },
+          {
+            "slot": "A2",
+            "question_id": "CSC404-2026-FEB-Q2",
+            "marks": 20,
+            "source_paper": "CSC404-2026-FEB",
+            "topic_tags": [
+              "functions",
+              "dynamic_memory"
+            ]
+          },
+          {
+            "slot": "A3",
+            "question_id": "CSC404-2025-JUL-Q3",
+            "marks": 15,
+            "source_paper": "CSC404-2025-JUL",
+            "topic_tags": [
+              "arrays"
+            ]
+          },
+          {
+            "slot": "A4",
+            "question_id": "CSC404-2025-FEB-Q4",
+            "marks": 20,
+            "source_paper": "CSC404-2025-FEB",
+            "topic_tags": [
+              "strings",
+              "arrays",
+              "structs"
+            ]
+          },
+          {
+            "slot": "B1",
+            "question_id": "CSC404-2024-JUL-Q1-2",
+            "marks": 15,
+            "source_paper": "CSC404-2024-JUL",
+            "topic_tags": [
+              "file_io",
+              "pointers",
+              "dynamic_memory"
+            ]
+          },
+          {
+            "slot": "B2",
+            "question_id": "CSC404-2023-FEB-Q2-2",
+            "marks": 15,
+            "source_paper": "CSC404-2023-FEB",
+            "topic_tags": [
+              "arrays",
+              "functions",
+              "structs"
+            ]
+          }
+        ],
+        "total_marks": 100,
+        "distinct_papers": 5,
+        "reuse_cap": 4
+      },
+      "qa": {
+        "seed": 1,
+        "slots": 6,
+        "total_marks": 100,
+        "distinct_papers": 5,
+        "problems": []
+      },
+      "paper_pages": 7,
+      "scheme_pages": 12,
+      "problems": []
+    },
+    {
+      "seed": 2,
+      "plan": {
+        "seed": 2,
+        "slots": [
+          {
+            "slot": "A1",
+            "question_id": "CSC404-2025-JUL-Q1",
+            "marks": 15,
+            "source_paper": "CSC404-2025-JUL",
+            "topic_tags": [
+              "pointers",
+              "dynamic_memory"
+            ]
+          },
+          {
+            "slot": "A2",
+            "question_id": "CSC404-2025-JUL-Q2",
+            "marks": 20,
+            "source_paper": "CSC404-2025-JUL",
+            "topic_tags": [
+              "functions",
+              "strings"
+            ]
+          },
+          {
+            "slot": "A3",
+            "question_id": "CSC404-2026-FEB-Q3",
+            "marks": 15,
+            "source_paper": "CSC404-2026-FEB",
+            "topic_tags": [
+              "arrays"
+            ]
+          },
+          {
+            "slot": "A4",
+            "question_id": "CSC404-2024-JUL-Q4",
+            "marks": 20,
+            "source_paper": "CSC404-2024-JUL",
+            "topic_tags": [
+              "arrays",
+              "strings"
+            ]
+          },
+          {
+            "slot": "B1",
+            "question_id": "CSC404-2023-FEB-Q1-2",
+            "marks": 15,
+            "source_paper": "CSC404-2023-FEB",
+            "topic_tags": [
+              "file_io",
+              "arrays",
+              "structs"
+            ]
+          },
+          {
+            "slot": "B2",
+            "question_id": "CSC404-2025-FEB-Q2-2",
+            "marks": 15,
+            "source_paper": "CSC404-2025-FEB",
+            "topic_tags": [
+              "functions",
+              "arrays",
+              "pointers"
+            ]
+          }
+        ],
+        "total_marks": 100,
+        "distinct_papers": 5,
+        "reuse_cap": 4
+      },
+      "qa": {
+        "seed": 2,
+        "slots": 6,
+        "total_marks": 100,
+        "distinct_papers": 5,
+        "problems": []
+      },
+      "paper_pages": 6,
+      "scheme_pages": 13,
+      "problems": []
+    },
+    {
+      "seed": 3,
+      "plan": {
+        "seed": 3,
+        "slots": [
+          {
+            "slot": "A1",
+            "question_id": "CSC404-2025-FEB-Q1",
+            "marks": 20,
+            "source_paper": "CSC404-2025-FEB",
+            "topic_tags": [
+              "functions",
+              "dynamic_memory"
+            ]
+          },
+          {
+            "slot": "A2",
+            "question_id": "CSC404-2025-FEB-Q2",
+            "marks": 10,
+            "source_paper": "CSC404-2025-FEB",
+            "topic_tags": [
+              "arrays"
+            ]
+          },
+          {
+            "slot": "A3",
+            "question_id": "CSC404-2024-JUL-Q3",
+            "marks": 20,
+            "source_paper": "CSC404-2024-JUL",
+            "topic_tags": [
+              "arrays",
+              "functions",
+              "strings"
+            ]
+          },
+          {
+            "slot": "A4",
+            "question_id": "CSC404-2023-FEB-Q4",
+            "marks": 20,
+            "source_paper": "CSC404-2023-FEB",
+            "topic_tags": [
+              "structs",
+              "arrays",
+              "functions"
+            ]
+          },
+          {
+            "slot": "B1",
+            "question_id": "CSC404-2026-FEB-Q1-2",
+            "marks": 15,
+            "source_paper": "CSC404-2026-FEB",
+            "topic_tags": [
+              "file_io",
+              "arrays"
+            ]
+          },
+          {
+            "slot": "B2",
+            "question_id": "CSC404-2025-JUL-Q2-2",
+            "marks": 15,
+            "source_paper": "CSC404-2025-JUL",
+            "topic_tags": [
+              "functions",
+              "arrays",
+              "oop"
+            ]
+          }
+        ],
+        "total_marks": 100,
+        "distinct_papers": 5,
+        "reuse_cap": 4
+      },
+      "qa": {
+        "seed": 3,
+        "slots": 6,
+        "total_marks": 100,
+        "distinct_papers": 5,
+        "problems": []
+      },
+      "paper_pages": 8,
+      "scheme_pages": 12,
+      "problems": []
+    }
+  ],
+  "counts": {
+    "seeds": 3,
+    "questions_per_seed": 6,
+    "marks_per_seed": 100,
+    "distinct_papers_per_seed": 5,
+    "qa_problems": 0
+  },
+  "marks_policy": "Role order with printed marks travelling; target 100.",
+  "feasibility": {
+    "seeds_possible": 20
+  },
+  "templates": {
+    "paper": "data/reference/CSC404/CSC404 TEMPLATE.docx",
+    "scheme": "data/reference/CSC404/CSC404 SCHEME.docx"
+  },
+  "answers": {
+    "provenance": "model_unofficial",
+    "model": "deepseek-flash",
+    "cost_usd": 0.286809
+  }
+}

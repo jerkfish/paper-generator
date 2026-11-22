@@ -43,6 +43,7 @@ def extract_paper(
     tracking: Path,
     model: str = "vlm",
     options: mineru_client.MineruOptions | None = None,
+    include_code: bool = False,
 ) -> dict:
     """Extract one PDF with MinerU and normalize its review dossier."""
     require_extraction_permission(subject_code)
@@ -78,6 +79,7 @@ def extract_paper(
         cache_dir=cache_dir,
         model=model,
         out_dir=cache_dir / "review",
+        include_code=include_code,
     )
     result = {
         "subject": subject_code,

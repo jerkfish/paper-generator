@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-22T01:09:34Z",
+  "generated": "2026-11-22T08:54:03Z",
   "subjects": [
     {
       "code": "CSC402",
@@ -37,6 +37,13 @@
       "manifest": "/library/MAT406/manifest.json"
     },
     {
+      "code": "CSC404",
+      "title": "Programming II",
+      "status": "available",
+      "papers": 20,
+      "manifest": "/library/CSC404/manifest.json"
+    },
+    {
       "code": "CSC662",
       "title": "Computer Security",
       "status": "available",
@@ -60,13 +67,6 @@
     {
       "code": "HBU111",
       "title": "National Kesatria I",
-      "status": "coming_soon",
-      "papers": 0,
-      "manifest": null
-    },
-    {
-      "code": "CSC404",
-      "title": "Programming II",
       "status": "coming_soon",
       "papers": 0,
       "manifest": null

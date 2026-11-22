@@ -1,213 +1,301 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
+  "playbook_version": "2.0",
   "subject": "CSC404",
-  "type": "C",
-  "template_path": "",
-  "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-04T06:27:42Z",
+  "title": "Programming II",
+  "type": "D",
+  "strategy": "recycle",
+  "lifecycle_status": "complete",
+  "created": "2026-11-22T01:28:41Z",
+  "updated": "2026-11-22T08:55:08Z",
   "stages": {
-    "0_intake": {
-      "status": "pending",
-      "evidence": [],
+    "V0_intake": {
+      "status": "done",
+      "evidence": [
+        "subjects/CSC404/subject.json",
+        "subjects/CSC404/lifecycle_state.json",
+        "docs/CSC404.md",
+        "data/tracking/csc404/intake_inventory.json",
+        "data/tracking/csc404/papers_register.json",
+        "data/tracking/csc404/papers_summary.json",
+        "docs/archive/csc404_v1/"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
-        "required": true,
+        "required": false,
         "approved": false,
         "by": "",
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "V0 intake complete 2026-11-22. 21 supplied PDFs copied to data/papers/CSC404; 16 unique exam sessions, 2 byte-identical duplicates and 3 alternate scans (5 duplicate files total). Title Programming II; Type D recycle (v1 Type C contract archived). Papers permission recorded. No scheme or slides supplied. Cloud processing not confirmed. Originals untouched; work on branch CSC404."
     },
-    "1_preprocess": {
-      "status": "pending",
-      "evidence": [],
+    "V1_extract": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/csc404/V1_REPORT.md",
+        "data/tracking/csc404/extraction_status.json",
+        "data/tracking/csc404/mineru/"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
-        "required": true,
+        "required": false,
         "approved": false,
         "by": "",
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "MinerU Cloud vlm; 16/16 unique papers done, 0 failed, 161 pages, 108 question headings, 53 image blocks, 16 of 20 references resolved. Full ZIP, content list, page renders and contact sheets retained. Free tier; $0.00. Originals untouched."
     },
-    "2_scheme_slides": {
-      "status": "pending",
-      "evidence": [],
+    "V2_bank": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/csc404/bank/index.json",
+        "data/tracking/csc404/bank/gate1_report.md",
+        "data/tracking/csc404/bank/review/index.html",
+        "data/tracking/csc404/bank/review/review_decisions.json",
+        "data/tracking/csc404/bank/review/review_apply_report.json",
+        "data/tracking/csc404/bank/review/ROUND2.md",
+        "data/tracking/csc404/bank/review/owner_recreations/",
+        "data/tracking/csc404/marks_overrides.json",
+        "data/tracking/csc404/asset_overrides.json",
+        "data/tracking/csc404/asset_exclusions.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-22",
+        "note": "Gate A approved after round 2: all 30 current-format questions and 19 owner recreations approved."
       },
-      "notes": ""
+      "notes": "Gate A approved 2026-11-22. Bank covers the five current-format papers (FEB 2023, JUL 2024, FEB 2025, JUL 2025, FEB 2026): 30 questions, 500 printed marks, 100 per paper, 19 approved assets, 0 needs_fix, 0 unresolved references, 0 duplicate clusters, 6 non-question watermark assets excluded. Round 1 approved 19 questions; round 2 approved the 11 recreated table/figure questions. MinerU code blocks were included by re-normalising the cached dossiers (no cloud re-run). Marks and dropped text restored from page renders via marks_overrides.json and text_corrections.json."
     },
-    "3_template": {
-      "status": "pending",
-      "evidence": [],
+    "V3_format": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/csc404/format_profile.json",
+        "data/tracking/csc404/template_check.json",
+        "data/reference/CSC404/CSC404 TEMPLATE.docx",
+        "data/reference/CSC404/CSC404 SCHEME.docx",
+        "data/reference/CSC404/scheme-coverpage-fix.docx",
+        "data/tracking/csc404/template_cover.png",
+        "data/tracking/csc404/scheme_cover.png",
+        "data/tracking/csc404/templates_preview/"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
-        "required": true,
+        "required": false,
         "approved": false,
         "by": "",
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "Current format profile: 3 hours, Part A (4 questions), Part B (2 questions), 100 marks. Paper cover derived from UTM_STANDARD_COVERv2.docx with CSC404 fields, PART A (4 Questions), PART B (2 Questions), 9 printed pages and 3 HOURS. Scheme cover copied verbatim from the owner-supplied scheme-coverpage-fix.docx with CSC404 fields, notes and 12 printed pages; the standard scheme cover remains the fallback. Template check: 0 problems. Slot marks vary (Q1 15/20, Q2 10/20, Q3 15/20); role order with printed marks travelling, target 100, owner confirms at Gate B."
     },
-    "4_taxonomy_question_log": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
+    "V4_answers": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/csc404/bank/answers.json",
+        "data/tracking/csc404/bank/answers_report.json",
+        "data/tracking/csc404/answers/cost_ledger.json",
+        "data/tracking/csc404/answers/raw/"
+      ],
+      "llm_cost_usd": 0.286809,
       "blockers": [],
       "human_approval": {
-        "required": true,
+        "required": false,
         "approved": false,
         "by": "",
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "30/30 approved questions answered by deepseek-flash with thinking; all usable, 0 validation errors. All answers are model_unofficial; no official CSC404 scheme was supplied. Owner-recreation table text is supplied to the model so table values are not invented. Cost $0.286809."
     },
-    "5_fingerprint_planner": {
-      "status": "pending",
-      "evidence": [],
+    "V5_seeds_1_3": {
+      "status": "done",
+      "evidence": [
+        "outputs/review/csc404_v2/seeds/seed_01/",
+        "outputs/review/csc404_v2/seeds/seed_02/",
+        "outputs/review/csc404_v2/seeds/seed_03/",
+        "outputs/review/csc404_v2/seeds/Gate_B_report.md",
+        "outputs/review/csc404_v2/seeds/index.html",
+        "outputs/review/csc404_v2/seeds/build_summary.json",
+        "outputs/review/csc404_v2/seeds/feasibility.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-22",
+        "note": "Gate B approved after reviewing seeds 1-3 with refined code blocks, bullets and sample output, and the owner-supplied scheme cover fix."
       },
-      "notes": ""
+      "notes": "Seeds 1-3 built: 6 questions, 100 marks, 5 distinct source papers each; QA 0 problems. Paper and scheme covers are the CSC404 standard-cover derivations. Formatting refinement applied: code functions/program text are shaded monospace code boxes with printed indentation; question headings, subheadings and captions stay outside code; bullets are left-indented; sample output is a console-style monospace block. Owner recreations are used for tables/figures. Feasibility 20 seeds under reuse cap 4. Awaiting Gate B."
     },
-    "6_generators": {
-      "status": "pending",
-      "evidence": [],
+    "V6_library": {
+      "status": "done",
+      "evidence": [
+        "outputs/web_cache/CSC404/manifest.json",
+        "outputs/review/csc404_v2/library/V6_REPORT.md",
+        "outputs/review/csc404_v2/library/Gate_C_report.md",
+        "outputs/review/csc404_v2/library/index.html"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
-        "required": true,
+        "required": false,
         "approved": false,
         "by": "",
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "20 seeds built, each 6 questions and 100 marks with 5 distinct source papers; QA 0 problems; maximum question reuse 4 (cap 4). Deterministic recycle, $0 LLM cost. Awaiting Gate C."
     },
-    "7_builders_qa": {
-      "status": "pending",
-      "evidence": [],
+    "V7_publish": {
+      "status": "done",
+      "evidence": [
+        "docs/CSC404_PUBLICATION_REPORT.md",
+        "data/tracking/csc404/GATE_C_REPORT.md",
+        "outputs/review/csc404_v2/gate_c_approval.json",
+        "outputs/public_bundle/library/CSC404/manifest.json",
+        "outputs/r2_sync_state.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-22",
+        "note": "Gate C approved; CSC404 v2 published library-only."
       },
-      "notes": ""
+      "notes": "Scoped publication: 20 v2 papers and 20 v2 schemes uploaded (91 changed objects), shared indexes refreshed (2 more metadata files), Worker 82c99cdb-d45c-4366-9308-3f5f0183498a deployed. Live routes and all 20 seed papers return 200; v1 seed URL returns 404."
     },
-    "8_library_prebuild": {
-      "status": "pending",
-      "evidence": [],
+    "V8_close_out": {
+      "status": "done",
+      "evidence": [
+        "docs/CSC404.md",
+        "docs/CSC404_PUBLICATION_REPORT.md",
+        "data/tracking/csc404/GATE_C_REPORT.md"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
-        "required": true,
+        "required": false,
         "approved": false,
         "by": "",
         "on": "",
         "note": ""
       },
-      "notes": ""
-    },
-    "9_publish": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
-    },
-    "10_close_out": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
+      "notes": "Lifecycle complete: 30 approved questions, 20-seed Library, QA 0, max reuse 4; Gates A/B/C approved. No official scheme; answers model_unofficial. Branch CSC404 remains local and unmerged."
     }
+  },
+  "gates": {
+    "A": {
+      "status": "approved",
+      "by": "owner",
+      "on": "2026-11-22",
+      "evidence": [
+        "data/tracking/csc404/bank/approvals.json",
+        "data/tracking/csc404/bank/gate1_report.md",
+        "data/tracking/csc404/bank/review/review_decisions.json",
+        "data/tracking/csc404/bank/review/review_decisions_round2.json",
+        "data/tracking/csc404/bank/review/review_apply_report_round2.md"
+      ]
+    },
+    "B": {
+      "status": "approved",
+      "by": "owner",
+      "on": "2026-11-22",
+      "evidence": [
+        "outputs/review/csc404_v2/gate_b_approval.json",
+        "outputs/review/csc404_v2/seeds/Gate_B_report.md",
+        "outputs/review/csc404_v2/seeds/seed_01/",
+        "outputs/review/csc404_v2/seeds/seed_02/",
+        "outputs/review/csc404_v2/seeds/seed_03/"
+      ]
+    },
+    "C": {
+      "status": "approved",
+      "by": "owner",
+      "on": "2026-11-22",
+      "evidence": [
+        "outputs/review/csc404_v2/gate_c_approval.json",
+        "outputs/review/csc404_v2/library/Gate_C_report.md",
+        "outputs/web_cache/CSC404/manifest.json"
+      ]
+    }
+  },
+  "bank": {
+    "questions": 30,
+    "approved": 30,
+    "needs_fix": 0,
+    "rejected": 0,
+    "assets": 19,
+    "duplicate_clusters": 0
+  },
+  "answers": {
+    "official": 0,
+    "solver_verified": 0,
+    "model_unofficial": 0,
+    "human_checked": 0
   },
   "unsure": [
     {
-      "stage": "0_intake",
-      "item": "Confirm CSC404 title, subject type (C) and curriculum order with the subject owner.",
-      "blocking": true,
-      "opened": "2026-11-04"
+      "stage": "V1_extract",
+      "item": "Three sessions have alternate scans (JUNE 2018, FEBRUARY 2023, JULY 2024); the canonical scan was used for extraction and the alternates were not processed twice.",
+      "blocking": false,
+      "opened": "2026-11-22"
     },
     {
-      "stage": "0_intake",
-      "item": "Record papers permission for CSC404.",
-      "blocking": true,
-      "opened": "2026-11-04"
+      "stage": "V2_bank",
+      "item": "The bank covers the five current-format papers (2023-2026). The eleven 2014-2019 sessions use a different Part A/B objective + Part C/D structured format and were not banked; owner to confirm the current-era scope at Gate A.",
+      "blocking": false,
+      "opened": "2026-11-22"
     },
     {
-      "stage": "0_intake",
-      "item": "Record scheme permission for CSC404.",
-      "blocking": true,
-      "opened": "2026-11-04"
+      "stage": "V4_answers",
+      "item": "No official CSC404 scheme supplied; answers must stay model_unofficial or solver_verified.",
+      "blocking": false,
+      "opened": "2026-11-22"
     },
     {
-      "stage": "0_intake",
-      "item": "Record lecture-slides permission for CSC404.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
+      "stage": "V2_bank",
+      "item": "Code blocks are MinerU VLM transcriptions of the printed code; owner review at Gate A should confirm their fidelity (for example 2026 FEB Q1 c prints 'Int durianPrice' with a capital I, which is reproduced as printed).",
+      "blocking": false,
+      "opened": "2026-11-22"
+    }
+  ],
+  "parser_provenance": [
     {
-      "stage": "9_publish",
-      "item": "Record publication permission for CSC404 before any upload or deploy.",
-      "blocking": true,
-      "opened": "2026-11-04"
+      "stage": "V1_extract",
+      "parser": "MinerU",
+      "model": "vlm",
+      "papers": 16,
+      "pages": 161,
+      "cost_usd": 0.0
     }
   ],
   "llm_cost": {
     "currency": "USD",
-    "total_usd": 0.0,
+    "total_usd": 0.286809,
     "by_stage": {
-      "0_intake": 0.0,
-      "1_preprocess": 0.0,
-      "2_scheme_slides": 0.0,
-      "3_template": 0.0,
-      "4_taxonomy_question_log": 0.0,
-      "5_fingerprint_planner": 0.0,
-      "6_generators": 0.0,
-      "7_builders_qa": 0.0,
-      "8_library_prebuild": 0.0,
-      "9_publish": 0.0,
-      "10_close_out": 0.0
+      "V0_intake": 0.0,
+      "V1_extract": 0.0,
+      "V2_bank": 0.0,
+      "V3_format": 0.0,
+      "V4_answers": 0.286809,
+      "V5_seeds_1_3": 0.0,
+      "V6_library": 0.0,
+      "V7_publish": 0.0,
+      "V8_close_out": 0.0
     }
-  }
+  },
+  "stop_reason": "Complete: CSC404 v2 published library-only under Gate C; 20 seeds live."
 }
