@@ -1,7 +1,7 @@
 {
   "code": "CSC404",
   "title": "Programming II",
-  "status": "coming_soon",
+  "status": "available",
   "type": "D",
   "order": 8,
   "has_practice_mode": false,
@@ -63,11 +63,11 @@
       "notes": "MinerU only for the 16 unique canonical CSC404 PDFs; full ZIP and dossier retained."
     },
     "publication": {
-      "allowed": false,
-      "basis": "Gate C has not been requested for CSC404.",
-      "confirmed_by": "",
-      "confirmed_on": "",
-      "notes": "Do not publish, upload or deploy CSC404 until Gate C is recorded."
+      "allowed": true,
+      "basis": "Gate C approved by the owner on 2026-11-22 for the 20-seed CSC404 v2 Library.",
+      "confirmed_by": "owner",
+      "confirmed_on": "2026-11-22",
+      "notes": "Scoped publication: CSC404 v2 papers, schemes, manifest and subject metadata only; shared site index files may be refreshed."
     }
   },
   "plugins": {
@@ -94,5 +94,41 @@
     "keep_full_zip": true,
     "fallback": "page_crop"
   },
-  "scheme_template_path": "data/reference/CSC404/CSC404 SCHEME.docx"
+  "scheme_template_path": "data/reference/CSC404/CSC404 SCHEME.docx",
+  "documents": {
+    "versions": [
+      2
+    ],
+    "public_versions": [
+      2
+    ],
+    "labels": {
+      "2": "v2"
+    },
+    "v2_playbook_version": "2.0",
+    "v2_status": "V8 complete",
+    "v2_built_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "v2_publication": "published library-only on 2026-11-22 under Gate C; v1 is legacy and not public"
+  }
 }

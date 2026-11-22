@@ -32,9 +32,9 @@ format, with answers whose provenance is recorded.
 | Purpose | Recycle past papers into new mock papers and marking schemes |
 | Core model | Question bank + current format profile + deterministic assembler |
 | Local runtime | Python 3.12+, FastAPI, `uv` |
-| Subjects | 44 registry entries: 7 `available`, 37 `coming_soon` |
-| Available locally | CSC402, CSC413, CSC429, ICT450, MAT406, CSC662, MAT133 |
-| Published | CSC413, CSC429, CSC662, MAT133, MAT406 |
+| Subjects | 44 registry entries: 8 `available`, 36 `coming_soon` |
+| Available locally | CSC402, CSC404, CSC413, CSC429, ICT450, MAT406, CSC662, MAT133 |
+| Published | CSC404, CSC413, CSC429, CSC662, MAT133, MAT406 |
 | Public site | <https://uitmpapergen.download> |
 | Public runtime | Cloudflare Worker + R2 + D1; no Python and no LLM |
 | Local UI | <http://127.0.0.1:8000> |
@@ -264,6 +264,7 @@ Public builds fail closed if the real key is missing.
 | Subject | Title | Type | Local | Public | v2 state |
 |---|---|---|---|---|---|
 | CSC402 | Programming I | B | Available | Not published | Stages 0–8 done; Gate/publish pending |
+| CSC404 | Programming II | D | Available | Published | **Complete V0–V8; Gate C 2026-11-22; 20 seeds** |
 | CSC413 | Introduction to Interactive Multimedia | B | Available | Published | Complete; open MinerU owner-choice `unsure` |
 | CSC429 | Computer Organization and Architecture | D | Available | Published | **Reference recycle implementation** |
 | CSC662 | Computer Security | A | Available | Published | Stage 10 cost backfill in progress |
@@ -271,7 +272,7 @@ Public builds fail closed if the real key is missing.
 | MAT406 | Foundation Mathematics | D | Available | Published | **Complete V0–V8; Gate C 2026-11-22; 12 seeds** |
 | ICT450 | Database Design and Development | D | V0 reset | Not published | **v1 archived; V0 permission re-check; pilot stops at Gate A** |
 
-The remaining 37 registry entries are empty `coming_soon` stubs. Under v2 they
+The remaining 36 registry entries are empty `coming_soon` stubs. Under v2 they
 default to recycle (type D) when onboarding starts.
 
 ## Repository map

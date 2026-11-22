@@ -5,9 +5,9 @@
   "title": "Programming II",
   "type": "D",
   "strategy": "recycle",
-  "lifecycle_status": "in_progress",
+  "lifecycle_status": "complete",
   "created": "2026-11-22T01:28:41Z",
-  "updated": "2026-11-22T08:37:27Z",
+  "updated": "2026-11-22T08:55:08Z",
   "stages": {
     "V0_intake": {
       "status": "done",
@@ -158,22 +158,32 @@
       "notes": "20 seeds built, each 6 questions and 100 marks with 5 distinct source papers; QA 0 problems; maximum question reuse 4 (cap 4). Deterministic recycle, $0 LLM cost. Awaiting Gate C."
     },
     "V7_publish": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "docs/CSC404_PUBLICATION_REPORT.md",
+        "data/tracking/csc404/GATE_C_REPORT.md",
+        "outputs/review/csc404_v2/gate_c_approval.json",
+        "outputs/public_bundle/library/CSC404/manifest.json",
+        "outputs/r2_sync_state.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
-        "required": false,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-22",
+        "note": "Gate C approved; CSC404 v2 published library-only."
       },
-      "notes": ""
+      "notes": "Scoped publication: 20 v2 papers and 20 v2 schemes uploaded (91 changed objects), shared indexes refreshed (2 more metadata files), Worker 82c99cdb-d45c-4366-9308-3f5f0183498a deployed. Live routes and all 20 seed papers return 200; v1 seed URL returns 404."
     },
     "V8_close_out": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "docs/CSC404.md",
+        "docs/CSC404_PUBLICATION_REPORT.md",
+        "data/tracking/csc404/GATE_C_REPORT.md"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
@@ -183,7 +193,7 @@
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "Lifecycle complete: 30 approved questions, 20-seed Library, QA 0, max reuse 4; Gates A/B/C approved. No official scheme; answers model_unofficial. Branch CSC404 remains local and unmerged."
     }
   },
   "gates": {
@@ -212,10 +222,14 @@
       ]
     },
     "C": {
-      "status": "pending",
-      "by": "",
-      "on": "",
-      "evidence": []
+      "status": "approved",
+      "by": "owner",
+      "on": "2026-11-22",
+      "evidence": [
+        "outputs/review/csc404_v2/gate_c_approval.json",
+        "outputs/review/csc404_v2/library/Gate_C_report.md",
+        "outputs/web_cache/CSC404/manifest.json"
+      ]
     }
   },
   "bank": {
@@ -283,5 +297,5 @@
       "V8_close_out": 0.0
     }
   },
-  "stop_reason": "20-seed Library built; Gate C publication review pending."
+  "stop_reason": "Complete: CSC404 v2 published library-only under Gate C; 20 seeds live."
 }
