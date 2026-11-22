@@ -31,18 +31,19 @@ def test_registry_discovers_csc402_and_stubs():
 def test_registry_order_follows_curriculum():
     subjects = load_subjects()
     codes = list(subjects)
-    assert codes[:6] == [
-        "CSC402", "CSC413", "CSC429", "ICT450", "CSC662", "MAT133"]
+    assert codes[:7] == [
+        "CSC402", "CSC413", "CSC429", "ICT450", "MAT406", "CSC662",
+        "MAT133"]
     expected_stubs = [
         "CTU552", "HBU111",
-        "MAT406", "CSC404", "CTU554", "HBU121", "ICT502", "ITT400",
+        "CSC404", "CTU554", "HBU121", "ICT502", "ITT400",
         "MAT421", "STA416", "CSC435", "CSC510", "CSC520", "CSC583",
         "HBU131", "LCC401", "MAT423", "TMC401", "CSC508", "CSC569",
         "CSC575", "CSC577", "CSC584", "LCC500", "TMC451", "CSC580",
         "CSC645", "CSC649", "CSP600", "ENT600", "STA404", "TMC501",
         "CSC562", "CSC683", "CSP650", "EET699", "ICT652", "CST688",
     ]
-    assert codes[6:] == expected_stubs
+    assert codes[7:] == expected_stubs
     assert subjects["ICT450"].available
     assert len(subjects) == 44
     assert subjects["CSC580"].title == "Parallel Processing"

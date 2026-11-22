@@ -24,15 +24,15 @@ def _load(path: Path, default=None):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def test_mat406_is_type_d_and_still_coming_soon():
+def test_mat406_is_type_d_and_available_after_gate_c():
     subject = get_subject("MAT406")
     assert subject.subject_type == "D"
     assert subject.strategy == "recycle"
-    assert subject.status == "coming_soon"
+    assert subject.status == "available"
     assert subject.variants["enabled"] is False
     assert subject.permissions["papers"]["allowed"] is True
     assert subject.permissions["cloud_processing"]["allowed"] is True
-    assert subject.permissions["publication"]["allowed"] is False
+    assert subject.permissions["publication"]["allowed"] is True
 
 
 def test_register_has_nine_unique_papers_and_one_duplicate():

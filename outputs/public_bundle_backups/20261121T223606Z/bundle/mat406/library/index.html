@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MAT406 Library</title>
+  <script src="/assets/htmx.min.js?v=1794139258" defer></script>
+  <script src="/assets/library.js?v=1794139258" defer></script>
+  
+  <link rel="stylesheet" href="/assets/style.css?v=1794139258">
+</head>
+<body>
+<h1>Mock Paper Generator</h1>
+<div class="nav">
+  <a href="/">Subjects</a>
+  
+    
+    <a href="/csc402">CSC402</a>
+    <!--  -->
+    
+  
+    
+    <a href="/csc413">CSC413</a>
+    <!--  -->
+    
+  
+    
+    <a href="/csc429">CSC429</a>
+    <!--  -->
+    
+  
+    
+    <a href="/ict450">ICT450</a>
+    <!--  -->
+    
+  
+    
+    <a href="/mat406">MAT406</a>
+    <!--  -->
+    
+  
+    
+    <a href="/csc662">CSC662</a>
+    <!--  -->
+    
+  
+    
+    <a href="/mat133">MAT133</a>
+    <!--  -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  <a href="/gallery">Gallery</a>
+</div>
+<hr>
+
+
+<div class="notice">Public bundle: papers keep the original local-build cover;
+public schemes omit verbatim slide quotes. The Library contains PUBLIC_BUILD
+files only.</div>
+
+
+
+<p class="small"><a href="/">Subjects</a> &gt;
+  <a href="/mat406">MAT406</a> &gt; Library</p>
+<h2>MAT406 Library</h2>
+<p>12 prebuilt papers. Cached; no API key and no LLM call.
+  Downloads are paper and scheme in DOCX/PDF.</p>
+
+
+
+<form id="library-filter" action="/mat406/library" method="get">
+  <fieldset>
+    <legend>Filter</legend>
+    <label for="q">Text:</label>
+    <input type="text" id="q" name="q" size="24" value="">
+    <label for="computed">Total marks:</label>
+    <select id="computed" name="computed">
+      <option value="any">any</option>
+      
+      <option value="100" >100</option>
+      
+    </select>
+    <label for="topic">Topic:</label>
+    <select id="topic" name="topic">
+      <option value="any">any</option>
+      
+      <option value="algebra" >algebra</option>
+      
+      <option value="circles" >circles</option>
+      
+      <option value="circular_measure" >circular_measure</option>
+      
+      <option value="coordinate_geometry" >coordinate_geometry</option>
+      
+      <option value="exponential_logarithmic" >exponential_logarithmic</option>
+      
+      <option value="functions" >functions</option>
+      
+      <option value="inequalities" >inequalities</option>
+      
+      <option value="matrices" >matrices</option>
+      
+      <option value="systems_of_equations" >systems_of_equations</option>
+      
+      <option value="trigonometry" >trigonometry</option>
+      
+      <option value="vectors" >vectors</option>
+      
+    </select>
+    
+    <input type="submit" value="Apply">
+    <a href="/mat406/library">Reset</a>
+  </fieldset>
+</form>
+
+
+<div id="library-results">
+
+  
+  
+  
+  <p class="small" id="library-count">Showing 12 of 12.</p>
+  
+  <p class="small">Topic abbreviations: Topic abbreviations are shown in the Topic mix column.. Numbers are marks. Click a column title to sort ascending/descending.</p>
+  <div class="table-scroll">
+  <table id="library-table">
+    <thead>
+    <tr>
+      <th data-sort="seed" aria-sort="none"><button type="button" class="sort" data-sort="seed" data-type="number">Seed<span class="sort-mark"></span></button></th>
+      <th data-sort="mode" aria-sort="none"><button type="button" class="sort" data-sort="mode">Mode<span class="sort-mark"></span></button></th>
+      <th data-sort="computed" aria-sort="none"><button type="button" class="sort" data-sort="computed" data-type="number">Total<br>marks<span class="sort-mark"></span></button></th>
+      <th data-sort="topics" aria-sort="none"><button type="button" class="sort" data-sort="topics">Topic mix (marks)<span class="sort-mark"></span></button></th>
+      <th data-sort="placeholders" aria-sort="none"><button type="button" class="sort" data-sort="placeholders" data-type="number">Place-<br>holders<span class="sort-mark"></span></button></th>
+      
+      <th data-sort="paper" aria-sort="none"><button type="button" class="sort" data-sort="paper">Paper<span class="sort-mark"></span></button></th>
+      <th data-sort="scheme" aria-sort="none"><button type="button" class="sort" data-sort="scheme">Scheme<span class="sort-mark"></span></button></th>
+      
+      <th>Share</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    <tr data-seed="1"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="coordinate_geometry|circular_measure|trigonometry|inequalities|vectors|matrices|systems_of_equations|functions|circles"
+        data-placeholders=""
+        data-paper="MAT406 Seed 01 2026.pdf"
+        data-scheme="MAT406 Seed 01 2026 - Marking Scheme.pdf"
+        data-text="1 realistic 2026 100 COO 46 TRI 42 MAT 29 SYS 29 CIR 28 CIR 25 VEC 22 FUN 15 INE 10 coordinate_geometry circular_measure trigonometry inequalities vectors matrices systems_of_equations functions circles">
+      <td class="nowrap">01</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">COO 46 TRI 42 MAT 29 SYS 29 CIR 28 CIR 25 VEC 22 FUN 15 INE 10</td>
+      <td>&mdash;</td>
+      
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/papers/MAT406%20Seed%2001%202026.docx?v=1795274359" title="MAT406 Seed 01 2026.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/papers/MAT406%20Seed%2001%202026.pdf?v=1795274364" title="MAT406 Seed 01 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2001%202026%20-%20Marking%20Scheme.docx?v=1795274378" title="MAT406 Seed 01 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2001%202026%20-%20Marking%20Scheme.pdf?v=1795274387" title="MAT406 Seed 01 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="MAT406" data-seed="1" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="2"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="coordinate_geometry|trigonometry|circular_measure|inequalities|vectors|matrices|exponential_logarithmic|circles|systems_of_equations|functions"
+        data-placeholders=""
+        data-paper="MAT406 Seed 02 2026.pdf"
+        data-scheme="MAT406 Seed 02 2026 - Marking Scheme.pdf"
+        data-text="2 realistic 2026 100 TRI 40 COO 36 MAT 30 VEC 22 CIR 17 INE 17 EXP 15 FUN 15 SYS 15 CIR 13 coordinate_geometry trigonometry circular_measure inequalities vectors matrices exponential_logarithmic circles systems_of_equations functions">
+      <td class="nowrap">02</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">TRI 40 COO 36 MAT 30 VEC 22 CIR 17 INE 17 EXP 15 FUN 15 SYS 15 CIR 13</td>
+      <td>&mdash;</td>
+      
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/papers/MAT406%20Seed%2002%202026.docx?v=1795274446" title="MAT406 Seed 02 2026.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/papers/MAT406%20Seed%2002%202026.pdf?v=1795274451" title="MAT406 Seed 02 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2002%202026%20-%20Marking%20Scheme.docx?v=1795274467" title="MAT406 Seed 02 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2002%202026%20-%20Marking%20Scheme.pdf?v=1795274477" title="MAT406 Seed 02 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="MAT406" data-seed="2" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="3"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="circles|coordinate_geometry|circular_measure|trigonometry|vectors|matrices|inequalities|systems_of_equations"
+        data-placeholders=""
+        data-paper="MAT406 Seed 03 2026.pdf"
+        data-scheme="MAT406 Seed 03 2026 - Marking Scheme.pdf"
+        data-text="3 realistic 2026 100 CIR 30 COO 30 CIR 27 VEC 25 TRI 19 MAT 15 INE 11 SYS 11 circles coordinate_geometry circular_measure trigonometry vectors matrices inequalities systems_of_equations">
+      <td class="nowrap">03</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">CIR 30 COO 30 CIR 27 VEC 25 TRI 19 MAT 15 INE 11 SYS 11</td>
+      <td>&mdash;</td>
+      
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/papers/MAT406%20Seed%2003%202026.docx?v=1795274532" title="MAT406 Seed 03 2026.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/papers/MAT406%20Seed%2003%202026.pdf?v=1795274537" title="MAT406 Seed 03 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2003%202026%20-%20Marking%20Scheme.docx?v=1795274554" title="MAT406 Seed 03 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2003%202026%20-%20Marking%20Scheme.pdf?v=1795274565" title="MAT406 Seed 03 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="MAT406" data-seed="3" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="4"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="coordinate_geometry|circles|trigonometry|circular_measure|vectors|matrices|exponential_logarithmic|systems_of_equations|inequalities"
+        data-placeholders=""
+        data-paper="MAT406 Seed 04 2026.pdf"
+        data-scheme="MAT406 Seed 04 2026 - Marking Scheme.pdf"
+        data-text="4 realistic 2026 100 COO 49 TRI 42 VEC 39 CIR 27 CIR 27 MAT 24 EXP 15 INE 9 SYS 9 coordinate_geometry circles trigonometry circular_measure vectors matrices exponential_logarithmic systems_of_equations inequalities">
+      <td class="nowrap">04</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">COO 49 TRI 42 VEC 39 CIR 27 CIR 27 MAT 24 EXP 15 INE 9 SYS 9</td>
+      <td>&mdash;</td>
+      
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/papers/MAT406%20Seed%2004%202026.docx?v=1795274652" title="MAT406 Seed 04 2026.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/papers/MAT406%20Seed%2004%202026.pdf?v=1795274657" title="MAT406 Seed 04 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2004%202026%20-%20Marking%20Scheme.docx?v=1795274672" title="MAT406 Seed 04 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2004%202026%20-%20Marking%20Scheme.pdf?v=1795274682" title="MAT406 Seed 04 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="MAT406" data-seed="4" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="5"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="coordinate_geometry|trigonometry|circular_measure|inequalities|vectors|matrices|exponential_logarithmic|circles"
+        data-placeholders=""
+        data-paper="MAT406 Seed 05 2026.pdf"
+        data-scheme="MAT406 Seed 05 2026 - Marking Scheme.pdf"
+        data-text="5 realistic 2026 100 CIR 49 CIR 32 TRI 32 COO 31 MAT 29 INE 17 EXP 15 VEC 13 coordinate_geometry trigonometry circular_measure inequalities vectors matrices exponential_logarithmic circles">
+      <td class="nowrap">05</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">CIR 49 CIR 32 TRI 32 COO 31 MAT 29 INE 17 EXP 15 VEC 13</td>
+      <td>&mdash;</td>
+      
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/papers/MAT406%20Seed%2005%202026.docx?v=1795274772" title="MAT406 Seed 05 2026.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/papers/MAT406%20Seed%2005%202026.pdf?v=1795274777" title="MAT406 Seed 05 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2005%202026%20-%20Marking%20Scheme.docx?v=1795274791" title="MAT406 Seed 05 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2005%202026%20-%20Marking%20Scheme.pdf?v=1795274800" title="MAT406 Seed 05 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="MAT406" data-seed="5" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="6"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="coordinate_geometry|circles|trigonometry|circular_measure|vectors|matrices|inequalities|systems_of_equations|algebra"
+        data-placeholders=""
+        data-paper="MAT406 Seed 06 2026.pdf"
+        data-scheme="MAT406 Seed 06 2026 - Marking Scheme.pdf"
+        data-text="6 realistic 2026 100 COO 32 TRI 31 VEC 30 MAT 29 CIR 27 CIR 17 ALG 14 INE 14 SYS 14 coordinate_geometry circles trigonometry circular_measure vectors matrices inequalities systems_of_equations algebra">
+      <td class="nowrap">06</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">COO 32 TRI 31 VEC 30 MAT 29 CIR 27 CIR 17 ALG 14 INE 14 SYS 14</td>
+      <td>&mdash;</td>
+      
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/papers/MAT406%20Seed%2006%202026.docx?v=1795274887" title="MAT406 Seed 06 2026.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/papers/MAT406%20Seed%2006%202026.pdf?v=1795274892" title="MAT406 Seed 06 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2006%202026%20-%20Marking%20Scheme.docx?v=1795274906" title="MAT406 Seed 06 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2006%202026%20-%20Marking%20Scheme.pdf?v=1795274915" title="MAT406 Seed 06 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="MAT406" data-seed="6" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="7"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="circles|coordinate_geometry|circular_measure|trigonometry|inequalities|vectors|matrices|exponential_logarithmic|systems_of_equations"
+        data-placeholders=""
+        data-paper="MAT406 Seed 07 2026.pdf"
+        data-scheme="MAT406 Seed 07 2026 - Marking Scheme.pdf"
+        data-text="7 realistic 2026 100 TRI 51 COO 47 CIR 30 CIR 27 VEC 25 INE 21 EXP 15 MAT 15 SYS 11 circles coordinate_geometry circular_measure trigonometry inequalities vectors matrices exponential_logarithmic systems_of_equations">
+      <td class="nowrap">07</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">TRI 51 COO 47 CIR 30 CIR 27 VEC 25 INE 21 EXP 15 MAT 15 SYS 11</td>
+      <td>&mdash;</td>
+      
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/papers/MAT406%20Seed%2007%202026.docx?v=1795275008" title="MAT406 Seed 07 2026.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/papers/MAT406%20Seed%2007%202026.pdf?v=1795275013" title="MAT406 Seed 07 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2007%202026%20-%20Marking%20Scheme.docx?v=1795275028" title="MAT406 Seed 07 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2007%202026%20-%20Marking%20Scheme.pdf?v=1795275038" title="MAT406 Seed 07 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="MAT406" data-seed="7" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="8"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="coordinate_geometry|circular_measure|circles|trigonometry|vectors|matrices|systems_of_equations|functions"
+        data-placeholders=""
+        data-paper="MAT406 Seed 08 2026.pdf"
+        data-scheme="MAT406 Seed 08 2026 - Marking Scheme.pdf"
+        data-text="8 realistic 2026 100 COO 44 TRI 33 CIR 30 MAT 29 CIR 27 VEC 22 FUN 15 SYS 15 coordinate_geometry circular_measure circles trigonometry vectors matrices systems_of_equations functions">
+      <td class="nowrap">08</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">COO 44 TRI 33 CIR 30 MAT 29 CIR 27 VEC 22 FUN 15 SYS 15</td>
+      <td>&mdash;</td>
+      
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/papers/MAT406%20Seed%2008%202026.docx?v=1795275147" title="MAT406 Seed 08 2026.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/papers/MAT406%20Seed%2008%202026.pdf?v=1795275152" title="MAT406 Seed 08 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2008%202026%20-%20Marking%20Scheme.docx?v=1795275167" title="MAT406 Seed 08 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2008%202026%20-%20Marking%20Scheme.pdf?v=1795275177" title="MAT406 Seed 08 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="MAT406" data-seed="8" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="9"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="coordinate_geometry|circular_measure|trigonometry|inequalities|vectors|matrices|systems_of_equations|functions|circles|algebra"
+        data-placeholders=""
+        data-paper="MAT406 Seed 09 2026.pdf"
+        data-scheme="MAT406 Seed 09 2026 - Marking Scheme.pdf"
+        data-text="9 realistic 2026 100 CIR 35 MAT 29 SYS 29 COO 28 CIR 25 TRI 25 VEC 25 INE 20 FUN 15 ALG 14 coordinate_geometry circular_measure trigonometry inequalities vectors matrices systems_of_equations functions circles algebra">
+      <td class="nowrap">09</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">CIR 35 MAT 29 SYS 29 COO 28 CIR 25 TRI 25 VEC 25 INE 20 FUN 15 ALG 14</td>
+      <td>&mdash;</td>
+      
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/papers/MAT406%20Seed%2009%202026.docx?v=1795275283" title="MAT406 Seed 09 2026.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/papers/MAT406%20Seed%2009%202026.pdf?v=1795275288" title="MAT406 Seed 09 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2009%202026%20-%20Marking%20Scheme.docx?v=1795275302" title="MAT406 Seed 09 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2009%202026%20-%20Marking%20Scheme.pdf?v=1795275310" title="MAT406 Seed 09 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="MAT406" data-seed="9" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="10"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="coordinate_geometry|trigonometry|circular_measure|inequalities|vectors|matrices|exponential_logarithmic|circles|systems_of_equations"
+        data-placeholders=""
+        data-paper="MAT406 Seed 10 2026.pdf"
+        data-scheme="MAT406 Seed 10 2026 - Marking Scheme.pdf"
+        data-text="10 realistic 2026 100 CIR 42 TRI 32 INE 27 CIR 25 VEC 25 MAT 24 EXP 15 COO 9 SYS 9 coordinate_geometry trigonometry circular_measure inequalities vectors matrices exponential_logarithmic circles systems_of_equations">
+      <td class="nowrap">10</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">CIR 42 TRI 32 INE 27 CIR 25 VEC 25 MAT 24 EXP 15 COO 9 SYS 9</td>
+      <td>&mdash;</td>
+      
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/papers/MAT406%20Seed%2010%202026.docx?v=1795275417" title="MAT406 Seed 10 2026.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/papers/MAT406%20Seed%2010%202026.pdf?v=1795275422" title="MAT406 Seed 10 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2010%202026%20-%20Marking%20Scheme.docx?v=1795275437" title="MAT406 Seed 10 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2010%202026%20-%20Marking%20Scheme.pdf?v=1795275446" title="MAT406 Seed 10 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="MAT406" data-seed="10" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="11"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="coordinate_geometry|trigonometry|circular_measure|vectors|matrices|functions|inequalities|circles|systems_of_equations"
+        data-placeholders=""
+        data-paper="MAT406 Seed 11 2026.pdf"
+        data-scheme="MAT406 Seed 11 2026 - Marking Scheme.pdf"
+        data-text="11 realistic 2026 100 TRI 55 COO 53 VEC 31 MAT 23 FUN 14 INE 14 CIR 13 CIR 10 SYS 9 coordinate_geometry trigonometry circular_measure vectors matrices functions inequalities circles systems_of_equations">
+      <td class="nowrap">11</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">TRI 55 COO 53 VEC 31 MAT 23 FUN 14 INE 14 CIR 13 CIR 10 SYS 9</td>
+      <td>&mdash;</td>
+      
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/papers/MAT406%20Seed%2011%202026.docx?v=1795275567" title="MAT406 Seed 11 2026.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/papers/MAT406%20Seed%2011%202026.pdf?v=1795275571" title="MAT406 Seed 11 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2011%202026%20-%20Marking%20Scheme.docx?v=1795275586" title="MAT406 Seed 11 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2011%202026%20-%20Marking%20Scheme.pdf?v=1795275595" title="MAT406 Seed 11 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="MAT406" data-seed="11" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    <tr data-seed="12"
+        data-mode="realistic"
+        data-computed="100"
+        data-topics="coordinate_geometry|circular_measure|trigonometry|inequalities|vectors|matrices|exponential_logarithmic|circles|systems_of_equations"
+        data-placeholders=""
+        data-paper="MAT406 Seed 12 2026.pdf"
+        data-scheme="MAT406 Seed 12 2026 - Marking Scheme.pdf"
+        data-text="12 realistic 2026 100 TRI 53 INE 43 COO 42 VEC 31 MAT 24 CIR 20 EXP 15 CIR 10 SYS 9 coordinate_geometry circular_measure trigonometry inequalities vectors matrices exponential_logarithmic circles systems_of_equations">
+      <td class="nowrap">12</td>
+      <td>realistic</td>
+      <td>100</td>
+      <td class="mono nowrap">TRI 53 INE 43 COO 42 VEC 31 MAT 24 CIR 20 EXP 15 CIR 10 SYS 9</td>
+      <td>&mdash;</td>
+      
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/papers/MAT406%20Seed%2012%202026.docx?v=1795275705" title="MAT406 Seed 12 2026.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/papers/MAT406%20Seed%2012%202026.pdf?v=1795275709" title="MAT406 Seed 12 2026.pdf">PDF</a>
+      </td>
+      <td class="nowrap">
+        
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2012%202026%20-%20Marking%20Scheme.docx?v=1795275724" title="MAT406 Seed 12 2026 - Marking Scheme.docx">DOCX</a>
+         / 
+        <a href="/library/MAT406/schemes/MAT406%20Seed%2012%202026%20-%20Marking%20Scheme.pdf?v=1795275732" title="MAT406 Seed 12 2026 - Marking Scheme.pdf">PDF</a>
+      </td>
+      
+      
+      <td class="nowrap">
+        <button type="button" class="share" data-subject="MAT406" data-seed="12" data-mode="realistic">Share</button>
+        <span class="share-status small"></span>
+      </td>
+      
+    </tr>
+    
+    </tbody>
+  </table>
+  </div>
+
+</div>
+
+
+<div class="footer">
+  <hr>
+  <p class="small">Study aid, not an official paper. Theory answers are
+  supported by lecture slides where a subject supplies them; deterministic
+  subjects use paper-derived generators. Not lecturer-marked.
+  <a href="/gallery#takedown">Takedown contact</a>.</p>
+  <p class="small">Contact:
+  <a href="mailto:auzair1990@gmail.com">auzair1990@gmail.com</a><br>
+  Git repository:
+  <a href="https://github.com/jerkfish/paper-generator">https://github.com/jerkfish/paper-generator</a></p>
+</div>
+</body>
+</html>

@@ -48,6 +48,21 @@ def test_library_meta_uses_numeric_creation_time():
         assert "2" in meta["document_versions"]
 
 
+def test_mat406_publishes_v2_only():
+    from src.subjects.registry import get_subject
+    subject = get_subject("MAT406")
+    assert subject.public_document_versions == {"2"}
+    manifest = _load(MANIFEST)
+    if not manifest:
+        pytest.skip("MAT406 Library is not built")
+    public = _load(ROOT / "outputs" / "public_bundle" / "library" /
+                   "MAT406" / "manifest.json")
+    if not public:
+        pytest.skip("MAT406 public bundle is not built")
+    for paper in public["papers"]:
+        assert [doc["version"] for doc in paper["documents"]] == [2]
+
+
 def test_library_plugin_cap_and_seed_list():
     from src.subjects.mat406.plugin import library_seeds, seed_cap
     assert seed_cap() == 12

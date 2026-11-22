@@ -1,7 +1,7 @@
 {
   "code": "MAT406",
   "title": "Foundation Mathematics",
-  "status": "coming_soon",
+  "status": "available",
   "type": "D",
   "order": 7,
   "has_practice_mode": false,
@@ -60,11 +60,11 @@
       "notes": "MinerU only for the 9 unique MAT406 PDFs; full ZIP and dossier retained."
     },
     "publication": {
-      "allowed": false,
-      "basis": "Gate C has not been requested for MAT406.",
-      "confirmed_by": "",
-      "confirmed_on": "",
-      "notes": "Do not publish, upload or deploy MAT406 until Gate C is recorded."
+      "allowed": true,
+      "basis": "Gate C approved by the owner on 2026-11-22.",
+      "confirmed_by": "owner",
+      "confirmed_on": "2026-11-22",
+      "notes": "Library-only public bundle, R2 upload and Worker deployment approved under Gate C."
     }
   },
   "plugins": {
@@ -95,5 +95,33 @@
     "fallback": "page_crop",
     "status": "extracted"
   },
-  "scheme_template_path": "data/reference/MAT406/scheme-template-fix.docx"
+  "scheme_template_path": "data/reference/MAT406/scheme-template-fix.docx",
+  "documents": {
+    "versions": [
+      2
+    ],
+    "public_versions": [
+      2
+    ],
+    "labels": {
+      "2": "v2"
+    },
+    "v2_playbook_version": "2.0",
+    "v2_status": "V8 complete",
+    "v2_built_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "v2_publication": "published library-only on 2026-11-22 under Gate C; v1 is legacy and not public"
+  }
 }

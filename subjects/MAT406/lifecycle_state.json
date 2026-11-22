@@ -5,9 +5,9 @@
   "title": "Foundation Mathematics",
   "type": "D",
   "strategy": "recycle",
-  "lifecycle_status": "in_progress",
+  "lifecycle_status": "complete",
   "created": "2026-11-19T15:47:40Z",
-  "updated": "2026-11-21T15:43:07Z",
+  "updated": "2026-11-21T22:38:56Z",
   "stages": {
     "V0_intake": {
       "status": "done",
@@ -176,8 +176,15 @@
       "notes": "12-seed Library built under reuse cap 4: each seed has 8 questions, 100 marks, QA 0 problems and 6-8 distinct source papers; maximum question reuse is 4. Cache outputs/web_cache/MAT406; manifest and V6 report retained. Deterministic recycle, $0 LLM cost. Gate C pending."
     },
     "V7_publish": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "data/tracking/mat406/v2/gate_c_approval.json",
+        "data/tracking/mat406/v2/GATE_C_REPORT.md",
+        "docs/MAT406_PUBLICATION_REPORT.md",
+        "outputs/public_bundle",
+        "outputs/r2_sync_state.json",
+        "outputs/r2_quota_ledger.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
@@ -187,11 +194,16 @@
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "Gate C approved 2026-11-22. Public bundle 742 objects / 195.45 MiB; this run uploaded 113 changed and skipped 629 unchanged. Worker papergen deployed as version 76040446-c3be-4dcf-a5da-eb91cac08ae9 at https://uitmpapergen.download. MAT406 routes, manifest and sample downloads returned 200; existing routes remained 200. Production manifest is v2 only; v1 is legacy and unreferenced. Build/upload is scoped to MAT406; unrelated subjects' documents were not rebuilt."
     },
     "V8_close_out": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "docs/MAT406.md",
+        "docs/MAT406_PUBLICATION_REPORT.md",
+        "data/tracking/mat406/v2/GATE_C_REPORT.md",
+        "subjects/MAT406/lifecycle_state.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
@@ -201,7 +213,7 @@
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "Close-out complete: 58 approved questions, 12-seed Library, QA 0, max reuse 4, Gates A/B/C approved, published library-only."
     }
   },
   "gates": {
@@ -248,10 +260,17 @@
       "conditions": []
     },
     "C": {
-      "status": "pending",
-      "by": "",
-      "on": "",
-      "evidence": []
+      "status": "approved",
+      "by": "owner",
+      "on": "2026-11-22",
+      "evidence": [
+        "outputs/web_cache/MAT406/manifest.json",
+        "outputs/review/mat406_v2/library/V6_REPORT.md",
+        "data/tracking/mat406/v2/gate_b_approval.json",
+        "data/tracking/mat406/v2/gate_c_approval.json"
+      ],
+      "note": "Owner approved Gate C on 2026-11-22 for the 12-seed Library.",
+      "conditions": []
     }
   },
   "bank": {
@@ -385,5 +404,5 @@
       "V8_close_out": 0.0
     }
   },
-  "stop_reason": "Gate C pending: owner approval required before public bundle, R2 upload or Worker deploy."
+  "stop_reason": "V0-V8 complete; MAT406 published at https://uitmpapergen.download under Gate C."
 }

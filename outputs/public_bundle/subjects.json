@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-15T23:37:02Z",
+  "generated": "2026-11-22T00:31:13Z",
   "subjects": [
     {
       "code": "CSC402",
@@ -8,13 +8,9 @@
       "route": "csc402",
       "available": true,
       "type": "B",
-      "papers": 20,
-      "library_manifest": "/library/CSC402/manifest.json",
-      "routes": {
-        "home": "/csc402",
-        "library": "/csc402/library",
-        "generate": "/csc402/generate"
-      }
+      "papers": 0,
+      "library_manifest": null,
+      "routes": null
     },
     {
       "code": "CSC413",
@@ -23,13 +19,9 @@
       "route": "csc413",
       "available": true,
       "type": "B",
-      "papers": 20,
-      "library_manifest": "/library/CSC413/manifest.json",
-      "routes": {
-        "home": "/csc413",
-        "library": "/csc413/library",
-        "generate": "/csc413/generate"
-      }
+      "papers": 0,
+      "library_manifest": null,
+      "routes": null
     },
     {
       "code": "CSC429",
@@ -38,13 +30,9 @@
       "route": "csc429",
       "available": true,
       "type": "D",
-      "papers": 20,
-      "library_manifest": "/library/CSC429/manifest.json",
-      "routes": {
-        "home": "/csc429",
-        "library": "/csc429/library",
-        "generate": "/csc429/generate"
-      }
+      "papers": 0,
+      "library_manifest": null,
+      "routes": null
     },
     {
       "code": "ICT450",
@@ -53,12 +41,23 @@
       "route": "ict450",
       "available": true,
       "type": "D",
-      "papers": 20,
-      "library_manifest": "/library/ICT450/manifest.json",
+      "papers": 0,
+      "library_manifest": null,
+      "routes": null
+    },
+    {
+      "code": "MAT406",
+      "title": "Foundation Mathematics",
+      "status": "available",
+      "route": "mat406",
+      "available": true,
+      "type": "D",
+      "papers": 12,
+      "library_manifest": "/library/MAT406/manifest.json",
       "routes": {
-        "home": "/ict450",
-        "library": "/ict450/library",
-        "generate": "/ict450/generate"
+        "home": "/mat406",
+        "library": "/mat406/library",
+        "generate": "/mat406/generate"
       }
     },
     {
@@ -68,13 +67,9 @@
       "route": "csc662",
       "available": true,
       "type": "A",
-      "papers": 20,
-      "library_manifest": "/library/CSC662/manifest.json",
-      "routes": {
-        "home": "/csc662",
-        "library": "/csc662/library",
-        "generate": "/csc662/generate"
-      }
+      "papers": 0,
+      "library_manifest": null,
+      "routes": null
     },
     {
       "code": "MAT133",
@@ -83,13 +78,9 @@
       "route": "mat133",
       "available": true,
       "type": "D",
-      "papers": 20,
-      "library_manifest": "/library/MAT133/manifest.json",
-      "routes": {
-        "home": "/mat133",
-        "library": "/mat133/library",
-        "generate": "/mat133/generate"
-      }
+      "papers": 0,
+      "library_manifest": null,
+      "routes": null
     },
     {
       "code": "CTU552",
@@ -107,17 +98,6 @@
       "title": "National Kesatria I",
       "status": "coming_soon",
       "route": "hbu111",
-      "available": false,
-      "type": "C",
-      "papers": 0,
-      "library_manifest": null,
-      "routes": null
-    },
-    {
-      "code": "MAT406",
-      "title": "Foundation Mathematics",
-      "status": "coming_soon",
-      "route": "mat406",
       "available": false,
       "type": "C",
       "papers": 0,
