@@ -1,213 +1,408 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
+  "playbook_version": "2.0",
   "subject": "MAT406",
-  "type": "C",
-  "template_path": "",
-  "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-04T06:27:42Z",
+  "title": "Foundation Mathematics",
+  "type": "D",
+  "strategy": "recycle",
+  "lifecycle_status": "complete",
+  "created": "2026-11-19T15:47:40Z",
+  "updated": "2026-11-21T22:38:56Z",
   "stages": {
-    "0_intake": {
-      "status": "pending",
-      "evidence": [],
+    "V0_intake": {
+      "status": "done",
+      "evidence": [
+        "subjects/MAT406/subject.json",
+        "subjects/MAT406/lifecycle_state.json",
+        "docs/MAT406.md",
+        "docs/archive/mat406_v1/subject_v1.json",
+        "docs/archive/mat406_v1/lifecycle_state_v1.json",
+        "data/tracking/mat406/intake_inventory.json",
+        "data/tracking/mat406/papers_register.json",
+        "data/tracking/mat406/papers_summary.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
-        "required": true,
+        "required": false,
         "approved": false,
         "by": "",
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "V0 intake complete on 2026-11-19. 10 supplied PDFs copied to data/papers/MAT406; 9 unique papers, 1 byte-identical duplicate (MAT406 FEBRUARY 2026). Title Foundation Mathematics confirmed from the supplied covers; Type D recycle; order 7. No scheme or slides supplied. Papers permission recorded; cloud processing confirmed by the owner's 'report and continue' instruction on 2026-11-20. Originals untouched; work is on branch MAT406."
     },
-    "1_preprocess": {
-      "status": "pending",
-      "evidence": [],
+    "V1_extract": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/mat406/v2/papers_register.json",
+        "data/tracking/mat406/v2/papers_summary.json",
+        "data/tracking/mat406/v2/extraction_status.json",
+        "data/tracking/mat406/v2/V1_REPORT.md",
+        "data/tracking/mat406/v2/mineru"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
-        "required": true,
+        "required": false,
         "approved": false,
         "by": "",
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "MinerU VLM extracted 9/9 unique papers (55 pages, 58 question headings, 14 image blocks, 6/6 referenced figures/tables resolved, 0 fallbacks). Full ZIP and dossier kept per paper; supplied originals unchanged."
     },
-    "2_scheme_slides": {
-      "status": "pending",
-      "evidence": [],
+    "V2_bank": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/mat406/v2/bank/review/GATE_A_APPROVED.md",
+        "data/tracking/mat406/v2/bank/approvals.json",
+        "data/tracking/mat406/v2/bank/index.json",
+        "data/tracking/mat406/v2/bank/gate1_report.json",
+        "data/tracking/mat406/v2/bank/gate1_report.md",
+        "data/tracking/mat406/v2/bank/review/index.html",
+        "data/tracking/mat406/v2/bank/review/round2.html",
+        "data/tracking/mat406/v2/bank/review/review_decisions_round2.json",
+        "data/tracking/mat406/v2/bank/review/marks.csv"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-20",
+        "note": "Gate A approved after round 2; all 14 fixed questions approved."
       },
-      "notes": ""
+      "notes": "Gate A approved. 58/58 questions approved, 850 marks, 6 active assets, 7 unrelated assets deleted, 0 unresolved references, 0 exact duplicate clusters."
     },
-    "3_template": {
-      "status": "pending",
-      "evidence": [],
+    "V3_format": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/mat406/v2/format_profile.json",
+        "data/tracking/mat406/v2/template_check.json",
+        "data/tracking/mat406/v2/templates_preview/paper_template_page_1.png",
+        "data/tracking/mat406/v2/templates_preview/scheme_template_page_1.png",
+        "data/reference/MAT406/MAT406 TEMPLATE.docx",
+        "subjects/MAT406/subject.json",
+        "data/reference/MAT406/MAT406 TEMPLATE-manualfix.docx",
+        "data/reference/MAT406/scheme-template-fix.docx"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
-        "required": true,
+        "required": false,
         "approved": false,
         "by": "",
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "Current format from MAT406-2026-FEB and MAT406-2025-JUL: 3 hours, Part A (4 questions), Part B (4 questions), 100 marks. Paper template is the owner-supplied MAT406 TEMPLATE-manualfix.docx copied verbatim (crest, FOUNDATION MATHEMATICS, MAT406, FEBRUARY 2026, TIME 3 HOURS and Appendix alignment already fixed manually). Scheme template is the owner-supplied scheme-template-fix.docx copied verbatim with its fixed crest and notes. Template check: 0 problems."
     },
-    "4_taxonomy_question_log": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
+    "V4_answers": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/mat406/v2/bank/answers.json",
+        "data/tracking/mat406/v2/bank/answers_report.json",
+        "data/tracking/mat406/v2/answers/raw",
+        "data/tracking/mat406/v2/answers/cost_ledger.json",
+        "data/tracking/mat406/v2/answers/sample_review.md",
+        "data/tracking/mat406/v2/bank/answer_overrides.json",
+        "data/tracking/mat406/v2/text_corrections_applied.json"
+      ],
+      "llm_cost_usd": 0.313748,
       "blockers": [],
       "human_approval": {
-        "required": true,
+        "required": false,
         "approved": false,
         "by": "",
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "58/58 approved questions answered by deepseek-flash with thinking; all model_unofficial. 58 usable, 0 unusable, 0 validation errors. 14 questions had printed equations restored from source page renders before answering; one answer (2021 JUL Q1 b) corrected to m=4, p=3 via answer_overrides.json. Sample review covers 8 questions. Total model cost $0.313748. V5 Gate B proofing regenerated answers for 19 restored questions ($0.132790)."
     },
-    "5_fingerprint_planner": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
+    "V5_seeds_1_3": {
+      "status": "done",
+      "evidence": [
+        "outputs/review/mat406_v2/seeds/Gate_B_report.md",
+        "outputs/review/mat406_v2/seeds/index.html",
+        "outputs/review/mat406_v2/seeds/build_summary.json",
+        "outputs/review/mat406_v2/seeds/feasibility.json",
+        "outputs/review/mat406_v2/seeds/seed_01/plan.json",
+        "outputs/review/mat406_v2/seeds/seed_01/qa.json",
+        "outputs/review/mat406_v2/seeds/seed_01/paper.pdf",
+        "outputs/review/mat406_v2/seeds/seed_01/scheme.pdf",
+        "outputs/review/mat406_v2/seeds/seed_02/plan.json",
+        "outputs/review/mat406_v2/seeds/seed_02/qa.json",
+        "outputs/review/mat406_v2/seeds/seed_02/paper.pdf",
+        "outputs/review/mat406_v2/seeds/seed_02/scheme.pdf",
+        "outputs/review/mat406_v2/seeds/seed_03/plan.json",
+        "outputs/review/mat406_v2/seeds/seed_03/qa.json",
+        "outputs/review/mat406_v2/seeds/seed_03/paper.pdf",
+        "outputs/review/mat406_v2/seeds/seed_03/scheme.pdf",
+        "data/tracking/mat406/v2/answers/sample_review.md",
+        "data/tracking/mat406/v2/text_corrections_v5.json",
+        "data/tracking/mat406/v2/template_check.json",
+        "data/tracking/mat406/v2/templates_preview/paper_template_page_1.png",
+        "data/tracking/mat406/v2/templates_preview/scheme_template_page_1.png"
+      ],
+      "llm_cost_usd": 0.13279,
       "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-21",
+        "note": "Gate B approved after review of seeds 1-3, the A/B role order, the printed-marks policy, the 12-seed Library size and the 19 proofed questions."
       },
-      "notes": ""
+      "notes": "Seeds 1-3 built: 8 questions each, Part A/B role order, 100 marks, 8 distinct source papers, QA 0 problems. Paper pages 5/3/5; scheme pages 7/7/8, with printed page counts matching the PDFs. Paper uses the owner's manually fixed MAT406 cover; scheme uses the owner's fixed scheme-template-fix.docx cover. Both show the crest, the full course title and TIME 3 HOURS. Figures are placed after the referencing part at 6.5 cm with spacing above and below both image and caption; printed systems of equations/inequalities also have spacing before and after. Parts/questions are kept together. Gate B proofing restored printed systems, inequalities, equations and sub-items dropped by MinerU in 19 questions / 25 parts from page-render evidence (text_corrections_v5.json); answers for those questions were regenerated at $0.132790 (cumulative $0.446538). Feasibility is 12 seeds under reuse cap 4; exact slot marks alone would allow 8. All answers model_unofficial."
     },
-    "6_generators": {
-      "status": "pending",
-      "evidence": [],
+    "V6_library": {
+      "status": "done",
+      "evidence": [
+        "outputs/web_cache/MAT406/manifest.json",
+        "outputs/review/mat406_v2/library/V6_REPORT.md",
+        "outputs/web_cache/MAT406"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
-        "required": true,
+        "required": false,
         "approved": false,
         "by": "",
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "12-seed Library built under reuse cap 4: each seed has 8 questions, 100 marks, QA 0 problems and 6-8 distinct source papers; maximum question reuse is 4. Cache outputs/web_cache/MAT406; manifest and V6 report retained. Deterministic recycle, $0 LLM cost. Gate C pending."
     },
-    "7_builders_qa": {
-      "status": "pending",
-      "evidence": [],
+    "V7_publish": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/mat406/v2/gate_c_approval.json",
+        "data/tracking/mat406/v2/GATE_C_REPORT.md",
+        "docs/MAT406_PUBLICATION_REPORT.md",
+        "outputs/public_bundle",
+        "outputs/r2_sync_state.json",
+        "outputs/r2_quota_ledger.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
-        "required": true,
+        "required": false,
         "approved": false,
         "by": "",
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "Gate C approved 2026-11-22. Public bundle 742 objects / 195.45 MiB; this run uploaded 113 changed and skipped 629 unchanged. Worker papergen deployed as version 76040446-c3be-4dcf-a5da-eb91cac08ae9 at https://uitmpapergen.download. MAT406 routes, manifest and sample downloads returned 200; existing routes remained 200. Production manifest is v2 only; v1 is legacy and unreferenced. Build/upload is scoped to MAT406; unrelated subjects' documents were not rebuilt."
     },
-    "8_library_prebuild": {
-      "status": "pending",
-      "evidence": [],
+    "V8_close_out": {
+      "status": "done",
+      "evidence": [
+        "docs/MAT406.md",
+        "docs/MAT406_PUBLICATION_REPORT.md",
+        "data/tracking/mat406/v2/GATE_C_REPORT.md",
+        "subjects/MAT406/lifecycle_state.json"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
-        "required": true,
+        "required": false,
         "approved": false,
         "by": "",
         "on": "",
         "note": ""
       },
-      "notes": ""
-    },
-    "9_publish": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
-    },
-    "10_close_out": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
+      "notes": "Close-out complete: 58 approved questions, 12-seed Library, QA 0, max reuse 4, Gates A/B/C approved, published library-only."
     }
+  },
+  "gates": {
+    "A": {
+      "status": "approved",
+      "by": "owner",
+      "on": "2026-11-20",
+      "evidence": [
+        "data/tracking/mat406/v2/bank/review/GATE_A_APPROVED.md",
+        "data/tracking/mat406/v2/bank/approvals.json",
+        "data/tracking/mat406/v2/bank/index.json",
+        "data/tracking/mat406/v2/bank/gate1_report.json",
+        "data/tracking/mat406/v2/bank/gate1_report.md",
+        "data/tracking/mat406/v2/bank/review/index.html",
+        "data/tracking/mat406/v2/bank/review/round2.html",
+        "data/tracking/mat406/v2/bank/review/review_decisions_round2.json",
+        "data/tracking/mat406/v2/bank/review/marks.csv"
+      ],
+      "note": "Owner approved round 2 and Gate A on 2026-11-20. All 58 questions approved; 0 needs fix."
+    },
+    "B": {
+      "status": "approved",
+      "by": "owner",
+      "on": "2026-11-21",
+      "evidence": [
+        "outputs/review/mat406_v2/seeds/Gate_B_report.md",
+        "outputs/review/mat406_v2/seeds/index.html",
+        "outputs/review/mat406_v2/seeds/build_summary.json",
+        "outputs/review/mat406_v2/seeds/feasibility.json",
+        "outputs/review/mat406_v2/seeds/seed_01/qa.json",
+        "outputs/review/mat406_v2/seeds/seed_01/paper.pdf",
+        "outputs/review/mat406_v2/seeds/seed_01/scheme.pdf",
+        "outputs/review/mat406_v2/seeds/seed_02/qa.json",
+        "outputs/review/mat406_v2/seeds/seed_02/paper.pdf",
+        "outputs/review/mat406_v2/seeds/seed_02/scheme.pdf",
+        "outputs/review/mat406_v2/seeds/seed_03/qa.json",
+        "outputs/review/mat406_v2/seeds/seed_03/paper.pdf",
+        "outputs/review/mat406_v2/seeds/seed_03/scheme.pdf",
+        "data/tracking/mat406/v2/text_corrections_v5.json",
+        "data/reference/MAT406/MAT406 TEMPLATE-manualfix.docx",
+        "data/reference/MAT406/scheme-template-fix.docx"
+      ],
+      "note": "Owner approved Gate B on 2026-11-21 after the manualfix paper cover, fixed scheme cover, spacing pass and printed-text proofing.",
+      "conditions": []
+    },
+    "C": {
+      "status": "approved",
+      "by": "owner",
+      "on": "2026-11-22",
+      "evidence": [
+        "outputs/web_cache/MAT406/manifest.json",
+        "outputs/review/mat406_v2/library/V6_REPORT.md",
+        "data/tracking/mat406/v2/gate_b_approval.json",
+        "data/tracking/mat406/v2/gate_c_approval.json"
+      ],
+      "note": "Owner approved Gate C on 2026-11-22 for the 12-seed Library.",
+      "conditions": []
+    }
+  },
+  "bank": {
+    "questions": 58,
+    "approved": 58,
+    "needs_fix": 0,
+    "rejected": 0,
+    "assets": 6,
+    "rejected_assets": 7,
+    "duplicate_clusters": 0,
+    "extracted": 0
+  },
+  "answers": {
+    "official": 0,
+    "solver_verified": 0,
+    "model_unofficial": 58,
+    "human_checked": 0
   },
   "unsure": [
     {
-      "stage": "0_intake",
-      "item": "Confirm MAT406 title, subject type (C) and curriculum order with the subject owner.",
-      "blocking": true,
-      "opened": "2026-11-04"
+      "stage": "V4_answers",
+      "item": "No official MAT406 marking scheme was supplied; answers must remain model_unofficial or solver_verified.",
+      "blocking": false,
+      "opened": "2026-11-19"
     },
     {
-      "stage": "0_intake",
-      "item": "Record papers permission for MAT406.",
-      "blocking": true,
-      "opened": "2026-11-04"
+      "stage": "V5_seeds_1_3",
+      "item": "Marks policy: roles are fixed but individual printed marks travel and the assembler targets 100; exact slot marks would cap the Library at 8 seeds. Confirm at Gate B.",
+      "blocking": false,
+      "opened": "2026-11-20",
+      "resolution": "Owner approved the printed-marks policy with Gate B on 2026-11-21.",
+      "resolved_on": "2026-11-21",
+      "resolved_by": "owner"
+    }
+  ],
+  "parser_provenance": [
+    {
+      "paper_id": "MAT406-2021-JUL",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 5,
+      "task_id": "384052de-d926-4b29-ad66-fdd5b36ce368",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat406\\v2\\mineru\\MAT406-2021-JUL\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat406\\v2\\mineru\\MAT406-2021-JUL\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
     },
     {
-      "stage": "0_intake",
-      "item": "Record scheme permission for MAT406.",
-      "blocking": true,
-      "opened": "2026-11-04"
+      "paper_id": "MAT406-2022-FEB",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "ce851a8f-64c8-4c56-8b4c-dd6efe97d203",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat406\\v2\\mineru\\MAT406-2022-FEB\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat406\\v2\\mineru\\MAT406-2022-FEB\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
     },
     {
-      "stage": "0_intake",
-      "item": "Record lecture-slides permission for MAT406.",
-      "blocking": true,
-      "opened": "2026-11-04"
+      "paper_id": "MAT406-2023-FEB",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 7,
+      "task_id": "80d0f5a1-5f31-48c0-ab93-a527621ce858",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat406\\v2\\mineru\\MAT406-2023-FEB\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat406\\v2\\mineru\\MAT406-2023-FEB\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
     },
     {
-      "stage": "9_publish",
-      "item": "Record publication permission for MAT406 before any upload or deploy.",
-      "blocking": true,
-      "opened": "2026-11-04"
+      "paper_id": "MAT406-2023-JUL",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 7,
+      "task_id": "54c222dc-168f-43fe-909e-39780cda5cc3",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat406\\v2\\mineru\\MAT406-2023-JUL\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat406\\v2\\mineru\\MAT406-2023-JUL\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT406-2024-JAN",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 8,
+      "task_id": "bc05d12b-8b74-4c5b-9a32-981023ff44f7",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat406\\v2\\mineru\\MAT406-2024-JAN\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat406\\v2\\mineru\\MAT406-2024-JAN\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT406-2024-JUL",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 5,
+      "task_id": "a5a9a80c-5a94-4fb3-b49f-0a3c42f6382f",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat406\\v2\\mineru\\MAT406-2024-JUL\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat406\\v2\\mineru\\MAT406-2024-JUL\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT406-2025-FEB",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 5,
+      "task_id": "829c59d4-43e2-4b7b-8a93-d7100461d099",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat406\\v2\\mineru\\MAT406-2025-FEB\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat406\\v2\\mineru\\MAT406-2025-FEB\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT406-2025-JUL",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "64cc07c4-cabb-49dc-969b-9c397a04ad7d",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat406\\v2\\mineru\\MAT406-2025-JUL\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat406\\v2\\mineru\\MAT406-2025-JUL\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
+    },
+    {
+      "paper_id": "MAT406-2026-FEB",
+      "parser": "mineru",
+      "model": "vlm",
+      "pages": 6,
+      "task_id": "fedfc215-5453-4e10-b234-579cbc489a6f",
+      "cache_path": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat406\\v2\\mineru\\MAT406-2026-FEB\\vlm_c51270358e",
+      "report": "C:\\Users\\Ahmad\\Desktop\\paper-generator\\data\\tracking\\mat406\\v2\\mineru\\MAT406-2026-FEB\\vlm_c51270358e\\review\\EXTRACTION_REPORT.md"
     }
   ],
   "llm_cost": {
     "currency": "USD",
-    "total_usd": 0.0,
+    "total_usd": 0.446538,
     "by_stage": {
-      "0_intake": 0.0,
-      "1_preprocess": 0.0,
-      "2_scheme_slides": 0.0,
-      "3_template": 0.0,
-      "4_taxonomy_question_log": 0.0,
-      "5_fingerprint_planner": 0.0,
-      "6_generators": 0.0,
-      "7_builders_qa": 0.0,
-      "8_library_prebuild": 0.0,
-      "9_publish": 0.0,
-      "10_close_out": 0.0
+      "V0_intake": 0.0,
+      "V1_extract": 0.0,
+      "V2_bank": 0.0,
+      "V3_format": 0.0,
+      "V4_answers": 0.313748,
+      "V5_seeds_1_3": 0.13279,
+      "V6_library": 0.0,
+      "V7_publish": 0.0,
+      "V8_close_out": 0.0
     }
-  }
+  },
+  "stop_reason": "V0-V8 complete; MAT406 published at https://uitmpapergen.download under Gate C."
 }

@@ -1,5 +1,5 @@
 {
-  "class_a": 805,
+  "class_a": 925,
   "class_b": 0,
   "month": "2026-11",
   "objects": {
@@ -104,9 +104,9 @@
       "size": 42379
     },
     "gallery/index.html": {
-      "etag": "bca7911d9611bd1094d52733fc757034",
-      "sha256": "15c9f842334fc2fe48510380d177590d4b0dc12df7a617eb0f3cf583a6f8db7f",
-      "size": 3238
+      "etag": "9f6ed8fb6b89877031b404d51157cd9e",
+      "sha256": "c37b07834fc9c3d16b9a706c9ecdb58cbb4c786941d084aca5e8547bfc2cce59",
+      "size": 3293
     },
     "ict450/generate/index.html": {
       "etag": "41eecf9fb198d61770c174f46cbe3d76",
@@ -124,9 +124,9 @@
       "size": 36110
     },
     "index.html": {
-      "etag": "bc2c22c07f177eb0e3af810ff16d70df",
-      "sha256": "d6ea922ee4fa78cf61360d0063292c486796522bc1f711f9fb8cd79aa0f8bd0d",
-      "size": 13121
+      "etag": "a52e0f955a7912f85cea2b7716620e01",
+      "sha256": "ccab1663ea9e9d558255562671625fa6f075c2ebb6a6bead05b6a5a27650268c",
+      "size": 13217
     },
     "library/CSC402/manifest.json": {
       "etag": "2a52d5e64252435266bfadfe6dae769a",
@@ -2958,10 +2958,495 @@
       "sha256": "00baec93609a77a55ca01e9eafc5e22e92660f0d96c18369b0f3a1d5da8eca09",
       "size": 500907
     },
+    "library/MAT406/manifest.json": {
+      "etag": "5f55de2590380f5f997519ae51571b7c",
+      "sha256": "c1fb7c30c81271e933ac3889a4061b6f73182b9300994f339b6ff1980f32f41f",
+      "size": 24925
+    },
+    "library/MAT406/papers/MAT406 Seed 01 2026 (v2).docx": {
+      "etag": "d184b8561931575199cc4094cd7ee53a",
+      "sha256": "48e26387ee18f7a57713793eaa0bdf30252a5d444874e9998fea9dd6b22803d3",
+      "size": 98235
+    },
+    "library/MAT406/papers/MAT406 Seed 01 2026 (v2).pdf": {
+      "etag": "d078b9abc6860e6705f78b476d24c167",
+      "sha256": "9937d69f129555512eb46ee3c51602d18371aa133a0725c3ef5d1cc6d1d78608",
+      "size": 356612
+    },
+    "library/MAT406/papers/MAT406 Seed 01 2026.docx": {
+      "etag": "d184b8561931575199cc4094cd7ee53a",
+      "sha256": "48e26387ee18f7a57713793eaa0bdf30252a5d444874e9998fea9dd6b22803d3",
+      "size": 98235
+    },
+    "library/MAT406/papers/MAT406 Seed 01 2026.pdf": {
+      "etag": "d078b9abc6860e6705f78b476d24c167",
+      "sha256": "9937d69f129555512eb46ee3c51602d18371aa133a0725c3ef5d1cc6d1d78608",
+      "size": 356612
+    },
+    "library/MAT406/papers/MAT406 Seed 02 2026 (v2).docx": {
+      "etag": "c7af77d356635c56e695cdf264f74578",
+      "sha256": "f436a7ed14af291c48e1605e62bc491eba5f5abce0c3cd3fba42eee55d5ffd8a",
+      "size": 54566
+    },
+    "library/MAT406/papers/MAT406 Seed 02 2026 (v2).pdf": {
+      "etag": "32dc5eae27e05a125f1d3266108053d6",
+      "sha256": "702ee7bf2d8188b294d4cde247eaaf82521a54b664fbc19823577bd880cd973b",
+      "size": 315694
+    },
+    "library/MAT406/papers/MAT406 Seed 02 2026.docx": {
+      "etag": "c7af77d356635c56e695cdf264f74578",
+      "sha256": "f436a7ed14af291c48e1605e62bc491eba5f5abce0c3cd3fba42eee55d5ffd8a",
+      "size": 54566
+    },
+    "library/MAT406/papers/MAT406 Seed 02 2026.pdf": {
+      "etag": "32dc5eae27e05a125f1d3266108053d6",
+      "sha256": "702ee7bf2d8188b294d4cde247eaaf82521a54b664fbc19823577bd880cd973b",
+      "size": 315694
+    },
+    "library/MAT406/papers/MAT406 Seed 03 2026 (v2).docx": {
+      "etag": "352e01ac441018327fca9c7cdb6a3acd",
+      "sha256": "0e8162b823fcf3362c1f4f4d1bb15247abf4720afd2e603e52d0c93493fa5c25",
+      "size": 92874
+    },
+    "library/MAT406/papers/MAT406 Seed 03 2026 (v2).pdf": {
+      "etag": "d50edaa8b3262e73e4cbd478fd74ffe4",
+      "sha256": "58a95e2ae9a9746f5f137536fa3d1333300df80c577beab596fc2a70f9c97bbd",
+      "size": 353362
+    },
+    "library/MAT406/papers/MAT406 Seed 03 2026.docx": {
+      "etag": "352e01ac441018327fca9c7cdb6a3acd",
+      "sha256": "0e8162b823fcf3362c1f4f4d1bb15247abf4720afd2e603e52d0c93493fa5c25",
+      "size": 92874
+    },
+    "library/MAT406/papers/MAT406 Seed 03 2026.pdf": {
+      "etag": "d50edaa8b3262e73e4cbd478fd74ffe4",
+      "sha256": "58a95e2ae9a9746f5f137536fa3d1333300df80c577beab596fc2a70f9c97bbd",
+      "size": 353362
+    },
+    "library/MAT406/papers/MAT406 Seed 04 2026 (v2).docx": {
+      "etag": "70edfe2bb6d87ed7c5972d033b1b112a",
+      "sha256": "3b6ebd80885f42a3f496b72f82662c7ccf6f89e4202c6a992287065e2814b5c8",
+      "size": 54538
+    },
+    "library/MAT406/papers/MAT406 Seed 04 2026 (v2).pdf": {
+      "etag": "6047e82e53ea725c903046d4406e9d5e",
+      "sha256": "413371832cdfe787ca935e23ca874c543f651dfe570b393edb540b88d41fb1bb",
+      "size": 311334
+    },
+    "library/MAT406/papers/MAT406 Seed 04 2026.docx": {
+      "etag": "70edfe2bb6d87ed7c5972d033b1b112a",
+      "sha256": "3b6ebd80885f42a3f496b72f82662c7ccf6f89e4202c6a992287065e2814b5c8",
+      "size": 54538
+    },
+    "library/MAT406/papers/MAT406 Seed 04 2026.pdf": {
+      "etag": "6047e82e53ea725c903046d4406e9d5e",
+      "sha256": "413371832cdfe787ca935e23ca874c543f651dfe570b393edb540b88d41fb1bb",
+      "size": 311334
+    },
+    "library/MAT406/papers/MAT406 Seed 05 2026 (v2).docx": {
+      "etag": "cb765b16c5dd5c687302d0950ee45620",
+      "sha256": "520fb85b9e0a6830ed515f27b293b771ee92755d28e7f18058a80850e4bec817",
+      "size": 132966
+    },
+    "library/MAT406/papers/MAT406 Seed 05 2026 (v2).pdf": {
+      "etag": "0d25caa014b867165e890ec6cc2b3c69",
+      "sha256": "b74b753ffa18349bc3b7f3987f190dce9e0ae300b8068dfd03c5d2ebc25fe4e8",
+      "size": 374856
+    },
+    "library/MAT406/papers/MAT406 Seed 05 2026.docx": {
+      "etag": "cb765b16c5dd5c687302d0950ee45620",
+      "sha256": "520fb85b9e0a6830ed515f27b293b771ee92755d28e7f18058a80850e4bec817",
+      "size": 132966
+    },
+    "library/MAT406/papers/MAT406 Seed 05 2026.pdf": {
+      "etag": "0d25caa014b867165e890ec6cc2b3c69",
+      "sha256": "b74b753ffa18349bc3b7f3987f190dce9e0ae300b8068dfd03c5d2ebc25fe4e8",
+      "size": 374856
+    },
+    "library/MAT406/papers/MAT406 Seed 06 2026 (v2).docx": {
+      "etag": "424d761ad2e805eed13cc339a6075f9e",
+      "sha256": "c5d4f9cdbbb74035d8d45f9d794ab092b0e7247b5ac0656e335b38df0fa11964",
+      "size": 54203
+    },
+    "library/MAT406/papers/MAT406 Seed 06 2026 (v2).pdf": {
+      "etag": "2dace1cb5dc1203a22a637ac4d617460",
+      "sha256": "1d2adb844dba46202ec27f80733b17df89f7cfdba94d070d6d33011aadbe262e",
+      "size": 295082
+    },
+    "library/MAT406/papers/MAT406 Seed 06 2026.docx": {
+      "etag": "424d761ad2e805eed13cc339a6075f9e",
+      "sha256": "c5d4f9cdbbb74035d8d45f9d794ab092b0e7247b5ac0656e335b38df0fa11964",
+      "size": 54203
+    },
+    "library/MAT406/papers/MAT406 Seed 06 2026.pdf": {
+      "etag": "2dace1cb5dc1203a22a637ac4d617460",
+      "sha256": "1d2adb844dba46202ec27f80733b17df89f7cfdba94d070d6d33011aadbe262e",
+      "size": 295082
+    },
+    "library/MAT406/papers/MAT406 Seed 07 2026 (v2).docx": {
+      "etag": "bda828b8cd9300ff07a00de0f1233835",
+      "sha256": "beb34ed3c1dcad33709e1295e291b0627f15c61ba461df04b32261fc2c5d1466",
+      "size": 92661
+    },
+    "library/MAT406/papers/MAT406 Seed 07 2026 (v2).pdf": {
+      "etag": "e1bef3a21c44a8f005eccbd578b7c224",
+      "sha256": "0df1aa46a0a2756683e181a1a588d56f2e1e7458f8e7d99b82e2ee97ffa9325a",
+      "size": 339390
+    },
+    "library/MAT406/papers/MAT406 Seed 07 2026.docx": {
+      "etag": "bda828b8cd9300ff07a00de0f1233835",
+      "sha256": "beb34ed3c1dcad33709e1295e291b0627f15c61ba461df04b32261fc2c5d1466",
+      "size": 92661
+    },
+    "library/MAT406/papers/MAT406 Seed 07 2026.pdf": {
+      "etag": "e1bef3a21c44a8f005eccbd578b7c224",
+      "sha256": "0df1aa46a0a2756683e181a1a588d56f2e1e7458f8e7d99b82e2ee97ffa9325a",
+      "size": 339390
+    },
+    "library/MAT406/papers/MAT406 Seed 08 2026 (v2).docx": {
+      "etag": "25f9593137ce0cf6f8373946c757d8e3",
+      "sha256": "beb7cb53f35a09391866bac170005559db2951a2382b46076514e290e6fedace",
+      "size": 89841
+    },
+    "library/MAT406/papers/MAT406 Seed 08 2026 (v2).pdf": {
+      "etag": "d609baf4ffcef9503f937b071a3005b1",
+      "sha256": "0b93d4064b819a5fcfb197ec85eff72ca922bbec925715ef5a361a35733aea97",
+      "size": 339613
+    },
+    "library/MAT406/papers/MAT406 Seed 08 2026.docx": {
+      "etag": "25f9593137ce0cf6f8373946c757d8e3",
+      "sha256": "beb7cb53f35a09391866bac170005559db2951a2382b46076514e290e6fedace",
+      "size": 89841
+    },
+    "library/MAT406/papers/MAT406 Seed 08 2026.pdf": {
+      "etag": "d609baf4ffcef9503f937b071a3005b1",
+      "sha256": "0b93d4064b819a5fcfb197ec85eff72ca922bbec925715ef5a361a35733aea97",
+      "size": 339613
+    },
+    "library/MAT406/papers/MAT406 Seed 09 2026 (v2).docx": {
+      "etag": "efcccb088ce0d67bf2e6902d41b272ea",
+      "sha256": "64d1bfa97078fa13176033121df6730870fda5433520631c57d02c183656d173",
+      "size": 115903
+    },
+    "library/MAT406/papers/MAT406 Seed 09 2026 (v2).pdf": {
+      "etag": "d36145cd00f0d0e9e21b215932c10bd1",
+      "sha256": "7c76ab1369692e44f93e2bd76601ff4b12630e1d8fa5e5d4409bba247fef5181",
+      "size": 372291
+    },
+    "library/MAT406/papers/MAT406 Seed 09 2026.docx": {
+      "etag": "efcccb088ce0d67bf2e6902d41b272ea",
+      "sha256": "64d1bfa97078fa13176033121df6730870fda5433520631c57d02c183656d173",
+      "size": 115903
+    },
+    "library/MAT406/papers/MAT406 Seed 09 2026.pdf": {
+      "etag": "d36145cd00f0d0e9e21b215932c10bd1",
+      "sha256": "7c76ab1369692e44f93e2bd76601ff4b12630e1d8fa5e5d4409bba247fef5181",
+      "size": 372291
+    },
+    "library/MAT406/papers/MAT406 Seed 10 2026 (v2).docx": {
+      "etag": "a0f43309857b292abc781b20edd812f5",
+      "sha256": "aa66801bdb68f64a223e5debebd9760a3606c341c9ad88535691038b6725855c",
+      "size": 115942
+    },
+    "library/MAT406/papers/MAT406 Seed 10 2026 (v2).pdf": {
+      "etag": "f89d629da8cd7bba800e49302416fa10",
+      "sha256": "f4dc4e8773e56d748a4bca9c784cae3f9f602a5b412c769c3c14bfc469902ead",
+      "size": 375974
+    },
+    "library/MAT406/papers/MAT406 Seed 10 2026.docx": {
+      "etag": "a0f43309857b292abc781b20edd812f5",
+      "sha256": "aa66801bdb68f64a223e5debebd9760a3606c341c9ad88535691038b6725855c",
+      "size": 115942
+    },
+    "library/MAT406/papers/MAT406 Seed 10 2026.pdf": {
+      "etag": "f89d629da8cd7bba800e49302416fa10",
+      "sha256": "f4dc4e8773e56d748a4bca9c784cae3f9f602a5b412c769c3c14bfc469902ead",
+      "size": 375974
+    },
+    "library/MAT406/papers/MAT406 Seed 11 2026 (v2).docx": {
+      "etag": "fe208d162e3cecc39b429991a1f7c102",
+      "sha256": "840afb7963356434c4c6f97355c262614291e13706b1f196a7f781188a05960e",
+      "size": 54572
+    },
+    "library/MAT406/papers/MAT406 Seed 11 2026 (v2).pdf": {
+      "etag": "7654f0deec2601cbfb2ea99bb40029a7",
+      "sha256": "cca85486c28cd3059bc5c81b652ee420948458b6fc42d0b0abad78d825737a89",
+      "size": 313158
+    },
+    "library/MAT406/papers/MAT406 Seed 11 2026.docx": {
+      "etag": "fe208d162e3cecc39b429991a1f7c102",
+      "sha256": "840afb7963356434c4c6f97355c262614291e13706b1f196a7f781188a05960e",
+      "size": 54572
+    },
+    "library/MAT406/papers/MAT406 Seed 11 2026.pdf": {
+      "etag": "7654f0deec2601cbfb2ea99bb40029a7",
+      "sha256": "cca85486c28cd3059bc5c81b652ee420948458b6fc42d0b0abad78d825737a89",
+      "size": 313158
+    },
+    "library/MAT406/papers/MAT406 Seed 12 2026 (v2).docx": {
+      "etag": "994ebc960935a619c4ee4858535e7b1a",
+      "sha256": "ae0b7cf25dc40af9415c52775d60755a5a260090abf80bf30d74fac331c03a75",
+      "size": 72696
+    },
+    "library/MAT406/papers/MAT406 Seed 12 2026 (v2).pdf": {
+      "etag": "9be7b10255ea969cd155dd345a0c7710",
+      "sha256": "d099ec6d14bc5a6f80762be808bc3dd2f0e35a1ac9cec7be70948726528dff62",
+      "size": 333662
+    },
+    "library/MAT406/papers/MAT406 Seed 12 2026.docx": {
+      "etag": "994ebc960935a619c4ee4858535e7b1a",
+      "sha256": "ae0b7cf25dc40af9415c52775d60755a5a260090abf80bf30d74fac331c03a75",
+      "size": 72696
+    },
+    "library/MAT406/papers/MAT406 Seed 12 2026.pdf": {
+      "etag": "9be7b10255ea969cd155dd345a0c7710",
+      "sha256": "d099ec6d14bc5a6f80762be808bc3dd2f0e35a1ac9cec7be70948726528dff62",
+      "size": 333662
+    },
+    "library/MAT406/schemes/MAT406 Seed 01 2026 - Marking Scheme (v2).docx": {
+      "etag": "7720a279c2a0c8623967f3c34ca9ece4",
+      "sha256": "de65d6dcb923e5b9b9b4b687379bdd85e250580ec32a518e99f4a4bb4d0c66c4",
+      "size": 69355
+    },
+    "library/MAT406/schemes/MAT406 Seed 01 2026 - Marking Scheme (v2).pdf": {
+      "etag": "f19899b9c11e1de4b753b2b558226873",
+      "sha256": "58678bbbb094d47bb84675514fc5603b79e8b00250b2b91706c8aaf238938a11",
+      "size": 553995
+    },
+    "library/MAT406/schemes/MAT406 Seed 01 2026 - Marking Scheme.docx": {
+      "etag": "7720a279c2a0c8623967f3c34ca9ece4",
+      "sha256": "de65d6dcb923e5b9b9b4b687379bdd85e250580ec32a518e99f4a4bb4d0c66c4",
+      "size": 69355
+    },
+    "library/MAT406/schemes/MAT406 Seed 01 2026 - Marking Scheme.pdf": {
+      "etag": "f19899b9c11e1de4b753b2b558226873",
+      "sha256": "58678bbbb094d47bb84675514fc5603b79e8b00250b2b91706c8aaf238938a11",
+      "size": 553995
+    },
+    "library/MAT406/schemes/MAT406 Seed 02 2026 - Marking Scheme (v2).docx": {
+      "etag": "d53f0912124b6f184b4a3f5fcc3550c6",
+      "sha256": "6eae3aee70a0b06e91b637fb9b7e314ecb73a91f1162a9504c05f3f524db6101",
+      "size": 69656
+    },
+    "library/MAT406/schemes/MAT406 Seed 02 2026 - Marking Scheme (v2).pdf": {
+      "etag": "22c6c56d59f0221d61f21db4adc70064",
+      "sha256": "b6e7ed6dd9b59d577445c6229e7075fbb1a8bc7de61e8d91a8cf91d5046774dc",
+      "size": 567799
+    },
+    "library/MAT406/schemes/MAT406 Seed 02 2026 - Marking Scheme.docx": {
+      "etag": "d53f0912124b6f184b4a3f5fcc3550c6",
+      "sha256": "6eae3aee70a0b06e91b637fb9b7e314ecb73a91f1162a9504c05f3f524db6101",
+      "size": 69656
+    },
+    "library/MAT406/schemes/MAT406 Seed 02 2026 - Marking Scheme.pdf": {
+      "etag": "22c6c56d59f0221d61f21db4adc70064",
+      "sha256": "b6e7ed6dd9b59d577445c6229e7075fbb1a8bc7de61e8d91a8cf91d5046774dc",
+      "size": 567799
+    },
+    "library/MAT406/schemes/MAT406 Seed 03 2026 - Marking Scheme (v2).docx": {
+      "etag": "897be7080d52a585a4c162d2da0d670c",
+      "sha256": "84f4095a1ad3560fb7ee6be0a81884e95c892b142a854a17cca5373d3a62469a",
+      "size": 70777
+    },
+    "library/MAT406/schemes/MAT406 Seed 03 2026 - Marking Scheme (v2).pdf": {
+      "etag": "2bd8c1cf5e171ff62d360a639f07f356",
+      "sha256": "a06a335b47e9af00adf4bf7dac23ee72ffc5e8f1516940f3da883a863a020bf0",
+      "size": 652510
+    },
+    "library/MAT406/schemes/MAT406 Seed 03 2026 - Marking Scheme.docx": {
+      "etag": "897be7080d52a585a4c162d2da0d670c",
+      "sha256": "84f4095a1ad3560fb7ee6be0a81884e95c892b142a854a17cca5373d3a62469a",
+      "size": 70777
+    },
+    "library/MAT406/schemes/MAT406 Seed 03 2026 - Marking Scheme.pdf": {
+      "etag": "2bd8c1cf5e171ff62d360a639f07f356",
+      "sha256": "a06a335b47e9af00adf4bf7dac23ee72ffc5e8f1516940f3da883a863a020bf0",
+      "size": 652510
+    },
+    "library/MAT406/schemes/MAT406 Seed 04 2026 - Marking Scheme (v2).docx": {
+      "etag": "dfa01c8ee6c133752aa358b6a830345e",
+      "sha256": "afb20270449181e569f8f562a705b4d50dba569285a49fecbaed12afa6185c1c",
+      "size": 70439
+    },
+    "library/MAT406/schemes/MAT406 Seed 04 2026 - Marking Scheme (v2).pdf": {
+      "etag": "85cd9cfb67083934df356ee31bffff94",
+      "sha256": "c1e9b60c1130c846758e086d1eba80d55a2e3eb35dee52d5632e42009b4fc460",
+      "size": 578687
+    },
+    "library/MAT406/schemes/MAT406 Seed 04 2026 - Marking Scheme.docx": {
+      "etag": "dfa01c8ee6c133752aa358b6a830345e",
+      "sha256": "afb20270449181e569f8f562a705b4d50dba569285a49fecbaed12afa6185c1c",
+      "size": 70439
+    },
+    "library/MAT406/schemes/MAT406 Seed 04 2026 - Marking Scheme.pdf": {
+      "etag": "85cd9cfb67083934df356ee31bffff94",
+      "sha256": "c1e9b60c1130c846758e086d1eba80d55a2e3eb35dee52d5632e42009b4fc460",
+      "size": 578687
+    },
+    "library/MAT406/schemes/MAT406 Seed 05 2026 - Marking Scheme (v2).docx": {
+      "etag": "baf3a5a9bc9a4b3bbf526d2af3a68815",
+      "sha256": "60a780fc0499e6f5cc6e45709e0baed9228350a0e37090cd4811a53d8ac956f7",
+      "size": 70310
+    },
+    "library/MAT406/schemes/MAT406 Seed 05 2026 - Marking Scheme (v2).pdf": {
+      "etag": "d60e728d4070651ea4b67931774fe3af",
+      "sha256": "2ad9a1106d51b3f2a3a50eed5bc6826e6db69d39f51b2e29c40b9b705f89960a",
+      "size": 589049
+    },
+    "library/MAT406/schemes/MAT406 Seed 05 2026 - Marking Scheme.docx": {
+      "etag": "baf3a5a9bc9a4b3bbf526d2af3a68815",
+      "sha256": "60a780fc0499e6f5cc6e45709e0baed9228350a0e37090cd4811a53d8ac956f7",
+      "size": 70310
+    },
+    "library/MAT406/schemes/MAT406 Seed 05 2026 - Marking Scheme.pdf": {
+      "etag": "d60e728d4070651ea4b67931774fe3af",
+      "sha256": "2ad9a1106d51b3f2a3a50eed5bc6826e6db69d39f51b2e29c40b9b705f89960a",
+      "size": 589049
+    },
+    "library/MAT406/schemes/MAT406 Seed 06 2026 - Marking Scheme (v2).docx": {
+      "etag": "d57e1f3d6ad42cc102ecfca7a0011e53",
+      "sha256": "1e17bed27cc5a902e1dfe5ae40f70ce8eb386c92c1bf632e2ee142b722b1ea8f",
+      "size": 70345
+    },
+    "library/MAT406/schemes/MAT406 Seed 06 2026 - Marking Scheme (v2).pdf": {
+      "etag": "bc4d0024d3cb168668da91f20261951b",
+      "sha256": "9b40e30ad99982d84fdd360f12ab5e5ed33fd1f8a29b41eee93ae3a639169988",
+      "size": 603594
+    },
+    "library/MAT406/schemes/MAT406 Seed 06 2026 - Marking Scheme.docx": {
+      "etag": "d57e1f3d6ad42cc102ecfca7a0011e53",
+      "sha256": "1e17bed27cc5a902e1dfe5ae40f70ce8eb386c92c1bf632e2ee142b722b1ea8f",
+      "size": 70345
+    },
+    "library/MAT406/schemes/MAT406 Seed 06 2026 - Marking Scheme.pdf": {
+      "etag": "bc4d0024d3cb168668da91f20261951b",
+      "sha256": "9b40e30ad99982d84fdd360f12ab5e5ed33fd1f8a29b41eee93ae3a639169988",
+      "size": 603594
+    },
+    "library/MAT406/schemes/MAT406 Seed 07 2026 - Marking Scheme (v2).docx": {
+      "etag": "225b4c93ace5be7946871f2f21e596b2",
+      "sha256": "7920111487c3cf33e54e61b09942f0ffa1f8d81159eaed6609656247a864c07d",
+      "size": 70526
+    },
+    "library/MAT406/schemes/MAT406 Seed 07 2026 - Marking Scheme (v2).pdf": {
+      "etag": "bb0a776acd6e2c5c7bfcad674498f0f3",
+      "sha256": "d5e40fa0a653ee50ed627195026c46a982913998a38fc31b79cb14a3f12f8269",
+      "size": 629155
+    },
+    "library/MAT406/schemes/MAT406 Seed 07 2026 - Marking Scheme.docx": {
+      "etag": "225b4c93ace5be7946871f2f21e596b2",
+      "sha256": "7920111487c3cf33e54e61b09942f0ffa1f8d81159eaed6609656247a864c07d",
+      "size": 70526
+    },
+    "library/MAT406/schemes/MAT406 Seed 07 2026 - Marking Scheme.pdf": {
+      "etag": "bb0a776acd6e2c5c7bfcad674498f0f3",
+      "sha256": "d5e40fa0a653ee50ed627195026c46a982913998a38fc31b79cb14a3f12f8269",
+      "size": 629155
+    },
+    "library/MAT406/schemes/MAT406 Seed 08 2026 - Marking Scheme (v2).docx": {
+      "etag": "0bd9411c9d1a60095d518953059f52b2",
+      "sha256": "80ed09b9fe132d235c089fe63410d9dbb7778790f31529bba318c17777e9924b",
+      "size": 70254
+    },
+    "library/MAT406/schemes/MAT406 Seed 08 2026 - Marking Scheme (v2).pdf": {
+      "etag": "efaae7690b59f7a844d79931fe6127b6",
+      "sha256": "1c90c95fb36b97baf4ecdcc8e39a9c44b6069db4a23f04a1981b93bffcd1bfd7",
+      "size": 577441
+    },
+    "library/MAT406/schemes/MAT406 Seed 08 2026 - Marking Scheme.docx": {
+      "etag": "0bd9411c9d1a60095d518953059f52b2",
+      "sha256": "80ed09b9fe132d235c089fe63410d9dbb7778790f31529bba318c17777e9924b",
+      "size": 70254
+    },
+    "library/MAT406/schemes/MAT406 Seed 08 2026 - Marking Scheme.pdf": {
+      "etag": "efaae7690b59f7a844d79931fe6127b6",
+      "sha256": "1c90c95fb36b97baf4ecdcc8e39a9c44b6069db4a23f04a1981b93bffcd1bfd7",
+      "size": 577441
+    },
+    "library/MAT406/schemes/MAT406 Seed 09 2026 - Marking Scheme (v2).docx": {
+      "etag": "32f23708e14209cb2f19f99a1c4e9b7d",
+      "sha256": "5c807a731717d21cf97757cc9eb01a670debc1efbb38ae4dcc643839033c8ae5",
+      "size": 69344
+    },
+    "library/MAT406/schemes/MAT406 Seed 09 2026 - Marking Scheme (v2).pdf": {
+      "etag": "44b1c3a08f97156973b4850d50bbb377",
+      "sha256": "38b4040005da3fd73ab90b9453dcd4533989df0d61c8efe2b522b4e295d208d5",
+      "size": 561235
+    },
+    "library/MAT406/schemes/MAT406 Seed 09 2026 - Marking Scheme.docx": {
+      "etag": "32f23708e14209cb2f19f99a1c4e9b7d",
+      "sha256": "5c807a731717d21cf97757cc9eb01a670debc1efbb38ae4dcc643839033c8ae5",
+      "size": 69344
+    },
+    "library/MAT406/schemes/MAT406 Seed 09 2026 - Marking Scheme.pdf": {
+      "etag": "44b1c3a08f97156973b4850d50bbb377",
+      "sha256": "38b4040005da3fd73ab90b9453dcd4533989df0d61c8efe2b522b4e295d208d5",
+      "size": 561235
+    },
+    "library/MAT406/schemes/MAT406 Seed 10 2026 - Marking Scheme (v2).docx": {
+      "etag": "f877b6e23e4719901d07d52e1feb69a0",
+      "sha256": "bd9238ce13b157b64a2204e67fe7aeed1fa97a5cea813c11079c6e2c1e0ffb8f",
+      "size": 70200
+    },
+    "library/MAT406/schemes/MAT406 Seed 10 2026 - Marking Scheme (v2).pdf": {
+      "etag": "c5a8de8a94eda83047581eee922f7d94",
+      "sha256": "931f7d6cbdd534d0270ede29a875c08d10020326eb9b043c6a6d63fc638b9959",
+      "size": 598490
+    },
+    "library/MAT406/schemes/MAT406 Seed 10 2026 - Marking Scheme.docx": {
+      "etag": "f877b6e23e4719901d07d52e1feb69a0",
+      "sha256": "bd9238ce13b157b64a2204e67fe7aeed1fa97a5cea813c11079c6e2c1e0ffb8f",
+      "size": 70200
+    },
+    "library/MAT406/schemes/MAT406 Seed 10 2026 - Marking Scheme.pdf": {
+      "etag": "c5a8de8a94eda83047581eee922f7d94",
+      "sha256": "931f7d6cbdd534d0270ede29a875c08d10020326eb9b043c6a6d63fc638b9959",
+      "size": 598490
+    },
+    "library/MAT406/schemes/MAT406 Seed 11 2026 - Marking Scheme (v2).docx": {
+      "etag": "9d2b9e0f1e57fb8a68c32e9b99db2f4e",
+      "sha256": "46cc1521b8e1fe9ee2c25f4e673c2cf4fb7dc02a43745f7a8e06ca228bb74176",
+      "size": 70492
+    },
+    "library/MAT406/schemes/MAT406 Seed 11 2026 - Marking Scheme (v2).pdf": {
+      "etag": "ff117789d45b0e9dc2c5a899e51503f1",
+      "sha256": "0a054fe8743056e35c95a8cc422884c5e0c7ea19a79f4257068e3be8cf768ac5",
+      "size": 595827
+    },
+    "library/MAT406/schemes/MAT406 Seed 11 2026 - Marking Scheme.docx": {
+      "etag": "9d2b9e0f1e57fb8a68c32e9b99db2f4e",
+      "sha256": "46cc1521b8e1fe9ee2c25f4e673c2cf4fb7dc02a43745f7a8e06ca228bb74176",
+      "size": 70492
+    },
+    "library/MAT406/schemes/MAT406 Seed 11 2026 - Marking Scheme.pdf": {
+      "etag": "ff117789d45b0e9dc2c5a899e51503f1",
+      "sha256": "0a054fe8743056e35c95a8cc422884c5e0c7ea19a79f4257068e3be8cf768ac5",
+      "size": 595827
+    },
+    "library/MAT406/schemes/MAT406 Seed 12 2026 - Marking Scheme (v2).docx": {
+      "etag": "ca0cbabb6a8237956d0b9a8ce4ed0f08",
+      "sha256": "c207a7562fb8556190113ceb43935dd55fd5277ecad653622ab83ecbd7c88b44",
+      "size": 69755
+    },
+    "library/MAT406/schemes/MAT406 Seed 12 2026 - Marking Scheme (v2).pdf": {
+      "etag": "069e49749df3f848519beb59dad0425f",
+      "sha256": "21a89acacbedd6fa0533d462d1031fb09ba3f9b62573375d83b06575c0c3f17a",
+      "size": 572876
+    },
+    "library/MAT406/schemes/MAT406 Seed 12 2026 - Marking Scheme.docx": {
+      "etag": "ca0cbabb6a8237956d0b9a8ce4ed0f08",
+      "sha256": "c207a7562fb8556190113ceb43935dd55fd5277ecad653622ab83ecbd7c88b44",
+      "size": 69755
+    },
+    "library/MAT406/schemes/MAT406 Seed 12 2026 - Marking Scheme.pdf": {
+      "etag": "069e49749df3f848519beb59dad0425f",
+      "sha256": "21a89acacbedd6fa0533d462d1031fb09ba3f9b62573375d83b06575c0c3f17a",
+      "size": 572876
+    },
     "library/manifest.json": {
-      "etag": "42f07a6ad17670c9565a0ba7a9ecfec3",
-      "sha256": "08d0a292e676b29df8a9186aa6d0763ff8c33e1d885354dba2bc0bacfd6156d0",
-      "size": 7390
+      "etag": "012755557382a311f0bf9964ed21ac5d",
+      "sha256": "d81db7f689f7e6b016a99c326ae17ff7fa38754322ce5a4040d74bc1a41397a6",
+      "size": 7248
     },
     "mat133/generate/index.html": {
       "etag": "a75fed0057d69705117f08fae5436b6b",
@@ -2978,25 +3463,40 @@
       "sha256": "3fbe2419aaf550b47ca1accc43ea055d445c5f94ae9dde602382bd285c98a64d",
       "size": 63737
     },
+    "mat406/generate/index.html": {
+      "etag": "d39d50edbb3c6c87f8466249686e4dbb",
+      "sha256": "6182d5776c05741253bb498f38d3c26e8d7877ebc10f7f48bea5b9043bf8327f",
+      "size": 2491
+    },
+    "mat406/index.html": {
+      "etag": "97164b7bb27c994512513d1fe49b1222",
+      "sha256": "3fc664ab60956ecd5a40dc32c333566f1055c63595e7145d9f4d8767e69012a3",
+      "size": 3968
+    },
+    "mat406/library/index.html": {
+      "etag": "ed6344372e39d8e15d995745026c9c42",
+      "sha256": "0dcada2a84b66a0f01d65e5927c80629a754fceffb8bd0b0cceae7760e9853d9",
+      "size": 21997
+    },
     "paused/index.html": {
-      "etag": "6dce7d68b12be48284192bdc9e0428a8",
-      "sha256": "85fe70eec683946d1b2adadcd1dce4581436120d3b5bfe341360d3b2328bf23e",
-      "size": 2332
+      "etag": "30dc3ed71e3a2411998f8e61b3bcccb3",
+      "sha256": "dc5167dc523c44da613d75439f3eec42960b8831a0c2f25407a72c3814eef4c7",
+      "size": 2387
     },
     "static/gallery-shell.html": {
-      "etag": "bca7911d9611bd1094d52733fc757034",
-      "sha256": "15c9f842334fc2fe48510380d177590d4b0dc12df7a617eb0f3cf583a6f8db7f",
-      "size": 3238
+      "etag": "9f6ed8fb6b89877031b404d51157cd9e",
+      "sha256": "c37b07834fc9c3d16b9a706c9ecdb58cbb4c786941d084aca5e8547bfc2cce59",
+      "size": 3293
     },
     "subjects.json": {
-      "etag": "bf941b547c5715c585d5f4b09a0655e1",
-      "sha256": "dad4481489479c7e1022822b5440a804c91c327f21f4408bd227d72cc71d52bd",
-      "size": 12638
+      "etag": "9b4881227f1ca31572725a249a42d183",
+      "sha256": "beb7538b657fefa2ffc5c48c07efb71f69eb983626f1d3a22657e25321fd0af6",
+      "size": 11930
     },
     "subjects/CSC402/subject.json": {
-      "etag": "40ebde4856bdb2537579b22df79d20fa",
-      "sha256": "53ca2d3d1ba27ea1e225c836264c0f9c852d4a6063d720ce4cf1ebc0a30c0a51",
-      "size": 1166
+      "etag": "e05554cbe05a4025bef90c35ca9c270d",
+      "sha256": "df3deb91baedb495dcc866b5338485faed35fd15ddeec3bfe87446139fe5e70e",
+      "size": 993
     },
     "subjects/CSC404/subject.json": {
       "etag": "ad145b0aa97b54e690ef3de50cba8e64",
@@ -3004,14 +3504,14 @@
       "size": 988
     },
     "subjects/CSC413/subject.json": {
-      "etag": "5d866516d452d44ac3e95639ee788647",
-      "sha256": "b4731c0c3e5b9bde3377e0da73f0735c71c42d086bf93075642508f149e16dbd",
-      "size": 1314
+      "etag": "b34a2c6e5149a7b2a91a13fbda3a6d3b",
+      "sha256": "3e24bcb74b682e48757df8d26f8d664c2907602f3197245c52a78daa1589b2f6",
+      "size": 1141
     },
     "subjects/CSC429/subject.json": {
-      "etag": "703cee74230dcd9936eab7a3e173b866",
-      "sha256": "cae8ec4975dd08a450fc8dd1030755836a349c668ba8aa22992112d1b44f91e0",
-      "size": 1223
+      "etag": "c23ed8b924809fde06dc32b29bd2ac61",
+      "sha256": "37da88a1e4dc4f89a198de7229e9bafb898804e20582dd1c0274723c30c0fd05",
+      "size": 1050
     },
     "subjects/CSC435/subject.json": {
       "etag": "c122a6bbb4d336a7a5320dd4fd0b6d32",
@@ -3079,9 +3579,9 @@
       "size": 1029
     },
     "subjects/CSC662/subject.json": {
-      "etag": "f898993627d7352d76610e2e7baa3fa3",
-      "sha256": "c495c66021261f2624d793fac3e6af47a0da47c0eb4040e70316ec1d048d9edf",
-      "size": 1299
+      "etag": "f39aae462fcb789111b916a8ca881773",
+      "sha256": "cf32f12cf33c239e11c070ceb209cae9f1f0667a897e6a0b58e4461d5bc03236",
+      "size": 1126
     },
     "subjects/CSC683/subject.json": {
       "etag": "f27fc296342ec64ae12a8679b02e83a6",
@@ -3139,9 +3639,9 @@
       "size": 1003
     },
     "subjects/ICT450/subject.json": {
-      "etag": "50d386748372a1568b7cb0e239234c71",
-      "sha256": "58ffb668244e6b8a7f4cb9d690b1458bf3bc1a27f63efcdae21f3e01be5c04b9",
-      "size": 1260
+      "etag": "9644bc83409a89c29d7ff62c0d83aee4",
+      "sha256": "7d2e71636793858969f3d667eee51018d96be1c8f82869be7cd68a2d1af07895",
+      "size": 1087
     },
     "subjects/ICT502/subject.json": {
       "etag": "c94c13ddb9e78f566b6a2c917e788ad2",
@@ -3169,14 +3669,14 @@
       "size": 1031
     },
     "subjects/MAT133/subject.json": {
-      "etag": "996f6323fe7f7abc734ce7ad370b00f3",
-      "sha256": "ddde80f28f3ca189ac904924d7c812240dc645fd2774d7d914992a7f4f8a5333",
-      "size": 3412
+      "etag": "e02f81d308dcf1588f1eb464df795f5b",
+      "sha256": "5d81477c038aff6722c76b6a03067f53bd1a682efca8e669837610e835a32d15",
+      "size": 3239
     },
     "subjects/MAT406/subject.json": {
-      "etag": "3460f7d4b4dfb90cafc5303fcccd9e29",
-      "sha256": "07a73b544bbdee3d995834cee1640bb7b2b7d4f081a50b1bebe3551399a87356",
-      "size": 1004
+      "etag": "007f25901a16aef9d562cde16fb8fb7a",
+      "sha256": "4ba88e2550cb79c1ab13fe8bab9a10e05e0df7d0ea692ff30e84c8503b3e41c9",
+      "size": 1361
     },
     "subjects/MAT421/subject.json": {
       "etag": "c5c02b0d0d42ac6fef405686b4b50dc1",

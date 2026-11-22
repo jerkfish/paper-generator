@@ -562,6 +562,10 @@ deploy only with explicit approval.
 - The R2 dry run is clean and within quota.
 - The public route, Library manifest and downloads work.
 - Gate C is recorded before any upload or deploy.
+- Gate C publication is scoped to the subject under work: build/upload only
+  that subject's documents and metadata. Do not regenerate or re-upload
+  unrelated subjects; shared site indexes may be refreshed.
+- v1 documents are legacy only. New subjects publish v2 only.
 
 **Gate C.** Hard stop. No upload, deploy or registry promotion before the owner
 records Gate C approval.

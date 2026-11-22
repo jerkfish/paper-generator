@@ -1,0 +1,585 @@
+{
+  "subject": "MAT406",
+  "title": "Foundation Mathematics",
+  "year": 2026,
+  "has_practice_mode": false,
+  "has_placeholders": false,
+  "count": 12,
+  "papers": [
+    {
+      "seed": 1,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 8,
+      "placeholders": 0,
+      "topic_marks": {
+        "coordinate_geometry": 46,
+        "circular_measure": 25,
+        "trigonometry": 42,
+        "inequalities": 10,
+        "vectors": 22,
+        "matrices": 29,
+        "systems_of_equations": 29,
+        "functions": 15,
+        "circles": 28
+      },
+      "topic_mix": "COO 46 TRI 42 MAT 29 SYS 29 CIR 28 CIR 25 VEC 22 FUN 15 INE 10",
+      "documents": [
+        {
+          "version": 1,
+          "label": "v1",
+          "files": {
+            "paper_docx": "library/MAT406/papers/MAT406 Seed 01 2026.docx",
+            "paper_pdf": "library/MAT406/papers/MAT406 Seed 01 2026.pdf",
+            "scheme_docx": "library/MAT406/schemes/MAT406 Seed 01 2026 - Marking Scheme.docx",
+            "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 01 2026 - Marking Scheme.pdf"
+          }
+        }
+      ],
+      "files": {
+        "paper_docx": "library/MAT406/papers/MAT406 Seed 01 2026.docx",
+        "paper_pdf": "library/MAT406/papers/MAT406 Seed 01 2026.pdf",
+        "scheme_docx": "library/MAT406/schemes/MAT406 Seed 01 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 01 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT406/papers/MAT406%20Seed%2001%202026.docx?v=1795274359",
+        "paper_pdf": "/library/MAT406/papers/MAT406%20Seed%2001%202026.pdf?v=1795274364",
+        "scheme_docx": "/library/MAT406/schemes/MAT406%20Seed%2001%202026%20-%20Marking%20Scheme.docx?v=1795274378",
+        "scheme_pdf": "/library/MAT406/schemes/MAT406%20Seed%2001%202026%20-%20Marking%20Scheme.pdf?v=1795274387"
+      }
+    },
+    {
+      "seed": 2,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 8,
+      "placeholders": 0,
+      "topic_marks": {
+        "coordinate_geometry": 36,
+        "trigonometry": 40,
+        "circular_measure": 17,
+        "inequalities": 17,
+        "vectors": 22,
+        "matrices": 30,
+        "exponential_logarithmic": 15,
+        "circles": 13,
+        "systems_of_equations": 15,
+        "functions": 15
+      },
+      "topic_mix": "TRI 40 COO 36 MAT 30 VEC 22 CIR 17 INE 17 EXP 15 FUN 15 SYS 15 CIR 13",
+      "documents": [
+        {
+          "version": 1,
+          "label": "v1",
+          "files": {
+            "paper_docx": "library/MAT406/papers/MAT406 Seed 02 2026.docx",
+            "paper_pdf": "library/MAT406/papers/MAT406 Seed 02 2026.pdf",
+            "scheme_docx": "library/MAT406/schemes/MAT406 Seed 02 2026 - Marking Scheme.docx",
+            "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 02 2026 - Marking Scheme.pdf"
+          }
+        }
+      ],
+      "files": {
+        "paper_docx": "library/MAT406/papers/MAT406 Seed 02 2026.docx",
+        "paper_pdf": "library/MAT406/papers/MAT406 Seed 02 2026.pdf",
+        "scheme_docx": "library/MAT406/schemes/MAT406 Seed 02 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 02 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT406/papers/MAT406%20Seed%2002%202026.docx?v=1795274446",
+        "paper_pdf": "/library/MAT406/papers/MAT406%20Seed%2002%202026.pdf?v=1795274451",
+        "scheme_docx": "/library/MAT406/schemes/MAT406%20Seed%2002%202026%20-%20Marking%20Scheme.docx?v=1795274467",
+        "scheme_pdf": "/library/MAT406/schemes/MAT406%20Seed%2002%202026%20-%20Marking%20Scheme.pdf?v=1795274477"
+      }
+    },
+    {
+      "seed": 3,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 8,
+      "placeholders": 0,
+      "topic_marks": {
+        "circles": 30,
+        "coordinate_geometry": 30,
+        "circular_measure": 27,
+        "trigonometry": 19,
+        "vectors": 25,
+        "matrices": 15,
+        "inequalities": 11,
+        "systems_of_equations": 11
+      },
+      "topic_mix": "CIR 30 COO 30 CIR 27 VEC 25 TRI 19 MAT 15 INE 11 SYS 11",
+      "documents": [
+        {
+          "version": 1,
+          "label": "v1",
+          "files": {
+            "paper_docx": "library/MAT406/papers/MAT406 Seed 03 2026.docx",
+            "paper_pdf": "library/MAT406/papers/MAT406 Seed 03 2026.pdf",
+            "scheme_docx": "library/MAT406/schemes/MAT406 Seed 03 2026 - Marking Scheme.docx",
+            "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 03 2026 - Marking Scheme.pdf"
+          }
+        }
+      ],
+      "files": {
+        "paper_docx": "library/MAT406/papers/MAT406 Seed 03 2026.docx",
+        "paper_pdf": "library/MAT406/papers/MAT406 Seed 03 2026.pdf",
+        "scheme_docx": "library/MAT406/schemes/MAT406 Seed 03 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 03 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT406/papers/MAT406%20Seed%2003%202026.docx?v=1795274532",
+        "paper_pdf": "/library/MAT406/papers/MAT406%20Seed%2003%202026.pdf?v=1795274537",
+        "scheme_docx": "/library/MAT406/schemes/MAT406%20Seed%2003%202026%20-%20Marking%20Scheme.docx?v=1795274554",
+        "scheme_pdf": "/library/MAT406/schemes/MAT406%20Seed%2003%202026%20-%20Marking%20Scheme.pdf?v=1795274565"
+      }
+    },
+    {
+      "seed": 4,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 8,
+      "placeholders": 0,
+      "topic_marks": {
+        "coordinate_geometry": 49,
+        "circles": 27,
+        "trigonometry": 42,
+        "circular_measure": 27,
+        "vectors": 39,
+        "matrices": 24,
+        "exponential_logarithmic": 15,
+        "systems_of_equations": 9,
+        "inequalities": 9
+      },
+      "topic_mix": "COO 49 TRI 42 VEC 39 CIR 27 CIR 27 MAT 24 EXP 15 INE 9 SYS 9",
+      "documents": [
+        {
+          "version": 1,
+          "label": "v1",
+          "files": {
+            "paper_docx": "library/MAT406/papers/MAT406 Seed 04 2026.docx",
+            "paper_pdf": "library/MAT406/papers/MAT406 Seed 04 2026.pdf",
+            "scheme_docx": "library/MAT406/schemes/MAT406 Seed 04 2026 - Marking Scheme.docx",
+            "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 04 2026 - Marking Scheme.pdf"
+          }
+        }
+      ],
+      "files": {
+        "paper_docx": "library/MAT406/papers/MAT406 Seed 04 2026.docx",
+        "paper_pdf": "library/MAT406/papers/MAT406 Seed 04 2026.pdf",
+        "scheme_docx": "library/MAT406/schemes/MAT406 Seed 04 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 04 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT406/papers/MAT406%20Seed%2004%202026.docx?v=1795274652",
+        "paper_pdf": "/library/MAT406/papers/MAT406%20Seed%2004%202026.pdf?v=1795274657",
+        "scheme_docx": "/library/MAT406/schemes/MAT406%20Seed%2004%202026%20-%20Marking%20Scheme.docx?v=1795274672",
+        "scheme_pdf": "/library/MAT406/schemes/MAT406%20Seed%2004%202026%20-%20Marking%20Scheme.pdf?v=1795274682"
+      }
+    },
+    {
+      "seed": 5,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 8,
+      "placeholders": 0,
+      "topic_marks": {
+        "coordinate_geometry": 31,
+        "trigonometry": 32,
+        "circular_measure": 49,
+        "inequalities": 17,
+        "vectors": 13,
+        "matrices": 29,
+        "exponential_logarithmic": 15,
+        "circles": 32
+      },
+      "topic_mix": "CIR 49 CIR 32 TRI 32 COO 31 MAT 29 INE 17 EXP 15 VEC 13",
+      "documents": [
+        {
+          "version": 1,
+          "label": "v1",
+          "files": {
+            "paper_docx": "library/MAT406/papers/MAT406 Seed 05 2026.docx",
+            "paper_pdf": "library/MAT406/papers/MAT406 Seed 05 2026.pdf",
+            "scheme_docx": "library/MAT406/schemes/MAT406 Seed 05 2026 - Marking Scheme.docx",
+            "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 05 2026 - Marking Scheme.pdf"
+          }
+        }
+      ],
+      "files": {
+        "paper_docx": "library/MAT406/papers/MAT406 Seed 05 2026.docx",
+        "paper_pdf": "library/MAT406/papers/MAT406 Seed 05 2026.pdf",
+        "scheme_docx": "library/MAT406/schemes/MAT406 Seed 05 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 05 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT406/papers/MAT406%20Seed%2005%202026.docx?v=1795274772",
+        "paper_pdf": "/library/MAT406/papers/MAT406%20Seed%2005%202026.pdf?v=1795274777",
+        "scheme_docx": "/library/MAT406/schemes/MAT406%20Seed%2005%202026%20-%20Marking%20Scheme.docx?v=1795274791",
+        "scheme_pdf": "/library/MAT406/schemes/MAT406%20Seed%2005%202026%20-%20Marking%20Scheme.pdf?v=1795274800"
+      }
+    },
+    {
+      "seed": 6,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 8,
+      "placeholders": 0,
+      "topic_marks": {
+        "coordinate_geometry": 32,
+        "circles": 27,
+        "trigonometry": 31,
+        "circular_measure": 17,
+        "vectors": 30,
+        "matrices": 29,
+        "inequalities": 14,
+        "systems_of_equations": 14,
+        "algebra": 14
+      },
+      "topic_mix": "COO 32 TRI 31 VEC 30 MAT 29 CIR 27 CIR 17 ALG 14 INE 14 SYS 14",
+      "documents": [
+        {
+          "version": 1,
+          "label": "v1",
+          "files": {
+            "paper_docx": "library/MAT406/papers/MAT406 Seed 06 2026.docx",
+            "paper_pdf": "library/MAT406/papers/MAT406 Seed 06 2026.pdf",
+            "scheme_docx": "library/MAT406/schemes/MAT406 Seed 06 2026 - Marking Scheme.docx",
+            "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 06 2026 - Marking Scheme.pdf"
+          }
+        }
+      ],
+      "files": {
+        "paper_docx": "library/MAT406/papers/MAT406 Seed 06 2026.docx",
+        "paper_pdf": "library/MAT406/papers/MAT406 Seed 06 2026.pdf",
+        "scheme_docx": "library/MAT406/schemes/MAT406 Seed 06 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 06 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT406/papers/MAT406%20Seed%2006%202026.docx?v=1795274887",
+        "paper_pdf": "/library/MAT406/papers/MAT406%20Seed%2006%202026.pdf?v=1795274892",
+        "scheme_docx": "/library/MAT406/schemes/MAT406%20Seed%2006%202026%20-%20Marking%20Scheme.docx?v=1795274906",
+        "scheme_pdf": "/library/MAT406/schemes/MAT406%20Seed%2006%202026%20-%20Marking%20Scheme.pdf?v=1795274915"
+      }
+    },
+    {
+      "seed": 7,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 8,
+      "placeholders": 0,
+      "topic_marks": {
+        "circles": 30,
+        "coordinate_geometry": 47,
+        "circular_measure": 27,
+        "trigonometry": 51,
+        "inequalities": 21,
+        "vectors": 25,
+        "matrices": 15,
+        "exponential_logarithmic": 15,
+        "systems_of_equations": 11
+      },
+      "topic_mix": "TRI 51 COO 47 CIR 30 CIR 27 VEC 25 INE 21 EXP 15 MAT 15 SYS 11",
+      "documents": [
+        {
+          "version": 1,
+          "label": "v1",
+          "files": {
+            "paper_docx": "library/MAT406/papers/MAT406 Seed 07 2026.docx",
+            "paper_pdf": "library/MAT406/papers/MAT406 Seed 07 2026.pdf",
+            "scheme_docx": "library/MAT406/schemes/MAT406 Seed 07 2026 - Marking Scheme.docx",
+            "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 07 2026 - Marking Scheme.pdf"
+          }
+        }
+      ],
+      "files": {
+        "paper_docx": "library/MAT406/papers/MAT406 Seed 07 2026.docx",
+        "paper_pdf": "library/MAT406/papers/MAT406 Seed 07 2026.pdf",
+        "scheme_docx": "library/MAT406/schemes/MAT406 Seed 07 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 07 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT406/papers/MAT406%20Seed%2007%202026.docx?v=1795275008",
+        "paper_pdf": "/library/MAT406/papers/MAT406%20Seed%2007%202026.pdf?v=1795275013",
+        "scheme_docx": "/library/MAT406/schemes/MAT406%20Seed%2007%202026%20-%20Marking%20Scheme.docx?v=1795275028",
+        "scheme_pdf": "/library/MAT406/schemes/MAT406%20Seed%2007%202026%20-%20Marking%20Scheme.pdf?v=1795275038"
+      }
+    },
+    {
+      "seed": 8,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 8,
+      "placeholders": 0,
+      "topic_marks": {
+        "coordinate_geometry": 44,
+        "circular_measure": 27,
+        "circles": 30,
+        "trigonometry": 33,
+        "vectors": 22,
+        "matrices": 29,
+        "systems_of_equations": 15,
+        "functions": 15
+      },
+      "topic_mix": "COO 44 TRI 33 CIR 30 MAT 29 CIR 27 VEC 22 FUN 15 SYS 15",
+      "documents": [
+        {
+          "version": 1,
+          "label": "v1",
+          "files": {
+            "paper_docx": "library/MAT406/papers/MAT406 Seed 08 2026.docx",
+            "paper_pdf": "library/MAT406/papers/MAT406 Seed 08 2026.pdf",
+            "scheme_docx": "library/MAT406/schemes/MAT406 Seed 08 2026 - Marking Scheme.docx",
+            "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 08 2026 - Marking Scheme.pdf"
+          }
+        }
+      ],
+      "files": {
+        "paper_docx": "library/MAT406/papers/MAT406 Seed 08 2026.docx",
+        "paper_pdf": "library/MAT406/papers/MAT406 Seed 08 2026.pdf",
+        "scheme_docx": "library/MAT406/schemes/MAT406 Seed 08 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 08 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT406/papers/MAT406%20Seed%2008%202026.docx?v=1795275147",
+        "paper_pdf": "/library/MAT406/papers/MAT406%20Seed%2008%202026.pdf?v=1795275152",
+        "scheme_docx": "/library/MAT406/schemes/MAT406%20Seed%2008%202026%20-%20Marking%20Scheme.docx?v=1795275167",
+        "scheme_pdf": "/library/MAT406/schemes/MAT406%20Seed%2008%202026%20-%20Marking%20Scheme.pdf?v=1795275177"
+      }
+    },
+    {
+      "seed": 9,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 8,
+      "placeholders": 0,
+      "topic_marks": {
+        "coordinate_geometry": 28,
+        "circular_measure": 35,
+        "trigonometry": 25,
+        "inequalities": 20,
+        "vectors": 25,
+        "matrices": 29,
+        "systems_of_equations": 29,
+        "functions": 15,
+        "circles": 25,
+        "algebra": 14
+      },
+      "topic_mix": "CIR 35 MAT 29 SYS 29 COO 28 CIR 25 TRI 25 VEC 25 INE 20 FUN 15 ALG 14",
+      "documents": [
+        {
+          "version": 1,
+          "label": "v1",
+          "files": {
+            "paper_docx": "library/MAT406/papers/MAT406 Seed 09 2026.docx",
+            "paper_pdf": "library/MAT406/papers/MAT406 Seed 09 2026.pdf",
+            "scheme_docx": "library/MAT406/schemes/MAT406 Seed 09 2026 - Marking Scheme.docx",
+            "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 09 2026 - Marking Scheme.pdf"
+          }
+        }
+      ],
+      "files": {
+        "paper_docx": "library/MAT406/papers/MAT406 Seed 09 2026.docx",
+        "paper_pdf": "library/MAT406/papers/MAT406 Seed 09 2026.pdf",
+        "scheme_docx": "library/MAT406/schemes/MAT406 Seed 09 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 09 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT406/papers/MAT406%20Seed%2009%202026.docx?v=1795275283",
+        "paper_pdf": "/library/MAT406/papers/MAT406%20Seed%2009%202026.pdf?v=1795275288",
+        "scheme_docx": "/library/MAT406/schemes/MAT406%20Seed%2009%202026%20-%20Marking%20Scheme.docx?v=1795275302",
+        "scheme_pdf": "/library/MAT406/schemes/MAT406%20Seed%2009%202026%20-%20Marking%20Scheme.pdf?v=1795275310"
+      }
+    },
+    {
+      "seed": 10,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 8,
+      "placeholders": 0,
+      "topic_marks": {
+        "coordinate_geometry": 9,
+        "trigonometry": 32,
+        "circular_measure": 42,
+        "inequalities": 27,
+        "vectors": 25,
+        "matrices": 24,
+        "exponential_logarithmic": 15,
+        "circles": 25,
+        "systems_of_equations": 9
+      },
+      "topic_mix": "CIR 42 TRI 32 INE 27 CIR 25 VEC 25 MAT 24 EXP 15 COO 9 SYS 9",
+      "documents": [
+        {
+          "version": 1,
+          "label": "v1",
+          "files": {
+            "paper_docx": "library/MAT406/papers/MAT406 Seed 10 2026.docx",
+            "paper_pdf": "library/MAT406/papers/MAT406 Seed 10 2026.pdf",
+            "scheme_docx": "library/MAT406/schemes/MAT406 Seed 10 2026 - Marking Scheme.docx",
+            "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 10 2026 - Marking Scheme.pdf"
+          }
+        }
+      ],
+      "files": {
+        "paper_docx": "library/MAT406/papers/MAT406 Seed 10 2026.docx",
+        "paper_pdf": "library/MAT406/papers/MAT406 Seed 10 2026.pdf",
+        "scheme_docx": "library/MAT406/schemes/MAT406 Seed 10 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 10 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT406/papers/MAT406%20Seed%2010%202026.docx?v=1795275417",
+        "paper_pdf": "/library/MAT406/papers/MAT406%20Seed%2010%202026.pdf?v=1795275422",
+        "scheme_docx": "/library/MAT406/schemes/MAT406%20Seed%2010%202026%20-%20Marking%20Scheme.docx?v=1795275437",
+        "scheme_pdf": "/library/MAT406/schemes/MAT406%20Seed%2010%202026%20-%20Marking%20Scheme.pdf?v=1795275446"
+      }
+    },
+    {
+      "seed": 11,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 8,
+      "placeholders": 0,
+      "topic_marks": {
+        "coordinate_geometry": 53,
+        "trigonometry": 55,
+        "circular_measure": 10,
+        "vectors": 31,
+        "matrices": 23,
+        "functions": 14,
+        "inequalities": 14,
+        "circles": 13,
+        "systems_of_equations": 9
+      },
+      "topic_mix": "TRI 55 COO 53 VEC 31 MAT 23 FUN 14 INE 14 CIR 13 CIR 10 SYS 9",
+      "documents": [
+        {
+          "version": 1,
+          "label": "v1",
+          "files": {
+            "paper_docx": "library/MAT406/papers/MAT406 Seed 11 2026.docx",
+            "paper_pdf": "library/MAT406/papers/MAT406 Seed 11 2026.pdf",
+            "scheme_docx": "library/MAT406/schemes/MAT406 Seed 11 2026 - Marking Scheme.docx",
+            "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 11 2026 - Marking Scheme.pdf"
+          }
+        }
+      ],
+      "files": {
+        "paper_docx": "library/MAT406/papers/MAT406 Seed 11 2026.docx",
+        "paper_pdf": "library/MAT406/papers/MAT406 Seed 11 2026.pdf",
+        "scheme_docx": "library/MAT406/schemes/MAT406 Seed 11 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 11 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT406/papers/MAT406%20Seed%2011%202026.docx?v=1795275567",
+        "paper_pdf": "/library/MAT406/papers/MAT406%20Seed%2011%202026.pdf?v=1795275571",
+        "scheme_docx": "/library/MAT406/schemes/MAT406%20Seed%2011%202026%20-%20Marking%20Scheme.docx?v=1795275586",
+        "scheme_pdf": "/library/MAT406/schemes/MAT406%20Seed%2011%202026%20-%20Marking%20Scheme.pdf?v=1795275595"
+      }
+    },
+    {
+      "seed": 12,
+      "mode": "realistic",
+      "computed_marks": 0,
+      "total_marks": 100,
+      "marks_value": 100,
+      "has_practice_mode": false,
+      "has_placeholders": false,
+      "year": 2026,
+      "accepted": 8,
+      "placeholders": 0,
+      "topic_marks": {
+        "coordinate_geometry": 42,
+        "circular_measure": 20,
+        "trigonometry": 53,
+        "inequalities": 43,
+        "vectors": 31,
+        "matrices": 24,
+        "exponential_logarithmic": 15,
+        "circles": 10,
+        "systems_of_equations": 9
+      },
+      "topic_mix": "TRI 53 INE 43 COO 42 VEC 31 MAT 24 CIR 20 EXP 15 CIR 10 SYS 9",
+      "documents": [
+        {
+          "version": 1,
+          "label": "v1",
+          "files": {
+            "paper_docx": "library/MAT406/papers/MAT406 Seed 12 2026.docx",
+            "paper_pdf": "library/MAT406/papers/MAT406 Seed 12 2026.pdf",
+            "scheme_docx": "library/MAT406/schemes/MAT406 Seed 12 2026 - Marking Scheme.docx",
+            "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 12 2026 - Marking Scheme.pdf"
+          }
+        }
+      ],
+      "files": {
+        "paper_docx": "library/MAT406/papers/MAT406 Seed 12 2026.docx",
+        "paper_pdf": "library/MAT406/papers/MAT406 Seed 12 2026.pdf",
+        "scheme_docx": "library/MAT406/schemes/MAT406 Seed 12 2026 - Marking Scheme.docx",
+        "scheme_pdf": "library/MAT406/schemes/MAT406 Seed 12 2026 - Marking Scheme.pdf"
+      },
+      "urls": {
+        "paper_docx": "/library/MAT406/papers/MAT406%20Seed%2012%202026.docx?v=1795275705",
+        "paper_pdf": "/library/MAT406/papers/MAT406%20Seed%2012%202026.pdf?v=1795275709",
+        "scheme_docx": "/library/MAT406/schemes/MAT406%20Seed%2012%202026%20-%20Marking%20Scheme.docx?v=1795275724",
+        "scheme_pdf": "/library/MAT406/schemes/MAT406%20Seed%2012%202026%20-%20Marking%20Scheme.pdf?v=1795275732"
+      }
+    }
+  ]
+}

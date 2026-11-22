@@ -1,0 +1,101 @@
+{
+  "plan": {
+    "seed": 7,
+    "slots": [
+      {
+        "slot": "A1",
+        "question_id": "MAT406-2023-JUL-Q4",
+        "marks": 17,
+        "source_paper": "MAT406-2023-JUL",
+        "topic_tags": [
+          "circles",
+          "coordinate_geometry",
+          "circular_measure"
+        ]
+      },
+      {
+        "slot": "A2",
+        "question_id": "MAT406-2025-JUL-Q2",
+        "marks": 10,
+        "source_paper": "MAT406-2025-JUL",
+        "topic_tags": [
+          "circular_measure",
+          "trigonometry",
+          "inequalities"
+        ]
+      },
+      {
+        "slot": "A3",
+        "question_id": "MAT406-2026-FEB-Q3",
+        "marks": 8,
+        "source_paper": "MAT406-2026-FEB",
+        "topic_tags": [
+          "vectors"
+        ]
+      },
+      {
+        "slot": "A4",
+        "question_id": "MAT406-2024-JAN-Q5",
+        "marks": 15,
+        "source_paper": "MAT406-2024-JAN",
+        "topic_tags": [
+          "matrices",
+          "exponential_logarithmic",
+          "trigonometry"
+        ]
+      },
+      {
+        "slot": "B1",
+        "question_id": "MAT406-2024-JUL-Q2",
+        "marks": 13,
+        "source_paper": "MAT406-2024-JUL",
+        "topic_tags": [
+          "circles",
+          "coordinate_geometry"
+        ]
+      },
+      {
+        "slot": "B2",
+        "question_id": "MAT406-2021-JUL-Q3",
+        "marks": 9,
+        "source_paper": "MAT406-2021-JUL",
+        "topic_tags": [
+          "trigonometry"
+        ]
+      },
+      {
+        "slot": "B3",
+        "question_id": "MAT406-2025-FEB-Q4",
+        "marks": 17,
+        "source_paper": "MAT406-2025-FEB",
+        "topic_tags": [
+          "vectors",
+          "coordinate_geometry",
+          "trigonometry"
+        ]
+      },
+      {
+        "slot": "B4",
+        "question_id": "MAT406-2022-FEB-Q3",
+        "marks": 11,
+        "source_paper": "MAT406-2022-FEB",
+        "topic_tags": [
+          "inequalities",
+          "systems_of_equations"
+        ]
+      }
+    ],
+    "total_marks": 100,
+    "distinct_papers": 8,
+    "reuse_cap": 4
+  },
+  "qa": {
+    "seed": 7,
+    "slots": 8,
+    "total_marks": 100,
+    "distinct_papers": 8,
+    "problems": []
+  },
+  "paper_pages": 4,
+  "scheme_pages": 7
+}

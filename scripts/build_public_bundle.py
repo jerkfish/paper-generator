@@ -228,6 +228,7 @@ def _build_copied_documents(out: Path, seeds: list[int], force: bool,
             raise SystemExit(
                 f"no cached {subject.code} Library item for seed {seed}; run "
                 f"prebuild_library first")
+        item = _public_item(item, subject)
         print(f"{subject.code} seed {seed:02d}: public paper and scheme",
               flush=True)
         if _copy_complete(item, papers, schemes, force):
@@ -401,11 +402,14 @@ def _render_pages(out: Path, subject_items: dict[str, list[dict]],
 
 
 def _write_manifests(out: Path, subject_items: dict[str, list[dict]],
-                     local_only: bool = False) -> dict:
+                     local_only: bool = False,
+                     only: set[str] | None = None) -> dict:
     subjects = _public_subjects(local_only)
     subject_dir = out / "subjects"
     generated = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     for item in subjects:
+        if only is not None and item.code not in only:
+            continue
         data = item.public_dict()
         items = subject_items.get(item.code, [])
         data["paper_count"] = len(items)
@@ -621,7 +625,8 @@ def build(out: Path, seeds: list[int], force: bool = False,
             print(f"{code} documents: {doc_info[code]}", flush=True)
     page_info = _render_pages(out, subject_items, local_only=local_only)
     print(f"pages: {page_info}", flush=True)
-    manifest_info = _write_manifests(out, subject_items, local_only=local_only)
+    manifest_info = _write_manifests(out, subject_items, local_only=local_only,
+                                    only=set(codes))
     print(f"manifests: {manifest_info}", flush=True)
     problems = validate(out)
     if problems:

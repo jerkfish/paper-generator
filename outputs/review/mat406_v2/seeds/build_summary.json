@@ -1,0 +1,331 @@
+{
+  "schema_version": 2,
+  "subject": "MAT406",
+  "generated_on": "2026-11-21",
+  "seeds": [
+    {
+      "seed": 1,
+      "plan": {
+        "seed": 1,
+        "slots": [
+          {
+            "slot": "A1",
+            "question_id": "MAT406-2026-FEB-Q1",
+            "marks": 11,
+            "source_paper": "MAT406-2026-FEB",
+            "topic_tags": [
+              "coordinate_geometry"
+            ]
+          },
+          {
+            "slot": "A2",
+            "question_id": "MAT406-2025-JUL-Q2",
+            "marks": 10,
+            "source_paper": "MAT406-2025-JUL",
+            "topic_tags": [
+              "circular_measure",
+              "trigonometry",
+              "inequalities"
+            ]
+          },
+          {
+            "slot": "A3",
+            "question_id": "MAT406-2025-FEB-Q4",
+            "marks": 17,
+            "source_paper": "MAT406-2025-FEB",
+            "topic_tags": [
+              "vectors",
+              "coordinate_geometry",
+              "trigonometry"
+            ]
+          },
+          {
+            "slot": "A4",
+            "question_id": "MAT406-2023-JUL-Q6",
+            "marks": 15,
+            "source_paper": "MAT406-2023-JUL",
+            "topic_tags": [
+              "matrices",
+              "systems_of_equations",
+              "functions"
+            ]
+          },
+          {
+            "slot": "B1",
+            "question_id": "MAT406-2024-JUL-Q2",
+            "marks": 13,
+            "source_paper": "MAT406-2024-JUL",
+            "topic_tags": [
+              "circles",
+              "coordinate_geometry"
+            ]
+          },
+          {
+            "slot": "B2",
+            "question_id": "MAT406-2022-FEB-Q5",
+            "marks": 15,
+            "source_paper": "MAT406-2022-FEB",
+            "topic_tags": [
+              "circular_measure",
+              "circles",
+              "trigonometry"
+            ]
+          },
+          {
+            "slot": "B3",
+            "question_id": "MAT406-2021-JUL-Q5",
+            "marks": 5,
+            "source_paper": "MAT406-2021-JUL",
+            "topic_tags": [
+              "vectors",
+              "coordinate_geometry"
+            ]
+          },
+          {
+            "slot": "B4",
+            "question_id": "MAT406-2024-JAN-Q6",
+            "marks": 14,
+            "source_paper": "MAT406-2024-JAN",
+            "topic_tags": [
+              "matrices",
+              "systems_of_equations"
+            ]
+          }
+        ],
+        "total_marks": 100,
+        "distinct_papers": 8,
+        "reuse_cap": 4
+      },
+      "qa": {
+        "seed": 1,
+        "slots": 8,
+        "total_marks": 100,
+        "distinct_papers": 8,
+        "problems": []
+      },
+      "paper_pages": 5,
+      "scheme_pages": 7
+    },
+    {
+      "seed": 2,
+      "plan": {
+        "seed": 2,
+        "slots": [
+          {
+            "slot": "A1",
+            "question_id": "MAT406-2025-JUL-Q1",
+            "marks": 9,
+            "source_paper": "MAT406-2025-JUL",
+            "topic_tags": [
+              "coordinate_geometry"
+            ]
+          },
+          {
+            "slot": "A2",
+            "question_id": "MAT406-2023-JUL-Q5",
+            "marks": 17,
+            "source_paper": "MAT406-2023-JUL",
+            "topic_tags": [
+              "trigonometry",
+              "circular_measure",
+              "inequalities"
+            ]
+          },
+          {
+            "slot": "A3",
+            "question_id": "MAT406-2026-FEB-Q3",
+            "marks": 8,
+            "source_paper": "MAT406-2026-FEB",
+            "topic_tags": [
+              "vectors"
+            ]
+          },
+          {
+            "slot": "A4",
+            "question_id": "MAT406-2025-FEB-Q5",
+            "marks": 15,
+            "source_paper": "MAT406-2025-FEB",
+            "topic_tags": [
+              "matrices",
+              "exponential_logarithmic"
+            ]
+          },
+          {
+            "slot": "B1",
+            "question_id": "MAT406-2024-JAN-Q2",
+            "marks": 13,
+            "source_paper": "MAT406-2024-JAN",
+            "topic_tags": [
+              "circles",
+              "coordinate_geometry"
+            ]
+          },
+          {
+            "slot": "B2",
+            "question_id": "MAT406-2021-JUL-Q3",
+            "marks": 9,
+            "source_paper": "MAT406-2021-JUL",
+            "topic_tags": [
+              "trigonometry"
+            ]
+          },
+          {
+            "slot": "B3",
+            "question_id": "MAT406-2022-FEB-Q7",
+            "marks": 14,
+            "source_paper": "MAT406-2022-FEB",
+            "topic_tags": [
+              "vectors",
+              "coordinate_geometry",
+              "trigonometry"
+            ]
+          },
+          {
+            "slot": "B4",
+            "question_id": "MAT406-2023-FEB-Q6",
+            "marks": 15,
+            "source_paper": "MAT406-2023-FEB",
+            "topic_tags": [
+              "matrices",
+              "systems_of_equations",
+              "functions"
+            ]
+          }
+        ],
+        "total_marks": 100,
+        "distinct_papers": 8,
+        "reuse_cap": 4
+      },
+      "qa": {
+        "seed": 2,
+        "slots": 8,
+        "total_marks": 100,
+        "distinct_papers": 8,
+        "problems": []
+      },
+      "paper_pages": 3,
+      "scheme_pages": 7
+    },
+    {
+      "seed": 3,
+      "plan": {
+        "seed": 3,
+        "slots": [
+          {
+            "slot": "A1",
+            "question_id": "MAT406-2023-JUL-Q4",
+            "marks": 17,
+            "source_paper": "MAT406-2023-JUL",
+            "topic_tags": [
+              "circles",
+              "coordinate_geometry",
+              "circular_measure"
+            ]
+          },
+          {
+            "slot": "A2",
+            "question_id": "MAT406-2026-FEB-Q2",
+            "marks": 10,
+            "source_paper": "MAT406-2026-FEB",
+            "topic_tags": [
+              "trigonometry",
+              "circular_measure"
+            ]
+          },
+          {
+            "slot": "A3",
+            "question_id": "MAT406-2025-JUL-Q3",
+            "marks": 8,
+            "source_paper": "MAT406-2025-JUL",
+            "topic_tags": [
+              "vectors"
+            ]
+          },
+          {
+            "slot": "A4",
+            "question_id": "MAT406-2024-JUL-Q5",
+            "marks": 15,
+            "source_paper": "MAT406-2024-JUL",
+            "topic_tags": [
+              "matrices"
+            ]
+          },
+          {
+            "slot": "B1",
+            "question_id": "MAT406-2025-FEB-Q2",
+            "marks": 13,
+            "source_paper": "MAT406-2025-FEB",
+            "topic_tags": [
+              "circles",
+              "coordinate_geometry"
+            ]
+          },
+          {
+            "slot": "B2",
+            "question_id": "MAT406-2021-JUL-Q3",
+            "marks": 9,
+            "source_paper": "MAT406-2021-JUL",
+            "topic_tags": [
+              "trigonometry"
+            ]
+          },
+          {
+            "slot": "B3",
+            "question_id": "MAT406-2024-JAN-Q4",
+            "marks": 17,
+            "source_paper": "MAT406-2024-JAN",
+            "topic_tags": [
+              "vectors"
+            ]
+          },
+          {
+            "slot": "B4",
+            "question_id": "MAT406-2022-FEB-Q3",
+            "marks": 11,
+            "source_paper": "MAT406-2022-FEB",
+            "topic_tags": [
+              "inequalities",
+              "systems_of_equations"
+            ]
+          }
+        ],
+        "total_marks": 100,
+        "distinct_papers": 8,
+        "reuse_cap": 4
+      },
+      "qa": {
+        "seed": 3,
+        "slots": 8,
+        "total_marks": 100,
+        "distinct_papers": 8,
+        "problems": []
+      },
+      "paper_pages": 5,
+      "scheme_pages": 8
+    }
+  ],
+  "counts": {
+    "seeds": 3,
+    "questions_per_seed": 8,
+    "marks_per_seed": 100,
+    "distinct_papers_per_seed": 8,
+    "qa_problems": 0
+  },
+  "marks_policy": "Role order with printed marks travelling; target 100.",
+  "feasibility": {
+    "seeds_possible": 12,
+    "exact_slot_marks_possible": 8
+  },
+  "templates": {
+    "paper_source": "data/reference/MAT406/MAT406 TEMPLATE-manualfix.docx",
+    "scheme_source": "data/reference/MAT406/scheme-template-fix.docx",
+    "paper_derived": "data/reference/MAT406/MAT406 TEMPLATE.docx"
+  },
+  "gate_b_proofing": {
+    "corrected_questions": 19,
+    "corrected_parts": 25,
+    "report": "data/tracking/mat406/v2/text_corrections_v5.json",
+    "answers_regenerated": true,
+    "answer_cost_usd": 0.13279
+  }
+}
