@@ -426,6 +426,11 @@ def _write_manifests(out: Path, subject_items: dict[str, list[dict]],
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 
+    counts = {
+        subject.code: _bundle_count(
+            out, subject.code, len(subject_items.get(subject.code, [])))
+        for subject in subjects
+    }
     total_papers = 0
     for code, items in subject_items.items():
         subject = get_subject(code)
@@ -501,9 +506,9 @@ def _write_manifests(out: Path, subject_items: dict[str, list[dict]],
         "generated": generated,
         "subjects": [
             {"code": s.code, "title": s.title, "status": s.status,
-             "papers": len(subject_items.get(s.code, [])),
+             "papers": counts.get(s.code, 0),
              "manifest": (f"/library/{s.code}/manifest.json"
-                          if subject_items.get(s.code) else None)}
+                          if counts.get(s.code, 0) else None)}
             for s in subjects
         ],
     }
@@ -522,15 +527,15 @@ def _write_manifests(out: Path, subject_items: dict[str, list[dict]],
                 "route": s.route,
                 "available": s.available,
                 "type": s.subject_type,
-                "papers": len(subject_items.get(s.code, [])),
+                "papers": counts.get(s.code, 0),
                 "library_manifest": (
                     f"/library/{s.code}/manifest.json"
-                    if subject_items.get(s.code) else None),
+                    if counts.get(s.code, 0) else None),
                 "routes": ({
                     "home": f"/{s.route}",
                     "library": f"/{s.route}/library",
                     "generate": f"/{s.route}/generate",
-                } if subject_items.get(s.code) else None),
+                } if counts.get(s.code, 0) else None),
             }
             for s in subjects
         ],

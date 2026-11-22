@@ -32,9 +32,9 @@ format, with answers whose provenance is recorded.
 | Purpose | Recycle past papers into new mock papers and marking schemes |
 | Core model | Question bank + current format profile + deterministic assembler |
 | Local runtime | Python 3.12+, FastAPI, `uv` |
-| Subjects | 44 registry entries: 5 `available`, 39 `coming_soon` |
-| Available locally | CSC402, CSC413, CSC429, CSC662, MAT133 |
-| Published | CSC413, CSC429, CSC662, MAT133 |
+| Subjects | 44 registry entries: 7 `available`, 37 `coming_soon` |
+| Available locally | CSC402, CSC413, CSC429, ICT450, MAT406, CSC662, MAT133 |
+| Published | CSC413, CSC429, CSC662, MAT133, MAT406 |
 | Public site | <https://uitmpapergen.download> |
 | Public runtime | Cloudflare Worker + R2 + D1; no Python and no LLM |
 | Local UI | <http://127.0.0.1:8000> |
@@ -42,12 +42,12 @@ format, with answers whose provenance is recorded.
 | Contact | auzair1990@gmail.com |
 | Repository | <https://github.com/jerkfish/paper-generator> |
 
-**Current migration status:** the v2 playbook and audit are in place. The
-shared `src/bank/` and `src/assemble/recycle.py` code is the next phase; until
-it lands, CSC429 is the reference implementation and finished subjects keep
-their current behaviour. ICT450 v1 is archived; the subject is reset to Type D
-at V0. The Phase 4 pilot will build the new bank and stop at Gate A. See
-`docs/V2_AUDIT.md`.
+**Current status:** v2 is the active playbook. The shared `src/bank/` and
+`src/assemble/recycle.py` code is in use; CSC429 remains the reference
+implementation. MAT406 is the newest completed Type D recycle subject: 12
+seeds, Gate A/B/C approved and published on 2026-11-22. ICT450 v1 remains
+archived. v1 documents are legacy only; new subjects publish v2. See
+`docs/V2_AUDIT.md` and `docs/MAT406.md`.
 
 ## How it fits together
 
@@ -94,8 +94,8 @@ flowchart LR
 |---|---|---|
 | Local UI | `src/app/` | Subject pages, generation jobs, Library, health and safety checks |
 | Subject contract | `subjects/<CODE>/subject.json`, `src/subjects/registry.py`, `src/subjects/plugins.py` | Registry-driven metadata, strategy, capabilities and plugins |
-| Bank | `src/bank/` (v2 target; CSC429 `pure_*` reference) | Bank schema, store, validators, duplicate clusters, quality and review |
-| Assembler | `src/assemble/recycle.py` (v2 target; CSC429 `pure_assembly.py` reference) | Approved-only selection, feasibility, reuse cap, reference renumbering |
+| Bank | `src/bank/` (shared v2 bank; CSC429 `pure_*` reference) | Bank schema, store, validators, duplicate clusters, quality and review |
+| Assembler | `src/assemble/recycle.py` (shared v2 assembler; CSC429 `pure_assembly.py` reference) | Approved-only selection, feasibility, reuse cap, reference renumbering |
 | Subject implementations | `src/subjects/<code>/` | Subject-specific extraction, format profile and templates |
 | Preprocessing | `src/subjects/preprocess.py`, `src/ingest/`, `src/subjects/parsers/` | Paper register, OCR, MinerU extraction and normalization |
 | Theory / variants | `src/theory/` | Optional grounded theory for existing A/C subjects |
@@ -183,7 +183,7 @@ existing subjects and for optional variants where a solver can verify answers.
 | **A** | Slides + LLM theory | Generate + verify | CSC662 |
 | **B** | Deterministic computed | Generate | CSC402, CSC413, MAT133 |
 | **C** | Hybrid | Generate and/or recycle | Existing hybrid subjects only |
-| **D** | Asset-first recycle | Recycle approved real questions | CSC429 |
+| **D** | Asset-first recycle | Recycle approved real questions | CSC429, MAT406 |
 
 A subject contract records `strategy` (`recycle` or `generate`),
 `variants.enabled` (default `false`), `library.size_policy`
@@ -235,7 +235,8 @@ uv run python -m src.app.main
 # open http://127.0.0.1:8000
 ```
 
-Type-B subjects (CSC402, CSC413, MAT133) work without an API key. CSC662 live
+Type-B and Type-D subjects (CSC402, CSC413, MAT133, CSC429, MAT406) work
+without an API key. CSC662 live
 generation needs a key in `.env`; the file is gitignored. Keys are read from
 the environment only:
 
@@ -267,9 +268,10 @@ Public builds fail closed if the real key is missing.
 | CSC429 | Computer Organization and Architecture | D | Available | Published | **Reference recycle implementation** |
 | CSC662 | Computer Security | A | Available | Published | Stage 10 cost backfill in progress |
 | MAT133 | Pre-Calculus | B | Available | Published | Complete |
+| MAT406 | Foundation Mathematics | D | Available | Published | **Complete V0–V8; Gate C 2026-11-22; 12 seeds** |
 | ICT450 | Database Design and Development | D | V0 reset | Not published | **v1 archived; V0 permission re-check; pilot stops at Gate A** |
 
-The remaining 38 registry entries are empty `coming_soon` stubs. Under v2 they
+The remaining 37 registry entries are empty `coming_soon` stubs. Under v2 they
 default to recycle (type D) when onboarding starts.
 
 ## Repository map
@@ -277,8 +279,8 @@ default to recycle (type D) when onboarding starts.
 ```text
 subjects/<CODE>/subject.json       Subject contract: type, strategy, permissions
 subjects/<CODE>/lifecycle_state.json Stage/gate status, evidence, unsure, cost
-src/bank/                          Shared v2 bank (Phase 2 target)
-src/assemble/recycle.py            Shared v2 assembler (Phase 2 target)
+src/bank/                          Shared v2 bank
+src/assemble/recycle.py            Shared v2 assembler
 src/subjects/<code>/               Subject extraction, format profile and templates
 src/subjects/registry.py           Registry loader
 src/subjects/preprocess.py         Shared paper register/corpus stage
@@ -316,9 +318,9 @@ docs/                              Playbook, audit and per-subject reports
 | Build the public bundle | `uv run python -m scripts.build_public_bundle --out outputs/public_bundle` |
 | R2 dry run | `uv run python -m scripts.r2_sync --bundle outputs/public_bundle` |
 
-Type-D scaffolding and the shared bank/assembler CLI arrive with the Phase 2
-code migration; the current `new_subject.py` accepts A/B/C only. Gate C is a
-hard stop: never upload or deploy without explicit publication approval.
+The v2 bank/assembler CLI is `uv run python -m src.bank.cli status|review|plans`.
+Gate C is a hard stop: never upload or deploy without explicit publication
+approval, and keep publication scoped to the subject under work.
 
 ## Public deployment
 
@@ -327,11 +329,12 @@ hard stop: never upload or deploy without explicit publication approval.
 | Public site | <https://uitmpapergen.download> |
 | `www` | <https://www.uitmpapergen.download> → 301 → apex |
 | Worker fallback | <https://papergen.jerkfish123.workers.dev> |
-| Public subjects | CSC413, CSC429, CSC662, MAT133 |
-| R2 snapshot | 478 objects, 118,250,782 bytes |
-| R2 quota used | 516 Class A, 0 Class B (November 2026) |
+| Public subjects | CSC413, CSC429, CSC662, MAT133, MAT406 |
+| R2 snapshot | 742 objects, 204,942,899 bytes (including legacy MAT406 v1); v2-only bundle: 694 objects / 183.02 MiB |
+| R2 quota used | 935 Class A, 0 Class B (November 2026) |
 | D1 database | `papergen` |
 | R2 bucket | `exampapers` |
+| Worker version | `31d985ce-7b4c-4f7d-99ff-a9abf4b87f5c` |
 | Worker source | `cloudflare/worker/` |
 
 The Worker serves static pages and documents from R2, resolves subject routes
@@ -339,7 +342,10 @@ from the generated `subjects.json`, and exposes a D1-backed gallery with 7-day
 share expiry. It has no Python runtime, no API key and no live generation.
 
 The public bundle is built locally, validated on forbidden paths and missing
-manifests, then uploaded only after Gate C approval. The live container mode is
+manifests, then uploaded only after Gate C approval. Gate C publication is
+scoped to the subject under work: `--subject <CODE>` must not rebuild or
+re-upload unrelated subjects. v1 documents are legacy only; new subjects
+publish v2 only. The live container mode is
 scaffolded in `cloudflare/container-worker/` but **not deployed**; it requires
 Cloudflare Workers Paid and Docker. See `docs/DEPLOY_LIVE.md`.
 
@@ -396,6 +402,7 @@ actual LLM cost so far.
 | `docs/CSC429.md` | Reference Type-D recycle implementation |
 | `docs/archive/ict450_v1/ICT450.md` | Archived v1 type-C report; not approved |
 | `docs/MAT133.md`, `docs/MAT133_TAXONOMY.md` | Deterministic paper-derived generator example |
+| `docs/MAT406.md`, `docs/MAT406_PUBLICATION_REPORT.md` | MAT406 Type-D recycle completion, Gate C and live publication |
 | `docs/DEPLOY_LIVE.md` | Optional live container mode, cost and secrets |
 | `AGENTS.md` | Repository rules for automated agents |
 | `design/` | Public page design and public-bundle allowlist |
@@ -410,8 +417,8 @@ cd cloudflare/worker && bun test
 Baseline recorded for the v2 audit:
 
 ```text
-Python:  352 passed, 0 failed, 12 skipped
-Worker:  6 passed, 0 failed
+Python:  453 passed, 0 failed, 12 skipped
+Worker:  7 passed, 0 failed
 ```
 
 Coverage includes the planner/verifier, job lifecycle, cost-cap abort, cache
