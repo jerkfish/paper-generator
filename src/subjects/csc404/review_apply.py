@@ -211,7 +211,9 @@ def _apply_asset(asset: dict, decision: dict) -> tuple[dict, str, str]:
     return asset, "", plain
 
 
-def _refresh(store: BankStore) -> dict:
+def _refresh(store: BankStore, *, gate_status: str = "pending",
+             note: str = "Round 1 applied: approved questions recorded; "
+                         "fixes await round 2 review.") -> dict:
     questions = list(store.questions())
     assets = list(store.assets())
     duplicate_clusters = cluster_duplicates(questions)
@@ -248,8 +250,8 @@ def _refresh(store: BankStore) -> dict:
         "generated_on": _now(),
         "model": "vlm",
         "counts": {
-            "papers": 5,
-            "papers_expected": 5,
+            "papers": len({q["source_paper"] for q in questions}),
+            "papers_expected": len({q["source_paper"] for q in questions}),
             "papers_missing": 0,
             "questions": len(questions),
             **statuses,
@@ -289,36 +291,58 @@ def _refresh(store: BankStore) -> dict:
     save_json(BANK / "index.json", index)
     save_json(BANK / "unsure.json", {
         "subject": SUBJECT, "generated_on": _now(), "items": []})
+    approved = gate_status == "approved"
     save_json(BANK / "approvals.json", {
         "subject": SUBJECT,
         "gate_a": {
-            "status": "pending",
-            "by": "",
-            "on": "",
-            "evidence": [],
-            "note": ("Round 1 applied: approved questions recorded; fixes "
-                     "await round 2 review."),
+            "status": gate_status,
+            "by": "owner" if approved else "",
+            "on": _today() if approved else "",
+            "evidence": ([
+                "data/tracking/csc404/bank/review/review_decisions_round2.json",
+                "data/tracking/csc404/bank/review/review_apply_report_round2.json",
+                "data/tracking/csc404/bank/gate1_report.md",
+            ] if approved else []),
+            "note": note,
         },
     })
     build_review_sheet(
         store, REVIEW, subject=SUBJECT,
-        title="CSC404 v2 bank — round 1 full review",
+        title="CSC404 v2 bank — full review",
         filename="all.html", export_name="review_decisions_all.json")
-    build_review_sheet(
-        store, REVIEW, subject=SUBJECT,
-        title="CSC404 v2 bank — round 2: needs fix only",
-        only_status={"needs_fix"}, filename="index.html",
-        export_name="review_decisions_round2.json")
-    _write_paper_index(
-        index, REVIEW, filename="index_by_paper.html", sheet="index.html",
-        statuses={"needs_fix"},
-        heading="CSC404 v2 bank — round 2 (needs fix only)")
+    if approved:
+        build_review_sheet(
+            store, REVIEW, subject=SUBJECT,
+            title="CSC404 v2 bank — Gate A approved",
+            filename="index.html", export_name="review_decisions_final.json")
+        _write_paper_index(
+            index, REVIEW, filename="index_by_paper.html", sheet="index.html",
+            heading="CSC404 v2 bank — Gate A approved")
+    else:
+        build_review_sheet(
+            store, REVIEW, subject=SUBJECT,
+            title="CSC404 v2 bank — round 2: needs fix only",
+            only_status={"needs_fix"}, filename="index.html",
+            export_name="review_decisions_round2.json")
+        _write_paper_index(
+            index, REVIEW, filename="index_by_paper.html", sheet="index.html",
+            statuses={"needs_fix"},
+            heading="CSC404 v2 bank — round 2 (needs fix only)")
     _write_marks_csv(questions, REVIEW)
     report = _gate_report(
         index, questions, active_assets, [], REVIEW / "index.html")
     report["counts"]["rejected_assets"] = len(rejected_assets)
     report["review_round"] = 2
     report["round1_counts"] = statuses
+    if approved:
+        report["status"] = "approved"
+        report["owner_approval"] = {
+            "required": True,
+            "approved": True,
+            "by": "owner",
+            "on": _today(),
+            "note": note,
+        }
     save_json(BANK / "gate1_report.json", report)
     (BANK / "gate1_report.md").write_text(
         _gate_report_md(report, questions), encoding="utf-8")
@@ -468,6 +492,121 @@ def apply_decisions(decisions_path: Path = DECISIONS,
     return report
 
 
+def apply_round2(decisions_path: Path = DECISIONS) -> dict:
+    """Approve the round 2 fixes and close Gate A for the bank."""
+    payload = load_json(Path(decisions_path), {})
+    if str(payload.get("subject")) != SUBJECT:
+        raise SystemExit("review decisions are not for CSC404")
+    decisions = payload.get("questions") or {}
+    store = BankStore(BANK)
+    questions = {str(row["id"]): row for row in store.questions()}
+    assets = {str(row["id"]): row for row in store.assets()}
+    missing = sorted(set(decisions) - set(questions))
+    if missing:
+        raise SystemExit(f"decisions reference missing questions: {missing}")
+    not_approved = [
+        qid for qid, decision in decisions.items()
+        if str(decision.get("verdict") or "") != "approved"]
+    if not_approved:
+        raise SystemExit(
+            f"round 2 requires every verdict approved: {not_approved}")
+
+    for qid, decision in decisions.items():
+        question = dict(questions[qid])
+        comment = str(decision.get("comment")
+                      or decision.get("notes") or "").strip()
+        question["status"] = "approved"
+        question["review_verdict"] = "approved"
+        question["review_round"] = 2
+        question["review_notes"] = _plain_note(comment)
+        question["review_note_text"] = question["review_notes"]
+        question["reviewed_on"] = _today()
+        question["parse_notes"] = []
+        for aid, asset_decision in (decision.get("assets") or {}).items():
+            asset = assets.get(aid)
+            if asset is None:
+                continue
+            ad = (asset_decision if isinstance(asset_decision, dict)
+                  else {"choice": str(asset_decision)})
+            choice = str(ad.get("choice") or "")
+            asset = dict(asset)
+            asset["review_choice"] = choice
+            asset["reviewed_on"] = _today()
+            if choice == "use_recreation":
+                path = Path(str(asset.get("path") or ""))
+                if not path.is_file():
+                    raise SystemExit(
+                        f"{aid}: recreation PNG is missing: {path}")
+                asset["verdict"] = "approved"
+                asset["selected_treatment"] = "html_recreation"
+            elif choice == "use_original":
+                original = str(asset.get("review_original_path") or "")
+                if original:
+                    asset["path"] = str(
+                        (BANK / original.replace("../", "", 1)).resolve())
+                asset["verdict"] = "approved"
+                asset["selected_treatment"] = "original_crop"
+            else:
+                raise SystemExit(f"{aid}: invalid asset choice {choice!r}")
+            save_json(store.asset_path(aid), asset)
+            assets[aid] = asset
+        save_json(store.question_path(qid), question)
+        questions[qid] = question
+
+    leftover = sorted(qid for qid, question in questions.items()
+                      if question["status"] != "approved")
+    if leftover:
+        raise SystemExit(f"questions still not approved: {leftover}")
+
+    # Keep the reviewed round 2 sheet for audit before index.html is
+    # replaced by the final all-approved sheet.
+    if (REVIEW / "index.html").is_file():
+        (REVIEW / "round2.html").write_text(
+            (REVIEW / "index.html").read_text(encoding="utf-8"),
+            encoding="utf-8")
+
+    metadata = _refresh(
+        store, gate_status="approved",
+        note=("Gate A approved by owner on " + _today()
+              + "; 30/30 bank questions approved."))
+    counts = {
+        "approved": sum(1 for q in questions.values()
+                        if q["status"] == "approved"),
+        "needs_fix": sum(1 for q in questions.values()
+                         if q["status"] == "needs_fix"),
+        "rejected": sum(1 for q in questions.values()
+                        if q["status"] == "rejected"),
+        "assets_approved": sum(1 for a in assets.values()
+                               if a.get("verdict") == "approved"),
+    }
+    report = {
+        "schema_version": 1,
+        "subject": SUBJECT,
+        "applied_on": _now(),
+        "decisions_exported_on": payload.get("exported_on", ""),
+        "gate_a": "approved",
+        "counts": counts,
+        "questions": sorted(decisions),
+        "bank": metadata,
+    }
+    save_json(REVIEW / "review_apply_report_round2.json", report)
+    (REVIEW / "review_apply_report_round2.md").write_text(
+        "\n".join([
+            "# CSC404 round 2 review — applied",
+            "",
+            f"Applied: {report['applied_on']}",
+            "",
+            f"- Questions approved: {counts['approved']}",
+            f"- Needs fix: {counts['needs_fix']}",
+            f"- Rejected: {counts['rejected']}",
+            f"- Assets approved: {counts['assets_approved']}",
+            "",
+            "Gate A is **approved**. The bank is ready for V3.",
+            "",
+        ]), encoding="utf-8")
+    return report
+
+
 def _report_md(report: dict) -> str:
     counts = report["counts"]
     lines = [
@@ -519,7 +658,16 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--decisions", type=Path, default=DECISIONS)
     parser.add_argument("--no-render", action="store_true")
+    parser.add_argument("--round2", action="store_true")
     args = parser.parse_args()
+    if args.round2:
+        result = apply_round2(args.decisions)
+        print(json.dumps({
+            "counts": result["counts"],
+            "bank": result["bank"],
+            "gate_a": result["gate_a"],
+        }, indent=2))
+        return
     result = apply_decisions(args.decisions, render=not args.no_render)
     print(json.dumps({
         "counts": result["counts"],

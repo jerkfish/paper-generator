@@ -7,7 +7,7 @@
   "strategy": "recycle",
   "lifecycle_status": "in_progress",
   "created": "2026-11-22T01:28:41Z",
-  "updated": "2026-11-22T04:33:05Z",
+  "updated": "2026-11-22T08:18:55Z",
   "stages": {
     "V0_intake": {
       "status": "done",
@@ -50,7 +50,7 @@
       "notes": "MinerU Cloud vlm; 16/16 unique papers done, 0 failed, 161 pages, 108 question headings, 53 image blocks, 16 of 20 references resolved. Full ZIP, content list, page renders and contact sheets retained. Free tier; $0.00. Originals untouched."
     },
     "V2_bank": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "data/tracking/csc404/bank/index.json",
         "data/tracking/csc404/bank/gate1_report.md",
@@ -64,8 +64,72 @@
         "data/tracking/csc404/asset_exclusions.json"
       ],
       "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": true,
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-22",
+        "note": "Gate A approved after round 2: all 30 current-format questions and 19 owner recreations approved."
+      },
+      "notes": "Gate A approved 2026-11-22. Bank covers the five current-format papers (FEB 2023, JUL 2024, FEB 2025, JUL 2025, FEB 2026): 30 questions, 500 printed marks, 100 per paper, 19 approved assets, 0 needs_fix, 0 unresolved references, 0 duplicate clusters, 6 non-question watermark assets excluded. Round 1 approved 19 questions; round 2 approved the 11 recreated table/figure questions. MinerU code blocks were included by re-normalising the cached dossiers (no cloud re-run). Marks and dropped text restored from page renders via marks_overrides.json and text_corrections.json."
+    },
+    "V3_format": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/csc404/format_profile.json",
+        "data/tracking/csc404/template_check.json",
+        "data/reference/CSC404/CSC404 TEMPLATE.docx",
+        "data/reference/CSC404/CSC404 SCHEME.docx",
+        "data/reference/CSC404/scheme-coverpage-fix.docx",
+        "data/tracking/csc404/template_cover.png",
+        "data/tracking/csc404/scheme_cover.png",
+        "data/tracking/csc404/templates_preview/"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": false,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": "Current format profile: 3 hours, Part A (4 questions), Part B (2 questions), 100 marks. Paper cover derived from UTM_STANDARD_COVERv2.docx with CSC404 fields, PART A (4 Questions), PART B (2 Questions), 9 printed pages and 3 HOURS. Scheme cover copied verbatim from the owner-supplied scheme-coverpage-fix.docx with CSC404 fields, notes and 12 printed pages; the standard scheme cover remains the fallback. Template check: 0 problems. Slot marks vary (Q1 15/20, Q2 10/20, Q3 15/20); role order with printed marks travelling, target 100, owner confirms at Gate B."
+    },
+    "V4_answers": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/csc404/bank/answers.json",
+        "data/tracking/csc404/bank/answers_report.json",
+        "data/tracking/csc404/answers/cost_ledger.json",
+        "data/tracking/csc404/answers/raw/"
+      ],
+      "llm_cost_usd": 0.286809,
+      "blockers": [],
+      "human_approval": {
+        "required": false,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": "30/30 approved questions answered by deepseek-flash with thinking; all usable, 0 validation errors. All answers are model_unofficial; no official CSC404 scheme was supplied. Owner-recreation table text is supplied to the model so table values are not invented. Cost $0.286809."
+    },
+    "V5_seeds_1_3": {
+      "status": "in_progress",
+      "evidence": [
+        "outputs/review/csc404_v2/seeds/seed_01/",
+        "outputs/review/csc404_v2/seeds/seed_02/",
+        "outputs/review/csc404_v2/seeds/seed_03/",
+        "outputs/review/csc404_v2/seeds/Gate_B_report.md",
+        "outputs/review/csc404_v2/seeds/index.html",
+        "outputs/review/csc404_v2/seeds/build_summary.json",
+        "outputs/review/csc404_v2/seeds/feasibility.json"
+      ],
+      "llm_cost_usd": 0.0,
       "blockers": [
-        "Gate A owner approval pending: 11 needs-fix questions await round 2 review"
+        "Gate B owner approval pending"
       ],
       "human_approval": {
         "required": true,
@@ -74,49 +138,7 @@
         "on": "",
         "note": ""
       },
-      "notes": "Bank built for the five current-format papers (FEB 2023, JUL 2024, FEB 2025, JUL 2025, FEB 2026): 30 questions, 500 printed marks, 100 per paper, 19 assets, 0 unresolved references, 0 duplicate clusters, 6 non-question watermark assets excluded. Round 1 owner review applied: 19 questions approved; 11 flagged questions have their owner-supplied HTML recreations rendered to PNG and await round 2. MinerU code blocks were included by re-normalising the cached dossiers (no cloud re-run). Marks and dropped text restored from page renders via marks_overrides.json and text_corrections.json."
-    },
-    "V3_format": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": false,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
-    },
-    "V4_answers": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": false,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
-    },
-    "V5_seeds_1_3": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": false,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
+      "notes": "Seeds 1-3 built: 6 questions, 100 marks, 5 distinct source papers each; QA 0 problems. Paper and scheme covers are the CSC404 standard-cover derivations. Formatting refinement applied: code functions/program text are shaded monospace code boxes with printed indentation; question headings, subheadings and captions stay outside code; bullets are left-indented; sample output is a console-style monospace block. Owner recreations are used for tables/figures. Feasibility 20 seeds under reuse cap 4. Awaiting Gate B."
     },
     "V6_library": {
       "status": "pending",
@@ -163,10 +185,16 @@
   },
   "gates": {
     "A": {
-      "status": "pending",
-      "by": "",
-      "on": "",
-      "evidence": []
+      "status": "approved",
+      "by": "owner",
+      "on": "2026-11-22",
+      "evidence": [
+        "data/tracking/csc404/bank/approvals.json",
+        "data/tracking/csc404/bank/gate1_report.md",
+        "data/tracking/csc404/bank/review/review_decisions.json",
+        "data/tracking/csc404/bank/review/review_decisions_round2.json",
+        "data/tracking/csc404/bank/review/review_apply_report_round2.md"
+      ]
     },
     "B": {
       "status": "pending",
@@ -183,8 +211,8 @@
   },
   "bank": {
     "questions": 30,
-    "approved": 19,
-    "needs_fix": 11,
+    "approved": 30,
+    "needs_fix": 0,
     "rejected": 0,
     "assets": 19,
     "duplicate_clusters": 0
@@ -233,18 +261,18 @@
   ],
   "llm_cost": {
     "currency": "USD",
-    "total_usd": 0.0,
+    "total_usd": 0.286809,
     "by_stage": {
       "V0_intake": 0.0,
       "V1_extract": 0.0,
       "V2_bank": 0.0,
       "V3_format": 0.0,
-      "V4_answers": 0.0,
+      "V4_answers": 0.286809,
       "V5_seeds_1_3": 0.0,
       "V6_library": 0.0,
       "V7_publish": 0.0,
       "V8_close_out": 0.0
     }
   },
-  "stop_reason": "Round 1 review applied: 19 questions approved; 11 needs-fix questions await round 2 owner review."
+  "stop_reason": "Seeds 1-3 built; Gate B owner review pending."
 }

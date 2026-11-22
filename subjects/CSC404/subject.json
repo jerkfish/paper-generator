@@ -7,7 +7,7 @@
   "has_practice_mode": false,
   "has_placeholders": false,
   "header_text": "CSC404 PROGRAMMING II",
-  "template_path": "",
+  "template_path": "data/reference/CSC404/CSC404 TEMPLATE.docx",
   "fingerprint": {
     "source_papers": "data/papers/CSC404",
     "paper_count": 21,
@@ -93,5 +93,6 @@
     "model": "vlm",
     "keep_full_zip": true,
     "fallback": "page_crop"
-  }
+  },
+  "scheme_template_path": "data/reference/CSC404/CSC404 SCHEME.docx"
 }
