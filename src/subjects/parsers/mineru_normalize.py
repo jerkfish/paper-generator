@@ -229,8 +229,20 @@ def _question_page(questions: list[dict], page_idx: int, y: float) -> int | None
     return same_page[-1] if same_page else None
 
 
+def _code_text(block: dict) -> str:
+    body = str(block.get("code_body") or "").strip()
+    if not body:
+        return ""
+    lines = body.splitlines()
+    if lines and lines[0].strip().startswith("```"):
+        lines = lines[1:]
+    if lines and lines[-1].strip() == "```":
+        lines = lines[:-1]
+    return "\n".join(lines).strip()
+
+
 def normalize(*, paper_id: str, pdf_path: Path, cache_dir: Path,
-              model: str, out_dir: Path) -> dict:
+              model: str, out_dir: Path, include_code: bool = False) -> dict:
     content_path = _find_content_list(cache_dir)
     if content_path is None:
         raise RuntimeError(f"MinerU content_list.json missing in {cache_dir}")
@@ -258,6 +270,13 @@ def normalize(*, paper_id: str, pdf_path: Path, cache_dir: Path,
             if heading_match:
                 block["text"] = heading_match.group(1)
                 block["type"] = "text"
+                kind = "text"
+        if kind == "code" and include_code:
+            code = _code_text(block)
+            if code:
+                block["text"] = code
+                block["type"] = "text"
+                block["_code"] = True
                 kind = "text"
         if kind == "text":
             text_blocks.append(block)
@@ -298,6 +317,8 @@ def normalize(*, paper_id: str, pdf_path: Path, cache_dir: Path,
         if block["_block_id"] not in current["blocks"]:
             current["blocks"].append(block["_block_id"])
         if text:
+            if block.get("_code"):
+                text = str(block.get("text") or "").strip("\n")
             current["text"] = (current["text"] + "\n" + text).strip()
         marks = MARKS_RE.search(text or current["text"])
         if marks and not current.get("marks"):
