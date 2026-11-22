@@ -7,7 +7,7 @@
   "strategy": "recycle",
   "lifecycle_status": "in_progress",
   "created": "2026-11-22T01:28:41Z",
-  "updated": "2026-11-22T08:18:55Z",
+  "updated": "2026-11-22T08:37:27Z",
   "stages": {
     "V0_intake": {
       "status": "done",
@@ -117,7 +117,7 @@
       "notes": "30/30 approved questions answered by deepseek-flash with thinking; all usable, 0 validation errors. All answers are model_unofficial; no official CSC404 scheme was supplied. Owner-recreation table text is supplied to the model so table values are not invented. Cost $0.286809."
     },
     "V5_seeds_1_3": {
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "outputs/review/csc404_v2/seeds/seed_01/",
         "outputs/review/csc404_v2/seeds/seed_02/",
@@ -128,21 +128,24 @@
         "outputs/review/csc404_v2/seeds/feasibility.json"
       ],
       "llm_cost_usd": 0.0,
-      "blockers": [
-        "Gate B owner approval pending"
-      ],
+      "blockers": [],
       "human_approval": {
         "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
+        "approved": true,
+        "by": "owner",
+        "on": "2026-11-22",
+        "note": "Gate B approved after reviewing seeds 1-3 with refined code blocks, bullets and sample output, and the owner-supplied scheme cover fix."
       },
       "notes": "Seeds 1-3 built: 6 questions, 100 marks, 5 distinct source papers each; QA 0 problems. Paper and scheme covers are the CSC404 standard-cover derivations. Formatting refinement applied: code functions/program text are shaded monospace code boxes with printed indentation; question headings, subheadings and captions stay outside code; bullets are left-indented; sample output is a console-style monospace block. Owner recreations are used for tables/figures. Feasibility 20 seeds under reuse cap 4. Awaiting Gate B."
     },
     "V6_library": {
-      "status": "pending",
-      "evidence": [],
+      "status": "done",
+      "evidence": [
+        "outputs/web_cache/CSC404/manifest.json",
+        "outputs/review/csc404_v2/library/V6_REPORT.md",
+        "outputs/review/csc404_v2/library/Gate_C_report.md",
+        "outputs/review/csc404_v2/library/index.html"
+      ],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
@@ -152,7 +155,7 @@
         "on": "",
         "note": ""
       },
-      "notes": ""
+      "notes": "20 seeds built, each 6 questions and 100 marks with 5 distinct source papers; QA 0 problems; maximum question reuse 4 (cap 4). Deterministic recycle, $0 LLM cost. Awaiting Gate C."
     },
     "V7_publish": {
       "status": "pending",
@@ -197,10 +200,16 @@
       ]
     },
     "B": {
-      "status": "pending",
-      "by": "",
-      "on": "",
-      "evidence": []
+      "status": "approved",
+      "by": "owner",
+      "on": "2026-11-22",
+      "evidence": [
+        "outputs/review/csc404_v2/gate_b_approval.json",
+        "outputs/review/csc404_v2/seeds/Gate_B_report.md",
+        "outputs/review/csc404_v2/seeds/seed_01/",
+        "outputs/review/csc404_v2/seeds/seed_02/",
+        "outputs/review/csc404_v2/seeds/seed_03/"
+      ]
     },
     "C": {
       "status": "pending",
@@ -274,5 +283,5 @@
       "V8_close_out": 0.0
     }
   },
-  "stop_reason": "Seeds 1-3 built; Gate B owner review pending."
+  "stop_reason": "20-seed Library built; Gate C publication review pending."
 }

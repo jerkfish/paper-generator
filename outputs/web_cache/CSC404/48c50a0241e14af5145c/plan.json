@@ -1,0 +1,71 @@
+{
+  "seed": 15,
+  "slots": [
+    {
+      "slot": "A1",
+      "question_id": "CSC404-2023-FEB-Q1",
+      "marks": 20,
+      "source_paper": "CSC404-2023-FEB",
+      "topic_tags": [
+        "functions",
+        "arrays",
+        "dynamic_memory"
+      ]
+    },
+    {
+      "slot": "A2",
+      "question_id": "CSC404-2023-FEB-Q2",
+      "marks": 10,
+      "source_paper": "CSC404-2023-FEB",
+      "topic_tags": [
+        "other"
+      ]
+    },
+    {
+      "slot": "A3",
+      "question_id": "CSC404-2025-FEB-Q3",
+      "marks": 20,
+      "source_paper": "CSC404-2025-FEB",
+      "topic_tags": [
+        "arrays",
+        "functions",
+        "strings"
+      ]
+    },
+    {
+      "slot": "A4",
+      "question_id": "CSC404-2026-FEB-Q4",
+      "marks": 20,
+      "source_paper": "CSC404-2026-FEB",
+      "topic_tags": [
+        "arrays",
+        "structs",
+        "strings"
+      ]
+    },
+    {
+      "slot": "B1",
+      "question_id": "CSC404-2025-JUL-Q1-2",
+      "marks": 15,
+      "source_paper": "CSC404-2025-JUL",
+      "topic_tags": [
+        "file_io",
+        "dynamic_memory"
+      ]
+    },
+    {
+      "slot": "B2",
+      "question_id": "CSC404-2024-JUL-Q2-2",
+      "marks": 15,
+      "source_paper": "CSC404-2024-JUL",
+      "topic_tags": [
+        "arrays",
+        "functions",
+        "pointers"
+      ]
+    }
+  ],
+  "total_marks": 100,
+  "distinct_papers": 5,
+  "reuse_cap": 4
+}
