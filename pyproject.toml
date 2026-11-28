@@ -27,6 +27,8 @@ dependencies = [
     "graphviz>=0.21",
     "latex2mathml>=3.81.1",
     "mathml2omml>=0.0.2",
+    "requests>=2.34.2",
+    "beautifulsoup4>=4.15.0",
 ]
 
 [dependency-groups]

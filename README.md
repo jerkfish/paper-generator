@@ -13,7 +13,7 @@ format, with answers whose provenance is recorded.
 - [At a glance](#at-a-glance)
 - [How it fits together](#how-it-fits-together)
 - [The three layers](#the-three-layers)
-- [The v2 lifecycle](#the-v2-lifecycle)
+- [The v3 lifecycle](#the-v3-lifecycle)
 - [Subject types](#subject-types)
 - [How a paper is made](#how-a-paper-is-made)
 - [Quick start](#quick-start)
@@ -42,12 +42,19 @@ format, with answers whose provenance is recorded.
 | Contact | auzair1990@gmail.com |
 | Repository | <https://github.com/jerkfish/paper-generator> |
 
-**Current status:** v2 is the active playbook. The shared `src/bank/` and
+**Current status:** v3 is the active playbook. It adds **Pre-V0 paper
+acquisition** (PERMATA scraper) before V0 intake. The shared `src/bank/` and
 `src/assemble/recycle.py` code is in use; CSC429 remains the reference
-implementation. MAT406 is the newest completed Type D recycle subject: 12
-seeds, Gate A/B/C approved and published on 2026-11-22. ICT450 v1 remains
-archived. v1 documents are legacy only; new subjects publish v2. See
-`docs/V2_AUDIT.md` and `docs/MAT406.md`.
+implementation. CSC404 is the newest completed Type D recycle subject: 20
+seeds, Gate A/B/C approved and published on 2026-11-22. ICT502 is the first
+v3 pilot: Pre-V0 downloaded 11 papers, V0 intake, V1 extraction and V2 bank
+build are complete (55 questions, 50 assets). Gate A was approved on
+2026-11-28 after two review rounds and 23 owner recreations. V3 templates, V4
+answers (55/55 model_unofficial) and V5 seeds 1–3 are complete; Gate B is
+pending owner review.
+ICT450 v1 remains archived. v1 documents are legacy only; new subjects
+publish v2. See
+`docs/SUBJECT_PLAYBOOK.md`, `docs/CSC404.md` and `docs/ICT502.md`.
 
 ## How it fits together
 
@@ -132,14 +139,17 @@ papers, topic coverage, figure/table reference renumbering and rejected-item
 exclusion. It reports **“N distinct papers possible”** and the feasible Library
 size.
 
-## The v2 lifecycle
+## The v3 lifecycle
 
-Every subject moves through V0–V8. There are exactly **three human gates**:
-Gate A (bank approved), Gate B (first seeds approved), Gate C (publish).
+Every new Type D subject moves through **Pre-V0 → V0–V8**. Pre-V0 is the
+automated PERMATA paper downloader; it feeds V0 intake. There are exactly
+**three human gates**: Gate A (bank approved), Gate B (first seeds approved),
+Gate C (publish).
 
 ```mermaid
 flowchart TD
-  V0["V0 · Intake and permissions"] --> V1["V1 · Extract<br/>MinerU-first dossier"]
+  P0["Pre-V0 · Paper acquisition<br/>PERMATA scraper + manifest"] --> V0["V0 · Intake and permissions"]
+  V0 --> V1["V1 · Extract<br/>MinerU-first dossier"]
   V1 --> V2["V2 · Bank build<br/>assets, topics, duplicates"]
   V2 --> GA{"GATE A<br/>bank approved"}
   GA --> V3["V3 · Format profile and templates"]
@@ -156,7 +166,8 @@ flowchart TD
 
 | Stage | Purpose | Main evidence |
 |---|---|---|
-| **V0 · Intake** | Confirm identity, type, strategy, permissions and inputs | `subject.json`, `lifecycle_state.json` |
+| **Pre-V0 · Paper acquisition** | Download PERMATA papers, name from covers, checksum and reconcile duplicates | `papers_manifest.csv`, `pre_v0_summary.json`, `pre_v0_report.md` |
+| **V0 · Intake** | Confirm identity, type, strategy, permissions and inputs; register the Pre-V0 set | `subject.json`, `lifecycle_state.json`, `papers_register.json` |
 | **V1 · Extract** | Deduplicate papers and build a full page/block/asset dossier | `papers_summary.json`, MinerU cache, `EXTRACTION_REPORT.md` |
 | **V2 · Bank build** | Segment questions, link assets, tag topics, cluster duplicates, review sheet | `bank/questions/`, `bank/assets/`, `bank/review/` |
 | **Gate A** | Owner approves the bank | Gate A record in `lifecycle_state.json` |
@@ -261,19 +272,21 @@ Public builds fail closed if the real key is missing.
 
 ## Subject status
 
-| Subject | Title | Type | Local | Public | v2 state |
+| Subject | Title | Type | Local | Public | v3 state |
 |---|---|---|---|---|---|
 | CSC402 | Programming I | B | Available | Not published | Stages 0–8 done; Gate/publish pending |
-| CSC404 | Programming II | D | Available | Published | **Complete V0–V8; Gate C 2026-11-22; 20 seeds** |
+| CSC404 | Programming II | D | Available | Published | **Pre-V0 skipped (owner papers); V0–V8 complete; Gate C 2026-11-22; 20 seeds** |
 | CSC413 | Introduction to Interactive Multimedia | B | Available | Published | Complete; open MinerU owner-choice `unsure` |
 | CSC429 | Computer Organization and Architecture | D | Available | Published | **Reference recycle implementation** |
 | CSC662 | Computer Security | A | Available | Published | Stage 10 cost backfill in progress |
 | MAT133 | Pre-Calculus | B | Available | Published | Complete |
 | MAT406 | Foundation Mathematics | D | Available | Published | **Complete V0–V8; Gate C 2026-11-22; 12 seeds** |
 | ICT450 | Database Design and Development | D | V0 reset | Not published | **v1 archived; V0 permission re-check; pilot stops at Gate A** |
+| ICT502 | Database Engineering | D | Pre-V0–V5 done | Not published | **v3 pilot: 11 papers; 55/55 questions approved; seeds 1–3 built; Gate B pending** |
 
-The remaining 32 registry entries are empty `coming_soon` stubs. Under v2 they
-default to recycle (type D) when onboarding starts. CTU552, CTU554, HBU111 and
+The remaining 32 registry entries are empty `coming_soon` stubs. Under v3 they
+default to recycle (type D) with Pre-V0 paper acquisition when onboarding
+starts. CTU552, CTU554, HBU111 and
 HBU121 are `not_available` and will not be built; CTU554 has too few past
 papers for a Library.
 
@@ -314,6 +327,7 @@ docs/                              Playbook, audit and per-subject reports
 | Check for leaked secrets | `uv run python -m src.app.safety --check` |
 | Show subject progress | `uv run python -m scripts.lifecycle_status <CODE>` |
 | Scaffold a subject | `uv run python -m scripts.new_subject <CODE> --type D --dry-run` |
+| Download papers (Pre-V0) | `uv run python -m scripts.permata_downloader <CODE> --out data/papers --manifest data/tracking/<code>/papers_manifest.csv --env .env` |
 | Register papers | `uv run python -m src.subjects.preprocess --subject <CODE> --register --corpus` |
 | Check a template | `uv run python -m src.subjects.templates --subject <CODE> --check` |
 | Build review seeds | `uv run python -m src.app.prebuild_library --seeds 1-3 --subject <CODE>` |
@@ -370,7 +384,7 @@ These rules apply to every contributor and every automated agent.
   and Gate C are the review points.
 - **No hard-coded subject lists.** Application code reads the registry or the
   generated `subjects.json`.
-- **New subject, new branch.** Create `<CODE>` from `main` before V0;
+- **New subject, new branch.** Create `<CODE>` from `main` before Pre-V0;
   keep all subject work on that branch. Merge into `main` only after the
   subject is complete (V8 close-out + Gate C). Use
   `<CODE>/exp-<topic>` or `<CODE>/backup-<date>` for
@@ -396,7 +410,8 @@ actual LLM cost so far.
 
 | Document | Read it for |
 |---|---|
-| `docs/SUBJECT_PLAYBOOK.md` | **Authoritative v2 stages V0–V8, gates A/B/C, bank/format/assembler rules** |
+| `docs/SUBJECT_PLAYBOOK.md` | **Authoritative v3 stages Pre-V0–V8, gates A/B/C, bank/format/assembler rules** |
+| `docs/ICT502.md` | First v3 pilot: Pre-V0 through V5 (bank, templates, answers, seeds 1–3) |
 | `docs/V2_AUDIT.md` | Phase 0 read-only audit of every subject, code reuse map and open decisions |
 | `docs/V2_REPORT.md` | Phase 2 shared bank/assembler/gate reports, CSC429 regression and test evidence |
 | `docs/archive/SUBJECT_PLAYBOOK_v1.md` | Archived v1 playbook, verbatim |

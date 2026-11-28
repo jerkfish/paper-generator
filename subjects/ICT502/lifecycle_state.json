@@ -1,18 +1,172 @@
 {
-  "schema_version": 1,
+  "schema_version": 3,
+  "playbook_version": "3.0",
   "subject": "ICT502",
-  "type": "C",
-  "template_path": "",
-  "created": "2026-11-04T06:27:42Z",
-  "updated": "2026-11-04T06:27:42Z",
+  "title": "Database Engineering",
+  "type": "D",
+  "strategy": "recycle",
+  "lifecycle_status": "in_progress",
+  "created": "2026-11-22T10:55:45Z",
+  "updated": "2026-11-28T06:20:02Z",
   "stages": {
-    "0_intake": {
+    "pre_v0": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/ict502/pre_v0_report.md",
+        "data/tracking/ict502/pre_v0_summary.json",
+        "data/tracking/ict502/papers_manifest.csv",
+        "data/papers/ICT502/"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": false,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": "PERMATA scrape complete: 13 records, 11 unique PDFs, 2 duplicates, 0 failures, 74 pages. Credentials not logged."
+    },
+    "V0_intake": {
+      "status": "done",
+      "evidence": [
+        "subjects/ICT502/subject.json",
+        "subjects/ICT502/lifecycle_state.json",
+        "docs/ICT502.md",
+        "data/tracking/ict502/intake_inventory.json",
+        "data/tracking/ict502/papers_register.json",
+        "data/tracking/ict502/papers_summary.json",
+        "docs/archive/ict502_v1/"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": false,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": "V0 intake complete 2026-11-22: 11 unique PDFs from the Pre-V0 PERMATA scrape, 11 sessions (June 2018-February 2026), 74 pages. Papers and cloud processing allowed; scheme, slides and publication not allowed."
+    },
+    "V1_extract": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/ict502/V1_REPORT.md",
+        "data/tracking/ict502/extraction_status.json",
+        "data/tracking/ict502/mineru/"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": false,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": "MinerU vlm: 11/11 papers, 74 pages, 55 question headings, 53 assets, 19/20 references resolved, 1 page-crop fallback, 0 failures, $0.00."
+    },
+    "V2_bank": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/ict502/V2_REPORT.md",
+        "data/tracking/ict502/bank/index.json",
+        "data/tracking/ict502/bank/gate1_report.md",
+        "data/tracking/ict502/bank/gate1_report.json",
+        "data/tracking/ict502/bank/review/index.html",
+        "data/tracking/ict502/bank/review/marks.csv",
+        "data/tracking/ict502/bank/review/review_decisions.json",
+        "data/tracking/ict502/bank/review/review_apply_report.md",
+        "data/tracking/ict502/bank/review/ROUND2.md",
+        "data/tracking/ict502/bank/review/owner_recreations/",
+        "data/tracking/ict502/bank/duplicates.json",
+        "data/tracking/ict502/bank/unsure.json",
+        "data/tracking/ict502/bank/approvals.json",
+        "data/tracking/ict502/bank/questions/",
+        "data/tracking/ict502/bank/assets/"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": false,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": "55 questions from 11 papers; 50 assets; 1100 marks (55 x 20). Two review rounds applied; 23 owner HTML recreations rendered with 0 failures. Gate A approved 2026-11-28: 55/55 questions and 50/50 assets."
+    },
+    "V3_format": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/ict502/format_profile.json",
+        "data/tracking/ict502/template_check.json",
+        "data/tracking/ict502/template_cover.png",
+        "data/tracking/ict502/scheme_cover.png",
+        "data/tracking/ict502/templates_preview/",
+        "subjects/ICT502/subject.json"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": false,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": "Five questions x 20 marks = 100, 3 HOURS. Paper cover derived from UTM_STANDARD_COVERv2.docx; scheme cover from UTM_STANDARD_MARKING_SCHEME.docx. Template check: 0 problems."
+    },
+    "V4_answers": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/ict502/V4_REPORT.md",
+        "data/tracking/ict502/bank/answers.json",
+        "data/tracking/ict502/bank/answers_report.json",
+        "data/tracking/ict502/answers/raw/",
+        "data/tracking/ict502/answers/cost_ledger.json"
+      ],
+      "llm_cost_usd": 0.150335,
+      "blockers": [],
+      "human_approval": {
+        "required": false,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": "55/55 approved questions answered; 55 usable; all model_unofficial; 0 official or solver_verified. DeepSeek flash; actual estimated cost $0.150335."
+    },
+    "V5_seeds_1_3": {
+      "status": "done",
+      "evidence": [
+        "data/tracking/ict502/V5_REPORT.md",
+        "data/tracking/ict502/feasibility.json",
+        "data/tracking/ict502/GATE_B_REPORT.md",
+        "outputs/review/ict502_v2/seeds/seed_01/",
+        "outputs/review/ict502_v2/seeds/seed_02/",
+        "outputs/review/ict502_v2/seeds/seed_03/"
+      ],
+      "llm_cost_usd": 0.0,
+      "blockers": [],
+      "human_approval": {
+        "required": false,
+        "approved": false,
+        "by": "",
+        "on": "",
+        "note": ""
+      },
+      "notes": "Seeds 1-3 built: 5 questions, 100 marks, 5 distinct papers each; 15 distinct questions across seeds; QA clean (0 problems). Feasibility: 20 seeds within the reuse cap. Gate B pending."
+    },
+    "V6_library": {
       "status": "pending",
       "evidence": [],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
-        "required": true,
+        "required": false,
         "approved": false,
         "by": "",
         "on": "",
@@ -20,13 +174,13 @@
       },
       "notes": ""
     },
-    "1_preprocess": {
+    "V7_publish": {
       "status": "pending",
       "evidence": [],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
-        "required": true,
+        "required": false,
         "approved": false,
         "by": "",
         "on": "",
@@ -34,125 +188,13 @@
       },
       "notes": ""
     },
-    "2_scheme_slides": {
+    "V8_close_out": {
       "status": "pending",
       "evidence": [],
       "llm_cost_usd": 0.0,
       "blockers": [],
       "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
-    },
-    "3_template": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
-    },
-    "4_taxonomy_question_log": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
-    },
-    "5_fingerprint_planner": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
-    },
-    "6_generators": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
-    },
-    "7_builders_qa": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
-    },
-    "8_library_prebuild": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
-    },
-    "9_publish": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
-        "approved": false,
-        "by": "",
-        "on": "",
-        "note": ""
-      },
-      "notes": ""
-    },
-    "10_close_out": {
-      "status": "pending",
-      "evidence": [],
-      "llm_cost_usd": 0.0,
-      "blockers": [],
-      "human_approval": {
-        "required": true,
+        "required": false,
         "approved": false,
         "by": "",
         "on": "",
@@ -161,53 +203,76 @@
       "notes": ""
     }
   },
+  "gates": {
+    "A": {
+      "status": "approved",
+      "by": "owner",
+      "on": "2026-11-28",
+      "evidence": [
+        "data/tracking/ict502/bank/gate1_report.md",
+        "data/tracking/ict502/bank/review/review_decisions_round2.json",
+        "data/tracking/ict502/bank/review/review_apply_report_round2.json",
+        "data/tracking/ict502/bank/review/round2.html",
+        "data/tracking/ict502/bank/approvals.json"
+      ]
+    },
+    "B": {
+      "status": "pending",
+      "by": "",
+      "on": "",
+      "evidence": [
+        "data/tracking/ict502/GATE_B_REPORT.md",
+        "data/tracking/ict502/V5_REPORT.md",
+        "outputs/review/ict502_v2/seeds/seed_01/paper.pdf",
+        "outputs/review/ict502_v2/seeds/seed_02/paper.pdf",
+        "outputs/review/ict502_v2/seeds/seed_03/paper.pdf"
+      ]
+    },
+    "C": {
+      "status": "pending",
+      "by": "",
+      "on": "",
+      "evidence": []
+    }
+  },
+  "bank": {
+    "questions": 55,
+    "approved": 55,
+    "needs_fix": 0,
+    "rejected": 0,
+    "assets": 50,
+    "duplicate_clusters": 0
+  },
+  "answers": {
+    "official": 0,
+    "solver_verified": 0,
+    "model_unofficial": 55,
+    "human_checked": 0
+  },
   "unsure": [
     {
-      "stage": "0_intake",
-      "item": "Confirm ICT502 title, subject type (C) and curriculum order with the subject owner.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "0_intake",
-      "item": "Record papers permission for ICT502.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "0_intake",
-      "item": "Record scheme permission for ICT502.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "0_intake",
-      "item": "Record lecture-slides permission for ICT502.",
-      "blocking": true,
-      "opened": "2026-11-04"
-    },
-    {
-      "stage": "9_publish",
-      "item": "Record publication permission for ICT502 before any upload or deploy.",
-      "blocking": true,
-      "opened": "2026-11-04"
+      "stage": "V4_answers",
+      "item": "No official ICT502 scheme supplied; answers must remain model_unofficial or solver_verified.",
+      "blocking": false,
+      "opened": "2026-11-22"
     }
   ],
+  "parser_provenance": [],
   "llm_cost": {
     "currency": "USD",
-    "total_usd": 0.0,
+    "total_usd": 0.150335,
     "by_stage": {
-      "0_intake": 0.0,
-      "1_preprocess": 0.0,
-      "2_scheme_slides": 0.0,
-      "3_template": 0.0,
-      "4_taxonomy_question_log": 0.0,
-      "5_fingerprint_planner": 0.0,
-      "6_generators": 0.0,
-      "7_builders_qa": 0.0,
-      "8_library_prebuild": 0.0,
-      "9_publish": 0.0,
-      "10_close_out": 0.0
+      "pre_v0": 0.0,
+      "V0_intake": 0.0,
+      "V1_extract": 0.0,
+      "V2_bank": 0.0,
+      "V3_format": 0.0,
+      "V4_answers": 0.150335,
+      "V5_seeds_1_3": 0.0,
+      "V6_library": 0.0,
+      "V7_publish": 0.0,
+      "V8_close_out": 0.0
     }
-  }
+  },
+  "stop_reason": "V3/V4/V5 complete. Seeds 1-3 built and QA-clean; Gate B awaiting owner review."
 }

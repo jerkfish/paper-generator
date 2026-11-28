@@ -15,11 +15,14 @@ from src.subjects.lifecycle import (
     GATE_TITLES,
     STAGE_BY_KEY,
     STAGE_BY_KEY_V2,
+    STAGE_BY_KEY_V3,
     STAGE_KEYS,
     STAGE_KEYS_V2,
+    STAGE_KEYS_V3,
     gate_approved,
     gate_status,
     is_v2,
+    is_v3,
     load_state,
     stage_blockers,
     status_report,
@@ -53,8 +56,10 @@ def report(root: Path, code: str) -> dict:
     data["registry_status"] = subject.status
     state = load_state(root, code)
     if state is not None:
+        v3 = is_v3(state)
         v2 = is_v2(state)
-        keys = STAGE_KEYS_V2 if v2 else STAGE_KEYS
+        keys = (STAGE_KEYS_V3 if v3 else
+                STAGE_KEYS_V2 if v2 else STAGE_KEYS)
         data["lifecycle_status"] = state.get("lifecycle_status")
         data["stop_reason"] = state.get("stop_reason", "")
         if str(state.get("type", "")).upper() != subject.subject_type:
@@ -86,7 +91,7 @@ def report(root: Path, code: str) -> dict:
             for key in keys
         }
         if v2:
-            data["lifecycle_schema"] = 2
+            data["lifecycle_schema"] = 3 if v3 else 2
             data["strategy"] = state.get("strategy")
             data["gates"] = {key: gate_status(state, key)
                              for key in GATE_KEYS}
@@ -98,12 +103,17 @@ def report(root: Path, code: str) -> dict:
 
 
 def _print(data: dict) -> None:
-    v2 = data.get("lifecycle_schema") == 2
-    by_key = STAGE_BY_KEY_V2 if v2 else STAGE_BY_KEY
-    keys = STAGE_KEYS_V2 if v2 else STAGE_KEYS
+    schema = data.get("lifecycle_schema")
+    v3 = schema == 3
+    v2 = schema in {2, 3}
+    by_key = STAGE_BY_KEY_V3 if v3 else (
+        STAGE_BY_KEY_V2 if v2 else STAGE_BY_KEY)
+    keys = STAGE_KEYS_V3 if v3 else (
+        STAGE_KEYS_V2 if v2 else STAGE_KEYS)
     print(f"{data['subject']} type {data.get('type', '?')} "
           f"registry={data.get('registry_status', '?')}"
-          + (f" — schema v2 / {data.get('strategy') or 'recycle'}"
+          + (f" — schema v{'3' if v3 else '2'} / "
+             f"{data.get('strategy') or 'recycle'}"
              if v2 else ""))
     if not data.get("initialized"):
         print("lifecycle_state.json: MISSING")

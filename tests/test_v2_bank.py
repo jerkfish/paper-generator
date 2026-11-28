@@ -89,15 +89,34 @@ def test_scaffold_defaults_to_type_d_with_v2_lifecycle_and_bank(tmp_path):
     assert subject["library"]["size_policy"] == "min(20, feasible)"
     state = json.loads((root / "subjects/TESTD/lifecycle_state.json")
                        .read_text(encoding="utf-8"))
-    assert state["schema_version"] == 2
-    assert state["stages"]["V0_intake"]["status"] == "in_progress"
+    assert state["schema_version"] == 3
+    assert state["playbook_version"] == "3.0"
+    assert state["stages"]["pre_v0"]["status"] == "in_progress"
+    assert state["stages"]["V0_intake"]["status"] == "pending"
     assert set(state["gates"]) == {"A", "B", "C"}
     for name in ("questions", "assets", "plans", "review", "inbox"):
         assert (root / "data/tracking/testd/bank" / name).is_dir()
     report = lifecycle.status_report(root, "TESTD")
-    assert report["lifecycle_schema"] == 2
-    assert report["next_stage"] == "V0_intake"
+    assert report["lifecycle_schema"] == 3
+    assert report["next_stage"] == "pre_v0"
     assert report["next_gate"] is None
+
+
+def test_v3_pre_v0_runs_before_v0(tmp_path):
+    root = tmp_path / "project"
+    (root / "subjects" / "BASE01").mkdir(parents=True)
+    (root / "subjects" / "BASE01" / "subject.json").write_text(
+        json.dumps({"code": "BASE01", "title": "Base",
+                    "status": "coming_soon", "type": "C"}), encoding="utf-8")
+    new_subject.scaffold(root, "TESTV3", "Database Systems", "D")
+    state_path = root / "subjects/TESTV3/lifecycle_state.json"
+    state = json.loads(state_path.read_text(encoding="utf-8"))
+    state["stages"]["pre_v0"]["status"] = "done"
+    state_path.write_text(json.dumps(state), encoding="utf-8")
+    report = lifecycle.status_report(root, "TESTV3")
+    assert report["next_stage"] == "V0_intake"
+    assert lifecycle.is_v3(state)
+    assert lifecycle.stage_keys(state)[0] == "pre_v0"
 
 
 def test_cli_defaults_to_d_and_dry_run_writes_nothing(tmp_path):

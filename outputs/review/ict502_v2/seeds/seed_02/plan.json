@@ -1,0 +1,79 @@
+{
+  "schema_version": 3,
+  "subject": "ICT502",
+  "seed": 2,
+  "slots": [
+    {
+      "slot": "Q1",
+      "question_id": "ICT502-2024-JUL-Q1",
+      "marks": 20,
+      "source_paper": "ICT502-2024-JUL",
+      "topic_tags": [
+        "data_warehouse",
+        "file_system"
+      ]
+    },
+    {
+      "slot": "Q2",
+      "question_id": "ICT502-2025-JUL-Q3",
+      "marks": 20,
+      "source_paper": "ICT502-2025-JUL",
+      "topic_tags": [
+        "distributed_db",
+        "relational_model",
+        "query_processing"
+      ]
+    },
+    {
+      "slot": "Q3",
+      "question_id": "ICT502-2025-FEB-Q2",
+      "marks": 20,
+      "source_paper": "ICT502-2025-FEB",
+      "topic_tags": [
+        "transaction",
+        "recovery",
+        "security"
+      ]
+    },
+    {
+      "slot": "Q4",
+      "question_id": "ICT502-2019-DEC-Q4",
+      "marks": 20,
+      "source_paper": "ICT502-2019-DEC",
+      "topic_tags": [
+        "distributed_db",
+        "database_concepts",
+        "normalization"
+      ]
+    },
+    {
+      "slot": "Q5",
+      "question_id": "ICT502-2018-DEC-Q4",
+      "marks": 20,
+      "source_paper": "ICT502-2018-DEC",
+      "topic_tags": [
+        "erd",
+        "sql",
+        "database_development"
+      ]
+    }
+  ],
+  "total_marks": 100,
+  "distinct_papers": 5,
+  "topic_coverage": [
+    "data_warehouse",
+    "database_concepts",
+    "database_development",
+    "distributed_db",
+    "erd",
+    "file_system",
+    "normalization",
+    "query_processing",
+    "recovery",
+    "relational_model",
+    "security",
+    "sql",
+    "transaction"
+  ],
+  "reuse_cap": 4
+}

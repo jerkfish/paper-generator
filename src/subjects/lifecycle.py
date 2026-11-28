@@ -94,6 +94,8 @@ STAGE_BY_KEY = {stage["key"]: stage for stage in STAGES}
 
 SCHEMA_VERSION_V2 = 2
 PLAYBOOK_VERSION_V2 = "2.0"
+SCHEMA_VERSION_V3 = 3
+PLAYBOOK_VERSION_V3 = "3.0"
 GATE_KEYS = ("A", "B", "C")
 GATE_TITLES = {
     "A": "Bank approved",
@@ -160,6 +162,23 @@ STAGES_V2: tuple[dict[str, Any], ...] = (
 
 STAGE_KEYS_V2 = tuple(stage["key"] for stage in STAGES_V2)
 STAGE_BY_KEY_V2 = {stage["key"]: stage for stage in STAGES_V2}
+
+STAGES_V3: tuple[dict[str, Any], ...] = (
+    {
+        "key": "pre_v0",
+        "title": "Pre-V0 paper acquisition",
+        "gate": None,
+        "human": False,
+        "purpose": (
+            "Run the automated PERMATA scraper to download past papers, "
+            "rename them from their covers and record a checksummed manifest. "
+            "The downloaded set feeds V0 intake."
+        ),
+    },
+    *STAGES_V2,
+)
+STAGE_KEYS_V3 = tuple(stage["key"] for stage in STAGES_V3)
+STAGE_BY_KEY_V3 = {stage["key"]: stage for stage in STAGES_V3}
 
 
 def _now() -> str:
@@ -322,15 +341,46 @@ def new_state_v2(code: str, subject_type: str = "D",
     }
 
 
+def new_state_v3(code: str, subject_type: str = "D",
+                 title: str = "") -> dict[str, Any]:
+    """Return a fresh schema-v3 lifecycle at Pre-V0 with all gates open."""
+    code = code.upper()
+    stages = {key: blank_stage_v2(STAGE_BY_KEY_V3[key])
+              for key in STAGE_KEYS_V3}
+    stages["pre_v0"]["status"] = "in_progress"
+    state = new_state_v2(code, subject_type, title)
+    state.update({
+        "schema_version": SCHEMA_VERSION_V3,
+        "playbook_version": PLAYBOOK_VERSION_V3,
+        "stages": stages,
+        "unsure": [],
+        "llm_cost": {
+            "currency": "USD",
+            "total_usd": 0.0,
+            "by_stage": {key: 0.0 for key in STAGE_KEYS_V3},
+        },
+        "stop_reason": "Pre-V0 paper acquisition pending.",
+    })
+    return state
+
+
+def is_v3(state: dict[str, Any] | None) -> bool:
+    if not isinstance(state, dict):
+        return False
+    return ("pre_v0" in (state.get("stages") or {})
+            or int(state.get("schema_version") or 0) >= 3)
+
+
 def is_v2(state: dict[str, Any] | None) -> bool:
-    """True for the V0-V8 schema.
+    """True for the V0-V8 schema (and v3, which extends it).
 
     Some v1 subjects carry ``schema_version: 2`` for their own reasons (CSC429
     records a P0 reset that way), so the stage keys decide, not the number.
     """
     if not isinstance(state, dict):
         return False
-    return "V0_intake" in (state.get("stages") or {})
+    return ("V0_intake" in (state.get("stages") or {})
+            or is_v3(state))
 
 
 def state_path(root: Path, code: str) -> Path:
@@ -357,17 +407,21 @@ def save_state(root: Path, code: str, state: dict[str, Any]) -> Path:
 
 
 def stage_keys(state: dict[str, Any]) -> tuple[str, ...]:
+    if is_v3(state):
+        return STAGE_KEYS_V3
     return STAGE_KEYS_V2 if is_v2(state) else STAGE_KEYS
 
 
 def stage_by_key(state: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    if is_v3(state):
+        return STAGE_BY_KEY_V3
     return STAGE_BY_KEY_V2 if is_v2(state) else STAGE_BY_KEY
 
 
 def gate_for_stage(state: dict[str, Any], stage: str) -> str | None:
     if not is_v2(state):
         return None
-    return (STAGE_BY_KEY_V2.get(stage) or {}).get("gate")
+    return (stage_by_key(state).get(stage) or {}).get("gate")
 
 
 def gate_status(state: dict[str, Any], gate: str) -> dict[str, Any]:
@@ -454,6 +508,7 @@ def status_report(root: Path, code: str) -> dict[str, Any]:
             "human_checkpoint": True,
         }
     v2 = is_v2(state)
+    v3 = is_v3(state)
     keys = stage_keys(state)
     specs = stage_by_key(state)
     stage = next_stage(state)
@@ -462,7 +517,7 @@ def status_report(root: Path, code: str) -> dict[str, Any]:
             "subject": code,
             "initialized": True,
             "schema_version": state.get("schema_version", 1),
-            "lifecycle_schema": 2 if v2 else 1,
+            "lifecycle_schema": 3 if v3 else 2 if v2 else 1,
             "next_stage": None,
             "stage_title": "Complete",
             "status": "done",
@@ -489,7 +544,7 @@ def status_report(root: Path, code: str) -> dict[str, Any]:
         "subject": code,
         "initialized": True,
         "schema_version": state.get("schema_version", 1),
-        "lifecycle_schema": 2 if v2 else 1,
+        "lifecycle_schema": 3 if v3 else 2 if v2 else 1,
         "next_stage": stage,
         "stage_title": specs[stage]["title"],
         "status": entry.get("status", "pending"),

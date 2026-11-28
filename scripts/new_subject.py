@@ -11,8 +11,8 @@ Examples:
     uv run python -m scripts.new_subject TEST000 --title "Database Systems"
     uv run python -m scripts.new_subject CSC402 --type C --title "Programming I"
 
-Type D (the default) creates a schema-v2 lifecycle and an empty question bank;
-it never generates questions.
+Type D (the default) creates a schema-v3 lifecycle starting at Pre-V0 and an
+empty question bank; it never generates questions.
 """
 from __future__ import annotations
 
@@ -22,7 +22,11 @@ import re
 from pathlib import Path
 
 from src import config
-from src.subjects.lifecycle import new_state, new_state_v2, save_state
+from src.subjects.lifecycle import (
+    new_state,
+    new_state_v3,
+    save_state,
+)
 from src.subjects.registry import load_subjects
 
 VALID_TYPES = {"A", "B", "C", "D"}
@@ -47,6 +51,14 @@ def _permissions() -> dict:
         "papers": dict(blank),
         "scheme": dict(blank),
         "slides": dict(blank),
+        "cloud_processing": {
+            "allowed": True,
+            "basis": ("Owner policy 2026-11-22: cloud processing is allowed "
+                      "by default for future subjects."),
+            "confirmed_by": "owner",
+            "confirmed_on": "2026-11-22",
+            "notes": "MinerU only; credentials stay in the environment.",
+        },
         "publication": dict(blank),
     }
 
@@ -232,15 +244,21 @@ def topic_labels() -> dict:
 def _docs(code: str, title: str, subject_type: str,
           paths: list[str]) -> str:
     if subject_type == "D":
-        lifecycle = """The first work item is **V0 intake and permissions**. The playbook has
-three human gates: **A** (bank approved), **B** (first seeds approved) and
-**C** (publish). Do not set the registry status to `available`, publish,
-upload or deploy until Gate C is recorded.
+        lifecycle = """The first work item is **Pre-V0 paper acquisition**: run the PERMATA
+scraper to download and name the papers, then register them at V0. The
+playbook has three human gates: **A** (bank approved), **B** (first seeds
+approved) and **C** (publish). Do not set the registry status to `available`,
+publish, upload or deploy until Gate C is recorded.
 
 Every question in a generated paper must be an approved real past-paper
 question from the bank. Generators are off (`variants.enabled` is false)."""
-        first = """# V0: record permissions and subject identity first
+        first = """# Pre-V0: download papers (owner-authorised credentials in .env)
+uv run python -m scripts.permata_downloader {code} \\
+  --out data/papers --manifest data/tracking/{lower}/papers_manifest.csv --env .env
+
+# V0: record permissions, register and build the local corpus
 uv run python -m scripts.lifecycle_status {code}
+uv run python -m src.subjects.preprocess --subject {code} --register --corpus
 
 # V1: MinerU dossier (per paper, full ZIP + page-crop fallback)
 # V2: build and review the bank; stop at Gate A
@@ -248,7 +266,7 @@ uv run python -m scripts.lifecycle_status {code}
 # every stage: gates
 uv run python -m src.app.safety --check
 uv run pytest -q
-cd cloudflare/worker && bun test""".format(code=code)
+cd cloudflare/worker && bun test""".format(code=code, lower=code.lower())
     else:
         lifecycle = """The first work item is stage 0 intake. Do not set the registry status to
 `available`, publish, upload or deploy until every [HUMAN] gate is recorded."""
@@ -261,7 +279,7 @@ uv run python -m src.subjects.templates --subject {code} --check
 # every stage: gates
 uv run python -m src.app.safety --check
 uv run pytest -q
-cd cloudflare/worker && bun test""".format(code=code)
+cd cloudflare/worker && bun test""".format(code=code, lower=code.lower())
     return f"""# {code} — {title}
 
 Status: **coming_soon** (scaffolded, not onboarded).
@@ -315,7 +333,7 @@ def _plan(root: Path, code: str, title: str, subject_type: str,
     if order is None:
         order = max((s.order for s in subjects.values()), default=0) + 1
     subject = _subject_json(code, title, subject_type, order)
-    state = (new_state_v2(code, subject_type, title)
+    state = (new_state_v3(code, subject_type, title)
              if subject_type == "D" else new_state(code, subject_type))
     package = root / "src" / "subjects" / code.lower()
     scaffold_paths = [
@@ -402,7 +420,7 @@ def _print_plan(plan: dict) -> None:
     print("\nsubjects/%s/lifecycle_state.json" % plan["code"])
     print(json.dumps(plan["lifecycle_state"], indent=2))
     if plan["type"] == "D":
-        print("\nlifecycle: schema v2, V0_intake in progress; Gates A/B/C pending")
+        print("\nlifecycle: schema v3, pre_v0 in progress; Gates A/B/C pending")
     else:
         print("\nlifecycle: stage 0_intake is pending; all [HUMAN] gates unapproved")
     print("status remains coming_soon; no onboarding, LLM call, upload or deploy")

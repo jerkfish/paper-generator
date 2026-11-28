@@ -1,0 +1,103 @@
+{
+  "plan": {
+    "schema_version": 3,
+    "subject": "ICT502",
+    "seed": 3,
+    "slots": [
+      {
+        "slot": "Q1",
+        "question_id": "ICT502-2024-JUL-Q5",
+        "marks": 20,
+        "source_paper": "ICT502-2024-JUL",
+        "topic_tags": [
+          "relational_model",
+          "sql",
+          "database_concepts"
+        ]
+      },
+      {
+        "slot": "Q2",
+        "question_id": "ICT502-2026-FEB-Q1",
+        "marks": 20,
+        "source_paper": "ICT502-2026-FEB",
+        "topic_tags": [
+          "erd",
+          "database_development"
+        ]
+      },
+      {
+        "slot": "Q3",
+        "question_id": "ICT502-2023-JUL-Q3",
+        "marks": 20,
+        "source_paper": "ICT502-2023-JUL",
+        "topic_tags": [
+          "transaction",
+          "concurrency_control",
+          "recovery"
+        ]
+      },
+      {
+        "slot": "Q4",
+        "question_id": "ICT502-2025-FEB-Q3",
+        "marks": 20,
+        "source_paper": "ICT502-2025-FEB",
+        "topic_tags": [
+          "distributed_db",
+          "query_processing",
+          "database_concepts"
+        ]
+      },
+      {
+        "slot": "Q5",
+        "question_id": "ICT502-2023-FEB-Q1",
+        "marks": 20,
+        "source_paper": "ICT502-2023-FEB",
+        "topic_tags": [
+          "data_warehouse",
+          "database_development",
+          "file_system"
+        ]
+      }
+    ],
+    "total_marks": 100,
+    "distinct_papers": 5,
+    "topic_coverage": [
+      "concurrency_control",
+      "data_warehouse",
+      "database_concepts",
+      "database_development",
+      "distributed_db",
+      "erd",
+      "file_system",
+      "query_processing",
+      "recovery",
+      "relational_model",
+      "sql",
+      "transaction"
+    ],
+    "reuse_cap": 4
+  },
+  "qa": {
+    "seed": 3,
+    "slots": 5,
+    "total_marks": 100,
+    "distinct_papers": 5,
+    "topic_coverage": [
+      "concurrency_control",
+      "data_warehouse",
+      "database_concepts",
+      "database_development",
+      "distributed_db",
+      "erd",
+      "file_system",
+      "query_processing",
+      "recovery",
+      "relational_model",
+      "sql",
+      "transaction"
+    ],
+    "problems": []
+  },
+  "paper_pages": 4,
+  "scheme_pages": 9
+}

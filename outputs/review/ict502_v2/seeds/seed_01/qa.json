@@ -1,0 +1,22 @@
+{
+  "seed": 1,
+  "slots": 5,
+  "total_marks": 100,
+  "distinct_papers": 5,
+  "topic_coverage": [
+    "concurrency_control",
+    "data_warehouse",
+    "database_concepts",
+    "database_development",
+    "distributed_db",
+    "erd",
+    "normalization",
+    "query_processing",
+    "recovery",
+    "relational_model",
+    "security",
+    "sql",
+    "transaction"
+  ],
+  "problems": []
+}

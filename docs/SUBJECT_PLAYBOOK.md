@@ -1,8 +1,30 @@
-# Subject onboarding playbook — v2
+# Subject onboarding playbook — v3
 
-Version: **2.0**
+Version: **3.0**
 Status: **authoritative onboarding procedure**
-Supersedes: `docs/archive/SUBJECT_PLAYBOOK_v1.md` (v1 is archived verbatim)
+Supersedes: `docs/archive/SUBJECT_PLAYBOOK_v1.md` (v1 is archived verbatim).
+v2 remains readable; v3 adds **Pre-V0** before V0.
+
+## Why v3
+
+v2 starts at V0 intake, which assumes the papers are already on disk. That
+left the acquisition step manual and undocumented. v3 adds one automated
+stage before V0:
+
+- **Pre-V0 — paper acquisition.** The PERMATA scraper logs in, searches the
+  exact subject code, downloads every EXAM PAPER record, names each file from
+  its cover (`<CODE> <MONTH> <YEAR>.pdf`), skips byte-identical duplicates and
+  writes a checksummed manifest.
+- Pre-V0 feeds V0. V0 still records identity, permissions, the register,
+  duplicates and the OCR corpus; it does not re-download.
+
+Pre-V0 is **not a human gate**. The three human gates remain Gate A, Gate B
+and Gate C. Use Pre-V0 only where the owner has authorised downloading the
+papers (UiTM PERMATA credentials live in `.env`; they are never printed or
+committed). For supplied papers, record Pre-V0 as `skipped` with the owner
+supply basis.
+
+## Why v2
 
 This playbook is the operating procedure for adding or changing a subject. It
 implements the **“recycle, don’t invent”** model: every question in a generated
@@ -71,7 +93,7 @@ renumbered figure/table references.
 11. **Do not change finished subjects for a new onboarding task.** CSC402,
     CSC413, CSC429, CSC662 and MAT133 keep their current generation/Library
     behaviour unless the owner explicitly requests a migration.
-12. **New subject, new branch.** Before V0, create `<CODE>` from
+12. **New subject, new branch.** Before Pre-V0, create `<CODE>` from
     `main`. All subject work happens on that branch. Merge into `main` only
     after the subject is marked complete (V8 close-out and Gate C). Use
     `<CODE>/exp-<topic>` or `<CODE>/backup-<date>` for
@@ -313,7 +335,7 @@ any conditions. “Continue” is not an approval.
 
 ## Branching
 
-- **New subject:** create `<CODE>` from `main` before V0. Put every
+- **New subject:** create `<CODE>` from `main` before Pre-V0. Put every
   subject-specific change — docs, `subject.json`, lifecycle state, bank,
   extraction artifacts that are tracked, subject code and tests — on that
   branch.
@@ -328,10 +350,53 @@ any conditions. “Continue” is not an approval.
   infrastructure fixes may go on `main` when they are not part of a subject’s
   in-progress work.
 
-## Stages V0–V8
+## Stages Pre-V0–V8
 
-The v2 stages replace the v1 stages `0_intake`…`10_close_out`. V1 lifecycle
-states remain valid and are mapped in the compatibility table below.
+The v3 stages add **Pre-V0** before the v2 stages. v1 and v2 lifecycle states
+remain valid and are mapped in the compatibility table below. New Type D
+subjects scaffold a schema-v3 state with the stage key `pre_v0`.
+
+### Pre-V0 — Paper acquisition
+
+**Purpose.** Download the past papers automatically, name them from their
+covers and record a manifest that V0 can register. Pre-V0 is automated and has
+no human gate; it runs only with owner-authorised credentials.
+
+**Inputs.** Subject code, owner papers permission, `.env` with
+`PERMATA_USER` / `PERMATA_PASS`, and a clean `<CODE>` branch.
+
+**Outputs.**
+
+- PDFs under `data/papers/<CODE>/` named `<CODE> <MONTH> <YEAR>.pdf`, plus
+  `(2)` suffixes only when two different files legitimately share a name.
+- `data/tracking/<code>/papers_manifest.csv` with every catalogue record,
+  status, source file, saved name and SHA-256.
+- `data/tracking/<code>/pre_v0_summary.json` and `pre_v0_report.md`.
+- `lifecycle_state.json` `pre_v0` marked done with evidence.
+
+**Commands.**
+
+```bash
+# Preview the catalogue records without downloading.
+uv run python -m scripts.permata_downloader <CODE> --dry-run \
+  --out data/papers --manifest data/tracking/<code>/papers_manifest.csv --env .env
+
+# Download, name from the cover and write the manifest.
+uv run python -m scripts.permata_downloader <CODE> \
+  --out data/papers --manifest data/tracking/<code>/papers_manifest.csv --env .env
+```
+
+**Definition of Done.**
+
+- Every downloaded file is a valid PDF; failures are recorded, not hidden.
+- Byte-identical duplicates are listed and not counted as unique papers.
+- Every unique paper has a cover-based month/year name, or a manifest note
+  explaining the metadata fallback.
+- No credential value appears in the manifest, report, logs or repository.
+- The stage evidence exists and V0 is `in_progress`.
+
+Supplied-paper subjects record Pre-V0 as `skipped` with the owner supply basis;
+they do not run the scraper.
 
 ### V0 — Intake and permissions
 
@@ -347,16 +412,19 @@ a clean `main` branch.
 - `subjects/<CODE>/subject.json` with `status: "coming_soon"`, `type`,
   `strategy`, `variants`, `library`, `answers`, `extraction`, `capabilities`,
   `plugins` and `permissions`.
-- `subjects/<CODE>/lifecycle_state.json` with `schema_version: 2`,
-  `playbook_version: "2.0"` and the V0–V8 stage skeleton.
+- `subjects/<CODE>/lifecycle_state.json` with `schema_version: 3`,
+  `playbook_version: "3.0"` and the Pre-V0–V8 stage skeleton. Existing
+  `schema_version: 2` states remain valid and need no migration.
 - `src/subjects/<code>/`, `data/papers/<CODE>/`, `data/tracking/<code>/`,
   `docs/<CODE>.md`.
 
 **Definition of Done.**
 
 - `subject.json` loads through `load_subjects()`.
-- All four permissions are present. None is `allowed: true` without a recorded
-  basis.
+- All permissions are present: papers, scheme, slides, cloud processing and
+  publication. None is `allowed: true` without a recorded basis.
+- `cloud_processing` defaults to allowed for new subjects under the owner
+  policy of 2026-11-22; MinerU only, credentials never logged.
 - `status` is still `coming_soon`.
 - The work is on `<CODE>`, not on `main`.
 - No original file is modified.
@@ -579,7 +647,7 @@ route checks and the Gate C approval.
 
 **Outputs.**
 
-- `lifecycle_state.json` with V0–V8 statuses, gate records, evidence, bank
+- `lifecycle_state.json` with Pre-V0–V8 statuses, gate records, evidence, bank
   counts, answer-provenance counts and actual cost per stage.
 - `docs/<CODE>.md` with commands, deviations and caveats.
 - A clean final gate run.
@@ -596,7 +664,29 @@ route checks and the Gate C approval.
 **Evidence.** Strict status output, final test/safety results and the updated
 `docs/<CODE>.md`.
 
-## Lifecycle state v2
+## Lifecycle state v2 / v3
+
+A v3 state file adds `pre_v0` before the V0–V8 stages:
+
+```json
+{
+  "schema_version": 3,
+  "playbook_version": "3.0",
+  "subject": "ICT502",
+  "type": "D",
+  "strategy": "recycle",
+  "stages": {
+    "pre_v0": {"status": "done", "evidence": [
+      "data/tracking/ict502/pre_v0_report.md",
+      "data/tracking/ict502/papers_manifest.csv"
+    ], "notes": "PERMATA scrape: 13 records, 11 unique PDFs, 2 duplicates."},
+    "V0_intake": {"status": "in_progress"}
+  }
+}
+```
+
+`pre_v0` is automated and has no gate. `scripts/lifecycle_status.py` accepts
+schema v1, v2 and v3; v2 states stay valid and do not need migration.
 
 A v2 state file looks like this:
 
@@ -679,9 +769,18 @@ Fields:
 | `9_publish` | V7 publish, Gate C |
 | `10_close_out` | V8 close-out |
 
-`scripts/lifecycle_status.py` must read both schemas and show the next gate
-(`A`, `B` or `C`) for a v2 state. A v1 state continues to show its v1 next
-stage until the subject is migrated.
+## v2 → v3 compatibility map
+
+| v2 stage | v3 equivalent |
+|---|---|
+| — | `pre_v0` paper acquisition (new; automated, no gate) |
+| `V0_intake` | `V0_intake` — unchanged, consumes the Pre-V0 output |
+| `V1_extract`…`V8_close_out` | unchanged |
+
+`scripts/lifecycle_status.py` reads v1, v2 and v3 and shows the next gate
+(`A`, `B` or `C`) for a v2/v3 state. A v1 state continues to show its v1 next
+stage until the subject is migrated. New Type D subjects scaffold v3; existing
+v2 states are not rewritten.
 
 ### Migrated legacy subjects
 
@@ -698,6 +797,8 @@ built under `outputs/review/mat133_v2/seeds/`; v2 is not in the public bundle.
 
 ## Gate checklist
 
+- [ ] Pre-V0 evidence exists: manifest, summary/report, PDFs and duplicate
+      reconciliation (or a recorded `skipped` for owner-supplied papers).
 - [ ] Every selected question is `approved` and traceable to a source paper.
 - [ ] Marks reconcile, or a written owner tolerance is recorded.
 - [ ] No question repeats inside a paper; the reuse cap is respected.
@@ -717,11 +818,17 @@ built under `outputs/review/mat133_v2/seeds/`; v2 is not in the public bundle.
 ## Adding a subject: the short version
 
 ```bash
-# V0: scaffold a recycle subject (after Phase 2 code lands)
+# Pre-V0: scaffold a v3 recycle subject
 uv run python -m scripts.new_subject <CODE> --type D --title "Subject title"
 
-# V1: register and extract working copies
+# Pre-V0: download and name the papers (owner-authorised credentials)
+uv run python -m scripts.permata_downloader <CODE> \
+  --out data/papers --manifest data/tracking/<code>/papers_manifest.csv --env .env
+
+# V0: register the downloaded working copies
 uv run python -m src.subjects.preprocess --subject <CODE> --register --corpus
+
+# V1: extract working copies once cloud processing is allowed
 
 # V2: build the bank and review sheet, then stop for Gate A
 # V3: write the current format profile and approve templates
